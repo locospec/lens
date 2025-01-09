@@ -1,5 +1,5 @@
 {
-  "name": "sample-lerna",
+  "name": "locospec",
   "private": true,
   "version": "1.0.0",
   "main": "index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ShreyDhyani/sample-lerna.git"
+    "url": "git+https://github.com/locospec/ui.git"
   },
   "workspaces": [
     "packages/*"
@@ -20,12 +20,12 @@
   },
   "keywords": [],
   "author": "Shrey Dhyani <shrey@betalectic.com>",
-  "license": "ISC",
-  "type": "commonjs",
+  "license": "MIT",
+  "type": "module",
   "bugs": {
-    "url": "https://github.com/ShreyDhyani/sample-lerna/issues"
+    "url": "https://github.com/locospec/ui/issues"
   },
-  "homepage": "https://github.com/ShreyDhyani/sample-lerna#readme",
+  "homepage": "https://github.com/locospec/ui#readme",
   "description": "",
   "peerDependencies": {
     "react": "^18.2.0",
