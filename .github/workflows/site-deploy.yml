@@ -6,6 +6,9 @@ on:
     paths:
       - "apps/site/**"
       - ".github/workflows/site-deploy.yml"
+      - "package.json"
+      - "lerna.json"
+      - "package-lock.json"
 
 jobs:
   deploy-main:
