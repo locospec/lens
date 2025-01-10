@@ -1,12 +1,15 @@
 import clsx from "clsx";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
+import { Label } from "@locospec/blueprint-react";
+// import "@locospec/blueprint-react/styles.css";
 
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <>
       <div className="p-10 bg-gray-50 twp">
+        <Label>Label Name</Label>
         <div className="py-12 mx-auto bg-white max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-col gap-4">
