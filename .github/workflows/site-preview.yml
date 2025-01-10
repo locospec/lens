@@ -9,10 +9,7 @@ on:
       - closed
     paths:
       - "apps/site/**"
-      - "package.json"
-      - "lerna.json"
       - ".github/workflows/site-preview.yml"
-      - "package-lock.json"
 
 concurrency:
   group: site-preview-${{ github.workflow }}-${{ github.ref }}
@@ -20,14 +17,14 @@ concurrency:
 
 jobs:
   deploy-preview:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Cleanup
-        if: github.event.action != 'closed'
-        run: npx lerna clean -y
+      # - name: Cleanup
+      #   if: github.event.action != 'closed'
+      #   run: npx lerna clean -y
 
       - name: Cache node modules
         if: github.event.action != 'closed'
@@ -47,11 +44,18 @@ jobs:
       - name: Build site
         if: github.event.action != 'closed'
         run: |
-          timeout 1m npm run site:build || true
-          # Kill any remaining node processes
-          pkill node || true
+          npm run site:build
         env:
           PR_NUMBER: ${{ github.event.number }}
+
+      # - name: Build site
+      #   if: github.event.action != 'closed'
+      #   run: |
+      #     timeout 1m npm run site:build || true
+      #     # Kill any remaining node processes
+      #     pkill node || true
+      #   env:
+      #     PR_NUMBER: ${{ github.event.number }}
 
       - name: Debug directory structure
         if: github.event.action != 'closed'

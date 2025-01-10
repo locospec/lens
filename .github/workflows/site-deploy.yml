@@ -7,9 +7,6 @@ on:
     paths:
       - "apps/site/**"
       - ".github/workflows/site-deploy.yml"
-      - "package.json"
-      - "lerna.json"
-      - "package-lock.json"
 
 concurrency:
   group: site-deploy
@@ -39,7 +36,7 @@ jobs:
 
       - name: Build site
         run: |
-          npx lerna run build --scope site
+          npm run site:build
 
       # - name: Build site
       #   run: |
