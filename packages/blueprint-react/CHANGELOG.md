@@ -1,3 +1,24 @@
+# v0.4.0 (Fri Jan 10 2025)
+
+#### 🚀 Enhancement
+
+- Blueprint_init [#24](https://github.com/locospec/ui/pull/24) ([@rjvim](https://github.com/rjvim))
+
+#### 🐛 Bug Fix
+
+- Blueprint_alpha_changes [#47](https://github.com/locospec/ui/pull/47) ([@rjvim](https://github.com/rjvim))
+- fix: Update greeting text in Label component for clarity ([@rjvim](https://github.com/rjvim))
+- fix: Update greeting text in Label component for consistency [#46](https://github.com/locospec/ui/pull/46) ([@rjvim](https://github.com/rjvim))
+- fix: Update greeting text in Label component for consistency ([@rjvim](https://github.com/rjvim))
+- Merge branch 'alpha' of github.com:locospec/ui into alpha ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.3.0 (Fri Jan 10 2025)
 
 #### 🐛 Bug Fix

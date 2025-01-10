@@ -1,3 +1,27 @@
+# v0.3.0 (Fri Jan 10 2025)
+
+#### 🚀 Enhancement
+
+- Blueprint_init [#24](https://github.com/locospec/ui/pull/24) ([@rjvim](https://github.com/rjvim))
+
+#### 🐛 Bug Fix
+
+- Merge branch 'alpha' of github.com:locospec/ui into alpha ([@rjvim](https://github.com/rjvim))
+- doc: sample [#33](https://github.com/locospec/ui/pull/33) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- doc: sample ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Table sample [#32](https://github.com/locospec/ui/pull/32) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- doc: added logs ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Blueprint_init [#30](https://github.com/locospec/ui/pull/30) ([@rjvim](https://github.com/rjvim))
+- Table sample [#29](https://github.com/locospec/ui/pull/29) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- ci: added log ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.2.0 (Fri Jan 10 2025)
 
 #### 🚀 Enhancement

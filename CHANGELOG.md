@@ -2,6 +2,32 @@
 
 #### 🚀 Enhancement
 
+- `site@0.4.0`, `@locospec/blueprint-react@0.4.0`
+  - Blueprint_init [#24](https://github.com/locospec/ui/pull/24) ([@rjvim](https://github.com/rjvim))
+
+#### 🐛 Bug Fix
+
+- Blueprint_init [#30](https://github.com/locospec/ui/pull/30) ([@rjvim](https://github.com/rjvim))
+- `@locospec/blueprint-react@0.4.0`
+  - Blueprint_alpha_changes [#47](https://github.com/locospec/ui/pull/47) ([@rjvim](https://github.com/rjvim))
+  - fix: Update greeting text in Label component for consistency [#46](https://github.com/locospec/ui/pull/46) ([@rjvim](https://github.com/rjvim))
+- `@locospec/elements-react@0.3.0`
+  - doc: sample [#33](https://github.com/locospec/ui/pull/33) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - Table sample [#29](https://github.com/locospec/ui/pull/29) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `site@0.4.0`, `@locospec/elements-react@0.3.0`
+  - Table sample [#32](https://github.com/locospec/ui/pull/32) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
+# (Fri Jan 10 2025)
+
+#### 🚀 Enhancement
+
 - feat: Add all-contributors plugin to package.json ([@rjvim](https://github.com/rjvim))
 
 #### 🐛 Bug Fix
