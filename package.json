@@ -89,12 +89,7 @@
       "alpha",
       "beta",
       "next"
-    ],
-    "canary": {
-      "target": "pr-body",
-      "message": "string",
-      "force": true
-    }
+    ]
   },
   "overrides": {
     "vite": {
