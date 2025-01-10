@@ -35,7 +35,7 @@ jobs:
 
       - name: Build site
         run: |
-          timeout 2m npm run site:build || true
+          timeout 1m npm run site:build || true
           # Kill any remaining node processes
           pkill node || true
 
