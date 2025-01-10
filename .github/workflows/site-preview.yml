@@ -30,9 +30,9 @@ jobs:
           PR_NUMBER: ${{ github.event.number }}
         run: |
           npm install
-          npm run build
+          npm run site:build
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:
-          source-dir: ./build/
+          source-dir: ./apps/site/build/
