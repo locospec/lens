@@ -80,8 +80,7 @@
     "baseBranch": "main",
     "plugins": [
       "npm",
-      "conventional-commits",
-      "released"
+      "conventional-commits"
     ],
     "prereleaseBranches": [
       "alpha",
