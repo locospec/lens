@@ -37,6 +37,8 @@ const config: Config = {
     locales: ["en"],
   },
 
+  plugins: ["docusaurus-tailwindcss-loader"],
+
   presets: [
     [
       "classic",
