@@ -1,0 +1,26 @@
+name: Site Deploy
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/site/**"
+      - ".github/workflows/site-deploy.yml"
+      - "package.json"
+      - "lerna.json"
+      - "package-lock.json"
+
+jobs:
+  deploy-main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          npm install
+          npm run site:build
+      - uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./apps/site/build/
+          branch: gh-pages
+          clean-exclude: pr-preview
+          force: false
