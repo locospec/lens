@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_locospec_site=self.webpackChunk_locospec_site||[]).push([[6826],{5988:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/pr-preview/pr-31/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
