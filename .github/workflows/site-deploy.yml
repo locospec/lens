@@ -15,7 +15,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npm i && npm run site:build && ls -la
+
+      # Split the commands and add error handling
+      - name: Install dependencies
+        run: npm i
+
+      - name: Build site
+        run: npm run site:build
+
+      - name: List directory contents
+        run: ls -la
+
       - uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./apps/site/build/
