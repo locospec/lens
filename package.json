@@ -86,7 +86,8 @@
       "alpha",
       "beta",
       "next"
-    ]
+    ],
+    "onlyPublishWithReleaseLabel": true
   },
   "overrides": {
     "vite": {
