@@ -1,3 +1,17 @@
+# v0.2.0 (Fri Jan 10 2025)
+
+#### 🐛 Bug Fix
+
+- fix: correct exclamation marks in Label component header [#34](https://github.com/locospec/ui/pull/34) ([@rjvim](https://github.com/rjvim))
+- Merge branch 'main' into improve_label ([@rjvim](https://github.com/rjvim))
+- fix: correct exclamation marks in Label component header ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 1
+
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.1.0 (Fri Jan 10 2025)
 
 #### 🚀 Enhancement
