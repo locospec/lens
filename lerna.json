@@ -3,6 +3,7 @@
   "version": "independent",
   "packages": [
     "packages/elements-react",
+    "packages/site",
     "apps/site",
     "packages/blueprint-react"
   ]

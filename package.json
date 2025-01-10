@@ -10,10 +10,10 @@
     "bp:dev": "lerna run build:watch --scope @locospec/blueprint-react",
     "build": "lerna run build --scope @locospec/*",
     "release": "lerna run --scope @locospec/* -- npm publish",
-    "site:start": "lerna run start --scope site",
-    "site:build": "lerna run build --scope site",
-    "site:serve": "lerna run serve --scope site",
-    "site:deploy": "lerna run deploy --scope site"
+    "site:start": "lerna run start --scope @locospec/site",
+    "site:build": "lerna run build --scope @locospec/site",
+    "site:serve": "lerna run serve --scope @locospec/site",
+    "site:deploy": "lerna run deploy --scope @locospec/site"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,7 @@
   },
   "workspaces": [
     "packages/*",
-    "apps/*",
-    "apps/site"
+    "apps/*"
   ],
   "lerna": {
     "version": "independent"
