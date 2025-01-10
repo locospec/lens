@@ -11,7 +11,7 @@ on:
       - "apps/site/**"
       - "package.json"
       - "lerna.json"
-      - ".github/workflows/**"
+      - ".github/workflows/site-preview.yml"
       - "package-lock.json"
 
 concurrency: preview-${{ github.ref }}
