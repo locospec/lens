@@ -1,5 +1,5 @@
 {
-  "name": "@locospec/site",
+  "name": "site",
   "version": "0.2.1",
   "private": true,
   "scripts": {
