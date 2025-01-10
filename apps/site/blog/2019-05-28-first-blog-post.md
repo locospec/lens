@@ -5,7 +5,7 @@ authors: [slorber, yangshun]
 tags: [hola, docusaurus]
 ---
 
-Lorem ipsum dolor sit amet...
+Welcome to the first blog post
 
 <!-- truncate -->
 
