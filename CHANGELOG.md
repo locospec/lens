@@ -1,5 +1,17 @@
 # (Fri Jan 10 2025)
 
+#### 🐛 Bug Fix
+
+- fix: remove 'released' plugin from package.json (rajiv@betalectic.com)
+
+#### Authors: 1
+
+- Rajiv Seelam (rajiv@betalectic.com)
+
+---
+
+# (Fri Jan 10 2025)
+
 #### 🚀 Enhancement
 
 - Blueprint_init [#21](https://github.com/locospec/ui/pull/21) ([@rjvim](https://github.com/rjvim))
