@@ -9,7 +9,8 @@
   "exports": {
     ".": {
       "types": "./dist/lib/main.d.ts",
-      "default": "./dist/main.js"
+      "development": "./lib/main.ts",
+      "default": "./dist/main.ts"
     },
     "./styles.css": {
       "require": "./dist/styles.css",
@@ -24,6 +25,7 @@
   ],
   "scripts": {
     "dev": "vite",
+    "build:watch": "vite build --watch",
     "build": "tsc -b ./tsconfig.lib.json && vite build && npm run build:css",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",

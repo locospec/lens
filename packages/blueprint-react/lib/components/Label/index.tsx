@@ -2,5 +2,13 @@ import styles from "./styles.module.css";
 
 export function Label(props: React.LabelHTMLAttributes<HTMLLabelElement>) {
   const { className, ...restProps } = props;
-  return <label className={`${styles.label} ${className}`} {...restProps} />;
+  return (
+    <>
+      <h1>Hello....!!!</h1>
+      <label
+        className={`${styles.label} bg-orange-400 font-medium ${className}`}
+        {...restProps}
+      />
+    </>
+  );
 }
