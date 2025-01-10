@@ -10,8 +10,8 @@ const BASE_URL =
     : "/";
 
 const config: Config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
+  title: "Locospec's UI",
+  tagline: "Driving UI using Specifications",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
