@@ -9,10 +9,7 @@ on:
       - closed
     paths:
       - "apps/site/**"
-      - "package.json"
-      - "lerna.json"
       - ".github/workflows/site-preview.yml"
-      - "package-lock.json"
 
 concurrency:
   group: site-preview-${{ github.workflow }}-${{ github.ref }}
