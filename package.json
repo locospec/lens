@@ -10,6 +10,7 @@
     "release": "lerna exec --scope @locospec/* -- npm publish",
     "site:start": "lerna exec --scope site -- npm run start:docu-ladle",
     "site:build": "lerna exec --scope site -- npm run build",
+    "site:serve": "lerna exec --scope site -- npm run serve",
     "site:deploy": "lerna exec --scope site -- docusaurus deploy"
   },
   "repository": {

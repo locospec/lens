@@ -64,7 +64,7 @@ export default function ResizableLadlePreview({ story, height }) {
   const { colorMode, setColorMode } = useColorMode();
   const { siteConfig } = useDocusaurusContext();
 
-  const ladleUrl = getLadleUrl(story, siteConfig.baseUrl);
+  const ladleUrl = "/tailwind_2"; //getLadleUrl(story, siteConfig.baseUrl);
 
   console.log("baseUrl --", siteConfig.baseUrl, ladleUrl);
 
