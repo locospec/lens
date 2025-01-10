@@ -8,7 +8,7 @@ The demo library on npm: https://www.npmjs.com/package/@try-auto/blueprint
 
 ## Installation
 
-You can install it with npm (don't expect much fanciness):
+You can install it with npm (don't expect much fanciness):...
 
 ```bash
 npm i @locospec/blueprint-react
