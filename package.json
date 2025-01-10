@@ -85,7 +85,8 @@
           "forcePublish": false
         }
       ],
-      "conventional-commits"
+      "conventional-commits",
+      "released"
     ],
     "prereleaseBranches": [
       "alpha",
