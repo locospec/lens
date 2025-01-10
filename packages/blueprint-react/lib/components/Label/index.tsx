@@ -4,7 +4,7 @@ export function Label(props: React.LabelHTMLAttributes<HTMLLabelElement>) {
   const { className, ...restProps } = props;
   return (
     <>
-      <h1>Hello....!!!!!...</h1>
+      <h1>Hello....!!!!!....</h1>
       <label
         className={`${styles.label} bg-orange-400 font-medium ${className}`}
         {...restProps}
