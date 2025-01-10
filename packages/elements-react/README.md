@@ -11,7 +11,7 @@ The demo library on npm: https://www.npmjs.com/package/@try-auto/blueprint
 You can install it with npm (don't expect much fanciness):
 
 ```bash
-npm i @try-auto/blueprint
+npm i @locospec/elements-react
 ```
 
 ## Usage
