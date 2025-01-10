@@ -47,11 +47,18 @@ jobs:
       - name: Build site
         if: github.event.action != 'closed'
         run: |
-          timeout 1m npm run site:build || true
-          # Kill any remaining node processes
-          pkill node || true
+          npx lerna run build --scope site
         env:
           PR_NUMBER: ${{ github.event.number }}
+
+      # - name: Build site
+      #   if: github.event.action != 'closed'
+      #   run: |
+      #     timeout 1m npm run site:build || true
+      #     # Kill any remaining node processes
+      #     pkill node || true
+      #   env:
+      #     PR_NUMBER: ${{ github.event.number }}
 
       - name: Debug directory structure
         if: github.event.action != 'closed'
