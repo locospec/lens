@@ -7,6 +7,7 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import * as React from "react";
 import { useColorMode } from "@docusaurus/theme-common";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -49,18 +50,23 @@ const ResizableHandle = ({
   </ResizablePrimitive.PanelResizeHandle>
 );
 
-const getLadleUrl = (story) => {
+const getLadleUrl = (story, baseUrl) => {
   const isDevelopment = process.env.NODE_ENV === "development";
   if (isDevelopment) {
     return `http://localhost:61000/ladle?story=${story}&mode=preview`;
   }
-  return `/ladle?mode=preview&story=${story}`;
+  return `${baseUrl}ladle?mode=preview&story=${story}`;
 };
 
 export default function ResizableLadlePreview({ story, height }) {
   const resizablePanelRef = React.useRef<ImperativePanelHandle>(null);
 
   const { colorMode, setColorMode } = useColorMode();
+  const { siteConfig } = useDocusaurusContext();
+
+  const ladleUrl = getLadleUrl(story, siteConfig.baseUrl);
+
+  console.log("baseUrl --", siteConfig.baseUrl, ladleUrl);
 
   React.useEffect(() => {
     const updateIframeTheme = (theme) => {
@@ -88,7 +94,7 @@ export default function ResizableLadlePreview({ story, height }) {
           >
             <iframe
               allow="cross-origin-isolated"
-              src={getLadleUrl(story)}
+              src={ladleUrl}
               height={height || 930}
               className="relative z-20 hidden w-full bg-background md:block"
             />
