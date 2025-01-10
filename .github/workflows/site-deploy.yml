@@ -36,7 +36,7 @@ jobs:
 
       - name: Build site
         run: |
-          npx lerna run build --scope site
+          npm run site:build
 
       # - name: Build site
       #   run: |
