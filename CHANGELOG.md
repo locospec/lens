@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/blueprint-react@0.2.1`
+  - chore: Added sample log [#37](https://github.com/locospec/ui/pull/37) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Fri Jan 10 2025)
+
+#### 🐛 Bug Fix
+
 - `@locospec/elements-react@0.2.0`
   - feat: smaple [#36](https://github.com/locospec/ui/pull/36) ([@ShreyDhyani](https://github.com/ShreyDhyani))
   - Sample [#35](https://github.com/locospec/ui/pull/35) ([@ShreyDhyani](https://github.com/ShreyDhyani))

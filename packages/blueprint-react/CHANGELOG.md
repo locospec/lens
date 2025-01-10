@@ -1,3 +1,16 @@
+# v0.2.1 (Fri Jan 10 2025)
+
+#### 🐛 Bug Fix
+
+- chore: Added sample log [#37](https://github.com/locospec/ui/pull/37) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: Added sample log ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.2.0 (Fri Jan 10 2025)
 
 #### 🐛 Bug Fix
