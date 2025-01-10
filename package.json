@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "lerna exec --scope @try-auto/* -- npm run build",
-    "release": "lerna exec --scope @try-auto/* -- npm publish"
+    "build": "lerna exec --scope @locospec/* -- npm run build",
+    "release": "lerna exec --scope @locospec/* -- npm publish"
   },
   "repository": {
     "type": "git",
