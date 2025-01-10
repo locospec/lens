@@ -77,7 +77,7 @@
   }
 
   main {
-    @apply !px-0 md:ml-0;
+    @apply !px-24 md:ml-0;
     --ifm-col-width: calc(10 / 12 * 100%);
     flex: 0 0 var(--ifm-col-width) !important;
   }
