@@ -19,7 +19,7 @@ jobs:
       # Split the commands and add error handling
 
       - name: Cleanup
-        run: npx lerna clean
+        run: npx lerna clean -y
 
       - name: Install dependencies
         run: npm ci
