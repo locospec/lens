@@ -1,3 +1,24 @@
+# v0.2.0 (Fri Jan 10 2025)
+
+#### 🚀 Enhancement
+
+- feat: smaple ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: added log ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: sample ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- feat: smaple [#36](https://github.com/locospec/ui/pull/36) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Sample [#35](https://github.com/locospec/ui/pull/35) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- pull: latest pull from main ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Merge branch 'main' of github.com:locospec/ui ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.1.0 (Fri Jan 10 2025)
 
 #### 🚀 Enhancement
