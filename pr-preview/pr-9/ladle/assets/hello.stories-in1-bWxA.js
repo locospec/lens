@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime-CLpGMVip.js";const t=()=>e.jsx("p",{className:"p-6 m-6 bg-red-200 md:bg-blue-200 dark:md:bg-green-200",children:"Hello World"});typeof window<"u"&&window.document&&window.document.createElement&&document.documentElement.setAttribute("data-storyloaded","");export{t as World};
