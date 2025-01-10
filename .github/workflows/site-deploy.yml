@@ -4,7 +4,8 @@ on:
     branches:
       - main
     paths:
-      - "apps/site/**" # Only trigger when changes occur in apps/site directory
+      - "apps/site/**"
+      - ".github/workflows/site-deploy.yml"
 
 jobs:
   deploy-main:
