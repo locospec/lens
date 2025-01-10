@@ -4,7 +4,7 @@ on:
   push:
     branches: [main, alpha, beta, next]
     paths:
-      - "packages/**"
+      - "packages/elements-react"
 
 jobs:
   release:
@@ -16,10 +16,10 @@ jobs:
       - name: Prepare repository
         run: git fetch --unshallow --tags
 
-      - name: Use Node.js 20.x
+      - name: Use Node.js 22.x
         uses: actions/setup-node@v1
         with:
-          node-version: 20.x
+          node-version: 22.x
 
       - name: Cache node modules
         uses: actions/cache@v4
@@ -37,5 +37,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npm run build
+          npm ci
+          npm run el:build
           npx auto shipit
