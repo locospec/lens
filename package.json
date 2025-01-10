@@ -8,6 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "lerna exec --scope @locospec/* -- npm run build",
     "release": "lerna exec --scope @locospec/* -- npm publish",
+    "bp:build": "lerna run build --scope @locospec/blueprint-react",
+    "bp:dev": "lerna run dev --scope @locospec/blueprint-react",
     "site:start": "lerna run start --scope site",
     "site:build": "lerna run build --scope site",
     "site:serve": "lerna run serve --scope site",
