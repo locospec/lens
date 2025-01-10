@@ -2,13 +2,10 @@
   "name": "configs",
   "private": true,
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/locospec/ui.git"
-  },
-  "lerna": {
-    "version": "independent"
   },
   "keywords": [
     "configuration"
@@ -16,9 +13,6 @@
   "author": "Shrey Dhyani <shrey@betalectic.com>",
   "license": "MIT",
   "type": "module",
-  "bugs": {
-    "url": "https://github.com/locospec/ui/issues"
-  },
   "homepage": "https://github.com/locospec/ui#readme",
   "description": "Configuration files for locospec ui"
 }
