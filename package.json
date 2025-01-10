@@ -9,7 +9,8 @@
     "build": "lerna exec --scope @locospec/* -- npm run build",
     "release": "lerna exec --scope @locospec/* -- npm publish",
     "site:start": "lerna exec --scope @locoui/site -- docusaurus start",
-    "site:build": "lerna exec --scope @locoui/site -- docusaurus build"
+    "site:build": "lerna exec --scope @locoui/site -- docusaurus build",
+    "site:deploy": "lerna exec --scope @locoui/site -- docusaurus deploy"
   },
   "repository": {
     "type": "git",
