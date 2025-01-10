@@ -17,7 +17,7 @@ npm i @locospec/elements-react
 ## Usage
 
 ```javascript
-import { Button, Label, Input } from "@try-auto/blueprint";
+import { Button, Label, Input } from "@locospec/elements-react";
 ```
 
 See this file for an example on using this library: https://github.com/receter/my-component-library-consumer/blob/main/src/App.tsx
