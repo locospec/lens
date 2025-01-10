@@ -44,7 +44,7 @@ jobs:
       - name: Build site
         if: github.event.action != 'closed'
         run: |
-          npx lerna run build --scope site
+          npm run site:build
         env:
           PR_NUMBER: ${{ github.event.number }}
 
