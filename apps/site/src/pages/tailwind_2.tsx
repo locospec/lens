@@ -1,6 +1,5 @@
 "use client";
-import "../styles/tailwind.css";
-import type { Story } from "@ladle/react";
+
 import { useState, useRef } from "react";
 import {
   Dialog,
@@ -53,7 +52,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export const World: Story = () => {
+const World = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   let refDiv = useRef(null);
 
@@ -362,3 +361,5 @@ export const World: Story = () => {
     </>
   );
 };
+
+export default World;
