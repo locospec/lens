@@ -38,4 +38,4 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           timeout 2m npm run el:build || true
-          timeout 2mnpx auto shipit || true
+          timeout 2m npx auto shipit || true
