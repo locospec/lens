@@ -8,6 +8,8 @@ export const TableBody = ({ table, rowVirtualizer }: any) => {
     <div className="p-4 text-center text-gray-500">No data available</div>;
   }
 
+  // Sample comment
+
   return (
     <div
       className="relative w-full"
@@ -32,5 +34,5 @@ export const TableBody = ({ table, rowVirtualizer }: any) => {
 
 export const MemoizedTableBody = React.memo(
   TableBody,
-  (prev, next) => prev.table.options.data === next.table.options.data,
+  (prev, next) => prev.table.options.data === next.table.options.data
 );
