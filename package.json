@@ -79,7 +79,12 @@
   "auto": {
     "baseBranch": "main",
     "plugins": [
-      "npm",
+      [
+        "npm",
+        {
+          "forcePublish": false
+        }
+      ],
       "conventional-commits"
     ],
     "prereleaseBranches": [
