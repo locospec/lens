@@ -6,8 +6,8 @@
   "scripts": {
     "lerna": "lerna",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "lerna run --scope @locospec/* -- npm run build",
-    "release": "lerna run --scope @locospec/* -- npm publish",
+    "build": "lerna exec --scope @locospec/* -- npm run build",
+    "release": "lerna exec --scope @locospec/* -- npm publish",
     "site:start": "lerna run start --scope site",
     "site:build": "lerna run build --scope site",
     "site:serve": "lerna run serve --scope site",
