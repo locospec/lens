@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.0.0",
+  "version": "0.0.1-canary.56d40dc.0",
   "type": "module",
   "exports": {
     ".": {
@@ -55,5 +55,6 @@
     "vite": "^5.4.4",
     "vite-plugin-dts": "^4.2.1",
     "vite-plugin-lib-inject-css": "^2.1.1"
-  }
+  },
+  "gitHead": "56d40dcf907b6f1bdd059a71861b60f07ede4b56"
 }
