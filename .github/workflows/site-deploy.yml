@@ -39,9 +39,13 @@ jobs:
 
       - name: Build site
         run: |
-          timeout 1m npm run site:build || true
-          # Kill any remaining node processes
-          pkill node || true
+          npx lerna run build --scope site
+
+      # - name: Build site
+      #   run: |
+      #     timeout 1m npm run site:build || true
+      #     # Kill any remaining node processes
+      #     pkill node || true
 
       - name: Debug directory structure
         run: |
