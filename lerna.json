@@ -1,12 +1,5 @@
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "version": "independent",
-  "packages": [
-    "packages/*",
-    "apps/*",
-    "packages/elements-react",
-    "packages/site",
-    "apps/site",
-    "packages/blueprint-react"
-  ]
+  "packages": ["packages/*", "apps/*"]
 }
