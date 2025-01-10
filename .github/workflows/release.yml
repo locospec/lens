@@ -21,19 +21,6 @@ jobs:
         with:
           node-version: 20.x
 
-      - name: Install System Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential python3
-
-      - name: Clean up node_modules and lockfile
-        run: |
-          rm -rf node_modules
-          rm -f package-lock.json
-
-      - name: Install Dependencies
-        run: npm install
-
       - name: Cache node modules
         uses: actions/cache@v4
         with:
@@ -47,6 +34,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npm install
+          npm ci
           npm run build
           npx auto shipit
