@@ -6,12 +6,14 @@
   "scripts": {
     "lerna": "lerna",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "lerna exec --scope @locospec/* -- npm run build",
-    "release": "lerna exec --scope @locospec/* -- npm publish",
-    "site:start": "lerna run start --scope site",
-    "site:build": "lerna run build --scope site",
-    "site:serve": "lerna run serve --scope site",
-    "site:deploy": "lerna run deploy --scope site"
+    "bp:build": "lerna run build --scope @locospec/blueprint-react",
+    "bp:dev": "lerna run build:watch --scope @locospec/blueprint-react",
+    "el:build": "lerna run build --scope @locospec/elements-react",
+    "el:release": "lerna run publish --scope @locospec/elements-react",
+    "site:start": "lerna run start --scope @locospec/site",
+    "site:build": "lerna run build --scope @locospec/site",
+    "site:serve": "lerna run serve --scope @locospec/site",
+    "site:deploy": "lerna run deploy --scope @locospec/site"
   },
   "repository": {
     "type": "git",
@@ -19,8 +21,7 @@
   },
   "workspaces": [
     "packages/*",
-    "apps/*",
-    "apps/site"
+    "apps/*"
   ],
   "lerna": {
     "version": "independent"

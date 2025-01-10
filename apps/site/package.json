@@ -1,7 +1,7 @@
 {
-  "name": "site",
+  "name": "@locospec/site",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
@@ -19,6 +19,7 @@
     "@docusaurus/preset-classic": "3.7.0",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
+    "@locospec/blueprint-react": "*",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.16.4",

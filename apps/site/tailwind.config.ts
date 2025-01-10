@@ -6,7 +6,13 @@ import {
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.html", "./src/**/*.js", "./src/**/*.tsx", "./*.ts"],
+  content: [
+    "./src/**/*.html",
+    "./src/**/*.js",
+    "./src/**/*.tsx",
+    "./*.ts",
+    "../../packages/blueprint-react/lib/**/*.tsx",
+  ],
   darkMode: ["class", '[data-theme="dark"]'],
   important: true,
 
