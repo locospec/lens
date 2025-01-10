@@ -1,3 +1,16 @@
+# v0.2.4 (Fri Jan 10 2025)
+
+#### 🐛 Bug Fix
+
+- fix: Remove extra punctuation from header in Label component [#41](https://github.com/locospec/ui/pull/41) ([@rjvim](https://github.com/rjvim))
+- fix: Remove extra punctuation from header in Label component ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 1
+
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.2.3 (Fri Jan 10 2025)
 
 #### 🐛 Bug Fix

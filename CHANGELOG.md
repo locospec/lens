@@ -2,6 +2,20 @@
 
 #### 🐛 Bug Fix
 
+- fix: Update npm plugin configuration in package.json [#40](https://github.com/locospec/ui/pull/40) ([@rjvim](https://github.com/rjvim))
+- `@locospec/blueprint-react@0.2.4`
+  - fix: Remove extra punctuation from header in Label component [#41](https://github.com/locospec/ui/pull/41) ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 1
+
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
+# (Fri Jan 10 2025)
+
+#### 🐛 Bug Fix
+
 - `site@0.2.3`, `@locospec/blueprint-react@0.2.3`
   - Blueprint m changes [#39](https://github.com/locospec/ui/pull/39) ([@rjvim](https://github.com/rjvim))
 
