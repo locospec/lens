@@ -79,6 +79,7 @@
   "auto": {
     "baseBranch": "main",
     "plugins": [
+      "all-contributors",
       [
         "npm",
         {
