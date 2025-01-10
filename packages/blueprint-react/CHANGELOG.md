@@ -1,3 +1,18 @@
+# v0.2.2 (Fri Jan 10 2025)
+
+#### 🐛 Bug Fix
+
+- Blueprint m changes [#38](https://github.com/locospec/ui/pull/38) ([@rjvim](https://github.com/rjvim))
+- fix: Remove extra punctuation in Label component header ([@rjvim](https://github.com/rjvim))
+- fix: Correct extra punctuation in Label component header ([@rjvim](https://github.com/rjvim))
+- fix: Corrected text in Label component header ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 1
+
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.2.1 (Fri Jan 10 2025)
 
 #### 🐛 Bug Fix
