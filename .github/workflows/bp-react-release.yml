@@ -1,10 +1,10 @@
-name: Release
+name: Release Blueprint
 
 on:
   push:
     branches: [main, alpha, beta, next]
     paths:
-      - "packages/elements-react"
+      - "packages/blueprint-react"
 
 jobs:
   release:
@@ -29,10 +29,17 @@ jobs:
           restore-keys: |
             npm-deps-${{ hashFiles('package-lock.json') }}
 
+      - name: Install Dependencies
+        run: |
+          npm ci
+
+      - name: Build BP
+        run: |
+          npm run bp:build
+
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          timeout 2m npm run el:build || true
-          timeout 2m npx auto shipit || true
+          npx auto shipit
