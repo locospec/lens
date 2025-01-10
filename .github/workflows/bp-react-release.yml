@@ -2,7 +2,6 @@ name: Release Blueprint
 
 on:
   push:
-    branches: [main, alpha, beta, next]
     paths:
       - "packages/blueprint-react/**"
 
