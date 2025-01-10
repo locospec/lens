@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `site@0.2.3`, `@locospec/blueprint-react@0.2.3`
+  - Blueprint m changes [#39](https://github.com/locospec/ui/pull/39) ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 1
+
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
+# (Fri Jan 10 2025)
+
+#### 🐛 Bug Fix
+
 - fix: Remove verbose flag from auto shipit command in workflow ([@rjvim](https://github.com/rjvim))
 - `@locospec/blueprint-react@0.2.2`
   - Blueprint m changes [#38](https://github.com/locospec/ui/pull/38) ([@rjvim](https://github.com/rjvim))
