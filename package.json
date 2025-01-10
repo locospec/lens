@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "lerna exec --scope @locospec/* -- npm run build",
     "release": "lerna exec --scope @locospec/* -- npm publish",
-    "site:start": "lerna exec --scope @locoui/site -- docusaurus start"
+    "site:start": "lerna exec --scope @locoui/site -- docusaurus start",
+    "site:build": "lerna exec --scope @locoui/site -- docusaurus build"
   },
   "repository": {
     "type": "git",
