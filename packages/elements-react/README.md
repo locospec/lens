@@ -1,5 +1,3 @@
-<img width="500" alt="ViteReactComponentLibrary" src="https://github.com/receter/my-component-library/assets/2504695/dbb53036-d228-477b-8cf8-f61cd6130776">
-
 # A simple (demo) react component library
 
 This repository was published together with an article on [how to create a react component library](https://dev.to/receter/how-to-create-a-react-component-library-using-vites-library-mode-4lma) using Vite's library mode.
@@ -13,13 +11,13 @@ The demo library on npm: https://www.npmjs.com/package/@try-auto/blueprint
 You can install it with npm (don't expect much fanciness):
 
 ```bash
-npm i @try-auto/blueprint
+npm i @locospec/elements-react
 ```
 
 ## Usage
 
 ```javascript
-import { Button, Label, Input } from "@try-auto/blueprint";
+import { Button, Label, Input } from "@locospec/elements-react";
 ```
 
 See this file for an example on using this library: https://github.com/receter/my-component-library-consumer/blob/main/src/App.tsx
