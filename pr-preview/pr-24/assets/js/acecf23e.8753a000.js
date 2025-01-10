@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_locospec_site=self.webpackChunk_locospec_site||[]).push([[1903],{1912:e=>{e.exports=JSON.parse('{"blogBasePath":"/pr-preview/pr-24/blog","blogTitle":"Blog","authorsListPath":"/pr-preview/pr-24/blog/authors"}')}}]);
