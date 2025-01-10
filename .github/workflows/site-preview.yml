@@ -25,9 +25,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Cleanup
-        if: github.event.action != 'closed'
-        run: npx lerna clean -y
+      # - name: Cleanup
+      #   if: github.event.action != 'closed'
+      #   run: npx lerna clean -y
 
       - name: Cache node modules
         if: github.event.action != 'closed'
