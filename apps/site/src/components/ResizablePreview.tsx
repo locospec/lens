@@ -50,23 +50,10 @@ const ResizableHandle = ({
   </ResizablePrimitive.PanelResizeHandle>
 );
 
-const getLadleUrl = (story, baseUrl) => {
-  const isDevelopment = process.env.NODE_ENV === "development";
-  if (isDevelopment) {
-    return `http://localhost:61000/ladle?story=${story}&mode=preview`;
-  }
-  return `${baseUrl}ladle?mode=preview&story=${story}`;
-};
-
-export default function ResizableLadlePreview({ story, height }) {
+export default function ResizablePreview({ pageUrl, height }) {
   const resizablePanelRef = React.useRef<ImperativePanelHandle>(null);
 
   const { colorMode, setColorMode } = useColorMode();
-  const { siteConfig } = useDocusaurusContext();
-
-  const ladleUrl = "/tailwind_2"; //getLadleUrl(story, siteConfig.baseUrl);
-
-  console.log("baseUrl --", siteConfig.baseUrl, ladleUrl);
 
   React.useEffect(() => {
     const updateIframeTheme = (theme) => {
@@ -94,7 +81,7 @@ export default function ResizableLadlePreview({ story, height }) {
           >
             <iframe
               allow="cross-origin-isolated"
-              src={ladleUrl}
+              src={pageUrl}
               height={height || 930}
               className="relative z-20 hidden w-full bg-background md:block"
             />
