@@ -1,5 +1,22 @@
 # (Fri Jan 10 2025)
 
+#### 🚀 Enhancement
+
+- feat: Add all-contributors plugin to package.json ([@rjvim](https://github.com/rjvim))
+
+#### 🐛 Bug Fix
+
+- `@locospec/blueprint-react@0.3.0`
+  - fix: Correct greeting text in Label component [#45](https://github.com/locospec/ui/pull/45) ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 1
+
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
+# (Fri Jan 10 2025)
+
 #### 🐛 Bug Fix
 
 - `@locospec/blueprint-react@0.2.5`

@@ -1,3 +1,16 @@
+# v0.3.0 (Fri Jan 10 2025)
+
+#### 🐛 Bug Fix
+
+- fix: Correct greeting text in Label component [#45](https://github.com/locospec/ui/pull/45) ([@rjvim](https://github.com/rjvim))
+- fix: Correct greeting text in Label component ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 1
+
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.2.5 (Fri Jan 10 2025)
 
 #### 🐛 Bug Fix
