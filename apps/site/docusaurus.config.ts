@@ -39,11 +39,20 @@ const config: Config = {
 
   plugins: ["docusaurus-tailwindcss-loader"],
 
+  stylesheets: [
+    "https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@300;400;500;600;700;800;900&family=Lexend:wght@100..900&display=swap",
+  ],
+
   presets: [
     [
       "classic",
       {
+        gtag: {
+          trackingID: "G-DDT96EDXKZ",
+          anonymizeIP: true,
+        },
         docs: {
+          breadcrumbs: true,
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -64,6 +73,7 @@ const config: Config = {
           onInlineTags: "warn",
           onInlineAuthors: "warn",
           onUntruncatedBlogPosts: "warn",
+          blogSidebarCount: 0,
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -73,6 +83,11 @@ const config: Config = {
   ],
 
   themeConfig: {
+    docs: {
+      sidebar: {
+        autoCollapseCategories: true,
+      },
+    },
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
