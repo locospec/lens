@@ -5,25 +5,20 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build && npm run ladle:build",
+    "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc",
-    "ladle:build": "npx ladle build",
-    "ladle:serve": "npx ladle serve",
-    "ladle:preview": "npx ladle preview",
-    "start:docu-ladle": "concurrently --kill-others \"npm run start\" \"npm run ladle:serve\""
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@docusaurus/core": "3.7.0",
     "@docusaurus/preset-classic": "3.7.0",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
-    "@ladle/react": "^5.0.1",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.16.4",

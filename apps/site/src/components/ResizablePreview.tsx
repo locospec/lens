@@ -7,6 +7,7 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import * as React from "react";
 import { useColorMode } from "@docusaurus/theme-common";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -49,15 +50,7 @@ const ResizableHandle = ({
   </ResizablePrimitive.PanelResizeHandle>
 );
 
-const getLadleUrl = (story) => {
-  const isDevelopment = process.env.NODE_ENV === "development";
-  if (isDevelopment) {
-    return `http://localhost:61000/ladle?story=${story}&mode=preview`;
-  }
-  return `/ladle?mode=preview&story=${story}`;
-};
-
-export default function ResizableLadlePreview({ story, height }) {
+export default function ResizablePreview({ pageUrl, height }) {
   const resizablePanelRef = React.useRef<ImperativePanelHandle>(null);
 
   const { colorMode, setColorMode } = useColorMode();
@@ -88,7 +81,7 @@ export default function ResizableLadlePreview({ story, height }) {
           >
             <iframe
               allow="cross-origin-isolated"
-              src={getLadleUrl(story)}
+              src={pageUrl}
               height={height || 930}
               className="relative z-20 hidden w-full bg-background md:block"
             />
