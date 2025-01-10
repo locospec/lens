@@ -1,3 +1,20 @@
+# v0.2.5 (Fri Jan 10 2025)
+
+#### 🐛 Bug Fix
+
+- fix: Update header punctuation in Label component [#44](https://github.com/locospec/ui/pull/44) ([@rjvim](https://github.com/rjvim))
+- Merge branch 'main' of github.com:locospec/ui into blueprint_m_changes ([@rjvim](https://github.com/rjvim))
+- fix: Update header punctuation in Label component ([@rjvim](https://github.com/rjvim))
+- fix: Remove extra punctuation from header in Label component [#43](https://github.com/locospec/ui/pull/43) ([@rjvim](https://github.com/rjvim))
+- fix: Remove extra punctuation from header in Label component ([@rjvim](https://github.com/rjvim))
+- Blueprint m changes [#42](https://github.com/locospec/ui/pull/42) ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 1
+
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.2.4 (Fri Jan 10 2025)
 
 #### 🐛 Bug Fix
