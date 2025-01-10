@@ -1,5 +1,35 @@
 # (Fri Jan 10 2025)
 
+#### 🐛 Bug Fix
+
+- fix: remove 'released' plugin from package.json ([@rjvim](https://github.com/rjvim))
+- `@locospec/blueprint-react@0.2.0`
+  - fix: correct exclamation marks in Label component header [#34](https://github.com/locospec/ui/pull/34) ([@rjvim](https://github.com/rjvim))
+
+#### ⚠️ Pushed to `main`
+
+- chore: update CHANGELOG.md to include recent bug fix and author information ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 1
+
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
+# (Fri Jan 10 2025)
+
+#### 🐛 Bug Fix
+
+- fix: remove 'released' plugin from package.json (rajiv@betalectic.com)
+
+#### Authors: 1
+
+- Rajiv Seelam (rajiv@betalectic.com)
+
+---
+
+# (Fri Jan 10 2025)
+
 #### 🚀 Enhancement
 
 - Blueprint_init [#21](https://github.com/locospec/ui/pull/21) ([@rjvim](https://github.com/rjvim))
