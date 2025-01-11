@@ -4,11 +4,13 @@ on:
   push:
     paths:
       - "packages/blueprint-react/**"
+      - ".github/workflows/bp-react-release.yml"
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci') }}
+
     steps:
       - uses: actions/checkout@v2
 
