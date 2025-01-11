@@ -20,3 +20,11 @@ https://github.com/vitejs/vite/issues/15167
     "@swc/core-linux-x64-gnu": "^1.10.7"
   }
 ```
+
+```
+npm run bp:build
+```
+
+```
+npx auto canary
+```
