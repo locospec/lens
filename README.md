@@ -26,5 +26,5 @@ npm run bp:build
 ```
 
 ```
-npx auto canary
+npm run bp:build && npx auto canary --force
 ```
