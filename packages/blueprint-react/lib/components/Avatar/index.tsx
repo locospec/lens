@@ -1,11 +1,4 @@
-"use client";
-
-import {
-  Avatar as ShadAvatar,
-  AvatarImage,
-  AvatarFallback,
-} from "../ShadCN/Avatar";
-
+import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import { cn } from "../../utils";
 
 export interface AvatarProps {
@@ -39,7 +32,6 @@ const Avatar = ({
   fallback,
   className,
 }: AvatarProps) => {
-  // Get initials from fallback text for avatar
   const initials = fallback
     ?.split(" ")
     .map((word) => word[0])
@@ -47,22 +39,26 @@ const Avatar = ({
     .toUpperCase()
     .slice(0, 2);
 
-  console.log("Blueprint Avatar");
-
   return (
-    <ShadAvatar
-      className={cn(sizeClasses[size], variantClasses[variant], className)}
+    <AvatarPrimitive.Root
+      className={cn(
+        "relative flex shrink-0 overflow-hidden",
+        sizeClasses[size],
+        variantClasses[variant],
+        className
+      )}
     >
       {image && (
-        <AvatarImage
+        <AvatarPrimitive.Image
           src={image.src}
           alt={image.alt || fallback || "Avatar"}
-          width={image.width}
-          height={image.height}
+          className="w-full h-full aspect-square"
         />
       )}
-      <AvatarFallback>{initials || "??"}</AvatarFallback>
-    </ShadAvatar>
+      <AvatarPrimitive.Fallback className="flex items-center justify-center w-full h-full rounded-full bg-muted">
+        {initials || "??"}
+      </AvatarPrimitive.Fallback>
+    </AvatarPrimitive.Root>
   );
 };
 
