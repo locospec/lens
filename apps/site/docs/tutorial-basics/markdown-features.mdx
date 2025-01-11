@@ -11,6 +11,7 @@ import {
   ShadAvatar,
   ShadAvatarFallback,
   ShadAvatarImage,
+  SchemaAvatar,
 } from "@locospec/blueprint-react";
 import { Button, Avatar } from "@locospec/blueprint-react";
 
@@ -22,8 +23,8 @@ import { Button, Avatar } from "@locospec/blueprint-react";
 
 {/* <Avatar variant="circle" size="lg" fallback="Rajiv Seelam" /> */}
 
-{/_ <SchemaAvatar
-schema={{
+<SchemaAvatar
+  schema={{
     type: "avatar",
     config: {
       variant: "circle",
@@ -31,7 +32,7 @@ schema={{
       fallback: "John Doe",
     },
   }}
-/> _/}
+/>
 
   <ShadAvatar>
     <ShadAvatarImage src="https://github.com/shadcn.png" />
