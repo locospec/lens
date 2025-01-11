@@ -5,6 +5,12 @@ import {
   AvatarImage,
   AvatarFallback,
 } from "../ShadCN/Avatar";
+// import {
+//   Avatar as ShadAvatar,
+//   AvatarImage,
+//   AvatarFallback,
+// } from "@locospec/base";
+
 import { cn } from "../../utils";
 
 export interface AvatarProps {
