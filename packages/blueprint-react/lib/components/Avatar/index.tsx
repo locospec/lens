@@ -1,6 +1,10 @@
 "use client";
 
-import { ShadAvatar, ShadAvatarImage, ShadAvatarFallback } from "../ShadAvatar";
+import {
+  Avatar as ShadAvatar,
+  AvatarImage,
+  AvatarFallback,
+} from "../ShadCN/Avatar";
 import { cn } from "../../utils";
 
 export interface AvatarProps {
@@ -49,14 +53,14 @@ const Avatar = ({
       className={cn(sizeClasses[size], variantClasses[variant], className)}
     >
       {image && (
-        <ShadAvatarImage
+        <AvatarImage
           src={image.src}
           alt={image.alt || fallback || "Avatar"}
           width={image.width}
           height={image.height}
         />
       )}
-      <ShadAvatarFallback>{initials || "??"}</ShadAvatarFallback>
+      <AvatarFallback>{initials || "??"}</AvatarFallback>
     </ShadAvatar>
   );
 };

@@ -2,9 +2,9 @@
 
 import * as React from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
-import { cn } from "../../utils";
+import { cn } from "../../../utils";
 
-const ShadAvatar = React.forwardRef<
+const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
 >(({ className, ...props }, ref) => (
@@ -17,9 +17,9 @@ const ShadAvatar = React.forwardRef<
     {...props}
   />
 ));
-ShadAvatar.displayName = AvatarPrimitive.Root.displayName;
+Avatar.displayName = AvatarPrimitive.Root.displayName;
 
-const ShadAvatarImage = React.forwardRef<
+const AvatarImage = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Image>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
 >(({ className, ...props }, ref) => (
@@ -29,9 +29,9 @@ const ShadAvatarImage = React.forwardRef<
     {...props}
   />
 ));
-ShadAvatarImage.displayName = AvatarPrimitive.Image.displayName;
+AvatarImage.displayName = AvatarPrimitive.Image.displayName;
 
-const ShadAvatarFallback = React.forwardRef<
+const AvatarFallback = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Fallback>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
 >(({ className, ...props }, ref) => (
@@ -44,6 +44,6 @@ const ShadAvatarFallback = React.forwardRef<
     {...props}
   />
 ));
-ShadAvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
+AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 
-export { ShadAvatar, ShadAvatarImage, ShadAvatarFallback };
+export { Avatar, AvatarImage, AvatarFallback };
