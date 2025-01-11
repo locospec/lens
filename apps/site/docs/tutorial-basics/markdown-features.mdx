@@ -12,11 +12,18 @@ import {
   ShadAvatarFallback,
   ShadAvatarImage,
 } from "@locospec/blueprint-react";
-import { Button, Avatar, SchemaAvatar } from "@locospec/blueprint-react";
+import { Button, Avatar } from "@locospec/blueprint-react";
 
 <div className="twp">
   <Button>Button</Button>
   <Label>Label Name</Label>
+
+{/* <Avatar variant="circle" size="lg" fallback="Rajiv Seelam" /> */}
+
+  <ShadAvatar>
+    <ShadAvatarImage src="https://github.com/shadcn.png" />
+    <ShadAvatarFallback>CN</ShadAvatarFallback>
+  </ShadAvatar>
 </div>
 
 ## Front Matter
