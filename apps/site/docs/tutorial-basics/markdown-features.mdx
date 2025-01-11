@@ -7,17 +7,32 @@ sidebar_position: 4
 Docusaurus supports **[Markdown](https://daringfireball.net/projects/markdown/syntax)** and a few **additional features**.
 
 import { Label } from "@locospec/blueprint-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@locospec/blueprint-react";
-import { Button } from "@locospec/blueprint-react";
+import {
+  ShadAvatar,
+  ShadAvatarFallback,
+  ShadAvatarImage,
+} from "@locospec/blueprint-react";
+import { Button, Avatar, SchemaAvatar } from "@locospec/blueprint-react";
 
 <div className="twp">
   <Button>Button</Button>
   <Label>Label Name</Label>
 
-  <Avatar>
-    <AvatarImage src="https://github.com/shadcn.png" />
-    <AvatarFallback>CN</AvatarFallback>
-  </Avatar>
+{" "}
+
+<Avatar variant="circle" size="lg" fallback="Rajiv Seelam" />
+
+<SchemaAvatar
+  schema={{
+    type: "avatar",
+    config: {
+      variant: "circle",
+      size: "lg",
+      fallback: "Rajiv M",
+    },
+  }}
+/>
+
 </div>
 
 ## Front Matter

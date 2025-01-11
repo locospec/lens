@@ -1,49 +1,62 @@
 "use client";
 
-import * as React from "react";
-import * as AvatarPrimitive from "@radix-ui/react-avatar";
+import { ShadAvatar, ShadAvatarImage, ShadAvatarFallback } from "../ShadAvatar";
 import { cn } from "../../utils";
 
-const Avatar = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Root
-    ref={ref}
-    className={cn(
-      "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
-      className
-    )}
-    {...props}
-  />
-));
-Avatar.displayName = AvatarPrimitive.Root.displayName;
+export interface AvatarProps {
+  variant?: "circle" | "square";
+  size?: "sm" | "md" | "lg";
+  image?: {
+    src: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+  };
+  fallback?: string;
+  className?: string;
+}
 
-const AvatarImage = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Image>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
->(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Image
-    ref={ref}
-    className={cn("aspect-square h-full w-full", className)}
-    {...props}
-  />
-));
-AvatarImage.displayName = AvatarPrimitive.Image.displayName;
+const sizeClasses = {
+  sm: "h-8 w-8",
+  md: "h-10 w-10",
+  lg: "h-12 w-12",
+};
 
-const AvatarFallback = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Fallback>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
->(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Fallback
-    ref={ref}
-    className={cn(
-      "flex h-full w-full items-center justify-center rounded-full bg-muted",
-      className
-    )}
-    {...props}
-  />
-));
-AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
+const variantClasses = {
+  circle: "rounded-full",
+  square: "rounded-md",
+};
 
-export { Avatar, AvatarImage, AvatarFallback };
+const Avatar = ({
+  variant = "circle",
+  size = "md",
+  image,
+  fallback,
+  className,
+}: AvatarProps) => {
+  // Get initials from fallback text for avatar
+  const initials = fallback
+    ?.split(" ")
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase()
+    .slice(0, 2);
+
+  return (
+    <ShadAvatar
+      className={cn(sizeClasses[size], variantClasses[variant], className)}
+    >
+      {image && (
+        <ShadAvatarImage
+          src={image.src}
+          alt={image.alt || fallback || "Avatar"}
+          width={image.width}
+          height={image.height}
+        />
+      )}
+      <ShadAvatarFallback>{initials || "??"}</ShadAvatarFallback>
+    </ShadAvatar>
+  );
+};
+
+export { Avatar };
