@@ -42,6 +42,8 @@ const Avatar = ({
     .toUpperCase()
     .slice(0, 2);
 
+  console.log("Blueprint Avatar");
+
   return (
     <ShadAvatar
       className={cn(sizeClasses[size], variantClasses[variant], className)}

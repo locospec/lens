@@ -31,6 +31,8 @@ export function withSchema<P extends object>(
       ...props,
     } as P;
 
+    console.log("Blueprint withSchema");
+
     return <WrappedComponent {...finalProps} />;
   };
 }
