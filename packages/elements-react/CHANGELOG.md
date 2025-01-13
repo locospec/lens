@@ -1,3 +1,19 @@
+# v0.9.1 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- Auto testing [#72](https://github.com/locospec/ui/pull/72) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Merge branch 'main' of github.com:locospec/ui into AutoTesting ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified log in button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified log in checkbox ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified log on field component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.9.0 (Mon Jan 13 2025)
 
 #### 🚀 Enhancement
