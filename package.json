@@ -86,12 +86,6 @@
           "forcePublish": false
         }
       ],
-      [
-        "conventional-commits",
-        {
-          "defaultReleaseType": "patch"
-        }
-      ],
       "released"
     ],
     "prereleaseBranches": [
