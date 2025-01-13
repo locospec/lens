@@ -1,3 +1,15 @@
+# v0.9.4 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- Auto testing [#78](https://github.com/locospec/ui/pull/78) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.9.3 (Mon Jan 13 2025)
 
 #### 🐛 Bug Fix
