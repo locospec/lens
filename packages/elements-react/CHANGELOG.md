@@ -1,3 +1,271 @@
+# v0.9.6 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- fix: modified field log [#81](https://github.com/locospec/ui/pull/81) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified checkbox log [#81](https://github.com/locospec/ui/pull/81) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified button log [#81](https://github.com/locospec/ui/pull/81) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.9.5 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- patch: modified field log [#80](https://github.com/locospec/ui/pull/80) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified checkbox log [#80](https://github.com/locospec/ui/pull/80) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified button log [#80](https://github.com/locospec/ui/pull/80) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.9.4 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- Auto testing [#78](https://github.com/locospec/ui/pull/78) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.9.3 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- fix: modified field log [#77](https://github.com/locospec/ui/pull/77) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified log in checkbox [#76](https://github.com/locospec/ui/pull/76) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified button log [#75](https://github.com/locospec/ui/pull/75) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.9.2 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- AutoTesting: modified log in button [#74](https://github.com/locospec/ui/pull/74) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified log in button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Sample [#73](https://github.com/locospec/ui/pull/73) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified log in field ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified log in checkbox ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.9.1 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- Auto testing [#72](https://github.com/locospec/ui/pull/72) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Merge branch 'main' of github.com:locospec/ui into AutoTesting ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified log in button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified log in checkbox ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified log on field component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.9.0 (Mon Jan 13 2025)
+
+#### 🚀 Enhancement
+
+- Auto testing for version [#71](https://github.com/locospec/ui/pull/71) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: modified log in field ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: modified log in checkbox ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: modified log in button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.8.1 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- Testing Auto [#70](https://github.com/locospec/ui/pull/70) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified field log ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified checkbox log ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified button log ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.8.0 (Mon Jan 13 2025)
+
+#### 🚀 Enhancement
+
+- feat: modified comment on Button component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- Auto testing [#69](https://github.com/locospec/ui/pull/69) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified console.log in field component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified console.log in checkbox component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Testing without release label after adding a feat type commit [#68](https://github.com/locospec/ui/pull/68) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Testing PR merge without release tag [#67](https://github.com/locospec/ui/pull/67) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified console.log in button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.7.0 (Mon Jan 13 2025)
+
+#### 🚀 Enhancement
+
+- patch: modified console.log in button [#66](https://github.com/locospec/ui/pull/66) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- patch: modified console.log in button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.6.1 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- Auto testing [#65](https://github.com/locospec/ui/pull/65) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: modified comment on Field component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified console.log in checkbox component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified cosnoel.log in button component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.6.0 (Mon Jan 13 2025)
+
+#### 🚀 Enhancement
+
+- Auto testing [#64](https://github.com/locospec/ui/pull/64) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: Added log in checkbox ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- patch: Added log in button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.5.0 (Mon Jan 13 2025)
+
+#### 🚀 Enhancement
+
+- Testing auto commits based on commit type [#63](https://github.com/locospec/ui/pull/63) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: Added log in checkbox ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.4.3 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- Testing single commit with start of `fix` type [#62](https://github.com/locospec/ui/pull/62) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: Added sample log in checkbox ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.4.2 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- Testing Path release [#61](https://github.com/locospec/ui/pull/61) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: Added sample commit for testing in checkbox as #1 ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: Added commit #30 for button component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.4.1 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- patch: Added console.log for button [#60](https://github.com/locospec/ui/pull/60) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: Added console.log for button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.4.0 (Mon Jan 13 2025)
+
+#### 🚀 Enhancement
+
+- feat: Removed story book dependencies form elements-react workspace ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: removed some packages form @locospec/elements-react workspace for storybook ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- Auto testing [#59](https://github.com/locospec/ui/pull/59) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: Should release patch version ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: Modified console.log ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Auto testing [#58](https://github.com/locospec/ui/pull/58) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: Added console.log in button component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Auto testing [#57](https://github.com/locospec/ui/pull/57) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: added modified log for button component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Auto testing [#56](https://github.com/locospec/ui/pull/56) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: added modified log for button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- dev: Added development path for elements-react package ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Auto testing [#55](https://github.com/locospec/ui/pull/55) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: Added log for in button component as fix commit ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: Added fix type commit for testing auto workflow [#54](https://github.com/locospec/ui/pull/54) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: Added fix type commit for testing auto workflow ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.3.0 (Fri Jan 10 2025)
 
 #### 🚀 Enhancement
