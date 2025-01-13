@@ -1,3 +1,18 @@
+# v0.6.1 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- Auto testing [#65](https://github.com/locospec/ui/pull/65) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: modified comment on Field component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified console.log in checkbox component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified cosnoel.log in button component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.6.0 (Mon Jan 13 2025)
 
 #### 🚀 Enhancement

@@ -1,5 +1,22 @@
 # (Mon Jan 13 2025)
 
+#### 🐛 Bug Fix
+
+- `@locospec/elements-react@0.6.1`
+  - Auto testing [#65](https://github.com/locospec/ui/pull/65) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### ⚠️ Pushed to `main`
+
+- ci: removed conventional-commits plugin from auto configuration in root package.json ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Mon Jan 13 2025)
+
 #### 🚀 Enhancement
 
 - `@locospec/elements-react@0.6.0`
