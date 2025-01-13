@@ -8,14 +8,14 @@
     "css": "src/tailwind-entry.css",
     "baseColor": "neutral",
     "cssVariables": true,
-    "prefix": ""
+    "prefix": "bp-"
   },
   "aliases": {
     "components": "@/base/components",
     "utils": "@/base/lib/utils",
     "ui": "@/base/components/ui",
     "lib": "@/base/lib",
-    "hooks": "../../hooks"
+    "hooks": "@/base/hooks"
   },
   "iconLibrary": "lucide"
 }

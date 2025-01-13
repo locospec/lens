@@ -69,8 +69,30 @@ export default defineConfig({
       ),
       output: {
         assetFileNames: "assets/[name][extname]",
-        entryFileNames: "[name].js",
+        entryFileNames: (chunkInfo) => {
+          return "[name].js";
+        },
+        manualChunks: (id) => {
+          console.log("id", id);
+
+          if (id.includes("/lucide-react/dist/esm/icons/")) {
+            return "lucide-react/icons";
+          }
+
+          if (id.includes("node_modules/@radix-ui/")) {
+            const match = id.match(/@radix-ui\/([^/]+)/);
+            if (match) {
+              return `radix-ui/${match[1]}`;
+            }
+          }
+
+          return null;
+        },
       },
+      // output: {
+      //   assetFileNames: "assets/[name][extname]",
+      //   entryFileNames: "[name].js",
+      // },
     },
   },
 });

@@ -1,7 +1,7 @@
-import * as React from "react";
-import * as SwitchPrimitives from "@radix-ui/react-switch";
+import * as React from "react"
+import * as SwitchPrimitives from "@radix-ui/react-switch"
 
-import { cn } from "../../lib/utils";
+import { cn } from "@/base/lib/utils"
 
 const Switch = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,
@@ -9,7 +9,7 @@ const Switch = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SwitchPrimitives.Root
     className={cn(
-      "peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
+      "bp-peer bp-inline-flex bp-h-5 bp-w-9 bp-shrink-0 bp-cursor-pointer bp-items-center bp-rounded-full bp-border-2 bp-border-transparent bp-shadow-sm bp-transition-colors focus-visible:bp-outline-none focus-visible:bp-ring-2 focus-visible:bp-ring-ring focus-visible:bp-ring-offset-2 focus-visible:bp-ring-offset-background disabled:bp-cursor-not-allowed disabled:bp-opacity-50 data-[state=checked]:bp-bg-primary data-[state=unchecked]:bp-bg-input",
       className
     )}
     {...props}
@@ -17,11 +17,11 @@ const Switch = React.forwardRef<
   >
     <SwitchPrimitives.Thumb
       className={cn(
-        "pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0"
+        "bp-pointer-events-none bp-block bp-h-4 bp-w-4 bp-rounded-full bp-bg-background bp-shadow-lg bp-ring-0 bp-transition-transform data-[state=checked]:bp-translate-x-4 data-[state=unchecked]:bp-translate-x-0"
       )}
     />
   </SwitchPrimitives.Root>
-));
-Switch.displayName = SwitchPrimitives.Root.displayName;
+))
+Switch.displayName = SwitchPrimitives.Root.displayName
 
-export { Switch };
+export { Switch }

@@ -1,8 +1,6 @@
-.tailwind {
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
@@ -79,10 +77,19 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply bp-border-border;
   }
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply bp-font-sans bp-antialiased bp-bg-background bp-text-foreground;
+  }
+}
+
+@layer base {
+  * {
+    @apply bp-border-border;
+  }
+  body {
+    @apply bp-bg-background bp-text-foreground;
   }
 }
 
