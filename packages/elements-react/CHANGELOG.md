@@ -1,3 +1,17 @@
+# v0.4.2 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- Testing Path release [#61](https://github.com/locospec/ui/pull/61) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: Added sample commit for testing in checkbox as #1 ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: Added commit #30 for button component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.4.1 (Mon Jan 13 2025)
 
 #### 🐛 Bug Fix
