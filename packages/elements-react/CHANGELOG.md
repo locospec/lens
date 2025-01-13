@@ -1,3 +1,16 @@
+# v0.4.3 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- Testing single commit with start of `fix` type [#62](https://github.com/locospec/ui/pull/62) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: Added sample log in checkbox ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.4.2 (Mon Jan 13 2025)
 
 #### 🐛 Bug Fix

@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/elements-react@0.4.3`
+  - Testing single commit with start of `fix` type [#62](https://github.com/locospec/ui/pull/62) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
 - `@locospec/elements-react@0.4.2`
   - Testing Path release [#61](https://github.com/locospec/ui/pull/61) ([@ShreyDhyani](https://github.com/ShreyDhyani))
 
