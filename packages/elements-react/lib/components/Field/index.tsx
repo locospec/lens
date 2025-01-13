@@ -8,7 +8,7 @@ type FormFieldProps = {
 };
 
 export const Field = ({ label, placeholder }: FormFieldProps) => {
-  console.log("Loading elements-react Field in this page #1");
+  console.log("Loading elements-react Field in this page #2");
 
   const [inputCustomCountValue, setInputCustomCountValue] = useState("");
 
