@@ -1,5 +1,21 @@
 # (Mon Jan 13 2025)
 
+#### 🐛 Bug Fix
+
+- ci: added auto-it plugin conventional-commits with default release type as patch ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `@locospec/elements-react@0.8.0`
+  - Auto testing [#69](https://github.com/locospec/ui/pull/69) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - Testing without release label after adding a feat type commit [#68](https://github.com/locospec/ui/pull/68) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - Testing PR merge without release tag [#67](https://github.com/locospec/ui/pull/67) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Mon Jan 13 2025)
+
 #### 🚀 Enhancement
 
 - `@locospec/elements-react@0.7.0`

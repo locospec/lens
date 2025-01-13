@@ -1,3 +1,24 @@
+# v0.8.0 (Mon Jan 13 2025)
+
+#### 🚀 Enhancement
+
+- feat: modified comment on Button component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- Auto testing [#69](https://github.com/locospec/ui/pull/69) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified console.log in field component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified console.log in checkbox component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Testing without release label after adding a feat type commit [#68](https://github.com/locospec/ui/pull/68) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Testing PR merge without release tag [#67](https://github.com/locospec/ui/pull/67) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified console.log in button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.7.0 (Mon Jan 13 2025)
 
 #### 🚀 Enhancement
