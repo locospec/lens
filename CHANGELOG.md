@@ -2,6 +2,21 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/elements-react@0.9.3`
+  - fix: modified field log [#77](https://github.com/locospec/ui/pull/77) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - fix: modified log in checkbox [#76](https://github.com/locospec/ui/pull/76) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - fix: modified button log [#75](https://github.com/locospec/ui/pull/75) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
 - `@locospec/elements-react@0.9.2`
   - AutoTesting: modified log in button [#74](https://github.com/locospec/ui/pull/74) ([@ShreyDhyani](https://github.com/ShreyDhyani))
   - Sample [#73](https://github.com/locospec/ui/pull/73) ([@ShreyDhyani](https://github.com/ShreyDhyani))
