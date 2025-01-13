@@ -120,7 +120,7 @@ We handle releases for both **elements** and **blueprint** packages in the same 
 
 1. **Develop Features/Fixes**: All new features or bug fixes are developed on individual branches.
 2. **Submit PR**: Submit a pull request to the appropriate branch (`alpha` or `beta`).
-3. **Add Labels**: Add the appropriate versioning label (`major`, `minor`, `patch`, `prerelease`, or `skip-release`).
+3. **Add Label**: Add the release label to mark PR to release a version upgrade. (`release`).
 4. **Merge**: Once the PR is merged, Auto automatically:
    - Generates the changelog.
    - Bumps the version.
