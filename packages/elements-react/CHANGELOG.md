@@ -1,3 +1,20 @@
+# v0.6.0 (Mon Jan 13 2025)
+
+#### 🚀 Enhancement
+
+- Auto testing [#64](https://github.com/locospec/ui/pull/64) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: Added log in checkbox ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- patch: Added log in button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.5.0 (Mon Jan 13 2025)
 
 #### 🚀 Enhancement
