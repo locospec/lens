@@ -1,7 +1,7 @@
-import * as React from "react"
-import * as SliderPrimitive from "@radix-ui/react-slider"
+import * as React from "react";
+import * as SliderPrimitive from "@radix-ui/react-slider";
 
-import { cn } from "@/base/lib/utils"
+import { cn } from "../../lib/utils";
 
 const Slider = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Root>,
@@ -20,7 +20,7 @@ const Slider = React.forwardRef<
     </SliderPrimitive.Track>
     <SliderPrimitive.Thumb className="bp-block bp-h-4 bp-w-4 bp-rounded-full bp-border bp-border-primary/50 bp-bg-background bp-shadow bp-transition-colors focus-visible:bp-outline-none focus-visible:bp-ring-1 focus-visible:bp-ring-ring disabled:bp-pointer-events-none disabled:bp-opacity-50" />
   </SliderPrimitive.Root>
-))
-Slider.displayName = SliderPrimitive.Root.displayName
+));
+Slider.displayName = SliderPrimitive.Root.displayName;
 
-export { Slider }
+export { Slider };

@@ -1,9 +1,9 @@
-import * as React from "react"
-import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
-import { cva } from "class-variance-authority"
-import { ChevronDown } from "lucide-react"
+import * as React from "react";
+import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
+import { cva } from "class-variance-authority";
+import { ChevronDown } from "lucide-react";
 
-import { cn } from "@/base/lib/utils"
+import { cn } from "../../lib/utils";
 
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
@@ -20,8 +20,8 @@ const NavigationMenu = React.forwardRef<
     {children}
     <NavigationMenuViewport />
   </NavigationMenuPrimitive.Root>
-))
-NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName
+));
+NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName;
 
 const NavigationMenuList = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.List>,
@@ -35,14 +35,14 @@ const NavigationMenuList = React.forwardRef<
     )}
     {...props}
   />
-))
-NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
+));
+NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
 
-const NavigationMenuItem = NavigationMenuPrimitive.Item
+const NavigationMenuItem = NavigationMenuPrimitive.Item;
 
 const navigationMenuTriggerStyle = cva(
   "bp-group bp-inline-flex bp-h-9 bp-w-max bp-items-center bp-justify-center bp-rounded-md bp-bg-background bp-px-4 bp-py-2 bp-text-sm bp-font-medium bp-transition-colors hover:bp-bg-accent hover:bp-text-accent-foreground focus:bp-bg-accent focus:bp-text-accent-foreground focus:bp-outline-none disabled:bp-pointer-events-none disabled:bp-opacity-50 data-[active]:bp-bg-accent/50 data-[state=open]:bp-bg-accent/50"
-)
+);
 
 const NavigationMenuTrigger = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,
@@ -59,8 +59,8 @@ const NavigationMenuTrigger = React.forwardRef<
       aria-hidden="true"
     />
   </NavigationMenuPrimitive.Trigger>
-))
-NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName
+));
+NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
 
 const NavigationMenuContent = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Content>,
@@ -74,16 +74,20 @@ const NavigationMenuContent = React.forwardRef<
     )}
     {...props}
   />
-))
-NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName
+));
+NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
 
-const NavigationMenuLink = NavigationMenuPrimitive.Link
+const NavigationMenuLink = NavigationMenuPrimitive.Link;
 
 const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
 >(({ className, ...props }, ref) => (
-  <div className={cn("bp-absolute bp-left-0 bp-top-full bp-flex bp-justify-center")}>
+  <div
+    className={cn(
+      "bp-absolute bp-left-0 bp-top-full bp-flex bp-justify-center"
+    )}
+  >
     <NavigationMenuPrimitive.Viewport
       className={cn(
         "bp-origin-top-center bp-relative bp-mt-1.5 bp-h-[var(--radix-navigation-menu-viewport-height)] bp-w-full bp-overflow-hidden bp-rounded-md bp-border bp-bg-popover bp-text-popover-foreground bp-shadow data-[state=open]:bp-animate-in data-[state=closed]:bp-animate-out data-[state=closed]:bp-zoom-out-95 data-[state=open]:bp-zoom-in-90 md:bp-w-[var(--radix-navigation-menu-viewport-width)]",
@@ -93,9 +97,9 @@ const NavigationMenuViewport = React.forwardRef<
       {...props}
     />
   </div>
-))
+));
 NavigationMenuViewport.displayName =
-  NavigationMenuPrimitive.Viewport.displayName
+  NavigationMenuPrimitive.Viewport.displayName;
 
 const NavigationMenuIndicator = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Indicator>,
@@ -111,9 +115,9 @@ const NavigationMenuIndicator = React.forwardRef<
   >
     <div className="bp-relative bp-top-[60%] bp-h-2 bp-w-2 bp-rotate-45 bp-rounded-tl-sm bp-bg-border bp-shadow-md" />
   </NavigationMenuPrimitive.Indicator>
-))
+));
 NavigationMenuIndicator.displayName =
-  NavigationMenuPrimitive.Indicator.displayName
+  NavigationMenuPrimitive.Indicator.displayName;
 
 export {
   navigationMenuTriggerStyle,
@@ -125,4 +129,4 @@ export {
   NavigationMenuLink,
   NavigationMenuIndicator,
   NavigationMenuViewport,
-}
+};
