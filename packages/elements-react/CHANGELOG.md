@@ -1,3 +1,16 @@
+# v0.5.0 (Mon Jan 13 2025)
+
+#### 🚀 Enhancement
+
+- Testing auto commits based on commit type [#63](https://github.com/locospec/ui/pull/63) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: Added log in checkbox ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.4.3 (Mon Jan 13 2025)
 
 #### 🐛 Bug Fix

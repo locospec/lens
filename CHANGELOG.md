@@ -1,5 +1,18 @@
 # (Mon Jan 13 2025)
 
+#### 🚀 Enhancement
+
+- `@locospec/elements-react@0.5.0`
+  - Testing auto commits based on commit type [#63](https://github.com/locospec/ui/pull/63) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Mon Jan 13 2025)
+
 #### 🐛 Bug Fix
 
 - `@locospec/elements-react@0.4.3`
