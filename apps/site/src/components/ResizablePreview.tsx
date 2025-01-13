@@ -71,6 +71,9 @@ export default function ResizablePreview({ pageUrl, height }) {
 
   const { siteConfig } = useDocusaurusContext();
 
+  const finalUrl = `${siteConfig.baseUrl}${pageUrl}`;
+  // console.log("finalUrl", finalUrl, siteConfig.baseUrl, pageUrl);
+
   return (
     <div className="group-data-[view=code]/block-view-wrapper:hidden md:h-[--height] twp">
       <div className="grid w-full gap-4">
@@ -83,7 +86,7 @@ export default function ResizablePreview({ pageUrl, height }) {
           >
             <iframe
               allow="cross-origin-isolated"
-              src={`${siteConfig.baseUrl}${pageUrl}`}
+              src={finalUrl}
               height={height || 930}
               className="relative z-20 hidden w-full bg-background md:block"
             />
