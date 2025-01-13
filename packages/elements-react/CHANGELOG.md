@@ -1,3 +1,17 @@
+# v0.9.5 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- patch: modified field log [#80](https://github.com/locospec/ui/pull/80) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified checkbox log [#80](https://github.com/locospec/ui/pull/80) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified button log [#80](https://github.com/locospec/ui/pull/80) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.9.4 (Mon Jan 13 2025)
 
 #### 🐛 Bug Fix
