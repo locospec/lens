@@ -86,7 +86,12 @@
           "forcePublish": false
         }
       ],
-      "conventional-commits",
+      [
+        "conventional-commits",
+        {
+          "defaultReleaseType": "patch"
+        }
+      ],
       "released"
     ],
     "prereleaseBranches": [
