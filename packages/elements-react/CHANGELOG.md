@@ -1,3 +1,19 @@
+# v0.9.2 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- AutoTesting: modified log in button [#74](https://github.com/locospec/ui/pull/74) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified log in button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Sample [#73](https://github.com/locospec/ui/pull/73) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified log in field ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified log in checkbox ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.9.1 (Mon Jan 13 2025)
 
 #### 🐛 Bug Fix
