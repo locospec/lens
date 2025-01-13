@@ -89,6 +89,13 @@
       "conventional-commits",
       "released"
     ],
+    "labels": {
+      "patch": {
+        "name": "fix,patch",
+        "title": "Patch Release",
+        "description": "Fixes a bug"
+      }
+    },
     "prereleaseBranches": [
       "alpha",
       "beta",
