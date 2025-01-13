@@ -1,65 +1,29 @@
-import * as AvatarPrimitive from "@radix-ui/react-avatar";
-import { cn } from "../../utils";
+import React from "react";
+import { Avatar, AvatarFallback } from "../../base/components/ui/avatar";
+import { withSchema } from "../hoc/withSchema";
 
-export interface AvatarProps {
-  variant?: "circle" | "square";
-  size?: "sm" | "md" | "lg";
-  image?: {
-    src: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-  };
-  fallback?: string;
-  className?: string;
-}
+interface BlueprintAvatarProps {}
 
-const sizeClasses = {
-  sm: "h-8 w-8",
-  md: "h-10 w-10",
-  lg: "h-12 w-12",
+const getRandomInitials = () => {
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  return `${letters[Math.floor(Math.random() * 26)]}${
+    letters[Math.floor(Math.random() * 26)]
+  }`;
 };
 
-const variantClasses = {
-  circle: "rounded-full",
-  square: "rounded-md",
-};
-
-const Avatar = ({
-  variant = "circle",
-  size = "md",
-  image,
-  fallback,
-  className,
-}: AvatarProps) => {
-  const initials = fallback
-    ?.split(" ")
-    .map((word) => word[0])
-    .join("")
-    .toUpperCase()
-    .slice(0, 2);
+const BlueprintAvatar: React.FC<BlueprintAvatarProps> = () => {
+  const initials = React.useMemo(getRandomInitials, []);
 
   return (
-    <AvatarPrimitive.Root
-      className={cn(
-        "relative flex shrink-0 overflow-hidden",
-        sizeClasses[size],
-        variantClasses[variant],
-        className
-      )}
-    >
-      {image && (
-        <AvatarPrimitive.Image
-          src={image.src}
-          alt={image.alt || fallback || "Avatar"}
-          className="w-full h-full aspect-square"
-        />
-      )}
-      <AvatarPrimitive.Fallback className="flex items-center justify-center w-full h-full rounded-full bg-muted">
-        {initials || "??"}
-      </AvatarPrimitive.Fallback>
-    </AvatarPrimitive.Root>
+    <Avatar>
+      <AvatarFallback>{initials}</AvatarFallback>
+    </Avatar>
   );
 };
 
-export { Avatar };
+const SchemaBlueprintAvatar = withSchema<BlueprintAvatarProps>(
+  BlueprintAvatar,
+  "blueprintavatar"
+);
+
+export { BlueprintAvatar, SchemaBlueprintAvatar };
