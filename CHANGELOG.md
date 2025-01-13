@@ -1,3 +1,26 @@
+# (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/elements-react@0.4.0`
+  - Auto testing [#59](https://github.com/locospec/ui/pull/59) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - Auto testing [#58](https://github.com/locospec/ui/pull/58) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - Auto testing [#57](https://github.com/locospec/ui/pull/57) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - Auto testing [#56](https://github.com/locospec/ui/pull/56) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - Auto testing [#55](https://github.com/locospec/ui/pull/55) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - fix: Added fix type commit for testing auto workflow [#54](https://github.com/locospec/ui/pull/54) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### ⚠️ Pushed to `main`
+
+- Update README.md ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # (Fri Jan 10 2025)
 
 #### 🚀 Enhancement

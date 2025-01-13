@@ -1,3 +1,33 @@
+# v0.4.0 (Mon Jan 13 2025)
+
+#### 🚀 Enhancement
+
+- feat: Removed story book dependencies form elements-react workspace ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: removed some packages form @locospec/elements-react workspace for storybook ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- Auto testing [#59](https://github.com/locospec/ui/pull/59) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: Should release patch version ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: Modified console.log ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Auto testing [#58](https://github.com/locospec/ui/pull/58) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: Added console.log in button component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Auto testing [#57](https://github.com/locospec/ui/pull/57) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: added modified log for button component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Auto testing [#56](https://github.com/locospec/ui/pull/56) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: added modified log for button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- dev: Added development path for elements-react package ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Auto testing [#55](https://github.com/locospec/ui/pull/55) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: Added log for in button component as fix commit ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: Added fix type commit for testing auto workflow [#54](https://github.com/locospec/ui/pull/54) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: Added fix type commit for testing auto workflow ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.3.0 (Fri Jan 10 2025)
 
 #### 🚀 Enhancement
