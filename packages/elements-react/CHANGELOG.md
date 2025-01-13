@@ -1,3 +1,18 @@
+# v0.9.0 (Mon Jan 13 2025)
+
+#### 🚀 Enhancement
+
+- Auto testing for version [#71](https://github.com/locospec/ui/pull/71) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: modified log in field ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: modified log in checkbox ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: modified log in button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.8.1 (Mon Jan 13 2025)
 
 #### 🐛 Bug Fix

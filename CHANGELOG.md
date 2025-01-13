@@ -1,5 +1,18 @@
 # (Mon Jan 13 2025)
 
+#### 🚀 Enhancement
+
+- `@locospec/elements-react@0.9.0`
+  - Auto testing for version [#71](https://github.com/locospec/ui/pull/71) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Mon Jan 13 2025)
+
 #### 🐛 Bug Fix
 
 - `@locospec/elements-react@0.8.1`
