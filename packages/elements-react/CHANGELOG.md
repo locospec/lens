@@ -1,3 +1,18 @@
+# v0.8.1 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- Testing Auto [#70](https://github.com/locospec/ui/pull/70) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified field log ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified checkbox log ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: modified button log ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.8.0 (Mon Jan 13 2025)
 
 #### 🚀 Enhancement

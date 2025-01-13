@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/elements-react@0.8.1`
+  - Testing Auto [#70](https://github.com/locospec/ui/pull/70) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
 - ci: added auto-it plugin conventional-commits with default release type as patch ([@ShreyDhyani](https://github.com/ShreyDhyani))
 - `@locospec/elements-react@0.8.0`
   - Auto testing [#69](https://github.com/locospec/ui/pull/69) ([@ShreyDhyani](https://github.com/ShreyDhyani))
