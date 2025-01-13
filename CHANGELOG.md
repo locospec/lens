@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/elements-react@0.4.1`
+  - patch: Added console.log for button [#60](https://github.com/locospec/ui/pull/60) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
 - `@locospec/elements-react@0.4.0`
   - Auto testing [#59](https://github.com/locospec/ui/pull/59) ([@ShreyDhyani](https://github.com/ShreyDhyani))
   - Auto testing [#58](https://github.com/locospec/ui/pull/58) ([@ShreyDhyani](https://github.com/ShreyDhyani))

@@ -1,3 +1,16 @@
+# v0.4.1 (Mon Jan 13 2025)
+
+#### 🐛 Bug Fix
+
+- patch: Added console.log for button [#60](https://github.com/locospec/ui/pull/60) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: Added console.log for button ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.4.0 (Mon Jan 13 2025)
 
 #### 🚀 Enhancement
