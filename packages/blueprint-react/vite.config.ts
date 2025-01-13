@@ -73,8 +73,6 @@ export default defineConfig({
           return "[name].js";
         },
         manualChunks: (id) => {
-          console.log("id", id);
-
           if (id.includes("/lucide-react/dist/esm/icons/")) {
             return "lucide-react/icons";
           }
