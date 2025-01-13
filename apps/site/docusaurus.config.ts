@@ -103,6 +103,12 @@ const config: Config = {
           position: "left",
           label: "Tutorial",
         },
+        {
+          type: "docSidebar",
+          sidebarId: "blueprintSidebar",
+          position: "left",
+          label: "Blueprint",
+        },
         { to: "/blog", label: "Blog", position: "left" },
         {
           href: "https://github.com/facebook/docusaurus",
