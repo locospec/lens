@@ -73,16 +73,26 @@ The versioning strategy follows **semantic versioning** principles, but we also 
 
 ## 4. Release Labels
 
-We use specific labels on PRs to determine how a release is handled. These labels map to the appropriate semantic versioning or pre-release type:
+We use the **auto-it plugin** called **conventional-commits** to determine which version of a package to release. This plugin parses conventional commit messages and uses them to automatically calculate the appropriate version number.
 
-- **`major`**: Indicates a breaking change, triggers a major version bump (`1.0.0` → `2.0.0`).
-- **`minor`**: Adds a new feature in a backward-compatible way, triggers a minor version bump (`1.0.0` → `1.1.0`).
-- **`patch`**: Fixes a bug without introducing breaking changes, triggers a patch version bump (`1.0.0` → `1.0.1`).
-- **`skip-release`**: Marks PRs that don’t require a new release (e.g., documentation updates).
-- **`prerelease`**: Used for alpha or beta releases. Automatically adds `alpha` or `beta` based on the target branch.
-- **`dependencies`**: Update one or more dependency versions.
-- **`enhancement`**: Introduces a new feature or request.
-- **`released`**: This PR has been merged, and version increment is complete. Adding this label is handled by the Auto plugin `@auto-it/released`.
+The plugin follows an extended version of the conventional commits specification, where the type of commit determines the release version. If a PR is not labeled, the plugin will check if any commit within the PR follows the conventional-commits format. If no conventional commit is found, the PR will be skipped.
+
+### Version Calculation Rules:
+
+- **fix:** Triggers a **patch** version bump (`x.x.1`)
+- **feat:** Triggers a **minor** version bump (`x.1.x`)
+- **BREAKING CHANGE** (in footer) or a **!** in the type: Triggers a **major** version bump (`1.x.x`)
+- Any other types (e.g., docs, refactor, chore) are **skip-release** and will not trigger a new release.
+
+### Extended Conventional Commits Behavior:
+
+- `fix:` → **Patch** release.
+- `feat:` → **Minor** release.
+- `BREAKING` or `!` in the type → **Major** release.
+- Commits with `BREAKING CHANGE` in the footer → **Major** release.
+- All other commit types (e.g., docs, style, chore) → **No release** (skip-release).
+
+With this setup, only conventional-commit messages that specify `fix`, `feat`, or breaking changes will trigger version bumps, while others will be ignored, ensuring that releases are only created for significant changes.
 
 ---
 
