@@ -1,6 +1,5 @@
 {
   "name": "@locospec/blueprint-react",
-  "author": "Rajiv Seelam",
   "publishConfig": {
     "access": "public"
   },

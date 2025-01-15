@@ -1,6 +1,5 @@
 {
   "name": "@locospec/elements-react",
-  "author": "Shrey Dhyani",
   "publishConfig": {
     "access": "public"
   },
