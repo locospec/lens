@@ -1,15 +1,15 @@
 name: Release
 
-on:
-  push:
-    branches: [main, alpha, beta, next]
-    paths:
-      - "packages/elements-react/**"
+on: [push]
+
+concurrency:
+  group: all-release
+  cancel-in-progress: true
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci') }}
     steps:
       - uses: actions/checkout@v2
 
@@ -33,9 +33,14 @@ jobs:
         run: |
           npm ci
 
-      - name: Build EL
+      - name: Check for changes
+        id: check
         run: |
-          npm run el:build
+          echo "::set-output name=changes::$(npx lerna changed -p | wc -l)"
+
+      - name: Build
+        run: |
+          npm run build
 
       - name: Create Release
         env:
