@@ -3,7 +3,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "author": "locospec",
+  "author": {
+    "name": "Shrey Dhyani",
+    "email": "shrey@betalectic.com",
+    "url": "https://github.com/ShreyDhyani"
+  },
   "version": "0.10.0",
   "type": "module",
   "exports": {
