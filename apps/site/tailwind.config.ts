@@ -69,5 +69,6 @@ module.exports = {
         except: ".no-twp",
       }),
     }),
+    require("@tailwindcss/container-queries"),
   ],
 } satisfies Config;

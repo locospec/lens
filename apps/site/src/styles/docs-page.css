@@ -23,10 +23,22 @@
 
   /* Add divider under h1 */
   header h1 {
-    @apply pb-4 border-solid border-0 border-b border-gray-200 dark:border-gray-700;
+    @apply pb-4 border-0 border-b border-gray-200 border-solid dark:border-gray-700;
   }
 
   .table-of-contents {
     @apply lg:!pt-1;
+  }
+}
+
+.docs-doc-page {
+  [class*="docItemCol_"] {
+    max-width: 85% !important;
+  }
+
+  .col--3 {
+    /* (15/100)*12 is 1.8, we gave 85% to above col */
+    --ifm-col-width: calc(1.8 / 12 * 100%) !important;
+    flex: 0 0 var(--ifm-col-width) !important;
   }
 }
