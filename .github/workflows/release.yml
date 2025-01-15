@@ -33,11 +33,6 @@ jobs:
         run: |
           npm ci
 
-      - name: Check for changes
-        id: check
-        run: |
-          echo "::set-output name=changes::$(npx lerna changed -p | wc -l)"
-
       - name: Build
         run: |
           npm run build
