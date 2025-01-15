@@ -51,6 +51,7 @@ export default defineConfig({
         "react/jsx-runtime",
         "@types/react",
         "@types/react-dom",
+        "react-resizable-panels",
       ],
       input: Object.fromEntries(
         // https://rollupjs.org/configuration-options/#input

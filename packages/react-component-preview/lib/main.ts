@@ -1,1 +1,2 @@
-export { Button } from "./components/Button";
+export { IFramePreview } from "./components/IFramePreview";
+export { ChildPreview } from "./components/ChildPreview";
