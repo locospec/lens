@@ -4,9 +4,17 @@ Shell with sidebar has all navigation items in the left sidebar and a top naviga
 
 ## Preview
 
-import ResizablePreview from "@site/src/components/ResizablePreview";
+import {
+  IFrameResizablePreview,
+  ChildResizablePreview,
+} from "@site/src/components/ResizablePreview";
+import ContainerQuerySample from "@site/src/components/ContainerQuerySample";
 import CodeBlock from "@theme/CodeBlock";
 import MyComponentSource from "!!raw-loader!@site/src/pages/previews/shell-sidebar.tsx";
+
+<ChildResizablePreview>
+  <ContainerQuerySample />
+</ChildResizablePreview>
 
 <CodeBlock language="jsx">{MyComponentSource}</CodeBlock>
 
@@ -21,7 +29,7 @@ import TabItem from "@theme/TabItem";
 
 <Tabs>
   <TabItem value="apple" label="Apple" default>
-    <ResizablePreview pageUrl="previews/shell-sidebar" height={700} />
+    <IFrameResizablePreview pageUrl="previews/shell-sidebar" height={700} />
   </TabItem>
   <TabItem value="orange" label="Orange">
     This is an orange 🍊
