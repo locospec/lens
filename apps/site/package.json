@@ -2,6 +2,11 @@
   "name": "site",
   "version": "0.5.0",
   "private": true,
+  "author": {
+    "name": "Shrey Dhyani",
+    "email": "shrey@betalectic.com",
+    "url": "https://github.com/ShreyDhyani"
+  },
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
