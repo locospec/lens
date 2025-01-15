@@ -4,7 +4,11 @@
     "access": "public"
   },
   "version": "0.5.0",
-  "author": "locospec",
+  "author": {
+    "name": "Shrey Dhyani",
+    "email": "shrey@betalectic.com",
+    "url": "https://github.com/ShreyDhyani"
+  },
   "type": "module",
   "exports": {
     ".": {
