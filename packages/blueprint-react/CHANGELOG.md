@@ -1,3 +1,45 @@
+# v0.5.0 (Wed Jan 15 2025)
+
+#### 🚀 Enhancement
+
+- feat: integrate Tailwind CSS scoped preflight styles and update Sidebar component ([@rjvim](https://github.com/rjvim))
+- feat: update Tailwind CSS configuration and add PostCSS support ([@rjvim](https://github.com/rjvim))
+- feat: add Sidebar component and Avatar documentation, update import paths ([@rjvim](https://github.com/rjvim))
+- feat: implement new UI components using Radix UI, including AspectRatio, Skeleton, Collapsible, and more ([@rjvim](https://github.com/rjvim))
+- feat: update Avatar component to use Radix UI, add new documentation, and restructure TypeScript configurations ([@rjvim](https://github.com/rjvim))
+- feat: remove Avatar component implementation from blueprint-react ([@rjvim](https://github.com/rjvim))
+- feat: update Avatar component to use Radix UI and change fallback text ([@rjvim](https://github.com/rjvim))
+- feat: simplify Label component header text ([@rjvim](https://github.com/rjvim))
+- feat: remove unused base package dependency from blueprint-react ([@rjvim](https://github.com/rjvim))
+- feat: remove unused base package files and configurations ([@rjvim](https://github.com/rjvim))
+- feat: update package.json files to set main entry points and add base dependency ([@rjvim](https://github.com/rjvim))
+- feat: initialize base package with Vite, React, and TypeScript setup ([@rjvim](https://github.com/rjvim))
+- feat: refactor Avatar components and remove ShadAvatar implementation ([@rjvim](https://github.com/rjvim))
+- feat: add development entry point to package exports in blueprint-react ([@rjvim](https://github.com/rjvim))
+- feat: update console log messages in Blueprint components for clarity ([@rjvim](https://github.com/rjvim))
+- feat: update Vite configuration to include react-dom and type definitions as external dependencies ([@rjvim](https://github.com/rjvim))
+- feat: update README and package configurations to support optional React types and broader React version compatibility ([@rjvim](https://github.com/rjvim))
+- feat: update markdown features documentation and remove unused imports ([@rjvim](https://github.com/rjvim))
+- feat: refactor Avatar component and introduce ShadAvatar and SchemaAvatar ([@rjvim](https://github.com/rjvim))
+- feat: add Avatar component and update Button component with new variants ([@rjvim](https://github.com/rjvim))
+
+#### 🐛 Bug Fix
+
+- Blueprint components [#49](https://github.com/locospec/ui/pull/49) ([@rjvim](https://github.com/rjvim))
+- Merge branch 'main' into blueprint_components ([@rjvim](https://github.com/rjvim))
+- fix: update ResizablePreview to use finalUrl for iframe source and adjust Sheet component styles ([@rjvim](https://github.com/rjvim))
+- Merge branch 'blueprint_components' of github.com:locospec/ui into blueprint_components ([@rjvim](https://github.com/rjvim))
+- refactor: remove debug console log from Vite configuration ([@rjvim](https://github.com/rjvim))
+- refactor: standardize import paths and format code across UI components ([@rjvim](https://github.com/rjvim))
+- refactor: remove unused Tailwind CSS base layer styles ([@rjvim](https://github.com/rjvim))
+- refactor: clean up code and update import paths, remove unused PostCSS configuration ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 1
+
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.4.0 (Fri Jan 10 2025)
 
 #### 🚀 Enhancement

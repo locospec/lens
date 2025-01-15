@@ -1,3 +1,22 @@
+# (Wed Jan 15 2025)
+
+#### 🐛 Bug Fix
+
+- Create CODE_OF_CONDUCT.md [#53](https://github.com/locospec/ui/pull/53) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- ci: Added copiolet Instructions [#52](https://github.com/locospec/ui/pull/52) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- docs: Modified release workflow documentation [#52](https://github.com/locospec/ui/pull/52) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- docs: updated release labels section [#52](https://github.com/locospec/ui/pull/52) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- docs: Added release_workflow initial documentation md file [#52](https://github.com/locospec/ui/pull/52) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `site@0.5.0`, `@locospec/blueprint-react@0.5.0`, `@locospec/elements-react@0.10.0`
+  - Blueprint components [#49](https://github.com/locospec/ui/pull/49) ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # (Mon Jan 13 2025)
 
 #### 🐛 Bug Fix

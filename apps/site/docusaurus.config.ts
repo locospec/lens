@@ -43,6 +43,10 @@ const config: Config = {
     "https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@300;400;500;600;700;800;900&family=Lexend:wght@100..900&display=swap",
   ],
 
+  clientModules: [
+    "../../node_modules/@locospec/blueprint-react/dist/styles.css",
+  ],
+
   presets: [
     [
       "classic",
@@ -103,6 +107,12 @@ const config: Config = {
           position: "left",
           label: "Tutorial",
         },
+        {
+          type: "docSidebar",
+          sidebarId: "blueprintSidebar",
+          position: "left",
+          label: "Blueprint",
+        },
         { to: "/blog", label: "Blog", position: "left" },
         {
           href: "https://github.com/facebook/docusaurus",
@@ -119,7 +129,7 @@ const config: Config = {
           items: [
             {
               label: "Tutorial",
-              to: "/docs/intro",
+              to: "/docs/tutorial/intro",
             },
           ],
         },

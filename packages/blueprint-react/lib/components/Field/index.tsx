@@ -8,7 +8,7 @@ type FormFieldProps = {
 };
 
 export const Field = ({ label, placeholder }: FormFieldProps) => {
-  console.log("Loading lib-a Field in this page!");
+  console.log("Blueprint Field");
 
   const [inputCustomCountValue, setInputCustomCountValue] = useState("");
 

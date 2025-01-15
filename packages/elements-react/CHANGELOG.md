@@ -1,3 +1,21 @@
+# v0.10.0 (Wed Jan 15 2025)
+
+#### 🚀 Enhancement
+
+- feat: initialize base package with Vite, React, and TypeScript setup ([@rjvim](https://github.com/rjvim))
+
+#### 🐛 Bug Fix
+
+- Blueprint components [#49](https://github.com/locospec/ui/pull/49) ([@rjvim](https://github.com/rjvim))
+- Merge branch 'main' into blueprint_components ([@rjvim](https://github.com/rjvim))
+- Merge branch 'blueprint_components' of github.com:locospec/ui into blueprint_components ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 1
+
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.9.6 (Mon Jan 13 2025)
 
 #### 🐛 Bug Fix

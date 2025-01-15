@@ -1,6 +1,6 @@
 export function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
   const { className, ...restProps } = props;
-  console.log("Loading lib-a Input");
+  console.log("Blueprint Input");
 
   return <input className={`${className}`} {...restProps} />;
 }
