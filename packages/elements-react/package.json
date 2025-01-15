@@ -3,6 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "author": "locospec",
   "version": "0.10.0",
   "type": "module",
   "exports": {
