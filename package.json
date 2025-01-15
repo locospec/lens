@@ -6,6 +6,8 @@
   "scripts": {
     "lerna": "lerna",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "rcp:build": "lerna run build --scope @locospec/react-component-preview",
+    "rcp:dev": "lerna run build:watch --scope @locospec/react-component-preview",
     "bp:build": "lerna run build --scope @locospec/blueprint-react",
     "bp:dev": "lerna run build:watch --scope @locospec/blueprint-react",
     "el:build": "lerna run build --scope @locospec/elements-react",
