@@ -7,20 +7,17 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "./resizable";
+import { Monitor, Smartphone, Tablet } from "lucide-react";
+import { ToggleGroup, ToggleGroupItem } from "./toggle-group";
+import { breakpoints, getBreakpoint } from "./breakpoints";
+import type { Breakpoint } from "./breakpoints";
 
 import {
-  Check,
-  ChevronRight,
-  Clipboard,
-  File,
-  Folder,
-  Fullscreen,
-  Monitor,
-  Smartphone,
-  Tablet,
-  Terminal,
-} from "lucide-react";
-import { ToggleGroup, ToggleGroupItem } from "./toggle-group";
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./tooltip";
 
 interface PreviewWrapperProps {
   children?: React.ReactNode;
@@ -30,7 +27,16 @@ interface PreviewWrapperProps {
 export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
   const resizablePanelRef = React.useRef<ImperativePanelHandle>(null);
   const [width, setWidth] = React.useState<number>(0);
+  const [maxWidth, setMaxWidth] = React.useState<number>(0);
   const panelContentRef = React.useRef<HTMLDivElement>(null);
+
+  //   console.log("width", maxWidth);
+
+  React.useEffect(() => {
+    if (width > maxWidth) {
+      setMaxWidth(width);
+    }
+  }, [width]);
 
   React.useEffect(() => {
     if (!panelContentRef.current) return;
@@ -44,44 +50,71 @@ export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
     return () => observer.disconnect();
   }, []);
 
+  const availableBreakpoints = React.useMemo(() => {
+    return breakpoints.map((breakpoint: Breakpoint) => {
+      breakpoint.percentage = (breakpoint.minWidthPx * 100) / maxWidth;
+      if (breakpoint.percentage > 100) {
+        breakpoint.percentage = 100;
+      }
+      return breakpoint;
+    });
+  }, [maxWidth]);
+
   return (
     <div className="twp">
       <div className="grid w-full gap-4">
         <div className="flex items-center justify-between mr-[12px]">
-          <div className="p-2 text-xs">Width: {width}px</div>
+          <div className="p-2 text-xs">
+            Width: {width}px (
+            {resizablePanelRef.current && resizablePanelRef.current.getSize()}%)
+          </div>
+
+          {/* {JSON.stringify(availableBreakpoints)} */}
 
           <div className="hidden h-7 items-center gap-1.5 rounded-md border p-[2px] shadow-none lg:flex">
-            <ToggleGroup
-              type="single"
-              defaultValue="100"
-              onValueChange={(value) => {
-                if (resizablePanelRef?.current) {
-                  resizablePanelRef.current.resize(parseInt(value));
-                }
-              }}
-            >
-              <ToggleGroupItem
-                value="100"
-                className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
-                title="Desktop"
+            <TooltipProvider>
+              <ToggleGroup
+                type="single"
+                defaultValue="100"
+                onValueChange={(value) => {
+                  console.log("value", value);
+                  if (resizablePanelRef?.current) {
+                    resizablePanelRef.current.resize(parseInt(value));
+                  }
+                }}
+                className="flex items-center"
               >
-                <Monitor className="h-3.5 w-3.5" />
-              </ToggleGroupItem>
-              <ToggleGroupItem
-                value="60"
-                className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
-                title="Tablet"
-              >
-                <Tablet className="h-3.5 w-3.5" />
-              </ToggleGroupItem>
-              <ToggleGroupItem
-                value="30"
-                className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
-                title="Mobile"
-              >
-                <Smartphone className="h-3.5 w-3.5" />
-              </ToggleGroupItem>
-            </ToggleGroup>
+                {availableBreakpoints.map((breakpoint: Breakpoint) => {
+                  const Icon = breakpoint.icon;
+                  return (
+                    <ToggleGroupItem
+                      data-state={
+                        getBreakpoint(width)?.title === breakpoint.title
+                          ? "on"
+                          : "off"
+                      }
+                      value={breakpoint?.percentage?.toString() || "100"}
+                      key={breakpoint.title}
+                      className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
+                      title={`${breakpoint.title} (${breakpoint.minWidthPx}px)`}
+                    >
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Icon className="h-3.5 w-3.5" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>
+                            `${breakpoint.title} (${breakpoint.minWidthPx}px)`
+                          </p>
+                        </TooltipContent>
+                      </Tooltip>
+
+                      {/* <span className="text-xs">{breakpoint.title}</span> */}
+                    </ToggleGroupItem>
+                  );
+                })}
+              </ToggleGroup>
+            </TooltipProvider>
           </div>
         </div>
 
@@ -89,7 +122,10 @@ export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
           direction="horizontal"
           className="relative z-10 bg-gray-50"
         >
-          <ResizablePanel ref={resizablePanelRef} className={`${className}`}>
+          <ResizablePanel
+            ref={resizablePanelRef}
+            className={`border ${className}`}
+          >
             <div ref={panelContentRef}>{children}</div>
           </ResizablePanel>
           <ResizableHandle className="relative hidden w-3 bg-transparent p-0 after:absolute after:right-0 after:top-1/2 after:h-8 after:w-[6px] after:-translate-y-1/2 after:translate-x-[-1px] after:rounded-full after:bg-border after:transition-all after:hover:h-10 md:block" />
