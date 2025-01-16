@@ -1,14 +1,8 @@
 "use client";
 
-import * as React from "react";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-import * as ResizablePrimitive from "react-resizable-panels";
 import { GripVertical } from "lucide-react";
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+import * as ResizablePrimitive from "react-resizable-panels";
+import { cn } from "./utils";
 
 const ResizablePanelGroup = ({
   className,
@@ -47,4 +41,4 @@ const ResizableHandle = ({
   </ResizablePrimitive.PanelResizeHandle>
 );
 
-export { cn, ResizablePanelGroup, ResizablePanel, ResizableHandle };
+export { ResizablePanelGroup, ResizablePanel, ResizableHandle };

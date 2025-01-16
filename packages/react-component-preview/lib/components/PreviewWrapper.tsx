@@ -1,7 +1,12 @@
 "use client";
 import * as React from "react";
 import { ImperativePanelHandle } from "react-resizable-panels";
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "./lib";
+// import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "./lib";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "./resizable";
 
 interface PreviewWrapperProps {
   children?: React.ReactNode;
@@ -26,19 +31,17 @@ export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
   }, []);
 
   return (
-    <div className="group-data-[view=code]/block-view-wrapper:hidden twp">
+    <div className="twp">
       <div className="grid w-full gap-4">
+        <div className="relative p-1 text-xs bg-black-400 bottom-2 right-2">
+          Width: {width}px
+        </div>
         <ResizablePanelGroup direction="horizontal" className="relative z-10">
           <ResizablePanel
             ref={resizablePanelRef}
             className={`relative aspect-[4/2.5] rounded-xl border bg-background md:aspect-auto ${className}`}
-            defaultSize={100}
-            minSize={30}
           >
             <div ref={panelContentRef} className="relative">
-              <div className="absolute p-1 text-xs bg-red-400 bottom-2 right-2">
-                Width: {width}px
-              </div>
               {children}
             </div>
           </ResizablePanel>

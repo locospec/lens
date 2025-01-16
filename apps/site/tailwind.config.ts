@@ -12,6 +12,7 @@ module.exports = {
     "./src/**/*.tsx",
     "./*.ts",
     "../../packages/blueprint-react/lib/**/*.tsx",
+    "../../packages/react-component-preview/lib/**/*.tsx",
   ],
   darkMode: ["class", '[data-theme="dark"]'],
   important: true,
