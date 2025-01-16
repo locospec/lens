@@ -13,10 +13,6 @@ export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
   const [width, setWidth] = React.useState<number>(0);
   const panelContentRef = React.useRef<HTMLDivElement>(null);
 
-  const handleResize = (size: number) => {
-    // setWidth(size);
-  };
-
   React.useEffect(() => {
     if (!panelContentRef.current) return;
 
@@ -36,7 +32,6 @@ export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
           <ResizablePanel
             ref={resizablePanelRef}
             className={`relative aspect-[4/2.5] rounded-xl border bg-background md:aspect-auto ${className}`}
-            onResize={handleResize}
             defaultSize={100}
             minSize={30}
           >
