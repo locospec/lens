@@ -18,7 +18,8 @@ export const List = ({
           "Content-Type": "application/json",
         },
       });
-      return await response.json();
+      const config = await response.json();
+      return config;
     },
   });
 
