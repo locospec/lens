@@ -7,7 +7,6 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "./resizable";
-import { Monitor, Smartphone, Tablet } from "lucide-react";
 import { ToggleGroup, ToggleGroupItem } from "./toggle-group";
 import { breakpoints, getBreakpoint } from "./breakpoints";
 import type { Breakpoint } from "./breakpoints";
@@ -30,8 +29,6 @@ export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
   const [maxWidth, setMaxWidth] = React.useState<number>(0);
   const panelContentRef = React.useRef<HTMLDivElement>(null);
 
-  //   console.log("width", maxWidth);
-
   React.useEffect(() => {
     if (width > maxWidth) {
       setMaxWidth(width);
@@ -52,7 +49,9 @@ export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
 
   const availableBreakpoints = React.useMemo(() => {
     return breakpoints.map((breakpoint: Breakpoint) => {
-      breakpoint.percentage = (breakpoint.minWidthPx * 100) / maxWidth;
+      breakpoint.percentage = Math.ceil(
+        (breakpoint.minWidthPx * 100) / maxWidth
+      );
       if (breakpoint.percentage > 100) {
         breakpoint.percentage = 100;
       }
@@ -64,7 +63,7 @@ export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
     <div className="twp">
       <div className="grid w-full gap-4">
         <div className="flex items-center justify-between mr-[12px]">
-          <div className="p-2 text-xs">
+          <div className="py-2 text-xs">
             Width: {width}px (
             {resizablePanelRef.current && resizablePanelRef.current.getSize()}%)
             [{getBreakpoint(width)?.title}]
@@ -78,7 +77,6 @@ export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
                 type="single"
                 defaultValue="100"
                 onValueChange={(value) => {
-                  console.log("value", value);
                   if (resizablePanelRef?.current) {
                     resizablePanelRef.current.resize(parseInt(value));
                   }
