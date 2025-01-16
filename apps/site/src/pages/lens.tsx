@@ -1,12 +1,11 @@
 import { Lens } from "@locospec/elements-react";
 import React, { useEffect, useState } from "react";
-import { makeServer } from "../server/mocks/mirageServer";
+// import { makeServer } from "../server/mocks/mirageServer";
 
-// Example component with DataTable
 const LensStory = () => {
-  useEffect(() => {
-    makeServer();
-  }, []);
+  // useEffect(() => {
+  //   makeServer();
+  // }, []);
   const [checkedIds, setCheckedIds] = useState([]);
 
   const handleSelectionChange = (selectedItem) => {
