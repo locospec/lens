@@ -1,4 +1,6 @@
 {
+  "name": "Rajiv Seelam",
+  "email": "rajiv@betalectic.com",
   "baseBranch": "main",
   "onlyPublishWithReleaseLabel": true,
   "plugins": [
