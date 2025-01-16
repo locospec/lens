@@ -1,7 +1,7 @@
 {
   "author": {
-    "name": "Rajiv Seelam",
-    "email": "rajiv@betalectic.com"
+    "name": "LoCoSpec",
+    "email": "bot@locospec.com"
   },
   "baseBranch": "main",
   "onlyPublishWithReleaseLabel": true,
