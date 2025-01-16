@@ -14,26 +14,24 @@ export interface LensInterface {
   showDevTools?: boolean;
 }
 
-const DataTable = ({
+const Lens = ({
   selectionType = "single",
   selectedItems = [],
   onSelect,
   configEndpoint,
   dataEndpoint,
   showDevTools = false,
-}: LensInterface) => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      {showDevTools ? <ReactQueryDevtools /> : <></>}
-      <List
-        onSelect={onSelect}
-        selectionType={selectionType}
-        selectedItems={selectedItems}
-        configEndpoint={configEndpoint}
-        dataEndpoint={dataEndpoint}
-      />
-    </QueryClientProvider>
-  );
-};
+}: LensInterface) => (
+  <QueryClientProvider client={queryClient}>
+    {showDevTools ? <ReactQueryDevtools /> : <></>}
+    <List
+      onSelect={onSelect}
+      selectionType={selectionType}
+      selectedItems={selectedItems}
+      configEndpoint={configEndpoint}
+      dataEndpoint={dataEndpoint}
+    />
+  </QueryClientProvider>
+);
 
-export default DataTable;
+export default Lens;
