@@ -1,3 +1,27 @@
+# v0.11.0 (Thu Jan 16 2025)
+
+#### 🐛 Bug Fix
+
+- patch(elements-button): modified log for button [#88](https://github.com/locospec/ui/pull/88) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added SelectionType type for use in multiple components [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added interface for List component [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: changed name to Lens for data-tabel component [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added var to log console befor return [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- docs: Added sample schema for Table component [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- docs: Added interface for Lens component [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed comment [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- ci: changes author [#86](https://github.com/locospec/ui/pull/86) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- ci: Added author in package.json field [#85](https://github.com/locospec/ui/pull/85) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: modified log in button [#84](https://github.com/locospec/ui/pull/84) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: remove author fields from package.json files ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.10.0 (Wed Jan 15 2025)
 
 #### 🚀 Enhancement

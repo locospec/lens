@@ -1,3 +1,18 @@
+# v0.6.0 (Thu Jan 16 2025)
+
+#### 🐛 Bug Fix
+
+- ci: changes author [#86](https://github.com/locospec/ui/pull/86) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- ci: Added author in package.json field [#85](https://github.com/locospec/ui/pull/85) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: remove author fields from package.json files ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.5.0 (Wed Jan 15 2025)
 
 #### 🚀 Enhancement
