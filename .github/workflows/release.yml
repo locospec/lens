@@ -33,11 +33,6 @@ jobs:
         run: |
           npm ci
 
-      - name: Changed since HEAD
-        run: |
-          git log --oneline
-          npx run changed
-
       - name: Build
         run: |
           npm run build
