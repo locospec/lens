@@ -11,18 +11,18 @@ const LensStory = () => {
 
   const handleSelectionChange = (selectedItem) => {
     if (selectedItem) {
-      setCheckedIds([selectedItem]);
+      setCheckedIds(selectedItem);
     } else {
       setCheckedIds([]);
     }
   };
 
   return (
-    <div className="flex flex-col p-4 h-screen ">
-      <h3>This is an example story component with Ladle!</h3>
-      <div className="flex-grow overflow-y-auto border-2 max-h-[500px]">
+    <div className="flex flex-col p-4 h-screen items-center w-full gap-y-4">
+      <h3 className="font-bold text-lg">Table with Multi Select </h3>
+      <div className="flex-grow overflow-y-auto border-2 max-h-[500px] w-full">
         <Lens
-          selectionType={"single"}
+          selectionType={"multiple"}
           configEndpoint="/api/data-bench/test-data/config"
           dataEndpoint="/api/data-bench/test-data/fetch"
           onSelect={(value) => {
