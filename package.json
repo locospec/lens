@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lerna": "lerna",
-    "changed": "lerna run changed --since=HEAD~1",
-    "build": "lerna run build --since=HEAD~1",
+    "changed": "lerna run changed",
+    "build": "lerna run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "bp:build": "lerna run build --scope @locospec/blueprint-react",
     "bp:dev": "lerna run build:watch --scope @locospec/blueprint-react",
