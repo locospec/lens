@@ -78,31 +78,6 @@
     "vite-plugin-dts": "^4.2.1",
     "vite-plugin-lib-inject-css": "^2.1.1"
   },
-  "auto": {
-    "baseBranch": "main",
-    "plugins": [
-      "all-contributors",
-      [
-        "npm",
-        {
-          "forcePublish": false
-        }
-      ],
-      [
-        "conventional-commits",
-        {
-          "defaultReleaseType": "patch"
-        }
-      ],
-      "released"
-    ],
-    "prereleaseBranches": [
-      "alpha",
-      "beta",
-      "next"
-    ],
-    "onlyPublishWithReleaseLabel": true
-  },
   "overrides": {
     "vite": {
       "rollup": "npm:@rollup/wasm-node"
