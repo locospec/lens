@@ -9,7 +9,7 @@ import {
 import { ToggleGroup, ToggleGroupItem } from "./toggle-group";
 import { breakpoints, getBreakpoint } from "./breakpoints";
 import type { Breakpoint } from "./breakpoints";
-import { Button, Theme } from "@radix-ui/themes";
+import { Button, Skeleton, Text, Theme } from "@radix-ui/themes";
 import {
   Tooltip,
   TooltipContent,
@@ -61,7 +61,14 @@ export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
   return (
     <Theme>
       <div className="grid w-full gap-4">
-        <Button>Let's go</Button>
+        <Text>
+          <Skeleton className="bg-gray-200">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Pellentesque felis tellus, efficitur id convallis a, viverra eget
+            libero. Nam magna erat, fringilla sed commodo sed, aliquet nec
+            magna. Nam magna erat, fringilla sed commodo sed, aliquet nec magna.
+          </Skeleton>
+        </Text>
 
         <div className="flex items-center justify-between mr-[12px]">
           <div className="py-2 text-xs">
