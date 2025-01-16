@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { makeServer } from "../server/mocks/mirageServer";
 
 // Example component with DataTable
-const DataTableStory = () => {
+const LensStory = () => {
   useEffect(() => {
     makeServer();
   }, []);
@@ -35,4 +35,4 @@ const DataTableStory = () => {
   );
 };
 
-export default DataTableStory;
+export default LensStory;
