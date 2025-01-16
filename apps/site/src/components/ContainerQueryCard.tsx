@@ -96,37 +96,6 @@ const ContainerQueryCard = () => {
               ))}
             </div>
           </div>
-
-          {/* Footer that changes with container size */}
-          <div className="pt-4 mt-6 border-t border-gray-200">
-            <p className="text-xs @sm:text-sm @md:text-base text-gray-500">
-              Container width classes:
-              <span className="@xs:hidden">Default (&#x3C;320px)</span>
-              <span className="hidden @xs:inline @sm:hidden">@xs (≥320px)</span>
-              <span className="hidden @sm:inline @md:hidden">@sm (≥384px)</span>
-              <span className="hidden @md:inline @lg:hidden">@md (≥448px)</span>
-              <span className="hidden @lg:inline @xl:hidden">@lg (≥512px)</span>
-              <span className="hidden @xl:inline @2xl:hidden">
-                @xl (≥576px)
-              </span>
-              <span className="hidden @2xl:inline @3xl:hidden">
-                @2xl (≥672px)
-              </span>
-              <span className="hidden @3xl:inline @4xl:hidden">
-                @3xl (≥768px)
-              </span>
-              <span className="hidden @4xl:inline @5xl:hidden">
-                @4xl (≥896px)
-              </span>
-              <span className="hidden @5xl:inline @6xl:hidden">
-                @5xl (≥1024px)
-              </span>
-              <span className="hidden @6xl:inline @7xl:hidden">
-                @6xl (≥1152px)
-              </span>
-              <span className="hidden @7xl:inline">@7xl (≥1280px)</span>
-            </p>
-          </div>
         </div>
       </div>
     </div>
