@@ -1,6 +1,12 @@
 import { TableCell } from "./TableCell.tsx";
 
-const TableRow = ({ row, virtualRow, rowVirtualizer }: any) => {
+export interface TableRowInterface {
+  row: any;
+  virtualRow: any;
+  rowVirtualizer: any;
+}
+
+const TableRow = ({ row, virtualRow, rowVirtualizer }: TableRowInterface) => {
   return (
     <div
       className={`absolute top-0 flex w-full hover:bg-gray-50 ${
