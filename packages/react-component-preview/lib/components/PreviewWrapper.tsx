@@ -67,6 +67,7 @@ export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
           <div className="p-2 text-xs">
             Width: {width}px (
             {resizablePanelRef.current && resizablePanelRef.current.getSize()}%)
+            [{getBreakpoint(width)?.title}]
           </div>
 
           {/* {JSON.stringify(availableBreakpoints)} */}
@@ -93,7 +94,7 @@ export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
                           ? "on"
                           : "off"
                       }
-                      value={breakpoint?.percentage?.toString() || "100"}
+                      value={breakpoint?.percentage?.toString() || "0"}
                       key={breakpoint.title}
                       className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
                       title={`${breakpoint.title} (${breakpoint.minWidthPx}px)`}
