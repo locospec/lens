@@ -57,7 +57,9 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.469.0",
     "react-resizable-panels": "^2.1.7",
-    "tailwind-merge": "^2.6.0"
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-scoped-preflight": "^3.4.10"
   },
   "devDependencies": {
     "@types/node": "^22.5.4",
