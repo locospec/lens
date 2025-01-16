@@ -62,7 +62,11 @@ export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
     <Theme>
       <div className="grid w-full gap-4">
         <Text>
-          <Skeleton className="bg-gray-200">
+          <Skeleton
+            style={{
+              backgroundColor: "var(--gray-3) !important",
+            }}
+          >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Pellentesque felis tellus, efficitur id convallis a, viverra eget
             libero. Nam magna erat, fringilla sed commodo sed, aliquet nec
