@@ -2,11 +2,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "./css/divTable.css";
 import { List } from "./List.tsx";
+import type { SelectionType } from "./interfaces/index.ts";
 
 const queryClient = new QueryClient();
 
 export interface LensInterface {
-  selectionType: "single" | "multiple" | "none";
+  selectionType: SelectionType;
   onSelect?: (selection: any) => void;
   selectedItems?: string[];
   configEndpoint: string;
