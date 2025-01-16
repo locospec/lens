@@ -1,5 +1,4 @@
 import {
-  ArrowBigDown,
   DoorClosedIcon,
   Monitor,
   MonitorCheck,

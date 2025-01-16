@@ -35,25 +35,22 @@ const ContainerQueryCard = () => {
             @2xl:gap-4"
           >
             <h2
-              className="font-bold 
+              className="w-2/3 h-8 rounded bg-gray-500 font-bold 
               text-base
               @xs:text-lg 
               @sm:text-xl
               @md:text-2xl
               @lg:text-3xl
               @xl:text-4xl"
-            >
-              Reading Progress Dashboard
-            </h2>
+            ></h2>
+
             <p
-              className="text-gray-600 
+              className="w-1/4 h-6 rounded bg-gray-300 text-gray-600 
               text-xs
               @sm:text-sm
               @md:text-base
               @lg:text-lg"
-            >
-              Track your reading journey
-            </p>
+            ></p>
           </div>
 
           {/* Stats Grid */}
@@ -86,9 +83,7 @@ const ContainerQueryCard = () => {
             >
               {Array.from({ length: 4 }).map((_, i) => (
                 <div key={i} className="p-4 rounded bg-white/50">
-                  <h3 className="mb-2 font-semibold">
-                    Recent Activity {i + 1}
-                  </h3>
+                  <h3 className="w-full h-6 mb-2 font-semibold bg-gray-500 rounded"></h3>
                   <p className="text-sm text-gray-600">
                     Completed chapter {i + 1} of your current book
                   </p>
@@ -113,28 +108,27 @@ const StatCard = ({ icon: Icon, label, value }) => (
       className="flex items-center gap-2 
       @2xl:gap-3"
     >
-      <Icon
-        className="w-4 h-4 
-        @sm:w-5 @sm:h-5
-        @xl:w-6 @xl:h-6"
-      />
-      <span
-        className="text-xs font-medium
+      <div
+        className="min-w-4 min-h-4 
+        @sm:min-w-5 @sm:min-h-5
+        @xl:min-w-6 @xl:min-h-6
+        bg-gray-200"
+      ></div>
+
+      <div
+        className="w-48 h-3 rounded bg-gray-500 text-xs font-medium
         @sm:text-sm
         @xl:text-base"
-      >
-        {label}
-      </span>
+      ></div>
     </div>
-    <p
-      className="mt-2 font-bold
+
+    <div
+      className="mt-2 w-full h-12 font-bold bg-gray-800
       text-lg
       @sm:text-xl
       @xl:text-2xl
       @4xl:text-3xl"
-    >
-      {value}
-    </p>
+    ></div>
   </div>
 );
 
