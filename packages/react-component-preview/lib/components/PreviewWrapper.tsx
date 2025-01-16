@@ -29,8 +29,6 @@ export function PreviewWrapper({ children, className }: PreviewWrapperProps) {
     return () => observer.disconnect();
   }, []);
 
-  console.log("width", width);
-
   return (
     <div className="group-data-[view=code]/block-view-wrapper:hidden twp">
       <div className="grid w-full gap-4">
