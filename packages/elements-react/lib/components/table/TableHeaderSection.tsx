@@ -1,6 +1,14 @@
 import { TableHeader } from "./TableHeader.tsx";
 
-const TableHeaderSection = ({ table, columnSizeVars }: any) => {
+export interface TableHeaderSectionInterface {
+  table: any;
+  columnSizeVars: any;
+}
+
+const TableHeaderSection = ({
+  table,
+  columnSizeVars,
+}: TableHeaderSectionInterface) => {
   return (
     <div className="sticky top-0 z-10 bg-white">
       {table.getHeaderGroups().map((headerGroup: any) => (
