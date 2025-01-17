@@ -1,15 +1,19 @@
 @layer theme, base, components, utilities;
 
+@source "../lib/**/*.tsx";
+@source "../lib/**/*.{ts,tsx}";
+@source "./**/*.{ts,tsx}";
+
 @import "@radix-ui/themes/tokens.css" layer(theme);
-@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/theme" layer(theme) prefix(bp);
 
 @variant dark (&:where(.dark, .dark *));
 
 .loco {
-  @import "tailwindcss/preflight" layer(base);
+  @import "tailwindcss/preflight" layer(base) prefix(bp);
   @import "@radix-ui/themes/components.css";
   @import "@radix-ui/themes/utilities.css";
-  @import "tailwindcss/utilities" layer(utilities);
+  @import "tailwindcss/utilities" layer(utilities) prefix(bp);
 
   @theme {
     --color-background: hsl(0 0% 100%);
