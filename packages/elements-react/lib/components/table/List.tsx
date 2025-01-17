@@ -1,6 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { ListData } from "./ListData.tsx";
 import useTableConfig from "./hooks/useTableConfig.tsx";
+import type { SelectionType } from "./interfaces/index.ts";
+
+export interface ListInterface {
+  onSelect?: any;
+  selectionType?: SelectionType;
+  selectedItems?: any;
+  configEndpoint: string;
+  dataEndpoint: string;
+}
 
 export const List = ({
   onSelect,
@@ -8,7 +17,7 @@ export const List = ({
   selectedItems,
   configEndpoint,
   dataEndpoint,
-}: any) => {
+}: ListInterface) => {
   const { data: tableConfig, isFetched } = useQuery({
     queryKey: [configEndpoint],
     queryFn: async () => {
@@ -18,7 +27,8 @@ export const List = ({
           "Content-Type": "application/json",
         },
       });
-      return await response.json();
+      const config = await response.json();
+      return config;
     },
   });
 

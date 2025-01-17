@@ -2,7 +2,7 @@ import useTableConfig from "./hooks/useTableConfig";
 import { List } from "./List";
 import { ListData } from "./ListData";
 import { ResizeHandle } from "./ResizeHandle";
-import DataTable from "./table";
+import Lens from "./Lens";
 import { TableBody, MemoizedTableBody } from "./TableBody";
 import { TableCell } from "./TableCell";
 import { TableHeader } from "./TableHeader";
@@ -15,7 +15,7 @@ export {
   List,
   ListData,
   ResizeHandle,
-  DataTable,
+  Lens,
   TableBody,
   MemoizedTableBody,
   TableCell,

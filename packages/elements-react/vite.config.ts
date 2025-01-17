@@ -22,7 +22,13 @@ export default defineConfig({
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "react/jsx-runtime"],
+      external: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        "@types/react",
+        "@types/react-dom",
+      ],
       input: Object.fromEntries(
         // https://rollupjs.org/configuration-options/#input
         glob
