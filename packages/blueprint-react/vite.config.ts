@@ -6,6 +6,7 @@ import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 import { execSync } from "child_process";
+import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 // https://vitejs.dev/config/
@@ -19,24 +20,37 @@ export default defineConfig({
     {
       name: "run-tsc",
       buildStart() {
-        // Run Tailwind build when Vite starts building
         execSync("tsc -b ./tsconfig.lib.json");
       },
     },
     react(),
+    tailwindcss(),
     libInjectCss(),
     dts({
       tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
     }),
     {
-      name: "build-tailwind",
-      buildStart() {
-        // Run Tailwind build when Vite starts building
-        execSync(
-          "tailwindcss -m -i ./src/tailwind-entry.css -o ./dist/styles.css"
-        );
+      name: "css-transform",
+      transform(code, id) {
+        if (id.endsWith(".css")) {
+          return {
+            code: code
+              .replace(/\.loco :root/g, ".loco")
+              .replace(/@layer base\b/g, "@layer bp_base"),
+            map: null,
+          };
+        }
       },
     },
+    // {
+    //   name: "build-tailwind",
+    //   buildStart() {
+    //     // Run Tailwind build when Vite starts building
+    //     execSync(
+    //       "npx @tailwindcss/cli -m -i ./src/tailwind-prod.css -o ./dist/styles.css"
+    //     );
+    //   },
+    // },
   ],
   build: {
     copyPublicDir: false,
@@ -87,10 +101,6 @@ export default defineConfig({
           return null;
         },
       },
-      // output: {
-      //   assetFileNames: "assets/[name][extname]",
-      //   entryFileNames: "[name].js",
-      // },
     },
   },
 });

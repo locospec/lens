@@ -7,3 +7,17 @@
 @import "../styles/font-sizes.css";
 @import "../styles/avatar.css";
 @import "../styles/hero.css";
+@import "@locospec/blueprint-react/main.css";
+
+@layer custom-base {
+  h1 {
+    color: blue;
+  }
+}
+
+@layer custom-elements {
+  .my-component {
+    background: #eee;
+    padding: 10px;
+  }
+}
