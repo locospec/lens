@@ -88,10 +88,6 @@ export default defineConfig({
           return null;
         },
       },
-      // output: {
-      //   assetFileNames: "assets/[name][extname]",
-      //   entryFileNames: "[name].js",
-      // },
     },
   },
 });
