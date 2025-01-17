@@ -15,9 +15,11 @@ const BlueprintAvatar: React.FC<BlueprintAvatarProps> = () => {
   const initials = React.useMemo(getRandomInitials, []);
 
   return (
-    <Avatar>
-      <AvatarFallback>{initials}</AvatarFallback>
-    </Avatar>
+    <div className="loco">
+      <Avatar>
+        <AvatarFallback>{initials}</AvatarFallback>
+      </Avatar>
+    </div>
   );
 };
 
