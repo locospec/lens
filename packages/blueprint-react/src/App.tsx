@@ -123,17 +123,15 @@ function Login() {
 
 function App() {
   return (
-    <div className="twp">
-      <Theme>
-        <ShellSidebar>
-          <Container size="1">
-            <Section>
-              <Login />
-            </Section>
-          </Container>
-        </ShellSidebar>
-      </Theme>
-    </div>
+    <Theme>
+      <ShellSidebar>
+        <Container size="1">
+          <Section>
+            <Login />
+          </Section>
+        </Container>
+      </ShellSidebar>
+    </Theme>
   );
 }
 

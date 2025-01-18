@@ -7,7 +7,7 @@ interface ThemeProps {
 const Theme: React.FC<ThemeProps> = (props) => {
   return (
     <>
-      <div className="loco">
+      <div className="loco twp">
         <RadixTheme>
           {props.children}
           <ThemePanel />

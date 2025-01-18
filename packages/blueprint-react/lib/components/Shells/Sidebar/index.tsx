@@ -82,7 +82,7 @@ export function AppSidebar() {
 
 function ShellSidebar({ children }: { children: React.ReactNode }) {
   return (
-    <SidebarProvider className="twp">
+    <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
         <header className="bp-flex bp-h-16 bp-shrink-0 bp-items-center bp-gap-2 bp-transition-[width,height] bp-ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:bp-h-12">
