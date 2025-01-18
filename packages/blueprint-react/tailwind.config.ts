@@ -3,6 +3,7 @@ import {
   scopedPreflightStyles,
   isolateInsideOfContainer,
 } from "tailwindcss-scoped-preflight";
+
 module.exports = {
   prefix: "bp-",
   darkMode: ["class"],
@@ -92,10 +93,10 @@ module.exports = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    scopedPreflightStyles({
-      isolationStrategy: isolateInsideOfContainer(".twp", {
-        except: ".no-twp",
-      }),
-    }),
+    // scopedPreflightStyles({
+    //   isolationStrategy: isolateInsideOfContainer(".twp", {
+    //     except: ".no-twp",
+    //   }),
+    // }),
   ],
 };
