@@ -3,9 +3,9 @@
 @source "./lib/**/*.tsx";
 @source "./lib/**/*.{ts,tsx}";
 
+@import "tailwindcss/preflight" layer(base) prefix(bp);
 @import "@radix-ui/themes/tokens.css" layer(theme);
 @import "tailwindcss/theme" layer(theme) prefix(bp);
-@import "tailwindcss/preflight" layer(base) prefix(bp);
 
 @variant dark (&:where(.dark, .dark *));
 

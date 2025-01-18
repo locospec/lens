@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <div className="loco">
-        <Label>My Label...</Label>
+        <Label className="bp:bg-red-500">My Label...</Label>
       </div>
     </>
   );
