@@ -28,7 +28,7 @@ const DrawerOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Overlay
     ref={ref}
-    className={cn("bp-fixed bp-inset-0 bp-z-50 bp-bg-black/80", className)}
+    className={cn("bp:fixed bp:inset-0 bp:z-50 bp:bg-black/80", className)}
     {...props}
   />
 ));
@@ -43,12 +43,12 @@ const DrawerContent = React.forwardRef<
     <DrawerPrimitive.Content
       ref={ref}
       className={cn(
-        "bp-fixed bp-inset-x-0 bp-bottom-0 bp-z-50 bp-mt-24 bp-flex bp-h-auto bp-flex-col bp-rounded-t-[10px] bp-border bp-bg-background",
+        "bp:fixed bp:inset-x-0 bp:bottom-0 bp:z-50 bp:mt-24 bp:flex bp:h-auto bp:flex-col bp:rounded-t-[10px] bp:border bp:bg-background",
         className
       )}
       {...props}
     >
-      <div className="bp-mx-auto bp-mt-4 bp-h-2 bp-w-[100px] bp-rounded-full bp-bg-muted" />
+      <div className="bp:mx-auto bp:mt-4 bp:h-2 bp:w-[100px] bp:rounded-full bp:bg-muted" />
       {children}
     </DrawerPrimitive.Content>
   </DrawerPortal>
@@ -61,7 +61,7 @@ const DrawerHeader = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      "bp-grid bp-gap-1.5 bp-p-4 bp-text-center sm:bp-text-left",
+      "bp:grid bp:gap-1.5 bp:p-4 bp:text-center sm:bp:text-left",
       className
     )}
     {...props}
@@ -74,7 +74,7 @@ const DrawerFooter = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn("bp-mt-auto bp-flex bp-flex-col bp-gap-2 bp-p-4", className)}
+    className={cn("bp:mt-auto bp:flex bp:flex-col bp:gap-2 bp:p-4", className)}
     {...props}
   />
 );
@@ -87,7 +87,7 @@ const DrawerTitle = React.forwardRef<
   <DrawerPrimitive.Title
     ref={ref}
     className={cn(
-      "bp-text-lg bp-font-semibold bp-leading-none bp-tracking-tight",
+      "bp:text-lg bp:font-semibold bp:leading-none bp:tracking-tight",
       className
     )}
     {...props}
@@ -101,7 +101,7 @@ const DrawerDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Description
     ref={ref}
-    className={cn("bp-text-sm bp-text-muted-foreground", className)}
+    className={cn("bp:text-sm bp:text-muted-foreground", className)}
     {...props}
   />
 ));

@@ -50,7 +50,7 @@ const ChartContainer = React.forwardRef<
         data-chart={chartId}
         ref={ref}
         className={cn(
-          "bp-flex bp-aspect-video bp-justify-center bp-text-xs [&_.recharts-cartesian-axis-tick_text]:bp-fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke=#ccc]]:bp-stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:bp-stroke-border [&_.recharts-dot[stroke=#fff]]:bp-stroke-transparent [&_.recharts-layer]:bp-outline-none [&_.recharts-polar-grid_[stroke=#ccc]]:bp-stroke-border [&_.recharts-radial-bar-background-sector]:bp-fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:bp-fill-muted [&_.recharts-reference-line_[stroke=#ccc]]:bp-stroke-border [&_.recharts-sector[stroke=#fff]]:bp-stroke-transparent [&_.recharts-sector]:bp-outline-none [&_.recharts-surface]:bp-outline-none",
+          "bp:flex bp:aspect-video bp:justify-center bp:text-xs [&_.recharts-cartesian-axis-tick_text]:bp:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke=#ccc]]:bp:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:bp:stroke-border [&_.recharts-dot[stroke=#fff]]:bp:stroke-transparent [&_.recharts-layer]:bp:outline-none [&_.recharts-polar-grid_[stroke=#ccc]]:bp:stroke-border [&_.recharts-radial-bar-background-sector]:bp:fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:bp:fill-muted [&_.recharts-reference-line_[stroke=#ccc]]:bp:stroke-border [&_.recharts-sector[stroke=#fff]]:bp:stroke-transparent [&_.recharts-sector]:bp:outline-none [&_.recharts-surface]:bp:outline-none",
           className
         )}
         {...props}
@@ -146,7 +146,7 @@ const ChartTooltipContent = React.forwardRef<
 
       if (labelFormatter) {
         return (
-          <div className={cn("bp-font-medium", labelClassName)}>
+          <div className={cn("bp:font-medium", labelClassName)}>
             {labelFormatter(value, payload)}
           </div>
         );
@@ -157,7 +157,7 @@ const ChartTooltipContent = React.forwardRef<
       }
 
       return (
-        <div className={cn("bp-font-medium", labelClassName)}>{value}</div>
+        <div className={cn("bp:font-medium", labelClassName)}>{value}</div>
       );
     }, [
       label,
@@ -179,12 +179,12 @@ const ChartTooltipContent = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "bp-grid bp-min-w-[8rem] bp-items-start bp-gap-1.5 bp-rounded-lg bp-border bp-border-border/50 bp-bg-background bp-px-2.5 bp-py-1.5 bp-text-xs bp-shadow-xl",
+          "bp:grid bp:min-w-[8rem] bp:items-start bp:gap-1.5 bp:rounded-lg bp:border bp:border-border/50 bp:bg-background bp:px-2.5 bp:py-1.5 bp:text-xs bp:shadow-xl",
           className
         )}
       >
         {!nestLabel ? tooltipLabel : null}
-        <div className="bp-grid bp-gap-1.5">
+        <div className="bp:grid bp:gap-1.5">
           {payload.map((item, index) => {
             const key = `${nameKey || item.name || item.dataKey || "value"}`;
             const itemConfig = getPayloadConfigFromPayload(config, item, key);
@@ -194,8 +194,8 @@ const ChartTooltipContent = React.forwardRef<
               <div
                 key={item.dataKey}
                 className={cn(
-                  "bp-flex bp-w-full bp-flex-wrap bp-items-stretch bp-gap-2 [&>svg]:bp-h-2.5 [&>svg]:bp-w-2.5 [&>svg]:bp-text-muted-foreground",
-                  indicator === "dot" && "bp-items-center"
+                  "bp:flex bp:w-full bp:flex-wrap bp:items-stretch bp:gap-2 [&>svg]:bp:h-2.5 [&>svg]:bp:w-2.5 [&>svg]:bp:text-muted-foreground",
+                  indicator === "dot" && "bp:items-center"
                 )}
               >
                 {formatter && item?.value !== undefined && item.name ? (
@@ -208,7 +208,7 @@ const ChartTooltipContent = React.forwardRef<
                       !hideIndicator && (
                         <div
                           className={cn(
-                            "bp-shrink-0 bp-rounded-[2px] bp-border-[--color-border] bp-bg-[--color-bg]",
+                            "bp:shrink-0 bp:rounded-[2px] bp:border-[--color-border] bp:bg-[--color-bg]",
                             {
                               "h-2.5 w-2.5": indicator === "dot",
                               "w-1": indicator === "line",
@@ -228,18 +228,18 @@ const ChartTooltipContent = React.forwardRef<
                     )}
                     <div
                       className={cn(
-                        "bp-flex bp-flex-1 bp-justify-between bp-leading-none",
-                        nestLabel ? "bp-items-end" : "bp-items-center"
+                        "bp:flex bp:flex-1 bp:justify-between bp:leading-none",
+                        nestLabel ? "bp:items-end" : "bp:items-center"
                       )}
                     >
-                      <div className="bp-grid bp-gap-1.5">
+                      <div className="bp:grid bp:gap-1.5">
                         {nestLabel ? tooltipLabel : null}
-                        <span className="bp-text-muted-foreground">
+                        <span className="bp:text-muted-foreground">
                           {itemConfig?.label || item.name}
                         </span>
                       </div>
                       {item.value && (
-                        <span className="bp-font-mono bp-font-medium bp-tabular-nums bp-text-foreground">
+                        <span className="bp:font-mono bp:font-medium bp:tabular-nums bp:text-foreground">
                           {item.value.toLocaleString()}
                         </span>
                       )}
@@ -280,8 +280,8 @@ const ChartLegendContent = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "bp-flex bp-items-center bp-justify-center bp-gap-4",
-          verticalAlign === "top" ? "bp-pb-3" : "bp-pt-3",
+          "bp:flex bp:items-center bp:justify-center bp:gap-4",
+          verticalAlign === "top" ? "bp:pb-3" : "bp:pt-3",
           className
         )}
       >
@@ -293,14 +293,14 @@ const ChartLegendContent = React.forwardRef<
             <div
               key={item.value}
               className={cn(
-                "bp-flex bp-items-center bp-gap-1.5 [&>svg]:bp-h-3 [&>svg]:bp-w-3 [&>svg]:bp-text-muted-foreground"
+                "bp:flex bp:items-center bp:gap-1.5 [&>svg]:bp:h-3 [&>svg]:bp:w-3 [&>svg]:bp:text-muted-foreground"
               )}
             >
               {itemConfig?.icon && !hideIcon ? (
                 <itemConfig.icon />
               ) : (
                 <div
-                  className="bp-h-2 bp-w-2 bp-shrink-0 bp-rounded-[2px]"
+                  className="bp:h-2 bp:w-2 bp:shrink-0 bp:rounded-[2px]"
                   style={{
                     backgroundColor: item.color,
                   }}

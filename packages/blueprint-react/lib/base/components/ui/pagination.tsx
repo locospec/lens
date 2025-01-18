@@ -8,7 +8,7 @@ const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
   <nav
     role="navigation"
     aria-label="pagination"
-    className={cn("bp-mx-auto bp-flex bp-w-full bp-justify-center", className)}
+    className={cn("bp:mx-auto bp:flex bp:w-full bp:justify-center", className)}
     {...props}
   />
 );
@@ -20,7 +20,7 @@ const PaginationContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ul
     ref={ref}
-    className={cn("bp-flex bp-flex-row bp-items-center bp-gap-1", className)}
+    className={cn("bp:flex bp:flex-row bp:items-center bp:gap-1", className)}
     {...props}
   />
 ));
@@ -30,7 +30,7 @@ const PaginationItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentProps<"li">
 >(({ className, ...props }, ref) => (
-  <li ref={ref} className={cn("bp-", className)} {...props} />
+  <li ref={ref} className={cn("bp:", className)} {...props} />
 ));
 PaginationItem.displayName = "PaginationItem";
 
@@ -66,10 +66,10 @@ const PaginationPrevious = ({
   <PaginationLink
     aria-label="Go to previous page"
     size="default"
-    className={cn("bp-gap-1 bp-pl-2.5", className)}
+    className={cn("bp:gap-1 bp:pl-2.5", className)}
     {...props}
   >
-    <ChevronLeft className="bp-h-4 bp-w-4" />
+    <ChevronLeft className="bp:h-4 bp:w-4" />
     <span>Previous</span>
   </PaginationLink>
 );
@@ -82,11 +82,11 @@ const PaginationNext = ({
   <PaginationLink
     aria-label="Go to next page"
     size="default"
-    className={cn("bp-gap-1 bp-pr-2.5", className)}
+    className={cn("bp:gap-1 bp:pr-2.5", className)}
     {...props}
   >
     <span>Next</span>
-    <ChevronRight className="bp-h-4 bp-w-4" />
+    <ChevronRight className="bp:h-4 bp:w-4" />
   </PaginationLink>
 );
 PaginationNext.displayName = "PaginationNext";
@@ -98,13 +98,13 @@ const PaginationEllipsis = ({
   <span
     aria-hidden
     className={cn(
-      "bp-flex bp-h-9 bp-w-9 bp-items-center bp-justify-center",
+      "bp:flex bp:h-9 bp:w-9 bp:items-center bp:justify-center",
       className
     )}
     {...props}
   >
-    <MoreHorizontal className="bp-h-4 bp-w-4" />
-    <span className="bp-sr-only">More pages</span>
+    <MoreHorizontal className="bp:h-4 bp:w-4" />
+    <span className="bp:sr-only">More pages</span>
   </span>
 );
 PaginationEllipsis.displayName = "PaginationEllipsis";

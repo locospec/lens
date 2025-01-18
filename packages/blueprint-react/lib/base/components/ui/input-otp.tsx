@@ -16,7 +16,7 @@ const InputOTP = React.forwardRef<
       "flex items-center gap-2 has-[:disabled]:opacity-50",
       containerClassName
     )}
-    className={cn("disabled:bp-cursor-not-allowed", className)}
+    className={cn("disabled:bp:cursor-not-allowed", className)}
     {...props}
   />
 ));
@@ -28,7 +28,7 @@ const InputOTPGroup = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("bp-flex bp-items-center", className)}
+    className={cn("bp:flex bp:items-center", className)}
     {...props}
   />
 ));
@@ -45,16 +45,16 @@ const InputOTPSlot = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        "bp-relative bp-flex bp-h-9 bp-w-9 bp-items-center bp-justify-center bp-border-y bp-border-r bp-border-input bp-text-sm bp-shadow-sm bp-transition-all first:bp-rounded-l-md first:bp-border-l last:bp-rounded-r-md",
-        isActive && "bp-z-10 bp-ring-1 bp-ring-ring",
+        "bp:relative bp:flex bp:h-9 bp:w-9 bp:items-center bp:justify-center bp:border-y bp:border-r bp:border-input bp:text-sm bp:shadow-sm bp:transition-all first:bp:rounded-l-md first:bp:border-l last:bp:rounded-r-md",
+        isActive && "bp:z-10 bp:ring-1 bp:ring-ring",
         className
       )}
       {...props}
     >
       {char}
       {hasFakeCaret && (
-        <div className="bp-pointer-events-none bp-absolute bp-inset-0 bp-flex bp-items-center bp-justify-center">
-          <div className="bp-h-4 bp-w-px bp-animate-caret-blink bp-bg-foreground bp-duration-1000" />
+        <div className="bp:pointer-events-none bp:absolute bp:inset-0 bp:flex bp:items-center bp:justify-center">
+          <div className="bp:h-4 bp:w-px bp:animate-caret-blink bp:bg-foreground bp:duration-1000" />
         </div>
       )}
     </div>

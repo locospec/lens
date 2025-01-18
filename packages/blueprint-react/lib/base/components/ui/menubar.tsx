@@ -21,7 +21,7 @@ const Menubar = React.forwardRef<
   <MenubarPrimitive.Root
     ref={ref}
     className={cn(
-      "bp-flex bp-h-9 bp-items-center bp-space-x-1 bp-rounded-md bp-border bp-bg-background bp-p-1 bp-shadow-sm",
+      "bp:flex bp:h-9 bp:items-center bp:space-x-1 bp:rounded-md bp:border bp:bg-background bp:p-1 bp:shadow-sm",
       className
     )}
     {...props}
@@ -36,7 +36,7 @@ const MenubarTrigger = React.forwardRef<
   <MenubarPrimitive.Trigger
     ref={ref}
     className={cn(
-      "bp-flex bp-cursor-default bp-select-none bp-items-center bp-rounded-sm bp-px-3 bp-py-1 bp-text-sm bp-font-medium bp-outline-none focus:bp-bg-accent focus:bp-text-accent-foreground data-[state=open]:bp-bg-accent data-[state=open]:bp-text-accent-foreground",
+      "bp:flex bp:cursor-default bp:select-none bp:items-center bp:rounded-sm bp:px-3 bp:py-1 bp:text-sm bp:font-medium bp:outline-none focus:bp:bg-accent focus:bp:text-accent-foreground data-[state=open]:bp:bg-accent data-[state=open]:bp:text-accent-foreground",
       className
     )}
     {...props}
@@ -53,14 +53,14 @@ const MenubarSubTrigger = React.forwardRef<
   <MenubarPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "bp-flex bp-cursor-default bp-select-none bp-items-center bp-rounded-sm bp-px-2 bp-py-1.5 bp-text-sm bp-outline-none focus:bp-bg-accent focus:bp-text-accent-foreground data-[state=open]:bp-bg-accent data-[state=open]:bp-text-accent-foreground",
-      inset && "bp-pl-8",
+      "bp:flex bp:cursor-default bp:select-none bp:items-center bp:rounded-sm bp:px-2 bp:py-1.5 bp:text-sm bp:outline-none focus:bp:bg-accent focus:bp:text-accent-foreground data-[state=open]:bp:bg-accent data-[state=open]:bp:text-accent-foreground",
+      inset && "bp:pl-8",
       className
     )}
     {...props}
   >
     {children}
-    <ChevronRight className="bp-ml-auto bp-h-4 bp-w-4" />
+    <ChevronRight className="bp:ml-auto bp:h-4 bp:w-4" />
   </MenubarPrimitive.SubTrigger>
 ));
 MenubarSubTrigger.displayName = MenubarPrimitive.SubTrigger.displayName;
@@ -72,7 +72,7 @@ const MenubarSubContent = React.forwardRef<
   <MenubarPrimitive.SubContent
     ref={ref}
     className={cn(
-      "bp-z-50 bp-min-w-[8rem] bp-overflow-hidden bp-rounded-md bp-border bp-bg-popover bp-p-1 bp-text-popover-foreground bp-shadow-lg data-[state=open]:bp-animate-in data-[state=closed]:bp-animate-out data-[state=closed]:bp-fade-out-0 data-[state=open]:bp-fade-in-0 data-[state=closed]:bp-zoom-out-95 data-[state=open]:bp-zoom-in-95 data-[side=bottom]:bp-slide-in-from-top-2 data-[side=left]:bp-slide-in-from-right-2 data-[side=right]:bp-slide-in-from-left-2 data-[side=top]:bp-slide-in-from-bottom-2",
+      "bp:z-50 bp:min-w-[8rem] bp:overflow-hidden bp:rounded-md bp:border bp:bg-popover bp:p-1 bp:text-popover-foreground bp:shadow-lg data-[state=open]:bp:animate-in data-[state=closed]:bp:animate-out data-[state=closed]:bp:fade-out-0 data-[state=open]:bp:fade-in-0 data-[state=closed]:bp:zoom-out-95 data-[state=open]:bp:zoom-in-95 data-[side=bottom]:bp:slide-in-from-top-2 data-[side=left]:bp:slide-in-from-right-2 data-[side=right]:bp:slide-in-from-left-2 data-[side=top]:bp:slide-in-from-bottom-2",
       className
     )}
     {...props}
@@ -95,7 +95,7 @@ const MenubarContent = React.forwardRef<
         alignOffset={alignOffset}
         sideOffset={sideOffset}
         className={cn(
-          "bp-z-50 bp-min-w-[12rem] bp-overflow-hidden bp-rounded-md bp-border bp-bg-popover bp-p-1 bp-text-popover-foreground bp-shadow-md data-[state=open]:bp-animate-in data-[state=closed]:bp-fade-out-0 data-[state=open]:bp-fade-in-0 data-[state=closed]:bp-zoom-out-95 data-[state=open]:bp-zoom-in-95 data-[side=bottom]:bp-slide-in-from-top-2 data-[side=left]:bp-slide-in-from-right-2 data-[side=right]:bp-slide-in-from-left-2 data-[side=top]:bp-slide-in-from-bottom-2",
+          "bp:z-50 bp:min-w-[12rem] bp:overflow-hidden bp:rounded-md bp:border bp:bg-popover bp:p-1 bp:text-popover-foreground bp:shadow-md data-[state=open]:bp:animate-in data-[state=closed]:bp:fade-out-0 data-[state=open]:bp:fade-in-0 data-[state=closed]:bp:zoom-out-95 data-[state=open]:bp:zoom-in-95 data-[side=bottom]:bp:slide-in-from-top-2 data-[side=left]:bp:slide-in-from-right-2 data-[side=right]:bp:slide-in-from-left-2 data-[side=top]:bp:slide-in-from-bottom-2",
           className
         )}
         {...props}
@@ -114,8 +114,8 @@ const MenubarItem = React.forwardRef<
   <MenubarPrimitive.Item
     ref={ref}
     className={cn(
-      "bp-relative bp-flex bp-cursor-default bp-select-none bp-items-center bp-rounded-sm bp-px-2 bp-py-1.5 bp-text-sm bp-outline-none focus:bp-bg-accent focus:bp-text-accent-foreground data-[disabled]:bp-pointer-events-none data-[disabled]:bp-opacity-50",
-      inset && "bp-pl-8",
+      "bp:relative bp:flex bp:cursor-default bp:select-none bp:items-center bp:rounded-sm bp:px-2 bp:py-1.5 bp:text-sm bp:outline-none focus:bp:bg-accent focus:bp:text-accent-foreground data-[disabled]:bp:pointer-events-none data-[disabled]:bp:opacity-50",
+      inset && "bp:pl-8",
       className
     )}
     {...props}
@@ -130,15 +130,15 @@ const MenubarCheckboxItem = React.forwardRef<
   <MenubarPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      "bp-relative bp-flex bp-cursor-default bp-select-none bp-items-center bp-rounded-sm bp-py-1.5 bp-pl-8 bp-pr-2 bp-text-sm bp-outline-none focus:bp-bg-accent focus:bp-text-accent-foreground data-[disabled]:bp-pointer-events-none data-[disabled]:bp-opacity-50",
+      "bp:relative bp:flex bp:cursor-default bp:select-none bp:items-center bp:rounded-sm bp:py-1.5 bp:pl-8 bp:pr-2 bp:text-sm bp:outline-none focus:bp:bg-accent focus:bp:text-accent-foreground data-[disabled]:bp:pointer-events-none data-[disabled]:bp:opacity-50",
       className
     )}
     checked={checked}
     {...props}
   >
-    <span className="bp-absolute bp-left-2 bp-flex bp-h-3.5 bp-w-3.5 bp-items-center bp-justify-center">
+    <span className="bp:absolute bp:left-2 bp:flex bp:h-3.5 bp:w-3.5 bp:items-center bp:justify-center">
       <MenubarPrimitive.ItemIndicator>
-        <Check className="bp-h-4 bp-w-4" />
+        <Check className="bp:h-4 bp:w-4" />
       </MenubarPrimitive.ItemIndicator>
     </span>
     {children}
@@ -153,14 +153,14 @@ const MenubarRadioItem = React.forwardRef<
   <MenubarPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "bp-relative bp-flex bp-cursor-default bp-select-none bp-items-center bp-rounded-sm bp-py-1.5 bp-pl-8 bp-pr-2 bp-text-sm bp-outline-none focus:bp-bg-accent focus:bp-text-accent-foreground data-[disabled]:bp-pointer-events-none data-[disabled]:bp-opacity-50",
+      "bp:relative bp:flex bp:cursor-default bp:select-none bp:items-center bp:rounded-sm bp:py-1.5 bp:pl-8 bp:pr-2 bp:text-sm bp:outline-none focus:bp:bg-accent focus:bp:text-accent-foreground data-[disabled]:bp:pointer-events-none data-[disabled]:bp:opacity-50",
       className
     )}
     {...props}
   >
-    <span className="bp-absolute bp-left-2 bp-flex bp-h-3.5 bp-w-3.5 bp-items-center bp-justify-center">
+    <span className="bp:absolute bp:left-2 bp:flex bp:h-3.5 bp:w-3.5 bp:items-center bp:justify-center">
       <MenubarPrimitive.ItemIndicator>
-        <Circle className="bp-h-4 bp-w-4 bp-fill-current" />
+        <Circle className="bp:h-4 bp:w-4 bp:fill-current" />
       </MenubarPrimitive.ItemIndicator>
     </span>
     {children}
@@ -177,8 +177,8 @@ const MenubarLabel = React.forwardRef<
   <MenubarPrimitive.Label
     ref={ref}
     className={cn(
-      "bp-px-2 bp-py-1.5 bp-text-sm bp-font-semibold",
-      inset && "bp-pl-8",
+      "bp:px-2 bp:py-1.5 bp:text-sm bp:font-semibold",
+      inset && "bp:pl-8",
       className
     )}
     {...props}
@@ -192,7 +192,7 @@ const MenubarSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <MenubarPrimitive.Separator
     ref={ref}
-    className={cn("bp--mx-1 bp-my-1 bp-h-px bp-bg-muted", className)}
+    className={cn("bp:-mx-1 bp:my-1 bp:h-px bp:bg-muted", className)}
     {...props}
   />
 ));
@@ -205,7 +205,7 @@ const MenubarShortcut = ({
   return (
     <span
       className={cn(
-        "bp-ml-auto bp-text-xs bp-tracking-widest bp-text-muted-foreground",
+        "bp:ml-auto bp:text-xs bp:tracking-widest bp:text-muted-foreground",
         className
       )}
       {...props}

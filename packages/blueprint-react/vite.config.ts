@@ -29,19 +29,19 @@ export default defineConfig({
     dts({
       tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
     }),
-    {
-      name: "css-transform",
-      transform(code, id) {
-        if (id.endsWith(".css")) {
-          return {
-            code: code
-              .replace(/\.loco :root/g, ".loco")
-              .replace(/@layer base\b/g, "@layer bp_base"),
-            map: null,
-          };
-        }
-      },
-    },
+    // {
+    //   name: "css-transform",
+    //   transform(code, id) {
+    //     if (id.endsWith(".css")) {
+    //       return {
+    //         code: code
+    //           .replace(/\.loco :root/g, ".loco")
+    //           .replace(/@layer base\b/g, "@layer bp_base"),
+    //         map: null,
+    //       };
+    //     }
+    //   },
+    // },
     // {
     //   name: "build-tailwind",
     //   buildStart() {

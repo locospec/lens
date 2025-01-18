@@ -12,7 +12,7 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "bp-inline-flex bp-h-9 bp-items-center bp-justify-center bp-rounded-lg bp-bg-muted bp-p-1 bp-text-muted-foreground",
+      "bp:inline-flex bp:h-9 bp:items-center bp:justify-center bp:rounded-lg bp:bg-muted bp:p-1 bp:text-muted-foreground",
       className
     )}
     {...props}
@@ -27,7 +27,7 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "bp-inline-flex bp-items-center bp-justify-center bp-whitespace-nowrap bp-rounded-md bp-px-3 bp-py-1 bp-text-sm bp-font-medium bp-ring-offset-background bp-transition-all focus-visible:bp-outline-none focus-visible:bp-ring-2 focus-visible:bp-ring-ring focus-visible:bp-ring-offset-2 disabled:bp-pointer-events-none disabled:bp-opacity-50 data-[state=active]:bp-bg-background data-[state=active]:bp-text-foreground data-[state=active]:bp-shadow",
+      "bp:inline-flex bp:items-center bp:justify-center bp:whitespace-nowrap bp:rounded-md bp:px-3 bp:py-1 bp:text-sm bp:font-medium bp:ring-offset-background bp:transition-all focus-visible:bp:outline-none focus-visible:bp:ring-2 focus-visible:bp:ring-ring focus-visible:bp:ring-offset-2 disabled:bp:pointer-events-none disabled:bp:opacity-50 data-[state=active]:bp:bg-background data-[state=active]:bp:text-foreground data-[state=active]:bp:shadow",
       className
     )}
     {...props}
@@ -42,7 +42,7 @@ const TabsContent = React.forwardRef<
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      "bp-mt-2 bp-ring-offset-background focus-visible:bp-outline-none focus-visible:bp-ring-2 focus-visible:bp-ring-ring focus-visible:bp-ring-offset-2",
+      "bp:mt-2 bp:ring-offset-background focus-visible:bp:outline-none focus-visible:bp:ring-2 focus-visible:bp:ring-ring focus-visible:bp:ring-offset-2",
       className
     )}
     {...props}

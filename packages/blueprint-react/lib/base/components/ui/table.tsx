@@ -6,10 +6,10 @@ const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => (
-  <div className="bp-relative bp-w-full bp-overflow-auto">
+  <div className="bp:relative bp:w-full bp:overflow-auto">
     <table
       ref={ref}
-      className={cn("bp-w-full bp-caption-bottom bp-text-sm", className)}
+      className={cn("bp:w-full bp:caption-bottom bp:text-sm", className)}
       {...props}
     />
   </div>
@@ -20,7 +20,7 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn("[&_tr]:bp-border-b", className)} {...props} />
+  <thead ref={ref} className={cn("[&_tr]:bp:border-b", className)} {...props} />
 ));
 TableHeader.displayName = "TableHeader";
 
@@ -30,7 +30,7 @@ const TableBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tbody
     ref={ref}
-    className={cn("[&_tr:last-child]:bp-border-0", className)}
+    className={cn("[&_tr:last-child]:bp:border-0", className)}
     {...props}
   />
 ));
@@ -43,7 +43,7 @@ const TableFooter = React.forwardRef<
   <tfoot
     ref={ref}
     className={cn(
-      "bp-border-t bp-bg-muted/50 bp-font-medium [&>tr]:last:bp-border-b-0",
+      "bp:border-t bp:bg-muted/50 bp:font-medium [&>tr]:last:bp:border-b-0",
       className
     )}
     {...props}
@@ -58,7 +58,7 @@ const TableRow = React.forwardRef<
   <tr
     ref={ref}
     className={cn(
-      "bp-border-b bp-transition-colors hover:bp-bg-muted/50 data-[state=selected]:bp-bg-muted",
+      "bp:border-b bp:transition-colors hover:bp:bg-muted/50 data-[state=selected]:bp:bg-muted",
       className
     )}
     {...props}
@@ -73,7 +73,7 @@ const TableHead = React.forwardRef<
   <th
     ref={ref}
     className={cn(
-      "bp-h-10 bp-px-2 bp-text-left bp-align-middle bp-font-medium bp-text-muted-foreground [&:has([role=checkbox])]:bp-pr-0 [&>[role=checkbox]]:bp-translate-y-[2px]",
+      "bp:h-10 bp:px-2 bp:text-left bp:align-middle bp:font-medium bp:text-muted-foreground [&:has([role=checkbox])]:bp:pr-0 [&>[role=checkbox]]:bp:translate-y-[2px]",
       className
     )}
     {...props}
@@ -88,7 +88,7 @@ const TableCell = React.forwardRef<
   <td
     ref={ref}
     className={cn(
-      "bp-p-2 bp-align-middle [&:has([role=checkbox])]:bp-pr-0 [&>[role=checkbox]]:bp-translate-y-[2px]",
+      "bp:p-2 bp:align-middle [&:has([role=checkbox])]:bp:pr-0 [&>[role=checkbox]]:bp:translate-y-[2px]",
       className
     )}
     {...props}
@@ -102,7 +102,7 @@ const TableCaption = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <caption
     ref={ref}
-    className={cn("bp-mt-4 bp-text-sm bp-text-muted-foreground", className)}
+    className={cn("bp:mt-4 bp:text-sm bp:text-muted-foreground", className)}
     {...props}
   />
 ));
