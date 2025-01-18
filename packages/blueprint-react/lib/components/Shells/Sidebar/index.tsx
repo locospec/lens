@@ -105,12 +105,12 @@ function ShellSidebar({ children }: { children: React.ReactNode }) {
           </div>
         </header>
         <div className="bp-flex bp-flex-col bp-flex-1 bp-gap-4 bp-p-4 bp-pt-0">
-          <div className="bp-grid bp-gap-4 bp-auto-rows-min md:bp-grid-cols-3">
+          {/* <div className="bp-grid bp-gap-4 bp-auto-rows-min md:bp-grid-cols-3">
             <div className="bp-aspect-video bp-rounded-xl bp-bg-muted/50" />
             <div className="bp-aspect-video bp-rounded-xl bp-bg-muted/50" />
             <div className="bp-aspect-video bp-rounded-xl bp-bg-muted/50" />
           </div>
-          <div className="bp-min-h-[100vh] bp-flex-1 bp-rounded-xl bp-bg-muted/50 bp-md:min-h-min" />
+          <div className="bp-min-h-[100vh] bp-flex-1 bp-rounded-xl bp-bg-muted/50 bp-md:min-h-min" /> */}
           {children}
         </div>
       </SidebarInset>

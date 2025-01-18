@@ -125,9 +125,9 @@ function App() {
   return (
     <Theme>
       <ShellSidebar>
-        <Container size="1">
+        <Container size="1" className="bp-bg-gray-200">
           <Section>
-            <Login />
+            <TableExample />
           </Section>
         </Container>
       </ShellSidebar>

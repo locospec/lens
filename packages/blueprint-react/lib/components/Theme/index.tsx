@@ -8,7 +8,7 @@ const Theme: React.FC<ThemeProps> = (props) => {
   return (
     <>
       <div className="loco twp">
-        <RadixTheme>
+        <RadixTheme panelBackground="solid">
           {props.children}
           <ThemePanel />
         </RadixTheme>
