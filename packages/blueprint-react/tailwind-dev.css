@@ -1,8 +1,7 @@
 @layer theme, base, components, utilities;
 
-@source "../lib/**/*.tsx";
-@source "../lib/**/*.{ts,tsx}";
-@source "./**/*.{ts,tsx}";
+@source "./lib/**/*.tsx";
+@source "./lib/**/*.{ts,tsx}";
 
 @import "@radix-ui/themes/tokens.css" layer(theme);
 @import "tailwindcss/theme" layer(theme) prefix(bp);

@@ -51,15 +51,15 @@ export default defineConfig({
     //     );
     //   },
     // },
-    {
-      // Add a debug plugin to log file processing
-      name: "debug",
-      transform(code, id) {
-        if (id.endsWith(".tsx") || id.endsWith(".ts")) {
-          console.log("Processing file:", id);
-        }
-      },
-    },
+    // {
+    //   // Add a debug plugin to log file processing
+    //   name: "debug",
+    //   transform(code, id) {
+    //     if (id.endsWith(".tsx") || id.endsWith(".ts")) {
+    //       console.log("Processing file:", id);
+    //     }
+    //   },
+    // },
   ],
   build: {
     copyPublicDir: false,

@@ -1,13 +1,10 @@
 @layer bp_theme, bp_base, bp_components, bp_utilities;
 
-@source "./lib/**/*.tsx";
-@source "./lib/**/*.{ts,tsx}";
-@source "./**/*.tsx";
-@source "../**/*.tsx";
+@source "../lib/**/*.{ts,tsx}";
 
 .loco {
   /* Theme layer */
-  @import "tailwindcss/theme" layer(bp_theme) prefix(bp);
+  @import "tailwindcss/theme" layer(bp_theme);
   @import "tailwindcss/preflight" layer(bp_base);
   /* @import "@radix-ui/themes/tokens.css" layer(bp_theme); */
 

@@ -13,6 +13,7 @@
   "exports": {
     ".": {
       "types": "./dist/lib/main.d.ts",
+      "developer": "./lib/main.ts",
       "default": "./dist/main.js"
     },
     "./main.css": {
@@ -29,7 +30,7 @@
   "scripts": {
     "dev": "vite",
     "build:watch": "vite build --watch",
-    "build": "tsc -b ./tsconfig.lib.json && VITE_DEBUG=true vite build",
+    "build": "tsc -b ./tsconfig.lib.json && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "build:css": "npx @tailwindcss/cli -m -i ./src/tailwind-prod.css -o ./dist/styles.css",
