@@ -139,7 +139,7 @@ const SidebarProvider = React.forwardRef<
               } as React.CSSProperties
             }
             className={cn(
-              "bp:group/sidebar-wrapper bp:flex bp:min-h-svh bp:w-full has-[[data-variant=inset]]:bp:bg-sidebar",
+              "bp:group/sidebar-wrapper bp:flex bp:min-h-svh bp:w-full bp:has-[[data-variant=inset]]:bg-sidebar",
               className
             )}
             ref={ref}
@@ -179,7 +179,7 @@ const Sidebar = React.forwardRef<
       return (
         <div
           className={cn(
-            "bp:flex bp:h-full bp:w-[--sidebar-width] bp:flex-col bp:bg-sidebar bp:text-sidebar-foreground",
+            "bp:flex bp:h-full bp:w-(--sidebar-width) bp:flex-col bp:bg-sidebar bp:text-sidebar-foreground",
             className
           )}
           ref={ref}
@@ -196,7 +196,7 @@ const Sidebar = React.forwardRef<
           <SheetContent
             data-sidebar="sidebar"
             data-mobile="true"
-            className="bp:w-[--sidebar-width] bp:bg-sidebar bp:p-0 bp:text-sidebar-foreground [&>button]:bp:hidden"
+            className="bp:w-(--sidebar-width) bp:bg-sidebar bp:p-0 bp:text-sidebar-foreground bp:[&>button]:hidden"
             style={
               {
                 "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
@@ -215,7 +215,7 @@ const Sidebar = React.forwardRef<
     return (
       <div
         ref={ref}
-        className="bp:group bp:peer bp:hidden md:bp:block bp:text-sidebar-foreground"
+        className="bp:group bp:peer bp:hidden bp:md:block bp:text-sidebar-foreground"
         data-state={state}
         data-collapsible={state === "collapsed" ? collapsible : ""}
         data-variant={variant}
@@ -224,31 +224,31 @@ const Sidebar = React.forwardRef<
         {/* This is what handles the sidebar gap on desktop */}
         <div
           className={cn(
-            "bp:duration-200 bp:relative bp:h-svh bp:w-[--sidebar-width] bp:bg-transparent bp:transition-[width] bp:ease-linear",
-            "group-data-[collapsible=offcanvas]:bp:w-0",
-            "group-data-[side=right]:bp:rotate-180",
+            "bp:duration-200 bp:relative bp:h-svh bp:w-(--sidebar-width) bp:bg-transparent bp:transition-[width] bp:ease-linear",
+            "bp:group-data-[collapsible=offcanvas]:w-0",
+            "bp:group-data-[side=right]:rotate-180",
             variant === "floating" || variant === "inset"
-              ? "group-data-[collapsible=icon]:bp:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4))]"
-              : "group-data-[collapsible=icon]:bp:w-[--sidebar-width-icon]"
+              ? "bp:group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4))]"
+              : "bp:group-data-[collapsible=icon]:w-(--sidebar-width-icon)"
           )}
         />
         <div
           className={cn(
-            "bp:duration-200 bp:fixed bp:inset-y-0 bp:z-10 bp:hidden bp:h-svh bp:w-[--sidebar-width] bp:transition-[left,right,width] bp:ease-linear md:bp:flex",
+            "bp:duration-200 bp:fixed bp:inset-y-0 bp:z-10 bp:hidden bp:h-svh bp:w-(--sidebar-width) bp:transition-[left,right,width] bp:ease-linear md:bp:flex",
             side === "left"
               ? "bp:left-0 group-data-[collapsible=offcanvas]:bp:left-[calc(var(--sidebar-width)*-1)]"
               : "bp:right-0 group-data-[collapsible=offcanvas]:bp:right-[calc(var(--sidebar-width)*-1)]",
             // Adjust the padding for floating and inset variants.
             variant === "floating" || variant === "inset"
-              ? "bp:p-2 group-data-[collapsible=icon]:bp:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]"
-              : "group-data-[collapsible=icon]:bp:w-[--sidebar-width-icon] group-data-[side=left]:bp:border-r group-data-[side=right]:bp:border-l",
+              ? "bp:p-2 bp:group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]"
+              : "bp:group-data-[collapsible=icon]:w-(--sidebar-width-icon) bp:group-data-[side=left]:border-r bp:group-data-[side=right]:border-l",
             className
           )}
           {...props}
         >
           <div
             data-sidebar="sidebar"
-            className="bp:flex bp:h-full bp:w-full bp:flex-col bp:bg-sidebar group-data-[variant=floating]:bp:rounded-lg group-data-[variant=floating]:bp:border group-data-[variant=floating]:bp:border-sidebar-border group-data-[variant=floating]:bp:shadow"
+            className="bp:flex bp:h-full bp:w-full bp:flex-col bp:bg-sidebar bp:group-data-[variant=floating]:rounded-lg bp:group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border bp:group-data-[variant=floating]:shadow"
           >
             {children}
           </div>
@@ -300,12 +300,12 @@ const SidebarRail = React.forwardRef<
       onClick={toggleSidebar}
       title="Toggle Sidebar"
       className={cn(
-        "bp:absolute bp:inset-y-0 bp:z-20 bp:hidden bp:w-4 bp:-translate-x-1/2 bp:transition-all bp:ease-linear after:bp:absolute after:bp:inset-y-0 after:bp:left-1/2 after:bp:w-[2px] hover:after:bp:bg-sidebar-border group-data-[side=left]:bp:-right-4 group-data-[side=right]:bp:left-0 sm:bp:flex",
-        "[[data-side=left]_&]:bp:cursor-w-resize [[data-side=right]_&]:bp:cursor-e-resize",
-        "[[data-side=left][data-state=collapsed]_&]:bp:cursor-e-resize [[data-side=right][data-state=collapsed]_&]:bp:cursor-w-resize",
-        "group-data-[collapsible=offcanvas]:bp:translate-x-0 group-data-[collapsible=offcanvas]:after:bp:left-full group-data-[collapsible=offcanvas]:hover:bp:bg-sidebar",
-        "[[data-side=left][data-collapsible=offcanvas]_&]:bp:-right-2",
-        "[[data-side=right][data-collapsible=offcanvas]_&]:bp:-left-2",
+        "bp:absolute bp:inset-y-0 bp:z-20 bp:hidden bp:w-4 bp:-translate-x-1/2 bp:transition-all bp:ease-linear bp:after:absolute bp:after:inset-y-0 bp:after:left-1/2 bp:after:w-[2px] bp:hover:after:bg-sidebar-border bp:group-data-[side=left]:-right-4 bp:group-data-[side=right]:left-0 bp:sm:flex",
+        "bp:[[data-side=left]_&]:cursor-w-resize bp:[[data-side=right]_&]:cursor-e-resize",
+        "bp:[[data-side=left][data-state=collapsed]_&]:cursor-e-resize bp:[[data-side=right][data-state=collapsed]_&]:cursor-w-resize",
+        "bp:group-data-[collapsible=offcanvas]:translate-x-0 bp:group-data-[collapsible=offcanvas]:after:left-full bp:group-data-[collapsible=offcanvas]:hover:bg-sidebar",
+        "bp:[[data-side=left][data-collapsible=offcanvas]_&]:-right-2",
+        "bp:[[data-side=right][data-collapsible=offcanvas]_&]:-left-2",
         className
       )}
       {...props}
@@ -769,5 +769,5 @@ export {
   SidebarRail,
   SidebarSeparator,
   SidebarTrigger,
-  useSidebar,
+  // useSidebar,
 };

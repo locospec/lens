@@ -7,6 +7,8 @@
 @import "@radix-ui/themes/utilities.css";
 @import "tailwindcss/utilities" layer(utilities) prefix(bp);
 
+@plugin "tailwindcss-animate";
+
 @theme {
   --color-background: hsl(0 0% 100%);
   --color-foreground: hsl(222.2 47.4% 11.2%);
@@ -28,14 +30,14 @@
   --color-destructive-foreground: hsl(210 40% 98%);
   --color-ring: hsl(215 20.2% 65.1%);
 
-  --color-sidebar-background: 0 0% 98%;
-  --color-sidebar-foreground: 240 5.3% 26.1%;
-  --color-sidebar-primary: 240 5.9% 10%;
-  --color-sidebar-primary-foreground: 0 0% 98%;
-  --color-sidebar-accent: 240 4.8% 95.9%;
-  --color-sidebar-accent-foreground: 240 5.9% 10%;
-  --color-sidebar-border: 220 13% 91%;
-  --color-sidebar-ring: 217.2 91.2% 59.8%;
+  --color-sidebar-background: hsl(0 0% 98%);
+  --color-sidebar-foreground: hsl(240 5.3% 26.1%);
+  --color-sidebar-primary: hsl(240 5.9% 10%);
+  --color-sidebar-primary-foreground: hsl(0 0% 98%);
+  --color-sidebar-accent: hsl(240 4.8% 95.9%);
+  --color-sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --color-sidebar-border: hsl(220 13% 91%);
+  --color-sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
 [data-accent-color] {
