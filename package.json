@@ -9,7 +9,7 @@
     "build": "lerna run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "bp:build": "lerna run build --scope @locospec/blueprint-react",
-    "bp:dev": "lerna run build:watch --scope @locospec/blueprint-react",
+    "bp:dev": "lerna run dev --scope @locospec/blueprint-react",
     "el:build": "lerna run build --scope @locospec/elements-react",
     "el:release": "lerna run publish --scope @locospec/elements-react",
     "site:start": "lerna run start --scope site",

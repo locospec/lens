@@ -28,15 +28,15 @@ export default defineConfig({
     dts({
       tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
     }),
-    {
-      name: "build-tailwind",
-      buildStart() {
-        // Run Tailwind build when Vite starts building
-        execSync(
-          "tailwindcss -m -i ./src/tailwind-entry.css -o ./dist/styles.css"
-        );
-      },
-    },
+    // {
+    //   name: "build-tailwind",
+    //   buildStart() {
+    //     // Run Tailwind build when Vite starts building
+    //     execSync(
+    //       "tailwindcss -m -i ./src/tailwind-entry.css -o ./dist/styles.css"
+    //     );
+    //   },
+    // },
   ],
   build: {
     copyPublicDir: false,
@@ -87,10 +87,6 @@ export default defineConfig({
           return null;
         },
       },
-      // output: {
-      //   assetFileNames: "assets/[name][extname]",
-      //   entryFileNames: "[name].js",
-      // },
     },
   },
 });

@@ -44,8 +44,8 @@ const config: Config = {
   ],
 
   clientModules: [
-    "../../node_modules/@locospec/blueprint-react/dist/styles.css",
-    "../../node_modules/@locospec/elements-react/dist/styles.css",
+    // "../../node_modules/@locospec/blueprint-react/dist/styles.css",
+    // "../../node_modules/@locospec/elements-react/dist/styles.css",
   ],
 
   presets: [
