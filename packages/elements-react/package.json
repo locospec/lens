@@ -16,8 +16,8 @@
       "default": "./dist/main.js"
     },
     "./styles.css": {
-      "require": "./dist/assets/styles.css",
-      "default": "./dist/assets/styles.css"
+      "require": "./dist/assets/main.css",
+      "default": "./dist/assets/main.css"
     }
   },
   "files": [
