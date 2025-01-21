@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Section, Theme } from "@radix-ui/themes";
 import { Lens } from "../lib/main";
 import { makeServer } from "./mocks/mirageServer";
