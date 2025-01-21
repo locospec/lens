@@ -66,7 +66,10 @@ export const ListData = ({
         `${dataEndpoint}?cursor=${pageParam}&search=${globalFilter}`
       );
 
-      return await response.json();
+      const responseJson = await response.json();
+      // console.log(">> RESPONSE IS>>>", responseJson);
+
+      return responseJson;
     },
     initialPageParam: null,
     getNextPageParam: (lastPage) => lastPage.next_cursor,
