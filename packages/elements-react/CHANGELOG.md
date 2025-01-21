@@ -1,3 +1,22 @@
+# v0.15.0 (Tue Jan 21 2025)
+
+#### 🚀 Enhancement
+
+- feat: latest pull from main ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- patch: Add heading to lens sample in elements-react app [#100](https://github.com/locospec/ui/pull/100) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Merge branch 'main' of github.com:locospec/ui [#99](https://github.com/locospec/ui/pull/99) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- pull: latest pull from main [#98](https://github.com/locospec/ui/pull/98) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch(lens): add sample commnet [#97](https://github.com/locospec/ui/pull/97) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.14.0 (Tue Jan 21 2025)
 
 #### 🚀 Enhancement

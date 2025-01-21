@@ -1,3 +1,15 @@
+# v0.9.0 (Tue Jan 21 2025)
+
+#### 🐛 Bug Fix
+
+- pull: latest pull from main [#98](https://github.com/locospec/ui/pull/98) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.8.0 (Tue Jan 21 2025)
 
 #### 🚀 Enhancement

@@ -2,6 +2,29 @@
 
 #### 🚀 Enhancement
 
+- `@locospec/elements-react@0.15.0`
+  - feat: latest pull from main ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- `@locospec/elements-react@0.15.0`
+  - patch: Add heading to lens sample in elements-react app [#100](https://github.com/locospec/ui/pull/100) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch(lens): add sample commnet [#97](https://github.com/locospec/ui/pull/97) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `site@0.8.0`, `@locospec/elements-react@0.15.0`
+  - Merge branch 'main' of github.com:locospec/ui [#99](https://github.com/locospec/ui/pull/99) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `site@0.8.0`, `@locospec/blueprint-react@0.9.0`, `@locospec/elements-react@0.15.0`
+  - pull: latest pull from main [#98](https://github.com/locospec/ui/pull/98) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Tue Jan 21 2025)
+
+#### 🚀 Enhancement
+
 - `@locospec/elements-react@0.14.0`
   - Lens initial [#98](https://github.com/locospec/ui/pull/98) ([@ShreyDhyani](https://github.com/ShreyDhyani))
 
