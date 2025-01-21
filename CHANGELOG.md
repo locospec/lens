@@ -1,3 +1,53 @@
+# (Tue Jan 21 2025)
+
+#### 🚀 Enhancement
+
+- feat: update release workflow to improve concurrency and add change detection ([@rjvim](https://github.com/rjvim))
+- `site@0.6.0`, `@locospec/blueprint-react@0.7.0`
+  - Implement sample skeleton [#94](https://github.com/locospec/ui/pull/94) ([@rjvim](https://github.com/rjvim))
+
+#### 🐛 Bug Fix
+
+- path: version update [#95](https://github.com/locospec/ui/pull/95) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: remove obsolete release workflow for Blueprint ([@rjvim](https://github.com/rjvim))
+- refactor: remove change detection step from release workflow ([@rjvim](https://github.com/rjvim))
+- `@locospec/elements-react@0.12.0`
+  - patch(lens): modified table header [#96](https://github.com/locospec/ui/pull/96) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - style: modified table heading padding [#95](https://github.com/locospec/ui/pull/95) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch(lens): add table header interaface [#95](https://github.com/locospec/ui/pull/95) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - fix(lens): add type interface for TableHeaderSection [#92](https://github.com/locospec/ui/pull/92) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - build(elements-react): modify externals for build script [#91](https://github.com/locospec/ui/pull/91) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refactor(Lens): add as client side component [#91](https://github.com/locospec/ui/pull/91) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch(elements-lens): add type interface for row [#89](https://github.com/locospec/ui/pull/89) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch(elements-checkbox): modified log [#89](https://github.com/locospec/ui/pull/89) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch(elements-button): modified log [#89](https://github.com/locospec/ui/pull/89) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch(elements-button): modified log for button [#88](https://github.com/locospec/ui/pull/88) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added SelectionType type for use in multiple components [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added interface for List component [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: changed name to Lens for data-tabel component [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added var to log console befor return [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - docs: Added sample schema for Table component [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - docs: Added interface for Lens component [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: removed comment [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: modified log in button [#84](https://github.com/locospec/ui/pull/84) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `@locospec/blueprint-react@0.7.0`, `@locospec/elements-react@0.12.0`
+  - fix: updated deps maually [#95](https://github.com/locospec/ui/pull/95) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - build: unify all react and react-dom peer dependencies [#91](https://github.com/locospec/ui/pull/91) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - ci: changes author [#86](https://github.com/locospec/ui/pull/86) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - ci: Added author in package.json field [#85](https://github.com/locospec/ui/pull/85) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: remove author fields from package.json files ([@rjvim](https://github.com/rjvim))
+- `site@0.6.0`
+  - docs(lens): add browser only story [#91](https://github.com/locospec/ui/pull/91) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: name change for story [#87](https://github.com/locospec/ui/pull/87) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - ci: added author to package site [#86](https://github.com/locospec/ui/pull/86) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # (Wed Jan 15 2025)
 
 #### 🐛 Bug Fix
