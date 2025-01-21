@@ -3,7 +3,7 @@ import { flexRender } from "@tanstack/react-table";
 const TableCell = ({ cell }: any) => {
   return (
     <div
-      className="truncate border-b border-gray-100 px-4 py-2"
+      className="le-truncate le-border-b le-border-gray-100 le-px-4 le-py-2"
       key={cell.id}
       style={{
         width: `calc(var(--col-${cell.column.id}-size) * 1px)`,

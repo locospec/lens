@@ -11,7 +11,7 @@ const TableHeaderSection = ({
 }: TableHeaderSectionInterface) => {
   console.log("TableHeaderSection added smaple comment #1");
   return (
-    <div className="sticky top-0 z-10 bg-white">
+    <div className="le-sticky le-top-0 le-z-10 le-bg-white">
       {table.getHeaderGroups().map((headerGroup: any) => (
         <TableHeader
           key={headerGroup.id}
