@@ -82,21 +82,21 @@ export function AppSidebar() {
 
 function ShellSidebar({ children }: { children: React.ReactNode }) {
   return (
-    <SidebarProvider className="twp">
+    <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
-          <div className="flex items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
-            <Separator orientation="vertical" className="h-4 mr-2" />
+        <header className="bp-flex bp-h-16 bp-shrink-0 bp-items-center bp-gap-2 bp-transition-[width,height] bp-ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:bp-h-12">
+          <div className="bp-flex bp-items-center bp-gap-2 bp-px-4">
+            <SidebarTrigger className="bp--ml-1" />
+            <Separator orientation="vertical" className="bp-h-4 bp-mr-2" />
             <Breadcrumb>
               <BreadcrumbList>
-                <BreadcrumbItem className="hidden md:block">
+                <BreadcrumbItem className="bp-hidden md:bp-block">
                   <BreadcrumbLink href="#">
                     Building Your Application
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
+                <BreadcrumbSeparator className="bp-hidden md:bp-block" />
                 <BreadcrumbItem>
                   <BreadcrumbPage>Data Fetching</BreadcrumbPage>
                 </BreadcrumbItem>
@@ -104,13 +104,13 @@ function ShellSidebar({ children }: { children: React.ReactNode }) {
             </Breadcrumb>
           </div>
         </header>
-        <div className="flex flex-col flex-1 gap-4 p-4 pt-0">
-          <div className="grid gap-4 auto-rows-min md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
+        <div className="bp-flex bp-flex-col bp-flex-1 bp-gap-4 bp-p-4 bp-pt-0">
+          {/* <div className="bp-grid bp-gap-4 bp-auto-rows-min md:bp-grid-cols-3">
+            <div className="bp-aspect-video bp-rounded-xl bp-bg-muted/50" />
+            <div className="bp-aspect-video bp-rounded-xl bp-bg-muted/50" />
+            <div className="bp-aspect-video bp-rounded-xl bp-bg-muted/50" />
           </div>
-          <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+          <div className="bp-min-h-[100vh] bp-flex-1 bp-rounded-xl bp-bg-muted/50 bp-md:min-h-min" /> */}
           {children}
         </div>
       </SidebarInset>

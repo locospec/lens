@@ -1,4 +1,6 @@
-@tailwind base;
+@import "tailwindcss/base";
+@import "@radix-ui/themes/styles.css";
+
 @tailwind components;
 @tailwind utilities;
 
@@ -90,5 +92,15 @@
   }
   body {
     @apply bp-bg-background bp-text-foreground;
+  }
+}
+
+@keyframes rt-skeleton-pulse {
+  0% {
+    background-color: var(--gray-a4);
+  }
+
+  to {
+    background-color: var(--gray-a4);
   }
 }
