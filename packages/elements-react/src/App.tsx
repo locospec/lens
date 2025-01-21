@@ -23,6 +23,9 @@ function App() {
     <Theme>
       <div className="le-max-w-5xl le-mx-auto">
         <Section className="le-h-[500px]" size="1">
+          <h2 className="le-text-2xl le-font-bold le-mb-4">
+            Lens Sample Table
+          </h2>
           <Lens
             selectionType={"multiple"}
             configEndpoint="/api/data-bench/test-data/config"
