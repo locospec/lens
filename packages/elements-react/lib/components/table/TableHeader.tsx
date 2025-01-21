@@ -3,12 +3,10 @@ import { ResizeHandle } from "./ResizeHandle.tsx";
 
 export interface TableHeaderInterface {
   headerGroup: any;
-  columnSizeVars: any;
 }
 
 // This was removed as it was unused columnSizeVars
-const TableHeader = ({ headerGroup, columnSizeVars }: TableHeaderInterface) => {
-  console.log(">>>>> columnSizeVars", columnSizeVars);
+const TableHeader = ({ headerGroup }: TableHeaderInterface) => {
   return (
     <div key={headerGroup.id} className="le-flex">
       {headerGroup.headers.map((header: any) => (
