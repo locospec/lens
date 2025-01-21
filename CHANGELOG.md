@@ -2,6 +2,19 @@
 
 #### 🚀 Enhancement
 
+- `@locospec/elements-react@0.14.0`
+  - Lens initial [#98](https://github.com/locospec/ui/pull/98) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Tue Jan 21 2025)
+
+#### 🚀 Enhancement
+
 - feat: update release workflow to improve concurrency and add change detection ([@rjvim](https://github.com/rjvim))
 - `site@0.6.0`, `@locospec/blueprint-react@0.8.0`
   - Implement sample skeleton [#94](https://github.com/locospec/ui/pull/94) ([@rjvim](https://github.com/rjvim))

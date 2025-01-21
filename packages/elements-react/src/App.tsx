@@ -1,52 +1,40 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-
-// https://nodejs.org/api/packages.html#packages_self_referencing_a_package_using_its_name
-import { Button, Label, Input } from "@try-auto/blueprint";
+import React, { useState, useEffect } from "react";
+import { Section, Theme } from "@radix-ui/themes";
+import { Lens } from "../lib/main";
+import { makeServer } from "./mocks/mirageServer";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [inputCustomCountValue, setInputCustomCountValue] = useState("");
+  React.useEffect(() => {
+    makeServer();
+  }, []);
 
-  const handleClickCustomCount = () => {
-    if (inputCustomCountValue === "") {
-      setCount((count) => count + 1);
+  const [checkedIds, setCheckedIds] = useState([]);
+
+  const handleSelectionChange = (selectedItem: any) => {
+    if (selectedItem) {
+      setCheckedIds(selectedItem);
     } else {
-      setCount(Number(inputCustomCountValue));
+      setCheckedIds([]);
     }
   };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Theme>
+      <div className="le-max-w-5xl le-mx-auto">
+        <Section className="le-h-[500px]" size="1">
+          <Lens
+            selectionType={"multiple"}
+            configEndpoint="/api/data-bench/test-data/config"
+            dataEndpoint="/api/data-bench/test-data/fetch"
+            onSelect={(value) => {
+              handleSelectionChange(value);
+            }}
+            selectedItems={checkedIds}
+          />
+        </Section>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <Label>My Label</Label>
-        <br />
-        <Input
-          placeholder="Custom count"
-          value={inputCustomCountValue}
-          onChange={(e) => setInputCustomCountValue(e.target.value)}
-        />
-        <br />
-        <Button onClick={handleClickCustomCount}>count is {count}</Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </Theme>
   );
 }
 

@@ -12,6 +12,7 @@
     "bp:dev": "lerna run dev --scope @locospec/blueprint-react",
     "el:build": "lerna run build --scope @locospec/elements-react",
     "el:release": "lerna run publish --scope @locospec/elements-react",
+    "el:dev": "lerna run dev --scope @locospec/elements-react",
     "site:start": "lerna run start --scope site",
     "site:build": "lerna run build --scope site",
     "site:serve": "lerna run serve --scope site",

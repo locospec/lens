@@ -1,3 +1,15 @@
+# v0.14.0 (Tue Jan 21 2025)
+
+#### 🚀 Enhancement
+
+- Lens initial [#98](https://github.com/locospec/ui/pull/98) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.13.0 (Tue Jan 21 2025)
 
 #### 🐛 Bug Fix

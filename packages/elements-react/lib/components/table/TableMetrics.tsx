@@ -6,14 +6,14 @@ const TableMetrics = ({
   rowSelection,
 }: any) => {
   return (
-    <div className="flex flex-row items-center justify-between bg-red-200 p-2">
+    <div className="le-flex le-flex-row le-items-center le-justify-between le-bg-red-200 le-p-2">
       <pre style={{ minHeight: "10rem" }}>
         {JSON.stringify({ columnSizing }, null, 2)}
       </pre>
       <h3>rowSelection: {JSON.stringify(rowSelection)}</h3>
       <h3>containerWidth {containerWidth}</h3>
-      <div className="h-4" />({totalCount} rows)
-      <h1 className="bg-yellow-200 p-2">isResizing: {isResizing}</h1>
+      <div className="le-h-4" />({totalCount} rows)
+      <h1 className="le-bg-yellow-200 le-p-2">isResizing: {isResizing}</h1>
     </div>
   );
 };
