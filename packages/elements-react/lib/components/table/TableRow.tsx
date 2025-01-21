@@ -9,8 +9,8 @@ export interface TableRowInterface {
 const TableRow = ({ row, virtualRow, rowVirtualizer }: TableRowInterface) => {
   return (
     <div
-      className={`absolute top-0 flex w-full hover:bg-gray-50 ${
-        row.getIsSelected() ? "bg-blue-50" : ""
+      className={`le-absolute le-top-0 le-flex le-w-full hover:le-bg-gray-50 ${
+        row.getIsSelected() ? "le-bg-blue-50" : ""
       }`}
       data-index={virtualRow.index}
       ref={(node) => rowVirtualizer.measureElement(node)}

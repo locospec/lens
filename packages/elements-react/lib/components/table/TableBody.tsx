@@ -5,12 +5,14 @@ export const TableBody = ({ table, rowVirtualizer }: any) => {
   const { rows } = table.getRowModel();
 
   if (!rows.length) {
-    <div className="p-4 text-center text-gray-500">No data available</div>;
+    <div className="le-p-4 le-text-center le-text-gray-500">
+      No data available
+    </div>;
   }
 
   return (
     <div
-      className="relative w-full"
+      className="le-relative le-w-full"
       style={{
         height: `${rowVirtualizer.getTotalSize()}px`,
       }}

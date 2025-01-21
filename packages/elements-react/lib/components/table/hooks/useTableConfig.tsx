@@ -1,4 +1,4 @@
-import { Checkbox } from "../../Checkbox";
+import { Checkbox } from "@radix-ui/themes";
 import { createColumnHelper } from "@tanstack/react-table";
 import React from "react";
 

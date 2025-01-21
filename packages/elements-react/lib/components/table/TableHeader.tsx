@@ -10,11 +10,11 @@ export interface TableHeaderInterface {
 const TableHeader = ({ headerGroup, columnSizeVars }: TableHeaderInterface) => {
   console.log(">>>>> columnSizeVars", columnSizeVars);
   return (
-    <div key={headerGroup.id} className="flex">
+    <div key={headerGroup.id} className="le-flex">
       {headerGroup.headers.map((header: any) => (
         <div
           key={header.id}
-          className="relative border-b border-gray-200 bg-gray-100 px-4 py-1.5 text-left font-semibold"
+          className="le-relative le-border-b le-border-gray-200 le-bg-gray-100 le-px-4 le-py-1.5 le-text-left le-font-semibold"
           style={{
             width: `calc(var(--header-${header?.id}-size) * 1px)`,
           }}

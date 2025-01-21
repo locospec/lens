@@ -6,8 +6,8 @@ const ResizeHandle = ({ header, isResizing }: any) => {
       onDoubleClick={() => header.column.resetSize()}
       onMouseDown={header.getResizeHandler()}
       onTouchStart={header.getResizeHandler()}
-      className={`absolute right-0 top-0 h-full w-1 cursor-col-resize touch-none select-none bg-gray-200 hover:bg-gray-400 ${
-        isResizing ? "bg-blue-500" : ""
+      className={`le-absolute le-right-0 le-top-0 le-h-full le-w-1 le-cursor-col-resize le-touch-none le-select-none le-bg-gray-200 hover:le-bg-gray-400 ${
+        isResizing ? "le-bg-blue-500" : ""
       }`}
     />
   );
