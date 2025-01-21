@@ -1,3 +1,24 @@
+# v0.8.0 (Tue Jan 21 2025)
+
+#### 🚀 Enhancement
+
+- Implement sample skeleton [#94](https://github.com/locospec/ui/pull/94) ([@rjvim](https://github.com/rjvim))
+
+#### 🐛 Bug Fix
+
+- fix: updated deps maually [#95](https://github.com/locospec/ui/pull/95) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- build: unify all react and react-dom peer dependencies [#91](https://github.com/locospec/ui/pull/91) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- ci: changes author [#86](https://github.com/locospec/ui/pull/86) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- ci: Added author in package.json field [#85](https://github.com/locospec/ui/pull/85) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: remove author fields from package.json files ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.5.0 (Wed Jan 15 2025)
 
 #### 🚀 Enhancement
