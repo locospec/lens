@@ -1,9 +1,11 @@
 import { TableCell } from "./TableCell.tsx";
+import type { VirtualItem, Virtualizer } from "@tanstack/react-virtual";
+import type { Row } from "@tanstack/react-table";
 
 export interface TableRowInterface {
-  row: any;
-  virtualRow: any;
-  rowVirtualizer: any;
+  row: Row<any>;
+  virtualRow: VirtualItem;
+  rowVirtualizer: Virtualizer<HTMLDivElement, Element>;
 }
 
 const TableRow = ({ row, virtualRow, rowVirtualizer }: TableRowInterface) => {
