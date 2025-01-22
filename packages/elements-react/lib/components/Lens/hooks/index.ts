@@ -7,6 +7,7 @@ export { useInfiniteFetch } from "./src/useInfiniteFetch";
 export { useColumnResize } from "./src/useColumnResize";
 export { useRowVirtualizer } from "./src/useRowVirtualizer";
 export { useSyncSelection } from "./src/useSyncSelection";
+export { useColumnSizeVars } from "./src/useColumnSizeVars";
 
 export type { ResizeObserverCallback } from "./src/useResizeObserver";
 export type { UseInfiniteFetchParams } from "./src/useInfiniteFetch";
