@@ -7,7 +7,7 @@ import { TableHeaderSection } from "./TableHeaderSection.tsx";
 import LensViewBar from "./LensViewsbar.tsx";
 import LensBulkActionsbar from "./LensBulkActionsbar.tsx";
 import { TableMetrics } from "./TableMetrics.tsx";
-import { useResizeObserver } from "./hooks";
+import { useColumnSizing, useResizeObserver } from "./hooks";
 
 export const ListData = ({
   columns,
@@ -25,8 +25,6 @@ export const ListData = ({
   const [containerWidth, setContainerWidth] = React.useState(0);
   const [rowSelection, setRowSelection] = React.useState(selectedItems);
   const [globalFilter] = React.useState<any>([]);
-  const [isColumnsReady, setIsColumnsReady] = React.useState(false);
-  const [adjustedColumns, setAdjustedColumns] = React.useState(columns);
   const [showActionBar, setShowActionBar] = React.useState(false);
 
   // Add resize observer to track container width
@@ -35,28 +33,10 @@ export const ListData = ({
   });
 
   // Calculate column sizes based on container width
-  React.useMemo(() => {
-    if (!containerWidth || !columns.length) return columns;
-
-    const totalMinWidth = columns.reduce(
-      (acc: any, col: any) => acc + (col.size || 200),
-      0
-    );
-
-    const scaleFactor = containerWidth / totalMinWidth;
-
-    const newColumns = columns.map((col: any) => ({
-      ...col,
-      size: Math.floor((col.size || 200) * scaleFactor),
-    }));
-
-    setAdjustedColumns(() => {
-      setIsColumnsReady(true);
-      return newColumns;
-    });
-
-    return newColumns;
-  }, [columns, containerWidth]);
+  const { adjustedColumns, isColumnsReady } = useColumnSizing(
+    columns,
+    containerWidth
+  );
 
   const { data, fetchNextPage, isFetching, hasNextPage } = useInfiniteQuery({
     queryKey: [queryKey, globalFilter],
