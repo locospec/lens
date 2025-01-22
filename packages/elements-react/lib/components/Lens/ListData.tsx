@@ -106,7 +106,7 @@ export const ListData = ({
   }
 
   return (
-    <div className="le-flex le-h-full le-flex-col le-gap-0">
+    <div className="le-flex le-h-full le-flex-col le-gap-0 le-rounded-lg le-overflow-hidden">
       {showTableMetrics && (
         <TableMetrics
           containerWidth={containerWidth}
@@ -123,7 +123,7 @@ export const ListData = ({
         displayActionBar={displayActionBar}
       />
       <div
-        className="le-relative le-flex-1 le-overflow-auto le-rounded-lg le-bg-white le-shadow"
+        className="le-relative le-flex-1 le-overflow-auto le-bg-white le-shadow"
         onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
         ref={tableContainerRef}
       >
