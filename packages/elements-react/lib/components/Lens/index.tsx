@@ -1,4 +1,3 @@
-import useTableConfig from "./hooks/src/useTableConfig";
 import { List } from "./List";
 import { ListData } from "./ListData";
 import { ResizeHandle } from "./ResizeHandle";
@@ -11,7 +10,6 @@ import { TableMetrics } from "./TableMetrics";
 import { TableRow } from "./TableRow";
 
 export {
-  useTableConfig,
   List,
   ListData,
   ResizeHandle,
