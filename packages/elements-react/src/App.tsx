@@ -18,6 +18,15 @@ function App() {
       setCheckedIds([]);
     }
   };
+  const [checkedIds2, setCheckedIds2] = useState([]);
+
+  const handleSelectionChange2 = (selectedItem: any) => {
+    if (selectedItem) {
+      setCheckedIds2(selectedItem);
+    } else {
+      setCheckedIds2([]);
+    }
+  };
 
   return (
     <Theme>
@@ -36,7 +45,7 @@ function App() {
             selectedItems={checkedIds}
           />
         </Section>
-        <Section className="le-h-96" size="1">
+        <Section className="le-h-[700px]" size="1">
           <h2 className="le-text-2xl le-font-bold le-mb-4">
             Lens Sample Table
           </h2>
@@ -45,9 +54,9 @@ function App() {
             configEndpoint="/api/data-bench/test-data/config"
             dataEndpoint="/api/data-bench/test-data/fetch"
             onSelect={(value) => {
-              handleSelectionChange(value);
+              handleSelectionChange2(value);
             }}
-            selectedItems={checkedIds}
+            selectedItems={checkedIds2}
           />
         </Section>
       </div>
