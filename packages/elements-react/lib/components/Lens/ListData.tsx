@@ -14,6 +14,21 @@ import {
 } from "./hooks";
 import Topbar from "./Topbar.tsx";
 
+import type { ColumnDef } from "@tanstack/react-table";
+
+export interface ListDataProps {
+  columns: ColumnDef<any>[];
+  queryKey: string;
+  selectionType: "single" | "multiple";
+  identifierKey: string;
+  onSelect: (selected: any[]) => void;
+  selectedItems: any[];
+  dataEndpoint: string;
+  displayActionBar?: boolean;
+  sidebarContent?: React.ReactNode;
+  showTableMetrics?: boolean;
+}
+
 export const ListData = ({
   columns,
   queryKey,
@@ -25,9 +40,9 @@ export const ListData = ({
   displayActionBar = false,
   sidebarContent,
   showTableMetrics = true,
-}: any) => {
+}: ListDataProps) => {
   const tableContainerRef = React.useRef<HTMLDivElement>(null);
-  const [rowSelection, setRowSelection] = React.useState(selectedItems);
+  const [rowSelection, setRowSelection] = React.useState<any>(selectedItems);
   const [globalFilter] = React.useState<any>([]);
   const [showActionBar, setShowActionBar] = React.useState(false);
 
