@@ -4,6 +4,7 @@ interface LensContextType {
   showDevTools?: boolean;
   showTableMetrics?: boolean;
   dataCallback?: any;
+  configCallback?: any;
 }
 
 const LensContext = createContext<LensContextType | undefined>(undefined);
