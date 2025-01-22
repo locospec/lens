@@ -135,7 +135,6 @@ export const ListData = ({
         className="le-relative le-flex-1 le-overflow-auto le-rounded-lg le-bg-white le-shadow"
         onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
         ref={tableContainerRef}
-        id="lens-table"
       >
         <div
           className="le-w-full"
