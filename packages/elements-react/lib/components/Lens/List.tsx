@@ -12,7 +12,9 @@ export interface ListInterface {
   selectionType?: SelectionType;
   selectedItems?: any;
   configEndpoint: string;
+  configCallback?: () => any;
   dataEndpoint: string;
+  dataCallback?: () => any;
 }
 
 export const List = ({
