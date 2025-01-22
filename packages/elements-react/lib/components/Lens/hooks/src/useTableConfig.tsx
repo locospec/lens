@@ -1,6 +1,6 @@
+import React from "react";
 import { Checkbox } from "@radix-ui/themes";
 import { createColumnHelper } from "@tanstack/react-table";
-import React from "react";
 
 const useTableConfig = (tableConfig: any) => {
   const columnHelper = createColumnHelper();

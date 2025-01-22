@@ -1,4 +1,4 @@
-import useTableConfig from "./hooks/useTableConfig";
+import useTableConfig from "./hooks/src/useTableConfig";
 import { List } from "./List";
 import { ListData } from "./ListData";
 import { ResizeHandle } from "./ResizeHandle";
