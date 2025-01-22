@@ -6,6 +6,8 @@ import { MemoizedTableBody, TableBody } from "./TableBody.tsx";
 import { TableHeaderSection } from "./TableHeaderSection.tsx";
 import LensViewBar from "./LensViewsbar.tsx";
 import LensBulkActionsbar from "./LensBulkActionsbar.tsx";
+import { TableMetrics } from "./TableMetrics.tsx";
+import { useResizeObserver } from "./hooks";
 
 export const ListData = ({
   columns,
@@ -17,6 +19,7 @@ export const ListData = ({
   dataEndpoint,
   displayActionBar = false,
   sidebarContent,
+  showTableMetrics = true,
 }: any) => {
   const tableContainerRef = React.useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] = React.useState(0);
@@ -27,18 +30,9 @@ export const ListData = ({
   const [showActionBar, setShowActionBar] = React.useState(false);
 
   // Add resize observer to track container width
-  React.useEffect(() => {
-    if (!tableContainerRef.current) return;
-
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        setContainerWidth(entry.contentRect.width);
-      }
-    });
-
-    resizeObserver.observe(tableContainerRef.current);
-    return () => resizeObserver.disconnect();
-  }, []);
+  useResizeObserver(tableContainerRef, ([entry]) => {
+    setContainerWidth(entry.contentRect.width);
+  });
 
   // Calculate column sizes based on container width
   React.useMemo(() => {
@@ -192,6 +186,14 @@ export const ListData = ({
 
   return (
     <div className="le-flex le-h-full le-flex-col le-gap-0">
+      {showTableMetrics && (
+        <TableMetrics
+          containerWidth={containerWidth}
+          isResizing={isResizing}
+          rowSelection={rowSelection}
+          columnSizing={table.getState().columnSizing}
+        />
+      )}
       {displayActionBar && (
         <>
           <LensViewBar
