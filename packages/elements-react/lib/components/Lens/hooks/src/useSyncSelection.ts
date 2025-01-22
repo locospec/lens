@@ -8,16 +8,19 @@ const useSyncSelection = (
 ) => {
   const getOrderedKeys = (obj: any) => Object.keys(obj).sort().join(",");
 
-  const selectedItemsAreDifferentFromSelectedRows =
-    getOrderedKeys(selectedItems) !== getOrderedKeys(rowSelection);
-
   useEffect(() => {
+    const selectedItemsAreDifferentFromSelectedRows =
+      getOrderedKeys(selectedItems) !== getOrderedKeys(rowSelection);
+
     if (selectedItemsAreDifferentFromSelectedRows) {
       setRowSelection(selectedItems);
     }
   }, [selectedItems]);
 
   useEffect(() => {
+    const selectedItemsAreDifferentFromSelectedRows =
+      getOrderedKeys(selectedItems) !== getOrderedKeys(rowSelection);
+
     if (selectedItemsAreDifferentFromSelectedRows) {
       onSelect(Object.keys(rowSelection));
     }
