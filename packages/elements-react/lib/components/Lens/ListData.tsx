@@ -11,6 +11,7 @@ import {
   useInfiniteFetch,
   useColumnResize,
   useRowVirtualizer,
+  useSyncSelection,
 } from "./hooks";
 
 export const ListData = ({
@@ -72,27 +73,7 @@ export const ListData = ({
     enableMultiRowSelection: selectionType === "multiple",
   });
 
-  React.useEffect(() => {
-    const getOrderedKeys = (obj: any) => Object.keys(obj).sort().join(",");
-
-    const selectedItemsAreDifferentFromSelectedRows =
-      getOrderedKeys(selectedItems) !== getOrderedKeys(rowSelection);
-
-    if (selectedItemsAreDifferentFromSelectedRows) {
-      setRowSelection(selectedItems);
-    }
-  }, [selectedItems]);
-
-  React.useEffect(() => {
-    const getOrderedKeys = (obj: any) => Object.keys(obj).sort().join(",");
-
-    const selectedItemsAreDifferentFromSelectedRows =
-      getOrderedKeys(selectedItems) !== getOrderedKeys(rowSelection);
-
-    if (selectedItemsAreDifferentFromSelectedRows) {
-      onSelect(Object.keys(rowSelection));
-    }
-  }, [rowSelection]);
+  useSyncSelection(selectedItems, rowSelection, setRowSelection, onSelect);
 
   const { rows } = table.getRowModel();
   const isResizing = table.getState().columnSizingInfo.isResizingColumn;
