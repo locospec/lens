@@ -107,7 +107,7 @@ export const ListData = ({
   }
 
   return (
-    <div className="le-flex le-h-full le-flex-col le-gap-0 le-rounded-lg le-overflow-hidden">
+    <div className="le-flex le-h-full le-flex-col le-gap-0 le-rounded-lg le-overflow-hidden le-border">
       {showTableMetrics && (
         <TableMetrics
           containerWidth={containerWidth}
