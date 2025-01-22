@@ -29,4 +29,6 @@ const useFetchMoreOnScroll = (
   return { fetchMoreOnBottomReached };
 };
 
+useFetchMoreOnScroll.displayName = "useFetchMoreOnScroll";
+
 export { useFetchMoreOnScroll };

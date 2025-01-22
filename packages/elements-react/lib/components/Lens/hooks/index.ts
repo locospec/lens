@@ -3,5 +3,7 @@ export { useTableConfig } from "./src/useTableConfig";
 export { useResizeObserver } from "./src/useResizeObserver";
 export { useColumnSizing } from "./src/useColumnSizing";
 export { useFetchMoreOnScroll } from "./src/useFetchMoreOnScroll";
+export { useInfiniteFetch } from "./src/useInfiniteFetch";
 
 export type { ResizeObserverCallback } from "./src/useResizeObserver";
+export type { UseInfiniteFetchParams } from "./src/useInfiniteFetch";
