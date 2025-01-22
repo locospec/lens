@@ -5,7 +5,7 @@ import convertIntoObject from "../utils/convertIntoObject.ts";
 import LoadingState from "./LoadingState.tsx";
 import { useFetchConfig, useTableConfig } from "./hooks";
 
-type SelectedItemsObject = { [key: string]: boolean };
+export type SelectedItemsObject = { [key: string]: boolean };
 
 export interface ListInterface {
   onSelect?: any;
