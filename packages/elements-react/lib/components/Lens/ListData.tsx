@@ -1,5 +1,5 @@
 import React from "react";
-import { keepPreviousData, useInfiniteQuery } from "@tanstack/react-query";
+import { keepPreviousData } from "@tanstack/react-query";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { MemoizedTableBody, TableBody } from "./TableBody.tsx";
@@ -11,6 +11,7 @@ import {
   useColumnSizing,
   useResizeObserver,
   useFetchMoreOnScroll,
+  useInfiniteFetch,
 } from "./hooks";
 
 export const ListData = ({
@@ -42,26 +43,14 @@ export const ListData = ({
     containerWidth
   );
 
-  const { data, fetchNextPage, isFetching, hasNextPage } = useInfiniteQuery({
-    queryKey: [queryKey, globalFilter],
-    queryFn: async ({ pageParam = null }) => {
-      const response = await fetch(
-        `${dataEndpoint}?cursor=${pageParam}&search=${globalFilter}`
-      );
-      const responseJson = await response.json();
-      // console.log(">> RESPONSE IS>>>", responseJson);
-      return responseJson;
-    },
-    initialPageParam: null,
-    getNextPageParam: (lastPage) => lastPage.next_cursor,
-    getPreviousPageParam: (firstPage) => firstPage.prev_cursor,
-    refetchOnWindowFocus: false,
-    placeholderData: keepPreviousData,
-  });
-
-  const flatData = React.useMemo(
-    () => data?.pages?.flatMap((page) => page.data) ?? [],
-    [data]
+  // Infinite Scroll data fetching
+  const { flatData, fetchNextPage, isFetching, hasNextPage } = useInfiniteFetch(
+    {
+      queryKey,
+      globalFilter,
+      dataEndpoint,
+      keepPreviousData,
+    }
   );
 
   // Infinite Scroll function
