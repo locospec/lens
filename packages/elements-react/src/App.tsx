@@ -22,7 +22,21 @@ function App() {
   return (
     <Theme>
       <div className="le-max-w-5xl le-mx-auto">
-        <Section className="le-h-[500px]" size="1">
+        <Section className="le-h-[600px]" size="1">
+          <h2 className="le-text-2xl le-font-bold le-mb-4">
+            Lens Sample Table
+          </h2>
+          <Lens
+            selectionType={"multiple"}
+            configEndpoint="/api/data-bench/test-data/config"
+            dataEndpoint="/api/data-bench/test-data/fetch"
+            onSelect={(value) => {
+              handleSelectionChange(value);
+            }}
+            selectedItems={checkedIds}
+          />
+        </Section>
+        <Section className="le-h-96" size="1">
           <h2 className="le-text-2xl le-font-bold le-mb-4">
             Lens Sample Table
           </h2>
