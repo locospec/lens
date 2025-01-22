@@ -8,10 +8,9 @@ import LensViewBar from "./LensViewsbar.tsx";
 import LensBulkActionsbar from "./LensBulkActionsbar.tsx";
 import { TableMetrics } from "./TableMetrics.tsx";
 import {
-  useColumnSizing,
-  useResizeObserver,
   useFetchMoreOnScroll,
   useInfiniteFetch,
+  useColumnResize,
 } from "./hooks";
 
 export const ListData = ({
@@ -27,20 +26,14 @@ export const ListData = ({
   showTableMetrics = true,
 }: any) => {
   const tableContainerRef = React.useRef<HTMLDivElement>(null);
-  const [containerWidth, setContainerWidth] = React.useState(0);
   const [rowSelection, setRowSelection] = React.useState(selectedItems);
   const [globalFilter] = React.useState<any>([]);
   const [showActionBar, setShowActionBar] = React.useState(false);
 
-  // Add resize observer to track container width
-  useResizeObserver(tableContainerRef, ([entry]) => {
-    setContainerWidth(entry.contentRect.width);
-  });
-
-  // Calculate column sizes based on container width
-  const { adjustedColumns, isColumnsReady } = useColumnSizing(
+  const { adjustedColumns, isColumnsReady, containerWidth } = useColumnResize(
+    tableContainerRef,
     columns,
-    containerWidth
+    0
   );
 
   // Infinite Scroll data fetching

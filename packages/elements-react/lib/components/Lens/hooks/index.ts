@@ -4,6 +4,7 @@ export { useResizeObserver } from "./src/useResizeObserver";
 export { useColumnSizing } from "./src/useColumnSizing";
 export { useFetchMoreOnScroll } from "./src/useFetchMoreOnScroll";
 export { useInfiniteFetch } from "./src/useInfiniteFetch";
+export { useColumnResize } from "./src/useColumnResize";
 
 export type { ResizeObserverCallback } from "./src/useResizeObserver";
 export type { UseInfiniteFetchParams } from "./src/useInfiniteFetch";
