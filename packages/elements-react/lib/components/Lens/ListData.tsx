@@ -13,6 +13,7 @@ import {
   useColumnSizeVars,
 } from "./hooks";
 import Topbar from "./Topbar.tsx";
+import { useLensContext } from "./context/LensContext.tsx";
 
 import type { ColumnDef } from "@tanstack/react-table";
 import type { SelectionType } from "./interfaces/index.ts";
@@ -27,7 +28,6 @@ export interface ListDataProps {
   dataEndpoint: string;
   displayActionBar?: boolean;
   sidebarContent?: React.ReactNode;
-  showTableMetrics?: boolean;
 }
 
 export const ListData = ({
@@ -40,12 +40,13 @@ export const ListData = ({
   dataEndpoint,
   displayActionBar = false,
   sidebarContent,
-  showTableMetrics = true,
 }: ListDataProps) => {
   const tableContainerRef = React.useRef<HTMLDivElement>(null);
   const [rowSelection, setRowSelection] = React.useState<any>(selectedItems);
   const [globalFilter] = React.useState<any>([]);
   const [showActionBar, setShowActionBar] = React.useState(false);
+
+  const { showTableMetrics } = useLensContext();
 
   const { adjustedColumns, isColumnsReady, containerWidth } = useColumnResize(
     tableContainerRef,
