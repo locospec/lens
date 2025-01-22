@@ -7,6 +7,10 @@ import { makeServer } from "./mocks/mirageServer";
 function App() {
   React.useEffect(() => {
     makeServer();
+
+    return () => {
+      makeServer().shutdown();
+    };
   }, []);
 
   const [checkedIds, setCheckedIds] = useState([]);
@@ -49,13 +53,13 @@ function App() {
             Lens Sample Table
           </h2>
           <Lens
-            selectionType={"multiple"}
             configEndpoint="/api/data-bench/test-data/config"
             dataEndpoint="/api/data-bench/test-data/fetch"
             onSelect={(value) => {
               handleSelectionChange(value);
             }}
             selectedItems={checkedIds}
+            showTableMetrics
           />
         </Section>
         <Section className="le-h-[700px]" size="1">
