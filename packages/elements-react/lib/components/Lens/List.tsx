@@ -1,6 +1,5 @@
 import React from "react";
 import { ListData } from "./ListData.tsx";
-import type { SelectionType } from "./interfaces";
 import convertIntoObject from "../utils/convertIntoObject.ts";
 import LoadingState from "./LoadingState.tsx";
 import { useFetchConfig, useTableConfig } from "./hooks";
@@ -9,7 +8,6 @@ export type SelectedItemsObject = { [key: string]: boolean };
 
 export interface ListInterface {
   onSelect?: any;
-  selectionType?: SelectionType;
   selectedItems?: any;
   configEndpoint: string;
   configCallback?: () => any;
@@ -19,17 +17,18 @@ export interface ListInterface {
 
 export const List = ({
   onSelect,
-  selectionType,
   selectedItems,
   configEndpoint,
+  configCallback,
   dataEndpoint,
 }: ListInterface) => {
   const {
     data: tableConfig,
     isFetched,
     isError,
-  } = useFetchConfig(configEndpoint);
+  } = useFetchConfig(configEndpoint, configCallback);
   const { columns, identifierKey } = useTableConfig(tableConfig);
+  const selectionType = tableConfig?.selectionType || "none";
 
   const tableSelectedItems: SelectedItemsObject = React.useMemo(() => {
     return selectedItems.length > 0 ? convertIntoObject(selectedItems) : {};

@@ -28,6 +28,19 @@ function App() {
     }
   };
 
+  const returnTableConfiguration = () => {
+    return {
+      resource: "test-data",
+      identifierKey: "data-value",
+      selectionType: "none",
+      columns: [
+        { accessorKey: "id", header: "ID", width: 50 },
+        { accessorKey: "name", header: "name", width: 500 },
+        { accessorKey: "data-value", header: "data-value" },
+      ],
+    };
+  };
+
   return (
     <Theme>
       <div className="le-max-w-5xl le-mx-auto">
@@ -50,12 +63,11 @@ function App() {
             Lens Sample Table
           </h2>
           <Lens
-            selectionType={"multiple"}
-            configEndpoint="/api/data-bench/test-data/config"
             dataEndpoint="/api/data-bench/test-data/fetch"
             onSelect={(value) => {
               handleSelectionChange2(value);
             }}
+            configCallback={returnTableConfiguration}
             selectedItems={checkedIds2}
           />
         </Section>

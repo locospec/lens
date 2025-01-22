@@ -12,7 +12,12 @@ const useTableConfig = (tableConfig: any) => {
       };
     }
 
-    const { resource, identifierKey, columns: rawColumns } = tableConfig;
+    const {
+      resource,
+      identifierKey,
+      columns: rawColumns,
+      selectionType,
+    } = tableConfig;
 
     const columnsFromConfig = rawColumns.map((col: any) =>
       columnHelper.accessor(col.accessorKey, {
@@ -49,7 +54,7 @@ const useTableConfig = (tableConfig: any) => {
     };
 
     const finalColumns =
-      tableConfig?.selectionType === "none"
+      selectionType === "none"
         ? columnsFromConfig
         : [selectionColumn, ...columnsFromConfig];
 

@@ -52,6 +52,7 @@ export const ListData = ({
     columns,
     0
   );
+
   const { flatData, fetchNextPage, isFetching, hasNextPage } = useInfiniteFetch(
     {
       queryKey,
@@ -60,6 +61,7 @@ export const ListData = ({
       keepPreviousData,
     }
   );
+
   const { fetchMoreOnBottomReached } = useFetchMoreOnScroll(
     tableContainerRef,
     fetchNextPage,
