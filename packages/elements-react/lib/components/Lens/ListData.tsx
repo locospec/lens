@@ -15,14 +15,15 @@ import {
 import Topbar from "./Topbar.tsx";
 
 import type { ColumnDef } from "@tanstack/react-table";
+import type { SelectionType } from "./interfaces/index.ts";
 
 export interface ListDataProps {
   columns: ColumnDef<any>[];
   queryKey: string;
-  selectionType: "single" | "multiple";
+  selectionType?: SelectionType;
   identifierKey: string;
   onSelect: (selected: any[]) => void;
-  selectedItems: any[];
+  selectedItems: any;
   dataEndpoint: string;
   displayActionBar?: boolean;
   sidebarContent?: React.ReactNode;
@@ -32,7 +33,7 @@ export interface ListDataProps {
 export const ListData = ({
   columns,
   queryKey,
-  selectionType,
+  selectionType = "none",
   identifierKey,
   onSelect,
   selectedItems,
