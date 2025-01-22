@@ -11,7 +11,7 @@ export interface ListInterface {
   selectedItems?: any;
   configEndpoint: string;
   configCallback?: () => any;
-  dataEndpoint: string;
+  dataEndpoint?: string;
   dataCallback?: () => any;
 }
 

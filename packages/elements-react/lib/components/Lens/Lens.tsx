@@ -9,24 +9,26 @@ import { LensProvider } from "./context/LensContext.tsx";
 const queryClient = new QueryClient();
 
 export interface LensInterface {
-  configCallback?: () => any;
-  configEndpoint?: string;
   selectionType?: SelectionType;
   onSelect?: (selection: any) => void;
   selectedItems?: string[];
-  dataEndpoint: string;
   showDevTools?: boolean;
   showTableMetrics?: boolean;
+  configEndpoint?: string;
+  configCallback?: () => any;
+  dataEndpoint?: string;
+  dataCallback?: (schema: any, request: any) => any;
 }
 
 const Lens = ({
   selectedItems = [],
   onSelect,
-  configEndpoint,
-  dataEndpoint,
   showDevTools = false,
-  configCallback,
   showTableMetrics = false,
+  configEndpoint,
+  configCallback,
+  dataEndpoint,
+  dataCallback,
 }: LensInterface) => {
   return (
     <QueryClientProvider client={queryClient}>
@@ -34,6 +36,7 @@ const Lens = ({
       <LensProvider
         showDevTools={showDevTools}
         showTableMetrics={showTableMetrics}
+        dataCallback={dataCallback}
       >
         <List
           onSelect={onSelect}
