@@ -4,17 +4,8 @@ import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { MemoizedTableBody, TableBody } from "./TableBody.tsx";
 import { TableHeaderSection } from "./TableHeaderSection.tsx";
-// import { TableMetrics } from "./TableMetrics.tsx";
-import { Button } from "../Button/index.tsx";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-} from "../Sheet/index.tsx";
-import { SlidersHorizontal } from "lucide-react";
+import LensViewBar from "./LensViewsbar.tsx";
+import LensBulkActionsbar from "./LensBulkActionsbar.tsx";
 
 export const ListData = ({
   columns,
@@ -25,6 +16,7 @@ export const ListData = ({
   selectedItems,
   dataEndpoint,
   displayActionBar = false,
+  sidebarContent,
 }: any) => {
   const tableContainerRef = React.useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] = React.useState(0);
@@ -200,41 +192,16 @@ export const ListData = ({
 
   return (
     <div className="le-flex le-h-full le-flex-col le-gap-0">
-      {/* <TableMetrics
-        containerWidth={containerWidth}
-        // totalCount={totalCount}
-        isResizing={isResizing}
-        rowSelection={rowSelection}
-        columnSizing={table.getState().columnSizing}
-      /> */}
-
-      <div className="le-h-10 le-bg-green-400 le-flex le-items-center le-w-full le-justify-end le-px-4 le-gap-x-4">
-        <Button
-          className="le-px-1 le-py-1 le-bg-blue-500 le-gap-x-2 hover:le-bg-blue-600 le-h-8 le-flex le-items-center le-jusitfy-center le-text-white le-font-bold le-rounded-md"
-          onClick={() => setShowActionBar(!showActionBar)}
-        >
-          <SlidersHorizontal size={18} />
-          {showActionBar ? <>Hide</> : <>Filters</>}
-        </Button>
-        <Sheet>
-          <SheetTrigger className="le-px-3 le-py-1 le-bg-blue-500 le-gap-x-2 hover:le-bg-blue-600 le-h-8 le-flex le-items-center le-jusitfy-center le-text-white le-font-bold le-rounded-md">
-            Open
-          </SheetTrigger>
-          <SheetContent containerRef={tableContainerRef}>
-            <SheetHeader>
-              <SheetTitle>Are you absolutely sure?</SheetTitle>
-              <SheetDescription>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers.
-              </SheetDescription>
-            </SheetHeader>
-          </SheetContent>
-        </Sheet>
-      </div>
-      {showActionBar && (
-        <div className="le-h-10 le-bg-red-400 le-flex le-items-center le-text-lg le-font-bold">
-          Bulk Actions Bar
-        </div>
+      {displayActionBar && (
+        <>
+          <LensViewBar
+            tableContainerRef={tableContainerRef}
+            sidebarContent={sidebarContent}
+            showActionBar={showActionBar}
+            setShowActionBar={setShowActionBar}
+          />
+          {showActionBar && <LensBulkActionsbar />}
+        </>
       )}
       <div
         className="le-relative le-flex-1 le-overflow-auto le-rounded-lg le-bg-white le-shadow"
