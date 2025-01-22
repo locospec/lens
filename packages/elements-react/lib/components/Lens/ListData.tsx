@@ -20,12 +20,12 @@ import type { SelectionType } from "./interfaces/index.ts";
 
 export interface ListDataProps {
   columns: ColumnDef<any>[];
-  queryKey: string;
+  queryKey?: string;
   selectionType?: SelectionType;
   identifierKey: string;
   onSelect: (selected: any[]) => void;
   selectedItems: any;
-  dataEndpoint: string;
+  dataEndpoint?: string;
   displayActionBar?: boolean;
   sidebarContent?: React.ReactNode;
 }
@@ -46,7 +46,7 @@ export const ListData = ({
   const [globalFilter] = React.useState<any>([]);
   const [showActionBar, setShowActionBar] = React.useState(false);
 
-  const { showTableMetrics } = useLensContext();
+  const { showTableMetrics, dataCallback } = useLensContext();
 
   const { adjustedColumns, isColumnsReady, containerWidth } = useColumnResize(
     tableContainerRef,
@@ -60,6 +60,7 @@ export const ListData = ({
       globalFilter,
       dataEndpoint,
       keepPreviousData,
+      dataCallback,
     }
   );
 

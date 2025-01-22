@@ -1,6 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 
 const useFetchConfig = (configEndpoint: string, configCallback?: () => any) => {
+  if (!configCallback && !configEndpoint) {
+    throw new Error("Either configCallback or configEndpoint must be provided");
+  }
   const configCallerFunction = async () => {
     const response = await fetch(configEndpoint, {
       method: "GET",

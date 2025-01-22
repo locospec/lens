@@ -3,6 +3,7 @@ import { createContext, useContext, ReactNode } from "react";
 interface LensContextType {
   showDevTools?: boolean;
   showTableMetrics?: boolean;
+  dataCallback?: any;
 }
 
 const LensContext = createContext<LensContextType | undefined>(undefined);
