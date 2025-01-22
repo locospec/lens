@@ -3,6 +3,7 @@ import { ListData } from "./ListData.tsx";
 import convertIntoObject from "../utils/convertIntoObject.ts";
 import LoadingState from "./LoadingState.tsx";
 import { useFetchConfig, useTableConfig } from "./hooks";
+import { useLensContext } from "./context/LensContext.tsx";
 
 export type SelectedItemsObject = { [key: string]: boolean };
 
@@ -10,18 +11,16 @@ export interface ListInterface {
   onSelect?: any;
   selectedItems?: any;
   configEndpoint: string;
-  configCallback?: () => any;
   dataEndpoint?: string;
-  dataCallback?: () => any;
 }
 
 export const List = ({
   onSelect,
   selectedItems,
   configEndpoint,
-  configCallback,
   dataEndpoint,
 }: ListInterface) => {
+  const { configCallback } = useLensContext();
   const {
     data: tableConfig,
     isFetched,

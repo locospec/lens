@@ -37,13 +37,13 @@ const Lens = ({
         showDevTools={showDevTools}
         showTableMetrics={showTableMetrics}
         dataCallback={dataCallback}
+        configCallback={configCallback}
       >
         <List
           onSelect={onSelect}
           selectedItems={selectedItems}
           configEndpoint={configEndpoint || ""}
           dataEndpoint={dataEndpoint}
-          configCallback={configCallback}
         />
       </LensProvider>
     </QueryClientProvider>
