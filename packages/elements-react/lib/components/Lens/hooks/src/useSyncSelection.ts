@@ -6,27 +6,22 @@ const useSyncSelection = (
   setRowSelection: React.Dispatch<React.SetStateAction<any>>,
   onSelect: (selectedIds: string[]) => void
 ) => {
+  const getOrderedKeys = (obj: any) => Object.keys(obj).sort().join(",");
+
+  const selectedItemsAreDifferentFromSelectedRows =
+    getOrderedKeys(selectedItems) !== getOrderedKeys(rowSelection);
+
   useEffect(() => {
-    const getOrderedKeys = (obj: any) => Object.keys(obj).sort().join(",");
-
-    const selectedItemsAreDifferentFromSelectedRows =
-      getOrderedKeys(selectedItems) !== getOrderedKeys(rowSelection);
-
     if (selectedItemsAreDifferentFromSelectedRows) {
       setRowSelection(selectedItems);
     }
-  }, [selectedItems, rowSelection, setRowSelection]);
+  }, [selectedItems]);
 
   useEffect(() => {
-    const getOrderedKeys = (obj: any) => Object.keys(obj).sort().join(",");
-
-    const selectedItemsAreDifferentFromSelectedRows =
-      getOrderedKeys(selectedItems) !== getOrderedKeys(rowSelection);
-
     if (selectedItemsAreDifferentFromSelectedRows) {
       onSelect(Object.keys(rowSelection));
     }
-  }, [rowSelection, selectedItems, onSelect]);
+  }, [rowSelection]);
 };
 
 useSyncSelection.displayName = "useSyncSelection";
