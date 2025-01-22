@@ -1,8 +1,16 @@
 import React from "react";
 import { TableRow } from "./TableRow.tsx";
+import type { Table } from "@tanstack/react-table";
+import { Virtualizer } from "@tanstack/react-virtual";
 
-export const TableBody = ({ table, rowVirtualizer }: any) => {
+export interface TableBodyProps {
+  table: Table<any>;
+  rowVirtualizer: Virtualizer<HTMLDivElement, Element>;
+}
+
+export const TableBody = ({ table, rowVirtualizer }: TableBodyProps) => {
   const { rows } = table.getRowModel();
+  const { getTotalSize, getVirtualItems } = rowVirtualizer;
 
   if (!rows.length) {
     return (
@@ -16,10 +24,10 @@ export const TableBody = ({ table, rowVirtualizer }: any) => {
     <div
       className="le-relative le-w-full"
       style={{
-        height: `${rowVirtualizer.getTotalSize()}px`,
+        height: `${getTotalSize()}px`,
       }}
     >
-      {rowVirtualizer.getVirtualItems().map((virtualRow: any) => {
+      {getVirtualItems().map((virtualRow) => {
         const row = rows[virtualRow.index];
         return (
           <TableRow
