@@ -1,6 +1,7 @@
 import { Lens } from "@locospec/elements-react";
 import React, { useState, useEffect } from "react";
 import { makeServer } from "../src/server/mocks/mirageServer";
+import "@locospec/elements-react/styles.css";
 
 const LensSample = () => {
   useEffect(() => {

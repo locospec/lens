@@ -1,9 +1,20 @@
+import React from "react";
 import { keepPreviousData, useInfiniteQuery } from "@tanstack/react-query";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useVirtualizer } from "@tanstack/react-virtual";
-import React from "react";
 import { MemoizedTableBody, TableBody } from "./TableBody.tsx";
 import { TableHeaderSection } from "./TableHeaderSection.tsx";
+// import { TableMetrics } from "./TableMetrics.tsx";
+import { Button } from "../Button/index.tsx";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+} from "../Sheet/index.tsx";
+import { SlidersHorizontal } from "lucide-react";
 
 export const ListData = ({
   columns,
@@ -13,6 +24,7 @@ export const ListData = ({
   onSelect,
   selectedItems,
   dataEndpoint,
+  displayActionBar = false,
 }: any) => {
   const tableContainerRef = React.useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] = React.useState(0);
@@ -20,6 +32,7 @@ export const ListData = ({
   const [globalFilter] = React.useState<any>([]);
   const [isColumnsReady, setIsColumnsReady] = React.useState(false);
   const [adjustedColumns, setAdjustedColumns] = React.useState(columns);
+  const [showActionBar, setShowActionBar] = React.useState(false);
 
   // Add resize observer to track container width
   React.useEffect(() => {
@@ -65,10 +78,8 @@ export const ListData = ({
       const response = await fetch(
         `${dataEndpoint}?cursor=${pageParam}&search=${globalFilter}`
       );
-
       const responseJson = await response.json();
       // console.log(">> RESPONSE IS>>>", responseJson);
-
       return responseJson;
     },
     initialPageParam: null,
@@ -188,19 +199,48 @@ export const ListData = ({
   }
 
   return (
-    <div className="le-flex le-h-full le-flex-col le-gap-4">
+    <div className="le-flex le-h-full le-flex-col le-gap-0">
       {/* <TableMetrics
-              containerWidth={containerWidth}
-              totalCount={totalCount}
-              isResizing={isResizing}
-              rowSelection={rowSelection}
-              columnSizing={table.getState().columnSizing}
-          /> */}
+        containerWidth={containerWidth}
+        // totalCount={totalCount}
+        isResizing={isResizing}
+        rowSelection={rowSelection}
+        columnSizing={table.getState().columnSizing}
+      /> */}
 
+      <div className="le-h-10 le-bg-green-400 le-flex le-items-center le-w-full le-justify-end le-px-4 le-gap-x-4">
+        <Button
+          className="le-px-1 le-py-1 le-bg-blue-500 le-gap-x-2 hover:le-bg-blue-600 le-h-8 le-flex le-items-center le-jusitfy-center le-text-white le-font-bold le-rounded-md"
+          onClick={() => setShowActionBar(!showActionBar)}
+        >
+          <SlidersHorizontal size={18} />
+          {showActionBar ? <>Hide</> : <>Filters</>}
+        </Button>
+        <Sheet>
+          <SheetTrigger className="le-px-3 le-py-1 le-bg-blue-500 le-gap-x-2 hover:le-bg-blue-600 le-h-8 le-flex le-items-center le-jusitfy-center le-text-white le-font-bold le-rounded-md">
+            Open
+          </SheetTrigger>
+          <SheetContent containerRef={tableContainerRef}>
+            <SheetHeader>
+              <SheetTitle>Are you absolutely sure?</SheetTitle>
+              <SheetDescription>
+                This action cannot be undone. This will permanently delete your
+                account and remove your data from our servers.
+              </SheetDescription>
+            </SheetHeader>
+          </SheetContent>
+        </Sheet>
+      </div>
+      {showActionBar && (
+        <div className="le-h-10 le-bg-red-400 le-flex le-items-center le-text-lg le-font-bold">
+          Bulk Actions Bar
+        </div>
+      )}
       <div
         className="le-relative le-flex-1 le-overflow-auto le-rounded-lg le-bg-white le-shadow"
         onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
         ref={tableContainerRef}
+        id="lens-table"
       >
         <div
           className="le-w-full"
@@ -210,7 +250,11 @@ export const ListData = ({
             minWidth: `${table.getTotalSize()}px`,
           }}
         >
-          <TableHeaderSection table={table} columnSizeVars={columnSizeVars} />
+          <TableHeaderSection
+            table={table}
+            columnSizeVars={columnSizeVars}
+            tableContainerRef={tableContainerRef}
+          />
 
           {isResizing ? (
             <MemoizedTableBody table={table} rowVirtualizer={rowVirtualizer} />
