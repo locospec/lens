@@ -7,7 +7,11 @@ import { TableHeaderSection } from "./TableHeaderSection.tsx";
 import LensViewBar from "./LensViewsbar.tsx";
 import LensBulkActionsbar from "./LensBulkActionsbar.tsx";
 import { TableMetrics } from "./TableMetrics.tsx";
-import { useColumnSizing, useResizeObserver } from "./hooks";
+import {
+  useColumnSizing,
+  useResizeObserver,
+  useFetchMoreOnScroll,
+} from "./hooks";
 
 export const ListData = ({
   columns,
@@ -60,25 +64,13 @@ export const ListData = ({
     [data]
   );
 
-  const fetchMoreOnBottomReached = React.useCallback(
-    (containerRefElement?: HTMLDivElement | null) => {
-      if (containerRefElement) {
-        const { scrollHeight, scrollTop, clientHeight } = containerRefElement;
-        if (
-          scrollHeight - scrollTop - clientHeight < 500 &&
-          !isFetching &&
-          hasNextPage
-        ) {
-          fetchNextPage();
-        }
-      }
-    },
-    [fetchNextPage, isFetching, hasNextPage]
+  // Infinite Scroll function
+  const { fetchMoreOnBottomReached } = useFetchMoreOnScroll(
+    tableContainerRef,
+    fetchNextPage,
+    isFetching,
+    hasNextPage
   );
-
-  React.useEffect(() => {
-    fetchMoreOnBottomReached(tableContainerRef.current);
-  }, [fetchMoreOnBottomReached]);
 
   const table = useReactTable({
     data: flatData,
