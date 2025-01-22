@@ -32,17 +32,35 @@ function App() {
     }
   };
 
-  const returnTableConfiguration = () => {
-    return {
-      resource: "test-data",
-      identifierKey: "data-value",
-      selectionType: "none",
-      columns: [
-        { accessorKey: "id", header: "ID", width: 50 },
-        { accessorKey: "name", header: "name", width: 500 },
-        { accessorKey: "data-value", header: "data-value" },
-      ],
-    };
+  const returnTableConfiguration = async () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          resource: "test-data",
+          identifierKey: "data-value",
+          selectionType: "multiple",
+          columns: [
+            { accessorKey: "id", header: "ID", width: 50 },
+            { accessorKey: "name", header: "name", width: 500 },
+            { accessorKey: "data-value", header: "data-value" },
+          ],
+        });
+      }, 1000); // 200ms delay
+    });
+  };
+
+  const returnTableData = async ({
+    pageParam = null,
+    globalFilter = null,
+  }: {
+    pageParam?: any;
+    globalFilter?: any;
+  }) => {
+    const response = await fetch(
+      `/api/data-bench/test-data/fetch?cursor=${pageParam}&search=${globalFilter}`
+    );
+    const responseJson = await response.json();
+    return responseJson;
   };
 
   return (
@@ -62,17 +80,18 @@ function App() {
             showTableMetrics
           />
         </Section>
-        <Section className="le-h-[700px]" size="1">
+        <Section className="le-h-[700px] le-mt-10" size="1">
           <h2 className="le-text-2xl le-font-bold le-mb-4">
-            Lens Sample Table
+            Lens Sample Table 2
           </h2>
           <Lens
-            dataEndpoint="/api/data-bench/test-data/fetch"
             onSelect={(value) => {
               handleSelectionChange2(value);
             }}
             configCallback={returnTableConfiguration}
+            dataCallback={returnTableData}
             selectedItems={checkedIds2}
+            showTableMetrics
           />
         </Section>
       </div>
