@@ -1,7 +1,6 @@
 import React from "react";
 import { keepPreviousData } from "@tanstack/react-query";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
-import { useVirtualizer } from "@tanstack/react-virtual";
 import { MemoizedTableBody, TableBody } from "./TableBody.tsx";
 import { TableHeaderSection } from "./TableHeaderSection.tsx";
 import LensViewBar from "./LensViewsbar.tsx";
@@ -11,6 +10,7 @@ import {
   useFetchMoreOnScroll,
   useInfiniteFetch,
   useColumnResize,
+  useRowVirtualizer,
 } from "./hooks";
 
 export const ListData = ({
@@ -30,6 +30,7 @@ export const ListData = ({
   const [globalFilter] = React.useState<any>([]);
   const [showActionBar, setShowActionBar] = React.useState(false);
 
+  // Column resizing handler
   const { adjustedColumns, isColumnsReady, containerWidth } = useColumnResize(
     tableContainerRef,
     columns,
@@ -96,17 +97,7 @@ export const ListData = ({
   const { rows } = table.getRowModel();
   const isResizing = table.getState().columnSizingInfo.isResizingColumn;
 
-  const rowVirtualizer = useVirtualizer({
-    count: rows.length,
-    estimateSize: () => 33,
-    getScrollElement: () => tableContainerRef.current,
-    measureElement:
-      typeof window !== "undefined" &&
-      navigator.userAgent.indexOf("Firefox") === -1
-        ? (element) => element?.getBoundingClientRect().height
-        : undefined,
-    overscan: 5,
-  });
+  const rowVirtualizer = useRowVirtualizer({ rows, tableContainerRef });
 
   const columnSizeVars = React.useMemo(() => {
     const headers = table.getFlatHeaders();
