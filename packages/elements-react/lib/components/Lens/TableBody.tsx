@@ -5,9 +5,11 @@ export const TableBody = ({ table, rowVirtualizer }: any) => {
   const { rows } = table.getRowModel();
 
   if (!rows.length) {
-    <div className="le-p-4 le-text-center le-text-gray-500">
-      No data available
-    </div>;
+    return (
+      <div className="le-p-4 le-text-center le-text-gray-500">
+        No data available
+      </div>
+    );
   }
 
   return (
