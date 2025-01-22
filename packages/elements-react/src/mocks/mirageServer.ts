@@ -13,6 +13,7 @@ export function makeServer() {
           return {
             resource: "test-data",
             identifierKey: "data-value",
+            selectionType: "multiple",
             columns: [
               { accessorKey: "id", header: "ID", width: 50 },
               { accessorKey: "name", header: "name", width: 500 },

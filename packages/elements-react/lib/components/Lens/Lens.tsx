@@ -8,32 +8,35 @@ import type { SelectionType } from "./interfaces/index.ts";
 const queryClient = new QueryClient();
 
 export interface LensInterface {
-  selectionType: SelectionType;
+  configCallback?: () => any;
+  configEndpoint?: string;
+  selectionType?: SelectionType;
   onSelect?: (selection: any) => void;
   selectedItems?: string[];
-  configEndpoint: string;
   dataEndpoint: string;
   showDevTools?: boolean;
 }
 
 const Lens = ({
-  selectionType = "single",
   selectedItems = [],
   onSelect,
   configEndpoint,
   dataEndpoint,
   showDevTools = false,
-}: LensInterface) => (
-  <QueryClientProvider client={queryClient}>
-    {showDevTools ? <ReactQueryDevtools /> : <></>}
-    <List
-      onSelect={onSelect}
-      selectionType={selectionType}
-      selectedItems={selectedItems}
-      configEndpoint={configEndpoint}
-      dataEndpoint={dataEndpoint}
-    />
-  </QueryClientProvider>
-);
+  configCallback,
+}: LensInterface) => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      {showDevTools ? <ReactQueryDevtools /> : <></>}
+      <List
+        onSelect={onSelect}
+        selectedItems={selectedItems}
+        configEndpoint={configEndpoint || ""}
+        dataEndpoint={dataEndpoint}
+        configCallback={configCallback}
+      />
+    </QueryClientProvider>
+  );
+};
 
 export default Lens;
