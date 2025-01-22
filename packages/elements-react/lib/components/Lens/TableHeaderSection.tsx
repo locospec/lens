@@ -1,9 +1,10 @@
 import React from "react";
 import { TableHeader } from "./TableHeader.tsx";
+import type { Table } from "@tanstack/react-table";
 
 export interface TableHeaderSectionInterface {
-  table: any;
-  columnSizeVars: any;
+  table: Table<any>;
+  columnSizeVars?: any;
   tableContainerRef?: React.RefObject<HTMLDivElement>;
 }
 
