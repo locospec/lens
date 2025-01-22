@@ -3,8 +3,6 @@ import { keepPreviousData } from "@tanstack/react-query";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { MemoizedTableBody, TableBody } from "./TableBody.tsx";
 import { TableHeaderSection } from "./TableHeaderSection.tsx";
-import LensViewBar from "./LensViewsbar.tsx";
-import LensBulkActionsbar from "./LensBulkActionsbar.tsx";
 import { TableMetrics } from "./TableMetrics.tsx";
 import {
   useFetchMoreOnScroll,
@@ -12,7 +10,9 @@ import {
   useColumnResize,
   useRowVirtualizer,
   useSyncSelection,
+  useColumnSizeVars,
 } from "./hooks";
+import Topbar from "./Topbar.tsx";
 
 export const ListData = ({
   columns,
@@ -31,14 +31,11 @@ export const ListData = ({
   const [globalFilter] = React.useState<any>([]);
   const [showActionBar, setShowActionBar] = React.useState(false);
 
-  // Column resizing handler
   const { adjustedColumns, isColumnsReady, containerWidth } = useColumnResize(
     tableContainerRef,
     columns,
     0
   );
-
-  // Infinite Scroll data fetching
   const { flatData, fetchNextPage, isFetching, hasNextPage } = useInfiniteFetch(
     {
       queryKey,
@@ -47,8 +44,6 @@ export const ListData = ({
       keepPreviousData,
     }
   );
-
-  // Infinite Scroll function
   const { fetchMoreOnBottomReached } = useFetchMoreOnScroll(
     tableContainerRef,
     fetchNextPage,
@@ -73,31 +68,12 @@ export const ListData = ({
     enableMultiRowSelection: selectionType === "multiple",
   });
 
-  useSyncSelection(selectedItems, rowSelection, setRowSelection, onSelect);
-
   const { rows } = table.getRowModel();
   const isResizing = table.getState().columnSizingInfo.isResizingColumn;
-
   const rowVirtualizer = useRowVirtualizer({ rows, tableContainerRef });
+  const columnSizeVars = useColumnSizeVars({ table, adjustedColumns });
 
-  const columnSizeVars = React.useMemo(() => {
-    const headers = table.getFlatHeaders();
-
-    const colSizes: { [key: string]: number } = {};
-    let totalWidth = 0;
-    for (let i = 0; i < headers.length; i++) {
-      const header = headers[i]!;
-
-      colSizes[`--header-${header.id}-size`] = header.getSize();
-      colSizes[`--col-${header.column.id}-size`] = header.column.getSize();
-      totalWidth += header.getSize();
-    }
-    return colSizes;
-  }, [
-    table.getState().columnSizingInfo,
-    table.getState().columnSizing,
-    adjustedColumns,
-  ]);
+  useSyncSelection(selectedItems, rowSelection, setRowSelection, onSelect);
 
   if (!isColumnsReady) {
     return (
@@ -120,17 +96,13 @@ export const ListData = ({
           columnSizing={table.getState().columnSizing}
         />
       )}
-      {displayActionBar && (
-        <>
-          <LensViewBar
-            tableContainerRef={tableContainerRef}
-            sidebarContent={sidebarContent}
-            showActionBar={showActionBar}
-            setShowActionBar={setShowActionBar}
-          />
-          {showActionBar && <LensBulkActionsbar />}
-        </>
-      )}
+      <Topbar
+        tableContainerRef={tableContainerRef}
+        sidebarContent={sidebarContent}
+        showActionBar={showActionBar}
+        setShowActionBar={setShowActionBar}
+        displayActionBar={displayActionBar}
+      />
       <div
         className="le-relative le-flex-1 le-overflow-auto le-rounded-lg le-bg-white le-shadow"
         onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
