@@ -64,4 +64,4 @@ const useTableConfig = (tableConfig: any) => {
 
 useTableConfig.displayName = "useTableConfig";
 
-export default useTableConfig;
+export { useTableConfig };

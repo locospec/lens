@@ -22,4 +22,4 @@ const useFetchConfig = (configEndpoint: string) => {
 
 useFetchConfig.displayName = "useFetchConfig";
 
-export default useFetchConfig;
+export { useFetchConfig };
