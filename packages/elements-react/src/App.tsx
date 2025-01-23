@@ -45,7 +45,7 @@ function App() {
             { accessorKey: "data-value", header: "data-value" },
           ],
         });
-      }, 1000); // 200ms delay
+      }, 200); // 200ms delay
     });
   };
 
