@@ -16,8 +16,9 @@ const TableRow = ({ row, virtualRow, rowVirtualizer }: TableRowInterface) => {
   return (
     <div
       className={cn(
-        "le-absolute le-top-0 le-flex le-w-full hover:le-bg-gray-50",
-        isSelected && "le-bg-blue-50"
+        "le-absolute le-top-0 le-flex le-w-full le-border-b le-border-[var(--gray-7)]",
+        "le-bg-[var(--gray-1)] hover:le-bg-[var(--gray-2)]",
+        isSelected && "le-bg-[var(--gray-2)]"
       )}
       data-index={virtualRow.index}
       ref={(node) => rowVirtualizer.measureElement(node)}
