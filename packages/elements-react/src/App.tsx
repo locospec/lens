@@ -64,15 +64,15 @@ function App() {
   };
 
   return (
-    <Theme>
+    <Theme accentColor="lime">
       <div className="le-max-w-5xl le-mx-auto">
         <Section className="le-h-[600px]" size="1">
           <h2 className="le-text-2xl le-font-bold le-mb-4">
             Lens Sample Table
           </h2>
           <Lens
-            configEndpoint="/api/data-bench/test-data/config"
-            dataEndpoint="/api/data-bench/test-data/fetch"
+            configEndpoint="/api/data-bench/auction-data/config"
+            dataEndpoint="/api/data-bench/auction-data/fetch"
             onSelect={(value) => {
               handleSelectionChange(value);
             }}
@@ -80,7 +80,7 @@ function App() {
             showTableMetrics
           />
         </Section>
-        <Section className="le-h-[700px] le-mt-10" size="1">
+        {/* <Section className="le-h-[700px] le-mt-10" size="1">
           <h2 className="le-text-2xl le-font-bold le-mb-4">
             Lens Sample Table 2
           </h2>
@@ -93,7 +93,7 @@ function App() {
             selectedItems={checkedIds2}
             showTableMetrics
           />
-        </Section>
+        </Section> */}
       </div>
     </Theme>
   );

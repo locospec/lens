@@ -15,9 +15,26 @@ export function makeServer() {
             identifierKey: "data-value",
             selectionType: "multiple",
             columns: [
-              { accessorKey: "id", header: "ID", width: 50 },
-              { accessorKey: "name", header: "name", width: 500 },
+              { accessorKey: "id", header: "ID", width: 200 },
+              { accessorKey: "name", header: "name", width: 100 },
               { accessorKey: "data-value", header: "data-value" },
+            ],
+          };
+        }
+        if (resource === "auction-data") {
+          return {
+            resource: "auction-data",
+            identifierKey: "data-value",
+            selectionType: "multiple",
+            columns: [
+              { accessorKey: "id", header: "Sr no." },
+              { accessorKey: "state", header: "State" },
+              { accessorKey: "district", header: "District" },
+              { accessorKey: "cities", header: "Cities" },
+              { accessorKey: "current_users", header: "Current Users" },
+              { accessorKey: "locality", header: "Locality" },
+              { accessorKey: "properties", header: "Properties" },
+              { accessorKey: "actions", header: "Actions" },
             ],
           };
         }
@@ -41,6 +58,33 @@ export function makeServer() {
             "data-value": `Value sdgajsgdjhasgd agsdhjgasd gajhgdhjagsjha gsjhg${
               index + 1
             }`,
+          }));
+
+          const paginatedTestData = completeTestData.slice(
+            cursor,
+            cursor + pageSize
+          );
+          const nextCursor =
+            cursor + pageSize < completeTestData.length
+              ? cursor + pageSize
+              : null;
+
+          return {
+            data: paginatedTestData,
+            next_cursor: nextCursor,
+            total: completeTestData.length,
+          };
+        }
+        if (resource === "auction-data") {
+          const completeTestData = Array.from({ length: 200 }, (_, index) => ({
+            id: index + 1,
+            state: `State ${index + 1}`,
+            district: `District ${index + 1}`,
+            cities: `City ${index + 1}`,
+            current_users: Math.floor(Math.random() * 1000), // Random number of users
+            locality: `Locality ${index + 1}`,
+            properties: `Property ${index + 1}`,
+            actions: `Action ${index + 1}`,
           }));
 
           const paginatedTestData = completeTestData.slice(
