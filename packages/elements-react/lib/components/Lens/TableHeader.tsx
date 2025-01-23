@@ -1,15 +1,15 @@
 import { flexRender } from "@tanstack/react-table";
 import { ResizeHandle } from "./ResizeHandle.tsx";
+import type { HeaderGroup } from "@tanstack/react-table";
 
 export interface TableHeaderInterface {
-  headerGroup: any;
+  headerGroup: HeaderGroup<any>;
 }
 
-// This was removed as it was unused columnSizeVars
 const TableHeader = ({ headerGroup }: TableHeaderInterface) => {
   return (
     <div key={headerGroup.id} className="le-flex">
-      {headerGroup.headers.map((header: any) => (
+      {headerGroup.headers.map((header) => (
         <div
           key={header.id}
           className="le-relative le-border-b le-border-gray-200 le-bg-gray-100 le-px-4 le-py-1.5 le-text-left le-font-semibold"
