@@ -12,7 +12,7 @@ const TableHeader = ({ headerGroup }: TableHeaderInterface) => {
       {headerGroup.headers.map((header) => (
         <div
           key={header.id}
-          className="le-relative le-border-b le-border-gray-200 le-bg-gray-100 le-px-4 le-py-1.5 le-text-left le-font-semibold"
+          className="le-relative le-border-b le-border-[var(--accent-5)] le-px-4 le-py-1.5 le-text-left le-font-semibold le-bg-[var(--accent-3)]"
           style={{
             width: `calc(var(--header-${header?.id}-size) * 1px)`,
           }}
