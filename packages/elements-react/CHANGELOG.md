@@ -1,3 +1,22 @@
+# v0.17.1 (Thu Jan 23 2025)
+
+#### 🐛 Bug Fix
+
+- doc: added dark mode sample [#103](https://github.com/locospec/ui/pull/103) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- style: added border styling [#103](https://github.com/locospec/ui/pull/103) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- style: modify background color based on theme [#103](https://github.com/locospec/ui/pull/103) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- style: add border and backgroud color [#103](https://github.com/locospec/ui/pull/103) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- style: add transform and modify backgroud [#103](https://github.com/locospec/ui/pull/103) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: change accent colors to grays [#103](https://github.com/locospec/ui/pull/103) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modify config width for table [#103](https://github.com/locospec/ui/pull/103) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added twp class to wrapper div [#103](https://github.com/locospec/ui/pull/103) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.17.0 (Thu Jan 23 2025)
 
 #### 🚀 Enhancement
