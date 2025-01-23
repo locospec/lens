@@ -1,3 +1,23 @@
+# v0.17.0 (Thu Jan 23 2025)
+
+#### 🚀 Enhancement
+
+- docs: add sample table with modified keys for random state data [#102](https://github.com/locospec/ui/pull/102) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: add radix theme accent color [#102](https://github.com/locospec/ui/pull/102) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- patch: add wrapper for center alignment of checkboxes [#102](https://github.com/locospec/ui/pull/102) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: change timeout duration [#102](https://github.com/locospec/ui/pull/102) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: add accurate type interface [#102](https://github.com/locospec/ui/pull/102) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: refactor and add type interface [#102](https://github.com/locospec/ui/pull/102) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.16.0 (Thu Jan 23 2025)
 
 #### 🚀 Enhancement

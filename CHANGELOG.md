@@ -2,6 +2,28 @@
 
 #### 🚀 Enhancement
 
+- `@locospec/elements-react@0.17.0`
+  - docs: add sample table with modified keys for random state data [#102](https://github.com/locospec/ui/pull/102) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add radix theme accent color [#102](https://github.com/locospec/ui/pull/102) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- `@locospec/elements-react@0.17.0`
+  - patch: add wrapper for center alignment of checkboxes [#102](https://github.com/locospec/ui/pull/102) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: change timeout duration [#102](https://github.com/locospec/ui/pull/102) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: add accurate type interface [#102](https://github.com/locospec/ui/pull/102) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: refactor and add type interface [#102](https://github.com/locospec/ui/pull/102) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Thu Jan 23 2025)
+
+#### 🚀 Enhancement
+
 - `@locospec/elements-react@0.16.0`
   - refactor: move configCallback into lens context and use from config to pass to hook [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
   - feat: add datacallback function for fetching data [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
