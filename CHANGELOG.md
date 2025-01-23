@@ -1,3 +1,58 @@
+# (Thu Jan 23 2025)
+
+#### 🚀 Enhancement
+
+- `@locospec/elements-react@0.16.0`
+  - refactor: move configCallback into lens context and use from config to pass to hook [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add datacallback function for fetching data [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add lens context to allow better handling of props [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add configuration callback and fix issue with reading selection type from table configuration [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `site@0.9.0`, `@locospec/elements-react@0.16.0`
+  - feat: add sheet overlay and modify imports to lens [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- `@locospec/elements-react@0.16.0`
+  - style: add border to list component [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: add updated sample for table [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modifiy cn util to work with prefix [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: add table type [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: add cleanup for mirage server [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - style: change rounded div [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: clean up import and remove commmented code [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified type exports [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added type interface for ListData component [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: refactor table cell [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: refactor table row [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: add type interface for row [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: refactor table body and add type interface [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - fix: fix for no data on return [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: clean up and refactor [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refactor: create hook for column size resizing [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: move selected items function inside useEffect for recalculation on change [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: refactor useSyncSelection hook [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: remove unused id for tableContainer div [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refactor: add separate state object for second table [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refactor: move selection sync logic into a hook [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refactor: extract row virtualiser code as a hook [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refactor: combine hooks for resizing and handling container width [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refactor: add custom hook for fetching data on reaching scroll end [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refactor: add custom hook for infinite scroll pagination with exposed callback function [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refactor: add custom hook for column resizing [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: fix useTableConfig import issue [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refeactor: optimise exports for hooks [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refactor: add resize observer as hook [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refactor: modify topbar(bulk action, view) and sidebar sheet [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refactor: add callback functions for configuration and data [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refactor: create hooks, optimise imports, add loading and erro state [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - refactor: isolate convert to object function [#101](https://github.com/locospec/ui/pull/101) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # (Tue Jan 21 2025)
 
 #### 🚀 Enhancement
