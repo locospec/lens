@@ -99,7 +99,7 @@ export const ListData = ({
     return (
       <div
         ref={tableContainerRef}
-        className="le-flex le-h-full le-min-h-[200px] le-w-full le-items-center le-justify-center le-rounded-lg le-bg-white le-shadow"
+        className="twp le-flex le-h-full le-min-h-[200px] le-w-full le-items-center le-justify-center le-rounded-lg le-bg-white le-shadow"
       >
         <div className="le-text-gray-500">Calculating column sizes...</div>
       </div>
@@ -107,7 +107,7 @@ export const ListData = ({
   }
 
   return (
-    <div className="le-flex le-h-full le-flex-col le-gap-0 le-rounded-lg le-overflow-hidden le-border">
+    <div className="twp le-flex le-h-full le-flex-col le-gap-0 le-rounded-lg le-overflow-hidden le-border">
       {showTableMetrics && (
         <TableMetrics
           containerWidth={containerWidth}
