@@ -64,7 +64,7 @@ function App() {
   };
 
   return (
-    <Theme accentColor="lime">
+    <Theme accentColor="lime" appearance="dark">
       <div className="le-max-w-5xl le-mx-auto">
         <Section className="le-h-[600px]" size="1">
           <h2 className="le-text-2xl le-font-bold le-mb-4">
@@ -77,7 +77,7 @@ function App() {
               handleSelectionChange(value);
             }}
             selectedItems={checkedIds}
-            showTableMetrics
+            // showTableMetrics
           />
         </Section>
         {/* <Section className="le-h-[700px] le-mt-10" size="1">
