@@ -8,11 +8,14 @@ export interface TableHeaderInterface {
 
 const TableHeader = ({ headerGroup }: TableHeaderInterface) => {
   return (
-    <div key={headerGroup.id} className="le-flex">
+    <div
+      key={headerGroup.id}
+      className="le-flex le-border-[var(--gray-9)] le-bg-[var(--gray-3)]"
+    >
       {headerGroup.headers.map((header) => (
         <div
           key={header.id}
-          className="le-relative le-border-b le-border-[var(--accent-5)] le-px-4 le-py-1.5 le-text-left le-font-semibold le-bg-[var(--accent-3)]"
+          className="le-relative le-border-b le-px-4 le-py-1.5 le-text-left le-font-semibold"
           style={{
             width: `calc(var(--header-${header?.id}-size) * 1px)`,
           }}
