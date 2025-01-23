@@ -12,7 +12,7 @@ const TableCell = ({ cell }: TableCellProps) => {
 
   return (
     <div
-      className="le-truncate le-border-b le-border-gray-100 le-px-4 le-py-2"
+      className="le-truncate le-px-4 le-py-2 le-border-r le-border-[var(--gray-7)]"
       key={cell.id}
       style={width}
     >
