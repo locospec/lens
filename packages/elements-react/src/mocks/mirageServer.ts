@@ -27,13 +27,17 @@ export function makeServer() {
             identifierKey: "data-value",
             selectionType: "multiple",
             columns: [
-              { accessorKey: "id", header: "Sr no." },
+              { accessorKey: "id", header: "Sr no.", width: 100 },
               { accessorKey: "state", header: "State" },
               { accessorKey: "district", header: "District" },
               { accessorKey: "cities", header: "Cities" },
-              { accessorKey: "current_users", header: "Current Users" },
+              {
+                accessorKey: "current_users",
+                header: "Current Users",
+                width: 200,
+              },
               { accessorKey: "locality", header: "Locality" },
-              { accessorKey: "properties", header: "Properties" },
+              { accessorKey: "properties", header: "Properties", width: 160 },
               { accessorKey: "actions", header: "Actions" },
             ],
           };
