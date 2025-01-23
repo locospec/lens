@@ -30,27 +30,33 @@ const useTableConfig = (tableConfig: any) => {
     const selectionColumn = {
       id: "select",
       header: ({ table }: any) => (
-        <Checkbox
-          checked={
-            table.getIsAllPageRowsSelected() ||
-            (table.getIsSomePageRowsSelected() && "indeterminate")
-          }
-          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-          aria-label="Select all"
-        />
+        <div className="le-flex le-h-full le-items-center le-justify-center">
+          <Checkbox
+            checked={
+              table.getIsAllPageRowsSelected() ||
+              (table.getIsSomePageRowsSelected() && "indeterminate")
+            }
+            onCheckedChange={(value) =>
+              table.toggleAllPageRowsSelected(!!value)
+            }
+            aria-label="Select all"
+          />
+        </div>
       ),
       cell: ({ row }: any) => (
-        <Checkbox
-          checked={row.getIsSelected()}
-          onCheckedChange={(value) => {
-            return row.toggleSelected(!!value);
-          }}
-          aria-label="Select row"
-        />
+        <div className="le-flex le-h-full le-items-center le-justify-center">
+          <Checkbox
+            checked={row.getIsSelected()}
+            onCheckedChange={(value) => {
+              return row.toggleSelected(!!value);
+            }}
+            aria-label="Select row"
+          />
+        </div>
       ),
       enableSorting: false,
       enableHiding: false,
-      size: 50,
+      size: 70,
     };
 
     const finalColumns =
