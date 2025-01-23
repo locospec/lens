@@ -14,7 +14,9 @@ const ResizeHandle = ({ header, isResizing }: any) => {
       onMouseDown={resizeHandle}
       onTouchStart={resizeHandle}
       className={cn(
-        "le-absolute le-right-0 le-top-0 le-h-full le-w-1 le-cursor-col-resize le-touch-none le-select-none le-bg-[var(--gray-4)] hover:le-bg-[var(--gray-6)]",
+        "le-translate-x-1/2",
+        "le-absolute le-right-0 le-top-0 le-h-full le-w-1 le-cursor-col-resize le-touch-none le-select-none",
+        "le-bg-[var(--gray-5)] hover:le-bg-[var(--gray-6)]",
         isResizing && "le-bg-[var(--gray-6)]"
       )}
     />
