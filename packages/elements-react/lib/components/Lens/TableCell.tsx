@@ -1,6 +1,5 @@
 import { flexRender } from "@tanstack/react-table";
 import type { Cell } from "@tanstack/react-table";
-import { cn } from "../utils/cn";
 
 export interface TableCellProps {
   cell: Cell<any, unknown>;
@@ -13,9 +12,7 @@ const TableCell = ({ cell }: TableCellProps) => {
 
   return (
     <div
-      className={cn(
-        "le-truncate le-px-4 le-py-2 le-border-r le-border-[var(--gray-7)] last:le-border-r-0"
-      )}
+      className="le-truncate le-px-4 le-py-2 le-border-r le-border-[var(--gray-7)] last:le-border-r-0"
       key={cell.id}
       style={width}
     >
