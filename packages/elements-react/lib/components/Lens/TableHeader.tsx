@@ -7,12 +7,13 @@ export interface TableHeaderInterface {
 }
 
 const TableHeader = ({ headerGroup }: TableHeaderInterface) => {
+  const no_of_colums = headerGroup.headers.length;
   return (
     <div
       key={headerGroup.id}
       className="le-flex le-border-[var(--gray-9)] le-bg-[var(--gray-3)]"
     >
-      {headerGroup.headers.map((header) => (
+      {headerGroup.headers.map((header, index) => (
         <div
           key={header.id}
           className="le-relative le-border-b le-px-4 le-py-1.5 le-text-left le-font-semibold"
@@ -23,10 +24,12 @@ const TableHeader = ({ headerGroup }: TableHeaderInterface) => {
           {header.isPlaceholder
             ? null
             : flexRender(header.column.columnDef.header, header.getContext())}
-          <ResizeHandle
-            header={header}
-            isResizing={header.column.getIsResizing()}
-          />
+          {index < no_of_colums - 1 && (
+            <ResizeHandle
+              header={header}
+              isResizing={header.column.getIsResizing()}
+            />
+          )}
         </div>
       ))}
     </div>
