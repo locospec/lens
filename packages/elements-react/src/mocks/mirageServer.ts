@@ -28,17 +28,17 @@ export function makeServer() {
             selectionType: "multiple",
             columns: [
               { accessorKey: "id", header: "Sr no.", width: 100 },
-              { accessorKey: "state", header: "State" },
-              { accessorKey: "district", header: "District" },
-              { accessorKey: "cities", header: "Cities" },
-              {
-                accessorKey: "current_users",
-                header: "Current Users",
-                width: 200,
-              },
-              { accessorKey: "locality", header: "Locality" },
-              { accessorKey: "properties", header: "Properties", width: 160 },
-              { accessorKey: "actions", header: "Actions" },
+              { accessorKey: "state", header: "State", width: 100 },
+              // { accessorKey: "district", header: "District", width: 100 },
+              // { accessorKey: "cities", header: "Cities", width: 100 },
+              // {
+              //   accessorKey: "current_users",
+              //   header: "Current Users",
+              //   width: 100,
+              // },
+              // { accessorKey: "locality", header: "Locality", width: 100 },
+              // { accessorKey: "properties", header: "Properties", width: 160 },
+              // { accessorKey: "actions", header: "Actions", width: 200 },
             ],
           };
         }
