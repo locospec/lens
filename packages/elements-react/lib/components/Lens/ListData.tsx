@@ -114,6 +114,7 @@ export const ListData = ({
           isResizing={isResizing}
           rowSelection={rowSelection}
           columnSizing={table.getState().columnSizing}
+          totalCount={flatData.length}
         />
       )}
       <Topbar
