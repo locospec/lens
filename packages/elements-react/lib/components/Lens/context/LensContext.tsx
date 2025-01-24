@@ -1,11 +1,5 @@
 import { createContext, useContext, ReactNode } from "react";
-
-interface LensContextType {
-  showDevTools?: boolean;
-  showTableMetrics?: boolean;
-  dataCallback?: any;
-  configCallback?: any;
-}
+import type { LensContextType } from "../interfaces";
 
 const LensContext = createContext<LensContextType | undefined>(undefined);
 

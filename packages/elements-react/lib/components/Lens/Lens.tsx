@@ -3,22 +3,11 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { List } from "./List.tsx";
-import type { SelectionType } from "./interfaces/index.ts";
 import { LensProvider } from "./context/LensContext.tsx";
+import type { LensInterface } from "./interfaces";
+import "./Lens.css";
 
 const queryClient = new QueryClient();
-
-export interface LensInterface {
-  selectionType?: SelectionType;
-  onSelect?: (selection: any) => void;
-  selectedItems?: string[];
-  showDevTools?: boolean;
-  showTableMetrics?: boolean;
-  configEndpoint?: string;
-  configCallback?: () => any;
-  dataEndpoint?: string;
-  dataCallback?: (schema: any, request: any) => any;
-}
 
 const Lens = ({
   selectedItems = [],
@@ -29,6 +18,7 @@ const Lens = ({
   configCallback,
   dataEndpoint,
   dataCallback,
+  size = "1",
 }: LensInterface) => {
   return (
     <QueryClientProvider client={queryClient}>
@@ -38,6 +28,7 @@ const Lens = ({
         showTableMetrics={showTableMetrics}
         dataCallback={dataCallback}
         configCallback={configCallback}
+        size={size}
       >
         <List
           onSelect={onSelect}
