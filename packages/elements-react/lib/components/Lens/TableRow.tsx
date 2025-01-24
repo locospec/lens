@@ -12,6 +12,7 @@ export interface TableRowInterface {
 const TableRow = ({ row, virtualRow, rowVirtualizer }: TableRowInterface) => {
   const isSelected = row.getIsSelected();
   const translate = { transform: `translateY(${virtualRow.start}px)` };
+  const number_of_cells = row.getVisibleCells().length;
 
   return (
     <div
@@ -26,8 +27,12 @@ const TableRow = ({ row, virtualRow, rowVirtualizer }: TableRowInterface) => {
       style={translate}
       data-state={isSelected && "selected"}
     >
-      {row.getVisibleCells().map((cell) => (
-        <TableCell key={cell.id} cell={cell} />
+      {row.getVisibleCells().map((cell, index) => (
+        <TableCell
+          key={cell.id}
+          cell={cell}
+          isLast={index == number_of_cells - 1}
+        />
       ))}
     </div>
   );
