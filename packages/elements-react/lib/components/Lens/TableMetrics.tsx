@@ -1,5 +1,5 @@
 export interface TableMetricsProps {
-  totalCount: number;
+  totalCount?: number;
   isResizing: string | false;
   columnSizing: any;
   containerWidth: number;
