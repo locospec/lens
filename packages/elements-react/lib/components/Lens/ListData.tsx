@@ -125,7 +125,7 @@ export const ListData = ({
         displayActionBar={displayActionBar}
       />
       <div
-        className="le-relative le-flex-1 le-overflow-auto le-bg-white le-shadow"
+        className="le-relative le-flex-1 le-overflow-auto le-bg-[var(--gray-4)] le-shadow"
         onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
         ref={tableContainerRef}
       >
