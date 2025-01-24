@@ -15,7 +15,7 @@ const ResizeHandle = ({ header, isResizing }: any) => {
       onTouchStart={resizeHandle}
       className={cn(
         "le-absolute le-right-0 le-top-0 le-h-full le-w-1.5 le-cursor-col-resize le-touch-none le-select-none",
-        "le-bg-[var(--gray-3)] hover:le-bg-[var(--gray-6)]",
+        "le-bg-[var(--gray-4)] hover:le-bg-[var(--gray-6)]",
         isResizing && "le-bg-[var(--gray-6)]"
       )}
     />
