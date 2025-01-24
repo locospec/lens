@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { List } from "./List.tsx";
@@ -30,6 +31,7 @@ const Lens = ({
   dataEndpoint,
   dataCallback,
 }: LensInterface) => {
+  const [numberOfColumns, setNumberOfColumns] = React.useState(0);
   return (
     <QueryClientProvider client={queryClient}>
       {showDevTools ? <ReactQueryDevtools /> : <></>}
@@ -38,6 +40,8 @@ const Lens = ({
         showTableMetrics={showTableMetrics}
         dataCallback={dataCallback}
         configCallback={configCallback}
+        numberOfColumns={numberOfColumns}
+        setNumberOfColumns={setNumberOfColumns}
       >
         <List
           onSelect={onSelect}
