@@ -2,6 +2,21 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/elements-react@0.17.3`
+  - patch: styling change to differentiate between columns and empty space [#105](https://github.com/locospec/ui/pull/105) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - style: restyle Resize handler for more ease of use [#105](https://github.com/locospec/ui/pull/105) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added random string to sumulate long text [#105](https://github.com/locospec/ui/pull/105) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Fri Jan 24 2025)
+
+#### 🐛 Bug Fix
+
 - `@locospec/elements-react@0.17.2`
   - chore: correct variable name in table header [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
   - chore: remove unused util function from table cell [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))

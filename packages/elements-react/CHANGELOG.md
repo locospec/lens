@@ -1,3 +1,17 @@
+# v0.17.3 (Fri Jan 24 2025)
+
+#### 🐛 Bug Fix
+
+- patch: styling change to differentiate between columns and empty space [#105](https://github.com/locospec/ui/pull/105) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- style: restyle Resize handler for more ease of use [#105](https://github.com/locospec/ui/pull/105) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added random string to sumulate long text [#105](https://github.com/locospec/ui/pull/105) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.17.2 (Fri Jan 24 2025)
 
 #### 🐛 Bug Fix
