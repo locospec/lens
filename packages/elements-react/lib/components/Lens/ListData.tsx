@@ -17,6 +17,7 @@ import { useLensContext } from "./context/LensContext.tsx";
 
 import type { ColumnDef } from "@tanstack/react-table";
 import type { SelectionType } from "./interfaces/index.ts";
+import { cn } from "../utils/cn.ts";
 
 export interface ListDataProps {
   columns: ColumnDef<any>[];
@@ -46,7 +47,8 @@ export const ListData = ({
   const [globalFilter] = React.useState<any>([]);
   const [showActionBar, setShowActionBar] = React.useState(false);
 
-  const { showTableMetrics, dataCallback } = useLensContext();
+  const { showTableMetrics, dataCallback, size } = useLensContext();
+  const size_class = `rt-r-size-${size}`;
 
   const { adjustedColumns, isColumnsReady, containerWidth } = useColumnResize(
     tableContainerRef,
@@ -99,7 +101,7 @@ export const ListData = ({
     return (
       <div
         ref={tableContainerRef}
-        className="twp le-flex le-h-full le-min-h-[200px] le-w-full le-items-center le-justify-center le-rounded-lg le-bg-white le-shadow"
+        className="twp rt-r-size-1 le-flex le-h-full le-min-h-[200px] le-w-full le-items-center le-justify-center le-rounded-lg le-bg-white le-shadow"
       >
         <div className="le-text-gray-500">Calculating column sizes...</div>
       </div>
@@ -107,7 +109,13 @@ export const ListData = ({
   }
 
   return (
-    <div className="twp le-flex le-h-full le-flex-col le-gap-0 le-rounded-lg le-overflow-hidden le-border">
+    <div
+      className={cn(
+        "twp le-flex le-h-full le-flex-col le-gap-0 le-rounded-lg le-overflow-hidden le-border",
+        "lens-root rt-TableRoot",
+        size_class
+      )}
+    >
       {showTableMetrics && (
         <TableMetrics
           containerWidth={containerWidth}
@@ -130,7 +138,7 @@ export const ListData = ({
         ref={tableContainerRef}
       >
         <div
-          className="le-w-full"
+          className={cn("le-w-full le-h-full rt-TableRootTable")}
           style={{
             ...columnSizeVars,
             width: "100%",

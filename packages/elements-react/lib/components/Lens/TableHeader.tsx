@@ -1,6 +1,7 @@
 import { flexRender } from "@tanstack/react-table";
 import { ResizeHandle } from "./ResizeHandle.tsx";
 import type { HeaderGroup } from "@tanstack/react-table";
+import { cn } from "../utils/cn.ts";
 
 export interface TableHeaderInterface {
   headerGroup: HeaderGroup<any>;
@@ -15,7 +16,10 @@ const TableHeader = ({ headerGroup }: TableHeaderInterface) => {
       {headerGroup.headers.map((header) => (
         <div
           key={header.id}
-          className="le-relative le-border-b le-border-r le-border-[var(--gray-7)] le-px-4 le-py-1.5 le-text-left le-font-semibold"
+          className={cn(
+            "le-relative le-border-b le-border-r le-border-[var(--gray-7)] le-text-left le-font-semibold",
+            "le-p-[var(--table-cell-padding)] le-min-h-[var(--table-cell-min-height)]"
+          )}
           style={{
             width: `calc(var(--header-${header?.id}-size) * 1px)`,
           }}

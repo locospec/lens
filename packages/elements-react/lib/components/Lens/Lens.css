@@ -1,0 +1,34 @@
+.lens-root {
+  .rt-TableRoot {
+    &:where(.rt-r-size-1) {
+      --table-border-radius: var(--radius-3);
+      --table-cell-padding: var(--space-2);
+      --table-cell-min-height: calc(36px * var(--scaling));
+
+      & :where(.rt-TableRootTable) {
+        font-size: var(--font-size-2);
+        line-height: var(--line-height-2);
+      }
+    }
+    &:where(.rt-r-size-2) {
+      --table-border-radius: var(--radius-4);
+      --table-cell-padding: var(--space-3);
+      --table-cell-min-height: calc(44px * var(--scaling));
+
+      & :where(.rt-TableRootTable) {
+        font-size: var(--font-size-2);
+        line-height: var(--line-height-2);
+      }
+    }
+    &:where(.rt-r-size-3) {
+      --table-border-radius: var(--radius-4);
+      --table-cell-padding: var(--space-3) var(--space-4);
+      --table-cell-min-height: var(--space-8);
+
+      & :where(.rt-TableRootTable) {
+        font-size: var(--font-size-3);
+        line-height: var(--line-height-3);
+      }
+    }
+  }
+}
