@@ -43,39 +43,39 @@ export function makeServer() {
               {
                 accessorKey: "district",
                 header: "District",
-                width: 100,
-                minWidth: 100,
+                width: 400,
+                minWidth: 400,
               },
-              {
-                accessorKey: "cities",
-                header: "Cities",
-                width: 100,
-                minWidth: 100,
-              },
-              {
-                accessorKey: "current_users",
-                header: "Current Users",
-                width: 100,
-                minWidth: 200,
-              },
-              {
-                accessorKey: "locality",
-                header: "Locality",
-                width: 100,
-                minWidth: 100,
-              },
-              {
-                accessorKey: "properties",
-                header: "Properties",
-                width: 160,
-                minWidth: 100,
-              },
-              {
-                accessorKey: "actions",
-                header: "Actions",
-                width: 200,
-                minWidth: 100,
-              },
+              // {
+              //   accessorKey: "cities",
+              //   header: "Cities",
+              //   width: 100,
+              //   minWidth: 100,
+              // },
+              // {
+              //   accessorKey: "current_users",
+              //   header: "Current Users",
+              //   width: 100,
+              //   minWidth: 200,
+              // },
+              // {
+              //   accessorKey: "locality",
+              //   header: "Locality",
+              //   width: 100,
+              //   minWidth: 100,
+              // },
+              // {
+              //   accessorKey: "properties",
+              //   header: "Properties",
+              //   width: 160,
+              //   minWidth: 100,
+              // },
+              // {
+              //   accessorKey: "actions",
+              //   header: "Actions",
+              //   width: 200,
+              //   minWidth: 100,
+              // },
             ],
           };
         }
