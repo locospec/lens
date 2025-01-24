@@ -31,7 +31,6 @@ const Lens = ({
   dataEndpoint,
   dataCallback,
 }: LensInterface) => {
-  const [numberOfColumns, setNumberOfColumns] = React.useState(0);
   return (
     <QueryClientProvider client={queryClient}>
       {showDevTools ? <ReactQueryDevtools /> : <></>}
@@ -40,8 +39,6 @@ const Lens = ({
         showTableMetrics={showTableMetrics}
         dataCallback={dataCallback}
         configCallback={configCallback}
-        numberOfColumns={numberOfColumns}
-        setNumberOfColumns={setNumberOfColumns}
       >
         <List
           onSelect={onSelect}
