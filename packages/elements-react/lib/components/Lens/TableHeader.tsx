@@ -7,7 +7,7 @@ export interface TableHeaderInterface {
 }
 
 const TableHeader = ({ headerGroup }: TableHeaderInterface) => {
-  const no_of_colums = headerGroup.headers.length;
+  const no_of_columns = headerGroup.headers.length;
   return (
     <div
       key={headerGroup.id}
@@ -24,7 +24,7 @@ const TableHeader = ({ headerGroup }: TableHeaderInterface) => {
           {header.isPlaceholder
             ? null
             : flexRender(header.column.columnDef.header, header.getContext())}
-          {index < no_of_colums - 1 && (
+          {index < no_of_columns - 1 && (
             <ResizeHandle
               header={header}
               isResizing={header.column.getIsResizing()}
