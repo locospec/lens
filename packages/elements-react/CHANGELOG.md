@@ -1,3 +1,28 @@
+# v0.17.2 (Fri Jan 24 2025)
+
+#### 🐛 Bug Fix
+
+- chore: correct variable name in table header [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: remove unused util function from table cell [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: remove ununsed import [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: control border behaviour using css insteada of js [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: remove unused prop for isLast condition [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed unused numberOfColums from context [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: add number of columns state variable to LensContext for single source of number of columns [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- path: modify interface for optional total count value [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: add conditional rendering for ResizeHandler [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: add boolean prop for last colums of a table [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: add conditional rendering of border for last element in a table cell [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add interface, remove redundandt class [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modify columns for testing low number flexibility [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: create separate file for Lens example [#104](https://github.com/locospec/ui/pull/104) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.17.1 (Thu Jan 23 2025)
 
 #### 🐛 Bug Fix
