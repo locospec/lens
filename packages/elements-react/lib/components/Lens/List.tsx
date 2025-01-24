@@ -20,14 +20,13 @@ export const List = ({
   configEndpoint,
   dataEndpoint,
 }: ListInterface) => {
-  const { configCallback, setNumberOfColumns } = useLensContext();
+  const { configCallback } = useLensContext();
   const {
     data: tableConfig,
     isFetched,
     isError,
   } = useFetchConfig(configEndpoint, configCallback);
   const { columns, identifierKey } = useTableConfig(tableConfig);
-  setNumberOfColumns(columns.length);
 
   const selectionType = tableConfig?.selectionType || "none";
 
