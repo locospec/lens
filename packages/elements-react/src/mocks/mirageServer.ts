@@ -82,7 +82,9 @@ export function makeServer() {
         if (resource === "auction-data") {
           const completeTestData = Array.from({ length: 200 }, (_, index) => ({
             id: index + 1,
-            state: `State ${index + 1}`,
+            state: `State sdasdasdasdhgsdjhas gdhagdhjag sdhgasjhdgjhsdg agsdhjghjg ${
+              index + 1
+            }`,
             district: `District ${index + 1}`,
             cities: `City ${index + 1}`,
             current_users: Math.floor(Math.random() * 1000), // Random number of users
