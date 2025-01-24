@@ -1,8 +1,21 @@
 import React from "react";
 import { Checkbox } from "@radix-ui/themes";
 import { createColumnHelper } from "@tanstack/react-table";
+import type { Table, Row } from "@tanstack/react-table";
+import type {
+  ColumnConfigInterface,
+  TableConfigInterface,
+} from "../../interfaces";
 
-const useTableConfig = (tableConfig: any) => {
+export interface HeaderInterface {
+  table: Table<any>;
+}
+
+export interface RowInterface {
+  row: Row<any>;
+}
+
+const useTableConfig = (tableConfig: TableConfigInterface) => {
   const columnHelper = createColumnHelper();
   return React.useMemo(() => {
     if (!tableConfig) {
@@ -19,17 +32,19 @@ const useTableConfig = (tableConfig: any) => {
       selectionType,
     } = tableConfig;
 
-    const columnsFromConfig = rawColumns.map((col: any) =>
+    const columnsFromConfig = rawColumns.map((col: ColumnConfigInterface) =>
       columnHelper.accessor(col.accessorKey, {
         id: col.accessorKey,
         header: col.header,
         size: col.width || 150,
+        maxSize: col.maxWidth || undefined,
+        minSize: col.minWidth || undefined,
       })
     );
 
     const selectionColumn = {
       id: "select",
-      header: ({ table }: any) => (
+      header: ({ table }: HeaderInterface) => (
         <div className="le-flex le-h-full le-items-center le-justify-center">
           <Checkbox
             checked={
@@ -43,7 +58,7 @@ const useTableConfig = (tableConfig: any) => {
           />
         </div>
       ),
-      cell: ({ row }: any) => (
+      cell: ({ row }: RowInterface) => (
         <div className="le-flex le-h-full le-items-center le-justify-center">
           <Checkbox
             checked={row.getIsSelected()}
