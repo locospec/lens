@@ -20,13 +20,15 @@ export const List = ({
   configEndpoint,
   dataEndpoint,
 }: ListInterface) => {
-  const { configCallback } = useLensContext();
+  const { configCallback, setNumberOfColumns } = useLensContext();
   const {
     data: tableConfig,
     isFetched,
     isError,
   } = useFetchConfig(configEndpoint, configCallback);
   const { columns, identifierKey } = useTableConfig(tableConfig);
+  setNumberOfColumns(columns.length);
+
   const selectionType = tableConfig?.selectionType || "none";
 
   const tableSelectedItems: SelectedItemsObject = React.useMemo(() => {

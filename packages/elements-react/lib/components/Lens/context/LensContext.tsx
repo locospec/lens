@@ -5,6 +5,8 @@ interface LensContextType {
   showTableMetrics?: boolean;
   dataCallback?: any;
   configCallback?: any;
+  numberOfColumns?: number;
+  setNumberOfColumns?: any;
 }
 
 const LensContext = createContext<LensContextType | undefined>(undefined);
