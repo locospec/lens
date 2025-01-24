@@ -1,12 +1,20 @@
+export interface TableMetricsProps {
+  totalCount: number;
+  isResizing: string | false;
+  columnSizing: any;
+  containerWidth: number;
+  rowSelection: any;
+}
+
 const TableMetrics = ({
   totalCount,
   isResizing,
   columnSizing,
   containerWidth,
   rowSelection,
-}: any) => {
+}: TableMetricsProps) => {
   return (
-    <div className="le-flex le-flex-row le-items-center le-justify-between le-bg-red-200 le-p-2">
+    <div className="le-flex le-items-center le-justify-between le-bg-red-200 le-p-2">
       <pre style={{ minHeight: "10rem" }}>
         {JSON.stringify({ columnSizing }, null, 2)}
       </pre>
