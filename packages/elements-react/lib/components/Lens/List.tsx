@@ -4,6 +4,7 @@ import convertIntoObject from "../utils/convertIntoObject.ts";
 import LoadingState from "./LoadingState.tsx";
 import { useFetchConfig, useTableConfig } from "./hooks";
 import { useLensContext } from "./context/LensContext.tsx";
+import { ColumnConfigInterface } from "./interfaces/index.ts";
 
 export type SelectedItemsObject = { [key: string]: boolean };
 
@@ -42,10 +43,10 @@ export const List = ({
     <>
       {isFetched ? (
         <ListData
-          columns={columns}
+          columns={columns as ColumnConfigInterface[]}
           queryKey={dataEndpoint}
           selectionType={selectionType}
-          identifierKey={identifierKey}
+          identifierKey={identifierKey as string}
           onSelect={onSelect}
           selectedItems={tableSelectedItems || {}}
           dataEndpoint={dataEndpoint}
