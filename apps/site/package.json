@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "private": true,
   "author": {
     "name": "Shrey Dhyani",
@@ -25,7 +25,7 @@
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
     "@locospec/blueprint-react": "^0.5.0",
-    "@locospec/elements-react": "^0.17.2",
+    "@locospec/elements-react": "^0.17.3",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.16.4",
