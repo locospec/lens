@@ -1,1 +1,5 @@
-export type SelectionType = "single" | "multiple" | "none";
+export type {
+  SelectionType,
+  ColumnConfigInterface,
+  TableConfigInterface,
+} from "./src/TableConfigInterface";
