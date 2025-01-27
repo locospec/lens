@@ -65,10 +65,10 @@ const LensExample = () => {
 
   return (
     <div className="le-mx-auto">
-      <Section className="le-h-[600px] le-px-4 le-mb-10" size="1">
-        <h2 className="le-text-2xl le-font-bold le-mb-4 ">
-          Lens Sample Table SIZE 1
-        </h2>
+      <h2 className="le-text-2xl le-font-bold le-mb-4 ">
+        Lens Sample Table SIZE 1
+      </h2>
+      <Section className="le-h-[600px] le-bg-red-300 le-px-4 le-mb-10" size="1">
         <Lens
           configEndpoint="/api/data-bench/auction-data/config"
           dataEndpoint="/api/data-bench/auction-data/fetch"
@@ -79,10 +79,10 @@ const LensExample = () => {
           // showTableMetrics
         />
       </Section>
+      <h2 className="le-text-2xl le-font-bold le-mb-4 ">
+        Lens Sample Table SIZE 2
+      </h2>
       <Section className="le-h-[200px] le-px-4 le-mb-10" size="1">
-        <h2 className="le-text-2xl le-font-bold le-mb-4 ">
-          Lens Sample Table SIZE 2
-        </h2>
         <Lens
           configEndpoint="/api/data-bench/auction-data/config"
           dataEndpoint="/api/data-bench/auction-data/fetch"
@@ -93,10 +93,10 @@ const LensExample = () => {
           size="2"
         />
       </Section>
+      <h2 className="le-text-2xl le-font-bold le-mb-4 ">
+        Lens Sample Table SIZE 3
+      </h2>
       <Section className="le-h-[200px] le-px-4 le-mb-10" size="1">
-        <h2 className="le-text-2xl le-font-bold le-mb-4 ">
-          Lens Sample Table SIZE 3
-        </h2>
         <Lens
           configEndpoint="/api/data-bench/auction-data/config"
           dataEndpoint="/api/data-bench/auction-data/fetch"
