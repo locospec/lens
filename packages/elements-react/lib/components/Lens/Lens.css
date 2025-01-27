@@ -44,10 +44,17 @@
   background-color: var(--gray-a3);
 }
 
-/* Table Varients Styling -- GHOST */
-.le-table-variant-ghost {
-  margin: 0px;
+.le-table-loading {
+  &:where(.le-table-variant-surface) {
+    border: 1px solid var(--gray-7);
+  }
+  &:where(.le-table-variant-ghost) {
+    border: 0px;
+  }
 }
+
+/* Table Varients Styling -- GHOST */
+/* Currently default tailwind styles are working as ghost */
 
 /* Table Varients Styling -- SURFACE */
 .le-table-variant-surface {
