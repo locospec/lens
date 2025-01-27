@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { List } from "./List.tsx";
 import { LensProvider } from "./context/LensContext.tsx";
 import type { LensInterface } from "./interfaces";
-// import "./Lens.css";
+import "./Lens.css";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +31,7 @@ const Lens = ({
         configCallback={configCallback}
         size={size}
         variant={variant}
+        variantClass={`le-table-variant-${variant}`}
       >
         <List
           onSelect={onSelect}
