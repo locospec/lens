@@ -7,6 +7,7 @@ type LensVariantClasses = `le-table-variant-${LensVariantTypes}`;
 interface LensContextType {
   showDevTools?: boolean;
   showTableMetrics?: boolean;
+  showTopBar?: boolean;
   dataCallback?: any;
   configCallback?: any;
   size: SizesType;
@@ -20,6 +21,7 @@ interface LensInterface {
   selectedItems?: string[];
   showDevTools?: boolean;
   showTableMetrics?: boolean;
+  showTopBar?: boolean;
   configEndpoint?: string;
   configCallback?: () => any;
   dataEndpoint?: string;

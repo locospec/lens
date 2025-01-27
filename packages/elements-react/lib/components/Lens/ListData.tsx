@@ -27,7 +27,6 @@ export interface ListDataProps {
   onSelect: (selected: any[]) => void;
   selectedItems: any;
   dataEndpoint?: string;
-  displayActionBar?: boolean;
   sidebarContent?: React.ReactNode;
 }
 
@@ -39,7 +38,6 @@ export const ListData = ({
   onSelect,
   selectedItems,
   dataEndpoint,
-  displayActionBar = false,
   sidebarContent,
 }: ListDataProps) => {
   const tableContainerRef = React.useRef<HTMLDivElement>(null);
@@ -135,7 +133,6 @@ export const ListData = ({
         sidebarContent={sidebarContent}
         showActionBar={showActionBar}
         setShowActionBar={setShowActionBar}
-        displayActionBar={displayActionBar}
       />
       <div
         className="le-relative le-flex-1 le-overflow-auto"
