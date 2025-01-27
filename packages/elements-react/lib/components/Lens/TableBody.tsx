@@ -10,7 +10,7 @@ export interface TableBodyProps {
 
 export const TableBody = ({ table, rowVirtualizer }: TableBodyProps) => {
   const { rows } = table.getRowModel();
-  const { getTotalSize, getVirtualItems } = rowVirtualizer;
+  const { getVirtualItems } = rowVirtualizer;
 
   if (!rows.length) {
     return (
@@ -21,12 +21,7 @@ export const TableBody = ({ table, rowVirtualizer }: TableBodyProps) => {
   }
 
   return (
-    <div
-      className="le-relative le-w-full"
-      style={{
-        height: `${getTotalSize()}px`,
-      }}
-    >
+    <div className="le-relative le-w-full">
       {getVirtualItems().map((virtualRow) => {
         const row = rows[virtualRow.index];
         return (
