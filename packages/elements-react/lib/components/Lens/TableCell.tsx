@@ -15,14 +15,14 @@ const TableCell = ({ cell }: TableCellProps) => {
   return (
     <div
       className={cn(
+        "le-table-cell",
         "le-truncate le-px-4 le-py-2 ",
-        // "le-bg-[var(--gray-1)] group-hover:le-bg-[var(--gray-3)]",
-        "le-border-r le-border-b le-border-[var(--gray-7)]",
         "le-p-[var(--table-cell-padding)] le-min-h-[var(--table-cell-min-height)]",
-        isSelected && "le-bg-[var(--gray-3)]"
+        "group-hover:le-bg-[var(--color-panel)]"
       )}
       key={cell.id}
       style={width}
+      data-state={isSelected && "selected"}
     >
       {flexRender(cell.column.columnDef.cell, cell.getContext())}
     </div>
