@@ -6,7 +6,7 @@ import {
 
 module.exports = {
   prefix: "le-",
-  darkMode: ["class"],
+  darkMode: ["class", '[data-theme="dark"]'],
   content: ["lib/**/*.{ts,tsx}", "src/**/*.{ts,tsx}"],
   theme: {
     extend: {
@@ -93,10 +93,10 @@ module.exports = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    // scopedPreflightStyles({
-    //   isolationStrategy: isolateInsideOfContainer(".twp", {
-    //     except: ".no-twp",
-    //   }),
-    // }),
+    scopedPreflightStyles({
+      isolationStrategy: isolateInsideOfContainer(".twp", {
+        except: ".no-twp",
+      }),
+    }),
   ],
 };
