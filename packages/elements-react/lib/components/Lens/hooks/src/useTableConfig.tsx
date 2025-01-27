@@ -71,9 +71,9 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
       ),
       enableSorting: false,
       enableHiding: false,
-      size: 70,
-      minSize: 70,
-      maxSize: 70,
+      size: 50,
+      minSize: 50,
+      maxSize: 50,
     };
 
     const finalColumns =
