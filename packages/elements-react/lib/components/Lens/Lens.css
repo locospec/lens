@@ -32,3 +32,37 @@
     }
   }
 }
+
+/* surface */
+.rt-TableRoot:where(.rt-variant-surface) {
+  box-sizing: border-box;
+  border: 1px solid var(--gray-a5);
+  border-radius: var(--table-border-radius);
+  background-color: var(--color-panel);
+  backdrop-filter: var(--backdrop-filter-panel);
+  background-clip: padding-box;
+  /* position: relative; */
+
+  /* When possible, use half-transparent gray for nicer border blending with the background */
+  @supports (box-shadow: 0 0 0 1px color-mix(in oklab, white, black)) {
+    border-color: color-mix(in oklab, var(--gray-a5), var(--gray-6));
+  }
+
+  & :where(.rt-TableRootTable) {
+    overflow: hidden;
+
+    & :where(.rt-TableHeader) {
+      --table-row-background-color: var(--gray-a2);
+    }
+    & :where(.rt-TableBody) :where(.rt-TableRow:last-child) {
+      --table-row-box-shadow: none;
+    }
+  }
+}
+
+/* ghost */
+
+.rt-TableRoot:where(.rt-variant-ghost) {
+  --scrollarea-scrollbar-horizontal-margin-left: 0;
+  --scrollarea-scrollbar-horizontal-margin-right: 0;
+}

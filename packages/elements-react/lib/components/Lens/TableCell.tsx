@@ -16,7 +16,7 @@ const TableCell = ({ cell }: TableCellProps) => {
     <div
       className={cn(
         "le-truncate le-px-4 le-py-2 ",
-        "le-bg-[var(--gray-1)] group-hover:le-bg-[var(--gray-3)]",
+        // "le-bg-[var(--gray-1)] group-hover:le-bg-[var(--gray-3)]",
         "le-border-r le-border-b le-border-[var(--gray-7)]",
         "le-p-[var(--table-cell-padding)] le-min-h-[var(--table-cell-min-height)]",
         isSelected && "le-bg-[var(--gray-3)]"

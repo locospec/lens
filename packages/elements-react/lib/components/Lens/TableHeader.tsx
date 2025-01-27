@@ -7,12 +7,10 @@ export interface TableHeaderInterface {
   headerGroup: HeaderGroup<any>;
 }
 
+//le-border-[var(--gray-9)] le-bg-[var(--gray-4)]
 const TableHeader = ({ headerGroup }: TableHeaderInterface) => {
   return (
-    <div
-      key={headerGroup.id}
-      className="le-flex le-border-[var(--gray-9)] le-bg-[var(--gray-4)]"
-    >
+    <div key={headerGroup.id} className="le-flex ">
       {headerGroup.headers.map((header) => (
         <div
           key={header.id}
