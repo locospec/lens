@@ -4,7 +4,7 @@ import LensExample from "./examples/LensExample";
 
 function App() {
   return (
-    <Theme accentColor="cyan">
+    <Theme accentColor="amber">
       <main className="le-w-screen le-h-screen le-overflow-scroll le-py-5">
         <LensExample />
       </main>

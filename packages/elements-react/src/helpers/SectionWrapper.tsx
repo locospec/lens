@@ -12,7 +12,7 @@ export interface SectionWrapperProps {
 
 const defaultBackgroundColors =
   "le-bg-blue-300 sm:le-bg-red-300 md:le-bg-yellow-300 lg:le-bg-purple-300";
-const defaultSpacing = "le-px-4 le-mt-4 le-mb-10 le-mx-4";
+const defaultSpacing = "le-px-4 le-mx-4";
 
 const SectionWrapper = ({
   children,
@@ -25,16 +25,16 @@ const SectionWrapper = ({
   return (
     <>
       {heading && (
-        <h2 className="le-text-2xl le-font-bold le-mb-4 le-mx-4">{heading}</h2>
+        <h2 className="le-text-2xl le-font-bold le-mt-4 le-mx-4">{heading}</h2>
       )}
       <Section
         style={{
           backgroundImage: backgroundImage
             ? `url(${backgroundImage})`
-            : undefined, // Set the background image
-          backgroundSize: "cover", // Cover the entire section
-          backgroundPosition: "center", // Center the image
-          backgroundRepeat: "no-repeat", // Prevent the image from repeating
+            : undefined,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
         className={cn(spacing, backgroundColor, height)}
         size="2"
