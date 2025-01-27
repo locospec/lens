@@ -18,7 +18,7 @@ const TableCell = ({ cell }: TableCellProps) => {
         "le-table-cell",
         "le-truncate le-px-4 le-py-2 ",
         "le-p-[var(--table-cell-padding)] le-min-h-[var(--table-cell-min-height)]",
-        "group-hover:le-bg-[var(--color-panel)]"
+        "group-hover:le-bg-[var(--gray-a2)]"
       )}
       key={cell.id}
       style={width}
