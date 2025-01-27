@@ -5,8 +5,8 @@ import LensExample from "./examples/LensExample";
 function App() {
   return (
     // <Theme accentColor="crimson" appearance="dark">
-    <Theme accentColor="crimson">
-      <main className="le-w-screen le-h-screen le-overflow-scroll le-py-5">
+    <Theme accentColor="blue">
+      <main className="le-w-screen le-h-screen le-overflow-scroll">
         <LensExample />
       </main>
     </Theme>
