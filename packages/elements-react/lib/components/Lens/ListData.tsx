@@ -144,6 +144,7 @@ export const ListData = ({
           style={{
             ...columnSizeVars,
             width: "100%",
+            height: `${rowVirtualizer.getTotalSize()}px`,
             minWidth: `${table.getTotalSize()}px`,
           }}
         >
