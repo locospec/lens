@@ -68,7 +68,7 @@ const LensExample = () => {
       <SectionWrapper
         spacing="le-mx-4 le-mb-10"
         heading="Lens Sample Table SIZE 1 Variant Ghost"
-        backgroundColor="le-bg-red-200"
+        backgroundColor="le-bg-red-200 dark:le-bg-red-700"
         // backgroundImage="https://img.freepik.com/free-vector/background-crystal-geometric-colorful-abstract_343694-2894.jpg?t=st=1737966773~exp=1737970373~hmac=8f561c1029760db0cd37a2ae82a81c76891babea7496d1cba6bb153554716e75&w=2000"
         // backgroundImage="https://img.freepik.com/free-photo/colorful-background-with-alcohol-ink_24972-1282.jpg?t=st=1737967216~exp=1737970816~hmac=e9cf8210dd9a0d4dc7c1b0ed5801a9691edb9cbd77d912e53e20265108fa4e4f&w=1800"
         // backgroundImage="https://img.freepik.com/free-vector/hand-drawn-butterfly-outline-background_52683-67985.jpg?t=st=1737967374~exp=1737970974~hmac=d4778bd4c65d5708fef2e7886ca381feca49da7e863ef8d27dc071af87a37120&w=2000"
@@ -105,7 +105,8 @@ const LensExample = () => {
       <SectionWrapper
         spacing="le-mx-4 le-mb-10"
         heading="Lens Sample Table SIZE 3 Variant Surface"
-        backgroundColor="le-bg-white"
+        // backgroundColor="le-bg-red-700"
+        backgroundColor="le-bg-white dark:bg-black"
         // backgroundImage="https://img.freepik.com/free-vector/background-crystal-geometric-colorful-abstract_343694-2894.jpg?t=st=1737966773~exp=1737970373~hmac=8f561c1029760db0cd37a2ae82a81c76891babea7496d1cba6bb153554716e75&w=2000"
         // backgroundImage="https://img.freepik.com/free-photo/colorful-background-with-alcohol-ink_24972-1282.jpg?t=st=1737967216~exp=1737970816~hmac=e9cf8210dd9a0d4dc7c1b0ed5801a9691edb9cbd77d912e53e20265108fa4e4f&w=1800"
         // backgroundImage="https://img.freepik.com/free-vector/hand-drawn-butterfly-outline-background_52683-67985.jpg?t=st=1737967374~exp=1737970974~hmac=d4778bd4c65d5708fef2e7886ca381feca49da7e863ef8d27dc071af87a37120&w=2000"
