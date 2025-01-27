@@ -16,7 +16,7 @@ const LensViewBar = ({
   setShowActionBar,
 }: LensViewBarInterface) => {
   return (
-    <div className="le-h-10 le-bg-green-400 le-flex le-items-center le-w-full le-justify-end le-px-4 le-gap-x-4">
+    <div className="le-h-12 le-bg-[var(--gray-a2)] le-flex le-items-center le-w-full le-justify-end le-px-4 le-gap-x-4">
       <button
         className="le-px-3 le-py-1 le-bg-blue-500 le-gap-x-2 hover:le-bg-blue-600 le-h-8 le-flex le-items-center le-jusitfy-center le-text-white le-font-bold le-rounded-md"
         onClick={() => setShowActionBar(!showActionBar)}

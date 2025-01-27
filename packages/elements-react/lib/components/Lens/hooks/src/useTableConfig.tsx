@@ -39,6 +39,9 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
         size: col.width || 150,
         maxSize: col.maxWidth || undefined,
         minSize: col.minWidth || undefined,
+        // meta: {
+        //   filterVariant: "text",
+        // },
       })
     );
 

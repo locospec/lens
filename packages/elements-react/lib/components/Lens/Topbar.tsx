@@ -2,8 +2,10 @@ import React from "react";
 import LensViewBar from "./LensViewsbar";
 import LensBulkActionsbar from "./LensBulkActionsbar";
 import { useLensContext } from "./context/LensContext";
+import type { Table as TanStackTableType } from "@tanstack/react-table";
 
 export interface TopbarProps {
+  table: TanStackTableType<any>;
   tableContainerRef: React.RefObject<HTMLDivElement>;
   sidebarContent: React.ReactNode;
   showActionBar: boolean;
@@ -11,24 +13,27 @@ export interface TopbarProps {
 }
 
 const Topbar = ({
+  table,
   tableContainerRef,
   sidebarContent,
   showActionBar,
   setShowActionBar,
 }: TopbarProps) => {
   const { showTopBar } = useLensContext();
+  const headers = table.getHeaderGroups()[0].headers;
+
   return (
     <>
       {showTopBar && (
-        <>
+        <div className="le-border-b le-flex le-flex-col">
           <LensViewBar
             tableContainerRef={tableContainerRef}
             sidebarContent={sidebarContent}
             showActionBar={showActionBar}
             setShowActionBar={setShowActionBar}
           />
-          {showActionBar && <LensBulkActionsbar />}
-        </>
+          {showActionBar && <LensBulkActionsbar headers={headers} />}
+        </div>
       )}
     </>
   );

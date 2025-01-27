@@ -1,6 +1,10 @@
 import React from "react";
 import { keepPreviousData } from "@tanstack/react-query";
-import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import {
+  getCoreRowModel,
+  useReactTable,
+  getFilteredRowModel,
+} from "@tanstack/react-table";
 import { MemoizedTableBody, TableBody } from "./TableBody.tsx";
 import { TableHeaderSection } from "./TableHeaderSection.tsx";
 import { TableMetrics } from "./TableMetrics.tsx";
@@ -76,6 +80,7 @@ export const ListData = ({
     data: flatData,
     columns: adjustedColumns,
     getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
     onRowSelectionChange: setRowSelection,
     getRowId: (row) => row[identifierKey],
     state: {
@@ -129,6 +134,7 @@ export const ListData = ({
         />
       )}
       <Topbar
+        table={table}
         tableContainerRef={tableContainerRef}
         sidebarContent={sidebarContent}
         showActionBar={showActionBar}
