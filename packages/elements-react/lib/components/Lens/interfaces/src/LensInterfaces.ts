@@ -1,6 +1,7 @@
 import { SelectionType } from "./TableConfigInterface";
 
 type SizesType = "1" | "2" | "3";
+type LensVariantTypes = "ghost" | "surface" | "stripped";
 
 interface LensContextType {
   showDevTools?: boolean;
@@ -8,6 +9,7 @@ interface LensContextType {
   dataCallback?: any;
   configCallback?: any;
   size: SizesType;
+  variant?: LensVariantTypes;
 }
 
 interface LensInterface {
@@ -21,6 +23,7 @@ interface LensInterface {
   dataEndpoint?: string;
   dataCallback?: (schema: any, request: any) => any;
   size?: SizesType;
+  variant?: LensVariantTypes;
 }
 
 export type { SizesType, LensInterface, LensContextType };

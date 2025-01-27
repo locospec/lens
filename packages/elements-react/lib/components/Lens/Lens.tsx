@@ -19,6 +19,7 @@ const Lens = ({
   dataEndpoint,
   dataCallback,
   size = "1",
+  variant = "ghost",
 }: LensInterface) => {
   return (
     <QueryClientProvider client={queryClient}>
@@ -29,6 +30,7 @@ const Lens = ({
         dataCallback={dataCallback}
         configCallback={configCallback}
         size={size}
+        variant={variant}
       >
         <List
           onSelect={onSelect}
