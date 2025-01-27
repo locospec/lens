@@ -103,7 +103,7 @@ export const ListData = ({
       <div
         ref={tableContainerRef}
         className={cn(
-          "twp le-flex le-h-full le-w-full le-items-center le-justify-center le-rounded-lg le-bg-white le-shadow",
+          "twp le-flex le-h-full le-w-full le-items-center le-justify-center le-rounded-lg le-bg-white",
           variantClass
         )}
       >
@@ -138,7 +138,7 @@ export const ListData = ({
         displayActionBar={displayActionBar}
       />
       <div
-        className="le-relative le-flex-1 le-overflow-auto le-shadow"
+        className="le-relative le-flex-1 le-overflow-auto"
         onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
         ref={tableContainerRef}
       >
