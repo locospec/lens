@@ -133,12 +133,14 @@ export const ListData = ({
         displayActionBar={displayActionBar}
       />
       <div
-        className="le-relative le-flex-1 le-overflow-auto le-bg-[var(--gray-4)] le-shadow"
+        className="le-relative le-flex-1 le-overflow-auto le-shadow"
         onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
         ref={tableContainerRef}
       >
         <div
-          className={cn("le-w-full le-h-full rt-TableRootTable")}
+          className={cn(
+            "le-w-full le-h-full rt-TableRootTable .rt-variant-surface"
+          )}
           style={{
             ...columnSizeVars,
             width: "100%",

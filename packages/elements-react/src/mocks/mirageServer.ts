@@ -38,13 +38,13 @@ export function makeServer() {
                 accessorKey: "state",
                 header: "State",
                 width: 100,
-                minWidth: 400,
+                minWidth: 100,
               },
               {
                 accessorKey: "district",
                 header: "District",
                 width: 400,
-                minWidth: 400,
+                minWidth: 100,
               },
               // {
               //   accessorKey: "cities",
