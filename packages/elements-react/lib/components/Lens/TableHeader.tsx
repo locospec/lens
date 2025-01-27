@@ -19,8 +19,9 @@ const TableHeader = ({ headerGroup }: TableHeaderInterface) => {
           <div
             key={header.id}
             className={cn(
-              "le-relative le-border-b le-border-r le-text-left le-font-semibold",
-              "le-p-[var(--table-cell-padding)] le-min-h-[var(--table-cell-min-height)] le-border-[var(--gray-7)]"
+              "le-table-header-cell",
+              "le-relative le-text-left le-font-semibold",
+              "le-p-[var(--table-cell-padding)] le-min-h-[var(--table-cell-min-height)]"
             )}
             style={{
               width: `calc(var(--header-${id}-size) * 1px)`,

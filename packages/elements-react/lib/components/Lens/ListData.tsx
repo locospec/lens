@@ -47,7 +47,8 @@ export const ListData = ({
   const [globalFilter] = React.useState<any>([]);
   const [showActionBar, setShowActionBar] = React.useState(false);
 
-  const { showTableMetrics, dataCallback, size } = useLensContext();
+  const { showTableMetrics, dataCallback, size, variantClass } =
+    useLensContext();
   const size_class = `rt-r-size-${size}`;
 
   const { adjustedColumns, isColumnsReady, containerWidth } = useColumnResize(
@@ -101,7 +102,10 @@ export const ListData = ({
     return (
       <div
         ref={tableContainerRef}
-        className="twp rt-r-size-1 le-flex le-h-full le-min-h-[200px] le-w-full le-items-center le-justify-center le-rounded-lg le-bg-white le-shadow"
+        className={cn(
+          "twp le-flex le-h-full le-w-full le-items-center le-justify-center le-rounded-lg le-bg-white le-shadow",
+          variantClass
+        )}
       >
         <div className="le-text-gray-500">Calculating column sizes...</div>
       </div>
@@ -111,8 +115,9 @@ export const ListData = ({
   return (
     <div
       className={cn(
-        "twp le-flex le-h-full le-flex-col le-gap-0 le-rounded-lg le-overflow-hidden le-border",
+        "twp le-flex le-h-full le-flex-col le-gap-0 le-rounded-lg le-overflow-hidden",
         "lens-root rt-TableRoot",
+        variantClass,
         size_class
       )}
     >
@@ -138,9 +143,7 @@ export const ListData = ({
         ref={tableContainerRef}
       >
         <div
-          className={cn(
-            "le-w-full le-h-full rt-TableRootTable .rt-variant-surface"
-          )}
+          className={cn("le-w-full le-h-full rt-TableRootTable")}
           style={{
             ...columnSizeVars,
             width: "100%",
