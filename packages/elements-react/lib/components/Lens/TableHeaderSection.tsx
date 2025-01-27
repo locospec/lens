@@ -10,7 +10,7 @@ export interface TableHeaderSectionInterface {
 
 const TableHeaderSection = ({ table }: TableHeaderSectionInterface) => {
   return (
-    <div className="le-sticky le-top-0 le-z-10">
+    <div className="le-sticky le-top-0 le-z-10 le-backdrop-blur-[100px]">
       {table.getHeaderGroups().map((headerGroup) => (
         <TableHeader key={headerGroup.id} headerGroup={headerGroup} />
       ))}
