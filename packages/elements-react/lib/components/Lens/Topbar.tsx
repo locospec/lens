@@ -1,13 +1,13 @@
 import React from "react";
 import LensViewBar from "./LensViewsbar";
 import LensBulkActionsbar from "./LensBulkActionsbar";
+import { useLensContext } from "./context/LensContext";
 
 export interface TopbarProps {
   tableContainerRef: React.RefObject<HTMLDivElement>;
   sidebarContent: React.ReactNode;
   showActionBar: boolean;
   setShowActionBar: (showActionBar: boolean) => void;
-  displayActionBar: boolean;
 }
 
 const Topbar = ({
@@ -15,11 +15,11 @@ const Topbar = ({
   sidebarContent,
   showActionBar,
   setShowActionBar,
-  displayActionBar,
 }: TopbarProps) => {
+  const { showTopBar } = useLensContext();
   return (
     <>
-      {displayActionBar && (
+      {showTopBar && (
         <>
           <LensViewBar
             tableContainerRef={tableContainerRef}
