@@ -1,3 +1,15 @@
+# v0.18.2 (Tue Jan 28 2025)
+
+#### 🐛 Bug Fix
+
+- patch: add default selection type as none [#108](https://github.com/locospec/ui/pull/108) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.18.1 (Tue Jan 28 2025)
 
 #### 🐛 Bug Fix
