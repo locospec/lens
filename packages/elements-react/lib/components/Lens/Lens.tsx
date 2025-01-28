@@ -19,7 +19,7 @@ const Lens = ({
   dataEndpoint,
   dataCallback,
   size = "1",
-  variant = "ghost",
+  variant = "surface",
   showTopBar = false,
 }: LensInterface) => {
   return (
