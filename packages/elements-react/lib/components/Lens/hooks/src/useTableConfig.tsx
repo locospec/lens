@@ -29,7 +29,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
       resource,
       identifierKey,
       columns: rawColumns,
-      selectionType,
+      selectionType = "none",
     } = tableConfig;
 
     const columnsFromConfig = rawColumns.map((col: ColumnConfigInterface) =>
