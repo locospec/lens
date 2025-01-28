@@ -78,9 +78,8 @@ const LensExample = () => {
             handleSelectionChange(value);
           }}
           selectedItems={checkedIds}
-          // showTopBar
           variant="surface"
-          size="3"
+          size="1"
         />
       </SectionWrapper>
       {/* <SectionWrapper
