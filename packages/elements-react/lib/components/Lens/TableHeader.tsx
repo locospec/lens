@@ -14,6 +14,8 @@ const TableHeader = ({ headerGroup }: TableHeaderInterface) => {
         const id = header?.id;
         const addResizeHandler =
           header.column.columnDef.minSize !== header.column.columnDef.maxSize;
+        const align = (header.column.columnDef.meta as any)?.align;
+        const align_class = align ? `le-justify-${align}` : "";
 
         return (
           <div
@@ -21,7 +23,8 @@ const TableHeader = ({ headerGroup }: TableHeaderInterface) => {
             className={cn(
               "le-table-header-cell",
               "le-relative le-text-left le-font-semibold",
-              "le-p-[var(--table-cell-padding)] le-min-h-[var(--table-cell-min-height)]"
+              "le-p-[var(--table-cell-padding)] le-min-h-[var(--table-cell-min-height)]",
+              align_class
             )}
             style={{
               width: `calc(var(--header-${id}-size) * 1px)`,
