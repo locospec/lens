@@ -67,7 +67,7 @@ const LensExample = () => {
     <div className="le-mx-0">
       <SectionWrapper
         heading="Lens Sample Table SIZE 3 Variant Surface"
-        backgroundColor="le-bg-white dark:bg-black"
+        backgroundColor="le-bg-yellow-400 dark:bg-black"
         // backgroundVideoUrl={Video}
         // backgroundVideoUrl="../assets/hyperbola_landing_page_video.webm"
       >
