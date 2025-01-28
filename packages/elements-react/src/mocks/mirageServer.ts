@@ -69,11 +69,13 @@ export function makeServer() {
                 header: "Properties",
                 width: 160,
                 minWidth: 100,
+                align: "end",
               },
               {
                 accessorKey: "actions",
                 header: "Actions",
                 actions: ["edit", "delete", "view"],
+                align: "end",
                 width: 200,
                 minWidth: 100,
               },
