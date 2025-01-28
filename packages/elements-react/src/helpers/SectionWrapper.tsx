@@ -1,6 +1,5 @@
 import { Section } from "@radix-ui/themes";
 import { cn } from "../../lib/components/utils/cn";
-import hyperbola from "../assets/hyperbola_landing_page_video.webm";
 
 export interface SectionWrapperProps {
   children: React.ReactNode;
@@ -9,7 +8,6 @@ export interface SectionWrapperProps {
   heading?: string;
   backgroundColor?: string;
   backgroundImage?: string;
-  backgroundVideoUrl?: string;
 }
 
 const defaultBackgroundColors =
@@ -23,9 +21,7 @@ const SectionWrapper = ({
   heading = "",
   backgroundColor = defaultBackgroundColors,
   backgroundImage = "",
-  backgroundVideoUrl = "",
 }: SectionWrapperProps) => {
-  console.log(">>>>> ", backgroundVideoUrl);
   return (
     <>
       {heading && (
@@ -40,23 +36,9 @@ const SectionWrapper = ({
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        className={cn(
-          spacing,
-          backgroundVideoUrl ? "" : backgroundColor,
-          height
-        )}
+        className={cn(spacing, backgroundColor, height)}
         size="2"
       >
-        {backgroundVideoUrl && (
-          <video
-            className="le-absolute le-top-0 le-h-full le-left-0 le-w-full le-object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-            src={hyperbola} // Use the imported video
-          />
-        )}
         {children}
       </Section>
     </>
