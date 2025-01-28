@@ -6,6 +6,7 @@ interface ColumnConfigInterface {
   width?: number;
   maxWidth?: number;
   minWidth?: number;
+  actions?: string[];
 }
 
 interface TableConfigInterface {
