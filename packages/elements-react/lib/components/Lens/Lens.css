@@ -35,9 +35,11 @@
 
 /* Table Cells styling */
 .le-table-header-cell {
+  display: flex;
   border-bottom: 1px solid var(--gray-7);
 }
 .le-table-cell {
+  display: flex;
   border-bottom: 1px solid var(--gray-7);
 }
 .le-table-cell[data-state="selected"] {
