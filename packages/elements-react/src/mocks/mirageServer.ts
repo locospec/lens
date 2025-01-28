@@ -25,7 +25,7 @@ export function makeServer() {
           return {
             resource: "auction-data",
             identifierKey: "data-value",
-            selectionType: "multiple",
+            // selectionType: "multiple",
             columns: [
               {
                 accessorKey: "id",
@@ -38,7 +38,7 @@ export function makeServer() {
                 accessorKey: "state",
                 header: "State",
                 width: 100,
-                minWidth: 400,
+                minWidth: 100,
               },
               {
                 accessorKey: "district",
@@ -46,36 +46,37 @@ export function makeServer() {
                 width: 200,
                 minWidth: 100,
               },
-              // {
-              //   accessorKey: "cities",
-              //   header: "Cities",
-              //   width: 100,
-              //   minWidth: 100,
-              // },
-              // {
-              //   accessorKey: "current_users",
-              //   header: "Current Users",
-              //   width: 100,
-              //   minWidth: 200,
-              // },
-              // {
-              //   accessorKey: "locality",
-              //   header: "Locality",
-              //   width: 100,
-              //   minWidth: 100,
-              // },
-              // {
-              //   accessorKey: "properties",
-              //   header: "Properties",
-              //   width: 160,
-              //   minWidth: 100,
-              // },
-              // {
-              //   accessorKey: "actions",
-              //   header: "Actions",
-              //   width: 200,
-              //   minWidth: 100,
-              // },
+              {
+                accessorKey: "cities",
+                header: "Cities",
+                width: 100,
+                minWidth: 100,
+              },
+              {
+                accessorKey: "current_users",
+                header: "Current Users",
+                width: 100,
+                minWidth: 200,
+              },
+              {
+                accessorKey: "locality",
+                header: "Locality",
+                width: 100,
+                minWidth: 100,
+              },
+              {
+                accessorKey: "properties",
+                header: "Properties",
+                width: 160,
+                minWidth: 100,
+              },
+              {
+                accessorKey: "actions",
+                header: "Actions",
+                actions: ["edit", "delete", "view"],
+                width: 200,
+                minWidth: 100,
+              },
             ],
           };
         }
@@ -119,15 +120,12 @@ export function makeServer() {
         if (resource === "auction-data") {
           const completeTestData = Array.from({ length: 200 }, (_, index) => ({
             id: index + 1,
-            state: `State sdasdasdasdhgsdjhas gdhagdhjag sdhgasjhdgjhsdg agsdhjghjg ${
-              index + 1
-            }`,
+            state: `State ${index + 1}`,
             district: `District ${index + 1}`,
             cities: `City ${index + 1}`,
             current_users: Math.floor(Math.random() * 1000), // Random number of users
             locality: `Locality ${index + 1}`,
             properties: `Property ${index + 1}`,
-            actions: `Action ${index + 1}`,
           }));
 
           const paginatedTestData = completeTestData.slice(

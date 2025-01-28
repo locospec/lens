@@ -22,46 +22,21 @@ const LensExample = () => {
     }
   };
 
-  // const [checkedIds2, setCheckedIds2] = useState([]);
-
-  // const handleSelectionChange2 = (selectedItem: any) => {
-  //   if (selectedItem) {
-  //     setCheckedIds2(selectedItem);
-  //   } else {
-  //     setCheckedIds2([]);
-  //   }
-  // };
-
-  // const returnTableConfiguration = async () => {
-  //   return new Promise((resolve) => {
-  //     setTimeout(() => {
-  //       resolve({
-  //         resource: "test-data",
-  //         identifierKey: "data-value",
-  //         selectionType: "multiple",
-  //         columns: [
-  //           { accessorKey: "id", header: "ID", width: 50 },
-  //           { accessorKey: "name", header: "name", width: 500 },
-  //           { accessorKey: "data-value", header: "data-value" },
-  //         ],
-  //       });
-  //     }, 200); // 200ms delay
-  //   });
-  // };
-
-  // const returnTableData = async ({
-  //   pageParam = null,
-  //   globalFilter = null,
-  // }: {
-  //   pageParam?: any;
-  //   globalFilter?: any;
-  // }) => {
-  //   const response = await fetch(
-  //     `/api/data-bench/test-data/fetch?cursor=${pageParam}&search=${globalFilter}`
-  //   );
-  //   const responseJson = await response.json();
-  //   return responseJson;
-  // };
+  const actionsCallback = ({ action, data }: any) => {
+    switch (action) {
+      case "edit":
+        console.log("edit", data);
+        break;
+      case "delete":
+        console.log("delete", data);
+        break;
+      case "view":
+        console.log("view", data);
+        break;
+      default:
+        console.log("NO Matching action callback found");
+    }
+  };
 
   return (
     <div className="le-mx-0">
@@ -80,6 +55,7 @@ const LensExample = () => {
           selectedItems={checkedIds}
           variant="surface"
           size="1"
+          actionsCallback={actionsCallback}
         />
       </SectionWrapper>
       {/* <SectionWrapper
