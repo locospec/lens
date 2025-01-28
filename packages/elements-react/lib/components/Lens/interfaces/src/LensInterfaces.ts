@@ -1,7 +1,5 @@
-import { SelectionType } from "./TableConfigInterface";
-
 type SizesType = "1" | "2" | "3";
-type LensVariantTypes = "ghost" | "surface" | "stripped";
+type LensVariantTypes = "ghost" | "surface";
 type LensVariantClasses = `le-table-variant-${LensVariantTypes}`;
 
 interface LensContextType {
@@ -16,7 +14,6 @@ interface LensContextType {
 }
 
 interface LensInterface {
-  selectionType?: SelectionType;
   onSelect?: (selection: any) => void;
   selectedItems?: string[];
   showDevTools?: boolean;
