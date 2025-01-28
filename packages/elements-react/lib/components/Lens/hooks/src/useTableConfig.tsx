@@ -6,6 +6,8 @@ import type {
   ColumnConfigInterface,
   TableConfigInterface,
 } from "../../interfaces";
+import { ActionCTA } from "../../actions";
+import { EyeIcon, SquarePen, Trash2 } from "lucide-react";
 
 export interface HeaderInterface {
   table: Table<any>;
@@ -15,7 +17,33 @@ export interface RowInterface {
   row: Row<any>;
 }
 
-const useTableConfig = (tableConfig: TableConfigInterface) => {
+const actionsMapping = (id: string, key: string, row: any, callback: any) => {
+  const props = {
+    data: row,
+    callback: () => callback({ action: id, data: row }),
+  };
+  switch (id) {
+    case "delete":
+      return <ActionCTA key={key} {...props} icon={<Trash2 />} />;
+    case "edit":
+      return <ActionCTA key={key} {...props} icon={<SquarePen />} />;
+    case "view":
+      return <ActionCTA key={key} {...props} icon={<EyeIcon />} />;
+  }
+};
+
+const actionsRenderer = ({ actions, index, row, callback }: any) => {
+  const ActionElements = actions?.map((action: any) => {
+    return actionsMapping(action, `${action}-${index}`, row, callback);
+  });
+
+  return <div className="le-flex le-gap-x-2">{ActionElements}</div>;
+};
+
+const useTableConfig = (
+  tableConfig: TableConfigInterface,
+  actionsCallback?: any
+) => {
   const columnHelper = createColumnHelper();
   return React.useMemo(() => {
     if (!tableConfig) {
@@ -32,17 +60,32 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
       selectionType = "none",
     } = tableConfig;
 
-    const columnsFromConfig = rawColumns.map((col: ColumnConfigInterface) =>
-      columnHelper.accessor(col.accessorKey, {
-        id: col.accessorKey,
-        header: col.header,
-        size: col.width || 150,
-        maxSize: col.maxWidth || undefined,
-        minSize: col.minWidth || undefined,
-        // meta: {
-        //   filterVariant: "text",
-        // },
-      })
+    const columnsFromConfig = rawColumns.map(
+      (col: ColumnConfigInterface, index: number) => {
+        return columnHelper.accessor(col.accessorKey, {
+          id: col.accessorKey,
+          header: col.header,
+          size: col.width || 150,
+          maxSize: col.maxWidth || undefined,
+          minSize: col.minWidth || undefined,
+          cell: (info) => {
+            if (col.accessorKey === "actions") {
+              if (actionsCallback) {
+                return actionsRenderer({
+                  actions: col.actions,
+                  index,
+                  row: info.row.original,
+                  callback: actionsCallback,
+                });
+              } else {
+                return "Actions not configured!";
+              }
+            } else {
+              return info.getValue();
+            }
+          },
+        });
+      }
     );
 
     const selectionColumn = {
