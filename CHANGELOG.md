@@ -1,5 +1,21 @@
 # (Tue Jan 28 2025)
 
+#### 🐛 Bug Fix
+
+- `@locospec/elements-react@0.18.1`
+  - patch: change default variant to surface [#107](https://github.com/locospec/ui/pull/107) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - docs: modify lens example [#107](https://github.com/locospec/ui/pull/107) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - docs: modify Lens example [#107](https://github.com/locospec/ui/pull/107) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: removed unused prop from lens interface [#107](https://github.com/locospec/ui/pull/107) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Tue Jan 28 2025)
+
 #### 🚀 Enhancement
 
 - `@locospec/elements-react@0.18.0`
