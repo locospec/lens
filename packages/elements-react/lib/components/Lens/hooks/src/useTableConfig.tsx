@@ -8,6 +8,7 @@ import type {
 } from "../../interfaces";
 import { ActionCTA } from "../../actions";
 import { EyeIcon, SquarePen, Trash2 } from "lucide-react";
+import type { CustomColumnDef } from "./CustomColumnDef";
 
 export interface HeaderInterface {
   table: Table<any>;
@@ -37,7 +38,7 @@ const actionsRenderer = ({ actions, index, row, callback }: any) => {
     return actionsMapping(action, `${action}-${index}`, row, callback);
   });
 
-  return <div className="le-flex le-gap-x-2">{ActionElements}</div>;
+  return ActionElements;
 };
 
 const useTableConfig = (
@@ -63,6 +64,9 @@ const useTableConfig = (
     const columnsFromConfig = rawColumns.map(
       (col: ColumnConfigInterface, index: number) => {
         return columnHelper.accessor(col.accessorKey, {
+          meta: {
+            align: col.align || undefined,
+          },
           id: col.accessorKey,
           header: col.header,
           size: col.width || 150,
@@ -84,7 +88,7 @@ const useTableConfig = (
               return info.getValue();
             }
           },
-        });
+        } as CustomColumnDef<any, any>);
       }
     );
 

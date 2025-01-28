@@ -7,6 +7,7 @@ interface ColumnConfigInterface {
   maxWidth?: number;
   minWidth?: number;
   actions?: string[];
+  align?: "start" | "center" | "end";
 }
 
 interface TableConfigInterface {
