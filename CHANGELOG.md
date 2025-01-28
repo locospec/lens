@@ -1,3 +1,49 @@
+# (Tue Jan 28 2025)
+
+#### 🚀 Enhancement
+
+- `@locospec/elements-react@0.18.0`
+  - docs: sample styling change [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add variant styles for loading state component [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add support for ghost and surface varient of table [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add variant class interface [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add variant prop to lens interface and LensContext [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add conditional rendering for resize handler and modify styles for table header [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add sample surface and ghost varient [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add css controlled sizing [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add support for min and max width in columns configuration for table [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- `@locospec/elements-react@0.18.0`
+  - docs: removed code for video on section [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - docs: commented unused code [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - docs: added animated background sample [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - docs: added sample code for faceted filter [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: add showAction bar as lens prop [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: modify hover and selected styles [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - style: modified tailwind style [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - docs: add sample for lens with size and variants [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - style: removed shadow styles [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - docs: add components for lens table display [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: fix issue of table header not sticking to the top due to variable height because of rowVirtualiser [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: remove unnecessary height parameter [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: modify resize handle width and colour to be more compact [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modify select column width [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified lens example [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - docs: add sample for sizings [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: add new interface file for lens components [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: add min and max width for selection column [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: modify type inferance to fix build issue [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - doc: add sample configuration for testing min and max width in table [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: add type interface for table and column configurations [#106](https://github.com/locospec/ui/pull/106) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # (Fri Jan 24 2025)
 
 #### 🐛 Bug Fix
