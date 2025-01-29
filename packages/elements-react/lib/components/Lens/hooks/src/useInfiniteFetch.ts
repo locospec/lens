@@ -26,6 +26,11 @@ const useInfiniteFetch = ({
       `${dataEndpoint}?cursor=${pageParam}&search=${globalFilter}`
     );
     const responseJson = await response.json();
+
+    if (responseJson?.data && !Array.isArray(responseJson.data)) {
+      throw new Error("Expected data to be an array");
+    }
+
     return responseJson;
   };
 
