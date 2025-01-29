@@ -17,6 +17,7 @@ interface ActionOption {
   icon: string;
   text?: string;
   method?: MethodTypes;
+  confirmation?: boolean;
 }
 
 interface ActionsConfig {
@@ -45,4 +46,10 @@ interface TableConfigInterface {
   columns: ColumnConfigInterface[];
 }
 
-export type { SelectionType, ColumnConfigInterface, TableConfigInterface };
+export type {
+  SelectionType,
+  ColumnConfigInterface,
+  TableConfigInterface,
+  ActionOption,
+  ActionsConfig,
+};
