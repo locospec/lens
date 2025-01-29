@@ -1,19 +1,23 @@
+import type { Row } from "@tanstack/react-table";
+import { ActionOption } from "../../interfaces/src/TableConfigInterface";
 import { ActionsMapping } from "./ActionsMapping";
 
 export interface ActionsRendererInterface {
-  actions: any;
-  row: any;
-  callback: any;
+  actions: ActionOption[];
+  row: Row<any>;
+  callback: () => void;
 }
 
-const ActionsRenderer = ({ actions, row, callback }: any) => {
-  const ActionElements = actions?.map((action: any) => {
+const ActionsRenderer = ({
+  actions,
+  row,
+  callback,
+}: ActionsRendererInterface) => {
+  const ActionElements = actions?.map((actionOption: ActionOption) => {
     return ActionsMapping({
-      id: action.key,
-      key: `${action.key}-${row.id}`,
       row,
       callback,
-      iconName: action.icon,
+      actionOption,
     });
   });
   return ActionElements;
