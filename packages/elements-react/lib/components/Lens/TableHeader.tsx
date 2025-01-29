@@ -12,8 +12,12 @@ const TableHeader = ({ headerGroup }: TableHeaderInterface) => {
     <div key={headerGroup.id} className="le-flex ">
       {headerGroup.headers.map((header) => {
         const id = header?.id;
+        const { minSize, maxSize } = header.column.columnDef;
         const addResizeHandler =
-          header.column.columnDef.minSize !== header.column.columnDef.maxSize;
+          minSize !== undefined && maxSize !== undefined
+            ? minSize !== maxSize
+            : true;
+
         const align = (header.column.columnDef.meta as any)?.align;
         const align_class = align ? `le-justify-${align}` : "";
 
