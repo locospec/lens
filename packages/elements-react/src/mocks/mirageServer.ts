@@ -37,13 +37,13 @@ export function makeServer() {
               {
                 accessorKey: "state",
                 header: "State",
-                width: 100,
+                width: 200,
                 minWidth: 100,
               },
               {
                 accessorKey: "district",
                 header: "District",
-                width: 200,
+                width: 100,
                 minWidth: 100,
               },
               {
@@ -61,13 +61,13 @@ export function makeServer() {
               {
                 accessorKey: "locality",
                 header: "Locality",
-                width: 100,
+                width: 200,
                 minWidth: 100,
               },
               {
                 accessorKey: "properties",
                 header: "Properties",
-                width: 160,
+                width: 100,
                 minWidth: 100,
                 align: "end",
               },
@@ -76,7 +76,6 @@ export function makeServer() {
                 header: "Actions",
                 actions: ["edit", "delete", "view"],
                 align: "end",
-                width: 200,
                 minWidth: 100,
               },
             ],

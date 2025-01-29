@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Lens } from "../../lib/main";
 import { makeServer } from "../mocks/mirageServer";
 import SectionWrapper from "../helpers/SectionWrapper";
+// import FilterBuilder from "../../lib/components/Lens/filters/src/FilterBuilder";
 
 const LensExample = () => {
   React.useEffect(() => {
@@ -54,10 +55,13 @@ const LensExample = () => {
           }}
           selectedItems={checkedIds}
           variant="surface"
-          size="1"
+          size="3"
+          showTopBar
           actionsCallback={actionsCallback}
         />
       </SectionWrapper>
+      {/* <FilterBuilder /> */}
+
       {/* <SectionWrapper
         spacing="le-mx-4 le-mb-10"
         heading="Lens Sample Table SIZE 1 Variant Ghost"
