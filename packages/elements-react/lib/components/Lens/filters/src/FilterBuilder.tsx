@@ -3,7 +3,7 @@ import type { FilterGroup } from "./types";
 import FilterGroupComponent from "./FilterGroup";
 import { JsonHighlighter } from "../../../JsonHighlighter";
 
-interface FilterBuilderProps {
+export interface FilterBuilderProps {
   maxDepth?: number;
 }
 

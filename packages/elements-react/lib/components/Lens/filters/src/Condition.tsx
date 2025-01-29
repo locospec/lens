@@ -1,7 +1,7 @@
 import React from "react";
 import { Condition, CONDITION_OPERATORS } from "./types";
 
-interface ConditionProps {
+export interface ConditionProps {
   condition: Condition;
   path: number[];
   onUpdate: (path: number[], field: string, value: any) => void;
