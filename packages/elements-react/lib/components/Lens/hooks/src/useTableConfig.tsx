@@ -102,7 +102,6 @@ const useTableConfig = (
           return actionsRenderer({
             actions: actions.options,
             row: row.original,
-            callback: actionsCallback,
           });
         },
         enableSorting: false,
