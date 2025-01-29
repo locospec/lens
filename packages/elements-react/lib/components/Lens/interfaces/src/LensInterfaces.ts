@@ -11,7 +11,6 @@ interface LensContextType {
   size: SizesType;
   variant?: LensVariantTypes;
   variantClass?: LensVariantClasses;
-  actionsCallback?: any;
 }
 
 interface LensInterface {
@@ -26,7 +25,6 @@ interface LensInterface {
   dataCallback?: (schema: any, request: any) => any;
   size?: SizesType;
   variant?: LensVariantTypes;
-  actionsCallback?: any;
 }
 
 export type { SizesType, LensInterface, LensContextType };
