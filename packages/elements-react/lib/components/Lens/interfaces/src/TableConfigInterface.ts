@@ -1,4 +1,32 @@
 type SelectionType = "single" | "multiple" | "none";
+type AlignType = "start" | "center" | "end";
+type MethodTypes =
+  | "GET"
+  | "POST"
+  | "PUT"
+  | "DELETE"
+  | "PATCH"
+  | "HEAD"
+  | "CONNECT"
+  | "OPTIONS"
+  | "TRACE";
+
+interface ActionOption {
+  key: string;
+  url: string;
+  icon: string;
+  text?: string;
+  method?: MethodTypes;
+}
+
+interface ActionsConfig {
+  header: string;
+  align?: AlignType;
+  width?: number;
+  minWidth?: number;
+  maxWidth?: number;
+  options: ActionOption[];
+}
 
 interface ColumnConfigInterface {
   accessorKey: string;
@@ -6,14 +34,14 @@ interface ColumnConfigInterface {
   width?: number;
   maxWidth?: number;
   minWidth?: number;
-  actions?: string[];
-  align?: "start" | "center" | "end";
+  align?: AlignType;
 }
 
 interface TableConfigInterface {
   resource: string;
   identifierKey: string;
   selectionType: SelectionType;
+  actions?: ActionsConfig;
   columns: ColumnConfigInterface[];
 }
 
