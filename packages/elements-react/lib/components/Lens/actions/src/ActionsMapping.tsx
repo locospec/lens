@@ -14,10 +14,11 @@ type RowObject = {
 };
 
 function replacePlaceholders(url: string, row: Row<any>): string {
-  return url.replace(/:(\w+)/g, (_, key) => {
-    return row.original.hasOwnProperty(key)
-      ? (row.original as RowObject)[key]
-      : "undefined";
+  console.log(row);
+  return url.replace(/\/:([\w.]+)/g, (_, key) => {
+    return row.hasOwnProperty(key)
+      ? "/" + (row as unknown as RowObject)[key]
+      : "/undefined";
   });
 }
 
@@ -56,15 +57,9 @@ const ActionsMapping = ({ row, actionOption }: ActionsMappingInterface) => {
           : true;
 
         if (userConfirmed) {
-          console.log(
-            ">>>>> FETCH NOW",
-            replacePlaceholders(url, row),
-            url,
-            method,
-            row
-          );
+          console.log(">>>>> FETCH NOW", replacePlaceholders(url, row));
         } else {
-          console.log(">>>>> USER REJECTED", url, method, row);
+          console.log(">>>>> USER REJECTED", url);
         }
       } else {
         console.error(">>>>> NO URL FOUND");
