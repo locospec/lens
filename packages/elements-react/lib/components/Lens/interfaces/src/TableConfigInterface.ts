@@ -14,7 +14,7 @@ type MethodTypes =
 interface ActionOption {
   key: string;
   url: string;
-  icon: string;
+  icon?: string;
   text?: string;
   method?: MethodTypes;
   confirmation?: boolean;
