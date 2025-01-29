@@ -30,7 +30,7 @@ export function makeServer() {
               header: "Actions sample",
               align: "end",
               // width: 700,
-              // minWidth: 400,
+              minWidth: 400,
               // maxWidth: 600,
               options: [
                 {
@@ -42,15 +42,15 @@ export function makeServer() {
                 {
                   key: "delete",
                   url: "/delete/:id/for/:state.id",
-                  // icon: "Trash2",
+                  icon: "Trash2",
                   text: "Delete",
                   method: "GET",
                   confirmation: true,
                 },
                 {
                   key: "view",
-                  // url: "/view/:id",
-                  // icon: "EyeIcon",
+                  url: "/view/:id",
+                  icon: "EyeIcon",
                   method: "GET",
                   confirmation: true,
                 },
@@ -102,13 +102,6 @@ export function makeServer() {
                 minWidth: 100,
                 align: "end",
               },
-              // {
-              //   accessorKey: "actions",
-              //   header: "Actions",
-              //   actions: ["edit", "delete", "view"],
-              //   align: "end",
-              //   minWidth: 100,
-              // },
             ],
           };
         }
