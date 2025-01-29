@@ -93,7 +93,7 @@ export function makeServer() {
                 accessorKey: "locality",
                 header: "Locality",
                 width: 100,
-                minWidth: 100,
+                // minWidth: 100,
               },
               {
                 accessorKey: "properties",
