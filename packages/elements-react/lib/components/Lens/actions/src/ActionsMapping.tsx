@@ -6,20 +6,28 @@ import type { Row } from "@tanstack/react-table";
 
 export interface ActionsMappingInterface {
   row: Row<any>;
-  callback: any;
   actionOption: ActionOption;
 }
 
-const ActionsMapping = ({
-  row,
-  callback,
-  actionOption,
-}: ActionsMappingInterface) => {
+type RowObject = {
+  [key: string]: string;
+};
+
+function replacePlaceholders(url: string, row: Row<any>): string {
+  return url.replace(/:(\w+)/g, (_, key) => {
+    return row.original.hasOwnProperty(key)
+      ? (row.original as RowObject)[key]
+      : "undefined";
+  });
+}
+
+const ActionsMapping = ({ row, actionOption }: ActionsMappingInterface) => {
   const {
     key: id,
     icon: iconName,
     text = "",
     method = "GET",
+    url = "",
     confirmation = false,
   } = actionOption;
   const key = id + "_" + row.id;
@@ -41,7 +49,27 @@ const ActionsMapping = ({
 
   const props = {
     data: row,
-    callback: () => callback({ action: id, data: row }),
+    callback: () => {
+      if (url) {
+        const userConfirmed = confirmation
+          ? window.confirm("Are you sure you want to proceed?")
+          : true;
+
+        if (userConfirmed) {
+          console.log(
+            ">>>>> FETCH NOW",
+            replacePlaceholders(url, row),
+            url,
+            method,
+            row
+          );
+        } else {
+          console.log(">>>>> USER REJECTED", url, method, row);
+        }
+      } else {
+        console.error(">>>>> NO URL FOUND");
+      }
+    },
   };
 
   return (
