@@ -3,7 +3,7 @@ import { Trash2, Plus } from "lucide-react";
 import { FilterGroup, GROUP_OPERATORS } from "./types";
 import Condition from "./Condition";
 
-interface FilterGroupProps {
+export interface FilterGroupProps {
   group: FilterGroup;
   path: number[];
   currentDepth: number;
