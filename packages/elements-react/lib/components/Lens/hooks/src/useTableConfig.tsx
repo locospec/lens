@@ -6,7 +6,7 @@ import type {
   ColumnConfigInterface,
   TableConfigInterface,
 } from "../../interfaces";
-import { ActionsMapping as actionsMapping } from "../../actions";
+import { ActionsRenderer as actionsRenderer } from "../../actions";
 import type { CustomColumnDef } from "./CustomColumnDef";
 
 export interface HeaderInterface {
@@ -16,19 +16,6 @@ export interface HeaderInterface {
 export interface RowInterface {
   row: Row<any>;
 }
-
-const actionsRenderer = ({ actions, row, callback }: any) => {
-  const ActionElements = actions?.map((action: any) => {
-    return actionsMapping({
-      id: action.key,
-      key: `${action.key}-${row.id}`,
-      row,
-      callback,
-      iconName: action.icon,
-    });
-  });
-  return ActionElements;
-};
 
 const useTableConfig = (
   tableConfig: TableConfigInterface,
