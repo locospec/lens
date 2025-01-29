@@ -50,16 +50,25 @@ const ActionsMapping = ({ row, actionOption }: ActionsMappingInterface) => {
 
   const props = {
     data: row,
-    callback: () => {
+    callback: async () => {
       if (url) {
         const userConfirmed = confirmation
           ? window.confirm("Are you sure you want to proceed?")
           : true;
 
         if (userConfirmed) {
-          console.log(">>>>> FETCH NOW", replacePlaceholders(url, row));
+          try {
+            const response = await fetch(replacePlaceholders(url, row), {
+              method: method || "GET",
+            });
+            const responseJson = await response.json();
+            return responseJson;
+          } catch (error) {
+            console.error(error);
+            return {};
+          }
         } else {
-          console.log(">>>>> USER REJECTED", url);
+          console.error(">>>>> USER REJECTED", url);
         }
       } else {
         console.error(">>>>> NO URL FOUND");

@@ -26,6 +26,36 @@ export function makeServer() {
             resource: "auction-data",
             identifierKey: "data-value",
             // selectionType: "multiple",
+            actions: {
+              header: "Actions sample",
+              align: "end",
+              // width: 700,
+              // minWidth: 400,
+              // maxWidth: 600,
+              options: [
+                {
+                  key: "edit",
+                  url: "/edit/:id",
+                  icon: "SquarePen",
+                  method: "GET",
+                },
+                {
+                  key: "delete",
+                  url: "/delete/:id/for/:state.id",
+                  // icon: "Trash2",
+                  text: "Delete",
+                  method: "GET",
+                  confirmation: true,
+                },
+                {
+                  key: "view",
+                  // url: "/view/:id",
+                  // icon: "EyeIcon",
+                  method: "GET",
+                  confirmation: true,
+                },
+              ],
+            },
             columns: [
               {
                 accessorKey: "id",
@@ -37,7 +67,7 @@ export function makeServer() {
               {
                 accessorKey: "state",
                 header: "State",
-                width: 200,
+                width: 100,
                 minWidth: 100,
               },
               {
@@ -51,6 +81,7 @@ export function makeServer() {
                 header: "Cities",
                 width: 100,
                 minWidth: 100,
+                show: false,
               },
               {
                 accessorKey: "current_users",
@@ -61,7 +92,7 @@ export function makeServer() {
               {
                 accessorKey: "locality",
                 header: "Locality",
-                width: 200,
+                width: 100,
                 minWidth: 100,
               },
               {
@@ -71,13 +102,13 @@ export function makeServer() {
                 minWidth: 100,
                 align: "end",
               },
-              {
-                accessorKey: "actions",
-                header: "Actions",
-                actions: ["edit", "delete", "view"],
-                align: "end",
-                minWidth: 100,
-              },
+              // {
+              //   accessorKey: "actions",
+              //   header: "Actions",
+              //   actions: ["edit", "delete", "view"],
+              //   align: "end",
+              //   minWidth: 100,
+              // },
             ],
           };
         }
@@ -126,6 +157,7 @@ export function makeServer() {
             current_users: Math.floor(Math.random() * 1000), // Random number of users
             locality: `Locality ${index + 1}`,
             properties: `Property ${index + 1}`,
+            "state.id": `state_${index + 1}`,
           }));
 
           const paginatedTestData = completeTestData.slice(
