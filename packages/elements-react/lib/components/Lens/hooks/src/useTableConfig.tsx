@@ -17,10 +17,7 @@ export interface RowInterface {
   row: Row<any>;
 }
 
-const useTableConfig = (
-  tableConfig: TableConfigInterface,
-  actionsCallback?: any
-) => {
+const useTableConfig = (tableConfig: TableConfigInterface) => {
   const columnHelper = createColumnHelper();
   return React.useMemo(() => {
     if (!tableConfig) {
