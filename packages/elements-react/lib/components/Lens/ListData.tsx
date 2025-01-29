@@ -97,7 +97,12 @@ export const ListData = ({
   const { rows } = table.getRowModel();
   const isResizing = table.getState().columnSizingInfo.isResizingColumn;
   const rowVirtualizer = useRowVirtualizer({ rows, tableContainerRef });
-  const columnSizeVars = useColumnSizeVars({ table, adjustedColumns });
+
+  const columnSizeVars = useColumnSizeVars({
+    table,
+    adjustedColumns,
+    parentWidth: tableContainerRef?.current?.clientWidth,
+  });
 
   useSyncSelection(selectedItems, rowSelection, setRowSelection, onSelect);
 
