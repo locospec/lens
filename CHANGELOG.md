@@ -1,5 +1,20 @@
 # (Wed Jan 29 2025)
 
+#### 🐛 Bug Fix
+
+- `@locospec/elements-react@0.19.1`
+  - doc: remove minWidth to test [#110](https://github.com/locospec/ui/pull/110) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: fix issue with resize handle display [#110](https://github.com/locospec/ui/pull/110) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: add validation for response data, should be an array [#110](https://github.com/locospec/ui/pull/110) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Wed Jan 29 2025)
+
 #### 🚀 Enhancement
 
 - `@locospec/elements-react@0.19.0`

@@ -1,3 +1,17 @@
+# v0.19.1 (Wed Jan 29 2025)
+
+#### 🐛 Bug Fix
+
+- doc: remove minWidth to test [#110](https://github.com/locospec/ui/pull/110) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: fix issue with resize handle display [#110](https://github.com/locospec/ui/pull/110) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: add validation for response data, should be an array [#110](https://github.com/locospec/ui/pull/110) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.19.0 (Wed Jan 29 2025)
 
 #### 🚀 Enhancement
