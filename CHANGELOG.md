@@ -1,3 +1,47 @@
+# (Wed Jan 29 2025)
+
+#### 🚀 Enhancement
+
+- `@locospec/elements-react@0.19.0`
+  - chore: make icon optional [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: Added fetch function on user confirmation [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: added function to convert replace url placeholders [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: added url modification and user confirmation handling [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: added initial filter builder component [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add json highlighter component [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add custom column alignment for table header [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add support for custom align ment for each column cell [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add rendering of actions column with fixed buttons, as initial POC [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: add actions callback to lens for providing callback functiosn for actions [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- `@locospec/elements-react@0.19.0`
+  - doc: added actions example config [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - style: css fix [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: remove actioncallback from lens [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: cleanup [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: remove unused prop [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: refactor [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modify type interface and add exports [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: refactor Actions Renderer [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: optmise and use proper type interface [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: refactor and breakdown [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - docs: remove unused variables [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - docs: added filter example [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: add condition to adjust last column sizing based for full width on initial render [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added exports to index.ts for filters [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - docs: add test sample for testing actionsand columns alignment [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - type: added custom column Def interface for additional align property in meta key for column def [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - style: add display flex for table cell and table header [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - docs: testing actions column and callback [#109](https://github.com/locospec/ui/pull/109) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # (Tue Jan 28 2025)
 
 #### 🐛 Bug Fix
