@@ -6,8 +6,7 @@ import type {
   ColumnConfigInterface,
   TableConfigInterface,
 } from "../../interfaces";
-import { ActionCTA } from "../../actions";
-import { EyeIcon, SquarePen, Trash2 } from "lucide-react";
+import { ActionsMapping as actionsMapping } from "../../actions";
 import type { CustomColumnDef } from "./CustomColumnDef";
 
 export interface HeaderInterface {
@@ -18,26 +17,16 @@ export interface RowInterface {
   row: Row<any>;
 }
 
-const actionsMapping = (id: string, key: string, row: any, callback: any) => {
-  const props = {
-    data: row,
-    callback: () => callback({ action: id, data: row }),
-  };
-  switch (id) {
-    case "delete":
-      return <ActionCTA key={key} {...props} icon={<Trash2 />} />;
-    case "edit":
-      return <ActionCTA key={key} {...props} icon={<SquarePen />} />;
-    case "view":
-      return <ActionCTA key={key} {...props} icon={<EyeIcon />} />;
-  }
-};
-
-const actionsRenderer = ({ actions, index, row, callback }: any) => {
+const actionsRenderer = ({ actions, row, callback }: any) => {
   const ActionElements = actions?.map((action: any) => {
-    return actionsMapping(action, `${action}-${index}`, row, callback);
+    return actionsMapping({
+      id: action.key,
+      key: `${action.key}-${row.id}`,
+      row,
+      callback,
+      iconName: action.icon,
+    });
   });
-
   return ActionElements;
 };
 
@@ -59,38 +48,21 @@ const useTableConfig = (
       identifierKey,
       columns: rawColumns,
       selectionType = "none",
+      actions,
     } = tableConfig;
 
-    const columnsFromConfig = rawColumns.map(
-      (col: ColumnConfigInterface, index: number) => {
-        return columnHelper.accessor(col.accessorKey, {
-          meta: {
-            align: col.align || undefined,
-          },
-          id: col.accessorKey,
-          header: col.header,
-          size: col.width || 150,
-          maxSize: col.maxWidth || undefined,
-          minSize: col.minWidth || undefined,
-          cell: (info) => {
-            if (col.accessorKey === "actions") {
-              if (actionsCallback) {
-                return actionsRenderer({
-                  actions: col.actions,
-                  index,
-                  row: info.row.original,
-                  callback: actionsCallback,
-                });
-              } else {
-                return "Actions not configured!";
-              }
-            } else {
-              return info.getValue();
-            }
-          },
-        } as CustomColumnDef<any, any>);
-      }
-    );
+    const columnsFromConfig = rawColumns.map((col: ColumnConfigInterface) => {
+      return columnHelper.accessor(col.accessorKey, {
+        meta: {
+          align: col.align || undefined,
+        },
+        id: col.accessorKey,
+        header: col.header,
+        size: col.width || 150,
+        maxSize: col.maxWidth || undefined,
+        minSize: col.minWidth || undefined,
+      } as CustomColumnDef<any, any>);
+    });
 
     const selectionColumn = {
       id: "select",
@@ -130,6 +102,30 @@ const useTableConfig = (
       selectionType === "none"
         ? columnsFromConfig
         : [selectionColumn, ...columnsFromConfig];
+
+    if (actions) {
+      const actionsColumn = {
+        id: "actions",
+        accessorKey: actions.header,
+        meta: {
+          align: actions?.align || undefined,
+        },
+        header: actions.header,
+        cell: ({ row }: RowInterface) => {
+          return actionsRenderer({
+            actions: actions.options,
+            row: row.original,
+            callback: actionsCallback,
+          });
+        },
+        enableSorting: false,
+        enableHiding: false,
+        size: actions?.width || 140,
+        minSize: actions?.minWidth || 140,
+        maxSize: actions?.maxWidth || 140,
+      };
+      finalColumns.push(actionsColumn);
+    }
 
     return {
       columns: finalColumns,
