@@ -23,22 +23,6 @@ const LensExample = () => {
     }
   };
 
-  const actionsCallback = ({ action, data }: any) => {
-    switch (action) {
-      case "edit":
-        console.log("edit", data);
-        break;
-      case "delete":
-        console.log("delete", data);
-        break;
-      case "view":
-        console.log("view", data);
-        break;
-      default:
-        console.log("NO Matching action callback found");
-    }
-  };
-
   return (
     <div className="le-mx-0">
       <SectionWrapper
@@ -57,7 +41,6 @@ const LensExample = () => {
           variant="surface"
           size="3"
           showTopBar
-          actionsCallback={actionsCallback}
         />
       </SectionWrapper>
       {/* <FilterBuilder /> */}
