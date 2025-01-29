@@ -5,18 +5,12 @@ import { ActionsMapping } from "./ActionsMapping";
 export interface ActionsRendererInterface {
   actions: ActionOption[];
   row: Row<any>;
-  callback: () => void;
 }
 
-const ActionsRenderer = ({
-  actions,
-  row,
-  callback,
-}: ActionsRendererInterface) => {
+const ActionsRenderer = ({ actions, row }: ActionsRendererInterface) => {
   const ActionElements = actions?.map((actionOption: ActionOption) => {
     return ActionsMapping({
       row,
-      callback,
       actionOption,
     });
   });
