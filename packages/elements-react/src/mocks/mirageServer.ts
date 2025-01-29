@@ -6,7 +6,7 @@ export function makeServer() {
       this.namespace = "/api/data-bench";
 
       // Mocking the /config endpoint
-      this.get("/:resource/config", (schema, request) => {
+      this.get("/:resource/config", (_, request) => {
         const resource = request.params.resource;
 
         if (resource === "test-data") {
@@ -86,10 +86,9 @@ export function makeServer() {
       });
 
       // Mocking the /fetch endpoint
-      this.get("/:resource/fetch", (schema, request) => {
+      this.get("/:resource/fetch", (_, request) => {
         const resource = request.params.resource;
         const cursor = Number(request.queryParams.cursor) || 0;
-        const search = request.queryParams.search || "";
         const pageSize = 20;
 
         if (resource === "test-data") {
