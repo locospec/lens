@@ -21,7 +21,6 @@ const Lens = ({
   size = "1",
   variant = "surface",
   showTopBar = false,
-  actionsCallback,
 }: LensInterface) => {
   return (
     <QueryClientProvider client={queryClient}>
@@ -35,7 +34,6 @@ const Lens = ({
         variant={variant}
         variantClass={`le-table-variant-${variant}`}
         showTopBar={showTopBar}
-        actionsCallback={actionsCallback}
       >
         <List
           onSelect={onSelect}
