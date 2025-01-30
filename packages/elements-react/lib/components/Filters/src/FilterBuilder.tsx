@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import type { FilterGroup } from "./types";
 import FilterGroupComponent from "./FilterGroup";
-import { JsonHighlighter } from "../../../JsonHighlighter";
+import { JsonHighlighter } from "../../JsonHighlighter";
 
 export interface FilterBuilderProps {
   maxDepth?: number;
@@ -117,7 +117,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({ maxDepth = 2 }) => {
   );
 
   return (
-    <div className="le-p-4 le-space-y-4 le-bg-white le-rounded-lg le-shadow">
+    <div className="le-p-4 le-space-y-4 le-bg-gray-100 le-rounded-lg  le-shadow le-flex">
       <JsonHighlighter json={filter} />
       <FilterGroupComponent
         group={filter}

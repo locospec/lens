@@ -3,6 +3,7 @@ import { Lens } from "../../lib/main";
 import { makeServer } from "../mocks/mirageServer";
 import SectionWrapper from "../helpers/SectionWrapper";
 // import FilterBuilder from "../../lib/components/Lens/filters/src/FilterBuilder";
+import { FilterBuilder } from "../../lib/components/Filters";
 
 const LensExample = () => {
   React.useEffect(() => {
@@ -43,7 +44,7 @@ const LensExample = () => {
           showTopBar
         />
       </SectionWrapper>
-      {/* <FilterBuilder /> */}
+      <FilterBuilder />
 
       {/* <SectionWrapper
         spacing="le-mx-4 le-mb-10"
