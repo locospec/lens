@@ -2,6 +2,7 @@ import React from "react";
 import { Trash2, Plus } from "lucide-react";
 import { FilterGroup, GROUP_OPERATORS } from "./types";
 import Condition from "./Condition";
+import "./FilterBuilder.css";
 
 export interface FilterGroupProps {
   group: FilterGroup;
@@ -35,13 +36,13 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
   };
 
   return (
-    <div className="le-py-4">
+    <div className="le-py-4 le-filter-builder-group">
       <div className="le-flex le-gap-x-2">
         <div className="le-space-y-2 le-border-gray-200">
           {group.conditions.map((condition, index) => (
             <div
               key={index}
-              className="le-flex le-items-center le-gap-2 le-bg-gray-300/50"
+              className="le-flex le-items-center le-gap-2 le-bg-gray-200/50 "
             >
               {index === 0 ? (
                 <select
