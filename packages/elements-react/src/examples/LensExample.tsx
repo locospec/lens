@@ -1,32 +1,32 @@
-import React, { useState } from "react";
-import { Lens } from "../../lib/main";
-import { makeServer } from "../mocks/mirageServer";
-import SectionWrapper from "../helpers/SectionWrapper";
+// import React, { useState } from "react";
+// import { Lens } from "../../lib/main";
+// import { makeServer } from "../mocks/mirageServer";
+// import SectionWrapper from "../helpers/SectionWrapper";
 // import FilterBuilder from "../../lib/components/Lens/filters/src/FilterBuilder";
 import { FilterBuilder } from "../../lib/components/Filters";
 
 const LensExample = () => {
-  React.useEffect(() => {
-    makeServer();
+  // React.useEffect(() => {
+  //   makeServer();
 
-    return () => {
-      makeServer().shutdown();
-    };
-  }, []);
+  //   return () => {
+  //     makeServer().shutdown();
+  //   };
+  // }, []);
 
-  const [checkedIds, setCheckedIds] = useState([]);
+  // const [checkedIds, setCheckedIds] = useState([]);
 
-  const handleSelectionChange = (selectedItem: any) => {
-    if (selectedItem) {
-      setCheckedIds(selectedItem);
-    } else {
-      setCheckedIds([]);
-    }
-  };
+  // const handleSelectionChange = (selectedItem: any) => {
+  //   if (selectedItem) {
+  //     setCheckedIds(selectedItem);
+  //   } else {
+  //     setCheckedIds([]);
+  //   }
+  // };
 
   return (
     <div className="le-mx-0">
-      <SectionWrapper
+      {/* <SectionWrapper
         heading="Lens Sample Table SIZE 3 Variant Surface"
         backgroundColor="le-bg-white dark:bg-black"
         // backgroundVideoUrl={Video}
@@ -43,7 +43,7 @@ const LensExample = () => {
           size="3"
           showTopBar
         />
-      </SectionWrapper>
+      </SectionWrapper> */}
       <FilterBuilder />
 
       {/* <SectionWrapper
