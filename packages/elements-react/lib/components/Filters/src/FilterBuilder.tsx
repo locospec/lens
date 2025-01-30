@@ -117,8 +117,8 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({ maxDepth = 2 }) => {
   );
 
   return (
-    <div className="le-p-4 le-space-y-4 le-bg-gray-100 le-rounded-lg  le-shadow le-flex">
-      <JsonHighlighter json={filter} />
+    <div className="twp le-p-4 le-space-y-4 le-bg-gray-100 le-rounded-lg le-shadow">
+      <label>Filters</label>
       <FilterGroupComponent
         group={filter}
         path={[]}
@@ -129,6 +129,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({ maxDepth = 2 }) => {
         onRemove={removeItem}
         onUpdate={updateCondition}
       />
+      <JsonHighlighter json={filter} />
     </div>
   );
 };
