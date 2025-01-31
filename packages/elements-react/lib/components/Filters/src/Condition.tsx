@@ -1,5 +1,6 @@
 import React from "react";
 import { Condition, CONDITION_OPERATORS } from "./types";
+import { Select } from "@radix-ui/themes";
 
 export interface ConditionProps {
   condition: Condition;
@@ -13,32 +14,36 @@ const ConditionComponent: React.FC<ConditionProps> = ({
   onUpdate,
 }) => {
   return (
-    <div className="le-flex le-gap-2">
+    <div className="le-flex le-gap-2 le-filter-condition le-items-center">
       <input
         type="text"
         value={condition.attribute}
         onChange={(e) => onUpdate(path, "attribute", e.target.value)}
         placeholder="Attribute"
-        className="le-p-1 le-border le-rounded"
+        className="rt-reset rt-SelectTrigger rt-r-size-2 rt-variant-surface le-w-fit"
       />
-      <select
-        value={condition.op}
-        onChange={(e) => onUpdate(path, "op", e.target.value)}
-        className="le-p-1 le-border le-rounded"
+      <Select.Root
+        defaultValue={condition.op}
+        onValueChange={(value) => onUpdate(path, "op", value)}
       >
-        {CONDITION_OPERATORS.map((op) => (
-          <option key={op.value} value={op.value}>
-            {op.label}
-          </option>
-        ))}
-      </select>
+        <Select.Trigger className="le-p-1 le-text-center" />
+        <Select.Content>
+          <Select.Group>
+            {CONDITION_OPERATORS.map((op) => (
+              <Select.Item key={op.value} value={op.value}>
+                {op.label}
+              </Select.Item>
+            ))}
+          </Select.Group>
+        </Select.Content>
+      </Select.Root>
       {!["isNull", "isNotNull"].includes(condition.op) && (
         <input
           type="text"
           value={String(condition.value || "")}
           onChange={(e) => onUpdate(path, "value", e.target.value)}
           placeholder="Value"
-          className="le-p-1 le-border le-rounded"
+          className="rt-reset rt-SelectTrigger rt-r-size-2 rt-variant-surface le-w-fit"
         />
       )}
     </div>
