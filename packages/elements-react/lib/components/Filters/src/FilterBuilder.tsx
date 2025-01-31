@@ -5,9 +5,13 @@ import { JsonHighlighter } from "../../JsonHighlighter";
 
 export interface FilterBuilderProps {
   maxDepth?: number;
+  showFilterJSON?: boolean;
 }
 
-const FilterBuilder: React.FC<FilterBuilderProps> = ({ maxDepth = 2 }) => {
+const FilterBuilder: React.FC<FilterBuilderProps> = ({
+  maxDepth = 2,
+  showFilterJSON = true,
+}) => {
   const [filter, setFilter] = useState<FilterGroup>({
     op: "and",
     conditions: [],
@@ -129,7 +133,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({ maxDepth = 2 }) => {
         onRemove={removeItem}
         onUpdate={updateCondition}
       />
-      <JsonHighlighter json={filter} />
+      {showFilterJSON && <JsonHighlighter json={filter} />}
     </div>
   );
 };
