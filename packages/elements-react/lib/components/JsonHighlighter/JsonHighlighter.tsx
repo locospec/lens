@@ -38,7 +38,7 @@ const JsonHighlighter: React.FC<JsonHighlighterProps> = ({ json }) => {
 
   return (
     <pre
-      className="le-p-2 le-text-xs le-leading-loose le-break-all le-whitespace-pre-wrap le-bg-gray-200 le-rounded"
+      className="le-p-2 le-text-xs le-leading-loose le-break-all le-whitespace-pre-wrap le-bg-[var(--gray-a3)] le-rounded"
       style={{ wordBreak: "break-word" }}
     >
       <code dangerouslySetInnerHTML={{ __html: highlightedJson }} />
