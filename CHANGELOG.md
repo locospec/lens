@@ -1,3 +1,27 @@
+# (Fri Jan 31 2025)
+
+#### 🚀 Enhancement
+
+- `@locospec/elements-react@0.20.0`
+  - chore: add css scopig for lens datatable to prevent conflict in in app with shadcn styling [#111](https://github.com/locospec/ui/pull/111) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: modified filters style and layout arrangment [#111](https://github.com/locospec/ui/pull/111) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- `@locospec/elements-react@0.20.0`
+  - docs: added sample code for testing [#111](https://github.com/locospec/ui/pull/111) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: removed strict mode [#111](https://github.com/locospec/ui/pull/111) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: fix for nested padding in filters [#111](https://github.com/locospec/ui/pull/111) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: sample styling added [#111](https://github.com/locospec/ui/pull/111) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: style changes [#111](https://github.com/locospec/ui/pull/111) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: move filters outside lens as standalone component [#111](https://github.com/locospec/ui/pull/111) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # (Wed Jan 29 2025)
 
 #### 🐛 Bug Fix
