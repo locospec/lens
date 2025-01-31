@@ -4,7 +4,6 @@ import FilterGroupComponent from "./FilterGroup";
 import { JsonHighlighter } from "../../JsonHighlighter";
 import { FilterProvider } from "./context/FilterContext";
 import { FilterBuilderProps } from "./interfaces/src/FilterInterface";
-import { Text } from "@radix-ui/themes";
 
 const FilterBuilder: React.FC<FilterBuilderProps> = ({
   maxDepth = 2,
@@ -124,7 +123,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
   return (
     <FilterProvider size={size} variant={variant}>
       <div className="twp le-lens-wrapper le-p-4 le-space-y-4 le-rounded-lg le-shadow">
-        <Text>{label}</Text>
+        <label>{label}</label>
         <FilterGroupComponent
           group={filter}
           path={[]}

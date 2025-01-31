@@ -1,7 +1,12 @@
-import { Select } from "@radix-ui/themes";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/base/components/ui/select";
 import { FilterGroup, GROUP_OPERATORS } from "./types";
-import { useFilterContext } from "./context/FilterContext";
-import { cn } from "../../utils/cn";
+import { cn } from "@/base/lib/utils";
 
 export interface OPDisplayProps {
   index: number;
@@ -14,40 +19,23 @@ const OPDisplay = ({
   group,
   handleGroupOperatorChange,
 }: OPDisplayProps) => {
-  const { size, variant } = useFilterContext();
-  const sizeClass = "rt-r-size-" + size;
-  const variantClass = "rt-variant-" + variant;
-
   return (
     <>
       {index === 0 ? (
-        <Select.Root
-          defaultValue="and"
-          onValueChange={handleGroupOperatorChange}
-          size={size}
-        >
-          <Select.Trigger
-            className="le-p-1 le-w-[70px] le-text-center"
-            variant={variant}
-          />
-          <Select.Content>
-            <Select.Group>
-              {GROUP_OPERATORS.map((op) => (
-                <Select.Item key={op.value} value={op.value}>
-                  {op.label}
-                </Select.Item>
-              ))}
-            </Select.Group>
-          </Select.Content>
-        </Select.Root>
+        <Select onValueChange={handleGroupOperatorChange}>
+          <SelectTrigger className="le-p-1 le-w-[70px] le-text-center">
+            <SelectValue placeholder={group.op.toUpperCase()} />
+          </SelectTrigger>
+          <SelectContent>
+            {GROUP_OPERATORS.map((op) => (
+              <SelectItem key={op.value} value={op.value}>
+                {op.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       ) : (
-        <label
-          className={cn(
-            "rt-reset rt-SelectTrigger le-p-1 le-w-[70px] le-text-center",
-            sizeClass,
-            variantClass
-          )}
-        >
+        <label className={cn("le-p-1 le-w-[70px] le-text-center")}>
           {group.op.toUpperCase()}
         </label>
       )}
