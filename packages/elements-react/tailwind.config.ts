@@ -6,8 +6,8 @@ import {
 
 module.exports = {
   prefix: "le-",
-  darkMode: ["class", '[data-theme="dark"]'],
-  content: ["lib/**/*.{ts,tsx}", "src/**/*.{ts,tsx}"],
+  darkMode: ["class"],
+  content: ["./index.html", "lib/**/*.{ts,tsx}", "src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {

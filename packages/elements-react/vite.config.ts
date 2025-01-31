@@ -9,11 +9,6 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./lib"),
-    },
-  },
   plugins: [
     react(),
     libInjectCss(),
@@ -21,6 +16,11 @@ export default defineConfig({
       tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
     }),
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./lib"),
+    },
+  },
   build: {
     copyPublicDir: false,
     lib: {
