@@ -111,7 +111,7 @@ export const ListData = ({
       <div
         ref={tableContainerRef}
         className={cn(
-          "twp le-flex le-h-full le-w-full le-items-center le-justify-center le-rounded-lg le-bg-white",
+          "twp le-lens-wrapper le-flex le-h-full le-w-full le-items-center le-justify-center le-rounded-lg le-bg-white",
           variantClass
         )}
       >
@@ -123,7 +123,7 @@ export const ListData = ({
   return (
     <div
       className={cn(
-        "twp le-flex le-h-full le-flex-col le-gap-0 le-rounded-lg le-overflow-hidden",
+        "twp le-lens-wrapper le-flex le-h-full le-flex-col le-gap-0 le-rounded-lg le-overflow-hidden",
         "lens-root rt-TableRoot",
         variantClass,
         size_class
