@@ -1,8 +1,14 @@
 import React from "react";
 import { Condition, CONDITION_OPERATORS } from "./types";
-import { Select, TextField } from "@radix-ui/themes";
-import { useFilterContext } from "./context/FilterContext";
 import Combobox from "@/base/components/ui/combobox";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/base/components/ui/select";
+import { Input } from "@/base/components/ui/input";
 
 export interface ConditionProps {
   condition: Condition;
@@ -15,8 +21,6 @@ const ConditionComponent: React.FC<ConditionProps> = ({
   path,
   onUpdate,
 }) => {
-  const { size, variant } = useFilterContext();
-
   const attribute_options = [
     {
       label: "Attribute 1",
@@ -38,45 +42,34 @@ const ConditionComponent: React.FC<ConditionProps> = ({
 
   return (
     <div className="le-flex le-gap-2 le-filter-condition le-items-center">
-      {/* <TextField.Root
-        placeholder="Attribute"
-        value={condition.attribute}
-        onChange={(e) => onUpdate(path, "attribute", e.target.value)}
-        variant={variant}
-        size={size}
-      ></TextField.Root> */}
       <Combobox
         options={attribute_options}
         defaultValue={condition.attribute}
         callback={(value) => {
           onUpdate(path, "attribute", value);
         }}
-        size={size}
       />
-      <Select.Root
+      <Select
         defaultValue={condition.op}
         onValueChange={(value) => onUpdate(path, "op", value)}
-        size={size}
       >
-        <Select.Trigger className="le-p-1 le-text-center" variant={variant} />
-        <Select.Content>
-          <Select.Group>
-            {CONDITION_OPERATORS.map((op) => (
-              <Select.Item key={op.value} value={op.value}>
-                {op.label}
-              </Select.Item>
-            ))}
-          </Select.Group>
-        </Select.Content>
-      </Select.Root>
+        <SelectTrigger className="le-p-1 le-text-center">
+          <SelectValue placeholder={""} />
+        </SelectTrigger>
+        <SelectContent>
+          {CONDITION_OPERATORS.map((op) => (
+            <SelectItem key={op.value} value={op.value}>
+              {op.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
       {!["isNull", "isNotNull"].includes(condition.op) && (
-        <TextField.Root
+        <Input
           placeholder="Value"
           value={String(condition.value || "")}
           onChange={(e) => onUpdate(path, "value", e.target.value)}
-          variant={variant}
-          size={size}
-        ></TextField.Root>
+        />
       )}
     </div>
   );
