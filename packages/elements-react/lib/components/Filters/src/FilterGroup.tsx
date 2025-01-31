@@ -6,6 +6,8 @@ import { OPDisplay } from "./OpSelector";
 import "./FilterBuilder.css";
 import AddButtonsTray from "./AddButtonsTray";
 import { cn } from "../../utils/cn";
+import { IconButton } from "@radix-ui/themes";
+import { useFilterContext } from "./context/FilterContext";
 
 export interface FilterGroupProps {
   group: FilterGroup;
@@ -38,6 +40,8 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
     }
   };
 
+  const { size, variant } = useFilterContext();
+
   return (
     <div className="le-py-2 le-filter-builder-group">
       <div className="le-flex le-gap-x-2">
@@ -48,7 +52,7 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
               <div
                 key={index}
                 className={cn(
-                  "le-flex le-items-center le-gap-2 le-bg-gray-200",
+                  "le-flex le-items-center le-gap-2 le-bg-[var(--gray-a1)]",
                   isFilterGroup ? "le-px-2" : "le-p-2"
                 )}
               >
@@ -75,13 +79,13 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
                     onUpdate={onUpdate}
                   />
                 )}
-                <div
+                {/* <div
                   onClick={(e) => {
                     e.stopPropagation();
                     onRemove([...path, index]);
                   }}
                   className={cn(
-                    "hover:le-text-red-700 le-h-fit le-w-fit le-cursor-pointer",
+                    "le-text-[var(--accent-9)] hover:le-text-red-500 le-h-fit le-w-fit le-cursor-pointer",
                     isFilterGroup ? "le-self-end" : "le-self-center"
                   )}
                 >
@@ -90,7 +94,22 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
                   ) : (
                     <Trash2 size={16} />
                   )}
-                </div>
+                </div> */}
+                <IconButton
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onRemove([...path, index]);
+                  }}
+                  className={isFilterGroup ? "le-self-end" : "le-self-center"}
+                  size={size}
+                  variant={isFilterGroup ? "ghost" : variant}
+                >
+                  {isFilterGroup ? (
+                    <label className="le-text-sm">Clear</label>
+                  ) : (
+                    <Trash2 size={14} />
+                  )}
+                </IconButton>
               </div>
             );
           })}

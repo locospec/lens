@@ -2,15 +2,16 @@ import React, { useState, useCallback } from "react";
 import type { FilterGroup } from "./types";
 import FilterGroupComponent from "./FilterGroup";
 import { JsonHighlighter } from "../../JsonHighlighter";
-
-export interface FilterBuilderProps {
-  maxDepth?: number;
-  showFilterJSON?: boolean;
-}
+import { FilterProvider } from "./context/FilterContext";
+import { FilterBuilderProps } from "./interfaces/src/FilterInterface";
+import { Text } from "@radix-ui/themes";
 
 const FilterBuilder: React.FC<FilterBuilderProps> = ({
   maxDepth = 2,
   showFilterJSON = true,
+  size = "1",
+  variant = "surface",
+  label = "Filters",
 }) => {
   const [filter, setFilter] = useState<FilterGroup>({
     op: "and",
@@ -121,20 +122,22 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
   );
 
   return (
-    <div className="twp le-p-4 le-space-y-4 le-bg-gray-100 le-rounded-lg le-shadow">
-      <label>Filters</label>
-      <FilterGroupComponent
-        group={filter}
-        path={[]}
-        currentDepth={0}
-        maxDepth={maxDepth}
-        onAddCondition={addCondition}
-        onAddGroup={addGroup}
-        onRemove={removeItem}
-        onUpdate={updateCondition}
-      />
-      {showFilterJSON && <JsonHighlighter json={filter} />}
-    </div>
+    <FilterProvider size={size} variant={variant}>
+      <div className="twp le-p-4 le-space-y-4 le-rounded-lg le-shadow">
+        <Text>{label}</Text>
+        <FilterGroupComponent
+          group={filter}
+          path={[]}
+          currentDepth={0}
+          maxDepth={maxDepth}
+          onAddCondition={addCondition}
+          onAddGroup={addGroup}
+          onRemove={removeItem}
+          onUpdate={updateCondition}
+        />
+        {showFilterJSON && <JsonHighlighter json={filter} />}
+      </div>
+    </FilterProvider>
   );
 };
 
