@@ -31,7 +31,6 @@ export interface ComboBoxInterface {
   options: OptionInterface[];
   callback?: (value: string) => void;
   defaultValue?: string;
-  size?: FilterSizes;
 }
 
 export function Combobox({
@@ -40,12 +39,9 @@ export function Combobox({
   options,
   callback,
   defaultValue,
-  size = "1",
 }: ComboBoxInterface) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(defaultValue);
-
-  const sizeClass = "rt-r-size-" + size;
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -54,7 +50,7 @@ export function Combobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={cn("le-w-[200px] le-justify-between ", sizeClass)}
+          className={"le-w-[200px] le-justify-between"}
         >
           {value
             ? options.find((option) => option.value === value)?.label
