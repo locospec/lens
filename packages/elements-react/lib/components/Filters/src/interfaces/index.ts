@@ -1,1 +1,6 @@
-export type { FilterContextType } from "./src/FilterInterface";
+export type {
+  FilterContextType,
+  FilterBuilderProps,
+  FilterSizes,
+  FilterVariants,
+} from "./src/FilterInterface";
