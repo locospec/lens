@@ -2,6 +2,7 @@ import React from "react";
 import { Condition, CONDITION_OPERATORS } from "./types";
 import { Select, TextField } from "@radix-ui/themes";
 import { useFilterContext } from "./context/FilterContext";
+import Combobox from "@/base/components/ui/combobox";
 
 export interface ConditionProps {
   condition: Condition;
@@ -16,15 +17,42 @@ const ConditionComponent: React.FC<ConditionProps> = ({
 }) => {
   const { size, variant } = useFilterContext();
 
+  const attribute_options = [
+    {
+      label: "Attribute 1",
+      value: "attribute1",
+    },
+    {
+      label: "Attribute 2",
+      value: "attribute2",
+    },
+    {
+      label: "Attribute 3",
+      value: "attribute3",
+    },
+    {
+      label: "Attribute 4",
+      value: "attribute4",
+    },
+  ];
+
   return (
     <div className="le-flex le-gap-2 le-filter-condition le-items-center">
-      <TextField.Root
+      {/* <TextField.Root
         placeholder="Attribute"
         value={condition.attribute}
         onChange={(e) => onUpdate(path, "attribute", e.target.value)}
         variant={variant}
         size={size}
-      ></TextField.Root>
+      ></TextField.Root> */}
+      <Combobox
+        options={attribute_options}
+        defaultValue={condition.attribute}
+        callback={(value) => {
+          onUpdate(path, "attribute", value);
+        }}
+        size={size}
+      />
       <Select.Root
         defaultValue={condition.op}
         onValueChange={(value) => onUpdate(path, "op", value)}

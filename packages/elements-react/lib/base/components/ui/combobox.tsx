@@ -18,19 +18,34 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/base/components/ui/popover";
+import { FilterSizes } from "@/components/Filters/src/interfaces";
 
-interface OptionInterface {
+export interface OptionInterface {
   label: string;
   value: string;
 }
 
 export interface ComboBoxInterface {
+  placeholder?: string;
+  emptyLabel?: string;
   options: OptionInterface[];
+  callback?: (value: string) => void;
+  defaultValue?: string;
+  size?: FilterSizes;
 }
 
-export function Combobox({ options }: ComboBoxInterface) {
+export function Combobox({
+  emptyLabel = "No options found...",
+  placeholder = "Select an option....",
+  options,
+  callback,
+  defaultValue,
+  size = "1",
+}: ComboBoxInterface) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = React.useState(defaultValue);
+
+  const sizeClass = "rt-r-size-" + size;
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -39,38 +54,43 @@ export function Combobox({ options }: ComboBoxInterface) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className={cn("le-w-[200px] le-justify-between ", sizeClass)}
         >
           {value
             ? options.find((option) => option.value === value)?.label
-            : "Select framework..."}
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+            : placeholder}
+          <ChevronsUpDown className="le-ml-2 le-h-4 le-w-4 le-shrink-0 le-opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="le-w-[200px] le-p-0">
         <Command>
-          <CommandInput placeholder="Search framework..." />
+          <CommandInput placeholder={placeholder} />
           <CommandList>
-            <CommandEmpty>No framework found.</CommandEmpty>
+            <CommandEmpty>{emptyLabel}</CommandEmpty>
             <CommandGroup>
-              {options.map((option) => (
-                <CommandItem
-                  key={option.value}
-                  value={option.value}
-                  onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue);
-                    setOpen(false);
-                  }}
-                >
-                  <Check
-                    className={cn(
-                      "mr-2 h-4 w-4",
-                      value === option.value ? "opacity-100" : "opacity-0"
-                    )}
-                  />
-                  {option.label}
-                </CommandItem>
-              ))}
+              {options.map((option) => {
+                return (
+                  <CommandItem
+                    key={option.value}
+                    value={option.value}
+                    onSelect={(currentValue) => {
+                      setValue(currentValue === value ? "" : currentValue);
+                      callback && callback(currentValue);
+                      setOpen(false);
+                    }}
+                  >
+                    <Check
+                      className={cn(
+                        "le-mr-2 le-h-4 le-w-4",
+                        value === option.value
+                          ? "le-opacity-100"
+                          : "le-opacity-0"
+                      )}
+                    />
+                    {option.label}
+                  </CommandItem>
+                );
+              })}
             </CommandGroup>
           </CommandList>
         </Command>
