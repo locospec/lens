@@ -3,8 +3,8 @@
 import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 
-import { cn } from "../../../components/utils/cn";
-import { Button } from "./button";
+import { cn } from "@/base/lib/utils";
+import { Button } from "@/base/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -13,7 +13,11 @@ import {
   CommandItem,
   CommandList,
 } from "./command";
-import { Popover, PopoverContent, PopoverTrigger } from "./popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/base/components/ui/popover";
 
 interface OptionInterface {
   label: string;
