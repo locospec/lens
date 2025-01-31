@@ -18,7 +18,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/base/components/ui/popover";
-import { FilterSizes } from "@/components/Filters/src/interfaces";
 
 export interface OptionInterface {
   label: string;
