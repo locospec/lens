@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root .le-lens-wrapper {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --muted: 0 0% 96.1%;
@@ -41,7 +41,7 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
+  .dark .le-lens-wrapper {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --muted: 0 0% 14.9%;
