@@ -1,5 +1,7 @@
 import { Select } from "@radix-ui/themes";
 import { FilterGroup, GROUP_OPERATORS } from "./types";
+import { useFilterContext } from "./context/FilterContext";
+import { cn } from "../../utils/cn";
 
 export interface OPDisplayProps {
   index: number;
@@ -12,14 +14,22 @@ const OPDisplay = ({
   group,
   handleGroupOperatorChange,
 }: OPDisplayProps) => {
+  const { size, variant } = useFilterContext();
+  const sizeClass = "rt-r-size-" + size;
+  const variantClass = "rt-variant-" + variant;
+
   return (
     <>
       {index === 0 ? (
         <Select.Root
           defaultValue="and"
           onValueChange={handleGroupOperatorChange}
+          size={size}
         >
-          <Select.Trigger className="le-p-1 le-w-[70px] le-text-center" />
+          <Select.Trigger
+            className="le-p-1 le-w-[70px] le-text-center"
+            variant={variant}
+          />
           <Select.Content>
             <Select.Group>
               {GROUP_OPERATORS.map((op) => (
@@ -31,7 +41,13 @@ const OPDisplay = ({
           </Select.Content>
         </Select.Root>
       ) : (
-        <label className="rt-reset rt-SelectTrigger rt-r-size-2 rt-variant-surface le-p-1 le-w-[70px] le-text-center">
+        <label
+          className={cn(
+            "rt-reset rt-SelectTrigger le-p-1 le-w-[70px] le-text-center",
+            sizeClass,
+            variantClass
+          )}
+        >
           {group.op.toUpperCase()}
         </label>
       )}
