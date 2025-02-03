@@ -1,3 +1,15 @@
+# v0.20.2 (Mon Feb 03 2025)
+
+#### 🐛 Bug Fix
+
+- patch: removed fixed style from Theme Provider [#113](https://github.com/locospec/ui/pull/113) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.20.1 (Mon Feb 03 2025)
 
 #### 🐛 Bug Fix

@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/elements-react@0.20.2`
+  - patch: removed fixed style from Theme Provider [#113](https://github.com/locospec/ui/pull/113) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Mon Feb 03 2025)
+
+#### 🐛 Bug Fix
+
 - `@locospec/elements-react@0.20.1`
   - chore: add example for filters and datatable with theme provider [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
   - chore: remove shadow and add border [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
