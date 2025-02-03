@@ -34,16 +34,18 @@ const LensExample = () => {
           selectedItems={checkedIds}
           variant="surface"
           size="3"
-          // showTopBar
+          showTopBar
         />
       </div>
-      <FilterBuilder
-        label={"Filters surface 1"}
-        variant="classic"
-        size="2"
-        maxDepth={4}
-        showFilterJSON={false}
-      />
+      <div className="le-mt-10">
+        <FilterBuilder
+          label={"Filters surface 1"}
+          variant="classic"
+          size="2"
+          maxDepth={4}
+          showFilterJSON={false}
+        />
+      </div>
       {/* <FilterBuilder
         label={"Filters classic 2"}
         variant="classic"
