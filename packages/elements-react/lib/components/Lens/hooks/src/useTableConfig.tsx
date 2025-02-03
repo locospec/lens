@@ -104,8 +104,8 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
         enableSorting: false,
         enableHiding: false,
         size: actions?.width || 140,
-        minSize: actions?.minWidth || 140,
-        maxSize: actions?.maxWidth || 140,
+        minSize: actions?.minWidth || 100,
+        maxSize: actions?.maxWidth || 800,
       };
       finalColumns.push(actionsColumn);
     }
