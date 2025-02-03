@@ -24,7 +24,7 @@ const Lens = ({
 }: LensInterface) => {
   return (
     <QueryClientProvider client={queryClient}>
-      {showDevTools ? <ReactQueryDevtools /> : <></>}
+      {showDevTools && <ReactQueryDevtools />}
       <LensProvider
         showDevTools={showDevTools}
         showTableMetrics={showTableMetrics}

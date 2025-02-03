@@ -30,7 +30,7 @@ export function makeServer() {
               header: "Actions sample",
               align: "end",
               // width: 700,
-              minWidth: 400,
+              minWidth: 500,
               // maxWidth: 600,
               options: [
                 {
