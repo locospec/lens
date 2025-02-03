@@ -7,7 +7,7 @@ export interface ThemeProviderProps {
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
   return (
-    <Theme asChild className="lens-root" appearance="dark">
+    <Theme asChild className="lens-root">
       {children}
     </Theme>
   );
