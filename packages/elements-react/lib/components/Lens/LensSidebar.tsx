@@ -39,7 +39,7 @@ const LensSidebar = ({
       </SheetTrigger>
       <SheetContent
         containerRef={tableContainerRef}
-        className="le-h-full le-w-full le-overflow-y-auto"
+        className="le-h-full le-w-full le-overflow-y-auto le-lens-wrapper"
       >
         {currentSheet === "default" ? (
           <DefaultSheet setCurrentSheet={setCurrentSheet} />
