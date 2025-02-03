@@ -61,7 +61,6 @@
 /* Table Varients Styling -- SURFACE */
 .le-table-variant-surface {
   &:where(.rt-TableRoot) {
-    border: 1px solid var(--gray-7);
     background-color: var(--color-panel);
   }
   .le-table-header-cell {
