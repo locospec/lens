@@ -7,10 +7,11 @@ export interface ThemeProviderProps {
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
   return (
-    <Theme asChild className="lens-root">
+    <Theme asChild className="lens-root twp">
       {children}
     </Theme>
   );
 };
+// <Theme asChild className="lens-root" appearance="dark">
 
 export default ThemeProvider;
