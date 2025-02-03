@@ -1,3 +1,41 @@
+# v0.20.1 (Mon Feb 03 2025)
+
+#### 🐛 Bug Fix
+
+- chore: add example for filters and datatable with theme provider [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: remove shadow and add border [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add theme provider for component as a wrapper [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: styles and import chnages [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add sample example for lens and filter [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add theme wrapper for radix [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: mpdify styles [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add static icons to decrease bundle size [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modify example and refactor [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add use case for WHERE label [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modify input coponent' [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: remove filter interface import [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed size prop [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: replace radix components with ShadCN components [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add shadcn combobox [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modify import path to be relative [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add extended tailwind util [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: fix build issue [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added button and combobox component [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modify for resolving lib directory [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: install shadcn components required for combobox [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: config to install shadcn components [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add size and variants from Radix themes [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chrore: modify and refactor [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add prop to toggle JSON view [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modify styles to work with radix theme [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: abstract options and add button tray [#112](https://github.com/locospec/ui/pull/112) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.20.0 (Fri Jan 31 2025)
 
 #### 🚀 Enhancement
