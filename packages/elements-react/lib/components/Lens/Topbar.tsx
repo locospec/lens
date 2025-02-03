@@ -23,11 +23,12 @@ const Topbar = ({
   return (
     <>
       {showTopBar && (
-        <div className="le-border-b le-flex le-flex-col">
+        <div className="le-w-full le-border-b le-border-[var(--gray-7)] le-flex le-flex-col le-flex-1 le-shrink-0 le-grow-0 le-min-h-12">
           <LensViewBar
             tableContainerRef={tableContainerRef}
             showActionBar={showActionBar}
             setShowActionBar={setShowActionBar}
+            table={table}
           />
           {showActionBar && <LensBulkActionsbar headers={headers} />}
         </div>

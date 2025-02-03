@@ -21,7 +21,7 @@ export const TableBody = ({ table, rowVirtualizer }: TableBodyProps) => {
   }
 
   return (
-    <div className="le-relative le-w-full">
+    <div className="le-relative le-w-full le-h-full">
       {getVirtualItems().map((virtualRow) => {
         const row = rows[virtualRow.index];
         return (
