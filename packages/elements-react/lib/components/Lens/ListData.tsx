@@ -31,7 +31,6 @@ export interface ListDataProps {
   onSelect: (selected: any[]) => void;
   selectedItems: any;
   dataEndpoint?: string;
-  sidebarContent?: React.ReactNode;
 }
 
 export const ListData = ({
@@ -42,7 +41,6 @@ export const ListData = ({
   onSelect,
   selectedItems,
   dataEndpoint,
-  sidebarContent,
 }: ListDataProps) => {
   const tableContainerRef = React.useRef<HTMLDivElement>(null);
   const [rowSelection, setRowSelection] = React.useState<any>(selectedItems);
