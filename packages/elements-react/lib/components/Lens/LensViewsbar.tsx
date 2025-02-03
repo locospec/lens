@@ -6,12 +6,14 @@ export interface LensViewBarInterface {
   tableContainerRef: React.RefObject<HTMLDivElement>;
   showActionBar: boolean;
   setShowActionBar: (showActionBar: boolean) => void;
+  table?: any;
 }
 
 const LensViewBar = ({
   tableContainerRef,
   showActionBar,
   setShowActionBar,
+  table,
 }: LensViewBarInterface) => {
   return (
     <div className="le-h-12 le-bg-[var(--gray-a2)] le-flex le-items-center le-w-full le-justify-end le-px-4 le-gap-x-4">
@@ -23,6 +25,7 @@ const LensViewBar = ({
         {showActionBar ? <>Hide</> : <>Filters</>}
       </button>
       <LensSidebar
+        table={table}
         tableContainerRef={tableContainerRef}
         triggerLabel="Customise"
         sidebarTitle="Customize View"

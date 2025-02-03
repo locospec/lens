@@ -6,6 +6,8 @@ export type {
 
 export type {
   SizesType,
+  LensVariantTypes,
+  LensVariantClasses,
   LensInterface,
   LensContextType,
 } from "./src/LensInterfaces";

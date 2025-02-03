@@ -11,8 +11,10 @@ export interface DefaultSheetInterface {
 
 const DefaultSheet = ({ setCurrentSheet }: DefaultSheetInterface) => {
   return (
-    <SheetHeader>
-      <SheetTitle>{"Customise Views"}</SheetTitle>
+    <>
+      <SheetHeader>
+        <SheetTitle>{"Customise Views"}</SheetTitle>
+      </SheetHeader>
       <OptionWrapper
         callback={() => {
           setCurrentSheet("layout_options");
@@ -24,7 +26,7 @@ const DefaultSheet = ({ setCurrentSheet }: DefaultSheetInterface) => {
         </div>
         <ChevronRight size={15} className="le-text-[var(--gray-9)]" />
       </OptionWrapper>
-    </SheetHeader>
+    </>
   );
 };
 

@@ -11,30 +11,44 @@ export interface LensSidebarInterface {
   triggerIcon?: React.ReactNode;
   sidebarTitle?: string;
   children?: React.ReactNode;
+  table: any;
 }
 
 const LensSidebar = ({
   tableContainerRef,
   triggerLabel = "Open",
   triggerIcon,
+  table,
 }: LensSidebarInterface) => {
   const [currentSheet, setCurrentSheet] =
     React.useState<SheetOptionsType>("default");
 
+  const resetSheetStatus = () => {
+    setCurrentSheet("default");
+  };
+
   return (
-    <Sheet>
+    <Sheet
+      onOpenChange={(value) => {
+        !value && resetSheetStatus();
+      }}
+    >
       <SheetTrigger className="le-px-3 le-py-1 le-bg-[var(--gray-a4)] le-gap-x-1 le-h-8 le-flex le-items-center le-jusitfy-center le-text-[var(--gray-9)] le-rounded-md">
         {triggerIcon ? triggerIcon : <Settings size={15} />}
         {triggerLabel}
       </SheetTrigger>
       <SheetContent
         containerRef={tableContainerRef}
-        className="le-h-full le-overflow-y-auto"
+        className="le-h-full le-w-full le-overflow-y-auto"
       >
         {currentSheet === "default" ? (
           <DefaultSheet setCurrentSheet={setCurrentSheet} />
         ) : currentSheet === "layout_options" ? (
-          <LayoutSheet setCurrentSheet={setCurrentSheet} />
+          <LayoutSheet
+            setCurrentSheet={setCurrentSheet}
+            tableContainerRef={tableContainerRef}
+            table={table}
+          />
         ) : (
           <></>
         )}
