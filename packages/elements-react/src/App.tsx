@@ -1,15 +1,15 @@
+import { Theme, ThemePanel } from "@radix-ui/themes";
 import "./App.css";
-import { Theme } from "@radix-ui/themes";
 import LensExample from "./examples/LensExample";
 
 function App() {
   return (
-    // <Theme accentColor="crimson" appearance="dark">
-    <Theme accentColor="blue">
-      <main className="le-w-screen le-h-screen le-overflow-scroll">
+    <main className="le-w-screen le-h-screen le-overflow-scroll">
+      <Theme appearance="dark">
         <LensExample />
-      </main>
-    </Theme>
+        {/* <ThemePanel /> */}
+      </Theme>
+    </main>
   );
 }
 
