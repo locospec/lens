@@ -1,15 +1,14 @@
 import React from "react";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetHeader,
-  SheetTitle,
-} from "../Sheet/index.tsx";
+import { Sheet, SheetContent, SheetTrigger } from "../Sheet/index.tsx";
+import { Settings } from "lucide-react";
+import DefaultSheet from "./sheets/DefaultSheet.tsx";
+import type { SheetOptionsType } from "./sheets/interface.ts";
+import LayoutSheet from "./sheets/LayoutSheet.tsx";
 
 export interface LensSidebarInterface {
   tableContainerRef?: React.RefObject<HTMLDivElement>;
   triggerLabel?: string;
+  triggerIcon?: React.ReactNode;
   sidebarTitle?: string;
   children?: React.ReactNode;
 }
@@ -17,22 +16,28 @@ export interface LensSidebarInterface {
 const LensSidebar = ({
   tableContainerRef,
   triggerLabel = "Open",
-  sidebarTitle = "This is side bar title",
-  children,
+  triggerIcon,
 }: LensSidebarInterface) => {
+  const [currentSheet, setCurrentSheet] =
+    React.useState<SheetOptionsType>("default");
+
   return (
     <Sheet>
-      <SheetTrigger className="le-px-3 le-py-1 le-bg-blue-500 le-gap-x-2 hover:le-bg-blue-600 le-h-8 le-flex le-items-center le-jusitfy-center le-text-white le-font-bold le-rounded-md">
+      <SheetTrigger className="le-px-3 le-py-1 le-bg-[var(--gray-a4)] le-gap-x-1 le-h-8 le-flex le-items-center le-jusitfy-center le-text-[var(--gray-9)] le-rounded-md">
+        {triggerIcon ? triggerIcon : <Settings size={15} />}
         {triggerLabel}
       </SheetTrigger>
       <SheetContent
         containerRef={tableContainerRef}
         className="le-h-full le-overflow-y-auto"
       >
-        <SheetHeader>
-          <SheetTitle>{sidebarTitle}</SheetTitle>
-          {children}
-        </SheetHeader>
+        {currentSheet === "default" ? (
+          <DefaultSheet setCurrentSheet={setCurrentSheet} />
+        ) : currentSheet === "layout_options" ? (
+          <LayoutSheet setCurrentSheet={setCurrentSheet} />
+        ) : (
+          <></>
+        )}
       </SheetContent>
     </Sheet>
   );
