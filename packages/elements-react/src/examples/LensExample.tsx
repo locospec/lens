@@ -35,6 +35,7 @@ const LensExample = () => {
           variant="surface"
           size="3"
           showTopBar
+          showThemeSwitcher
         />
       </div>
       <div className="le-mt-10">

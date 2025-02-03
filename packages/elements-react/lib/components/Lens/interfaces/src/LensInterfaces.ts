@@ -27,6 +27,7 @@ interface LensInterface {
   dataCallback?: (schema: any, request: any) => any;
   size?: SizesType;
   variant?: LensVariantTypes;
+  showThemeSwitcher?: boolean;
 }
 
 export type {

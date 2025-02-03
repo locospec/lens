@@ -24,12 +24,13 @@ const Lens = ({
   size: initialSize = "1",
   variant: initialVariant = "surface",
   showTopBar = false,
+  showThemeSwitcher = false,
 }: LensInterface) => {
   const [size, setSize] = useState<SizesType>(initialSize);
   const [variant, setVariant] = useState<LensVariantTypes>(initialVariant);
 
   return (
-    <ThemeProvider>
+    <ThemeProvider showThemeSwitcher={showThemeSwitcher}>
       <div
         className={cn(
           "le-w-full le-h-full twp lens-root le-lens-wrapper lens-root le-lens-wrapper le-flex le-flex-col le-overflow-hidden",

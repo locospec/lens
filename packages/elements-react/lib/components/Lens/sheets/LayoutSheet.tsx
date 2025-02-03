@@ -42,7 +42,7 @@ const LayoutSheet = ({
           }}
         />
       </SheetHeader>
-      <div className="le-flex le-flex-col le-gap-2">
+      <div className="le-flex le-flex-col le-gap-2 le-pt-4">
         <label className="le-text-sm le-text-[var(--gray-9)]">
           Page Layout
         </label>
