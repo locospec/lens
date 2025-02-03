@@ -141,7 +141,6 @@ export const ListData = ({
       <Topbar
         table={table}
         tableContainerRef={tableContainerRef}
-        sidebarContent={sidebarContent}
         showActionBar={showActionBar}
         setShowActionBar={setShowActionBar}
       />
