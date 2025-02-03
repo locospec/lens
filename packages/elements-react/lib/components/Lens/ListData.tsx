@@ -123,8 +123,8 @@ export const ListData = ({
   return (
     <div
       className={cn(
-        "twp le-lens-wrapper le-flex le-h-full le-flex-col le-gap-0 le-rounded-lg le-overflow-hidden",
-        "lens-root rt-TableRoot",
+        "le-lens-wrapper twp le-flex le-h-full le-flex-col le-gap-0 le-rounded-lg le-overflow-hidden",
+        "rt-TableRoot",
         variantClass,
         size_class
       )}
