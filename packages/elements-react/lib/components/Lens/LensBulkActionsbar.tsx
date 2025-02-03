@@ -8,8 +8,7 @@ export interface LensBulkActionsbarInterface {
 
 const LensBulkActionsbar: React.FC<
   LensBulkActionsbarInterface
-> = ({}: // headers,
-LensBulkActionsbarInterface) => {
+> = ({}: LensBulkActionsbarInterface) => {
   return (
     <div className="le-h-fit le-bg-[var(--gray-a2)] le-flex le-items-center le-gap-x-2  le-px-4 le-border-t le-border-t-[var(--gray-a7)]">
       {/* <FilterBuilder /> */}
