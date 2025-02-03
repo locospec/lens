@@ -122,7 +122,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
 
   return (
     <FilterProvider size={size} variant={variant}>
-      <div className="twp le-lens-wrapper le-p-4 le-space-y-4 le-rounded-lg le-shadow">
+      <div className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border">
         <label>{label}</label>
         <FilterGroupComponent
           group={filter}
