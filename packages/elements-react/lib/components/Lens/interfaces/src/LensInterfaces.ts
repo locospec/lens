@@ -11,6 +11,8 @@ interface LensContextType {
   size: SizesType;
   variant?: LensVariantTypes;
   variantClass?: LensVariantClasses;
+  setSize: React.Dispatch<React.SetStateAction<SizesType>>;
+  setVariant: React.Dispatch<React.SetStateAction<LensVariantTypes>>;
 }
 
 interface LensInterface {
@@ -27,4 +29,10 @@ interface LensInterface {
   variant?: LensVariantTypes;
 }
 
-export type { SizesType, LensInterface, LensContextType };
+export type {
+  SizesType,
+  LensVariantTypes,
+  LensVariantClasses,
+  LensInterface,
+  LensContextType,
+};
