@@ -6,6 +6,7 @@ import { List } from "./List.tsx";
 import { LensProvider } from "./context/LensContext.tsx";
 import type { LensInterface } from "./interfaces";
 import "./Lens.css";
+// import ThemeProvider from "../ThemeProvider/ThemeProvider.tsx";
 
 const queryClient = new QueryClient();
 
@@ -23,26 +24,30 @@ const Lens = ({
   showTopBar = false,
 }: LensInterface) => {
   return (
-    <QueryClientProvider client={queryClient}>
-      {showDevTools && <ReactQueryDevtools />}
-      <LensProvider
-        showDevTools={showDevTools}
-        showTableMetrics={showTableMetrics}
-        dataCallback={dataCallback}
-        configCallback={configCallback}
-        size={size}
-        variant={variant}
-        variantClass={`le-table-variant-${variant}`}
-        showTopBar={showTopBar}
-      >
-        <List
-          onSelect={onSelect}
-          selectedItems={selectedItems}
-          configEndpoint={configEndpoint || ""}
-          dataEndpoint={dataEndpoint}
-        />
-      </LensProvider>
-    </QueryClientProvider>
+    // <ThemeProvider>
+    <div className="le-w-full le-h-full lens-root">
+      <QueryClientProvider client={queryClient}>
+        {showDevTools && <ReactQueryDevtools />}
+        <LensProvider
+          showDevTools={showDevTools}
+          showTableMetrics={showTableMetrics}
+          dataCallback={dataCallback}
+          configCallback={configCallback}
+          size={size}
+          variant={variant}
+          variantClass={`le-table-variant-${variant}`}
+          showTopBar={showTopBar}
+        >
+          <List
+            onSelect={onSelect}
+            selectedItems={selectedItems}
+            configEndpoint={configEndpoint || ""}
+            dataEndpoint={dataEndpoint}
+          />
+        </LensProvider>
+      </QueryClientProvider>
+    </div>
+    // </ThemeProvider>
   );
 };
 
