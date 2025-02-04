@@ -57,6 +57,7 @@ export const ListData = ({
   const [globalFilter] = React.useState<any>([]);
   const [showActionBar, setShowActionBar] = React.useState(false);
   const [activeId, setActiveId] = React.useState<string | null>(null);
+  const [columnVisibility, setColumnVisibility] = React.useState({});
 
   const { showTableMetrics, dataCallback, size, variantClass, sensors } =
     useLensContext();
@@ -100,10 +101,12 @@ export const ListData = ({
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     onRowSelectionChange: setRowSelection,
+    onColumnVisibilityChange: setColumnVisibility,
     getRowId: (row) => row[identifierKey],
     state: {
       rowSelection,
       columnOrder,
+      columnVisibility,
     },
     defaultColumn: {
       minSize: 25,
