@@ -85,8 +85,13 @@ export const ListData = ({
     hasNextPage
   );
 
+  const [fixedColumns, _] = React.useState(() =>
+    columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id)
+  );
   const [columnOrder, setColumnOrder] = React.useState<string[]>(() =>
-    columns.map((c) => c.id!)
+    columns.map((c) => {
+      return c.id!;
+    })
   );
 
   const table = useReactTable({
@@ -134,14 +139,30 @@ export const ListData = ({
     );
   }
 
-  //COLUMN ORDER
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
+
     if (active && over && active.id !== over.id) {
+      const activeId = active.id as string;
+      const overId = over?.id as string;
+
       setColumnOrder((columnOrder) => {
-        const oldIndex = columnOrder.indexOf(active.id as string);
-        const newIndex = columnOrder.indexOf(over.id as string);
-        return arrayMove(columnOrder, oldIndex, newIndex); //this is just a splice util
+        const oldIndex = columnOrder.indexOf(activeId);
+        const newIndex = columnOrder.indexOf(overId);
+
+        const updatedOrder = arrayMove(columnOrder, oldIndex, newIndex);
+
+        fixedColumns.forEach((fixedCol: any) => {
+          const currentFixedIndex = updatedOrder.indexOf(fixedCol);
+          const originalFixedIndex = columnOrder.indexOf(fixedCol);
+
+          if (currentFixedIndex !== originalFixedIndex) {
+            updatedOrder.splice(currentFixedIndex, 1);
+            updatedOrder.splice(originalFixedIndex, 0, fixedCol);
+          }
+        });
+
+        return updatedOrder;
       });
     }
     setActiveId(null);
@@ -158,7 +179,7 @@ export const ListData = ({
           setActiveId(event.active.id as string);
         }}
       >
-        <DragOverlay className="le-px-4 le-py-2 le-bg-[var(--gray-a2)] le-border le-backdrop-blur-md">
+        <DragOverlay className="le-px-4 le-py-2 le-bg-[var(--gray-a2)] le-border le-backdrop-blur-md le-cursor-grabbing">
           {activeId ? <label>{splitAndCapitalize(activeId)}</label> : null}
         </DragOverlay>
         <Topbar

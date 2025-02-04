@@ -26,6 +26,7 @@ interface ActionsConfig {
   width?: number;
   minWidth?: number;
   maxWidth?: number;
+  fixed?: boolean;
   options: ActionOption[];
 }
 
@@ -36,6 +37,7 @@ interface ColumnConfigInterface {
   maxWidth?: number;
   minWidth?: number;
   align?: AlignType;
+  fixed?: boolean;
 }
 
 interface TableConfigInterface {

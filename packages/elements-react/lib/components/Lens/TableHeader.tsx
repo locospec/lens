@@ -19,9 +19,12 @@ const TableHeader = ({ headerGroup, columnOrder }: TableHeaderInterface) => {
   return (
     <div key={headerGroup.id} className="le-flex">
       {headerGroup.headers.map((header) => {
+        const fixed = (header.column.columnDef.meta as any)?.fixed;
+
         const { attributes, isDragging, listeners, setNodeRef, transform } =
           useSortable({
             id: header.column.id,
+            disabled: fixed,
           });
 
         const style: CSSProperties = {
