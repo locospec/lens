@@ -50,6 +50,7 @@ export const ListData = ({
   const [showActionBar, setShowActionBar] = React.useState(false);
   const [activeId, setActiveId] = React.useState<string | null>(null);
   const [columnVisibility, setColumnVisibility] = React.useState({});
+  const [isInResizeArea, setIsInResizeArea] = React.useState(false);
 
   const { showTableMetrics, dataCallback, size, variantClass } =
     useLensContext();
@@ -212,6 +213,8 @@ export const ListData = ({
               handleDragEnd={handleDragEnd}
               setActiveId={setActiveId}
               activeId={activeId}
+              setIsInResizeArea={setIsInResizeArea}
+              isInResizeArea={isInResizeArea}
             />
             {isResizing ? (
               <MemoizedTableBody
