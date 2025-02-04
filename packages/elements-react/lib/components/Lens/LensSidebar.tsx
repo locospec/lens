@@ -4,6 +4,7 @@ import { Settings } from "lucide-react";
 import DefaultSheet from "./sheets/DefaultSheet.tsx";
 import type { SheetOptionsType } from "./sheets/interface.ts";
 import LayoutSheet from "./sheets/LayoutSheet.tsx";
+import FieldsSheet from "./sheets/FieldsSheet.tsx";
 
 export interface LensSidebarInterface {
   tableContainerRef?: React.RefObject<HTMLDivElement>;
@@ -45,6 +46,12 @@ const LensSidebar = ({
           <DefaultSheet setCurrentSheet={setCurrentSheet} />
         ) : currentSheet === "layout_options" ? (
           <LayoutSheet
+            setCurrentSheet={setCurrentSheet}
+            tableContainerRef={tableContainerRef}
+            table={table}
+          />
+        ) : currentSheet === "field_options" ? (
+          <FieldsSheet
             setCurrentSheet={setCurrentSheet}
             tableContainerRef={tableContainerRef}
             table={table}
