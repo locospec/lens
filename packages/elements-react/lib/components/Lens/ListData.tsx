@@ -21,16 +21,8 @@ import { useLensContext } from "./context/LensContext.tsx";
 import type { ColumnDef } from "@tanstack/react-table";
 import type { SelectionType } from "./interfaces/index.ts";
 import { cn } from "../utils/cn.ts";
-
-import {
-  DndContext,
-  closestCenter,
-  type DragEndEvent,
-  DragOverlay,
-} from "@dnd-kit/core";
-import { restrictToHorizontalAxis } from "@dnd-kit/modifiers";
+import { type DragEndEvent } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
-import { splitAndCapitalize } from "../utils/splitAndCapitalize.ts";
 
 export interface ListDataProps {
   columns: ColumnDef<any>[];
