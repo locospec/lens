@@ -13,6 +13,12 @@ const TableCell = ({ cell }: TableCellProps) => {
 
   const align = (cell.column.columnDef.meta as any)?.align;
   const align_class = align ? `le-justify-${align}` : "";
+  const align_class_block =
+    align === "end"
+      ? "le-text-right"
+      : align === "center"
+      ? "le-text-center"
+      : "le-text-left";
   const isSelected = cell.row.getIsSelected();
 
   return (
@@ -22,8 +28,10 @@ const TableCell = ({ cell }: TableCellProps) => {
         "le-truncate le-px-4 le-py-2",
         "le-p-[var(--table-cell-padding)] le-min-h-[var(--table-cell-min-height)]",
         "group-hover:le-bg-[var(--gray-a2)]",
+        "le-border-b le-border-[var(--gray-7)]",
         align_class,
-        cell.column.id === "actions" && "le-gap-x-2"
+        cell.column.id === "actions" && "le-flex le-gap-x-2",
+        cell.column.id === "actions" && align_class_block
       )}
       key={cell.id}
       style={width}
