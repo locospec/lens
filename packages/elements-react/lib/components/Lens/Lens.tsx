@@ -9,6 +9,13 @@ import type { LensInterface, SizesType, LensVariantTypes } from "./interfaces";
 import "./Lens.css";
 import ThemeProvider from "../ThemeProvider/ThemeProvider.tsx";
 import { cn } from "../utils/cn.ts";
+import {
+  KeyboardSensor,
+  MouseSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +35,12 @@ const Lens = ({
 }: LensInterface) => {
   const [size, setSize] = useState<SizesType>(initialSize);
   const [variant, setVariant] = useState<LensVariantTypes>(initialVariant);
+
+  const sensors = useSensors(
+    useSensor(MouseSensor, {}),
+    useSensor(TouchSensor, {}),
+    useSensor(KeyboardSensor, {})
+  );
 
   return (
     <ThemeProvider showThemeSwitcher={showThemeSwitcher}>
@@ -52,6 +65,7 @@ const Lens = ({
             showTopBar={showTopBar}
             setSize={setSize}
             setVariant={setVariant}
+            sensors={sensors}
           >
             <List
               onSelect={onSelect}
