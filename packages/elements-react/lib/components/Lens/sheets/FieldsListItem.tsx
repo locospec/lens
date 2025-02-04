@@ -1,4 +1,4 @@
-// import { Switch } from "@/base/components/ui/switch";
+import { Switch } from "@/base/components/ui/switch";
 import { cn } from "@/base/lib/utils";
 import { defaultAnimateLayoutChanges, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -45,19 +45,13 @@ const FieldsListItem = ({ column }: any) => {
         <label>{label}</label>
       </div>
 
-      {/* <Switch
+      <Switch
         id={column.id}
         value={column.id}
         disabled={(headerDef?.meta as any)?.fixed}
         checked={column.getIsVisible()}
-        onChange={column.getToggleVisibilityHandler()}
+        onCheckedChange={() => column.toggleVisibility(!column.getIsVisible())}
       />
-      <input
-        checked={column.getIsVisible()}
-        disabled={!column.getCanHide()}
-        onChange={column.getToggleVisibilityHandler()}
-        type="checkbox"
-      /> */}
     </div>
   );
 };

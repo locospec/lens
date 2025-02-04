@@ -40,6 +40,7 @@ const useColumnSizeVars = ({
   }, [
     table.getState().columnSizingInfo,
     table.getState().columnSizing,
+    table.getState().columnVisibility,
     adjustedColumns,
   ]);
 };
