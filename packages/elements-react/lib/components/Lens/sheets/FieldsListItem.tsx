@@ -1,3 +1,4 @@
+// import { Switch } from "@/base/components/ui/switch";
 import { cn } from "@/base/lib/utils";
 import { defaultAnimateLayoutChanges, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -7,14 +8,17 @@ const animateLayoutChanges = (args: any) =>
   args.isSorting || args.wasDragging ? defaultAnimateLayoutChanges(args) : true;
 
 const FieldsListItem = ({ column }: any) => {
+  const headerDef = column.columnDef;
+  const fixed = headerDef.meta.fixed || false;
+  const label = headerDef?.header as string;
+
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({
       animateLayoutChanges,
       id: column.id,
+      disabled: fixed,
     });
 
-  const headerDef = column.columnDef;
-  const label = headerDef?.header as string;
   const style = {
     transform: CSS.Translate.toString(transform),
     transition,
@@ -46,14 +50,14 @@ const FieldsListItem = ({ column }: any) => {
         value={column.id}
         disabled={(headerDef?.meta as any)?.fixed}
         checked={column.getIsVisible()}
-        onCheckedChange={column.getToggleVisibilityHandler()}
+        onChange={column.getToggleVisibilityHandler()}
+      />
+      <input
+        checked={column.getIsVisible()}
+        disabled={!column.getCanHide()}
+        onChange={column.getToggleVisibilityHandler()}
+        type="checkbox"
       /> */}
-      {/* <input
-          checked={column.getIsVisible()}
-          disabled={!column.getCanHide()}
-          onChange={column.getToggleVisibilityHandler()}
-          type="checkbox"
-        /> */}
     </div>
   );
 };

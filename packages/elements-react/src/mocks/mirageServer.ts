@@ -77,7 +77,7 @@ export function makeServer() {
                 header: "District",
                 width: 100,
                 minWidth: 100,
-                fixed: true,
+                // fixed: true,
               },
               {
                 accessorKey: "cities",
