@@ -13,6 +13,7 @@ interface LensContextType {
   variantClass?: LensVariantClasses;
   setSize: React.Dispatch<React.SetStateAction<SizesType>>;
   setVariant: React.Dispatch<React.SetStateAction<LensVariantTypes>>;
+  sensors: any;
 }
 
 interface LensInterface {
