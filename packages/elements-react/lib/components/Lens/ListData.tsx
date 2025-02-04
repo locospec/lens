@@ -158,7 +158,7 @@ export const ListData = ({
           setActiveId(event.active.id as string);
         }}
       >
-        <DragOverlay className="le-px-4 le-py-2 le-bg-background le-border">
+        <DragOverlay className="le-px-4 le-py-2 le-bg-[var(--gray-a2)] le-border le-backdrop-blur-md">
           {activeId ? <label>{splitAndCapitalize(activeId)}</label> : null}
         </DragOverlay>
         <Topbar
