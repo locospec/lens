@@ -7,6 +7,7 @@ export interface LensViewBarInterface {
   showActionBar: boolean;
   setShowActionBar: (showActionBar: boolean) => void;
   table?: any;
+  handleDragEnd: any;
 }
 
 const LensViewBar = ({
@@ -14,6 +15,7 @@ const LensViewBar = ({
   showActionBar,
   setShowActionBar,
   table,
+  handleDragEnd,
 }: LensViewBarInterface) => {
   return (
     <div className="le-h-12 le-bg-[var(--gray-a2)] le-flex le-items-center le-w-full le-justify-end le-px-4 le-gap-x-4">
@@ -29,6 +31,7 @@ const LensViewBar = ({
         tableContainerRef={tableContainerRef}
         triggerLabel="Customise"
         sidebarTitle="Customize View"
+        handleDragEnd={handleDragEnd}
       />
     </div>
   );
