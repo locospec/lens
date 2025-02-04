@@ -45,6 +45,12 @@ const TableHeader = ({ headerGroup, columnOrder }: TableHeaderInterface) => {
 
         const align = (header.column.columnDef.meta as any)?.align;
         const align_class = align ? `le-justify-${align}` : "";
+        const align_class_block =
+          align === "end"
+            ? "le-text-right"
+            : align === "center"
+            ? "le-text-center"
+            : "le-text-left";
 
         return (
           <SortableContext
@@ -55,10 +61,12 @@ const TableHeader = ({ headerGroup, columnOrder }: TableHeaderInterface) => {
             <div
               key={header.id}
               className={cn(
-                "le-table-header-cell",
+                "le-table-header-cell le-truncate",
                 "le-relative le-text-left le-font-semibold",
                 "le-p-[var(--table-cell-padding)] le-min-h-[var(--table-cell-min-height)]",
-                align_class
+                "le-border-b le-border-[var(--gray-7)]",
+                header.id === "actions" ? align_class_block : align_class,
+                header.id === "actions" ? "le-flex le-gap-x-2" : ""
               )}
               style={{
                 width: `calc(var(--header-${id}-size) * 1px)`,
