@@ -24,25 +24,12 @@ import { cn } from "../utils/cn.ts";
 
 import {
   DndContext,
-  KeyboardSensor,
-  MouseSensor,
-  TouchSensor,
   closestCenter,
   type DragEndEvent,
-  useSensor,
-  useSensors,
   DragOverlay,
 } from "@dnd-kit/core";
 import { restrictToHorizontalAxis } from "@dnd-kit/modifiers";
-import {
-  arrayMove,
-  SortableContext,
-  horizontalListSortingStrategy,
-} from "@dnd-kit/sortable";
-
-// needed for row & cell level scope DnD setup
-import { useSortable } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
+import { arrayMove } from "@dnd-kit/sortable";
 import { splitAndCapitalize } from "../utils/splitAndCapitalize.ts";
 
 export interface ListDataProps {
