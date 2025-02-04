@@ -1,3 +1,36 @@
+# v0.20.4 (Tue Feb 04 2025)
+
+#### 🐛 Bug Fix
+
+- chore: example layout change [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add sample log for testing [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- patch: fix spelling [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: recalculate column width when column visibility is changed [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: refactor Table Header to resoluve issue with Multple use effect resolution [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: refactor sortable field list item [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: cleanup imports [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add scrollable list for fields sheet connected to column ordering [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: fix issue with conflict between column ordering and column resizing [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: remove unnecessary styles for table cell and header [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- fix: fix issue with truncated table cell content [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add column visibility handler [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add fields sheet for ordering and visibility options [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add shadcn switch [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add feature or fixed column ordering for any column from column config [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- style: drag overlay styling [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: imports cleanup [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add draggable ordering to Lens Table [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add sensors to LensContext [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add support function to render string [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: add dnd package for column ordering [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added sensors to Lens Context for top level declaration [#115](https://github.com/locospec/ui/pull/115) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.20.3 (Tue Feb 04 2025)
 
 #### 🐛 Bug Fix
