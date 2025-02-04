@@ -35,7 +35,7 @@ const DefaultSheet = ({ setCurrentSheet }: DefaultSheetInterface) => {
         >
           <div className="le-flex le-gap-x-2 le-text-sm le-items-center">
             <ListCheck className="le-text-[var(--gray-9)]" size={14} />
-            <label>Fileds</label>
+            <label>Fields</label>
           </div>
           <ChevronRight size={15} className="le-text-[var(--gray-9)]" />
         </OptionWrapper>
