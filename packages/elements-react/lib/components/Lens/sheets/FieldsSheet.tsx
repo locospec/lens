@@ -12,7 +12,7 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import FieldsListItem from "./FieldsListItem";
+// import FieldsListItem from "./FieldsListItem";
 
 const measuringConfig = {
   droppable: {
@@ -34,6 +34,8 @@ const FieldsSheet = ({
 }: FieldsSheetInterface) => {
   const columns = table.getAllLeafColumns();
   const { sensors } = useLensContext();
+  // const columnVisibility = table.getState().columnVisibility;
+  // console.log(">>>>>>>> v", columnVisibility.map((c) => ));
 
   return (
     <>
@@ -54,9 +56,27 @@ const FieldsSheet = ({
         <SortableContext items={columns} strategy={verticalListSortingStrategy}>
           <div className="le-flex le-flex-col le-gap-2 le-pt-4">
             <label className="le-text-sm le-text-[var(--gray-9)]">Shown</label>
-            {columns.map((column) => {
+            {/* {columns
+              .filter((c) => !invisibleColumns.includes(c.id))
+              .map((column) => {
+                return <FieldsListItem column={column} key={column.id} />;
+              })}
+            <label className="le-text-sm le-text-[var(--gray-9)]">Hidden</label>
+            {columns
+              .filter((c) => invisibleColumns.includes(c.id))
+              .map((column) => {
+                return (
+                  <FieldsListItem
+                    column={column}
+                    key={column.id}
+                    isHidden={true}
+                  />
+                );
+              })} */}
+            {/* <label className="le-text-sm le-text-[var(--gray-9)]">Shown</label>
+            {visibleColumns.map((column) => {
               return <FieldsListItem column={column} key={column.id} />;
-            })}
+            })} */}
           </div>
         </SortableContext>
       </DndContext>
