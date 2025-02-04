@@ -59,7 +59,7 @@ export const ListData = ({
   const [activeId, setActiveId] = React.useState<string | null>(null);
   const [columnVisibility, setColumnVisibility] = React.useState({});
 
-  const { showTableMetrics, dataCallback, size, variantClass, sensors } =
+  const { showTableMetrics, dataCallback, size, variantClass } =
     useLensContext();
   const size_class = `rt-r-size-${size}`;
 
@@ -173,76 +173,65 @@ export const ListData = ({
 
   return (
     <>
-      <DndContext
-        collisionDetection={closestCenter}
-        modifiers={[restrictToHorizontalAxis]}
-        onDragEnd={handleDragEnd}
-        sensors={sensors}
-        onDragStart={(event) => {
-          setActiveId(event.active.id as string);
-        }}
+      <Topbar
+        table={table}
+        tableContainerRef={tableSiblingRef}
+        showActionBar={showActionBar}
+        setShowActionBar={setShowActionBar}
+        handleDragEnd={handleDragEnd}
+      />
+      <div
+        className={cn(
+          "le-flex-1 le-relative twp le-flex le-h-full le-flex-col le-gap-0 le-overflow-hidden",
+          "rt-TableRoot",
+          variantClass,
+          size_class
+        )}
+        ref={tableSiblingRef}
       >
-        <DragOverlay className="le-px-4 le-py-2 le-bg-[var(--gray-a2)] le-border le-backdrop-blur-md le-cursor-grabbing">
-          {activeId ? <label>{splitAndCapitalize(activeId)}</label> : null}
-        </DragOverlay>
-        <Topbar
-          table={table}
-          tableContainerRef={tableSiblingRef}
-          showActionBar={showActionBar}
-          setShowActionBar={setShowActionBar}
-        />
+        {showTableMetrics && (
+          <TableMetrics
+            containerWidth={containerWidth}
+            isResizing={isResizing}
+            rowSelection={rowSelection}
+            columnSizing={table.getState().columnSizing}
+            totalCount={flatData.length}
+          />
+        )}
         <div
-          className={cn(
-            "le-flex-1 le-relative twp le-flex le-h-full le-flex-col le-gap-0 le-overflow-hidden",
-            "rt-TableRoot",
-            variantClass,
-            size_class
-          )}
-          ref={tableSiblingRef}
+          className="le-relative le-flex-1 le-overflow-auto le-w-full le-h-full"
+          onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
+          ref={tableContainerRef}
         >
-          {showTableMetrics && (
-            <TableMetrics
-              containerWidth={containerWidth}
-              isResizing={isResizing}
-              rowSelection={rowSelection}
-              columnSizing={table.getState().columnSizing}
-              totalCount={flatData.length}
-            />
-          )}
           <div
-            className="le-relative le-flex-1 le-overflow-auto le-w-full le-h-full"
-            onScroll={(e) =>
-              fetchMoreOnBottomReached(e.target as HTMLDivElement)
-            }
-            ref={tableContainerRef}
+            className={cn("le-w-full le-h-full rt-TableRootTable")}
+            style={{
+              ...columnSizeVars,
+              width: "100%",
+              height: `${rowVirtualizer.getTotalSize()}px`,
+              minWidth: `${table.getTotalSize()}px`,
+            }}
           >
-            <div
-              className={cn("le-w-full le-h-full rt-TableRootTable")}
-              style={{
-                ...columnSizeVars,
-                width: "100%",
-                height: `${rowVirtualizer.getTotalSize()}px`,
-                minWidth: `${table.getTotalSize()}px`,
-              }}
-            >
-              <TableHeaderSection
+            <TableHeaderSection
+              table={table}
+              columnSizeVars={columnSizeVars}
+              tableContainerRef={tableContainerRef}
+              columnOrder={columnOrder}
+              handleDragEnd={handleDragEnd}
+              setActiveId={setActiveId}
+              activeId={activeId}
+            />
+            {isResizing ? (
+              <MemoizedTableBody
                 table={table}
-                columnSizeVars={columnSizeVars}
-                tableContainerRef={tableContainerRef}
-                columnOrder={columnOrder}
+                rowVirtualizer={rowVirtualizer}
               />
-              {isResizing ? (
-                <MemoizedTableBody
-                  table={table}
-                  rowVirtualizer={rowVirtualizer}
-                />
-              ) : (
-                <TableBody table={table} rowVirtualizer={rowVirtualizer} />
-              )}
-            </div>
+            ) : (
+              <TableBody table={table} rowVirtualizer={rowVirtualizer} />
+            )}
           </div>
         </div>
-      </DndContext>
+      </div>
     </>
   );
 };

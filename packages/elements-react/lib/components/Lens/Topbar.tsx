@@ -9,6 +9,7 @@ export interface TopbarProps {
   tableContainerRef: React.RefObject<HTMLDivElement>;
   showActionBar: boolean;
   setShowActionBar: (showActionBar: boolean) => void;
+  handleDragEnd: any;
 }
 
 const Topbar = ({
@@ -16,6 +17,7 @@ const Topbar = ({
   tableContainerRef,
   showActionBar,
   setShowActionBar,
+  handleDragEnd,
 }: TopbarProps) => {
   const { showTopBar } = useLensContext();
   const headers = table.getHeaderGroups()[0].headers;
@@ -29,6 +31,7 @@ const Topbar = ({
             showActionBar={showActionBar}
             setShowActionBar={setShowActionBar}
             table={table}
+            handleDragEnd={handleDragEnd}
           />
           {showActionBar && <LensBulkActionsbar headers={headers} />}
         </div>

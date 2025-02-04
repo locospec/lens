@@ -13,6 +13,7 @@ export interface LensSidebarInterface {
   sidebarTitle?: string;
   children?: React.ReactNode;
   table: any;
+  handleDragEnd: any;
 }
 
 const LensSidebar = ({
@@ -20,6 +21,7 @@ const LensSidebar = ({
   triggerLabel = "Open",
   triggerIcon,
   table,
+  handleDragEnd,
 }: LensSidebarInterface) => {
   const [currentSheet, setCurrentSheet] =
     React.useState<SheetOptionsType>("default");
@@ -55,6 +57,7 @@ const LensSidebar = ({
             setCurrentSheet={setCurrentSheet}
             tableContainerRef={tableContainerRef}
             table={table}
+            handleDragEnd={handleDragEnd}
           />
         ) : (
           <></>
