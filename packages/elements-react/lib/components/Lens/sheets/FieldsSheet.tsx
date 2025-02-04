@@ -4,7 +4,6 @@ import React from "react";
 import { SheetHeader } from "@/components/Sheet";
 import { SheetOptionsType } from "./interface";
 
-import LayoutSheetTitle from "./headers/LayoutSheetTitle";
 import type { Table } from "@tanstack/react-table";
 import FieldsSheetTitle from "./headers/FieldsSheetTitle";
 import { GripVertical } from "lucide-react";
@@ -22,9 +21,12 @@ const FieldsSheet = ({
   tableContainerRef,
   table,
 }: FieldsSheetInterface) => {
-  //   console.log(">>>>>>>table ", table.getHeaderGroups()[0].headers);
-
   const headers = table.getHeaderGroups()[0].headers;
+
+  const visibilityState = table.getState().columnVisibility;
+
+  console.log(">>>>>>", visibilityState);
+  const columns = table.getAllLeafColumns();
 
   return (
     <>
@@ -37,24 +39,38 @@ const FieldsSheet = ({
       </SheetHeader>
       <div className="le-flex le-flex-col le-gap-2 le-pt-4">
         <label className="le-text-sm le-text-[var(--gray-9)]">Shown</label>
-        {headers.map((header) => {
-          const headerDef = header.column.columnDef;
+        {columns.map((column) => {
+          console.log(">>>>>>>> column", column);
+          const headerDef = column.columnDef;
           const label = headerDef?.header as string;
           return (
             <div
               className={cn(
-                "le-flex le-justify-between",
+                "le-flex le-justify-between le-py-2",
                 (headerDef?.meta as any)?.fixed
-                  ? "le-pointer-events-none le-text-gray-500"
+                  ? "le-pointer-events-none le-text-[var(--gray-7)]"
                   : ""
               )}
+              key={column.id}
             >
               <div className="le-flex le-gap-x-2">
                 <GripVertical className="le-cursor-grab" />
-                <label key={header.id}>{label}</label>
+                <label>{label}</label>
               </div>
 
-              <Switch />
+              {/* <Switch
+                id={column.id}
+                value={column.id}
+                disabled={(headerDef?.meta as any)?.fixed}
+                checked={column.getIsVisible()}
+                onCheckedChange={column.getToggleVisibilityHandler()}
+              /> */}
+              <input
+                checked={column.getIsVisible()}
+                disabled={!column.getCanHide()}
+                onChange={column.getToggleVisibilityHandler()}
+                type="checkbox"
+              />
             </div>
           );
         })}
