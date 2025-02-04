@@ -29,6 +29,7 @@ export function makeServer() {
             actions: {
               header: "Actions sample",
               align: "end",
+              fixed: true,
               // width: 700,
               minWidth: 200,
               // maxWidth: 600,
@@ -63,6 +64,7 @@ export function makeServer() {
                 width: 80,
                 maxWidth: 80,
                 minWidth: 80,
+                fixed: true,
               },
               {
                 accessorKey: "state",
@@ -75,6 +77,7 @@ export function makeServer() {
                 header: "District",
                 width: 100,
                 minWidth: 100,
+                fixed: true,
               },
               {
                 accessorKey: "cities",

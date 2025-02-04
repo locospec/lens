@@ -39,6 +39,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
       return columnHelper.accessor(col.accessorKey, {
         meta: {
           align: col.align || undefined,
+          fixed: col.fixed || false,
         },
         id: col.accessorKey,
         header: col.header,
@@ -93,6 +94,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
         accessorKey: actions.header,
         meta: {
           align: actions?.align || undefined,
+          fixed: actions?.fixed || false,
         },
         header: actions.header,
         cell: ({ row }: RowInterface) => {
