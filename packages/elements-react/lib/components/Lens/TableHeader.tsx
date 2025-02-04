@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import React, { CSSProperties } from "react";
 import { flexRender } from "@tanstack/react-table";
 import type { HeaderGroup } from "@tanstack/react-table";
 import { ResizeHandle } from "./ResizeHandle.tsx";
@@ -16,6 +16,8 @@ export interface TableHeaderInterface {
 }
 
 const TableHeader = ({ headerGroup, columnOrder }: TableHeaderInterface) => {
+  const [isInResizeArea, setIsInResizeArea] = React.useState(false);
+
   return (
     <div key={headerGroup.id} className="le-flex">
       {headerGroup.headers.map((header) => {
@@ -24,7 +26,7 @@ const TableHeader = ({ headerGroup, columnOrder }: TableHeaderInterface) => {
         const { attributes, isDragging, listeners, setNodeRef, transform } =
           useSortable({
             id: header.column.id,
-            disabled: fixed,
+            disabled: fixed || isInResizeArea,
           });
 
         const style: CSSProperties = {
@@ -86,6 +88,7 @@ const TableHeader = ({ headerGroup, columnOrder }: TableHeaderInterface) => {
                 <ResizeHandle
                   header={header}
                   isResizing={header.column.getIsResizing()}
+                  setIsInResizeArea={setIsInResizeArea}
                 />
               )}
             </div>
