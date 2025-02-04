@@ -1,3 +1,31 @@
+# (Tue Feb 04 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/elements-react@0.20.3`
+  - chore: wrapp in lens wrapper [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: Modify theme provider [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added lens example for new lens configuration [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: add cunstom table options sheet for datatable [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: add a parent lens wrapper [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - patch: fix issue with resizing of actions column [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added new wrapper to work with top bar/ [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: commented since not in use [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: remove border from inner table root [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modify dropdown menu with contailer ref for change in mount position [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: remove unused prop [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modify drop down check [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: add option wrapper to reuse after hover effect [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: add sheets for sidebar [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: remove unused prop and refactor [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: add dropdown menu form shadcn [#114](https://github.com/locospec/ui/pull/114) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # (Mon Feb 03 2025)
 
 #### 🐛 Bug Fix
