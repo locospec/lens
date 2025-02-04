@@ -1,3 +1,3 @@
-type SheetOptionsType = "default" | "layout_options";
+type SheetOptionsType = "default" | "layout_options" | "field_options";
 
 export type { SheetOptionsType };
