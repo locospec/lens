@@ -7,7 +7,7 @@ import { GripVertical } from "lucide-react";
 const animateLayoutChanges = (args: any) =>
   args.isSorting || args.wasDragging ? defaultAnimateLayoutChanges(args) : true;
 
-const FieldsListItem = ({ column }: any) => {
+const FieldsListItem = ({ column, isHidden }: any) => {
   const headerDef = column.columnDef;
   const fixed = headerDef.meta.fixed || false;
   const label = headerDef?.header as string;
@@ -41,7 +41,9 @@ const FieldsListItem = ({ column }: any) => {
       {...attributes}
     >
       <div className="le-flex le-gap-x-2">
-        <GripVertical className="le-cursor-grab" {...listeners} />
+        {!isHidden && (
+          <GripVertical className="le-cursor-grab" {...listeners} />
+        )}
         <label>{label}</label>
       </div>
 
