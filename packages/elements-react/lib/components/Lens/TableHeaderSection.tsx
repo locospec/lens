@@ -6,14 +6,24 @@ export interface TableHeaderSectionInterface {
   table: Table<any>;
   columnSizeVars?: any;
   tableContainerRef?: React.RefObject<HTMLDivElement>;
+  columnOrder: string[];
 }
 
-const TableHeaderSection = ({ table }: TableHeaderSectionInterface) => {
+const TableHeaderSection = ({
+  table,
+  columnOrder,
+}: TableHeaderSectionInterface) => {
   return (
     <div className="le-sticky le-top-0 le-z-10 le-backdrop-blur-[100px]">
-      {table.getHeaderGroups().map((headerGroup) => (
-        <TableHeader key={headerGroup.id} headerGroup={headerGroup} />
-      ))}
+      {table.getHeaderGroups().map((headerGroup) => {
+        return (
+          <TableHeader
+            key={headerGroup.id}
+            headerGroup={headerGroup}
+            columnOrder={columnOrder}
+          />
+        );
+      })}
     </div>
   );
 };
