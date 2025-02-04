@@ -14,6 +14,8 @@ export interface TableHeaderSectionInterface {
   handleDragEnd: any;
   setActiveId: any;
   activeId: any;
+  setIsInResizeArea: any;
+  isInResizeArea: any;
 }
 
 const TableHeaderSection = ({
@@ -22,6 +24,8 @@ const TableHeaderSection = ({
   handleDragEnd,
   setActiveId,
   activeId,
+  setIsInResizeArea,
+  isInResizeArea,
 }: TableHeaderSectionInterface) => {
   const { sensors } = useLensContext();
 
@@ -45,6 +49,8 @@ const TableHeaderSection = ({
               key={headerGroup.id}
               headerGroup={headerGroup}
               columnOrder={columnOrder}
+              setIsInResizeArea={setIsInResizeArea}
+              isInResizeArea={isInResizeArea}
             />
           );
         })}
