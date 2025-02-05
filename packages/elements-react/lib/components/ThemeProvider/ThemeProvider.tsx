@@ -44,7 +44,7 @@ const ThemeProvider = ({
       )}
       <Theme
         asChild
-        data-is-root-theme={false}
+        // data-is-root-theme={false}
         role="application"
         className="lens-root twp"
       >
