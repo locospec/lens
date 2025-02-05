@@ -14,7 +14,6 @@ type RowObject = {
 };
 
 function replacePlaceholders(url: string, row: Row<any>): string {
-  console.log(row);
   return url.replace(/\/:([\w.]+)/g, (_, key) => {
     return row.hasOwnProperty(key)
       ? "/" + (row as unknown as RowObject)[key]

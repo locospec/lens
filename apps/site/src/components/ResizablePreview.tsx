@@ -72,7 +72,6 @@ export function IFrameResizablePreview({ pageUrl, height }) {
   const { siteConfig } = useDocusaurusContext();
 
   const finalUrl = `${siteConfig.baseUrl}${pageUrl}`;
-  // console.log("finalUrl", finalUrl, siteConfig.baseUrl, pageUrl);
 
   return (
     <div className="group-data-[view=code]/block-view-wrapper:hidden md:h-[--height] twp">
