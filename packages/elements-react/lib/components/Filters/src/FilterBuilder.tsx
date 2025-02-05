@@ -4,6 +4,7 @@ import FilterGroupComponent from "./FilterGroup";
 import { JsonHighlighter } from "../../JsonHighlighter";
 import { FilterProvider } from "./context/FilterContext";
 import { FilterBuilderProps } from "./interfaces/src/FilterInterface";
+import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
 
 const FilterBuilder: React.FC<FilterBuilderProps> = ({
   maxDepth = 2,
@@ -11,6 +12,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
   size = "1",
   variant = "surface",
   label = "Filters",
+  attributes,
 }) => {
   const [filter, setFilter] = useState<FilterGroup>({
     op: "and",
@@ -21,17 +23,10 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
     setFilter((current) => {
       const newFilter = { ...current };
       let target = newFilter;
-
       for (const index of parentPath) {
         target = target.conditions[index] as FilterGroup;
       }
-
-      target.conditions.push({
-        attribute: "",
-        op: undefined,
-        value: "",
-      });
-
+      target.conditions.push({ attribute: "", op: undefined, value: "" });
       return newFilter;
     });
   }, []);
@@ -50,7 +45,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
         conditions: [
           {
             attribute: "",
-            op: "eq",
+            op: undefined,
             value: "",
           },
         ],
@@ -121,22 +116,25 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
   );
 
   return (
-    <FilterProvider size={size} variant={variant}>
-      <div className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border">
-        <label>{label}</label>
-        <FilterGroupComponent
-          group={filter}
-          path={[]}
-          currentDepth={0}
-          maxDepth={maxDepth}
-          onAddCondition={addCondition}
-          onAddGroup={addGroup}
-          onRemove={removeItem}
-          onUpdate={updateCondition}
-        />
-        {showFilterJSON && <JsonHighlighter json={filter} />}
-      </div>
-    </FilterProvider>
+    <ThemeProvider>
+      <FilterProvider size={size} variant={variant}>
+        <div className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border">
+          <label>{label}</label>
+          <FilterGroupComponent
+            group={filter}
+            path={[]}
+            currentDepth={0}
+            maxDepth={maxDepth}
+            onAddCondition={addCondition}
+            onAddGroup={addGroup}
+            onRemove={removeItem}
+            onUpdate={updateCondition}
+            attributes={attributes}
+          />
+          {showFilterJSON && <JsonHighlighter json={filter} />}
+        </div>
+      </FilterProvider>
+    </ThemeProvider>
   );
 };
 

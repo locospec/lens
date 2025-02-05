@@ -1,6 +1,7 @@
 import { Theme } from "@radix-ui/themes";
 import { Moon, SunMedium } from "lucide-react";
 import React from "react";
+import "@radix-ui/themes/tokens.css";
 
 export interface ThemeProviderProps {
   children: React.ReactNode;
