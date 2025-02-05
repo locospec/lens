@@ -116,7 +116,7 @@ export function makeServer() {
       this.get("/:resource/fetch", (_, request) => {
         const resource = request.params.resource;
         const cursor = Number(request.queryParams.cursor) || 0;
-        const pageSize = 20;
+        const pageSize = 10;
 
         if (resource === "test-data") {
           const completeTestData = Array.from({ length: 200 }, (_, index) => ({
@@ -165,6 +165,7 @@ export function makeServer() {
               ? cursor + pageSize
               : null;
 
+          console.log(">>>>>> nextCursor", nextCursor);
           return {
             data: paginatedTestData,
             next_cursor: nextCursor,

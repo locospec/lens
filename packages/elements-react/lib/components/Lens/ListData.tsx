@@ -193,7 +193,10 @@ export const ListData = ({
         )}
         <div
           className="le-relative le-flex-1 le-overflow-auto le-w-full le-h-full"
-          onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
+          onScroll={(e) => {
+            console.log(">>>>>> ON SCROLL EVENT CALLED");
+            fetchMoreOnBottomReached(e.target as HTMLDivElement);
+          }}
           ref={tableContainerRef}
         >
           <div

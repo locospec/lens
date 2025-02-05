@@ -22,7 +22,7 @@ const useInfiniteFetch = ({
     );
   }
   const fetchDataFunction = async ({ pageParam = null }) => {
-    console.log(">>>>>>>", pageParam);
+    console.log(" >> FETCH DATA FUNCTION CALLED");
     const response = await fetch(
       `${dataEndpoint}?cursor=${pageParam}&search=${globalFilter}`
     );
@@ -35,6 +35,7 @@ const useInfiniteFetch = ({
     return responseJson;
   };
 
+  console.log(" >> QUERY KEY IS", queryKey);
   const { data, fetchNextPage, isFetching, hasNextPage } = useInfiniteQuery({
     queryKey: [queryKey, globalFilter],
     queryFn: dataCallback ? dataCallback : fetchDataFunction,

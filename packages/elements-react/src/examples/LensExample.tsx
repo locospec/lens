@@ -41,6 +41,20 @@ const LensExample = () => {
         />
         {/* </div> */}
       </div>
+      {/* <div className="le-h-[60vh] le-w-[95vw] le-mt-10  le-mx-auto">
+        <Lens
+          configEndpoint="/api/data-bench/auction-data/config"
+          dataEndpoint="/api/data-bench/auction-data/fetch"
+          onSelect={(value) => {
+            handleSelectionChange(value);
+          }}
+          selectedItems={checkedIds}
+          variant="surface"
+          size="3"
+          showTopBar
+          showThemeSwitcher
+        />
+      </div> */}
       <div className="le-mt-10">
         <FilterBuilder
           label={"Filters surface 1"}
