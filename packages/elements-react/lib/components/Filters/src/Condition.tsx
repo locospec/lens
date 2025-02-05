@@ -1,5 +1,5 @@
 import React from "react";
-import { Condition, CONDITION_OPERATORS } from "./types";
+import { AttributeOption, Condition, CONDITION_OPERATORS } from "./types";
 import Combobox from "@/base/components/ui/combobox";
 import {
   Select,
@@ -14,37 +14,21 @@ export interface ConditionProps {
   condition: Condition;
   path: number[];
   onUpdate: (path: number[], field: string, value: any) => void;
+  attributeOptions: AttributeOption[];
 }
 
 const ConditionComponent: React.FC<ConditionProps> = ({
   condition,
   path,
   onUpdate,
+  attributeOptions,
 }) => {
-  const attribute_options = [
-    {
-      label: "Attribute 1",
-      value: "attribute1",
-    },
-    {
-      label: "Attribute 2",
-      value: "attribute2",
-    },
-    {
-      label: "Attribute 3",
-      value: "attribute3",
-    },
-    {
-      label: "Attribute 4",
-      value: "attribute4",
-    },
-  ];
-
-  console.log(">>>>>>>>> condition", condition);
   return (
     <div className="le-flex le-gap-2 le-filter-condition le-items-center">
       <Combobox
-        options={attribute_options}
+        options={attributeOptions?.map((e) => {
+          return { label: e.label, value: e.value };
+        })}
         defaultValue={condition.attribute}
         callback={(value) => {
           onUpdate(path, "attribute", value);

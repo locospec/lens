@@ -48,3 +48,11 @@ export const GROUP_OPERATORS: OperatorOption[] = [
   { label: "AND", value: "and" },
   { label: "OR", value: "or" },
 ];
+
+export type AttributeTypes = "string" | "number" | "boolean" | "date" | "enum";
+
+export interface AttributeOption {
+  label: string;
+  value: string;
+  type: AttributeTypes;
+}

@@ -33,7 +33,7 @@ const LensExample = () => {
         variant="surface"
         size="3"
         showTopBar
-        showThemeSwitcher
+        // showThemeSwitcher
       />
     </div>
   );
