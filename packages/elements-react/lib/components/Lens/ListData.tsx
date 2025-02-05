@@ -79,8 +79,8 @@ export const ListData = ({
     hasNextPage
   );
 
-  const [fixedColumns, _] = React.useState(() =>
-    columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id)
+  const [fixedColumns, _] = React.useState(
+    () => columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id) || []
   );
   const [columnOrder, setColumnOrder] = React.useState<string[]>(() =>
     columns.map((c) => {
@@ -96,6 +96,13 @@ export const ListData = ({
     onRowSelectionChange: setRowSelection,
     onColumnVisibilityChange: setColumnVisibility,
     getRowId: (row) => row[identifierKey],
+    initialState: {
+      columnPinning: {
+        left: ["select", "id"],
+        right: ["actions"],
+      },
+    },
+
     state: {
       rowSelection,
       columnOrder,

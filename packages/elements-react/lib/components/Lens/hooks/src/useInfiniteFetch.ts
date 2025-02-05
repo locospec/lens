@@ -22,7 +22,6 @@ const useInfiniteFetch = ({
     );
   }
   const fetchDataFunction = async ({ pageParam = null }) => {
-    console.log(">>>>>>>", pageParam);
     const response = await fetch(
       `${dataEndpoint}?cursor=${pageParam}&search=${globalFilter}`
     );
