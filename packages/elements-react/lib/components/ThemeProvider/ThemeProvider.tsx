@@ -53,6 +53,5 @@ const ThemeProvider = ({
     </>
   );
 };
-// <Theme asChild className="lens-root" appearance="dark">
 
 export default ThemeProvider;
