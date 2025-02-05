@@ -42,7 +42,12 @@ const ThemeProvider = ({
           )}
         </div>
       )}
-      <Theme asChild className="lens-root twp" appearance={appearance}>
+      <Theme
+        asChild
+        data-is-root-theme={false}
+        role="application"
+        className="lens-root twp"
+      >
         {children}
       </Theme>
     </>
