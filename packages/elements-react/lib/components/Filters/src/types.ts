@@ -15,7 +15,7 @@ export type GroupOperator = "and" | "or";
 
 export interface Condition {
   attribute: string;
-  op: Operator;
+  op?: Operator;
   value?: string | number | boolean | null;
 }
 

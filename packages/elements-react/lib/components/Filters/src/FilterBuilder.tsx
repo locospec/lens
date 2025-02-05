@@ -28,7 +28,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
 
       target.conditions.push({
         attribute: "",
-        op: "eq",
+        op: undefined,
         value: "",
       });
 
