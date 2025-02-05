@@ -14,7 +14,6 @@ const ResizeHandle = ({
   setIsInResizeArea,
 }: ResizeHandleProps) => {
   const resizeHandle = header.getResizeHandler();
-  // console.log(">>>> >>>>> isResizing isResizing", isResizing);
 
   return (
     <div

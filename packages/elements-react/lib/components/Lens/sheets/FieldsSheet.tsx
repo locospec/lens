@@ -35,7 +35,6 @@ const FieldsSheet = ({
   const columns = table.getAllLeafColumns();
   const { sensors } = useLensContext();
   // const columnVisibility = table.getState().columnVisibility;
-  // console.log(">>>>>>>> v", columnVisibility.map((c) => ));
 
   return (
     <>
