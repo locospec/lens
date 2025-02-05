@@ -10,12 +10,7 @@ const useFetchMoreOnScroll = (
     (containerRefElement?: HTMLDivElement | null) => {
       if (containerRefElement) {
         const { scrollHeight, scrollTop, clientHeight } = containerRefElement;
-        console.log(" CONTAINER VALUES ARE", {
-          scrollHeight,
-          scrollTop,
-          clientHeight,
-          calc: scrollHeight - scrollTop - clientHeight,
-        });
+
         if (
           scrollHeight - scrollTop - clientHeight < 500 &&
           !isFetching &&

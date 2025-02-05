@@ -22,7 +22,7 @@ const useInfiniteFetch = ({
     );
   }
   const fetchDataFunction = async ({ pageParam = null }) => {
-    console.log(" >> FETCH DATA FUNCTION CALLED");
+    // console.log(" >> FETCH DATA FUNCTION CALLED");
     const response = await fetch(
       `${dataEndpoint}?cursor=${pageParam}&search=${globalFilter}`
     );
@@ -35,16 +35,18 @@ const useInfiniteFetch = ({
     return responseJson;
   };
 
-  console.log(" >> QUERY KEY IS", queryKey);
   const { data, fetchNextPage, isFetching, hasNextPage } = useInfiniteQuery({
     queryKey: [queryKey, globalFilter],
     queryFn: dataCallback ? dataCallback : fetchDataFunction,
     initialPageParam: null,
-    getNextPageParam: (lastPage: any) => lastPage.next_cursor,
+    getNextPageParam: (lastPage: any) => {
+      return lastPage.next_cursor || lastPage.cursor;
+    },
     getPreviousPageParam: (firstPage) => firstPage.prev_cursor,
     refetchOnWindowFocus: false,
     placeholderData: keepPreviousData,
   });
+  console.log(">>>>>> hasNextPage", hasNextPage);
 
   const flatData = useMemo(
     () => data?.pages?.flatMap((page) => page.data) ?? [],
