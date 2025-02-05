@@ -1,3 +1,18 @@
+# v0.20.5 (Wed Feb 05 2025)
+
+#### 🐛 Bug Fix
+
+- chore: added pinning sample for datatable [#117](https://github.com/locospec/ui/pull/117) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: replace radix checkbox with shadcn checkbox [#117](https://github.com/locospec/ui/pull/117) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modify shown list for colums visibility and reordering [#117](https://github.com/locospec/ui/pull/117) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: remove console.logs [#117](https://github.com/locospec/ui/pull/117) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.20.4 (Tue Feb 04 2025)
 
 #### 🐛 Bug Fix
