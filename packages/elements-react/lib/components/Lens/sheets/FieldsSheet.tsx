@@ -74,6 +74,7 @@ const FieldsSheet = ({
               {columns
                 .filter((c) => !invisibleColumns.includes(c.id))
                 .map((column) => {
+                  if (column?.id === "select") return null;
                   return <FieldsListItem column={column} key={column.id} />;
                 })}
             </SortableContext>

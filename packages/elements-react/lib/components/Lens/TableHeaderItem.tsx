@@ -8,6 +8,7 @@ import {
   useSortable,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { getCommonPinningStyles } from "./hooks/src/getColumnPinningStyles.ts";
 
 const TableHeaderItem = ({
   header,
@@ -16,6 +17,9 @@ const TableHeaderItem = ({
   setIsInResizeArea,
 }: any) => {
   const fixed = (header.column.columnDef.meta as any)?.fixed;
+  const { column } = header;
+
+  const css = getCommonPinningStyles(column);
 
   const { attributes, isDragging, listeners, setNodeRef, transform } =
     useSortable({
@@ -60,6 +64,7 @@ const TableHeaderItem = ({
         style={{
           width: `calc(var(--header-${id}-size) * 1px)`,
           ...style,
+          ...css,
         }}
         ref={setNodeRef}
         {...attributes}
