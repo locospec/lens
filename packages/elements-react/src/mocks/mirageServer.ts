@@ -25,7 +25,7 @@ export function makeServer() {
           return {
             resource: "auction-data",
             identifierKey: "data-value",
-            // selectionType: "multiple",
+            selectionType: "multiple",
             actions: {
               header: "Actions sample",
               align: "end",

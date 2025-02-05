@@ -1,5 +1,5 @@
 import React from "react";
-import { Checkbox } from "@radix-ui/themes";
+import { Checkbox } from "@/base/components/ui/checkbox";
 import { createColumnHelper } from "@tanstack/react-table";
 import type { Table, Row } from "@tanstack/react-table";
 import type {
@@ -51,6 +51,9 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
 
     const selectionColumn = {
       id: "select",
+      meta: {
+        fixed: true,
+      },
       header: ({ table }: HeaderInterface) => (
         <div className="le-flex le-h-full le-items-center le-justify-center">
           <Checkbox
