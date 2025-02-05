@@ -40,6 +40,7 @@ const ConditionComponent: React.FC<ConditionProps> = ({
     },
   ];
 
+  console.log(">>>>>>>>> condition", condition);
   return (
     <div className="le-flex le-gap-2 le-filter-condition le-items-center">
       <Combobox
@@ -49,22 +50,24 @@ const ConditionComponent: React.FC<ConditionProps> = ({
           onUpdate(path, "attribute", value);
         }}
       />
-      <Select
-        defaultValue={condition.op}
-        onValueChange={(value) => onUpdate(path, "op", value)}
-      >
-        <SelectTrigger className="le-p-1 le-text-center">
-          <SelectValue placeholder={""} />
-        </SelectTrigger>
-        <SelectContent>
-          {CONDITION_OPERATORS.map((op) => (
-            <SelectItem key={op.value} value={op.value}>
-              {op.label}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-      {!["isNull", "isNotNull"].includes(condition.op) && (
+      {condition.attribute && (
+        <Select
+          defaultValue={condition.op}
+          onValueChange={(value) => onUpdate(path, "op", value)}
+        >
+          <SelectTrigger className="le-p-1 le-text-center">
+            <SelectValue placeholder={""} />
+          </SelectTrigger>
+          <SelectContent>
+            {CONDITION_OPERATORS.map((op) => (
+              <SelectItem key={op.value} value={op.value}>
+                {op.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      )}
+      {condition?.op && !["isNull", "isNotNull"].includes(condition?.op) && (
         <Input
           placeholder="Value"
           value={String(condition.value || "")}
