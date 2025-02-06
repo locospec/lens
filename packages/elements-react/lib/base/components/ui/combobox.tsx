@@ -12,6 +12,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
+  CommandSeparator,
 } from "./command";
 import {
   Popover,
@@ -60,6 +61,7 @@ export function Combobox({
       <PopoverContent className="le-w-[200px] le-p-0">
         <Command>
           <CommandInput placeholder={placeholder} />
+          <CommandSeparator />
           <CommandList>
             <CommandEmpty>{emptyLabel}</CommandEmpty>
             <CommandGroup>
