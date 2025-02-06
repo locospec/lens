@@ -4,6 +4,7 @@ import { AttributeDefinitionType } from "../interfaces";
 import { Condition } from "../types";
 import TextInput from "./TextInput";
 import { DatePicker } from "@/base/components/ui/datepicker";
+import EnumInput from "./EnumInput";
 
 export interface ValueRendererInterface {
   condition: Condition;
@@ -54,6 +55,22 @@ const ValueInputRenderer = ({
       />
     );
   }
+
+  if (selectedAttribute.type === "enum") {
+    return (
+      <EnumInput
+        options={[
+          { label: "One", value: "One" },
+          { label: "Two", value: "Two" },
+          { label: "Three", value: "Three" },
+          { label: "Four", value: "Four" },
+          { label: "Five", value: "Five" },
+        ]}
+        callback={handleValueChange}
+      />
+    );
+  }
+
   return <>{JSON.stringify(selectedAttribute.type)}</>;
 };
 
