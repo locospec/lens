@@ -4,3 +4,12 @@ export type {
   FilterSizes,
   FilterVariants,
 } from "./src/FilterInterface";
+
+export type {
+  AttributeDefinitionMapType,
+  AttributeOptionsArrayType,
+  AttributeDefinitionType,
+  AttributeOptionItemType,
+  OptionItemType,
+  AttributeTypes,
+} from "./src/AttributesInterface";
