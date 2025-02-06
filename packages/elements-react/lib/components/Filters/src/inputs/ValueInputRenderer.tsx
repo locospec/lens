@@ -3,6 +3,7 @@ import { useFilterContext } from "../context/FilterContext";
 import { AttributeDefinitionType } from "../interfaces";
 import { Condition } from "../types";
 import TextInput from "./TextInput";
+import { DatePicker } from "@/base/components/ui/datepicker";
 
 export interface ValueRendererInterface {
   condition: Condition;
@@ -18,16 +19,16 @@ const ValueInputRenderer = ({
   if (
     !condition?.op ||
     ["isNull", "isNotNull"].includes(condition?.op) ||
-    !selectedAttribute
+    !selectedAttribute ||
+    selectedAttribute.type === "boolean"
   ) {
     return <></>;
   }
 
-  const { updateCondition } = useFilterContext();
+  const { updateCondition, filterContainerRef } = useFilterContext();
 
   const handleValueChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) =>
-      updateCondition(path, "value", e.target.value),
+    (value: string) => updateCondition(path, "value", value),
     [updateCondition, path]
   );
 
@@ -38,7 +39,18 @@ const ValueInputRenderer = ({
       <TextInput
         placeholder={selectedAttribute?.label}
         value={condition?.value as string}
-        onUpdateCallback={handleValueChange}
+        onUpdateCallback={(e: any) => {
+          handleValueChange(e.target.value);
+        }}
+      />
+    );
+  }
+
+  if (selectedAttribute.type === "date") {
+    return (
+      <DatePicker
+        containerRef={filterContainerRef}
+        callback={handleValueChange}
       />
     );
   }
