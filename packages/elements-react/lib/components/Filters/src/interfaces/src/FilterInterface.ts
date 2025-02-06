@@ -1,4 +1,7 @@
-import { AttributeOption } from "../../types";
+import {
+  AttributeDefinitionMapType,
+  AttributeOptionsArrayType,
+} from "./AttributesInterface";
 
 type FilterSizes = "1" | "2" | "3";
 type FilterVariants = "surface" | "soft" | "classic";
@@ -6,6 +9,8 @@ type FilterVariants = "surface" | "soft" | "classic";
 interface FilterContextType {
   size: FilterSizes;
   variant: FilterVariants;
+  attributesArray: AttributeOptionsArrayType;
+  attributesObject: AttributeDefinitionMapType;
 }
 
 interface FilterBuilderProps {
@@ -14,7 +19,7 @@ interface FilterBuilderProps {
   size?: FilterSizes;
   variant?: FilterVariants;
   label?: string;
-  attributes: AttributeOption[];
+  attributes: AttributeDefinitionMapType;
 }
 
 export type {
