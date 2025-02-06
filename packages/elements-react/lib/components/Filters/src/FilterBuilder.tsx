@@ -18,6 +18,9 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
     op: "and",
     conditions: [],
   });
+  const attributesArray: any = Object.keys(attributes).map((key) => {
+    return { value: key, ...attributes[key] };
+  });
 
   const addCondition = useCallback((parentPath: number[] = []) => {
     setFilter((current) => {
@@ -117,7 +120,12 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
 
   return (
     <ThemeProvider>
-      <FilterProvider size={size} variant={variant}>
+      <FilterProvider
+        size={size}
+        variant={variant}
+        attributesArray={attributesArray}
+        attributesObject={attributes}
+      >
         <div className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border">
           <label>{label}</label>
           <FilterGroupComponent
@@ -129,7 +137,6 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
             onAddGroup={addGroup}
             onRemove={removeItem}
             onUpdate={updateCondition}
-            attributes={attributes}
           />
           {showFilterJSON && <JsonHighlighter json={filter} />}
         </div>
