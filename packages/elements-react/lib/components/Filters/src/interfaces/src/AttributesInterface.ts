@@ -3,6 +3,7 @@ export type AttributeTypes = "string" | "number" | "boolean" | "date" | "enum";
 export interface AttributeDefinitionType {
   label: string;
   type: AttributeTypes;
+  isNullable?: boolean;
 }
 
 export type AttributeDefinitionMapType = {
