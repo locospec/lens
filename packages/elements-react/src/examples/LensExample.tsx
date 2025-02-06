@@ -1,7 +1,6 @@
 import React from "react";
 import { Lens } from "../../lib/main";
 import { makeServer } from "../mocks/mirageServer";
-// import { FilterBuilder } from "../../lib/components/Filters";
 
 const LensExample = () => {
   React.useEffect(() => {
