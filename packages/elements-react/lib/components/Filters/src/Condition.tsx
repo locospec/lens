@@ -1,15 +1,7 @@
 import React, { useCallback } from "react";
 import { Condition } from "./types";
 import Combobox from "@/base/components/ui/combobox";
-// import {
-//   Select,
-//   SelectContent,
-//   SelectItem,
-//   SelectTrigger,
-//   SelectValue,
-// } from "@/base/components/ui/select";
 import { useFilterContext } from "./context/FilterContext";
-// import { returnOperators } from "./constants/ConditionOperators";
 import TextInput from "./inputs/TextInput";
 import OperatorsSelector from "./OperatorsSelector";
 
@@ -31,11 +23,6 @@ const ConditionComponent: React.FC<ConditionProps> = ({
     [onUpdate, path]
   );
 
-  const handleOperatorChange = useCallback(
-    (value: string) => onUpdate(path, "op", value),
-    [onUpdate, path]
-  );
-
   const handleValueChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) =>
       onUpdate(path, "value", e.target.value),
@@ -54,28 +41,11 @@ const ConditionComponent: React.FC<ConditionProps> = ({
         defaultValue={condition.attribute}
         callback={handleAttributeChange}
       />
-      {/* {attributeType && (
-        <Select
-          defaultValue={condition.op}
-          onValueChange={handleOperatorChange}
-        >
-          <SelectTrigger className="le-p-1 le-text-center">
-            <SelectValue placeholder={"Select operator"} />
-          </SelectTrigger>
-          <SelectContent>
-            {returnOperators(attributeType, isNullable).map((op) => (
-              <SelectItem key={op.value} value={op.value}>
-                {op.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      )} */}
+
       {attributeType && (
         <OperatorsSelector
           selectedAttribute={selectedAttribute}
           op={condition.op}
-          handleOperatorChange={handleOperatorChange}
           path={path}
         />
       )}

@@ -14,7 +14,6 @@ import { useCallback, useMemo } from "react";
 export interface OperatorsSelectorInterface {
   selectedAttribute: AttributeDefinitionType | null;
   op?: Operator;
-  handleOperatorChange?: (value: string) => void;
   path: number[];
 }
 
