@@ -5,6 +5,7 @@ import { JsonHighlighter } from "../../JsonHighlighter";
 import { FilterProvider } from "./context/FilterContext";
 import { FilterBuilderProps } from "./interfaces/src/FilterInterface";
 import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
+import "./FilterBuilder.css";
 
 const FilterBuilder: React.FC<FilterBuilderProps> = ({
   maxDepth = 2,

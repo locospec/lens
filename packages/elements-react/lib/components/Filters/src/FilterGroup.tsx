@@ -3,7 +3,6 @@ import { Trash2 } from "lucide-react";
 import { FilterGroup } from "./types";
 import Condition from "./Condition";
 import { OPDisplay } from "./OpSelector";
-import "./FilterBuilder.css";
 import AddButtonsTray from "./AddButtonsTray";
 import { cn } from "@/base/lib/utils";
 import { Button } from "@/base/components/ui/button";
