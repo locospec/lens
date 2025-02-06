@@ -29,7 +29,7 @@ export interface ComboBoxInterface {
   placeholder?: string;
   emptyLabel?: string;
   options: OptionInterface[];
-  callback?: (value: string) => void;
+  callback?: (values: string) => void;
   defaultValues?: string[];
 }
 
@@ -41,11 +41,7 @@ export function EnumInput({
   defaultValues,
 }: ComboBoxInterface) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState<string[]>(defaultValues || []);
-
-  React.useEffect(() => {
-    console.log(">>>>>>", value);
-  }, [value]);
+  const [values, setValues] = React.useState<string[]>(defaultValues || []);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -59,9 +55,9 @@ export function EnumInput({
           }
         >
           <div className="le-max-w-[150px] le-truncate">
-            {value
+            {values
               ? options
-                  .filter((option) => value.includes(option.value))
+                  .filter((option) => values.includes(option.value))
                   .map((e) => e.label)
                   .join(",")
               : placeholder}
@@ -84,7 +80,7 @@ export function EnumInput({
                     key={option.value}
                     value={option.value}
                     onSelect={(currentValue: string) => {
-                      setValue((prev) => {
+                      setValues((prev) => {
                         const newValues = prev.includes(currentValue)
                           ? prev.filter((val) => val !== currentValue)
                           : [...prev, currentValue];
@@ -96,7 +92,7 @@ export function EnumInput({
                     <Check
                       className={cn(
                         "le-mr-2 le-h-4 le-w-4",
-                        value.includes(option.value)
+                        values.includes(option.value)
                           ? "le-opacity-100"
                           : "le-opacity-0"
                       )}
