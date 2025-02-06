@@ -67,10 +67,10 @@ const ActionsMapping = ({ row, actionOption }: ActionsMappingInterface) => {
             return {};
           }
         } else {
-          console.error(">>>>> USER REJECTED", url);
+          console.error("USER REJECTED", url);
         }
       } else {
-        console.error(">>>>> NO URL FOUND");
+        console.error("NO URL FOUND");
       }
     },
   };
