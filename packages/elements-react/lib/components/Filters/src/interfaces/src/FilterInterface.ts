@@ -12,6 +12,7 @@ interface FilterContextType {
   attributesArray: AttributeOptionsArrayType;
   attributesObject: AttributeDefinitionMapType;
   updateCondition: (path: number[], field: string, value: any) => void;
+  filterContainerRef?: any;
 }
 
 interface FilterBuilderProps {
