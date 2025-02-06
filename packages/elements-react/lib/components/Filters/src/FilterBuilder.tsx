@@ -19,6 +19,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
     op: "and",
     conditions: [],
   });
+  const filterContainerRef = React.useRef<HTMLDivElement>(null);
   const attributesArray: any = Object.keys(attributes).map((key) => {
     return { value: key, ...attributes[key] };
   });
@@ -127,8 +128,12 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
         attributesArray={attributesArray}
         attributesObject={attributes}
         updateCondition={updateCondition}
+        filterContainerRef={filterContainerRef}
       >
-        <div className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border">
+        <div
+          className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border"
+          ref={filterContainerRef}
+        >
           <label>{label}</label>
           <FilterGroupComponent
             group={filter}
