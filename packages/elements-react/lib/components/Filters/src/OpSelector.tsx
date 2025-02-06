@@ -5,8 +5,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/base/components/ui/select";
-import { FilterGroup, GROUP_OPERATORS } from "./types";
+import { FilterGroup } from "./types";
 import { cn } from "@/base/lib/utils";
+import { GROUP_OPERATORS } from "./constants/ConditionOperators";
 
 export interface OPDisplayProps {
   index: number;
