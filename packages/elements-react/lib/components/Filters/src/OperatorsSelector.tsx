@@ -54,10 +54,10 @@ const OperatorsSelector = ({
 
   return (
     <Select defaultValue={op} onValueChange={handleOperatorChange}>
-      <SelectTrigger className="le-p-1 le-text-center">
+      <SelectTrigger className="le-p-1 le-text-center le-max-w-[150px]">
         <SelectValue placeholder={"Select operator"} />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="le-max-w-[150px]">
         {operators.map((op) => (
           <SelectItem key={op.value} value={op.value}>
             {op.label}
