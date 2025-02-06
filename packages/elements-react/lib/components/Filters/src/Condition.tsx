@@ -2,8 +2,8 @@ import React, { useCallback } from "react";
 import { Condition } from "./types";
 import Combobox from "@/base/components/ui/combobox";
 import { useFilterContext } from "./context/FilterContext";
-import TextInput from "./inputs/TextInput";
 import OperatorsSelector from "./OperatorsSelector";
+import ValueInputRenderer from "./inputs/ValueInputRenderer";
 
 export interface ConditionProps {
   condition: Condition;
@@ -23,41 +23,29 @@ const ConditionComponent: React.FC<ConditionProps> = ({
     [onUpdate, path]
   );
 
-  const handleValueChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) =>
-      onUpdate(path, "value", e.target.value),
-    [onUpdate, path]
-  );
-
   const selectedAttribute = condition.attribute
     ? attributesObject[condition.attribute]
     : null;
-  const attributeType = selectedAttribute?.type;
 
   return (
-    <div className="le-flex le-gap-2 le-filter-condition le-items-center">
+    <div className="le-flex le-gap-2 le-filter-condition">
       <Combobox
         options={attributesArray}
         defaultValue={condition.attribute}
         callback={handleAttributeChange}
       />
 
-      {attributeType && (
-        <OperatorsSelector
-          selectedAttribute={selectedAttribute}
-          op={condition.op}
-          path={path}
-        />
-      )}
-      {condition?.op &&
-        !["isNull", "isNotNull"].includes(condition?.op) &&
-        attributeType !== "boolean" && (
-          <TextInput
-            placeholder={selectedAttribute?.label}
-            value={condition?.value as string}
-            onUpdateCallback={handleValueChange}
-          />
-        )}
+      <OperatorsSelector
+        selectedAttribute={selectedAttribute}
+        op={condition.op}
+        path={path}
+      />
+
+      <ValueInputRenderer
+        condition={condition}
+        selectedAttribute={selectedAttribute}
+        path={path}
+      />
     </div>
   );
 };
