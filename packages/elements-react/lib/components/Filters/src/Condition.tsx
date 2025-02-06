@@ -1,5 +1,5 @@
-import React from "react";
-import { AttributeOption, Condition, CONDITION_OPERATORS } from "./types";
+import React, { useCallback } from "react";
+import { Condition } from "./types";
 import Combobox from "@/base/components/ui/combobox";
 import {
   Select,
@@ -9,41 +9,57 @@ import {
   SelectValue,
 } from "@/base/components/ui/select";
 import { Input } from "@/base/components/ui/input";
+import { useFilterContext } from "./context/FilterContext";
+import { returnOperators } from "./constants/ConditionOperators";
 
 export interface ConditionProps {
   condition: Condition;
   path: number[];
   onUpdate: (path: number[], field: string, value: any) => void;
-  attributeOptions: AttributeOption[];
 }
 
 const ConditionComponent: React.FC<ConditionProps> = ({
   condition,
   path,
   onUpdate,
-  attributeOptions,
 }) => {
+  const { attributesArray, attributesObject } = useFilterContext();
+
+  const handleAttributeChange = useCallback(
+    (value: string) => onUpdate(path, "attribute", value),
+    [onUpdate, path]
+  );
+
+  const handleOperatorChange = useCallback(
+    (value: string) => onUpdate(path, "op", value),
+    [onUpdate, path]
+  );
+
+  const selectedAttribute = condition.attribute
+    ? attributesObject[condition.attribute]
+    : null;
+  const attributeType = selectedAttribute?.type;
+
   return (
     <div className="le-flex le-gap-2 le-filter-condition le-items-center">
       <Combobox
-        options={attributeOptions?.map((e) => {
-          return { label: e.label, value: e.value };
-        })}
+        options={attributesArray}
         defaultValue={condition.attribute}
-        callback={(value) => {
-          onUpdate(path, "attribute", value);
-        }}
+        callback={handleAttributeChange}
       />
-      {condition.attribute && (
+      {attributeType && (
         <Select
           defaultValue={condition.op}
-          onValueChange={(value) => onUpdate(path, "op", value)}
+          onValueChange={handleOperatorChange}
         >
           <SelectTrigger className="le-p-1 le-text-center">
-            <SelectValue placeholder={""} />
+            <SelectValue placeholder={"Select operator"} />
           </SelectTrigger>
           <SelectContent>
-            {CONDITION_OPERATORS.map((op) => (
+            {returnOperators(
+              attributesObject[condition.attribute].type,
+              true
+            ).map((op) => (
               <SelectItem key={op.value} value={op.value}>
                 {op.label}
               </SelectItem>
