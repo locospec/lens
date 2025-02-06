@@ -6,26 +6,36 @@ const FiltersExample = () => {
     f_name: {
       label: "First Name",
       type: "string",
+      isNullable: false,
     },
     l_name: {
       label: "Last Name",
       type: "string",
     },
+    pan: {
+      label: "PAN",
+      type: "string",
+      isNullable: false,
+    },
     date_of_birth: {
       label: "DOB",
       type: "date",
+      isNullable: false,
     },
     age: {
       label: "Age",
       type: "number",
+      isNullable: false,
     },
     category: {
       label: "Category",
       type: "enum",
+      isNullable: false,
     },
     availability: {
       label: "Availablity",
       type: "boolean",
+      isNullable: false,
     },
   };
 

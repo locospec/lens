@@ -8,9 +8,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/base/components/ui/select";
-import { Input } from "@/base/components/ui/input";
 import { useFilterContext } from "./context/FilterContext";
 import { returnOperators } from "./constants/ConditionOperators";
+import TextInput from "./inputs/TextInput";
 
 export interface ConditionProps {
   condition: Condition;
@@ -35,10 +35,20 @@ const ConditionComponent: React.FC<ConditionProps> = ({
     [onUpdate, path]
   );
 
+  const handleValueChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) =>
+      onUpdate(path, "value", e.target.value),
+    [onUpdate, path]
+  );
+
   const selectedAttribute = condition.attribute
     ? attributesObject[condition.attribute]
     : null;
   const attributeType = selectedAttribute?.type;
+  const isNullable =
+    selectedAttribute?.isNullable === undefined
+      ? true
+      : selectedAttribute?.isNullable;
 
   return (
     <div className="le-flex le-gap-2 le-filter-condition le-items-center">
@@ -56,10 +66,7 @@ const ConditionComponent: React.FC<ConditionProps> = ({
             <SelectValue placeholder={"Select operator"} />
           </SelectTrigger>
           <SelectContent>
-            {returnOperators(
-              attributesObject[condition.attribute].type,
-              true
-            ).map((op) => (
+            {returnOperators(attributeType, isNullable).map((op) => (
               <SelectItem key={op.value} value={op.value}>
                 {op.label}
               </SelectItem>
@@ -67,13 +74,15 @@ const ConditionComponent: React.FC<ConditionProps> = ({
           </SelectContent>
         </Select>
       )}
-      {condition?.op && !["isNull", "isNotNull"].includes(condition?.op) && (
-        <Input
-          placeholder="Value"
-          value={String(condition.value || "")}
-          onChange={(e) => onUpdate(path, "value", e.target.value)}
-        />
-      )}
+      {condition?.op &&
+        !["isNull", "isNotNull"].includes(condition?.op) &&
+        attributeType !== "boolean" && (
+          <TextInput
+            placeholder={selectedAttribute?.label}
+            value={condition?.value as string}
+            onUpdateCallback={handleValueChange}
+          />
+        )}
     </div>
   );
 };
