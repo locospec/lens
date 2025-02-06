@@ -1,6 +1,6 @@
 import React from "react";
 import { Trash2 } from "lucide-react";
-import { AttributeOption, FilterGroup } from "./types";
+import { FilterGroup } from "./types";
 import Condition from "./Condition";
 import { OPDisplay } from "./OpSelector";
 import "./FilterBuilder.css";
@@ -17,7 +17,6 @@ export interface FilterGroupProps {
   onAddGroup: (path: number[]) => void;
   onRemove: (path: number[]) => void;
   onUpdate: (path: number[], field: string, value: any) => void;
-  attributes: AttributeOption[];
 }
 
 const FilterGroupComponent: React.FC<FilterGroupProps> = ({
@@ -29,7 +28,6 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
   onAddGroup,
   onRemove,
   onUpdate,
-  attributes,
 }) => {
   const canAddGroup = currentDepth < maxDepth;
 
@@ -47,7 +45,6 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
         <div className="le-space-y-2 le-border-gray-200 le-w-full">
           {group.conditions.map((condition, index) => {
             const isFilterGroup = "conditions" in condition;
-
             return (
               <div
                 key={index}
@@ -71,14 +68,12 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
                     onAddGroup={onAddGroup}
                     onRemove={onRemove}
                     onUpdate={onUpdate}
-                    attributes={attributes}
                   />
                 ) : (
                   <Condition
                     condition={condition}
                     path={[...path, index]}
                     onUpdate={onUpdate}
-                    attributeOptions={attributes}
                   />
                 )}
                 <Button
