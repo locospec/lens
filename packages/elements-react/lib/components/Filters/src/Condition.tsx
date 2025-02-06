@@ -1,16 +1,17 @@
 import React, { useCallback } from "react";
 import { Condition } from "./types";
 import Combobox from "@/base/components/ui/combobox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/base/components/ui/select";
+// import {
+//   Select,
+//   SelectContent,
+//   SelectItem,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/base/components/ui/select";
 import { useFilterContext } from "./context/FilterContext";
-import { returnOperators } from "./constants/ConditionOperators";
+// import { returnOperators } from "./constants/ConditionOperators";
 import TextInput from "./inputs/TextInput";
+import OperatorsSelector from "./OperatorsSelector";
 
 export interface ConditionProps {
   condition: Condition;
@@ -45,10 +46,6 @@ const ConditionComponent: React.FC<ConditionProps> = ({
     ? attributesObject[condition.attribute]
     : null;
   const attributeType = selectedAttribute?.type;
-  const isNullable =
-    selectedAttribute?.isNullable === undefined
-      ? true
-      : selectedAttribute?.isNullable;
 
   return (
     <div className="le-flex le-gap-2 le-filter-condition le-items-center">
@@ -57,7 +54,7 @@ const ConditionComponent: React.FC<ConditionProps> = ({
         defaultValue={condition.attribute}
         callback={handleAttributeChange}
       />
-      {attributeType && (
+      {/* {attributeType && (
         <Select
           defaultValue={condition.op}
           onValueChange={handleOperatorChange}
@@ -73,6 +70,14 @@ const ConditionComponent: React.FC<ConditionProps> = ({
             ))}
           </SelectContent>
         </Select>
+      )} */}
+      {attributeType && (
+        <OperatorsSelector
+          selectedAttribute={selectedAttribute}
+          op={condition.op}
+          handleOperatorChange={handleOperatorChange}
+          path={path}
+        />
       )}
       {condition?.op &&
         !["isNull", "isNotNull"].includes(condition?.op) &&
