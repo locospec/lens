@@ -11,6 +11,7 @@ interface FilterContextType {
   variant: FilterVariants;
   attributesArray: AttributeOptionsArrayType;
   attributesObject: AttributeDefinitionMapType;
+  updateCondition: (path: number[], field: string, value: any) => void;
 }
 
 interface FilterBuilderProps {

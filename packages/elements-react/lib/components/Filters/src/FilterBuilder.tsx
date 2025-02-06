@@ -126,6 +126,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
         variant={variant}
         attributesArray={attributesArray}
         attributesObject={attributes}
+        updateCondition={updateCondition}
       >
         <div className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border">
           <label>{label}</label>
