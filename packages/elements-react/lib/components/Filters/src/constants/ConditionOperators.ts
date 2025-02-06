@@ -26,8 +26,8 @@ export const DATE_OPERATORS: OperatorsList = [
 ];
 
 export const BOOLEAN_OPERATORS: OperatorsList = [
-  { label: "Equals", value: "eq" },
-  { label: "Not equals", value: "neq" },
+  { label: "is True", value: "eq" },
+  { label: "is False", value: "neq" },
 ];
 
 export const NUMBER_OPERATORS: OperatorsList = [
