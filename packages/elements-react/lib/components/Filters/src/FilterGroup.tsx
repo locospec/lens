@@ -15,7 +15,7 @@ export interface FilterGroupProps {
   onAddCondition: (path: number[]) => void;
   onAddGroup: (path: number[]) => void;
   onRemove: (path: number[]) => void;
-  onUpdate: (path: number[], field: string, value: any) => void;
+  onUpdate: (path: number[], field: string, value: string) => void;
 }
 
 const FilterGroupComponent: React.FC<FilterGroupProps> = ({
