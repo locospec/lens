@@ -94,7 +94,6 @@ export function EnumInput({
   );
 
   React.useEffect(() => {
-    console.log(`USE EFFECT OF ${condition.attribute + JSON.stringify(path)}`);
     setDependantQuery(createQuery(samegroup));
     callback && callback("");
     setValues([]);
