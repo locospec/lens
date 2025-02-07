@@ -183,7 +183,6 @@ export function makeServer() {
         const cursor = Number(request.queryParams.cursor) || 0;
         const pageSize = 20;
 
-        console.log(">>>> MAKING REQUEST FOR >>>>", params);
         if (resource === "auction-data") {
           let completeTestData: any = [];
           const keys =
@@ -196,7 +195,6 @@ export function makeServer() {
               )
               .join("_") || "";
 
-          console.log(">>>>> keys", (keys as any).replaceAll("_", ""));
           completeTestData = Array.from({ length: 200 }, (_, index) => ({
             label: dataSource + keys + " " + index,
             value: dataSource + keys + "_" + index,
