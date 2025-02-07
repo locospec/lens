@@ -175,24 +175,31 @@ export function makeServer() {
         return new Response(404, {}, { message: "Resource not found" });
       });
 
-      this.get("/:resource/query", (_, request) => {
+      this.get("/:resource/query/:source", (_, request) => {
         const resource = request.params.resource;
+        const dataSource = request.params.source;
+
         const params = request.queryParams;
         const cursor = Number(request.queryParams.cursor) || 0;
         const pageSize = 20;
 
-        console.log(">>>> all queryParams", params);
-
+        console.log(">>>> MAKING REQUEST FOR >>>>", params);
         if (resource === "auction-data") {
-          const completeTestData = Array.from({ length: 200 }, (_, index) => ({
-            id: index + 1,
-            state: `State ${index + 1}`,
-            district: `District ${index + 1}`,
-            cities: `City ${index + 1}`,
-            current_users: Math.floor(Math.random() * 1000), // Random number of users
-            locality: `Locality ${index + 1}`,
-            properties: `Property ${index + 1}`,
-            "state.id": `state_${index + 1}`,
+          let completeTestData: any = [];
+          const keys =
+            Object.keys(params)
+              .filter((k) => ["state", "district", "city"].includes(k))
+              .map((k) =>
+                (params[k] as any)
+                  ?.replaceAll("state", "s")
+                  ?.replaceAll("district", "d")
+              )
+              .join("_") || "";
+
+          console.log(">>>>> keys", (keys as any).replaceAll("_", ""));
+          completeTestData = Array.from({ length: 200 }, (_, index) => ({
+            label: dataSource + keys + " " + index,
+            value: dataSource + keys + "_" + index,
           }));
 
           const paginatedTestData = completeTestData.slice(

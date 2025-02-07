@@ -59,6 +59,7 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
                 />
                 {isFilterGroup ? (
                   <FilterGroupComponent
+                    key={JSON.stringify(path)}
                     group={condition as FilterGroup}
                     path={[...path, index]}
                     currentDepth={currentDepth + 1}
@@ -70,6 +71,7 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
                   />
                 ) : (
                   <Condition
+                    key={JSON.stringify(path)}
                     condition={condition}
                     path={[...path, index]}
                     onUpdate={onUpdate}

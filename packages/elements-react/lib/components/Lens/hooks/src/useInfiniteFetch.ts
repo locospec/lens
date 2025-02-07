@@ -7,6 +7,7 @@ export interface UseInfiniteFetchParams {
   dataEndpoint?: string;
   keepPreviousData?: any;
   dataCallback?: any;
+  refreshDep?: any[];
 }
 
 const useInfiniteFetch = ({
@@ -15,6 +16,7 @@ const useInfiniteFetch = ({
   dataEndpoint,
   keepPreviousData,
   dataCallback,
+  refreshDep,
 }: UseInfiniteFetchParams) => {
   if (!dataCallback && !dataEndpoint && !queryKey) {
     throw new Error(
@@ -34,22 +36,23 @@ const useInfiniteFetch = ({
     return responseJson;
   };
 
-  const { data, fetchNextPage, isFetching, hasNextPage } = useInfiniteQuery({
-    queryKey: [queryKey, globalFilter],
-    queryFn: dataCallback ? dataCallback : fetchDataFunction,
-    initialPageParam: null,
-    getNextPageParam: (lastPage: any) => lastPage.next_cursor,
-    getPreviousPageParam: (firstPage) => firstPage.prev_cursor,
-    refetchOnWindowFocus: false,
-    placeholderData: keepPreviousData,
-  });
+  const { data, fetchNextPage, isFetching, hasNextPage, refetch } =
+    useInfiniteQuery({
+      queryKey: refreshDep ? refreshDep : [queryKey, globalFilter],
+      queryFn: dataCallback ? dataCallback : fetchDataFunction,
+      initialPageParam: null,
+      getNextPageParam: (lastPage: any) => lastPage.next_cursor,
+      getPreviousPageParam: (firstPage) => firstPage.prev_cursor,
+      refetchOnWindowFocus: false,
+      placeholderData: keepPreviousData,
+    });
 
   const flatData = useMemo(
     () => data?.pages?.flatMap((page) => page.data) ?? [],
     [data]
   );
 
-  return { flatData, fetchNextPage, isFetching, hasNextPage };
+  return { flatData, fetchNextPage, isFetching, hasNextPage, refetch };
 };
 
 useInfiniteFetch.displayName = "useInfiniteFetch";

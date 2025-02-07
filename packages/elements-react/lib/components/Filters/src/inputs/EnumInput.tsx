@@ -26,6 +26,8 @@ import {
   useFetchMoreOnScroll,
   useInfiniteFetch,
 } from "@/components/Lens/hooks";
+import getSameLevelConditions from "../utils/getSameLevelConditions";
+import createQuery from "../utils/createQuery";
 
 export interface OptionInterface {
   label: string;
@@ -35,47 +37,75 @@ export interface OptionInterface {
 export interface ComboBoxInterface {
   placeholder?: string;
   emptyLabel?: string;
-  // options: OptionInterface[];
   callback?: (values: string) => void;
   defaultValues?: string[];
   selectedAttribute: AttributeDefinitionType;
   condition: Condition;
+  path: number[];
+  resetInput?: string;
 }
 
 export function EnumInput({
   emptyLabel = "No options found...",
   placeholder = "Select an option....",
-  // options,
   callback,
   defaultValues,
   selectedAttribute,
   condition,
+  path,
+  resetInput,
 }: ComboBoxInterface) {
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState<string[]>(defaultValues || []);
-  const { queryEndpoint } = useFilterContext();
+  const { queryEndpoint, filter } = useFilterContext();
   const containerRef = React.useRef<HTMLDivElement>(null);
+  const dependsOnArray = selectedAttribute?.dependsOn || [];
+
+  const samegroup = getSameLevelConditions({
+    filter: filter,
+    path: path,
+    dependsOnArray: dependsOnArray,
+  });
+
+  const [dependentQuery, setDependantQuery] = React.useState(
+    createQuery(samegroup)
+  );
 
   const {
     flatData: options,
     fetchNextPage,
     isFetching,
     hasNextPage,
+    refetch,
   } = useInfiniteFetch({
-    queryKey: `auction-data-${condition.attribute}`,
-    globalFilter: "",
+    queryKey: `auction-data-${condition.attribute}-${JSON.stringify(path)}`,
+    globalFilter: `&${dependentQuery}`,
     dataEndpoint: `${queryEndpoint}/${condition.attribute}`,
     keepPreviousData: true,
     dataCallback: null,
+    refreshDep: [`auction-data-${condition.attribute}-${JSON.stringify(path)}`],
   });
-  // console.log(`> Rendering in ${condition.attribute} >>`, options);
 
-  // const { fetchMoreOnBottomReached } = useFetchMoreOnScroll(
-  //   containerRef,
-  //   fetchNextPage,
-  //   isFetching,
-  //   hasNextPage
-  // );
+  const { fetchMoreOnBottomReached } = useFetchMoreOnScroll(
+    containerRef,
+    fetchNextPage,
+    isFetching,
+    hasNextPage
+  );
+
+  React.useEffect(() => {
+    console.log(`USE EFFECT OF ${condition.attribute + JSON.stringify(path)}`);
+    setDependantQuery(createQuery(samegroup));
+    callback && callback("");
+    setValues([]);
+    setTimeout(() => {
+      refetch();
+    }, 200);
+  }, [JSON.stringify(samegroup)]);
+
+  React.useEffect(() => {
+    setValues([]);
+  }, [resetInput]);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -89,7 +119,7 @@ export function EnumInput({
           }
         >
           <div className="le-max-w-[150px] le-truncate">
-            {values
+            {values && values.length > 0
               ? options
                   .filter((option) => values.includes(option.value))
                   .map((e) => e.label)
@@ -108,9 +138,9 @@ export function EnumInput({
           <CommandList
             ref={containerRef}
             key={condition.attribute}
-            // onScroll={(e) =>
-            //   fetchMoreOnBottomReached(e.target as HTMLDivElement)
-            // }
+            onScroll={(e) =>
+              fetchMoreOnBottomReached(e.target as HTMLDivElement)
+            }
           >
             <CommandEmpty>{emptyLabel}</CommandEmpty>
             <CommandGroup>

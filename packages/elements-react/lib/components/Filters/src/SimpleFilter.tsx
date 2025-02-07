@@ -1,0 +1,136 @@
+import React, { useState, useCallback } from "react";
+import type { FilterGroup } from "./types";
+import { JsonHighlighter } from "../../JsonHighlighter";
+import { FilterProvider } from "./context/FilterContext";
+import { FilterBuilderProps } from "./interfaces/src/FilterInterface";
+import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "./FilterBuilder.css";
+import EnumInput from "./inputs/EnumInput";
+
+const queryClient = new QueryClient();
+
+const SimpleFilter: React.FC<FilterBuilderProps> = ({
+  showFilterJSON = true,
+  size = "1",
+  variant = "surface",
+  attributes,
+  queryEndpoint,
+}) => {
+  const filterContainerRef = React.useRef<HTMLDivElement>(null);
+  const attributesArray: any = Object.keys(attributes)
+    .filter((a) => attributes[a].type === "enum")
+    .map((key) => {
+      return { value: key, ...attributes[key] };
+    });
+  const [filter, setFilter] = useState<FilterGroup>({
+    op: "and",
+    conditions: attributesArray.map((obj: any) => {
+      return { attribute: obj.value, op: "eq", value: "" };
+    }),
+  });
+
+  const [resetState, setResetState] = useState(JSON.stringify(new Date()));
+
+  const clearAll = () => {
+    attributesArray.forEach((_: any, index: any) => {
+      updateCondition([index], "value", "");
+    });
+    setResetState(JSON.stringify(new Date()));
+  };
+
+  const updateCondition = useCallback(
+    (path: number[], field: string, value: any) => {
+      setFilter((current) => {
+        const newFilter = { ...current };
+
+        // If path is empty, we're updating the root group
+        if (path.length === 0) {
+          return {
+            ...newFilter,
+            [field]: value,
+          };
+        }
+
+        // For nested updates
+        let target = newFilter;
+
+        // Navigate to the parent
+        for (let i = 0; i < path.length - 1; i++) {
+          target = target.conditions[path[i]] as FilterGroup;
+        }
+
+        // Update the specific item
+        const lastIndex = path[path.length - 1];
+        const item = target.conditions[lastIndex];
+
+        if ("conditions" in item) {
+          // Updating a group
+          target.conditions[lastIndex] = {
+            ...item,
+            [field]: value,
+          };
+        } else {
+          // Updating a condition
+          target.conditions[lastIndex] = {
+            ...item,
+            [field]: value,
+          };
+        }
+
+        return newFilter;
+      });
+    },
+    []
+  );
+
+  return (
+    <ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <FilterProvider
+          size={size}
+          variant={variant}
+          attributesArray={attributesArray}
+          attributesObject={attributes}
+          updateCondition={updateCondition}
+          filterContainerRef={filterContainerRef}
+          queryEndpoint={queryEndpoint}
+          filter={filter}
+        >
+          <div
+            className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border"
+            ref={filterContainerRef}
+          >
+            <div className="le-w-full le-flex le-justify-between">
+              <label>{"Simple Filters"}</label>
+              <label onClick={clearAll}>Clear All</label>
+            </div>
+
+            <div className="le-flex le-justify-between">
+              {attributesArray.map((attribute: any, index: number) => {
+                if (attribute.type === "enum") {
+                  return (
+                    <EnumInput
+                      key={JSON.stringify([index])}
+                      callback={(v) => {
+                        updateCondition([index], "value", v);
+                      }}
+                      selectedAttribute={attribute}
+                      condition={filter.conditions[index] as any}
+                      path={[index]}
+                      placeholder={`Select ${attribute.label}`}
+                      resetInput={resetState}
+                    />
+                  );
+                }
+              })}
+            </div>
+            {showFilterJSON && <JsonHighlighter json={filter} />}
+          </div>
+        </FilterProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
+  );
+};
+
+export default SimpleFilter;
