@@ -65,8 +65,14 @@ const ValueInputRenderer = ({
           { label: "Three", value: "Three" },
           { label: "Four", value: "Four" },
           { label: "Five", value: "Five" },
+          { label: "Six", value: "Six" },
+          { label: "Seven", value: "Seven" },
+          { label: "Eight", value: "Eight" },
+          { label: "Nine", value: "Nine" },
+          { label: "Ten", value: "Ten" },
         ]}
         callback={handleValueChange}
+        selectedAttribute={selectedAttribute}
       />
     );
   }

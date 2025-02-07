@@ -4,6 +4,7 @@ export interface AttributeDefinitionType {
   label: string;
   type: AttributeTypes;
   isNullable?: boolean;
+  dependsOn?: string[];
 }
 
 export type AttributeDefinitionMapType = {

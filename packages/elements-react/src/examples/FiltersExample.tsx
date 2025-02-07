@@ -1,7 +1,16 @@
+import React from "react";
 import { FilterBuilder } from "../../lib/components/Filters";
 import { AttributeDefinitionMapType } from "../../lib/components/Filters/src/interfaces";
+import { makeServer } from "../mocks/mirageServer";
 
 const FiltersExample = () => {
+  React.useEffect(() => {
+    makeServer();
+    return () => {
+      makeServer().shutdown();
+    };
+  }, []);
+
   const attributes: AttributeDefinitionMapType = {
     f_name: {
       label: "First Name",
@@ -32,10 +41,32 @@ const FiltersExample = () => {
       type: "enum",
       isNullable: false,
     },
+    state: {
+      label: "State",
+      type: "enum",
+      isNullable: false,
+    },
+    district: {
+      label: "District",
+      type: "enum",
+      isNullable: false,
+      dependsOn: ["state"],
+    },
+    city: {
+      label: "City",
+      type: "enum",
+      isNullable: false,
+      dependsOn: ["state", "district"],
+    },
+    locality: {
+      label: "Locality",
+      type: "enum",
+      isNullable: false,
+      dependsOn: ["state", "district", "city"],
+    },
     availability: {
       label: "Availablity",
       type: "boolean",
-      isNullable: false,
     },
   };
 
@@ -47,6 +78,7 @@ const FiltersExample = () => {
         size="2"
         maxDepth={2}
         attributes={attributes}
+        queryEndpoint={"/api/data-bench/auction-data/query"}
         // showFilterJSON={false}
       />
     </div>
