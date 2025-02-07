@@ -1,5 +1,6 @@
 "use client";
 
+import { Condition } from "../types";
 import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 
@@ -21,6 +22,10 @@ import {
 } from "@/base/components/ui/popover";
 import { useFilterContext } from "../context/FilterContext";
 import { AttributeDefinitionType } from "../interfaces";
+import {
+  useFetchMoreOnScroll,
+  useInfiniteFetch,
+} from "@/components/Lens/hooks";
 
 export interface OptionInterface {
   label: string;
@@ -30,50 +35,47 @@ export interface OptionInterface {
 export interface ComboBoxInterface {
   placeholder?: string;
   emptyLabel?: string;
-  options: OptionInterface[];
+  // options: OptionInterface[];
   callback?: (values: string) => void;
   defaultValues?: string[];
   selectedAttribute: AttributeDefinitionType;
+  condition: Condition;
 }
 
 export function EnumInput({
   emptyLabel = "No options found...",
   placeholder = "Select an option....",
-  options,
+  // options,
   callback,
   defaultValues,
   selectedAttribute,
+  condition,
 }: ComboBoxInterface) {
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState<string[]>(defaultValues || []);
   const { queryEndpoint } = useFilterContext();
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
-  const queryCallback = async (params: any) => {
-    console.log(">>>>> params in queryCallback >> ", params);
-    const values = Object.keys(params)
-      .map((key: string) => `${key}=${params[key]}`)
-      .join("&");
-    const response = await fetch(`${queryEndpoint}?${values}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+  const {
+    flatData: options,
+    fetchNextPage,
+    isFetching,
+    hasNextPage,
+  } = useInfiniteFetch({
+    queryKey: `auction-data-${condition.attribute}`,
+    globalFilter: "",
+    dataEndpoint: `${queryEndpoint}/${condition.attribute}`,
+    keepPreviousData: true,
+    dataCallback: null,
+  });
+  // console.log(`> Rendering in ${condition.attribute} >>`, options);
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch table configuration.");
-    }
-
-    const vals = await response.json();
-
-    console.log(">>>>>>> RESPONSE FROM QUERY", vals);
-    return vals;
-  };
-
-  React.useEffect(() => {
-    queryCallback({ state: "one" });
-    console.log("selectedAttribute in ENUM INPUT", selectedAttribute);
-  }, [selectedAttribute]);
+  // const { fetchMoreOnBottomReached } = useFetchMoreOnScroll(
+  //   containerRef,
+  //   fetchNextPage,
+  //   isFetching,
+  //   hasNextPage
+  // );
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -103,7 +105,13 @@ export function EnumInput({
         <Command>
           <CommandInput placeholder={placeholder} />
           <CommandSeparator />
-          <CommandList>
+          <CommandList
+            ref={containerRef}
+            key={condition.attribute}
+            // onScroll={(e) =>
+            //   fetchMoreOnBottomReached(e.target as HTMLDivElement)
+            // }
+          >
             <CommandEmpty>{emptyLabel}</CommandEmpty>
             <CommandGroup>
               {options.map((option) => {

@@ -59,20 +59,10 @@ const ValueInputRenderer = ({
   if (selectedAttribute.type === "enum") {
     return (
       <EnumInput
-        options={[
-          { label: "One", value: "One" },
-          { label: "Two", value: "Two" },
-          { label: "Three", value: "Three" },
-          { label: "Four", value: "Four" },
-          { label: "Five", value: "Five" },
-          { label: "Six", value: "Six" },
-          { label: "Seven", value: "Seven" },
-          { label: "Eight", value: "Eight" },
-          { label: "Nine", value: "Nine" },
-          { label: "Ten", value: "Ten" },
-        ]}
+        key={condition.attribute}
         callback={handleValueChange}
         selectedAttribute={selectedAttribute}
+        condition={condition}
       />
     );
   }
