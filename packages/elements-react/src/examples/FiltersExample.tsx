@@ -70,31 +70,31 @@ const FiltersExample = () => {
     },
   };
 
-  const attributes2: AttributeDefinitionMapType = {
-    state: {
-      label: "State",
-      type: "enum",
-      isNullable: false,
-    },
-    district: {
-      label: "District",
-      type: "enum",
-      isNullable: false,
-      dependsOn: ["state"],
-    },
-    city: {
-      label: "City",
-      type: "enum",
-      isNullable: false,
-      dependsOn: ["state", "district"],
-    },
-    locality: {
-      label: "Locality",
-      type: "enum",
-      isNullable: false,
-      dependsOn: ["state", "district", "city"],
-    },
-  };
+  // const attributes2: AttributeDefinitionMapType = {
+  //   state: {
+  //     label: "State",
+  //     type: "enum",
+  //     isNullable: false,
+  //   },
+  //   district: {
+  //     label: "District",
+  //     type: "enum",
+  //     isNullable: false,
+  //     dependsOn: ["state"],
+  //   },
+  //   city: {
+  //     label: "City",
+  //     type: "enum",
+  //     isNullable: false,
+  //     dependsOn: ["state", "district"],
+  //   },
+  //   locality: {
+  //     label: "Locality",
+  //     type: "enum",
+  //     isNullable: false,
+  //     dependsOn: ["state", "district", "city"],
+  //   },
+  // };
 
   return (
     <div className="le-w-11/12 le-mt-10 le-mx-auto le-flex le-flex-col le-gap-y-10">
@@ -107,14 +107,14 @@ const FiltersExample = () => {
         queryEndpoint={"/api/data-bench/auction-data/query"}
         // showFilterJSON={false}
       />
-      <SimpleFilter
+      {/* <SimpleFilter
         label={"Filters surface 1"}
         variant="classic"
         size="2"
         maxDepth={2}
-        attributes={attributes}
+        attributes={attributes2}
         queryEndpoint={"/api/data-bench/auction-data/query"}
-      />
+      /> */}
     </div>
   );
 };
