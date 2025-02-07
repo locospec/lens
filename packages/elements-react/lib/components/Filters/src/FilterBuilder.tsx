@@ -8,6 +8,7 @@ import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import useFilterFunctions from "./hooks/useFilterFunctions";
 import "./FilterBuilder.css";
+import { AttributeOptionsArrayType } from "./interfaces";
 
 const queryClient = new QueryClient();
 
@@ -25,7 +26,9 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
     conditions: [],
   });
   const filterContainerRef = React.useRef<HTMLDivElement>(null);
-  const attributesArray: any = Object.keys(attributes).map((key) => {
+  const attributesArray: AttributeOptionsArrayType = Object.keys(
+    attributes
+  ).map((key) => {
     return { value: key, ...attributes[key] };
   });
 
