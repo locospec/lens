@@ -1,3 +1,4 @@
+import { FilterGroup } from "../../types";
 import {
   AttributeDefinitionMapType,
   AttributeOptionsArrayType,
@@ -14,6 +15,7 @@ interface FilterContextType {
   updateCondition: (path: number[], field: string, value: any) => void;
   filterContainerRef?: any;
   queryEndpoint: string;
+  filter: FilterGroup;
 }
 
 interface FilterBuilderProps {
