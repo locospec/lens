@@ -1,11 +1,10 @@
 import React from "react";
-import { Trash2 } from "lucide-react";
 import { FilterGroup } from "./types";
 import Condition from "./Condition";
 import { OPDisplay } from "./OpSelector";
 import AddButtonsTray from "./AddButtonsTray";
 import { cn } from "@/base/lib/utils";
-import { Button } from "@/base/components/ui/button";
+import RemoveCTA from "./RemoveCTA";
 
 export interface FilterGroupProps {
   group: FilterGroup;
@@ -77,21 +76,10 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
                     onUpdate={onUpdate}
                   />
                 )}
-                <Button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onRemove([...path, index]);
-                  }}
-                  className={isFilterGroup ? "le-self-end" : "le-self-center"}
-                  size={"icon"}
-                  variant={isFilterGroup ? "link" : "outline"}
-                >
-                  {isFilterGroup ? (
-                    <label className="le-text-sm">Clear</label>
-                  ) : (
-                    <Trash2 size={14} />
-                  )}
-                </Button>
+                <RemoveCTA
+                  onRemoveCallback={() => onRemove([...path, index])}
+                  isFilterGroup={isFilterGroup}
+                />
               </div>
             );
           })}
