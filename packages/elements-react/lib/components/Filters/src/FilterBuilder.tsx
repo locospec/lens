@@ -5,7 +5,10 @@ import { JsonHighlighter } from "../../JsonHighlighter";
 import { FilterProvider } from "./context/FilterContext";
 import { FilterBuilderProps } from "./interfaces/src/FilterInterface";
 import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./FilterBuilder.css";
+
+const queryClient = new QueryClient();
 
 const FilterBuilder: React.FC<FilterBuilderProps> = ({
   maxDepth = 2,
@@ -123,33 +126,36 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
 
   return (
     <ThemeProvider>
-      <FilterProvider
-        size={size}
-        variant={variant}
-        attributesArray={attributesArray}
-        attributesObject={attributes}
-        updateCondition={updateCondition}
-        filterContainerRef={filterContainerRef}
-        queryEndpoint={queryEndpoint}
-      >
-        <div
-          className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border"
-          ref={filterContainerRef}
+      <QueryClientProvider client={queryClient}>
+        <FilterProvider
+          size={size}
+          variant={variant}
+          attributesArray={attributesArray}
+          attributesObject={attributes}
+          updateCondition={updateCondition}
+          filterContainerRef={filterContainerRef}
+          queryEndpoint={queryEndpoint}
+          filter={filter}
         >
-          <label>{label}</label>
-          <FilterGroupComponent
-            group={filter}
-            path={[]}
-            currentDepth={0}
-            maxDepth={maxDepth}
-            onAddCondition={addCondition}
-            onAddGroup={addGroup}
-            onRemove={removeItem}
-            onUpdate={updateCondition}
-          />
-          {showFilterJSON && <JsonHighlighter json={filter} />}
-        </div>
-      </FilterProvider>
+          <div
+            className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border"
+            ref={filterContainerRef}
+          >
+            <label>{label}</label>
+            <FilterGroupComponent
+              group={filter}
+              path={[]}
+              currentDepth={0}
+              maxDepth={maxDepth}
+              onAddCondition={addCondition}
+              onAddGroup={addGroup}
+              onRemove={removeItem}
+              onUpdate={updateCondition}
+            />
+            {showFilterJSON && <JsonHighlighter json={filter} />}
+          </div>
+        </FilterProvider>
+      </QueryClientProvider>
     </ThemeProvider>
   );
 };
