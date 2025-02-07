@@ -59,10 +59,12 @@ const ValueInputRenderer = ({
   if (selectedAttribute.type === "enum") {
     return (
       <EnumInput
-        key={condition.attribute}
+        key={condition.attribute + "_" + JSON.stringify(path)}
         callback={handleValueChange}
         selectedAttribute={selectedAttribute}
         condition={condition}
+        path={path}
+        placeholder={`Select ${selectedAttribute.label}`}
       />
     );
   }

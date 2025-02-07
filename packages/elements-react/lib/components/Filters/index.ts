@@ -12,3 +12,5 @@ export type {
   FilterGroup,
   OperatorOption,
 } from "./src/types";
+
+export { default as SimpleFilter } from "./src/SimpleFilter";

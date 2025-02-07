@@ -4,6 +4,7 @@ import Combobox from "@/base/components/ui/combobox";
 import { useFilterContext } from "./context/FilterContext";
 import OperatorsSelector from "./OperatorsSelector";
 import ValueInputRenderer from "./inputs/ValueInputRenderer";
+import getSameLevelConditions from "./utils/getSameLevelConditions";
 
 export interface ConditionProps {
   condition: Condition;
@@ -16,7 +17,14 @@ const ConditionComponent: React.FC<ConditionProps> = ({
   path,
   onUpdate,
 }) => {
-  const { attributesArray, attributesObject } = useFilterContext();
+  const { attributesArray, attributesObject, filter } = useFilterContext();
+
+  const conditions = getSameLevelConditions({
+    filter,
+    path,
+    excludeSelf: true,
+  });
+  const already_used_conditions = conditions.map((c) => c.attribute);
 
   const handleAttributeChange = useCallback(
     (value: string) => onUpdate(path, "attribute", value),
@@ -30,7 +38,10 @@ const ConditionComponent: React.FC<ConditionProps> = ({
   return (
     <div className="le-flex le-gap-2 le-filter-condition">
       <Combobox
-        options={attributesArray}
+        options={attributesArray.filter(
+          (o) =>
+            !(already_used_conditions.includes(o.value) && o.type == "enum")
+        )}
         defaultValue={condition.attribute}
         callback={handleAttributeChange}
       />
