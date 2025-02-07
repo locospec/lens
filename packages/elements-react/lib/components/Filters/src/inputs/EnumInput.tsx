@@ -19,6 +19,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/base/components/ui/popover";
+import { useFilterContext } from "../context/FilterContext";
+import { AttributeDefinitionType } from "../interfaces";
 
 export interface OptionInterface {
   label: string;
@@ -31,6 +33,7 @@ export interface ComboBoxInterface {
   options: OptionInterface[];
   callback?: (values: string) => void;
   defaultValues?: string[];
+  selectedAttribute: AttributeDefinitionType;
 }
 
 export function EnumInput({
@@ -39,9 +42,38 @@ export function EnumInput({
   options,
   callback,
   defaultValues,
+  selectedAttribute,
 }: ComboBoxInterface) {
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState<string[]>(defaultValues || []);
+  const { queryEndpoint } = useFilterContext();
+
+  const queryCallback = async (params: any) => {
+    console.log(">>>>> params in queryCallback >> ", params);
+    const values = Object.keys(params)
+      .map((key: string) => `${key}=${params[key]}`)
+      .join("&");
+    const response = await fetch(`${queryEndpoint}?${values}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch table configuration.");
+    }
+
+    const vals = await response.json();
+
+    console.log(">>>>>>> RESPONSE FROM QUERY", vals);
+    return vals;
+  };
+
+  React.useEffect(() => {
+    queryCallback({ state: "one" });
+    console.log("selectedAttribute in ENUM INPUT", selectedAttribute);
+  }, [selectedAttribute]);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>

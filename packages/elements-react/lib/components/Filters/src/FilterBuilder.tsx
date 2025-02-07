@@ -14,6 +14,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
   variant = "surface",
   label = "Filters",
   attributes,
+  queryEndpoint,
 }) => {
   const [filter, setFilter] = useState<FilterGroup>({
     op: "and",
@@ -129,6 +130,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
         attributesObject={attributes}
         updateCondition={updateCondition}
         filterContainerRef={filterContainerRef}
+        queryEndpoint={queryEndpoint}
       >
         <div
           className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border"

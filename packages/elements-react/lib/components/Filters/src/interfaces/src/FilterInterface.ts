@@ -13,6 +13,7 @@ interface FilterContextType {
   attributesObject: AttributeDefinitionMapType;
   updateCondition: (path: number[], field: string, value: any) => void;
   filterContainerRef?: any;
+  queryEndpoint: string;
 }
 
 interface FilterBuilderProps {
@@ -22,6 +23,7 @@ interface FilterBuilderProps {
   variant?: FilterVariants;
   label?: string;
   attributes: AttributeDefinitionMapType;
+  queryEndpoint: string;
 }
 
 export type {
