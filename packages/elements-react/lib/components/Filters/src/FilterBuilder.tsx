@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import type { FilterGroup } from "./types";
 import FilterGroupComponent from "./FilterGroup";
 import { JsonHighlighter } from "../../JsonHighlighter";
@@ -6,8 +6,8 @@ import { FilterProvider } from "./context/FilterContext";
 import { FilterBuilderProps } from "./interfaces/src/FilterInterface";
 import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import "./FilterBuilder.css";
 import useFilterFunctions from "./hooks/useFilterFunctions";
+import "./FilterBuilder.css";
 
 const queryClient = new QueryClient();
 
