@@ -13,7 +13,12 @@ export interface LensBulkActionsbarInterface {
 const LensBulkActionsbar: React.FC<LensBulkActionsbarInterface> = ({
   show = false,
 }: LensBulkActionsbarInterface) => {
-  const { filtersConfiguration, queryEndpoint, setFilters } = useLensContext();
+  const {
+    filtersConfiguration,
+    queryEndpoint,
+    setFilters,
+    dataEndpointHeaders,
+  } = useLensContext();
 
   const handleSettingFilters = (filters: any) => {
     setFilters(filters);
@@ -34,6 +39,7 @@ const LensBulkActionsbar: React.FC<LensBulkActionsbarInterface> = ({
           queryEndpoint={queryEndpoint}
           showFilterJSON={false}
           setFiltersCallback={handleSettingFilters}
+          dataEndpointHeaders={dataEndpointHeaders}
         />
       )}
     </div>

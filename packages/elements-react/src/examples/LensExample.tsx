@@ -34,6 +34,7 @@ const LensExample = () => {
         size="3"
         showTopBar
         // showThemeSwitcher
+        dataEndpointHeaders={{ sdas: "Dasdasd" }}
       />
     </div>
   );
