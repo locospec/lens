@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import type { FilterGroup } from "./types";
+import type { FilterGroup } from "./interfaces/src/FilterInterface";
 import { JsonHighlighter } from "../../JsonHighlighter";
 import { FilterProvider } from "./context/FilterContext";
 import { FilterBuilderProps } from "./interfaces/src/FilterInterface";
