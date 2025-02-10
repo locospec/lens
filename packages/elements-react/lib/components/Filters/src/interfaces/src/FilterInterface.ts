@@ -28,6 +28,7 @@ interface FilterBuilderProps {
   queryEndpoint: string;
   setFiltersCallback?: any;
   defaultFiltersValue?: any;
+  showAdvancedOption?: boolean;
 }
 
 export interface Condition {

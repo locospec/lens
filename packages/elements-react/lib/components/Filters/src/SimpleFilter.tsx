@@ -20,6 +20,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
   queryEndpoint,
   setFiltersCallback,
   defaultFiltersValue,
+  showAdvancedOption = false,
 }) => {
   const filterContainerRef = React.useRef<HTMLDivElement>(null);
   const attributesArray: any = Object.keys(attributes)
@@ -112,12 +113,14 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
             >
               {label && <label>{label}</label>}
               <div className="le-flex le-gap-x-2">
-                <label
-                  className="hover:le-underline le-cursour-pointer"
-                  onClick={() => {}}
-                >
-                  Advanced
-                </label>
+                {showAdvancedOption && (
+                  <label
+                    className="hover:le-underline le-cursour-pointer"
+                    onClick={() => {}}
+                  >
+                    Advanced
+                  </label>
+                )}
                 <label
                   className="hover:le-underline le-cursour-pointer"
                   onClick={clearAll}
