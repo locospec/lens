@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Condition } from "./types";
+import type { Condition } from "./interfaces/src/FilterInterface";
 import Combobox from "@/base/components/ui/combobox";
 import { useFilterContext } from "./context/FilterContext";
 import OperatorsSelector from "./OperatorsSelector";

@@ -1,8 +1,8 @@
-import { FilterGroup } from "../../types";
 import {
   AttributeDefinitionMapType,
   AttributeOptionsArrayType,
 } from "./AttributesInterface";
+import { GroupOperator, Operator } from "./OperationsInterface";
 
 type FilterSizes = "1" | "2" | "3";
 type FilterVariants = "surface" | "soft" | "classic";
@@ -26,6 +26,22 @@ interface FilterBuilderProps {
   label?: string;
   attributes: AttributeDefinitionMapType;
   queryEndpoint: string;
+}
+
+export interface Condition {
+  attribute: string;
+  op?: Operator;
+  value?: string | number | boolean | null;
+}
+
+export interface FilterGroup {
+  op: GroupOperator;
+  conditions: (Condition | FilterGroup)[];
+}
+
+export interface OperatorOption {
+  label: string;
+  value: Operator | GroupOperator;
 }
 
 export type {

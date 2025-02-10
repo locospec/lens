@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useFilterContext } from "../context/FilterContext";
 import { AttributeDefinitionType } from "../interfaces";
-import { Condition } from "../types";
+import type { Condition } from "../interfaces/src/FilterInterface";
 import TextInput from "./TextInput";
 import { DatePicker } from "@/base/components/ui/datepicker";
 import EnumInput from "./EnumInput";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Condition } from "../types";
+import type { Condition } from "../interfaces/src/FilterInterface";
 import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 
