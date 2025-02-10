@@ -1,11 +1,12 @@
 import { splitAndCapitalize } from "../lib/components/utils/splitAndCapitalize";
 import "./App.css";
+import DataTableExample from "./examples/DataTableExample";
 import FiltersExample from "./examples/FiltersExample";
 import LensExample from "./examples/LensExample";
 import { BrowserRouter as Routes, Route } from "react-router-dom";
 
 function App() {
-  const components = ["lens", "filters"];
+  const components = ["lens", "filters", "table"];
 
   return (
     <main className="le-w-screen le-h-screen le-overflow-hidden">
@@ -33,6 +34,7 @@ function App() {
               <Route path="*" children={<></>} />
               <Route path="/lens" children={<LensExample />} />
               <Route path="/filters" children={<FiltersExample />} />
+              <Route path="/table" children={<DataTableExample />} />
             </Routes>
           </div>
         </div>
