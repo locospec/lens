@@ -111,7 +111,20 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
               )}
             >
               {label && <label>{label}</label>}
-              <label onClick={clearAll}>Clear All</label>
+              <div className="le-flex le-gap-x-2">
+                <label
+                  className="hover:le-underline le-cursour-pointer"
+                  onClick={() => {}}
+                >
+                  Advanced
+                </label>
+                <label
+                  className="hover:le-underline le-cursour-pointer"
+                  onClick={clearAll}
+                >
+                  Clear All
+                </label>
+              </div>
             </div>
 
             <div className="le-flex le-gap-2 le-flex-wrap">
