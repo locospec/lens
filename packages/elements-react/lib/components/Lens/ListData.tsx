@@ -129,7 +129,6 @@ export const ListData = ({
   useSyncSelection(selectedItems, rowSelection, setRowSelection, onSelect);
 
   React.useEffect(() => {
-    console.log(">>>>>> REFETCHING");
     refetch();
   }, [JSON.stringify(filters)]);
 
