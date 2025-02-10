@@ -3,7 +3,6 @@
 import type { Condition } from "../interfaces/src/FilterInterface";
 import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
-
 import { cn } from "@/base/lib/utils";
 import { Button } from "@/base/components/ui/button";
 import {
@@ -23,8 +22,8 @@ import {
 import { useFilterContext } from "../context/FilterContext";
 import { AttributeDefinitionType } from "../interfaces";
 import { useFetchMoreOnScroll } from "@/components/Lens/hooks";
-import { useInfiniteFetch } from "../hooks/useInfiniteFetch";
 import getSameLevelConditions from "../utils/getSameLevelConditions";
+import { useInfiniteFetch } from "@/hooks/index";
 
 export interface OptionInterface {
   label: string;
@@ -88,7 +87,6 @@ export function EnumInput({
     globalFilter: searchQuery,
     dataEndpoint: `${queryEndpoint}/${condition.attribute}`,
     keepPreviousData: true,
-    dataCallback: null,
     // refreshDep: [`auction-data-${condition.attribute}-${JSON.stringify(path)}`],
     body: dependentBody,
   });

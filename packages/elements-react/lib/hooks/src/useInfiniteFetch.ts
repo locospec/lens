@@ -1,15 +1,24 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
-import { useFilterContext } from "../context/FilterContext";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import type { InfiniteData } from "@tanstack/react-query";
+import type { keepPreviousData } from "@tanstack/react-query";
 
 export interface UseInfiniteFetchParams {
   queryKey?: string;
   globalFilter?: string;
   dataEndpoint?: string;
-  keepPreviousData?: any;
-  dataCallback?: any;
-  refreshDep?: any[];
-  body?: any;
+  keepPreviousData?:
+    | InfiniteData<any, unknown>
+    | typeof keepPreviousData
+    | boolean;
+  dataCallback?: ({
+    pageParam,
+  }: {
+    pageParam?: null | undefined;
+  }) => Promise<any>;
+  refreshDep?: (string | number | boolean)[];
+  body?: Record<string, any>;
+  context?: () => { dataEndpointHeaders?: Record<string, string> };
 }
 
 const useInfiniteFetch = ({
@@ -20,6 +29,7 @@ const useInfiniteFetch = ({
   dataCallback,
   refreshDep,
   body,
+  context,
 }: UseInfiniteFetchParams) => {
   if (!dataCallback && !dataEndpoint && !queryKey) {
     throw new Error(
@@ -27,7 +37,7 @@ const useInfiniteFetch = ({
     );
   }
 
-  const { dataEndpointHeaders = {} } = useFilterContext();
+  const { dataEndpointHeaders = {} } = context ? context() : {};
 
   const fetchDataFunction = async ({ pageParam = null }) => {
     const response = await fetch(`${dataEndpoint}`, {
@@ -59,7 +69,7 @@ const useInfiniteFetch = ({
       getNextPageParam: (lastPage: any) => lastPage.next_cursor,
       getPreviousPageParam: (firstPage) => firstPage.prev_cursor,
       refetchOnWindowFocus: false,
-      placeholderData: keepPreviousData,
+      placeholderData: keepPreviousData as InfiniteData<any, unknown>,
     });
 
   const flatData = useMemo(
