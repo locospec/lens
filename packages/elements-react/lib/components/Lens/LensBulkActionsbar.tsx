@@ -28,7 +28,7 @@ const LensBulkActionsbar: React.FC<LensBulkActionsbarInterface> = ({
     >
       {filtersConfiguration && queryEndpoint && (
         <SimpleFilter
-          label={"Aution Filters"}
+          label={"Auction Filters"}
           maxDepth={2}
           attributes={filtersConfiguration}
           queryEndpoint={queryEndpoint}
