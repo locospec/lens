@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import type { FilterGroup } from "./interfaces/src/FilterInterface";
+import type { Condition, FilterGroup } from "./interfaces/src/FilterInterface";
 import { JsonHighlighter } from "../../JsonHighlighter";
 import { FilterProvider } from "./context/FilterContext";
 import { FilterBuilderProps } from "./interfaces/src/FilterInterface";
@@ -18,6 +18,8 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
   variant = "surface",
   attributes,
   queryEndpoint,
+  setFiltersCallback,
+  defaultFiltersValue,
 }) => {
   const filterContainerRef = React.useRef<HTMLDivElement>(null);
   const attributesArray: any = Object.keys(attributes)
@@ -25,12 +27,16 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
     .map((key) => {
       return { value: key, ...attributes[key] };
     });
-  const [filter, setFilter] = useState<FilterGroup>({
-    op: "and",
-    conditions: attributesArray.map((obj: any) => {
-      return { attribute: obj.value, op: "eq", value: "" };
-    }),
-  });
+  const [filter, setFilter] = useState<FilterGroup>(
+    defaultFiltersValue
+      ? defaultFiltersValue
+      : {
+          op: "and",
+          conditions: attributesArray.map((obj: any) => {
+            return { attribute: obj.value, op: "eq", value: "" };
+          }),
+        }
+  );
 
   const [resetState, setResetState] = useState(JSON.stringify(new Date()));
 
@@ -46,7 +52,6 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
       setFilter((current) => {
         const newFilter = { ...current };
 
-        // If path is empty, we're updating the root group
         if (path.length === 0) {
           return {
             ...newFilter,
@@ -54,32 +59,28 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
           };
         }
 
-        // For nested updates
         let target = newFilter;
 
-        // Navigate to the parent
         for (let i = 0; i < path.length - 1; i++) {
           target = target.conditions[path[i]] as FilterGroup;
         }
 
-        // Update the specific item
         const lastIndex = path[path.length - 1];
         const item = target.conditions[lastIndex];
 
         if ("conditions" in item) {
-          // Updating a group
           target.conditions[lastIndex] = {
             ...item,
             [field]: value,
           };
         } else {
-          // Updating a condition
           target.conditions[lastIndex] = {
             ...item,
             [field]: value,
           };
         }
 
+        setFiltersCallback && setFiltersCallback(newFilter);
         return newFilter;
       });
     },
@@ -100,7 +101,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
           filter={filter}
         >
           <div
-            className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border"
+            className="twp le-lens-wrapper le-space-y-4 le-p-4 le-w-full"
             ref={filterContainerRef}
           >
             <div
@@ -113,15 +114,25 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
               <label onClick={clearAll}>Clear All</label>
             </div>
 
-            <div className="le-flex le-gap-x-2">
+            <div className="le-flex le-gap-2 le-flex-wrap">
               {attributesArray.map((attribute: any, index: number) => {
                 if (attribute.type === "enum") {
+                  const condition = filter.conditions[index] as Condition;
+
+                  const defaultValue =
+                    condition.value &&
+                    condition.value !== "" &&
+                    typeof condition.value === "string"
+                      ? condition.value.split(",")
+                      : undefined;
+
                   return (
                     <EnumInput
                       key={JSON.stringify([index])}
                       callback={(v) => {
                         updateCondition([index], "value", v);
                       }}
+                      defaultValues={defaultValue}
                       selectedAttribute={attribute}
                       condition={filter.conditions[index] as any}
                       path={[index]}
