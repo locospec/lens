@@ -19,7 +19,7 @@ const LensSample = () => {
 
   return (
     <Lens
-      selectionType={"multiple"}
+      // selectionType={"multiple"}
       configEndpoint="/api/data-bench/test-data/config"
       dataEndpoint="/api/data-bench/test-data/fetch"
       onSelect={(value) => {
