@@ -66,46 +66,106 @@ export function makeServer() {
                 minWidth: 80,
                 fixed: true,
               },
-              {
-                accessorKey: "state",
-                header: "State",
-                width: 100,
-                minWidth: 100,
-              },
-              {
-                accessorKey: "district",
-                header: "District",
-                width: 100,
-                minWidth: 100,
-                // fixed: true,
-              },
-              {
-                accessorKey: "cities",
-                header: "Cities",
-                width: 100,
-                minWidth: 100,
-                show: false,
-              },
-              {
-                accessorKey: "current_users",
-                header: "Current Users",
-                width: 100,
-                minWidth: 200,
-              },
-              {
-                accessorKey: "locality",
-                header: "Locality",
-                width: 100,
-                // minWidth: 100,
-              },
+              // {
+              //   accessorKey: "state",
+              //   header: "State",
+              //   width: 100,
+              //   minWidth: 100,
+              //   show: false,
+              // },
+              // {
+              //   accessorKey: "district",
+              //   header: "District",
+              //   width: 100,
+              //   minWidth: 100,
+              //   // fixed: true,
+              //   show: false,
+              // },
+              // {
+              //   accessorKey: "cities",
+              //   header: "Cities",
+              //   width: 100,
+              //   minWidth: 100,
+              //   show: false,
+              // },
+              // {
+              //   accessorKey: "current_users",
+              //   header: "Current Users",
+              //   width: 100,
+              //   minWidth: 200,
+              // },
+              // {
+              //   accessorKey: "locality",
+              //   header: "Locality",
+              //   width: 100,
+              //   // minWidth: 100,
+              // },
               {
                 accessorKey: "properties",
                 header: "Properties",
-                width: 100,
+                width: 700,
                 minWidth: 100,
                 align: "end",
               },
             ],
+            filters: {
+              f_name: {
+                label: "First Name",
+                type: "string",
+                isNullable: false,
+              },
+              l_name: {
+                label: "Last Name",
+                type: "string",
+              },
+              pan: {
+                label: "PAN",
+                type: "string",
+                isNullable: false,
+              },
+              date_of_birth: {
+                label: "DOB",
+                type: "date",
+                isNullable: false,
+              },
+              age: {
+                label: "Age",
+                type: "number",
+                isNullable: false,
+              },
+              // category: {
+              //   label: "Category",
+              //   type: "enum",
+              //   isNullable: false,
+              // },
+              state: {
+                label: "State",
+                type: "enum",
+                isNullable: false,
+              },
+              district: {
+                label: "District",
+                type: "enum",
+                isNullable: false,
+                dependsOn: ["state"],
+              },
+              city: {
+                label: "City",
+                type: "enum",
+                isNullable: false,
+                dependsOn: ["state", "district"],
+              },
+              locality: {
+                label: "Locality",
+                type: "enum",
+                isNullable: false,
+                dependsOn: ["state", "district", "city"],
+              },
+              availability: {
+                label: "Availablity",
+                type: "boolean",
+              },
+            },
           };
         }
 
@@ -113,10 +173,15 @@ export function makeServer() {
       });
 
       // Mocking the /fetch endpoint
-      this.get("/:resource/fetch", (_, request) => {
+      this.post("/:resource/fetch", (_, request) => {
         const resource = request.params.resource;
-        const cursor = Number(request.queryParams.cursor) || 0;
+        // const cursor = Number(request.queryParams.cursor) || 0;
+        // const pageSize = 20;
+
+        const body = JSON.parse(request.requestBody);
+        const { cursor, search, ...rest } = body;
         const pageSize = 20;
+        const filters = JSON.stringify(rest.filters);
 
         if (resource === "test-data") {
           const completeTestData = Array.from({ length: 200 }, (_, index) => ({
@@ -152,7 +217,7 @@ export function makeServer() {
             cities: `City ${index + 1}`,
             current_users: Math.floor(Math.random() * 1000), // Random number of users
             locality: `Locality ${index + 1}`,
-            properties: `Property ${index + 1}`,
+            properties: `Property ${index + 1} ${filters}`,
             "state.id": `state_${index + 1}`,
           }));
 

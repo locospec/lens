@@ -33,6 +33,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
       columns: rawColumns,
       selectionType = "none",
       actions,
+      filters,
     } = tableConfig;
 
     const columnsFromConfig = rawColumns.map((col: ColumnConfigInterface) => {
@@ -120,6 +121,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
       resource,
       identifierKey,
       hasSelection: true,
+      filtersConfig: filters,
     };
   }, [tableConfig]);
 };
