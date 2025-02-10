@@ -1,5 +1,6 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
+import { useFilterContext } from "../context/FilterContext";
 
 export interface UseInfiniteFetchParams {
   queryKey?: string;
@@ -25,11 +26,15 @@ const useInfiniteFetch = ({
       "Either dataCallback or dataEndpoint or queryKey must be provided"
     );
   }
+
+  const { dataEndpointHeaders = {} } = useFilterContext();
+
   const fetchDataFunction = async ({ pageParam = null }) => {
     const response = await fetch(`${dataEndpoint}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        ...dataEndpointHeaders,
       },
       body: JSON.stringify({
         cursor: pageParam,

@@ -1,5 +1,6 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
+import { useLensContext } from "../../context/LensContext";
 
 export interface UseInfiniteFetchParams {
   queryKey?: string;
@@ -25,6 +26,9 @@ const useInfiniteFetch = ({
       "Either dataCallback or dataEndpoint or queryKey must be provided"
     );
   }
+
+  const { dataEndpointHeaders = {} } = useLensContext();
+
   const fetchDataFunction = async ({ pageParam = null }) => {
     // const response = await fetch(
     //   `${dataEndpoint}?cursor=${pageParam}&search=${globalFilter}`
@@ -34,6 +38,7 @@ const useInfiniteFetch = ({
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        ...dataEndpointHeaders,
       },
       body: JSON.stringify({
         cursor: pageParam,

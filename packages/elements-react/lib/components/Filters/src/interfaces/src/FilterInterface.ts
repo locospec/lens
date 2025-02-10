@@ -16,6 +16,7 @@ interface FilterContextType {
   filterContainerRef?: any;
   queryEndpoint: string;
   filter: FilterGroup;
+  dataEndpointHeaders?: any;
 }
 
 interface FilterBuilderProps {
@@ -29,6 +30,7 @@ interface FilterBuilderProps {
   setFiltersCallback?: any;
   defaultFiltersValue?: any;
   showAdvancedOption?: boolean;
+  dataEndpointHeaders?: any;
 }
 
 export interface Condition {
