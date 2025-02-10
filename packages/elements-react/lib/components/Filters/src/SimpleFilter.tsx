@@ -21,6 +21,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
   setFiltersCallback,
   defaultFiltersValue,
   showAdvancedOption = false,
+  dataEndpointHeaders,
 }) => {
   const filterContainerRef = React.useRef<HTMLDivElement>(null);
   const attributesArray: any = Object.keys(attributes)
@@ -100,6 +101,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
           filterContainerRef={filterContainerRef}
           queryEndpoint={queryEndpoint}
           filter={filter}
+          dataEndpointHeaders={dataEndpointHeaders}
         >
           <div
             className="twp le-lens-wrapper le-space-y-4 le-p-4 le-w-full"
