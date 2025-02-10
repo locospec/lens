@@ -7,10 +7,4 @@ export type { FilterBuilderProps } from "./src/interfaces";
 export { default as FilterGroupComponent } from "./src/FilterGroup";
 export type { FilterGroupProps } from "./src/FilterGroup";
 
-export type {
-  Condition as FilterCondition,
-  FilterGroup,
-  OperatorOption,
-} from "./src/types";
-
 export { default as SimpleFilter } from "./src/SimpleFilter";

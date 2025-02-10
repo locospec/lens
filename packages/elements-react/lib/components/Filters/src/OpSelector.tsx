@@ -5,7 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/base/components/ui/select";
-import { FilterGroup } from "./types";
+import { FilterGroup } from "./interfaces/src/FilterInterface";
 import { cn } from "@/base/lib/utils";
 import { GROUP_OPERATORS } from "./constants/ConditionOperators";
 
