@@ -8,6 +8,7 @@ export interface UseInfiniteFetchParams {
   keepPreviousData?: any;
   dataCallback?: any;
   refreshDep?: any[];
+  filters?: any;
 }
 
 const useInfiniteFetch = ({
@@ -17,6 +18,7 @@ const useInfiniteFetch = ({
   keepPreviousData,
   dataCallback,
   refreshDep,
+  filters,
 }: UseInfiniteFetchParams) => {
   if (!dataCallback && !dataEndpoint && !queryKey) {
     throw new Error(
@@ -24,9 +26,21 @@ const useInfiniteFetch = ({
     );
   }
   const fetchDataFunction = async ({ pageParam = null }) => {
-    const response = await fetch(
-      `${dataEndpoint}?cursor=${pageParam}&search=${globalFilter}`
-    );
+    // const response = await fetch(
+    //   `${dataEndpoint}?cursor=${pageParam}&search=${globalFilter}`
+    // );
+
+    const response = await fetch(`${dataEndpoint}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        cursor: pageParam,
+        search: globalFilter,
+        filters: filters,
+      }),
+    });
     const responseJson = await response.json();
 
     if (responseJson?.data && !Array.isArray(responseJson.data)) {
