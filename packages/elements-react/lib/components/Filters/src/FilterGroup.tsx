@@ -1,5 +1,5 @@
 import React from "react";
-import { FilterGroup } from "./types";
+import { FilterGroup } from "./interfaces/src/FilterInterface";
 import Condition from "./Condition";
 import { OPDisplay } from "./OpSelector";
 import AddButtonsTray from "./AddButtonsTray";

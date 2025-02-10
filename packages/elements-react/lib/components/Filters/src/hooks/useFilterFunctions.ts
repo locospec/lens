@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import type { FilterGroup } from "../types";
+import type { FilterGroup } from "../interfaces/src/FilterInterface";
 
 export interface useFilterFunctionProps {
   setFilter: React.Dispatch<React.SetStateAction<FilterGroup>>;
