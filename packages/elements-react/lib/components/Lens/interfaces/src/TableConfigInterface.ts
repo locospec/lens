@@ -1,3 +1,5 @@
+import { AttributeDefinitionMapType } from "@/components/Filters/src/interfaces";
+
 type SelectionType = "single" | "multiple" | "none";
 type AlignType = "start" | "center" | "end";
 type MethodTypes =
@@ -46,6 +48,7 @@ interface TableConfigInterface {
   selectionType: SelectionType;
   actions?: ActionsConfig;
   columns: ColumnConfigInterface[];
+  filters?: AttributeDefinitionMapType;
 }
 
 export type {
