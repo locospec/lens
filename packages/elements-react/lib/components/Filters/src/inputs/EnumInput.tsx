@@ -22,12 +22,10 @@ import {
 } from "@/base/components/ui/popover";
 import { useFilterContext } from "../context/FilterContext";
 import { AttributeDefinitionType } from "../interfaces";
-import {
-  useFetchMoreOnScroll,
-  useInfiniteFetch,
-} from "@/components/Lens/hooks";
+import { useFetchMoreOnScroll } from "@/components/Lens/hooks";
+import { useInfiniteFetch } from "../hooks/useInfiniteFetch";
 import getSameLevelConditions from "../utils/getSameLevelConditions";
-import createQuery from "../utils/createQuery";
+// import createQuery from "../utils/createQuery";
 
 export interface OptionInterface {
   label: string;
@@ -67,8 +65,20 @@ export function EnumInput({
     dependsOnArray: dependsOnArray,
   });
 
-  const [dependentQuery, setDependantQuery] = React.useState(
-    createQuery(samegroup)
+  // const [dependentQuery, setDependantQuery] = React.useState(
+  //   createQuery(samegroup)
+  // );
+
+  const createBody = (group: Condition[]) => {
+    const body: any = {};
+    group.forEach((con: Condition) => {
+      body[con.attribute] = con.value;
+    });
+    return body;
+  };
+
+  const [dependentBody, setDependantBody] = React.useState(
+    createBody(samegroup)
   );
 
   const {
@@ -79,11 +89,12 @@ export function EnumInput({
     refetch,
   } = useInfiniteFetch({
     queryKey: `auction-data-${condition.attribute}-${JSON.stringify(path)}`,
-    globalFilter: `&${dependentQuery}`,
+    globalFilter: "",
     dataEndpoint: `${queryEndpoint}/${condition.attribute}`,
     keepPreviousData: true,
     dataCallback: null,
     refreshDep: [`auction-data-${condition.attribute}-${JSON.stringify(path)}`],
+    body: dependentBody,
   });
 
   const { fetchMoreOnBottomReached } = useFetchMoreOnScroll(
@@ -94,7 +105,8 @@ export function EnumInput({
   );
 
   React.useEffect(() => {
-    setDependantQuery(createQuery(samegroup));
+    // setDependantQuery(createQuery(samegroup));
+    setDependantBody(createBody(samegroup));
     callback && callback("");
     setValues([]);
     setTimeout(() => {

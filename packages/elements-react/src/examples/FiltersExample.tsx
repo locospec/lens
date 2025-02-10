@@ -71,11 +71,11 @@ const FiltersExample = () => {
   };
 
   const attributes2: AttributeDefinitionMapType = {
-    state: {
-      label: "State",
-      type: "enum",
-      isNullable: false,
-    },
+    // state: {
+    //   label: "State",
+    //   type: "enum",
+    //   isNullable: false,
+    // },
     district: {
       label: "District",
       type: "enum",
@@ -98,7 +98,7 @@ const FiltersExample = () => {
 
   return (
     <div className="le-w-11/12 le-mt-10 le-mx-auto le-flex le-flex-col le-gap-y-10">
-      <FilterBuilder
+      {/* <FilterBuilder
         label={"Filters surface 1"}
         variant="classic"
         size="2"
@@ -106,7 +106,7 @@ const FiltersExample = () => {
         attributes={attributes}
         queryEndpoint={"/api/data-bench/auction-data/query"}
         // showFilterJSON={false}
-      />
+      /> */}
       <SimpleFilter
         label={""}
         // variant="classic"

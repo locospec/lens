@@ -218,6 +218,52 @@ export function makeServer() {
 
         return new Response(404, {}, { message: "Resource not found" });
       });
+
+      this.post("/:resource/query/:source", (_, request) => {
+        // console.log(">>>>>> HERE FOR POST QUERY>>>>", request);
+        const resource = request.params.resource;
+        const dataSource = request.params.source;
+
+        const body = JSON.parse(request.requestBody);
+        const { cursor, search, ...rest } = body;
+        const pageSize = 20;
+
+        if (resource === "auction-data") {
+          let completeTestData: any = [];
+          const keys =
+            Object.keys(rest)
+              .map((k) => rest[k])
+              .map((k) =>
+                (k as any)
+                  ?.replaceAll("state", "s")
+                  ?.replaceAll("district", "d")
+                  ?.replaceAll("city", "c")
+              )
+              .join("_") || "";
+
+          completeTestData = Array.from({ length: 200 }, (_, index) => ({
+            label: dataSource + keys + " " + index,
+            value: dataSource + keys + "_" + index,
+          }));
+
+          const paginatedTestData = completeTestData.slice(
+            cursor,
+            cursor + pageSize
+          );
+          const nextCursor =
+            cursor + pageSize < completeTestData.length
+              ? cursor + pageSize
+              : null;
+
+          return {
+            data: paginatedTestData,
+            next_cursor: nextCursor,
+            total: completeTestData.length,
+          };
+        }
+
+        return new Response(404, {}, { message: "Resource not found" });
+      });
     },
   });
 
