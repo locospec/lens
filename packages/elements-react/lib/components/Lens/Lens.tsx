@@ -16,6 +16,8 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
+import { AttributeDefinitionMapType } from "../Filters/src/interfaces/index.ts";
+import { FilterGroup } from "../Filters/src/interfaces/src/FilterInterface.ts";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +29,7 @@ const Lens = ({
   configEndpoint,
   configCallback,
   dataEndpoint,
+  queryEndpoint,
   dataCallback,
   size: initialSize = "1",
   variant: initialVariant = "surface",
@@ -35,6 +38,9 @@ const Lens = ({
 }: LensInterface) => {
   const [size, setSize] = useState<SizesType>(initialSize);
   const [variant, setVariant] = useState<LensVariantTypes>(initialVariant);
+  const [filtersConfiguration, setFiltersConfiguration] =
+    useState<AttributeDefinitionMapType>();
+  const [filters, setFilters] = useState<FilterGroup>();
 
   const sensors = useSensors(
     useSensor(MouseSensor, {}),
@@ -66,6 +72,11 @@ const Lens = ({
             setSize={setSize}
             setVariant={setVariant}
             sensors={sensors}
+            filtersConfiguration={filtersConfiguration}
+            setFiltersConfiguration={setFiltersConfiguration}
+            filters={filters}
+            setFilters={setFilters}
+            queryEndpoint={queryEndpoint}
           >
             <List
               onSelect={onSelect}

@@ -21,13 +21,14 @@ export const List = ({
   configEndpoint,
   dataEndpoint,
 }: ListInterface) => {
-  const { configCallback } = useLensContext();
+  const { configCallback, setFiltersConfiguration } = useLensContext();
   const {
     data: tableConfig,
     isFetched,
     isError,
   } = useFetchConfig(configEndpoint, configCallback);
-  const { columns, identifierKey } = useTableConfig(tableConfig);
+  // console.log(">>>>>>> tableConfig", tableConfig);
+  const { columns, identifierKey, filtersConfig } = useTableConfig(tableConfig);
 
   const selectionType = tableConfig?.selectionType || "none";
 
@@ -38,6 +39,10 @@ export const List = ({
   if (isError) {
     return <div>Error loading table configuration.</div>;
   }
+  React.useEffect(() => {
+    // console.log(">>>>>> FILTERS CREATED", filters);
+    setFiltersConfiguration(filtersConfig);
+  }, [filtersConfig]);
 
   return (
     <>

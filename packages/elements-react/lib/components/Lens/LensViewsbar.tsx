@@ -24,7 +24,8 @@ const LensViewBar = ({
         onClick={() => setShowActionBar(!showActionBar)}
       >
         <SlidersHorizontal size={18} />
-        {showActionBar ? <>Hide</> : <>Filters</>}
+        {/* {showActionBar ? <>Hide</> : <>Filters</>} */}
+        Filters
       </button>
       <LensSidebar
         table={table}
