@@ -21,10 +21,11 @@ const LensExample = () => {
   };
 
   return (
-    <div className="le-h-[480px] le-w-11/12 le-mt-10 le-mx-auto">
+    <div className="le-h-[70vh] le-w-11/12 le-mt-10 le-mx-auto">
       <Lens
         configEndpoint="/api/data-bench/auction-data/config"
         dataEndpoint="/api/data-bench/auction-data/fetch"
+        queryEndpoint="/api/data-bench/auction-data/query"
         onSelect={(value) => {
           handleSelectionChange(value);
         }}

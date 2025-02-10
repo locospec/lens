@@ -52,7 +52,7 @@ export const ListData = ({
   const [columnVisibility, setColumnVisibility] = React.useState({});
   const [isInResizeArea, setIsInResizeArea] = React.useState(false);
 
-  const { showTableMetrics, dataCallback, size, variantClass } =
+  const { showTableMetrics, dataCallback, size, variantClass, filters } =
     useLensContext();
   const size_class = `rt-r-size-${size}`;
 
@@ -62,15 +62,15 @@ export const ListData = ({
     0
   );
 
-  const { flatData, fetchNextPage, isFetching, hasNextPage } = useInfiniteFetch(
-    {
+  const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
+    useInfiniteFetch({
       queryKey,
       globalFilter,
       dataEndpoint,
       keepPreviousData,
       dataCallback,
-    }
-  );
+      filters: filters,
+    });
 
   const { fetchMoreOnBottomReached } = useFetchMoreOnScroll(
     tableContainerRef,
@@ -128,6 +128,11 @@ export const ListData = ({
 
   useSyncSelection(selectedItems, rowSelection, setRowSelection, onSelect);
 
+  React.useEffect(() => {
+    console.log(">>>>>> REFETCHING");
+    refetch();
+  }, [JSON.stringify(filters)]);
+
   if (!isColumnsReady) {
     return (
       <div
@@ -172,7 +177,7 @@ export const ListData = ({
   }
 
   return (
-    <>
+    <div className="le-w-full le-h-full">
       <Topbar
         table={table}
         tableContainerRef={tableSiblingRef}
@@ -234,6 +239,6 @@ export const ListData = ({
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };

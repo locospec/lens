@@ -1,3 +1,6 @@
+import { AttributeDefinitionMapType } from "@/components/Filters/src/interfaces";
+import { FilterGroup } from "@/components/Filters/src/interfaces/src/FilterInterface";
+
 type SizesType = "1" | "2" | "3";
 type LensVariantTypes = "ghost" | "surface";
 type LensVariantClasses = `le-table-variant-${LensVariantTypes}`;
@@ -14,6 +17,13 @@ interface LensContextType {
   setSize: React.Dispatch<React.SetStateAction<SizesType>>;
   setVariant: React.Dispatch<React.SetStateAction<LensVariantTypes>>;
   sensors: any;
+  filtersConfiguration: AttributeDefinitionMapType | undefined;
+  setFiltersConfiguration: React.Dispatch<
+    React.SetStateAction<AttributeDefinitionMapType | undefined>
+  >;
+  filters: FilterGroup | undefined;
+  setFilters: React.Dispatch<React.SetStateAction<FilterGroup | undefined>>;
+  queryEndpoint?: string;
 }
 
 interface LensInterface {
@@ -29,6 +39,7 @@ interface LensInterface {
   size?: SizesType;
   variant?: LensVariantTypes;
   showThemeSwitcher?: boolean;
+  queryEndpoint?: string;
 }
 
 export type {
