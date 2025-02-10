@@ -113,7 +113,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
               <label onClick={clearAll}>Clear All</label>
             </div>
 
-            <div className="le-flex le-justify-between">
+            <div className="le-flex le-gap-x-2">
               {attributesArray.map((attribute: any, index: number) => {
                 if (attribute.type === "enum") {
                   return (
