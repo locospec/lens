@@ -25,7 +25,6 @@ import { AttributeDefinitionType } from "../interfaces";
 import { useFetchMoreOnScroll } from "@/components/Lens/hooks";
 import { useInfiniteFetch } from "../hooks/useInfiniteFetch";
 import getSameLevelConditions from "../utils/getSameLevelConditions";
-// import createQuery from "../utils/createQuery";
 
 export interface OptionInterface {
   label: string;
@@ -42,6 +41,14 @@ export interface ComboBoxInterface {
   path: number[];
   resetInput?: string;
 }
+
+const createBody = (group: Condition[]) => {
+  const body: any = {};
+  group.forEach((con: Condition) => {
+    body[con.attribute] = con.value;
+  });
+  return body;
+};
 
 export function EnumInput({
   emptyLabel = "No options found...",
@@ -64,18 +71,6 @@ export function EnumInput({
     path: path,
     dependsOnArray: dependsOnArray,
   });
-
-  // const [dependentQuery, setDependantQuery] = React.useState(
-  //   createQuery(samegroup)
-  // );
-
-  const createBody = (group: Condition[]) => {
-    const body: any = {};
-    group.forEach((con: Condition) => {
-      body[con.attribute] = con.value;
-    });
-    return body;
-  };
 
   const [dependentBody, setDependantBody] = React.useState(
     createBody(samegroup)
@@ -105,7 +100,6 @@ export function EnumInput({
   );
 
   React.useEffect(() => {
-    // setDependantQuery(createQuery(samegroup));
     setDependantBody(createBody(samegroup));
     callback && callback("");
     setValues([]);
@@ -113,6 +107,10 @@ export function EnumInput({
       refetch();
     }, 200);
   }, [JSON.stringify(samegroup)]);
+
+  // React.useEffect(() => {
+  //   defaultValues && setValues(defaultValues);
+  // }, [defaultValues]);
 
   React.useEffect(() => {
     setValues([]);
