@@ -7,10 +7,12 @@ import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./FilterBuilder.css";
 import EnumInput from "./inputs/EnumInput";
+import { cn } from "@/components/utils/cn";
 
 const queryClient = new QueryClient();
 
 const SimpleFilter: React.FC<FilterBuilderProps> = ({
+  label,
   showFilterJSON = true,
   size = "1",
   variant = "surface",
@@ -101,8 +103,13 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
             className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border"
             ref={filterContainerRef}
           >
-            <div className="le-w-full le-flex le-justify-between">
-              <label>{"Simple Filters"}</label>
+            <div
+              className={cn(
+                "le-w-full le-flex ",
+                label ? "le-justify-between" : "le-justify-end"
+              )}
+            >
+              {label && <label>{label}</label>}
               <label onClick={clearAll}>Clear All</label>
             </div>
 
