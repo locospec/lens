@@ -10,12 +10,12 @@ import { TableHeaderSection } from "./TableHeaderSection.tsx";
 import { TableMetrics } from "./TableMetrics.tsx";
 import {
   useFetchMoreOnScroll,
-  useInfiniteFetch,
   useColumnResize,
   useRowVirtualizer,
   useSyncSelection,
   useColumnSizeVars,
 } from "./hooks";
+import { useInfiniteFetch } from "@/hooks/index.ts";
 import Topbar from "./Topbar.tsx";
 import { useLensContext } from "./context/LensContext.tsx";
 import type { ColumnDef } from "@tanstack/react-table";
@@ -69,7 +69,8 @@ export const ListData = ({
       dataEndpoint,
       keepPreviousData,
       dataCallback,
-      filters: filters,
+      body: { filters: filters },
+      context: useLensContext,
     });
 
   const { fetchMoreOnBottomReached } = useFetchMoreOnScroll(
