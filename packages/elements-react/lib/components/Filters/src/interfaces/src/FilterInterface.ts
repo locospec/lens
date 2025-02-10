@@ -26,6 +26,8 @@ interface FilterBuilderProps {
   label?: string;
   attributes: AttributeDefinitionMapType;
   queryEndpoint: string;
+  setFiltersCallback?: any;
+  defaultFiltersValue?: any;
 }
 
 export interface Condition {
