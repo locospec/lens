@@ -62,6 +62,7 @@ export function EnumInput({
 }: ComboBoxInterface) {
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState<string[]>(defaultValues || []);
+  const [searchQuery, setSearchQuery] = React.useState("");
   const { queryEndpoint, filter } = useFilterContext();
   const containerRef = React.useRef<HTMLDivElement>(null);
   const dependsOnArray = selectedAttribute?.dependsOn || [];
@@ -84,11 +85,11 @@ export function EnumInput({
     refetch,
   } = useInfiniteFetch({
     queryKey: `auction-data-${condition.attribute}-${JSON.stringify(path)}`,
-    globalFilter: "",
+    globalFilter: searchQuery,
     dataEndpoint: `${queryEndpoint}/${condition.attribute}`,
     keepPreviousData: true,
     dataCallback: null,
-    refreshDep: [`auction-data-${condition.attribute}-${JSON.stringify(path)}`],
+    // refreshDep: [`auction-data-${condition.attribute}-${JSON.stringify(path)}`],
     body: dependentBody,
   });
 
@@ -142,7 +143,14 @@ export function EnumInput({
       </PopoverTrigger>
       <PopoverContent className="le-w-[200px] le-p-0">
         <Command>
-          <CommandInput placeholder={placeholder} />
+          <CommandInput
+            placeholder={placeholder}
+            value={searchQuery}
+            onValueChange={(value) => {
+              console.log(">>>>>>", value);
+              setSearchQuery(value);
+            }}
+          />
           <CommandSeparator />
           <CommandList
             ref={containerRef}
