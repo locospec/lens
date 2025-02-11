@@ -138,17 +138,17 @@ export function makeServer() {
               //   type: "enum",
               //   isNullable: false,
               // },
-              state: {
-                label: "State",
-                type: "enum",
-                isNullable: false,
-              },
-              district: {
-                label: "District",
-                type: "enum",
-                isNullable: false,
-                dependsOn: ["state"],
-              },
+              // state: {
+              //   label: "State",
+              //   type: "enum",
+              //   isNullable: false,
+              // },
+              // district: {
+              //   label: "District",
+              //   type: "enum",
+              //   isNullable: false,
+              //   dependsOn: ["state"],
+              // },
               city: {
                 label: "City",
                 type: "enum",
@@ -180,7 +180,7 @@ export function makeServer() {
 
         const body = JSON.parse(request.requestBody);
         const { cursor, search, ...rest } = body;
-        const pageSize = 20;
+        const pageSize = 30;
         const filters = JSON.stringify(rest.filters);
 
         if (resource === "test-data") {
@@ -240,75 +240,20 @@ export function makeServer() {
         return new Response(404, {}, { message: "Resource not found" });
       });
 
-      this.get("/:resource/query/:source", (_, request) => {
-        const resource = request.params.resource;
-        const dataSource = request.params.source;
-
-        const params = request.queryParams;
-        const cursor = Number(request.queryParams.cursor) || 0;
-        const pageSize = 20;
-
-        if (resource === "auction-data") {
-          let completeTestData: any = [];
-          const keys =
-            Object.keys(params)
-              .filter((k) => ["state", "district", "city"].includes(k))
-              .map((k) =>
-                (params[k] as any)
-                  ?.replaceAll("state", "s")
-                  ?.replaceAll("district", "d")
-              )
-              .join("_") || "";
-
-          completeTestData = Array.from({ length: 200 }, (_, index) => ({
-            label: dataSource + keys + " " + index,
-            value: dataSource + keys + "_" + index,
-          }));
-
-          const paginatedTestData = completeTestData.slice(
-            cursor,
-            cursor + pageSize
-          );
-          const nextCursor =
-            cursor + pageSize < completeTestData.length
-              ? cursor + pageSize
-              : null;
-
-          return {
-            data: paginatedTestData,
-            next_cursor: nextCursor,
-            total: completeTestData.length,
-          };
-        }
-
-        return new Response(404, {}, { message: "Resource not found" });
-      });
-
       this.post("/:resource/query/:source", (_, request) => {
-        // console.log(">>>>>> HERE FOR POST QUERY>>>>", request);
         const resource = request.params.resource;
         const dataSource = request.params.source;
 
         const body = JSON.parse(request.requestBody);
-        const { cursor, search, ...rest } = body;
+        const { cursor } = body;
         const pageSize = 20;
 
         if (resource === "auction-data") {
           let completeTestData: any = [];
-          const keys =
-            Object.keys(rest)
-              .map((k) => rest[k])
-              .map((k) =>
-                (k as any)
-                  ?.replaceAll("state", "s")
-                  ?.replaceAll("district", "d")
-                  ?.replaceAll("city", "c")
-              )
-              .join("_") || "";
 
           completeTestData = Array.from({ length: 200 }, (_, index) => ({
-            label: dataSource + keys + " " + index,
-            value: dataSource + keys + "_" + index,
+            label: dataSource + " " + index,
+            value: dataSource + "_" + index,
           }));
 
           const paginatedTestData = completeTestData.slice(
