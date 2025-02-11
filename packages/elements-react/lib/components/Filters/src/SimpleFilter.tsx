@@ -35,7 +35,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
       : {
           op: "and",
           conditions: attributesArray.map((obj: any) => {
-            return { attribute: obj.value, op: "eq", value: "" };
+            return { attribute: obj.value, op: "in", value: "" };
           }),
         }
   );
@@ -82,6 +82,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
           };
         }
 
+        console.log(">>>>>> NEW FILTER >>>", newFilter);
         setFiltersCallback && setFiltersCallback(newFilter);
         return newFilter;
       });
