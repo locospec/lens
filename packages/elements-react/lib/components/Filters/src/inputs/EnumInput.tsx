@@ -89,6 +89,7 @@ const EnumInput = React.memo(function EnumInput({
     keepPreviousData: true,
     refreshDep: [`auction-data-${condition.attribute}-${JSON.stringify(path)}`],
     body: dependentBody,
+    context: useFilterContext,
   });
 
   const { fetchMoreOnBottomReached } = useFetchMoreOnScroll(
