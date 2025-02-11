@@ -1,6 +1,6 @@
 "use client";
 
-import type { Condition } from "../interfaces/src/FilterInterface";
+import type { Condition, FilterGroup } from "../interfaces/src/FilterInterface";
 import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/base/lib/utils";
@@ -41,18 +41,17 @@ export interface ComboBoxInterface {
   resetInput?: string;
 }
 
-// const createBody = (group: Condition[]) => {
-//   const body: any = {};
-
-//   // console.log("TRACKER >> dependsOnFilter", dependsOnFilter);
-//   group.forEach((con: Condition) => {
-//     if (Array.isArray(con.value) && con.value.length > 0) {
-//       body[con.attribute] = con.value;
-//     }
-//   });
-
-//   return { filters: body };
-// };
+const getProcessedFilters = (filters?: FilterGroup) => {
+  if (filters) {
+    const returnFilter = {
+      ...filters,
+      conditions: filters.conditions.filter((con: any) => con.value.length > 0),
+    };
+    return returnFilter.conditions.length > 0 ? returnFilter : {};
+  } else {
+    return {};
+  }
+};
 
 const EnumInput = React.memo(function EnumInput({
   emptyLabel = "No options found...",
@@ -78,10 +77,6 @@ const EnumInput = React.memo(function EnumInput({
       dependsOnArray: dependsOnArray,
     });
 
-  // const [dependentBody, setDependantBody] = React.useState(
-  //   createBody(samegroup)
-  // );
-
   const {
     flatData: options,
     fetchNextPage,
@@ -94,7 +89,8 @@ const EnumInput = React.memo(function EnumInput({
     dataEndpoint: `${queryEndpoint}/${condition.attribute}`,
     keepPreviousData: true,
     refreshDep: [`auction-data-${condition.attribute}-${JSON.stringify(path)}`],
-    body: { filters: dependentFilter },
+    // This will cause issue in FilterBuilder as this only tackles simple filter groups
+    body: { filters: getProcessedFilters(dependentFilter) },
     context: useFilterContext,
   });
 
@@ -106,7 +102,6 @@ const EnumInput = React.memo(function EnumInput({
   );
 
   React.useEffect(() => {
-    // setDependantBody(createBody(samegroup));
     callback && callback("");
     setValues([]);
     setTimeout(() => {
