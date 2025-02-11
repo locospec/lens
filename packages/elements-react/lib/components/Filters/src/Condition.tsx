@@ -19,7 +19,7 @@ const ConditionComponent: React.FC<ConditionProps> = ({
 }) => {
   const { attributesArray, attributesObject, filter } = useFilterContext();
 
-  const conditions = getSameLevelConditions({
+  const { sameGroup: conditions } = getSameLevelConditions({
     filter,
     path,
     excludeSelf: true,

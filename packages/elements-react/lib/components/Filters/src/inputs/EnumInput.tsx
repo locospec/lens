@@ -41,13 +41,18 @@ export interface ComboBoxInterface {
   resetInput?: string;
 }
 
-const createBody = (group: Condition[]) => {
-  const body: any = {};
-  group.forEach((con: Condition) => {
-    body[con.attribute] = con.value;
-  });
-  return body;
-};
+// const createBody = (group: Condition[]) => {
+//   const body: any = {};
+
+//   // console.log("TRACKER >> dependsOnFilter", dependsOnFilter);
+//   group.forEach((con: Condition) => {
+//     if (Array.isArray(con.value) && con.value.length > 0) {
+//       body[con.attribute] = con.value;
+//     }
+//   });
+
+//   return { filters: body };
+// };
 
 const EnumInput = React.memo(function EnumInput({
   emptyLabel = "No options found...",
@@ -66,15 +71,16 @@ const EnumInput = React.memo(function EnumInput({
   const containerRef = React.useRef<HTMLDivElement>(null);
   const dependsOnArray = selectedAttribute?.dependsOn || [];
 
-  const samegroup = getSameLevelConditions({
-    filter: filter,
-    path: path,
-    dependsOnArray: dependsOnArray,
-  });
+  const { sameGroup: samegroup, filters: dependentFilter } =
+    getSameLevelConditions({
+      filter: filter,
+      path: path,
+      dependsOnArray: dependsOnArray,
+    });
 
-  const [dependentBody, setDependantBody] = React.useState(
-    createBody(samegroup)
-  );
+  // const [dependentBody, setDependantBody] = React.useState(
+  //   createBody(samegroup)
+  // );
 
   const {
     flatData: options,
@@ -88,7 +94,7 @@ const EnumInput = React.memo(function EnumInput({
     dataEndpoint: `${queryEndpoint}/${condition.attribute}`,
     keepPreviousData: true,
     refreshDep: [`auction-data-${condition.attribute}-${JSON.stringify(path)}`],
-    body: dependentBody,
+    body: { filters: dependentFilter },
     context: useFilterContext,
   });
 
@@ -100,7 +106,7 @@ const EnumInput = React.memo(function EnumInput({
   );
 
   React.useEffect(() => {
-    setDependantBody(createBody(samegroup));
+    // setDependantBody(createBody(samegroup));
     callback && callback("");
     setValues([]);
     setTimeout(() => {
