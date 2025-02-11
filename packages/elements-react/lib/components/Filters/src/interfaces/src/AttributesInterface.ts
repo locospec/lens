@@ -5,6 +5,8 @@ export interface AttributeDefinitionType {
   type: AttributeTypes;
   isNullable?: boolean;
   dependsOn?: string[];
+  modelName?: string;
+  options?: { label: string; value: string }[];
 }
 
 export type AttributeDefinitionMapType = {

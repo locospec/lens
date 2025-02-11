@@ -39,6 +39,7 @@ export interface ComboBoxInterface {
   condition: Condition;
   path: number[];
   resetInput?: string;
+  multiple?: boolean;
 }
 
 const getProcessedFilters = (filters?: FilterGroup) => {
@@ -62,6 +63,7 @@ const EnumInput = React.memo(function EnumInput({
   condition,
   path,
   resetInput,
+  multiple = true,
 }: ComboBoxInterface) {
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState<string[]>(defaultValues || []);
@@ -69,6 +71,10 @@ const EnumInput = React.memo(function EnumInput({
   const { queryEndpoint, filter } = useFilterContext();
   const containerRef = React.useRef<HTMLDivElement>(null);
   const dependsOnArray = selectedAttribute?.dependsOn || [];
+  const modelName = selectedAttribute?.modelName || [];
+
+  const configOptions = selectedAttribute?.options || [];
+  const isConfigDriven = configOptions.length > 0;
 
   const { sameGroup: samegroup, filters: dependentFilter } =
     getSameLevelConditions({
@@ -78,7 +84,7 @@ const EnumInput = React.memo(function EnumInput({
     });
 
   const {
-    flatData: options,
+    flatData: apiOptions,
     fetchNextPage,
     isFetching,
     hasNextPage,
@@ -86,13 +92,15 @@ const EnumInput = React.memo(function EnumInput({
   } = useInfiniteFetch({
     queryKey: `auction-data-${condition.attribute}-${JSON.stringify(path)}`,
     globalFilter: searchQuery,
-    dataEndpoint: `${queryEndpoint}/${condition.attribute}`,
+    dataEndpoint: `${queryEndpoint}/${modelName}`,
     keepPreviousData: true,
     refreshDep: [`auction-data-${condition.attribute}-${JSON.stringify(path)}`],
     // This will cause issue in FilterBuilder as this only tackles simple filter groups
     body: { filters: getProcessedFilters(dependentFilter) },
     context: useFilterContext,
   });
+
+  const options = isConfigDriven ? configOptions : apiOptions;
 
   const { fetchMoreOnBottomReached } = useFetchMoreOnScroll(
     containerRef,
@@ -105,7 +113,7 @@ const EnumInput = React.memo(function EnumInput({
     callback && callback("");
     setValues([]);
     setTimeout(() => {
-      refetch();
+      if (!isConfigDriven) refetch();
     }, 200);
   }, [JSON.stringify(samegroup)]);
 
@@ -163,10 +171,18 @@ const EnumInput = React.memo(function EnumInput({
                     value={option.value}
                     onSelect={(currentValue: string) => {
                       setValues((prev) => {
-                        const newValues = prev.includes(currentValue)
-                          ? prev.filter((val) => val !== currentValue)
-                          : [...prev, currentValue];
-                        callback && callback(newValues.join(","));
+                        let newValues = [];
+                        if (multiple) {
+                          newValues = prev.includes(currentValue)
+                            ? prev.filter((val) => val !== currentValue)
+                            : [...prev, currentValue];
+                          callback && callback(newValues.join(","));
+                        } else {
+                          newValues = newValues = prev.includes(currentValue)
+                            ? []
+                            : [currentValue];
+                          callback && callback(newValues.join(","));
+                        }
                         return newValues;
                       });
                     }}

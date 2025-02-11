@@ -87,18 +87,20 @@ const FiltersExample = () => {
       type: "enum",
       isNullable: false,
       dependsOn: ["state", "district"],
+      modelName: "city",
     },
     locality: {
       label: "Locality",
       type: "enum",
       isNullable: false,
       dependsOn: ["state", "district", "city"],
+      modelName: "locality",
     },
   };
 
   return (
     <div className="le-w-11/12 le-mt-10 le-mx-auto le-flex le-flex-col le-gap-y-10">
-      {/* <FilterBuilder
+      <FilterBuilder
         label={"Filters surface 1"}
         variant="classic"
         size="2"
@@ -106,7 +108,7 @@ const FiltersExample = () => {
         attributes={attributes}
         queryEndpoint={"/api/data-bench/auction-data/query"}
         // showFilterJSON={false}
-      /> */}
+      />
       <SimpleFilter
         label={""}
         // variant="classic"
