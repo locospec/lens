@@ -5,6 +5,7 @@ import type { Condition } from "../interfaces/src/FilterInterface";
 import TextInput from "./TextInput";
 import { DatePicker } from "@/base/components/ui/datepicker";
 import EnumInput from "./EnumInput";
+import NumberInput from "./NumberInput";
 
 export interface ValueRendererInterface {
   condition: Condition;
@@ -33,15 +34,25 @@ const ValueInputRenderer = ({
     [updateCondition, path]
   );
 
-  const TEXT_INPUT_TYPES = ["string", "number"];
-
-  if (TEXT_INPUT_TYPES.includes(selectedAttribute?.type)) {
+  if (selectedAttribute.type === "string") {
     return (
       <TextInput
         placeholder={selectedAttribute?.label}
         value={condition?.value as string}
-        onUpdateCallback={(e: any) => {
-          handleValueChange(e.target.value);
+        onUpdateCallback={(v: any) => {
+          handleValueChange(v);
+        }}
+      />
+    );
+  }
+
+  if (selectedAttribute.type === "number") {
+    return (
+      <NumberInput
+        placeholder={selectedAttribute?.label}
+        value={condition?.value as string}
+        onUpdateCallback={(v: any) => {
+          handleValueChange(v);
         }}
       />
     );

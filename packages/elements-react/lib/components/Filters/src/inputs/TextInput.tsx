@@ -1,10 +1,9 @@
 import { Input } from "@/base/components/ui/input";
-import React from "react";
 
 export interface TextInputInterface {
   placeholder?: string;
   value: string;
-  onUpdateCallback: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onUpdateCallback: (val: string) => void;
 }
 
 const TextInput = ({
@@ -16,7 +15,10 @@ const TextInput = ({
     <Input
       placeholder={placeholder}
       value={value}
-      onChange={onUpdateCallback}
+      onChange={(e) => {
+        onUpdateCallback(e.target.value);
+      }}
+      type={"text"}
     />
   );
 };
