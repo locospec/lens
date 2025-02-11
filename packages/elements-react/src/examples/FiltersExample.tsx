@@ -76,12 +76,12 @@ const FiltersExample = () => {
     //   type: "enum",
     //   isNullable: false,
     // },
-    district: {
-      label: "District",
-      type: "enum",
-      isNullable: false,
-      dependsOn: ["state"],
-    },
+    // district: {
+    //   label: "District",
+    //   type: "enum",
+    //   isNullable: false,
+    //   dependsOn: ["state"],
+    // },
     city: {
       label: "City",
       type: "enum",
