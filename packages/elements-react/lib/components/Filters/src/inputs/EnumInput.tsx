@@ -49,7 +49,7 @@ const createBody = (group: Condition[]) => {
   return body;
 };
 
-export function EnumInput({
+const EnumInput = React.memo(function EnumInput({
   emptyLabel = "No options found...",
   placeholder = "Select an option....",
   callback,
@@ -59,8 +59,6 @@ export function EnumInput({
   path,
   resetInput,
 }: ComboBoxInterface) {
-  console.log(">>>> ENUM INPUT FOR ", condition.attribute);
-
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState<string[]>(defaultValues || []);
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -192,6 +190,6 @@ export function EnumInput({
       </PopoverContent>
     </Popover>
   );
-}
+});
 
 export default EnumInput;
