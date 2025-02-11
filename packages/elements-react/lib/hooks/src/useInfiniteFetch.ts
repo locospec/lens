@@ -56,6 +56,8 @@ const useInfiniteFetch = ({
 
     if (responseJson?.data && !Array.isArray(responseJson.data)) {
       throw new Error("Expected data to be an array");
+      // console.error("Expected data to be an array");
+      // return { data: [] };
     }
 
     return responseJson;

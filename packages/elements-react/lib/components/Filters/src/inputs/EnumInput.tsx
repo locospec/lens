@@ -59,6 +59,8 @@ export function EnumInput({
   path,
   resetInput,
 }: ComboBoxInterface) {
+  console.log(">>>> ENUM INPUT FOR ", condition.attribute);
+
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState<string[]>(defaultValues || []);
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -87,7 +89,7 @@ export function EnumInput({
     globalFilter: searchQuery,
     dataEndpoint: `${queryEndpoint}/${condition.attribute}`,
     keepPreviousData: true,
-    // refreshDep: [`auction-data-${condition.attribute}-${JSON.stringify(path)}`],
+    refreshDep: [`auction-data-${condition.attribute}-${JSON.stringify(path)}`],
     body: dependentBody,
   });
 
@@ -99,6 +101,7 @@ export function EnumInput({
   );
 
   React.useEffect(() => {
+    console.log(">>>>> USE EFFECT FOR SAME GROUP CHANGE");
     setDependantBody(createBody(samegroup));
     callback && callback("");
     setValues([]);
@@ -107,11 +110,8 @@ export function EnumInput({
     }, 200);
   }, [JSON.stringify(samegroup)]);
 
-  // React.useEffect(() => {
-  //   defaultValues && setValues(defaultValues);
-  // }, [defaultValues]);
-
   React.useEffect(() => {
+    console.log(">>>>> USE EFFECT FOR resetInput");
     setValues([]);
   }, [resetInput]);
 
