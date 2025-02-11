@@ -94,7 +94,10 @@ const EnumInput = React.memo(function EnumInput({
     globalFilter: searchQuery,
     dataEndpoint: `${queryEndpoint}/${modelName}`,
     keepPreviousData: true,
-    refreshDep: [`auction-data-${condition.attribute}-${JSON.stringify(path)}`],
+    refreshDep: [
+      `auction-data-${condition.attribute}-${JSON.stringify(path)}`,
+      searchQuery,
+    ],
     // This will cause issue in FilterBuilder as this only tackles simple filter groups
     body: { filters: getProcessedFilters(dependentFilter) },
     context: useFilterContext,
