@@ -82,11 +82,6 @@ export const ListData = ({
           (con: any) => con.value.length > 0
         ),
       };
-      console.log(
-        "TRACKER  >>> returnFilter",
-        returnFilter,
-        returnFilter.conditions.length
-      );
       return returnFilter.conditions.length > 0 ? returnFilter : {};
     } else {
       return {};
