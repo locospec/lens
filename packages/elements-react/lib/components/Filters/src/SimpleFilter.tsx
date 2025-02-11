@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import type { Condition, FilterGroup } from "./interfaces/src/FilterInterface";
+import type { FilterGroup } from "./interfaces/src/FilterInterface";
 import { JsonHighlighter } from "../../JsonHighlighter";
 import { FilterProvider } from "./context/FilterContext";
 import { FilterBuilderProps } from "./interfaces/src/FilterInterface";
@@ -73,16 +73,17 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
         if ("conditions" in item) {
           target.conditions[lastIndex] = {
             ...item,
-            [field]: value,
+            // [field]: value,
+            [field]: value.split(",").filter(Boolean),
           };
         } else {
           target.conditions[lastIndex] = {
             ...item,
-            [field]: value,
+            // [field]: value,
+            [field]: value.split(",").filter(Boolean),
           };
         }
 
-        console.log(">>>>>> NEW FILTER >>>", newFilter);
         setFiltersCallback && setFiltersCallback(newFilter);
         return newFilter;
       });
@@ -136,22 +137,12 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
             <div className="le-flex le-gap-2 le-flex-wrap">
               {attributesArray.map((attribute: any, index: number) => {
                 if (attribute.type === "enum") {
-                  const condition = filter.conditions[index] as Condition;
-
-                  const defaultValue =
-                    condition.value &&
-                    condition.value !== "" &&
-                    typeof condition.value === "string"
-                      ? condition.value.split(",")
-                      : undefined;
-
                   return (
                     <EnumInput
                       key={JSON.stringify([index])}
                       callback={(v) => {
                         updateCondition([index], "value", v);
                       }}
-                      defaultValues={defaultValue}
                       selectedAttribute={attribute}
                       condition={filter.conditions[index] as any}
                       path={[index]}
