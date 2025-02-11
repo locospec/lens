@@ -27,7 +27,6 @@ export const List = ({
     isFetched,
     isError,
   } = useFetchConfig(configEndpoint, configCallback);
-  // console.log(">>>>>>> tableConfig", tableConfig);
   const { columns, identifierKey, filtersConfig } = useTableConfig(tableConfig);
 
   const selectionType = tableConfig?.selectionType || "none";
@@ -40,7 +39,6 @@ export const List = ({
     return <div>Error loading table configuration.</div>;
   }
   React.useEffect(() => {
-    // console.log(">>>>>> FILTERS CREATED", filters);
     setFiltersConfiguration(filtersConfig);
   }, [filtersConfig]);
 

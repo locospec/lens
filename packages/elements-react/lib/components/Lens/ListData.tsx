@@ -23,6 +23,7 @@ import type { SelectionType } from "./interfaces/index.ts";
 import { cn } from "../utils/cn.ts";
 import { type DragEndEvent } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
+import { FilterGroup } from "../Filters/src/interfaces/src/FilterInterface.ts";
 
 export interface ListDataProps {
   columns: ColumnDef<any>[];
@@ -71,6 +72,27 @@ export const ListData = ({
     0
   );
 
+  // This function needs to be updated  to work on nested object for checking empty values.
+  // Currently this will only be working on simple filters with only single level of grouping
+  const getProcessedFilters = (filters?: FilterGroup) => {
+    if (filters) {
+      const returnFilter = {
+        ...filters,
+        conditions: filters.conditions.filter(
+          (con: any) => con.value.length > 0
+        ),
+      };
+      console.log(
+        "TRACKER  >>> returnFilter",
+        returnFilter,
+        returnFilter.conditions.length
+      );
+      return returnFilter.conditions.length > 0 ? returnFilter : {};
+    } else {
+      return {};
+    }
+  };
+
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
     useInfiniteFetch({
       queryKey,
@@ -78,7 +100,7 @@ export const ListData = ({
       dataEndpoint,
       keepPreviousData,
       dataCallback,
-      body: { filters: filters },
+      body: { filters: getProcessedFilters(filters) },
       context: useLensContext,
     });
 
@@ -130,7 +152,6 @@ export const ListData = ({
   useSyncSelection(selectedItems, rowSelection, setRowSelection, onSelect);
 
   React.useEffect(() => {
-    console.log(">>>>>> REFETCH CALLED", JSON.stringify(filters));
     if (JSON.stringify(filters) !== undefined) {
       refetch();
     }
@@ -209,7 +230,6 @@ export const ListData = ({
         <div
           className="le-relative le-flex-1 le-overflow-auto le-w-full le-h-full"
           onScroll={(e) => {
-            console.log("TRACKER: THIS IS CALLED onScroll");
             fetchMoreOnBottomReached(e.target as HTMLDivElement);
           }}
           ref={tableContainerRef}

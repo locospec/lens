@@ -99,7 +99,6 @@ const EnumInput = React.memo(function EnumInput({
   );
 
   React.useEffect(() => {
-    console.log(">>>>> USE EFFECT FOR SAME GROUP CHANGE");
     setDependantBody(createBody(samegroup));
     callback && callback("");
     setValues([]);
@@ -109,7 +108,6 @@ const EnumInput = React.memo(function EnumInput({
   }, [JSON.stringify(samegroup)]);
 
   React.useEffect(() => {
-    console.log(">>>>> USE EFFECT FOR resetInput");
     setValues([]);
   }, [resetInput]);
 
@@ -143,7 +141,6 @@ const EnumInput = React.memo(function EnumInput({
             placeholder={placeholder}
             value={searchQuery}
             onValueChange={(value) => {
-              console.log(">>>>>>", value);
               setSearchQuery(value);
             }}
           />
