@@ -36,7 +36,7 @@ interface FilterBuilderProps {
 export interface Condition {
   attribute: string;
   op?: Operator;
-  value?: string | number | boolean | null;
+  value?: string | number | boolean | string[] | number[] | null;
 }
 
 export interface FilterGroup {

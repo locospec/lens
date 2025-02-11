@@ -46,11 +46,20 @@ export const ListData = ({
   const tableContainerRef = React.useRef<HTMLDivElement>(null);
   const tableSiblingRef = React.useRef<HTMLDivElement>(null);
   const [rowSelection, setRowSelection] = React.useState<any>(selectedItems);
+  // TO be used for table search feature
   const [globalFilter] = React.useState<any>([]);
   const [showActionBar, setShowActionBar] = React.useState(false);
   const [activeId, setActiveId] = React.useState<string | null>(null);
   const [columnVisibility, setColumnVisibility] = React.useState({});
   const [isInResizeArea, setIsInResizeArea] = React.useState(false);
+  const [fixedColumns, _] = React.useState(
+    () => columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id) || []
+  );
+  const [columnOrder, setColumnOrder] = React.useState<string[]>(() =>
+    columns.map((c) => {
+      return c.id!;
+    })
+  );
 
   const { showTableMetrics, dataCallback, size, variantClass, filters } =
     useLensContext();
@@ -78,15 +87,6 @@ export const ListData = ({
     fetchNextPage,
     isFetching,
     hasNextPage
-  );
-
-  const [fixedColumns, _] = React.useState(
-    () => columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id) || []
-  );
-  const [columnOrder, setColumnOrder] = React.useState<string[]>(() =>
-    columns.map((c) => {
-      return c.id!;
-    })
   );
 
   const table = useReactTable({
@@ -130,10 +130,13 @@ export const ListData = ({
   useSyncSelection(selectedItems, rowSelection, setRowSelection, onSelect);
 
   React.useEffect(() => {
-    refetch();
+    console.log(">>>>>> REFETCH CALLED", JSON.stringify(filters));
+    if (JSON.stringify(filters) !== undefined) {
+      refetch();
+    }
   }, [JSON.stringify(filters)]);
 
-  if (!isColumnsReady) {
+  if (!isColumnsReady && filters !== undefined) {
     return (
       <div
         ref={tableContainerRef}
@@ -205,7 +208,10 @@ export const ListData = ({
         )}
         <div
           className="le-relative le-flex-1 le-overflow-auto le-w-full le-h-full"
-          onScroll={(e) => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
+          onScroll={(e) => {
+            console.log("TRACKER: THIS IS CALLED onScroll");
+            fetchMoreOnBottomReached(e.target as HTMLDivElement);
+          }}
           ref={tableContainerRef}
         >
           <div
