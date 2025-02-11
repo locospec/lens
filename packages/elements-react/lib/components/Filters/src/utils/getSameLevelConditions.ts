@@ -12,7 +12,7 @@ const getSameLevelConditions = ({
   path,
   dependsOnArray,
   excludeSelf = false,
-}: FunctionProps): Condition[] => {
+}: FunctionProps): { sameGroup: Condition[]; filters: any } => {
   const [first, ...rest] = path;
 
   const isFilterGroup = (obj: any): obj is FilterGroup => "conditions" in obj;
@@ -28,16 +28,20 @@ const getSameLevelConditions = ({
         excludeSelf,
       });
     } else {
-      return [];
+      return { sameGroup: [], filters: filter };
     }
   }
 
-  return filter.conditions
+  const samegroup = filter.conditions
     .filter((item): item is Condition => isCondition(item))
     .filter((_, index) => !excludeSelf || (excludeSelf && index !== path[0]))
     .filter((condition: Condition) =>
       dependsOnArray ? dependsOnArray.includes(condition.attribute) : true
     );
+  return {
+    sameGroup: samegroup,
+    filters: { ...filter, conditions: samegroup },
+  };
 };
 
 export default getSameLevelConditions;
