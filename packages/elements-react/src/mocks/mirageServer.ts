@@ -133,22 +133,22 @@ export function makeServer() {
                 type: "number",
                 isNullable: false,
               },
-              // category: {
-              //   label: "Category",
-              //   type: "enum",
-              //   isNullable: false,
-              // },
-              // state: {
-              //   label: "State",
-              //   type: "enum",
-              //   isNullable: false,
-              // },
-              // district: {
-              //   label: "District",
-              //   type: "enum",
-              //   isNullable: false,
-              //   dependsOn: ["state"],
-              // },
+              category: {
+                label: "Category",
+                type: "enum",
+                isNullable: false,
+              },
+              state: {
+                label: "State",
+                type: "enum",
+                isNullable: false,
+              },
+              district: {
+                label: "District",
+                type: "enum",
+                isNullable: false,
+                dependsOn: ["state"],
+              },
               city: {
                 label: "City",
                 type: "enum",
