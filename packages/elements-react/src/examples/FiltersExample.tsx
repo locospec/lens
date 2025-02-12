@@ -1,5 +1,9 @@
 import React from "react";
-import { FilterBuilder, SimpleFilter } from "../../lib/components/Filters";
+import {
+  // FilterBuilder,
+  // SimpleFilter,
+  FilterDecider,
+} from "../../lib/components/Filters";
 import { AttributeDefinitionMapType } from "../../lib/components/Filters/src/interfaces";
 import { makeServer } from "../mocks/mirageServer";
 
@@ -100,7 +104,7 @@ const FiltersExample = () => {
 
   return (
     <div className="le-w-11/12 le-mt-10 le-mx-auto le-flex le-flex-col le-gap-y-10">
-      <FilterBuilder
+      <FilterDecider
         label={"Filters surface 1"}
         variant="classic"
         size="2"
@@ -108,14 +112,16 @@ const FiltersExample = () => {
         attributes={attributes}
         queryEndpoint={"/api/data-bench/auction-data/query"}
         // showFilterJSON={false}
+        // asSimpleFilters
       />
-      <SimpleFilter
+      <FilterDecider
         label={""}
         // variant="classic"
         // size="2"
         maxDepth={2}
         attributes={attributes2}
         queryEndpoint={"/api/data-bench/auction-data/query"}
+        asSimpleFilters
       />
     </div>
   );
