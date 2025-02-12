@@ -138,7 +138,7 @@ export function makeServer() {
                 type: "enum",
                 isNullable: false,
                 // modelName: "category",
-                selectionType: "single",
+                // selectionType: "single",
                 options: [
                   { label: "One", value: "One" },
                   { label: "Two", value: "Two" },
