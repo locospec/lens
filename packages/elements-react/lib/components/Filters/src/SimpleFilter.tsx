@@ -102,7 +102,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
     addGroup,
     removeItem,
     updateCondition: updateAdvancedCondition,
-  } = useFilterFunctions({ setFilter });
+  } = useFilterFunctions({ setFilter, callback: setFiltersCallback });
 
   return (
     <ThemeProvider>
