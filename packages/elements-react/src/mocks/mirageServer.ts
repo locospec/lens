@@ -162,14 +162,14 @@ export function makeServer() {
                 label: "City",
                 type: "enum",
                 isNullable: false,
-                dependsOn: ["district"],
+                dependsOn: ["state", "district"],
                 modelName: "city",
               },
               locality: {
                 label: "Locality",
                 type: "enum",
                 isNullable: false,
-                dependsOn: ["city"],
+                dependsOn: ["state", "district", "city"],
                 modelName: "locality",
               },
               availability: {
