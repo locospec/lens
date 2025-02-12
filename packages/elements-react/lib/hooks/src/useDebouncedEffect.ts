@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { useEffectAfterMount } from "./useEffectAfterMount";
 
 const useDebouncedEffect = (effect: () => void, deps: any[], delay: number) => {
-  useEffect(() => {
+  useEffectAfterMount(() => {
     const handler = setTimeout(() => {
       effect();
     }, delay);
