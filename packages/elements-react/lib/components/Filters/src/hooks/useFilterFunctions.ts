@@ -3,9 +3,13 @@ import type { FilterGroup } from "../interfaces/src/FilterInterface";
 
 export interface useFilterFunctionProps {
   setFilter: React.Dispatch<React.SetStateAction<FilterGroup>>;
+  callback?: (filter: any) => any;
 }
 
-const useFilterFunctions = ({ setFilter }: useFilterFunctionProps) => {
+const useFilterFunctions = ({
+  setFilter,
+  callback,
+}: useFilterFunctionProps) => {
   const addCondition = useCallback((parentPath: number[] = []) => {
     setFilter((current) => {
       const newFilter = { ...current };
@@ -14,6 +18,7 @@ const useFilterFunctions = ({ setFilter }: useFilterFunctionProps) => {
         target = target.conditions[index] as FilterGroup;
       }
       target.conditions.push({ attribute: "", op: undefined, value: "" });
+      callback && callback(newFilter);
       return newFilter;
     });
   }, []);
@@ -38,6 +43,7 @@ const useFilterFunctions = ({ setFilter }: useFilterFunctionProps) => {
         ],
       });
 
+      callback && callback(newFilter);
       return newFilter;
     });
   }, []);
@@ -53,6 +59,7 @@ const useFilterFunctions = ({ setFilter }: useFilterFunctionProps) => {
 
       target.conditions.splice(path[path.length - 1], 1);
 
+      callback && callback(newFilter);
       return newFilter;
     });
   }, []);
@@ -96,6 +103,7 @@ const useFilterFunctions = ({ setFilter }: useFilterFunctionProps) => {
           };
         }
 
+        callback && callback(newFilter);
         return newFilter;
       });
     },
