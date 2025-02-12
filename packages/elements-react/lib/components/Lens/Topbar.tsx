@@ -33,9 +33,7 @@ const Topbar = ({
             table={table}
             handleDragEnd={handleDragEnd}
           />
-          {/* {showActionBar && ( */}
           <LensBulkActionsbar headers={headers} show={showActionBar} />
-          {/* )} */}
         </div>
       )}
     </>
