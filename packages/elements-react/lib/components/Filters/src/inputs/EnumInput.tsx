@@ -2,7 +2,7 @@
 
 import type { Condition, FilterGroup } from "../interfaces/src/FilterInterface";
 import * as React from "react";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, X } from "lucide-react";
 import { cn } from "@/base/lib/utils";
 import { Button } from "@/base/components/ui/button";
 import {
@@ -143,9 +143,22 @@ const EnumInput = React.memo(function EnumInput({
                   .join(",")
               : placeholder}
           </div>
-          <div className="le-h-4 le-w-4 le-absolute le-right-2">
-            <ChevronsUpDown className="le-shrink-0 le-opacity-50 hover:le-bg-accent" />
-          </div>
+          {values && values.length > 0 ? (
+            <div
+              className="le-h-4 le-w-4 le-absolute le-right-2 hover:le-bg-aaccent"
+              onClick={(e) => {
+                e.stopPropagation();
+                setValues([]);
+                callback && callback("");
+              }}
+            >
+              <X className="le-shrink-0 le-opacity-50" />
+            </div>
+          ) : (
+            <div className="le-h-4 le-w-4 le-absolute le-right-2">
+              <ChevronsUpDown className="le-shrink-0 le-opacity-50 hover:le-bg-accent" />
+            </div>
+          )}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="le-w-[200px] le-p-0">
