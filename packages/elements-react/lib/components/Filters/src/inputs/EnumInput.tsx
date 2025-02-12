@@ -28,6 +28,7 @@ import {
   useEffectAfterMount,
   useInfiniteFetch,
 } from "@/hooks/index";
+import { cleanFilterGroup } from "../utils/cleanFilters";
 
 export interface OptionInterface {
   label: string;
@@ -48,11 +49,10 @@ export interface ComboBoxInterface {
 
 const getProcessedFilters = (filters?: FilterGroup) => {
   if (filters) {
-    const returnFilter = {
-      ...filters,
-      conditions: filters.conditions.filter((con: any) => con.value.length > 0),
-    };
-    return returnFilter.conditions.length > 0 ? returnFilter : {};
+    const clone = structuredClone(filters);
+    const cleaned = cleanFilterGroup(clone);
+
+    return cleaned.conditions.length > 0 ? cleaned : {};
   } else {
     return {};
   }

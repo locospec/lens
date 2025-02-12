@@ -24,6 +24,7 @@ import { cn } from "../utils/cn.ts";
 import { type DragEndEvent } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
 import { FilterGroup } from "../Filters/src/interfaces/src/FilterInterface.ts";
+import { cleanFilterGroup } from "../Filters/index.ts";
 
 export interface ListDataProps {
   columns: ColumnDef<any>[];
@@ -72,17 +73,12 @@ export const ListData = ({
     0
   );
 
-  // This function needs to be updated  to work on nested object for checking empty values.
-  // Currently this will only be working on simple filters with only single level of grouping
   const getProcessedFilters = (filters?: FilterGroup) => {
     if (filters) {
-      const returnFilter = {
-        ...filters,
-        conditions: filters.conditions.filter(
-          (con: any) => con.value.length > 0
-        ),
-      };
-      return returnFilter.conditions.length > 0 ? returnFilter : {};
+      const clone = structuredClone(filters);
+      const cleaned = cleanFilterGroup(clone);
+
+      return cleaned.conditions.length > 0 ? cleaned : {};
     } else {
       return {};
     }
