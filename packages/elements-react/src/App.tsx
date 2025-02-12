@@ -1,11 +1,20 @@
+import React from "react";
 import { splitAndCapitalize } from "../lib/components/utils/splitAndCapitalize";
 import "./App.css";
 import DataTableExample from "./examples/DataTableExample";
 import FiltersExample from "./examples/FiltersExample";
 import LensExample from "./examples/LensExample";
 import { BrowserRouter as Routes, Route } from "react-router-dom";
+import { makeServer } from "./mocks/mirageServer";
 
 function App() {
+  React.useEffect(() => {
+    makeServer();
+    return () => {
+      makeServer().shutdown();
+    };
+  }, []);
+
   const components = ["lens", "filters", "table"];
 
   return (

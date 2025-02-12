@@ -1,15 +1,7 @@
 import React from "react";
 import { Lens } from "../../lib/main";
-import { makeServer } from "../mocks/mirageServer";
 
 const LensExample = () => {
-  React.useEffect(() => {
-    makeServer();
-    return () => {
-      makeServer().shutdown();
-    };
-  }, []);
-
   const [checkedIds, setCheckedIds] = React.useState([]);
 
   const handleSelectionChange = (selectedItem: any) => {
