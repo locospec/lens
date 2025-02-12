@@ -8,3 +8,5 @@ export { default as FilterGroupComponent } from "./src/FilterGroup";
 export type { FilterGroupProps } from "./src/FilterGroup";
 
 export { default as SimpleFilter } from "./src/SimpleFilter";
+
+export { default as FilterDecider } from "./src/FilterDecider";
