@@ -23,7 +23,7 @@ import { useFilterContext } from "../context/FilterContext";
 import { AttributeDefinitionType } from "../interfaces";
 import { useFetchMoreOnScroll } from "@/components/Lens/hooks";
 import getSameLevelConditions from "../utils/getSameLevelConditions";
-import { useInfiniteFetch } from "@/hooks/index";
+import { useDebouncedEffect, useInfiniteFetch } from "@/hooks/index";
 
 export interface OptionInterface {
   label: string;
@@ -112,13 +112,17 @@ const EnumInput = React.memo(function EnumInput({
     hasNextPage
   );
 
-  React.useEffect(() => {
-    callback && callback("");
-    setValues([]);
-    setTimeout(() => {
-      if (!isConfigDriven) refetch();
-    }, 200);
-  }, [JSON.stringify(samegroup)]);
+  useDebouncedEffect(
+    () => {
+      callback && callback("");
+      setValues([]);
+      setTimeout(() => {
+        if (!isConfigDriven) refetch();
+      }, 200);
+    },
+    [JSON.stringify(samegroup)],
+    500
+  );
 
   React.useEffect(() => {
     setValues([]);
