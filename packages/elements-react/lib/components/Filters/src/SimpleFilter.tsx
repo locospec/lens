@@ -8,6 +8,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./FilterBuilder.css";
 import EnumInput from "./inputs/EnumInput";
 import { cn } from "@/components/utils/cn";
+import FilterGroupComponent from "./FilterGroup";
+import useFilterFunctions from "./hooks/useFilterFunctions";
 
 const queryClient = new QueryClient();
 
@@ -22,28 +24,32 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
   defaultFiltersValue,
   showAdvancedOption = false,
   dataEndpointHeaders,
+  maxDepth = 2,
 }) => {
+  const [advancedMode, setAdvancedMode] = React.useState(false);
   const filterContainerRef = React.useRef<HTMLDivElement>(null);
-  const attributesArray: any = Object.keys(attributes)
-    .filter((a) => attributes[a].type === "enum")
-    .map((key) => {
-      return { value: key, ...attributes[key] };
-    });
+  const attributesArray: any = Object.keys(attributes).map((key) => {
+    return { value: key, ...attributes[key] };
+  });
   const [filter, setFilter] = useState<FilterGroup>(
     defaultFiltersValue
       ? defaultFiltersValue
       : {
           op: "and",
-          conditions: attributesArray.map((obj: any) => {
-            return { attribute: obj.value, op: "in", value: "" };
-          }),
+          conditions: attributesArray
+            .filter((a: any) => a.type === "enum")
+            .map((obj: any) => {
+              if (obj.type === "enum") {
+                return { attribute: obj.value, op: "in", value: "" };
+              }
+            }),
         }
   );
 
   const [resetState, setResetState] = useState(JSON.stringify(new Date()));
 
   const clearAll = () => {
-    attributesArray.forEach((_: any, index: any) => {
+    filter.conditions.forEach((_: any, index: any) => {
       updateCondition([index], "value", "");
     });
     setResetState(JSON.stringify(new Date()));
@@ -91,6 +97,13 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
     []
   );
 
+  const {
+    addCondition,
+    addGroup,
+    removeItem,
+    updateCondition: updateAdvancedCondition,
+  } = useFilterFunctions({ setFilter });
+
   return (
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
@@ -99,62 +112,88 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
           variant={variant}
           attributesArray={attributesArray}
           attributesObject={attributes}
-          updateCondition={updateCondition}
+          updateCondition={updateAdvancedCondition}
           filterContainerRef={filterContainerRef}
           queryEndpoint={queryEndpoint}
           filter={filter}
           dataEndpointHeaders={dataEndpointHeaders}
         >
-          <div
-            className="twp le-lens-wrapper le-space-y-4 le-p-4 le-w-full"
-            ref={filterContainerRef}
-          >
+          {!advancedMode ? (
             <div
-              className={cn(
-                "le-w-full le-flex ",
-                label ? "le-justify-between" : "le-justify-end"
-              )}
+              className="twp le-lens-wrapper le-space-y-4 le-p-4 le-w-full"
+              ref={filterContainerRef}
             >
-              {label && <label>{label}</label>}
-              <div className="le-flex le-gap-x-2">
-                {showAdvancedOption && (
+              <div
+                className={cn(
+                  "le-w-full le-flex ",
+                  label ? "le-justify-between" : "le-justify-end"
+                )}
+              >
+                {label && <label>{label}</label>}
+                <div className="le-flex le-gap-x-2">
+                  {showAdvancedOption && (
+                    <label
+                      className="hover:le-underline le-cursour-pointer"
+                      onClick={() => {
+                        setAdvancedMode(true);
+                      }}
+                    >
+                      Advanced
+                    </label>
+                  )}
                   <label
                     className="hover:le-underline le-cursour-pointer"
-                    onClick={() => {}}
+                    onClick={clearAll}
                   >
-                    Advanced
+                    Clear All
                   </label>
-                )}
-                <label
-                  className="hover:le-underline le-cursour-pointer"
-                  onClick={clearAll}
-                >
-                  Clear All
-                </label>
+                </div>
+              </div>
+
+              <div className="le-flex le-gap-2 le-flex-wrap">
+                {attributesArray.map((attribute: any, index: number) => {
+                  if (attribute.type === "enum") {
+                    const conIndex = filter.conditions.findIndex(
+                      (f: any) => f.attribute === attribute.value
+                    );
+
+                    const con = filter.conditions[conIndex];
+                    return (
+                      <EnumInput
+                        key={JSON.stringify([conIndex, index])}
+                        callback={(v) => {
+                          updateCondition([conIndex], "value", v);
+                        }}
+                        selectedAttribute={attribute}
+                        condition={con as any}
+                        path={[conIndex]}
+                        placeholder={`Select ${attribute.label}`}
+                        resetInput={resetState}
+                      />
+                    );
+                  }
+                })}
               </div>
             </div>
-
-            <div className="le-flex le-gap-2 le-flex-wrap">
-              {attributesArray.map((attribute: any, index: number) => {
-                if (attribute.type === "enum") {
-                  return (
-                    <EnumInput
-                      key={JSON.stringify([index])}
-                      callback={(v) => {
-                        updateCondition([index], "value", v);
-                      }}
-                      selectedAttribute={attribute}
-                      condition={filter.conditions[index] as any}
-                      path={[index]}
-                      placeholder={`Select ${attribute.label}`}
-                      resetInput={resetState}
-                    />
-                  );
-                }
-              })}
+          ) : (
+            <div
+              className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border"
+              ref={filterContainerRef}
+            >
+              <label>{label}</label>
+              <FilterGroupComponent
+                group={filter}
+                path={[]}
+                currentDepth={0}
+                maxDepth={maxDepth}
+                onAddCondition={addCondition}
+                onAddGroup={addGroup}
+                onRemove={removeItem}
+                onUpdate={updateAdvancedCondition}
+              />
             </div>
-            {showFilterJSON && <JsonHighlighter json={filter} />}
-          </div>
+          )}
+          {showFilterJSON && <JsonHighlighter json={filter} />}
         </FilterProvider>
       </QueryClientProvider>
     </ThemeProvider>
