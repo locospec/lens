@@ -15,7 +15,7 @@ import {
   useSyncSelection,
   useColumnSizeVars,
 } from "./hooks";
-import { useInfiniteFetch } from "@/hooks/index.ts";
+import { useDebouncedEffect, useInfiniteFetch } from "@/hooks/index.ts";
 import Topbar from "./Topbar.tsx";
 import { useLensContext } from "./context/LensContext.tsx";
 import type { ColumnDef } from "@tanstack/react-table";
@@ -146,11 +146,15 @@ export const ListData = ({
 
   useSyncSelection(selectedItems, rowSelection, setRowSelection, onSelect);
 
-  React.useEffect(() => {
-    if (JSON.stringify(filters) !== undefined) {
-      refetch();
-    }
-  }, [JSON.stringify(filters)]);
+  useDebouncedEffect(
+    () => {
+      if (JSON.stringify(filters) !== undefined) {
+        refetch();
+      }
+    },
+    [JSON.stringify(filters)],
+    500
+  );
 
   if (!isColumnsReady && filters !== undefined) {
     return (
