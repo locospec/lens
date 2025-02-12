@@ -1,3 +1,5 @@
+export { cleanFilterGroup } from "./src/utils/cleanFilters";
+
 export { default as Condition } from "./src/Condition";
 export type { ConditionProps } from "./src/Condition";
 
