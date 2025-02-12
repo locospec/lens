@@ -20,11 +20,14 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
   label = "Filters",
   attributes,
   queryEndpoint,
+  defaultFiltersValue,
 }) => {
-  const [filter, setFilter] = useState<FilterGroup>({
-    op: "and",
-    conditions: [],
-  });
+  const [filter, setFilter] = useState<FilterGroup>(
+    defaultFiltersValue || {
+      op: "and",
+      conditions: [],
+    }
+  );
   const filterContainerRef = React.useRef<HTMLDivElement>(null);
   const attributesArray: AttributeOptionsArrayType = Object.keys(
     attributes
