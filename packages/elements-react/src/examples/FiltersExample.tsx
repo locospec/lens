@@ -74,33 +74,33 @@ const attributes: AttributeDefinitionMapType = {
   },
 };
 
-const attributes2: AttributeDefinitionMapType = {
-  // state: {
-  //   label: "State",
-  //   type: "enum",
-  //   isNullable: false,
-  // },
-  // district: {
-  //   label: "District",
-  //   type: "enum",
-  //   isNullable: false,
-  //   dependsOn: ["state"],
-  // },
-  city: {
-    label: "City",
-    type: "enum",
-    isNullable: false,
-    dependsOn: ["state", "district"],
-    modelName: "city",
-  },
-  locality: {
-    label: "Locality",
-    type: "enum",
-    isNullable: false,
-    dependsOn: ["state", "district", "city"],
-    modelName: "locality",
-  },
-};
+// const attributes2: AttributeDefinitionMapType = {
+//   // state: {
+//   //   label: "State",
+//   //   type: "enum",
+//   //   isNullable: false,
+//   // },
+//   // district: {
+//   //   label: "District",
+//   //   type: "enum",
+//   //   isNullable: false,
+//   //   dependsOn: ["state"],
+//   // },
+//   city: {
+//     label: "City",
+//     type: "enum",
+//     isNullable: false,
+//     dependsOn: ["state", "district"],
+//     modelName: "city",
+//   },
+//   locality: {
+//     label: "Locality",
+//     type: "enum",
+//     isNullable: false,
+//     dependsOn: ["state", "district", "city"],
+//     modelName: "locality",
+//   },
+// };
 
 const FiltersExample = () => {
   // const [asSimple, setAsSimple] = React.useState(false);
@@ -113,7 +113,7 @@ const FiltersExample = () => {
       >
         Switch
       </button> */}
-      <FilterDecider
+      {/* <FilterDecider
         label={"Filters surface 1"}
         variant="classic"
         size="2"
@@ -122,15 +122,16 @@ const FiltersExample = () => {
         queryEndpoint={"/api/data-bench/auction-data/query"}
         // showFilterJSON={false}
         // asSimpleFilters={asSimple}
-      />
+      /> */}
       <FilterDecider
-        label={""}
+        label={"Auction Filters"}
         // variant="classic"
         // size="2"
         maxDepth={2}
-        attributes={attributes2}
+        attributes={attributes}
         queryEndpoint={"/api/data-bench/auction-data/query"}
         asSimpleFilters
+        showAdvancedOption
       />
     </div>
   );
