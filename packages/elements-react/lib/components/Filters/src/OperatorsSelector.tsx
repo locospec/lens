@@ -39,9 +39,9 @@ const OperatorsSelector = ({
   const handleOperatorChange = useCallback(
     (value: string) => {
       if (attributeType === "boolean") {
-        if (value === "eq" || value === "neq") {
-          updateCondition(path, "op", "eq");
-          updateCondition(path, "value", value === "eq");
+        if (value === "is_true" || value === "is_false") {
+          updateCondition(path, "op", value);
+          updateCondition(path, "value", value === "is_true");
           return;
         } else {
           updateCondition(path, "value", "");
