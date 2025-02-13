@@ -6,6 +6,7 @@ import TextInput from "./TextInput";
 import { DatePicker } from "@/base/components/ui/datepicker";
 import EnumInput from "./EnumInput";
 import NumberInput from "./NumberInput";
+import NumberRangeInput from "./NumberRangeInput";
 
 export interface ValueRendererInterface {
   condition: Condition;
@@ -47,6 +48,16 @@ const ValueInputRenderer = ({
   }
 
   if (selectedAttribute.type === "number") {
+    console.log(">>>>>>>>", condition);
+    if (condition.op === "between" || condition.op === "not_between") {
+      return (
+        <NumberRangeInput
+          condition={condition}
+          selectedAttribute={selectedAttribute}
+          handleValueChange={handleValueChange}
+        />
+      );
+    }
     return (
       <NumberInput
         placeholder={selectedAttribute?.label}

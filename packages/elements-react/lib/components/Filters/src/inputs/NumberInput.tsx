@@ -4,12 +4,14 @@ export interface NumberInputInterface {
   placeholder?: string;
   value: string;
   onUpdateCallback: (val: number | string | undefined) => void;
+  className?: string;
 }
 
 const NumberInput = ({
   placeholder = "Value",
   value = "",
   onUpdateCallback,
+  className = "",
 }: NumberInputInterface) => {
   return (
     <Input
@@ -20,6 +22,7 @@ const NumberInput = ({
         onUpdateCallback(isNaN(val) ? undefined : val);
       }}
       type="number"
+      className={className}
     />
   );
 };
