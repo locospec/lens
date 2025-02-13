@@ -24,7 +24,7 @@ import { AttributeDefinitionType } from "../interfaces";
 import { useFetchMoreOnScroll } from "@/components/Lens/hooks";
 import getSameLevelConditions from "../utils/getSameLevelConditions";
 import {
-  useDebouncedEffect,
+  useDebouncedEffectAfterMount,
   useEffectAfterMount,
   useInfiniteFetch,
 } from "@/hooks/index";
@@ -116,7 +116,7 @@ const EnumInput = React.memo(function EnumInput({
     hasNextPage
   );
 
-  useDebouncedEffect(
+  useDebouncedEffectAfterMount(
     () => {
       callback && callback(multiple ? [] : "");
       setValues([]);

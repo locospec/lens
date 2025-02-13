@@ -15,7 +15,11 @@ import {
   useSyncSelection,
   useColumnSizeVars,
 } from "./hooks";
-import { useDebouncedEffect, useInfiniteFetch } from "@/hooks/index.ts";
+import {
+  useDebouncedEffectAfterMount,
+  useInfiniteFetch,
+  useDebouncedEffect,
+} from "@/hooks/index.ts";
 import Topbar from "./Topbar.tsx";
 import { useLensContext } from "./context/LensContext.tsx";
 import type { ColumnDef } from "@tanstack/react-table";
@@ -48,8 +52,9 @@ export const ListData = ({
   const tableContainerRef = React.useRef<HTMLDivElement>(null);
   const tableSiblingRef = React.useRef<HTMLDivElement>(null);
   const [rowSelection, setRowSelection] = React.useState<any>(selectedItems);
-  // TO be used for table search feature
-  const [globalFilter] = React.useState<any>([]);
+  const [globalFilter, setGlobalFilter] = React.useState<any>([]);
+  const [debouncedGlobalFilter, setDebouncedGlobalFilter] =
+    React.useState(globalFilter);
   const [showActionBar, setShowActionBar] = React.useState(false);
   const [activeId, setActiveId] = React.useState<string | null>(null);
   const [columnVisibility, setColumnVisibility] = React.useState({});
@@ -87,7 +92,7 @@ export const ListData = ({
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
     useInfiniteFetch({
       queryKey,
-      globalFilter,
+      globalFilter: debouncedGlobalFilter,
       dataEndpoint,
       keepPreviousData,
       dataCallback,
@@ -142,7 +147,7 @@ export const ListData = ({
 
   useSyncSelection(selectedItems, rowSelection, setRowSelection, onSelect);
 
-  useDebouncedEffect(
+  useDebouncedEffectAfterMount(
     () => {
       if (JSON.stringify(filters) !== undefined) {
         refetch();
@@ -150,6 +155,14 @@ export const ListData = ({
     },
     [JSON.stringify(filters)],
     500
+  );
+
+  useDebouncedEffect(
+    () => {
+      setDebouncedGlobalFilter(globalFilter);
+    },
+    [globalFilter],
+    1000
   );
 
   if (!isColumnsReady && filters !== undefined) {
@@ -203,6 +216,8 @@ export const ListData = ({
         showActionBar={showActionBar}
         setShowActionBar={setShowActionBar}
         handleDragEnd={handleDragEnd}
+        globalFilter={globalFilter}
+        setGlobalFilter={setGlobalFilter}
       />
       <div
         className={cn(
