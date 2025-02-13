@@ -32,7 +32,8 @@ const ValueInputRenderer = ({
   const { updateCondition, filterContainerRef } = useFilterContext();
 
   const handleValueChange = useCallback(
-    (value: string) => updateCondition(path, "value", value),
+    (value: string | number | string[] | number[] | boolean) =>
+      updateCondition(path, "value", value),
     [updateCondition, path]
   );
 
@@ -79,15 +80,18 @@ const ValueInputRenderer = ({
   }
 
   if (selectedAttribute.type === "enum") {
+    const asMulti =
+      condition?.op === "is_any_of" || condition?.op === "is_none_of";
     return (
       <EnumInput
-        defaultValues={condition.value as string[]}
+        defaultValues={(condition.value as string[]) || []}
         key={condition.attribute + "_" + JSON.stringify(path)}
         callback={handleValueChange}
         selectedAttribute={selectedAttribute}
         condition={condition}
         path={path}
         placeholder={`Select ${selectedAttribute.label}`}
+        multiple={asMulti}
       />
     );
   }
