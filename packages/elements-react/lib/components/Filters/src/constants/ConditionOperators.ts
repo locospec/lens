@@ -5,49 +5,52 @@ import {
 } from "../interfaces/src/OperationsInterface";
 
 export const NULL_OPERATORS: OperatorsList = [
-  { label: "Is null", value: "isNull" },
-  { label: "Is not null", value: "isNotNull" },
+  { label: "Is empty", value: "is_empty" },
+  { label: "Is not empty", value: "is_not_empty" },
 ];
 
 export const ENUM_OPERATORS: OperatorsList = [
-  { label: "Equals", value: "eq" },
-  { label: "Not equals", value: "neq" },
-  { label: "In", value: "in" },
-  { label: "Not in", value: "notIn" },
+  { label: "Is", value: "is" },
+  { label: "Is not", value: "is_not" },
+  { label: "Is any of", value: "is_any_of" },
+  { label: "Is none of", value: "is_none_of" },
 ];
 
 export const DATE_OPERATORS: OperatorsList = [
-  { label: "Equals", value: "eq" },
-  { label: "Not equals", value: "neq" },
-  { label: "Greater than", value: "gt" },
-  { label: "Less than", value: "lt" },
-  { label: "Greater than or equal", value: "gte" },
-  { label: "Less than or equal", value: "lte" },
+  { label: "Is", value: "is" },
+  { label: "Is not", value: "is_not" },
+  { label: "Greater than", value: "greater_than" },
+  { label: "Less than", value: "less_than" },
+  { label: "Greater than or equal", value: "greater_than_or_equal" },
+  { label: "Less than or equal", value: "less_than_or_equal" },
+  { label: "Between", value: "between" },
+  { label: "Not between", value: "not_between" },
 ];
 
 export const BOOLEAN_OPERATORS: OperatorsList = [
-  { label: "is True", value: "eq" },
-  { label: "is False", value: "neq" },
+  { label: "Is true", value: "is_true" },
+  { label: "Is false", value: "is_false" },
 ];
 
 export const NUMBER_OPERATORS: OperatorsList = [
-  { label: "Equals", value: "eq" },
-  { label: "Not equals", value: "neq" },
-  { label: "Greater than", value: "gt" },
-  { label: "Less than", value: "lt" },
-  { label: "Greater than or equal", value: "gte" },
-  { label: "Less than or equal", value: "lte" },
-  { label: "In", value: "in" },
-  { label: "Not in", value: "notIn" },
+  { label: "Is", value: "is" },
+  { label: "Is not", value: "is_not" },
+  { label: "Greater than", value: "greater_than" },
+  { label: "Less than", value: "less_than" },
+  { label: "Greater than or equal", value: "greater_than_or_equal" },
+  { label: "Less than or equal", value: "less_than_or_equal" },
+  { label: "Between", value: "between" },
+  { label: "Not between", value: "not_between" },
 ];
 
 export const STRING_OPERATORS: OperatorsList = [
-  { label: "Equals", value: "eq" },
-  { label: "Not equals", value: "neq" },
-  { label: "Like", value: "like" },
-  { label: "Not like", value: "notLike" },
-  { label: "In", value: "in" },
-  { label: "Not in", value: "notIn" },
+  { label: "Is", value: "is" },
+  { label: "Is not", value: "is_not" },
+  { label: "Contains", value: "contains" },
+  { label: "Does not contain", value: "not_contains" },
+  { label: "Starts with", value: "starts_with" },
+  { label: "Ends with", value: "ends_with" },
+  { label: "Matches regex", value: "matches_regex" },
 ];
 
 export const GROUP_OPERATORS: OperatorsList = [

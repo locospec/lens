@@ -1,18 +1,26 @@
 import { AttributeTypes } from "./AttributesInterface";
 
 export type Operator =
-  | "eq"
-  | "neq"
-  | "gt"
-  | "lt"
-  | "gte"
-  | "lte"
-  | "like"
-  | "notLike"
-  | "in"
-  | "notIn"
-  | "isNull"
-  | "isNotNull";
+  | "is"
+  | "is_not"
+  | "is_empty"
+  | "is_not_empty"
+  | "greater_than"
+  | "less_than"
+  | "greater_than_or_equal"
+  | "less_than_or_equal"
+  | "between"
+  | "not_between"
+  | "contains"
+  | "not_contains"
+  | "starts_with"
+  | "ends_with"
+  | "matches_regex"
+  | "is_any_of"
+  | "is_none_of"
+  | "is_true"
+  | "is_false"
+  | "is_relative";
 
 export type GroupOperator = "and" | "or";
 
