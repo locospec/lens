@@ -40,7 +40,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
             .filter((a: any) => a.type === "enum")
             .map((obj: any) => {
               if (obj.type === "enum") {
-                return { attribute: obj.value, op: "in", value: "" };
+                return { attribute: obj.value, op: "is_any_of", value: "" };
               }
             }),
         }

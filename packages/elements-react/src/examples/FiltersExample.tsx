@@ -1,4 +1,3 @@
-// import React from "react";
 import {
   // FilterBuilder,
   // SimpleFilter,
@@ -24,7 +23,6 @@ const attributes: AttributeDefinitionMapType = {
   date_of_birth: {
     label: "DOB",
     type: "date",
-    isNullable: false,
   },
   age: {
     label: "Age",
@@ -103,17 +101,9 @@ const attributes: AttributeDefinitionMapType = {
 // };
 
 const FiltersExample = () => {
-  // const [asSimple, setAsSimple] = React.useState(false);
   return (
     <div className="le-w-11/12 le-mt-10 le-mx-auto le-flex le-flex-col le-gap-y-10">
-      {/* <button
-        onClick={() => {
-          setAsSimple((prev) => !prev);
-        }}
-      >
-        Switch
-      </button> */}
-      <FilterDecider
+      {/* <FilterDecider
         label={"Filters surface 1"}
         variant="classic"
         size="2"
@@ -122,8 +112,8 @@ const FiltersExample = () => {
         queryEndpoint={"/api/data-bench/auction-data/query"}
         // showFilterJSON={false}
         // asSimpleFilters={asSimple}
-      />
-      {/* <FilterDecider
+      /> */}
+      <FilterDecider
         label={"Auction Filters"}
         // variant="classic"
         // size="2"
@@ -132,7 +122,7 @@ const FiltersExample = () => {
         queryEndpoint={"/api/data-bench/auction-data/query"}
         asSimpleFilters
         showAdvancedOption
-      /> */}
+      />
     </div>
   );
 };
