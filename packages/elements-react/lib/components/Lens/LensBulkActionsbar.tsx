@@ -40,7 +40,7 @@ const LensBulkActionsbar: React.FC<LensBulkActionsbarInterface> = ({
           showFilterJSON={false}
           setFiltersCallback={handleSettingFilters}
           dataEndpointHeaders={dataEndpointHeaders}
-          showAdvancedOption
+          // showAdvancedOption
         />
       )}
     </div>
