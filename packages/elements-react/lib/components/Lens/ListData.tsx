@@ -57,7 +57,7 @@ export const ListData = ({
     React.useState(globalFilter);
   const [showActionBar, setShowActionBar] = React.useState(false);
   const [activeId, setActiveId] = React.useState<string | null>(null);
-  const [columnVisibility, setColumnVisibility] = React.useState({});
+  const [columnVisibility, setColumnVisibility] = React.useState<any>({});
   const [isInResizeArea, setIsInResizeArea] = React.useState(false);
   const [fixedColumns, _] = React.useState(
     () => columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id) || []
@@ -121,7 +121,6 @@ export const ListData = ({
         right: ["actions"],
       },
     },
-
     state: {
       rowSelection,
       columnOrder,

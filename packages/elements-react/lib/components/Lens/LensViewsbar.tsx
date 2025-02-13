@@ -11,6 +11,8 @@ export interface LensViewBarInterface {
   handleDragEnd: any;
   globalFilter: string;
   setGlobalFilter: any;
+  isControllingAdvanced?: boolean;
+  setOpenAdvancedFilter?: any;
 }
 
 const LensViewBar = ({
@@ -21,6 +23,8 @@ const LensViewBar = ({
   handleDragEnd,
   globalFilter,
   setGlobalFilter,
+  isControllingAdvanced,
+  setOpenAdvancedFilter,
 }: LensViewBarInterface) => {
   return (
     <div className="le-h-12 le-bg-[var(--gray-a2)] le-flex le-items-center le-w-full le-justify-end le-px-4 le-gap-x-4">
@@ -32,10 +36,13 @@ const LensViewBar = ({
       />
       <button
         className="le-px-3 le-py-1 le-bg-[var(--gray-a4)] le-gap-x-1 le-h-8 le-flex le-items-center le-jusitfy-center le-text-[var(--gray-9)] le-rounded-md"
-        onClick={() => setShowActionBar(!showActionBar)}
+        onClick={() =>
+          !isControllingAdvanced
+            ? setShowActionBar(!showActionBar)
+            : setOpenAdvancedFilter((prev: boolean) => !prev)
+        }
       >
         <SlidersHorizontal size={18} />
-        {/* {showActionBar ? <>Hide</> : <>Filters</>} */}
         Filters
       </button>
       <LensSidebar

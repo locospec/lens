@@ -1,17 +1,19 @@
 import React from "react";
-import type { Header } from "@tanstack/react-table";
 import { SimpleFilter } from "../Filters";
 import { useLensContext } from "./context/LensContext";
 import { cn } from "@/base/lib/utils";
-// import FilterBuilder from "./filters/src/FilterBuilder";
 
 export interface LensBulkActionsbarInterface {
-  headers: Header<any, unknown>[];
   show?: boolean;
+  setIsControllingAdvanced?: any;
+  openAdvancedFilter?: any;
+  setOpenAdvancedFilter?: any;
 }
 
 const LensBulkActionsbar: React.FC<LensBulkActionsbarInterface> = ({
   show = false,
+  setIsControllingAdvanced,
+  openAdvancedFilter,
 }: LensBulkActionsbarInterface) => {
   const {
     filtersConfiguration,
@@ -40,7 +42,9 @@ const LensBulkActionsbar: React.FC<LensBulkActionsbarInterface> = ({
           showFilterJSON={false}
           setFiltersCallback={handleSettingFilters}
           dataEndpointHeaders={dataEndpointHeaders}
-          // showAdvancedOption
+          showAdvancedOption
+          setIsControllingAdvanced={setIsControllingAdvanced}
+          externallyOpenAdvancedFilter={openAdvancedFilter}
         />
       )}
     </div>
