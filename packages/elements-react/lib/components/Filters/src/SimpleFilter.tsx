@@ -10,6 +10,11 @@ import EnumInput from "./inputs/EnumInput";
 import { cn } from "@/components/utils/cn";
 import FilterGroupComponent from "./FilterGroup";
 import useFilterFunctions from "./hooks/useFilterFunctions";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/base/components/ui/popover";
 
 const queryClient = new QueryClient();
 
@@ -118,20 +123,20 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
           filter={filter}
           dataEndpointHeaders={dataEndpointHeaders}
         >
-          {!advancedMode ? (
+          <div
+            className="twp le-lens-wrapper le-p-4 le-w-full"
+            ref={filterContainerRef}
+          >
             <div
-              className="twp le-lens-wrapper le-space-y-4 le-p-4 le-w-full"
-              ref={filterContainerRef}
+              className={cn(
+                "le-w-full le-flex ",
+                label ? "le-justify-between" : "le-justify-end"
+              )}
             >
-              <div
-                className={cn(
-                  "le-w-full le-flex ",
-                  label ? "le-justify-between" : "le-justify-end"
-                )}
-              >
-                {label && <label>{label}</label>}
-                <div className="le-flex le-gap-x-2">
-                  {showAdvancedOption && (
+              {label && <label>{label}</label>}
+              <div className="le-flex le-gap-x-2">
+                {showAdvancedOption &&
+                  (!advancedMode ? (
                     <label
                       className="hover:le-underline le-cursour-pointer"
                       onClick={() => {
@@ -140,17 +145,43 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
                     >
                       Advanced
                     </label>
-                  )}
-                  <label
-                    className="hover:le-underline le-cursour-pointer"
-                    onClick={clearAll}
-                  >
-                    Clear All
-                  </label>
-                </div>
+                  ) : (
+                    <Popover defaultOpen>
+                      <PopoverTrigger asChild>
+                        <label className="hover:le-underline le-cursour-pointer">
+                          Filters
+                        </label>
+                      </PopoverTrigger>
+                      <PopoverContent
+                        containerRef={filterContainerRef}
+                        className="le-max-w-4xl le-w-[1000px]"
+                        align="start"
+                        side="left"
+                      >
+                        <label className="le-font-semibold">{label}</label>
+                        <FilterGroupComponent
+                          group={filter}
+                          path={[]}
+                          currentDepth={0}
+                          maxDepth={maxDepth}
+                          onAddCondition={addCondition}
+                          onAddGroup={addGroup}
+                          onRemove={removeItem}
+                          onUpdate={updateAdvancedCondition}
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  ))}
+                <label
+                  className="hover:le-underline le-cursour-pointer"
+                  onClick={clearAll}
+                >
+                  Clear All
+                </label>
               </div>
-
-              <div className="le-flex le-gap-2 le-flex-wrap">
+            </div>
+            {!advancedMode ? (
+              <div className="le-flex le-gap-2 le-flex-wrap le-mt-4">
                 {attributesArray.map((attribute: any, index: number) => {
                   if (attribute.type === "enum") {
                     const conIndex = filter.conditions.findIndex(
@@ -176,25 +207,10 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
                   }
                 })}
               </div>
-            </div>
-          ) : (
-            <div
-              className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border"
-              ref={filterContainerRef}
-            >
-              <label className="le-font-semibold">{label}</label>
-              <FilterGroupComponent
-                group={filter}
-                path={[]}
-                currentDepth={0}
-                maxDepth={maxDepth}
-                onAddCondition={addCondition}
-                onAddGroup={addGroup}
-                onRemove={removeItem}
-                onUpdate={updateAdvancedCondition}
-              />
-            </div>
-          )}
+            ) : (
+              <></>
+            )}
+          </div>
           {showFilterJSON && <JsonHighlighter json={filter} />}
         </FilterProvider>
       </QueryClientProvider>

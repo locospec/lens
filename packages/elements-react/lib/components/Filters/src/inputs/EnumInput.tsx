@@ -72,7 +72,7 @@ const EnumInput = React.memo(function EnumInput({
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState<string[]>(defaultValues);
   const [searchQuery, setSearchQuery] = React.useState("");
-  const { queryEndpoint, filter } = useFilterContext();
+  const { queryEndpoint, filter, filterContainerRef } = useFilterContext();
   const containerRef = React.useRef<HTMLDivElement>(null);
   const dependsOnArray = selectedAttribute?.dependsOn || [];
   const modelName = selectedAttribute?.modelName || [];
@@ -169,7 +169,10 @@ const EnumInput = React.memo(function EnumInput({
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="le-w-[200px] le-p-0">
+      <PopoverContent
+        className="le-w-[200px] le-p-0"
+        containerRef={filterContainerRef}
+      >
         <Command>
           <CommandInput
             placeholder={placeholder}
