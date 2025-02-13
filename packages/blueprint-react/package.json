@@ -1,7 +1,7 @@
 {
   "name": "@locospec/blueprint-react",
   "publishConfig": {
-    "access": "public"
+    "access": "restricted"
   },
   "version": "0.9.0",
   "author": {
