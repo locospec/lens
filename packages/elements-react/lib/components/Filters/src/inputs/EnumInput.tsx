@@ -38,7 +38,7 @@ export interface OptionInterface {
 export interface ComboBoxInterface {
   placeholder?: string;
   emptyLabel?: string;
-  callback?: (values: string) => void;
+  callback?: (values: string | string[]) => void;
   defaultValues?: string[];
   selectedAttribute: AttributeDefinitionType;
   condition: Condition;
@@ -62,7 +62,7 @@ const EnumInput = React.memo(function EnumInput({
   emptyLabel = "No options found...",
   placeholder = "Select an option....",
   callback,
-  defaultValues,
+  defaultValues = [],
   selectedAttribute,
   condition,
   path,
@@ -70,7 +70,7 @@ const EnumInput = React.memo(function EnumInput({
   multiple = true,
 }: ComboBoxInterface) {
   const [open, setOpen] = React.useState(false);
-  const [values, setValues] = React.useState<string[]>(defaultValues || []);
+  const [values, setValues] = React.useState<string[]>(defaultValues);
   const [searchQuery, setSearchQuery] = React.useState("");
   const { queryEndpoint, filter } = useFilterContext();
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -118,7 +118,7 @@ const EnumInput = React.memo(function EnumInput({
 
   useDebouncedEffect(
     () => {
-      callback && callback("");
+      callback && callback(multiple ? [] : "");
       setValues([]);
       setTimeout(() => {
         if (!isConfigDriven) refetch();
@@ -129,8 +129,8 @@ const EnumInput = React.memo(function EnumInput({
   );
 
   useEffectAfterMount(() => {
-    setValues([]);
-  }, [resetInput]);
+    setValues(defaultValues);
+  }, [resetInput, defaultValues]);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -200,7 +200,7 @@ const EnumInput = React.memo(function EnumInput({
                           newValues = prev.includes(currentValue)
                             ? prev.filter((val) => val !== currentValue)
                             : [...prev, currentValue];
-                          callback && callback(newValues.join(","));
+                          callback && callback(newValues);
                         } else {
                           newValues = newValues = prev.includes(currentValue)
                             ? []
