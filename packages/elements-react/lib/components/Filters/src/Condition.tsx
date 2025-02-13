@@ -38,6 +38,7 @@ const ConditionComponent: React.FC<ConditionProps> = ({
   return (
     <div className="le-flex le-gap-2 le-filter-condition">
       <Combobox
+        key={condition.attribute + JSON.stringify(path)}
         options={attributesArray.filter(
           (o) =>
             !(already_used_conditions.includes(o.value) && o.type == "enum")
@@ -47,12 +48,14 @@ const ConditionComponent: React.FC<ConditionProps> = ({
       />
 
       <OperatorsSelector
+        key={condition.attribute + JSON.stringify(path)}
         selectedAttribute={selectedAttribute}
         op={condition.op}
         path={path}
       />
 
       <ValueInputRenderer
+        key={condition.attribute + JSON.stringify(path)}
         condition={condition}
         selectedAttribute={selectedAttribute}
         path={path}
