@@ -113,7 +113,7 @@ const FiltersExample = () => {
       >
         Switch
       </button> */}
-      {/* <FilterDecider
+      <FilterDecider
         label={"Filters surface 1"}
         variant="classic"
         size="2"
@@ -122,8 +122,8 @@ const FiltersExample = () => {
         queryEndpoint={"/api/data-bench/auction-data/query"}
         // showFilterJSON={false}
         // asSimpleFilters={asSimple}
-      /> */}
-      <FilterDecider
+      />
+      {/* <FilterDecider
         label={"Auction Filters"}
         // variant="classic"
         // size="2"
@@ -132,7 +132,7 @@ const FiltersExample = () => {
         queryEndpoint={"/api/data-bench/auction-data/query"}
         asSimpleFilters
         showAdvancedOption
-      />
+      /> */}
     </div>
   );
 };
