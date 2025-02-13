@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import type { FilterGroup } from "./interfaces/src/FilterInterface";
+import type { Condition, FilterGroup } from "./interfaces/src/FilterInterface";
 import { JsonHighlighter } from "../../JsonHighlighter";
 import { FilterProvider } from "./context/FilterContext";
 import { FilterBuilderProps } from "./interfaces/src/FilterInterface";
@@ -157,13 +157,15 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
                       (f: any) => f.attribute === attribute.value
                     );
 
-                    const con = filter.conditions[conIndex];
+                    const con = filter.conditions[conIndex] as Condition;
+
                     return (
                       <EnumInput
                         key={JSON.stringify([conIndex, index])}
                         callback={(v) => {
                           updateCondition([conIndex], "value", v);
                         }}
+                        defaultValues={(con?.value || []) as string[]}
                         selectedAttribute={attribute}
                         condition={con as any}
                         path={[conIndex]}
@@ -180,7 +182,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
               className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border"
               ref={filterContainerRef}
             >
-              <label>{label}</label>
+              <label className="le-font-semibold">{label}</label>
               <FilterGroupComponent
                 group={filter}
                 path={[]}
