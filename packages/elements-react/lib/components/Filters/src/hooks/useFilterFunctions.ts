@@ -69,7 +69,6 @@ const useFilterFunctions = ({
       setFilter((current) => {
         const newFilter = { ...current };
 
-        // If path is empty, we're updating the root group
         if (path.length === 0) {
           return {
             ...newFilter,
@@ -77,30 +76,37 @@ const useFilterFunctions = ({
           };
         }
 
-        // For nested updates
         let target = newFilter;
 
-        // Navigate to the parent
         for (let i = 0; i < path.length - 1; i++) {
           target = target.conditions[path[i]] as FilterGroup;
         }
 
-        // Update the specific item
         const lastIndex = path[path.length - 1];
         const item = target.conditions[lastIndex];
 
         if ("conditions" in item) {
-          // Updating a group
           target.conditions[lastIndex] = {
             ...item,
             [field]: value,
           };
         } else {
-          // Updating a condition
-          target.conditions[lastIndex] = {
-            ...item,
-            [field]: value,
-          };
+          if (field === "attribute") {
+            target.conditions[lastIndex] = {
+              [field]: value,
+            };
+          } else if (field === "op") {
+            target.conditions[lastIndex] = {
+              attribute: item.attribute,
+              [field]: value,
+            };
+          } else {
+            // HERE WE CAN ADD OR MODIFY LOGIC FOR WHEN FIELD "value" IS CHANGED
+            target.conditions[lastIndex] = {
+              ...item,
+              [field]: value,
+            };
+          }
         }
 
         callback && callback(newFilter);
