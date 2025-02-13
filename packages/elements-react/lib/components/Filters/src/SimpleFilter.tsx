@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import type { Condition, FilterGroup } from "./interfaces/src/FilterInterface";
 import { JsonHighlighter } from "../../JsonHighlighter";
 import { FilterProvider } from "./context/FilterContext";
@@ -30,12 +30,17 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
   showAdvancedOption = false,
   dataEndpointHeaders,
   maxDepth = 2,
+  setIsControllingAdvanced,
+  externallyOpenAdvancedFilter,
 }) => {
   const [advancedMode, setAdvancedMode] = React.useState(false);
   const filterContainerRef = React.useRef<HTMLDivElement>(null);
   const attributesArray: any = Object.keys(attributes).map((key) => {
     return { value: key, ...attributes[key] };
   });
+  const [openAdvancedFilter, setOpenAdvancedFilter] = useState(
+    externallyOpenAdvancedFilter || true
+  );
   const [filter, setFilter] = useState<FilterGroup>(
     defaultFiltersValue
       ? defaultFiltersValue
@@ -60,54 +65,13 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
     setResetState(JSON.stringify(new Date()));
   };
 
-  const updateCondition = useCallback(
-    (path: number[], field: string, value: any) => {
-      setFilter((current) => {
-        const newFilter = { ...current };
+  const { addCondition, addGroup, removeItem, updateCondition } =
+    useFilterFunctions({ setFilter, callback: setFiltersCallback });
 
-        if (path.length === 0) {
-          return {
-            ...newFilter,
-            [field]: value,
-          };
-        }
-
-        let target = newFilter;
-
-        for (let i = 0; i < path.length - 1; i++) {
-          target = target.conditions[path[i]] as FilterGroup;
-        }
-
-        const lastIndex = path[path.length - 1];
-        const item = target.conditions[lastIndex];
-
-        if ("conditions" in item) {
-          target.conditions[lastIndex] = {
-            ...item,
-            // [field]: value,
-            [field]: value.split(",").filter(Boolean),
-          };
-        } else {
-          target.conditions[lastIndex] = {
-            ...item,
-            // [field]: value,
-            [field]: value.split(",").filter(Boolean),
-          };
-        }
-
-        setFiltersCallback && setFiltersCallback(newFilter);
-        return newFilter;
-      });
-    },
-    []
-  );
-
-  const {
-    addCondition,
-    addGroup,
-    removeItem,
-    updateCondition: updateAdvancedCondition,
-  } = useFilterFunctions({ setFilter, callback: setFiltersCallback });
+  React.useEffect(() => {
+    externallyOpenAdvancedFilter !== undefined &&
+      setOpenAdvancedFilter(externallyOpenAdvancedFilter);
+  }, [externallyOpenAdvancedFilter]);
 
   return (
     <ThemeProvider>
@@ -117,7 +81,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
           variant={variant}
           attributesArray={attributesArray}
           attributesObject={attributes}
-          updateCondition={updateAdvancedCondition}
+          updateCondition={updateCondition}
           filterContainerRef={filterContainerRef}
           queryEndpoint={queryEndpoint}
           filter={filter}
@@ -141,12 +105,20 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
                       className="hover:le-underline le-cursour-pointer"
                       onClick={() => {
                         setAdvancedMode(true);
+                        setIsControllingAdvanced &&
+                          setIsControllingAdvanced(true);
                       }}
                     >
                       Advanced
                     </label>
                   ) : (
-                    <Popover defaultOpen>
+                    <Popover
+                      open={openAdvancedFilter}
+                      onOpenChange={(open) => {
+                        console.log("OPEN STATUS", open);
+                        setOpenAdvancedFilter(open);
+                      }}
+                    >
                       <PopoverTrigger asChild>
                         <label className="hover:le-underline le-cursour-pointer">
                           Filters
@@ -167,7 +139,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
                           onAddCondition={addCondition}
                           onAddGroup={addGroup}
                           onRemove={removeItem}
-                          onUpdate={updateAdvancedCondition}
+                          onUpdate={updateCondition}
                         />
                       </PopoverContent>
                     </Popover>

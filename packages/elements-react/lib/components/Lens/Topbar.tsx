@@ -24,7 +24,13 @@ const Topbar = ({
   setGlobalFilter,
 }: TopbarProps) => {
   const { showTopBar } = useLensContext();
-  const headers = table.getHeaderGroups()[0].headers;
+  const [isControllingAdvanced, setIsControllingAdvanced] =
+    React.useState(false);
+  const [openAdvancedFilter, setOpenAdvancedFilter] = React.useState(false);
+
+  const simpleFiltersCallback = (val: any) => {
+    setIsControllingAdvanced(val);
+  };
 
   return (
     <>
@@ -38,8 +44,15 @@ const Topbar = ({
             handleDragEnd={handleDragEnd}
             globalFilter={globalFilter}
             setGlobalFilter={setGlobalFilter}
+            isControllingAdvanced={isControllingAdvanced}
+            setOpenAdvancedFilter={setOpenAdvancedFilter}
           />
-          <LensBulkActionsbar headers={headers} show={showActionBar} />
+          <LensBulkActionsbar
+            show={showActionBar}
+            setIsControllingAdvanced={simpleFiltersCallback}
+            openAdvancedFilter={openAdvancedFilter}
+            setOpenAdvancedFilter={setOpenAdvancedFilter}
+          />
         </div>
       )}
     </>

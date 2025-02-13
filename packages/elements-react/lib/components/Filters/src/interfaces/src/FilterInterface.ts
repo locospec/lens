@@ -31,6 +31,9 @@ interface FilterBuilderProps {
   defaultFiltersValue?: any;
   showAdvancedOption?: boolean;
   dataEndpointHeaders?: any;
+  toggleAdvancedFilters?: any;
+  setIsControllingAdvanced?: any;
+  externallyOpenAdvancedFilter?: any;
 }
 
 export interface Condition {
