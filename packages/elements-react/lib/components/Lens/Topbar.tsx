@@ -10,6 +10,8 @@ export interface TopbarProps {
   showActionBar: boolean;
   setShowActionBar: (showActionBar: boolean) => void;
   handleDragEnd: any;
+  globalFilter: string;
+  setGlobalFilter: any;
 }
 
 const Topbar = ({
@@ -18,6 +20,8 @@ const Topbar = ({
   showActionBar,
   setShowActionBar,
   handleDragEnd,
+  globalFilter,
+  setGlobalFilter,
 }: TopbarProps) => {
   const { showTopBar } = useLensContext();
   const headers = table.getHeaderGroups()[0].headers;
@@ -32,6 +36,8 @@ const Topbar = ({
             setShowActionBar={setShowActionBar}
             table={table}
             handleDragEnd={handleDragEnd}
+            globalFilter={globalFilter}
+            setGlobalFilter={setGlobalFilter}
           />
           <LensBulkActionsbar headers={headers} show={showActionBar} />
         </div>

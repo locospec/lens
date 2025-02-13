@@ -4,12 +4,14 @@ export interface TextInputInterface {
   placeholder?: string;
   value: string;
   onUpdateCallback: (val: string) => void;
+  className?: string;
 }
 
 const TextInput = ({
   placeholder = "Value",
   value = "",
   onUpdateCallback,
+  className = "",
 }: TextInputInterface) => {
   return (
     <Input
@@ -19,6 +21,7 @@ const TextInput = ({
         onUpdateCallback(e.target.value);
       }}
       type={"text"}
+      className={className}
     />
   );
 };
