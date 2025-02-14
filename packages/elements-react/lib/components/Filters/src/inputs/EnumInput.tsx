@@ -87,6 +87,7 @@ const EnumInput = React.memo(function EnumInput({
       path: path,
       dependsOnArray: dependsOnArray,
     });
+  const previousSameGroupRef = React.useRef(JSON.stringify(samegroup));
 
   const {
     flatData: apiOptions,
@@ -128,10 +129,15 @@ const EnumInput = React.memo(function EnumInput({
 
   useEffectAfterMount(() => {
     if (open && !isConfigDriven) {
-      setIsLoading(true);
-      refetch().then(() => {
-        setIsLoading(false);
-      });
+      const currentSameGroup = JSON.stringify(samegroup);
+
+      if (previousSameGroupRef.current !== currentSameGroup) {
+        setIsLoading(true);
+        refetch().then(() => {
+          previousSameGroupRef.current = currentSameGroup;
+          setIsLoading(false);
+        });
+      }
     }
   }, [open, isConfigDriven]);
 
