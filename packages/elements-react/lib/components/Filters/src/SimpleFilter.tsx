@@ -32,8 +32,8 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
   maxDepth = 2,
   setIsControllingAdvanced,
   externallyOpenAdvancedFilter,
+  simpleFilters = undefined,
 }) => {
-  // const [controllTransfered, setControllTransfered] = useState(false);
   const [advancedMode, setAdvancedMode] = React.useState(false);
   const filterContainerRef = React.useRef<HTMLDivElement>(null);
   const attributesArray: any = Object.keys(attributes).map((key) => {
@@ -48,6 +48,9 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
       op: "and",
       conditions: attributesArray
         .filter((a: any) => a.type === "enum")
+        .filter((a: any) => {
+          return simpleFilters ? simpleFilters?.includes(a.value) : true;
+        })
         .map((obj: any) => {
           if (obj.type === "enum") {
             return { attribute: obj.value, op: "is_any_of", value: "" };
@@ -101,7 +104,6 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
               className={cn(
                 "le-w-full le-flex ",
                 label ? "le-justify-between" : "le-justify-end"
-                // controllTransfered && "le-hidden"
               )}
             >
               {label && <label>{label}</label>}
@@ -114,7 +116,6 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
                         setAdvancedMode(true);
                         if (setIsControllingAdvanced) {
                           setIsControllingAdvanced(true);
-                          // setControllTransfered(true);
                         }
                       }}
                     >
@@ -171,21 +172,22 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
                     );
 
                     const con = filter.conditions[conIndex] as Condition;
-
-                    return (
-                      <EnumInput
-                        key={JSON.stringify([conIndex, index])}
-                        callback={(v) => {
-                          updateCondition([conIndex], "value", v);
-                        }}
-                        defaultValues={(con?.value || []) as string[]}
-                        selectedAttribute={attribute}
-                        condition={con as any}
-                        path={[conIndex]}
-                        placeholder={`Select ${attribute.label}`}
-                        resetInput={resetState}
-                      />
-                    );
+                    if (con) {
+                      return (
+                        <EnumInput
+                          key={JSON.stringify([conIndex, index])}
+                          callback={(v) => {
+                            updateCondition([conIndex], "value", v);
+                          }}
+                          defaultValues={(con?.value || []) as string[]}
+                          selectedAttribute={attribute}
+                          condition={con as any}
+                          path={[conIndex]}
+                          placeholder={`Select ${attribute.label}`}
+                          resetInput={resetState}
+                        />
+                      );
+                    }
                   }
                 })}
               </div>
