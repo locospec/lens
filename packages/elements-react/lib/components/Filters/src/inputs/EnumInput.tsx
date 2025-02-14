@@ -76,6 +76,7 @@ const EnumInput = React.memo(function EnumInput({
   const containerRef = React.useRef<HTMLDivElement>(null);
   const dependsOnArray = selectedAttribute?.dependsOn || [];
   const modelName = selectedAttribute?.modelName || [];
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const configOptions = selectedAttribute?.options || [];
   const isConfigDriven = configOptions.length > 0;
@@ -120,13 +121,19 @@ const EnumInput = React.memo(function EnumInput({
     () => {
       callback && callback(multiple ? [] : "");
       setValues([]);
-      setTimeout(() => {
-        if (!isConfigDriven) refetch();
-      }, 200);
     },
     [JSON.stringify(samegroup)],
     500
   );
+
+  useEffectAfterMount(() => {
+    if (open && !isConfigDriven) {
+      setIsLoading(true);
+      refetch().then(() => {
+        setIsLoading(false);
+      });
+    }
+  }, [open, isConfigDriven]);
 
   useEffectAfterMount(() => {
     setValues(defaultValues);
@@ -189,43 +196,46 @@ const EnumInput = React.memo(function EnumInput({
               fetchMoreOnBottomReached(e.target as HTMLDivElement)
             }
           >
-            <CommandEmpty>{emptyLabel}</CommandEmpty>
+            <CommandEmpty>
+              {isLoading ? "Loading options" : emptyLabel}
+            </CommandEmpty>
             <CommandGroup>
-              {options.map((option) => {
-                return (
-                  <CommandItem
-                    key={option.value}
-                    value={option.value}
-                    onSelect={(currentValue: string) => {
-                      setValues((prev) => {
-                        let newValues = [];
-                        if (multiple) {
-                          newValues = prev.includes(currentValue)
-                            ? prev.filter((val) => val !== currentValue)
-                            : [...prev, currentValue];
-                          callback && callback(newValues);
-                        } else {
-                          newValues = newValues = prev.includes(currentValue)
-                            ? []
-                            : [currentValue];
-                          callback && callback(newValues.join(","));
-                        }
-                        return newValues;
-                      });
-                    }}
-                  >
-                    <Check
-                      className={cn(
-                        "le-mr-2 le-h-4 le-w-4",
-                        values.includes(option.value)
-                          ? "le-opacity-100"
-                          : "le-opacity-0"
-                      )}
-                    />
-                    {option.label}
-                  </CommandItem>
-                );
-              })}
+              {!isLoading &&
+                options.map((option) => {
+                  return (
+                    <CommandItem
+                      key={option.value}
+                      value={option.value}
+                      onSelect={(currentValue: string) => {
+                        setValues((prev) => {
+                          let newValues = [];
+                          if (multiple) {
+                            newValues = prev.includes(currentValue)
+                              ? prev.filter((val) => val !== currentValue)
+                              : [...prev, currentValue];
+                            callback && callback(newValues);
+                          } else {
+                            newValues = newValues = prev.includes(currentValue)
+                              ? []
+                              : [currentValue];
+                            callback && callback(newValues.join(","));
+                          }
+                          return newValues;
+                        });
+                      }}
+                    >
+                      <Check
+                        className={cn(
+                          "le-mr-2 le-h-4 le-w-4",
+                          values.includes(option.value)
+                            ? "le-opacity-100"
+                            : "le-opacity-0"
+                        )}
+                      />
+                      {option.label}
+                    </CommandItem>
+                  );
+                })}
             </CommandGroup>
           </CommandList>
         </Command>
