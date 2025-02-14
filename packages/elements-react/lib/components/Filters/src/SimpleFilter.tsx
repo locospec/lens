@@ -42,28 +42,28 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
   const [openAdvancedFilter, setOpenAdvancedFilter] = useState(
     externallyOpenAdvancedFilter || true
   );
-  const [filter, setFilter] = useState<FilterGroup>(
-    defaultFiltersValue
-      ? defaultFiltersValue
-      : {
-          op: "and",
-          conditions: attributesArray
-            .filter((a: any) => a.type === "enum")
-            .map((obj: any) => {
-              if (obj.type === "enum") {
-                return { attribute: obj.value, op: "is_any_of", value: "" };
-              }
-            }),
-        }
-  );
 
+  const initilizeFilter = () => {
+    return {
+      op: "and",
+      conditions: attributesArray
+        .filter((a: any) => a.type === "enum")
+        .map((obj: any) => {
+          if (obj.type === "enum") {
+            return { attribute: obj.value, op: "is_any_of", value: "" };
+          }
+        }),
+    };
+  };
+  const [filter, setFilter] = useState<FilterGroup>(
+    defaultFiltersValue ? defaultFiltersValue : initilizeFilter()
+  );
   const [resetState, setResetState] = useState(JSON.stringify(new Date()));
 
   const clearAll = () => {
     filter.conditions.forEach((_: any, index: any) => {
       updateCondition([index], "value", "");
     });
-    // filter.conditions = [];
     setResetState(JSON.stringify(new Date()));
   };
 
@@ -83,6 +83,10 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
           variant={variant}
           attributesArray={attributesArray}
           attributesObject={attributes}
+          maxDepth={maxDepth}
+          addCondition={addCondition}
+          addGroup={addGroup}
+          removeItem={removeItem}
           updateCondition={updateCondition}
           filterContainerRef={filterContainerRef}
           queryEndpoint={queryEndpoint}

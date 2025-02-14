@@ -12,11 +12,15 @@ interface FilterContextType {
   variant: FilterVariants;
   attributesArray: AttributeOptionsArrayType;
   attributesObject: AttributeDefinitionMapType;
-  updateCondition: (path: number[], field: string, value: any) => void;
   filterContainerRef?: any;
   queryEndpoint: string;
   filter: FilterGroup;
   dataEndpointHeaders?: any;
+  updateCondition: (path: number[], field: string, value: any) => void;
+  addCondition: (parentPath?: number[]) => void;
+  addGroup: (parentPath?: number[]) => void;
+  removeItem: (path: number[]) => void;
+  maxDepth: number;
 }
 
 interface FilterBuilderProps {
