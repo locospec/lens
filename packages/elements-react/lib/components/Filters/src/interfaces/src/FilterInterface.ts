@@ -38,6 +38,7 @@ interface FilterBuilderProps {
   toggleAdvancedFilters?: any;
   setIsControllingAdvanced?: any;
   externallyOpenAdvancedFilter?: any;
+  simpleFilters?: string[];
 }
 
 export interface Condition {

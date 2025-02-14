@@ -177,6 +177,7 @@ export function makeServer() {
                 type: "boolean",
               },
             },
+            asSimpleFilters: ["state"],
           };
         }
 
