@@ -35,7 +35,7 @@ const Topbar = ({
   return (
     <>
       {showTopBar && (
-        <div className="le-border-b le-border-[var(--gray-7)] le-flex le-flex-col le-flex-1 le-min-h-12 le-bg-[var(--color-panel)]">
+        <div className="le-border-b le-border-[var(--gray-7)] le-flex le-flex-col le-bg-[var(--color-panel)]">
           <LensViewBar
             tableContainerRef={tableContainerRef}
             showActionBar={showActionBar}
