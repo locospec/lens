@@ -34,7 +34,6 @@ const Lens = ({
   size: initialSize = "1",
   variant: initialVariant = "surface",
   showTopBar = false,
-  showThemeSwitcher = false,
   dataEndpointHeaders,
 }: LensInterface) => {
   const [size, setSize] = useState<SizesType>(initialSize);
