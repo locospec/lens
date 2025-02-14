@@ -13,7 +13,7 @@ const LensExample = () => {
   };
 
   return (
-    <div className="le-h-[70vh] le-w-11/12 le-mt-10 le-mx-auto">
+    <div className="le-h-[80vh] le-w-11/12 le-mt-10 le-mx-auto">
       <Lens
         configEndpoint="/api/data-bench/auction-data/config"
         dataEndpoint="/api/data-bench/auction-data/fetch"
