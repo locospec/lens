@@ -46,10 +46,14 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
           variant={variant}
           attributesArray={attributesArray}
           attributesObject={attributes}
+          addCondition={addCondition}
+          addGroup={addGroup}
+          removeItem={removeItem}
           updateCondition={updateCondition}
           filterContainerRef={filterContainerRef}
           queryEndpoint={queryEndpoint}
           filter={filter}
+          maxDepth={maxDepth}
         >
           <div
             className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border"
