@@ -124,7 +124,6 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
                     <Popover
                       open={openAdvancedFilter}
                       onOpenChange={(open) => {
-                        console.log("OPEN STATUS", open);
                         setOpenAdvancedFilter(open);
                       }}
                     >
