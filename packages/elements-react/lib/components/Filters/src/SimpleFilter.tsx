@@ -15,6 +15,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/base/components/ui/popover";
+import { DatePicker } from "@/base/components/ui/datepicker";
+
+const SIMPLE_FILTER_TYPES = ["enum", "date"];
 
 const queryClient = new QueryClient();
 
@@ -47,13 +50,16 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
     return {
       op: "and",
       conditions: attributesArray
-        .filter((a: any) => a.type === "enum")
+        .filter((a: any) => SIMPLE_FILTER_TYPES.includes(a.type))
         .filter((a: any) => {
           return simpleFilters ? simpleFilters?.includes(a.value) : true;
         })
         .map((obj: any) => {
           if (obj.type === "enum") {
             return { attribute: obj.value, op: "is_any_of", value: "" };
+          }
+          if (obj.type === "date") {
+            return { attribute: obj.value, op: "is", value: "" };
           }
         }),
     };
@@ -166,27 +172,39 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
             {!advancedMode ? (
               <div className="le-flex le-gap-2 le-flex-wrap le-mt-4">
                 {attributesArray.map((attribute: any, index: number) => {
-                  if (attribute.type === "enum") {
+                  if (SIMPLE_FILTER_TYPES.includes(attribute.type)) {
                     const conIndex = filter.conditions.findIndex(
                       (f: any) => f.attribute === attribute.value
                     );
 
                     const con = filter.conditions[conIndex] as Condition;
                     if (con) {
-                      return (
-                        <EnumInput
-                          key={JSON.stringify([conIndex, index])}
-                          callback={(v) => {
-                            updateCondition([conIndex], "value", v);
-                          }}
-                          defaultValues={(con?.value || []) as string[]}
-                          selectedAttribute={attribute}
-                          condition={con as any}
-                          path={[conIndex]}
-                          placeholder={`Select ${attribute.label}`}
-                          resetInput={resetState}
-                        />
-                      );
+                      if (attribute.type === "enum") {
+                        return (
+                          <EnumInput
+                            key={JSON.stringify([conIndex, index])}
+                            callback={(v) => {
+                              updateCondition([conIndex], "value", v);
+                            }}
+                            defaultValues={(con?.value || []) as string[]}
+                            selectedAttribute={attribute}
+                            condition={con as any}
+                            path={[conIndex]}
+                            placeholder={`Select ${attribute.label}`}
+                            resetInput={resetState}
+                          />
+                        );
+                      }
+                      if (attribute.type === "date") {
+                        return (
+                          <DatePicker
+                            containerRef={filterContainerRef}
+                            callback={(v: any) => {
+                              updateCondition([conIndex], "value", v);
+                            }}
+                          />
+                        );
+                      }
                     }
                   }
                 })}

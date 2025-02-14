@@ -122,7 +122,7 @@ const FiltersExample = () => {
         queryEndpoint={"/api/data-bench/auction-data/query"}
         asSimpleFilters
         showAdvancedOption
-        simpleFilters={["state", "city"]}
+        // simpleFilters={["state", "city"]}
       />
     </div>
   );
