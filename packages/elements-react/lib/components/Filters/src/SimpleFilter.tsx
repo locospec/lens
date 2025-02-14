@@ -33,6 +33,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
   setIsControllingAdvanced,
   externallyOpenAdvancedFilter,
 }) => {
+  // const [controllTransfered, setControllTransfered] = useState(false);
   const [advancedMode, setAdvancedMode] = React.useState(false);
   const filterContainerRef = React.useRef<HTMLDivElement>(null);
   const attributesArray: any = Object.keys(attributes).map((key) => {
@@ -62,6 +63,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
     filter.conditions.forEach((_: any, index: any) => {
       updateCondition([index], "value", "");
     });
+    // filter.conditions = [];
     setResetState(JSON.stringify(new Date()));
   };
 
@@ -95,6 +97,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
               className={cn(
                 "le-w-full le-flex ",
                 label ? "le-justify-between" : "le-justify-end"
+                // controllTransfered && "le-hidden"
               )}
             >
               {label && <label>{label}</label>}
@@ -105,8 +108,10 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
                       className="hover:le-underline le-cursour-pointer"
                       onClick={() => {
                         setAdvancedMode(true);
-                        setIsControllingAdvanced &&
+                        if (setIsControllingAdvanced) {
                           setIsControllingAdvanced(true);
+                          // setControllTransfered(true);
+                        }
                       }}
                     >
                       Advanced
@@ -124,23 +129,25 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
                           Filters
                         </label>
                       </PopoverTrigger>
-                      <PopoverContent
-                        containerRef={filterContainerRef}
-                        className="le-max-w-4xl le-w-[1000px]"
-                        align="start"
-                        side="left"
-                      >
-                        <label className="le-font-semibold">{label}</label>
-                        <FilterGroupComponent
-                          group={filter}
-                          path={[]}
-                          currentDepth={0}
-                          maxDepth={maxDepth}
-                          onAddCondition={addCondition}
-                          onAddGroup={addGroup}
-                          onRemove={removeItem}
-                          onUpdate={updateCondition}
-                        />
+                      <PopoverContent containerRef={filterContainerRef} asChild>
+                        <div
+                          className={cn(
+                            "le-max-w-4xl le-w-[90vw] le-max-h-[50vh] le-z-[50] le-fixed le-left-1/2 -le-translate-x-full le-overflow-scroll",
+                            "le-bg-white le-p-4 le-rounded-md le-border le-shadow-md le-outline-none"
+                          )}
+                        >
+                          <label className="le-font-semibold">{label}</label>
+                          <FilterGroupComponent
+                            group={filter}
+                            path={[]}
+                            currentDepth={0}
+                            maxDepth={maxDepth}
+                            onAddCondition={addCondition}
+                            onAddGroup={addGroup}
+                            onRemove={removeItem}
+                            onUpdate={updateCondition}
+                          />
+                        </div>
                       </PopoverContent>
                     </Popover>
                   ))}
