@@ -75,6 +75,7 @@ const ValueInputRenderer = ({
       <DatePicker
         containerRef={filterContainerRef}
         callback={handleValueChange}
+        defaultDate={condition?.value as any}
       />
     );
   }

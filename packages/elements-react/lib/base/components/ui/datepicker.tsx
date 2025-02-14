@@ -14,7 +14,7 @@ import {
 } from "@/base/components/ui/popover";
 
 export interface DatePickerProps {
-  defaultDate?: Date;
+  defaultDate?: Date | undefined;
   containerRef?: any;
   callback?: any;
   placeholder?: string;
