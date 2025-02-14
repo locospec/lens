@@ -17,14 +17,16 @@ export interface DatePickerProps {
   defaultDate?: Date;
   containerRef?: any;
   callback?: any;
+  placeholder?: string;
 }
 
 export function DatePicker({
-  defaultDate = new Date(),
+  defaultDate,
   containerRef,
   callback,
+  placeholder = "",
 }: DatePickerProps) {
-  const [date, setDate] = React.useState<Date>(defaultDate);
+  const [date, setDate] = React.useState<Date | undefined>(defaultDate);
 
   return (
     <Popover>
@@ -37,7 +39,11 @@ export function DatePicker({
           )}
         >
           <CalendarIcon className="le-mr-2 le-h-4 le-w-4" />
-          {date ? format(date, "PPP") : <span>Pick a date</span>}
+          {date ? (
+            format(date, "PPP")
+          ) : (
+            <span>{`Pick a ${placeholder ? placeholder : "date"}`}</span>
+          )}
         </Button>
       </PopoverTrigger>
       <PopoverContent

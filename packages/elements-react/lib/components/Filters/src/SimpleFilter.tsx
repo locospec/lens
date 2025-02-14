@@ -198,6 +198,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
                       if (attribute.type === "date") {
                         return (
                           <DatePicker
+                            placeholder={attribute.label}
                             containerRef={filterContainerRef}
                             callback={(v: any) => {
                               updateCondition([conIndex], "value", v);
