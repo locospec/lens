@@ -39,7 +39,7 @@ const LensViewBar = ({
         onClick={() =>
           !isControllingAdvanced
             ? setShowActionBar(!showActionBar)
-            : setOpenAdvancedFilter((prev: boolean) => !prev)
+            : setOpenAdvancedFilter((prev: any) => !prev)
         }
       >
         <SlidersHorizontal size={18} />
