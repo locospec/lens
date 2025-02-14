@@ -50,7 +50,7 @@ const Lens = ({
   );
 
   return (
-    <ThemeProvider showThemeSwitcher={showThemeSwitcher}>
+    <ThemeProvider>
       <div
         className={cn(
           "le-w-full le-h-full twp lens-root le-lens-wrapper lens-root le-lens-wrapper le-flex le-flex-col le-overflow-hidden",
