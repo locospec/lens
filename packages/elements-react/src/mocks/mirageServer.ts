@@ -48,13 +48,13 @@ export function makeServer() {
                   method: "GET",
                   confirmation: true,
                 },
-                {
-                  key: "view",
-                  url: "/view/:id",
-                  icon: "EyeIcon",
-                  method: "GET",
-                  confirmation: true,
-                },
+                // {
+                //   key: "view",
+                //   url: "/view/:id",
+                //   icon: "EyeIcon",
+                //   method: "GET",
+                //   confirmation: true,
+                // },
               ],
             },
             columns: [
