@@ -27,7 +27,7 @@ const LensViewBar = ({
   setOpenAdvancedFilter,
 }: LensViewBarInterface) => {
   return (
-    <div className="le-h-12 le-flex le-items-center le-w-full le-justify-end le-px-4 le-gap-x-4">
+    <div className="le-h-12 le-bg-[var(--gray-a2)] le-flex le-items-center le-w-full le-justify-end le-px-4 le-gap-x-4">
       <TextInput
         placeholder="Search"
         value={globalFilter}
@@ -35,7 +35,7 @@ const LensViewBar = ({
         className="le-max-w-40"
       />
       <button
-        className="le-px-3 le-py-1 le-gap-x-1 le-h-8 le-flex le-items-center le-jusitfy-center le-text-[var(--gray-9)] le-rounded-md"
+        className="le-px-3 le-py-1 le-bg-[var(--gray-a4)] le-gap-x-1 le-h-8 le-flex le-items-center le-jusitfy-center le-text-[var(--gray-9)] le-rounded-md"
         onClick={() =>
           !isControllingAdvanced
             ? setShowActionBar(!showActionBar)
