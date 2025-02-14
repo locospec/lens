@@ -29,7 +29,7 @@ const LensBulkActionsbar: React.FC<LensBulkActionsbarInterface> = ({
   return (
     <div
       className={cn(
-        "le-bg-[var(--gray-a2)] le-flex le-items-center le-gap-x-2",
+        "le-flex le-items-center le-gap-x-2",
         show ? "" : "le-hidden"
       )}
     >
