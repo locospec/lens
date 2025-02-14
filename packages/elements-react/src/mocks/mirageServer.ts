@@ -256,14 +256,15 @@ export function makeServer() {
         const dataSource = request.params.source;
 
         const body = JSON.parse(request.requestBody);
-        const { cursor } = body;
+        const { cursor, filters } = body;
         const pageSize = 20;
+        const processed = JSON.stringify(filters);
 
         if (resource === "auction-data") {
           let completeTestData: any = [];
 
           completeTestData = Array.from({ length: 200 }, (_, index) => ({
-            label: dataSource + " " + index,
+            label: dataSource + "[" + processed + "]" + index,
             value: dataSource + "_" + index,
           }));
 
