@@ -208,7 +208,7 @@ export const ListData = ({
   }
 
   return (
-    <div className="le-w-full le-h-full">
+    <div className="le-flex le-flex-col le-w-full le-h-full">
       <Topbar
         table={table}
         tableContainerRef={tableSiblingRef}
