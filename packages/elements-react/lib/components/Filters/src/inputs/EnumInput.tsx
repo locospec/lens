@@ -35,7 +35,7 @@ export interface OptionInterface {
   value: string;
 }
 
-export interface ComboBoxInterface {
+export interface EnumInputInterface {
   placeholder?: string;
   emptyLabel?: string;
   callback?: (values: string | string[]) => void;
@@ -68,17 +68,21 @@ const EnumInput = React.memo(function EnumInput({
   path,
   resetInput,
   multiple = true,
-}: ComboBoxInterface) {
+}: EnumInputInterface) {
+  const queryKey = `auction-data-${condition.attribute}-${JSON.stringify(
+    path
+  )}`;
+  const { queryEndpoint, filter, filterContainerRef } = useFilterContext();
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState<string[]>(defaultValues);
   const [searchQuery, setSearchQuery] = React.useState("");
-  const { queryEndpoint, filter, filterContainerRef } = useFilterContext();
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const dependsOnArray = selectedAttribute?.dependsOn || [];
-  const modelName = selectedAttribute?.modelName || [];
+  const {
+    dependsOn: dependsOnArray = [],
+    modelName = [],
+    options: configOptions = [],
+  } = selectedAttribute;
   const [isLoading, setIsLoading] = React.useState(false);
-
-  const configOptions = selectedAttribute?.options || [];
   const isConfigDriven = configOptions.length > 0;
 
   const { sameGroup: samegroup, filters: dependentFilter } =
@@ -96,15 +100,10 @@ const EnumInput = React.memo(function EnumInput({
     hasNextPage,
     refetch,
   } = useInfiniteFetch({
-    queryKey: `auction-data-${condition.attribute}-${JSON.stringify(path)}`,
+    queryKey,
     globalFilter: searchQuery,
     dataEndpoint: `${queryEndpoint}/${modelName}`,
     keepPreviousData: true,
-    refreshDep: [
-      `auction-data-${condition.attribute}-${JSON.stringify(path)}`,
-      searchQuery,
-    ],
-    // This will cause issue in FilterBuilder as this only tackles simple filter groups
     body: { filters: getProcessedFilters(dependentFilter) },
     context: useFilterContext,
   });
