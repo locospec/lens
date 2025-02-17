@@ -26,7 +26,7 @@ const LensExample = () => {
         size="3"
         showTopBar
         // showThemeSwitcher
-        dataEndpointHeaders={{ sdas: "Dasdasd" }}
+        // dataEndpointHeaders={{ sdas: "Dasdasd" }}
       />
     </div>
   );

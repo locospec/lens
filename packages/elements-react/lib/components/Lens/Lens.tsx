@@ -35,6 +35,7 @@ const Lens = ({
   variant: initialVariant = "surface",
   showTopBar = false,
   dataEndpointHeaders,
+  showSidebar = false,
 }: LensInterface) => {
   const [size, setSize] = useState<SizesType>(initialSize);
   const [variant, setVariant] = useState<LensVariantTypes>(initialVariant);
@@ -78,6 +79,7 @@ const Lens = ({
             setFilters={setFilters}
             queryEndpoint={queryEndpoint}
             dataEndpointHeaders={dataEndpointHeaders}
+            showSidebar={showSidebar}
           >
             <List
               onSelect={onSelect}
