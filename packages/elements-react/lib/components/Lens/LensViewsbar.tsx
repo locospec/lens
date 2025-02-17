@@ -66,7 +66,7 @@ LensViewBarInterface) => {
             setFiltersCallback={setFilters}
             dataEndpointHeaders={dataEndpointHeaders}
             showClearAll={false}
-            simpleFilters={["state", "city"]}
+            // simpleFilters={["state", "city"]}
             // showAdvancedOption
             // setIsControllingAdvanced={setIsControllingAdvanced}
             // externallyOpenAdvancedFilter={openAdvancedFilter}
