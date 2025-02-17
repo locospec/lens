@@ -55,7 +55,6 @@ LensViewBarInterface) => {
         <SlidersHorizontal size={18} />
         Filters
       </button> */}
-
       <div>
         {filtersConfiguration && queryEndpoint && (
           <SimpleFilter
