@@ -36,12 +36,12 @@ LensViewBarInterface) => {
     setFilters,
   } = useLensContext();
   return (
-    <div className="le-bg-[var(--gray-a2)] le-min-h-12 le-flex le-items-center le-w-full le-justify-between le-px-4 le-gap-x-4">
+    <div className="le-min-h-12 le-flex le-items-center le-w-full le-justify-between le-gap-x-4">
       <TextInput
         placeholder="Search"
         value={globalFilter}
         onUpdateCallback={setGlobalFilter}
-        className="le-max-w-40"
+        className="le-max-w-60"
       />
 
       {/* <button
