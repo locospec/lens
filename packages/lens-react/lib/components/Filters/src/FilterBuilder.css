@@ -1,0 +1,9 @@
+.le-filter-builder-group {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.le-filter-builder-group .le-filter-builder-group {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}

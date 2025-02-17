@@ -1,0 +1,71 @@
+.lens-root {
+  .le-el-topbar {
+    padding: 14px 24px 17px 16px;
+  }
+
+  .rt-TableRoot {
+    &:where(.rt-r-size-1) {
+      --table-border-radius: var(--radius-3);
+      --table-cell-padding: var(--space-2);
+      --table-cell-min-height: calc(36px * var(--scaling));
+
+      &:where(.rt-TableRootTable) {
+        font-size: var(--font-size-2);
+        line-height: var(--line-height-2);
+      }
+    }
+    &:where(.rt-r-size-2) {
+      --table-border-radius: var(--radius-4);
+      --table-cell-padding: var(--space-3);
+      --table-cell-min-height: calc(44px * var(--scaling));
+
+      & :where(.rt-TableRootTable) {
+        font-size: var(--font-size-2);
+        line-height: var(--line-height-2);
+      }
+    }
+    &:where(.rt-r-size-3) {
+      --table-border-radius: var(--radius-4);
+      --table-cell-padding: var(--space-3) var(--space-4);
+      --table-cell-min-height: var(--space-8);
+
+      & :where(.rt-TableRootTable) {
+        font-size: var(--font-size-3);
+        line-height: var(--line-height-3);
+      }
+    }
+  }
+}
+
+.le-table-cell[data-state="selected"] {
+  background-color: var(--gray-a2);
+}
+
+.le-table-loading {
+  &:where(.le-table-variant-surface) {
+    border: 1px solid var(--gray-7);
+  }
+  &:where(.le-table-variant-ghost) {
+    border: 0px;
+  }
+}
+
+/* Table Varients Styling -- GHOST */
+/* Currently default tailwind styles are working as ghost */
+
+/* Table Varients Styling -- SURFACE */
+.le-table-variant-surface {
+  &:where(.rt-TableRoot) {
+    background-color: var(--color-panel);
+  }
+  .le-table-header-cell {
+    border-right: 1px solid var(--gray-7);
+    padding: 15px;
+    /* background-color: var(--gray-a2); */
+  }
+  .le-table-cell {
+    border-right: 1px solid var(--gray-7);
+    padding: 15px;
+    /* backdrop-filter: var(--backdrop-filter-panel); */
+  }
+}
