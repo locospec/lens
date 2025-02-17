@@ -36,6 +36,7 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
   setIsControllingAdvanced,
   externallyOpenAdvancedFilter,
   simpleFilters = undefined,
+  showClearAll = true,
 }) => {
   const [advancedMode, setAdvancedMode] = React.useState(false);
   const filterContainerRef = React.useRef<HTMLDivElement>(null);
@@ -106,71 +107,86 @@ const SimpleFilter: React.FC<FilterBuilderProps> = ({
             className="twp le-lens-wrapper le-p-4 le-w-full"
             ref={filterContainerRef}
           >
-            <div
-              className={cn(
-                "le-w-full le-flex ",
-                label ? "le-justify-between" : "le-justify-end"
-              )}
-            >
-              {label && <label>{label}</label>}
-              <div className="le-flex le-gap-x-2">
-                {showAdvancedOption &&
-                  (!advancedMode ? (
-                    <label
-                      className="hover:le-underline le-cursour-pointer"
-                      onClick={() => {
-                        setAdvancedMode(true);
-                        if (setIsControllingAdvanced) {
-                          setIsControllingAdvanced(true);
-                        }
-                      }}
-                    >
-                      Advanced
-                    </label>
-                  ) : (
-                    <Popover
-                      open={openAdvancedFilter}
-                      onOpenChange={(open) => {
-                        setOpenAdvancedFilter(open);
-                      }}
-                    >
-                      <PopoverTrigger asChild>
-                        <label className="hover:le-underline le-cursour-pointer">
-                          Filters
-                        </label>
-                      </PopoverTrigger>
-                      <PopoverContent containerRef={filterContainerRef} asChild>
-                        <div
-                          className={cn(
-                            "le-max-w-4xl le-w-[90vw] le-max-h-[50vh] le-z-[50] le-fixed le-left-1/2 -le-translate-x-full le-overflow-scroll",
-                            "le-bg-white le-p-4 le-rounded-md le-border le-shadow-md le-outline-none"
-                          )}
-                        >
-                          <label className="le-font-semibold">{label}</label>
-                          <FilterGroupComponent
-                            group={filter}
-                            path={[]}
-                            currentDepth={0}
-                            maxDepth={maxDepth}
-                            onAddCondition={addCondition}
-                            onAddGroup={addGroup}
-                            onRemove={removeItem}
-                            onUpdate={updateCondition}
-                          />
-                        </div>
-                      </PopoverContent>
-                    </Popover>
-                  ))}
-                <label
-                  className="hover:le-underline le-cursour-pointer"
-                  onClick={clearAll}
+            {label ||
+              (showClearAll && (
+                <div
+                  className={cn(
+                    "le-w-full le-flex ",
+                    label ? "le-justify-between" : "le-justify-end"
+                  )}
                 >
-                  Clear All
-                </label>
-              </div>
-            </div>
+                  {label && <label>{label}</label>}
+                  {showClearAll && (
+                    <div className="le-flex le-gap-x-2">
+                      {showAdvancedOption &&
+                        (!advancedMode ? (
+                          <label
+                            className="hover:le-underline le-cursour-pointer"
+                            onClick={() => {
+                              setAdvancedMode(true);
+                              if (setIsControllingAdvanced) {
+                                setIsControllingAdvanced(true);
+                              }
+                            }}
+                          >
+                            Advanced
+                          </label>
+                        ) : (
+                          <Popover
+                            open={openAdvancedFilter}
+                            onOpenChange={(open) => {
+                              setOpenAdvancedFilter(open);
+                            }}
+                          >
+                            <PopoverTrigger asChild>
+                              <label className="hover:le-underline le-cursour-pointer">
+                                Filters
+                              </label>
+                            </PopoverTrigger>
+                            <PopoverContent
+                              containerRef={filterContainerRef}
+                              asChild
+                            >
+                              <div
+                                className={cn(
+                                  "le-max-w-4xl le-w-[90vw] le-max-h-[50vh] le-z-[50] le-fixed le-left-1/2 -le-translate-x-full le-overflow-scroll",
+                                  "le-bg-white le-p-4 le-rounded-md le-border le-shadow-md le-outline-none"
+                                )}
+                              >
+                                <label className="le-font-semibold">
+                                  {label}
+                                </label>
+                                <FilterGroupComponent
+                                  group={filter}
+                                  path={[]}
+                                  currentDepth={0}
+                                  maxDepth={maxDepth}
+                                  onAddCondition={addCondition}
+                                  onAddGroup={addGroup}
+                                  onRemove={removeItem}
+                                  onUpdate={updateCondition}
+                                />
+                              </div>
+                            </PopoverContent>
+                          </Popover>
+                        ))}
+                      <label
+                        className="hover:le-underline le-cursour-pointer"
+                        onClick={clearAll}
+                      >
+                        Clear All
+                      </label>
+                    </div>
+                  )}
+                </div>
+              ))}
             {!advancedMode ? (
-              <div className="le-flex le-gap-2 le-flex-wrap le-mt-4">
+              <div
+                className={cn(
+                  "le-flex le-gap-2 le-flex-wrap ",
+                  label || (showClearAll && "le-mt-4")
+                )}
+              >
                 {attributesArray.map((attribute: any, index: number) => {
                   if (SIMPLE_FILTER_TYPES.includes(attribute.type)) {
                     const conIndex = filter.conditions.findIndex(
