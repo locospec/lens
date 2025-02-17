@@ -1,4 +1,8 @@
 .lens-root {
+  .le-el-topbar {
+    padding: 14px 24px 17px 16px;
+  }
+
   .rt-TableRoot {
     &:where(.rt-r-size-1) {
       --table-border-radius: var(--radius-3);
@@ -56,10 +60,12 @@
   }
   .le-table-header-cell {
     border-right: 1px solid var(--gray-7);
-    background-color: var(--gray-a2);
+    padding: 15px;
+    /* background-color: var(--gray-a2); */
   }
   .le-table-cell {
     border-right: 1px solid var(--gray-7);
+    padding: 15px;
     /* backdrop-filter: var(--backdrop-filter-panel); */
   }
 }
