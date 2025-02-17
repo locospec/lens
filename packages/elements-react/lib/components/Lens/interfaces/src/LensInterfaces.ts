@@ -25,6 +25,7 @@ interface LensContextType {
   setFilters: React.Dispatch<React.SetStateAction<FilterGroup | undefined>>;
   queryEndpoint?: string;
   dataEndpointHeaders?: any;
+  showSidebar?: boolean;
 }
 
 interface LensInterface {
@@ -42,6 +43,7 @@ interface LensInterface {
   showThemeSwitcher?: boolean;
   queryEndpoint?: string;
   dataEndpointHeaders?: any;
+  showSidebar?: boolean;
 }
 
 export type {
