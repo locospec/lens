@@ -3,50 +3,42 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import type { InfiniteData } from "@tanstack/react-query";
 import type { keepPreviousData } from "@tanstack/react-query";
 import { LensContext } from "../LensProvider";
+import { getProcessedFilters } from "../utils";
 
 export interface UseInfiniteFetchParams {
-  queryKey?: string;
-  globalFilter?: string;
-  dataEndpoint?: string;
-  keepPreviousData?:
-    | InfiniteData<any, unknown>
-    | typeof keepPreviousData
-    | boolean;
   dataCallback?: ({
     pageParam,
   }: {
     pageParam?: null | undefined;
   }) => Promise<any>;
-  refreshDep?: (string | number | boolean)[];
-  body?: Record<string, any>;
-  headers: { [key: string]: string };
 }
 
-const useInfiniteFetch = ({
-  queryKey,
-  globalFilter,
-  dataEndpoint,
-  keepPreviousData,
-  dataCallback,
-  refreshDep,
-  body,
-  headers,
-}: UseInfiniteFetchParams) => {
-  if (!dataCallback && !dataEndpoint && !queryKey) {
-    throw new Error(
-      "Either dataCallback or dataEndpoint or queryKey must be provided"
-    );
-  }
-
+const useInfiniteFetch = ({ dataCallback }: UseInfiniteFetchParams) => {
   const lensContext = useContext(LensContext);
   if (!lensContext) {
     throw new Error("useInfiniteFetch must be used within LensProvider");
   }
 
-  const endpoint = `${dataEndpoint}/fetch`;
+  const { endpoint, searchQuery, filters, lensConfiguration } = lensContext;
+  const queryKey = endpoint;
+  // TODO - need to refetch if query changes
+  const globalFilter = searchQuery;
+  const body = { filters: getProcessedFilters(filters) };
+  const refreshDep = [queryKey, globalFilter];
+  const keepPreviousData = true;
+  const headers = lensConfiguration.permissionHeaders;
 
+  if (!dataCallback && !endpoint && !queryKey) {
+    throw new Error(
+      "Either dataCallback or dataEndpoint or queryKey must be provided"
+    );
+  }
+
+  const dataEndpoint = `${endpoint}/fetch`;
+
+  // TODO - Need to Modify to support normal ppgaination other than cursor pagination
   const fetchDataFunction = async ({ pageParam = null }) => {
-    const response = await fetch(endpoint, {
+    const response = await fetch(dataEndpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +67,10 @@ const useInfiniteFetch = ({
       getNextPageParam: (lastPage: any) => lastPage.next_cursor,
       getPreviousPageParam: (firstPage) => firstPage.prev_cursor,
       refetchOnWindowFocus: false,
-      placeholderData: keepPreviousData as InfiniteData<any, unknown>,
+      placeholderData: keepPreviousData as unknown as InfiniteData<
+        any,
+        unknown
+      >,
     });
 
   const flatData = useMemo(
