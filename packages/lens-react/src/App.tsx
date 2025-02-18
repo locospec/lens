@@ -6,6 +6,7 @@ import FiltersExample from "./examples/FiltersExample";
 import LensExample from "./examples/LensExample";
 import { BrowserRouter as Routes, Route } from "react-router-dom";
 import { makeServer } from "./mocks/mirageServer";
+import ProviderExample from "./examples/ProviderExample";
 
 function App() {
   React.useEffect(() => {
@@ -15,7 +16,7 @@ function App() {
     };
   }, []);
 
-  const components = ["lens", "filters", "table"];
+  const components = ["lens", "filters", "table", "provider"];
 
   return (
     <main className="le-w-screen le-h-screen le-overflow-hidden">
@@ -44,6 +45,7 @@ function App() {
               <Route path="/lens" children={<LensExample />} />
               <Route path="/filters" children={<FiltersExample />} />
               <Route path="/table" children={<DataTableExample />} />
+              <Route path="/provider" children={<ProviderExample />} />
             </Routes>
           </div>
         </div>
