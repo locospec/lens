@@ -1,7 +1,8 @@
-import { useMemo } from "react";
+import { useContext, useMemo } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import type { InfiniteData } from "@tanstack/react-query";
 import type { keepPreviousData } from "@tanstack/react-query";
+import { LensContext } from "../LensProvider";
 
 export interface UseInfiniteFetchParams {
   queryKey?: string;
@@ -36,6 +37,12 @@ const useInfiniteFetch = ({
       "Either dataCallback or dataEndpoint or queryKey must be provided"
     );
   }
+
+  const lensContext = useContext(LensContext);
+  if (!lensContext) {
+    throw new Error("useInfiniteFetch must be used within LensProvider");
+  }
+
   const endpoint = `${dataEndpoint}/fetch`;
 
   const fetchDataFunction = async ({ pageParam = null }) => {
