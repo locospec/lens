@@ -1,6 +1,7 @@
 interface LensContextType {
   error: string | null;
   filters: any;
+  setFilters: React.Dispatch<any>;
   search: (query: string) => void;
   config: any;
   isFetched: boolean;
