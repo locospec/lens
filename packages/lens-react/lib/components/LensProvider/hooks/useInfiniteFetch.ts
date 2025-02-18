@@ -18,7 +18,7 @@ export interface UseInfiniteFetchParams {
   }) => Promise<any>;
   refreshDep?: (string | number | boolean)[];
   body?: Record<string, any>;
-  context?: () => { dataEndpointHeaders?: Record<string, string> };
+  headers: { [key: string]: string };
 }
 
 const useInfiniteFetch = ({
@@ -29,22 +29,21 @@ const useInfiniteFetch = ({
   dataCallback,
   refreshDep,
   body,
-  context,
+  headers,
 }: UseInfiniteFetchParams) => {
   if (!dataCallback && !dataEndpoint && !queryKey) {
     throw new Error(
       "Either dataCallback or dataEndpoint or queryKey must be provided"
     );
   }
-
-  const { dataEndpointHeaders = {} } = context ? context() : {};
+  const endpoint = `${dataEndpoint}/fetch`;
 
   const fetchDataFunction = async ({ pageParam = null }) => {
-    const response = await fetch(`${dataEndpoint}`, {
+    const response = await fetch(endpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        ...dataEndpointHeaders,
+        ...headers,
       },
       body: JSON.stringify({
         cursor: pageParam,
@@ -56,8 +55,6 @@ const useInfiniteFetch = ({
 
     if (responseJson?.data && !Array.isArray(responseJson.data)) {
       throw new Error("Expected data to be an array");
-      // console.error("Expected data to be an array");
-      // return { data: [] };
     }
 
     return responseJson;
