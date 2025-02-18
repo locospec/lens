@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 import type { LensContextType, LensProviderProps } from "./types";
-import { useFetchConfig } from "../Lens/hooks";
+import { useFetchConfig } from "./hooks/useFetchConfig";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();

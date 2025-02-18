@@ -1,6 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 
-const useFetchConfig = (configEndpoint: string, configCallback?: () => any) => {
+export interface useFetchConfigProps {
+  configEndpoint: string;
+  configCallback?: () => any;
+}
+
+const useFetchConfig = ({
+  configEndpoint,
+  configCallback,
+}: useFetchConfigProps) => {
   if (!configCallback && !configEndpoint) {
     throw new Error("Either configCallback or configEndpoint must be provided");
   }
