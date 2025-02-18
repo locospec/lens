@@ -3,15 +3,19 @@ interface LensContextType {
   isLoading: boolean;
   error: string | null;
   filters: any;
-  applyFilter: (key: string, value: string) => void;
   search: (query: string) => void;
   config: any;
+  updateCondition: (path: number[], field: string, value: any) => void;
+  addCondition: (parentPath?: number[]) => void;
+  addGroup: (parentPath?: number[]) => void;
+  removeItem: (path: number[]) => void;
 }
 
 interface LensProviderProps {
   children: React.ReactNode;
-  configEndpoint: string;
-  dataEndpoint: string;
+  lensConfiguration: {
+    endpoint: string;
+  };
 }
 
 export type { LensContextType, LensProviderProps };
