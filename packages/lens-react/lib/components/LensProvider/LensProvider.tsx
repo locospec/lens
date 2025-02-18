@@ -2,6 +2,7 @@ import React, { createContext, useState, useEffect } from "react";
 import type { LensContextType, LensProviderProps } from "./types";
 import { useFetchConfig } from "../Lens/hooks";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import useFilterFunctions from "./hooks/useFilterFunction";
 
 const queryClient = new QueryClient();
 
@@ -10,8 +11,7 @@ export const LensContext = createContext<LensContextType | undefined>(
 );
 
 export const LensProviderBase: React.FC<LensProviderProps> = ({
-  configEndpoint,
-  dataEndpoint,
+  lensConfiguration,
   children,
 }) => {
   const [data, setData] = useState<any[]>([]);
@@ -21,12 +21,8 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
   const [filters, setFilters] = useState<any>({});
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  const applyFilter = (key: string, value: string) => {
-    setFilters((prevFilters: any) => ({
-      ...prevFilters,
-      [key]: value,
-    }));
-  };
+  const { addCondition, addGroup, removeItem, updateCondition } =
+    useFilterFunctions({ setFilter: setFilters });
 
   const search = (query: string) => {
     setSearchTerm(query);
@@ -36,7 +32,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     data: config,
     isFetched,
     // isError,
-  } = useFetchConfig(configEndpoint);
+  } = useFetchConfig({ configEndpoint: lensConfiguration.endpoint });
 
   console.log(">>>>>>", config);
 
@@ -47,9 +43,12 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
         isLoading,
         error,
         filters,
-        applyFilter,
         search,
         config,
+        addCondition,
+        addGroup,
+        removeItem,
+        updateCondition,
       }}
     >
       {children}
