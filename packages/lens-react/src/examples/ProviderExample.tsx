@@ -1,4 +1,3 @@
-import React from "react";
 import { LensProvider, useLensContext } from "../../../lens-react/lib/main";
 
 const DisplayContext = () => {
@@ -7,12 +6,12 @@ const DisplayContext = () => {
 };
 
 const ProviderExample = () => {
-  const configEndpoint = "/api/data-bench/auction-data/config";
+  const configEndpoint = {
+    endpoint: "/api/data-bench/auction-data",
+  };
+
   return (
-    <LensProvider
-      configEndpoint={configEndpoint}
-      dataEndpoint="/api/data-bench/auction-data"
-    >
+    <LensProvider lensConfiguration={configEndpoint}>
       <DisplayContext />
     </LensProvider>
   );
