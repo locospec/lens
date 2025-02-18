@@ -1,7 +1,6 @@
 import { useContext, useMemo } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import type { InfiniteData } from "@tanstack/react-query";
-import type { keepPreviousData } from "@tanstack/react-query";
 import { LensContext } from "../LensProvider";
 import { getProcessedFilters } from "../utils";
 
