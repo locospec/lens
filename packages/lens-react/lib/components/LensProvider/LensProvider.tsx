@@ -3,6 +3,8 @@ import type { LensContextType, LensProviderProps } from "./types";
 import { useFetchConfig } from "../Lens/hooks";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import useFilterFunctions from "./hooks/useFilterFunction";
+import { useInfiniteFetch } from "./hooks/useInfiniteFetch";
+import { getProcessedFilters } from "./utils";
 
 const queryClient = new QueryClient();
 
@@ -14,27 +16,37 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
   lensConfiguration,
   children,
 }) => {
+  const { endpoint, permissionHeaders = {} } = lensConfiguration;
   const [data, setData] = useState<any[]>([]);
   // const [config, setConfig] = useState<any>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState<any>({});
-  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const { addCondition, addGroup, removeItem, updateCondition } =
     useFilterFunctions({ setFilter: setFilters });
 
   const search = (query: string) => {
-    setSearchTerm(query);
+    setSearchQuery(query);
   };
 
   const {
     data: config,
     isFetched,
     // isError,
-  } = useFetchConfig({ configEndpoint: lensConfiguration.endpoint });
+  } = useFetchConfig({ configEndpoint: endpoint });
 
-  console.log(">>>>>>", config);
+  const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
+    useInfiniteFetch({
+      queryKey: endpoint,
+      globalFilter: searchQuery,
+      dataEndpoint: endpoint,
+      // keepPreviousData,
+      // dataCallback,
+      body: { filters: getProcessedFilters(filters) },
+      headers: permissionHeaders,
+    });
 
   return (
     <LensContext.Provider
@@ -49,6 +61,11 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
         addGroup,
         removeItem,
         updateCondition,
+        flatData,
+        fetchNextPage,
+        isFetching,
+        hasNextPage,
+        refetch,
       }}
     >
       {children}
