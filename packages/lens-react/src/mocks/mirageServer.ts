@@ -192,7 +192,7 @@ export function makeServer() {
 
         const body = JSON.parse(request.requestBody);
         const { cursor, search, ...rest } = body;
-        const pageSize = 30;
+        const pageSize = 10;
         const filters = JSON.stringify(rest.filters);
 
         if (resource === "test-data") {
@@ -222,7 +222,7 @@ export function makeServer() {
           };
         }
         if (resource === "auction-data") {
-          const completeTestData = Array.from({ length: 40 }, (_, index) => ({
+          const completeTestData = Array.from({ length: 200 }, (_, index) => ({
             id: index + 1,
             state: `State ${index + 1}`,
             district: `District ${index + 1}`,
