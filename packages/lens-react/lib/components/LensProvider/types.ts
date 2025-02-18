@@ -1,31 +1,13 @@
-import type {
-  FetchNextPageOptions,
-  InfiniteData,
-  InfiniteQueryObserverResult,
-  QueryObserverResult,
-  RefetchOptions,
-} from "@tanstack/react-query";
-
 interface LensContextType {
-  data: any[];
-  isLoading: boolean;
   error: string | null;
   filters: any;
   search: (query: string) => void;
   config: any;
-  updateCondition: (path: number[], field: string, value: any) => void;
-  addCondition: (parentPath?: number[]) => void;
-  addGroup: (parentPath?: number[]) => void;
-  removeItem: (path: number[]) => void;
-  flatData: any[];
-  fetchNextPage: (
-    options?: FetchNextPageOptions
-  ) => Promise<InfiniteQueryObserverResult<InfiniteData<any, unknown>, Error>>;
-  isFetching: boolean;
-  hasNextPage: boolean;
-  refetch: (
-    options?: RefetchOptions
-  ) => Promise<QueryObserverResult<InfiniteData<any, unknown>, Error>>;
+  isFetched: boolean;
+  isError: boolean;
+  endpoint: string;
+  searchQuery: string;
+  lensConfiguration: LensConfigurationInterface;
 }
 
 interface LensConfigurationInterface {
@@ -40,4 +22,4 @@ interface LensProviderProps {
   lensConfiguration: LensConfigurationInterface;
 }
 
-export type { LensContextType, LensProviderProps };
+export type { LensContextType, LensProviderProps, LensConfigurationInterface };
