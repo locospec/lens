@@ -26,7 +26,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     data: config,
     isFetched,
     isError,
-  } = useFetchConfig({ configEndpoint: endpoint });
+  } = useFetchConfig({ configEndpoint: `${endpoint}/config` });
 
   return (
     <LensContext.Provider
