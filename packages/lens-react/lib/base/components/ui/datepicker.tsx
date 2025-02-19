@@ -34,11 +34,11 @@ export function DatePicker({
         <Button
           variant={"outline"}
           className={cn(
-            "le-w-[280px] le-justify-start le-text-left le-font-normal",
-            !date && "le-text-muted-foreground"
+            "w-[280px] justify-start text-left font-normal",
+            !date && "text-muted-foreground"
           )}
         >
-          <CalendarIcon className="le-mr-2 le-h-4 le-w-4" />
+          <CalendarIcon className="mr-2 h-4 w-4" />
           {date ? (
             format(date, "PPP")
           ) : (
@@ -48,7 +48,7 @@ export function DatePicker({
       </PopoverTrigger>
       <PopoverContent
         containerRef={containerRef}
-        className="le-lens-wrapper le-w-auto le-p-0"
+        className="lens-wrapper w-auto p-0"
       >
         <Calendar
           mode="single"

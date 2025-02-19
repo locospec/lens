@@ -50,15 +50,15 @@ export function Combobox({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={"le-w-[200px] le-justify-between"}
+          className={"w-[200px] justify-between"}
         >
           {value
             ? options.find((option) => option.value === value)?.label
             : placeholder}
-          <ChevronsUpDown className="le-ml-2 le-h-4 le-w-4 le-shrink-0 le-opacity-50" />
+          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="le-w-[200px] le-p-0">
+      <PopoverContent className="w-[200px] p-0">
         <Command>
           <CommandInput placeholder={placeholder} />
           <CommandSeparator />
@@ -78,10 +78,8 @@ export function Combobox({
                   >
                     <Check
                       className={cn(
-                        "le-mr-2 le-h-4 le-w-4",
-                        value === option.value
-                          ? "le-opacity-100"
-                          : "le-opacity-0"
+                        "mr-2 h-4 w-4",
+                        value === option.value ? "opacity-100" : "opacity-0"
                       )}
                     />
                     {option.label}
