@@ -1,9 +1,6 @@
 import React from "react";
 import { splitAndCapitalize } from "../lib/components/utils/splitAndCapitalize";
 import "./App.css";
-import DataTableExample from "./examples/DataTableExample";
-import FiltersExample from "./examples/FiltersExample";
-import LensExample from "./examples/LensExample";
 import { BrowserRouter as Routes, Route } from "react-router-dom";
 import { makeServer } from "./mocks/mirageServer";
 import ProviderExample from "./examples/ProviderExample";
@@ -16,7 +13,7 @@ function App() {
     };
   }, []);
 
-  const components = ["lens", "filters", "table", "provider"];
+  const components = ["provider"];
 
   return (
     <main className="le-w-screen le-h-screen le-overflow-hidden">
@@ -26,7 +23,7 @@ function App() {
             {components.map((component) => (
               <a
                 key={component}
-                className="le-no-underline "
+                className="le-no-underline"
                 href={`/${component}`}
               >
                 {splitAndCapitalize(component)}
@@ -42,9 +39,6 @@ function App() {
           <div className="le-flex-grow le-overflow-auto">
             <Routes>
               <Route path="*" children={<></>} />
-              <Route path="/lens" children={<LensExample />} />
-              <Route path="/filters" children={<FiltersExample />} />
-              <Route path="/table" children={<DataTableExample />} />
               <Route path="/provider" children={<ProviderExample />} />
             </Routes>
           </div>
