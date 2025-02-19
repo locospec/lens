@@ -17,4 +17,5 @@ export type {
   LensProviderProps,
 } from "./components/LensProvider";
 
+export { RawDisplay } from "./components/RawDisplay";
 export { Datatable } from "./components/Datatable";
