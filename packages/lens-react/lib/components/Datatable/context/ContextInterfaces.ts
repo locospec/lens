@@ -22,6 +22,7 @@ interface DatatableContextType
   extends Omit<DatatableContextProviderInterface, "children"> {
   selectedRows: RowSelectionState;
   setSelectedRows: React.Dispatch<React.SetStateAction<RowSelectionState>>;
+  tableContainerRef: React.RefObject<HTMLDivElement>;
 }
 
 export type {

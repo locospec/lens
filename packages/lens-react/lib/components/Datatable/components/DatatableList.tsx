@@ -24,8 +24,8 @@ const DatatableList = () => {
     columns,
     identifierKey,
     sensors,
+    tableContainerRef,
   } = useDatatableContext();
-  const tableContainerRef = useRef<HTMLDivElement>(null);
   const [isInResizeArea, setIsInResizeArea] = React.useState(false);
   const [activeId, setActiveId] = React.useState<string | null>(null);
   const [columnVisibility, setColumnVisibility] = React.useState<any>({});

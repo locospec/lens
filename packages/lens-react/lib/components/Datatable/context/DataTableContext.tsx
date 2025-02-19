@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useRef, useState } from "react";
 import { LensContext } from "@/main";
 import type {
   DatatableContextType,
@@ -37,12 +37,14 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   ...props
 }) => {
   const [selectedRows, setSelectedRows] = useState<RowSelectionState>({});
+  const tableContainerRef = useRef<HTMLDivElement>(null);
 
   return (
     <DatatableContext.Provider
       value={{
         selectedRows,
         setSelectedRows,
+        tableContainerRef,
         ...props,
       }}
     >
