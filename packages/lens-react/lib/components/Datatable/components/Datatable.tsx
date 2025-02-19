@@ -2,6 +2,8 @@ import React from "react";
 
 import { cn } from "@/base/lib/utils";
 import { DataTableLensContextProvider } from "../context/DataTableContext";
+import DatatableList from "./DatatableList";
+import "../Datatable.css";
 
 export interface DatatableInterface {}
 
@@ -13,7 +15,7 @@ const Datatable: React.FC<DatatableInterface> = ({}) => {
           "twp lens-data-table-root le-w-full le-h-full le-flex le-flex-col le-overflow-hidden"
         )}
       >
-        "DATA TABLE COMES HERE"
+        <DatatableList />
       </div>
     </DataTableLensContextProvider>
   );
