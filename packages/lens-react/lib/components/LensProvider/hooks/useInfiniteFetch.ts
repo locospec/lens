@@ -35,7 +35,7 @@ const useInfiniteFetch = ({ dataCallback }: UseInfiniteFetchParams) => {
 
   const dataEndpoint = `${endpoint}/fetch`;
 
-  // TODO - Need to Modify to support normal ppgaination other than cursor pagination
+  // TODO - Need to Modify to support normal pagination other than cursor pagination
   const fetchDataFunction = async ({ pageParam = null }) => {
     const response = await fetch(dataEndpoint, {
       method: "POST",

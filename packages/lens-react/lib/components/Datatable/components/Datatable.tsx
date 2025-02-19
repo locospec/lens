@@ -4,11 +4,22 @@ import { cn } from "@/base/lib/utils";
 import { DataTableLensContextProvider } from "../context/DataTableContext";
 import DatatableList from "./DatatableList";
 
-export interface DatatableInterface {}
+export interface DatatableInterface {
+  selectedItems?: any;
+  onSelect?: any;
+}
 
-const Datatable: React.FC<DatatableInterface> = ({}) => {
+const Datatable: React.FC<DatatableInterface> = (
+  {
+    // selectedItems,
+    // onSelect,
+  }
+) => {
   return (
-    <DataTableLensContextProvider>
+    <DataTableLensContextProvider
+    // selectedItem={selectedItems}
+    // onSelect={onSelect}
+    >
       <div
         className={cn(
           "twp lens-data-table-root le-w-full le-h-full le-flex le-flex-col le-overflow-hidden"

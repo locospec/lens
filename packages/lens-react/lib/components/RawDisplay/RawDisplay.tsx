@@ -11,8 +11,6 @@ const RawDisplay: React.FC = () => {
     const div = e.target as HTMLDivElement;
 
     if (div.scrollHeight - div.scrollTop - div.clientHeight < 100) {
-      console.log("Reached bottom of the scrollable area", hasNextPage);
-
       if (hasNextPage && !isFetching) {
         fetchNextPage();
       }
@@ -22,7 +20,7 @@ const RawDisplay: React.FC = () => {
   useEffect(() => {
     if (ref?.current) {
       const { scrollHeight, scrollTop, clientHeight } = ref.current;
-      if (scrollHeight - scrollTop - clientHeight < 500) {
+      if (scrollHeight - scrollTop - clientHeight < 200) {
         fetchNextPage();
       }
     }
@@ -30,7 +28,7 @@ const RawDisplay: React.FC = () => {
 
   return (
     <div
-      className="le-w-full le-h-full le-flex le-flex-col le-gap-y-2 le-overflow-y-scroll"
+      className="le-w-full le-h-full le-flex le-flex-col le-gap-y-1 le-overflow-y-scroll"
       onScroll={handleScroll}
       ref={ref}
     >

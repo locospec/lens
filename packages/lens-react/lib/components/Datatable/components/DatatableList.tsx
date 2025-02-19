@@ -13,6 +13,7 @@ import { useSyncSelection } from "../hooks/useSyncSelection";
 import { DatatableHeaderSection } from "./DatatableHeaderSection";
 import { createHandleDragEnd } from "../utils/createHandleDragEnd";
 import { DatatableBody, MemoizedDatatableBody } from "./DatatableBody";
+import { useCallback } from "react";
 
 const DatatableList = () => {
   const {
@@ -35,15 +36,20 @@ const DatatableList = () => {
     fixedColumns,
   } = useDatatableContext();
 
+  useSyncSelection(selectedRows, selectedRows, setSelectedRows, () => {});
+
   const { flatData, fetchNextPage, isFetching, hasNextPage } = useInfiniteFetch(
     {}
   );
 
-  const handleDragEnd = createHandleDragEnd({
-    setColumnOrder: setColumnOrder,
-    fixedColumns: fixedColumns,
-    setActiveId: setActiveId,
-  });
+  const handleDragEnd = useCallback(
+    createHandleDragEnd({
+      setColumnOrder: setColumnOrder,
+      fixedColumns: fixedColumns,
+      setActiveId: setActiveId,
+    }),
+    [setColumnOrder, fixedColumns, setActiveId]
+  );
 
   const { fetchMoreOnBottomReached } = useFetchMoreOnScroll({
     containerRef: tableContainerRef,
@@ -90,10 +96,6 @@ const DatatableList = () => {
     adjustedColumns,
     parentWidth: tableContainerRef?.current?.clientWidth,
   });
-
-  useSyncSelection(selectedRows, selectedRows, setSelectedRows, (id) =>
-    console.log(">>>>>>", id)
-  );
 
   if (!isColumnsReady) {
     return (
