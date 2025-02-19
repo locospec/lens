@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useInfiniteFetch } from "../LensProvider/hooks/useInfiniteFetch";
 
-const RawDisplay = () => {
+const RawDisplay: React.FC = () => {
   const { flatData, fetchNextPage, hasNextPage, isFetching } = useInfiniteFetch(
     {}
   );
@@ -30,7 +30,7 @@ const RawDisplay = () => {
 
   return (
     <div
-      className="le-flex le-flex-col le-gap-y-2 le-h-[400px] le-overflow-y-scroll"
+      className="le-w-full le-h-full le-flex le-flex-col le-gap-y-2 le-overflow-y-scroll"
       onScroll={handleScroll}
       ref={ref}
     >

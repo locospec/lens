@@ -23,7 +23,9 @@ const ProviderExample = () => {
     <>
       <LensProvider lensConfiguration={configEndpoint}>
         <DisplayContext />
-        <RawDisplay />
+        <div className="le-h-[400px]">
+          <RawDisplay />
+        </div>
         <Datatable />
       </LensProvider>
     </>
