@@ -1,11 +1,15 @@
 import { useEffect, useRef } from "react";
-import { LensProvider, useLensContext } from "../../../lens-react/lib/main";
+import {
+  Datatable,
+  LensProvider,
+  useLensContext,
+} from "../../../lens-react/lib/main";
 import { useInfiniteFetch } from "../../lib/components/LensProvider/hooks/useInfiniteFetch";
 
 const DisplayContext = () => {
   const { config } = useLensContext();
   return (
-    <div className="le-text-[10px] le-border le-bg-black le-text-green-400 le-p-2">
+    <div className="le-text-[10px] le-border le-bg-red-800 le-text-green-400 le-p-2">
       {JSON.stringify(config, null, 2)}
     </div>
   );
@@ -64,8 +68,9 @@ const ProviderExample = () => {
   return (
     <>
       <LensProvider lensConfiguration={configEndpoint}>
+        <DisplayContext />
         <DisplayData />
-        {/* <DisplayContext /> */}
+        <Datatable />
       </LensProvider>
     </>
   );
