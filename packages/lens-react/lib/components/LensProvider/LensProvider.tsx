@@ -2,6 +2,7 @@ import React, { createContext, useState } from "react";
 import type { LensContextType, LensProviderProps } from "./types";
 import { useFetchConfig } from "./hooks/useFetchConfig";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient();
 
@@ -48,9 +49,13 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
   );
 };
 
-export const LensProvider: React.FC<LensProviderProps> = (props) => {
+export const LensProvider: React.FC<LensProviderProps> = ({
+  showDevTools = false,
+  ...props
+}) => {
   return (
     <QueryClientProvider client={queryClient}>
+      {showDevTools && <ReactQueryDevtools />}
       <LensProviderBase {...props} />
     </QueryClientProvider>
   );

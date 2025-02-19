@@ -20,6 +20,7 @@ interface LensConfigurationInterface {
 
 interface LensProviderProps {
   children: React.ReactNode;
+  showDevTools?: boolean;
   lensConfiguration: LensConfigurationInterface;
 }
 
