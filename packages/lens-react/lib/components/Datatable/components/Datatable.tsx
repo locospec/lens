@@ -22,7 +22,7 @@ const Datatable: React.FC<DatatableInterface> = (
     >
       <div
         className={cn(
-          "twp lens-data-table-root le-w-full le-h-full le-flex le-flex-col le-overflow-hidden"
+          "le-w-full le-h-full le-flex le-flex-col le-overflow-hidden"
         )}
       >
         <DatatableList />
