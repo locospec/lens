@@ -62,6 +62,8 @@ const DatatableList = () => {
     getRowId: (row) => row[identifierKey],
     initialState: {
       columnPinning: {
+        // TODO: This is hard coded needs to be removed and to be fetched
+        // from table config once the config is modified allows pinning
         left: ["select", "id"],
         right: ["actions"],
       },
