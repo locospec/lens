@@ -48,6 +48,9 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
     })
   );
 
+  const fixedColumns =
+    columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id) || [];
+
   const tableContainerRef = useRef<HTMLDivElement>(null);
 
   const { adjustedColumns, isColumnsReady } = useColumnResize(
@@ -73,6 +76,7 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
         setColumnOrder,
         adjustedColumns,
         isColumnsReady,
+        fixedColumns,
         ...props,
       }}
     >

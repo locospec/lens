@@ -1,6 +1,5 @@
 import { useInfiniteFetch } from "@/components/LensProvider/hooks/useInfiniteFetch";
 import { cn } from "@/components/utils/cn";
-import React from "react";
 import { useDatatableContext } from "../context/DataTableContext";
 import { useFetchMoreOnScroll } from "../hooks/useFetchMoreOnScroll";
 import {
@@ -20,7 +19,6 @@ const DatatableList = () => {
     selectionType,
     selectedRows,
     setSelectedRows,
-    columns,
     identifierKey,
     sensors,
     tableContainerRef,
@@ -34,10 +32,8 @@ const DatatableList = () => {
     isColumnsReady,
     columnOrder,
     setColumnOrder,
+    fixedColumns,
   } = useDatatableContext();
-  const [fixedColumns, _] = React.useState(
-    () => columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id) || []
-  );
 
   const { flatData, fetchNextPage, isFetching, hasNextPage } = useInfiniteFetch(
     {}

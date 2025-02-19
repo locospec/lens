@@ -36,6 +36,7 @@ interface DatatableContextType
   setColumnOrder: React.Dispatch<React.SetStateAction<string[]>>;
   adjustedColumns: any;
   isColumnsReady: any;
+  fixedColumns: (string | undefined)[];
   tableContainerRef: React.RefObject<HTMLDivElement>;
 }
 
