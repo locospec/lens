@@ -16,3 +16,5 @@ export type {
   LensContextType,
   LensProviderProps,
 } from "./components/LensProvider";
+
+export { Datatable } from "./components/Datatable";
