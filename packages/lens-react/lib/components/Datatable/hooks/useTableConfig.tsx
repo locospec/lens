@@ -6,7 +6,7 @@ import type {
   ColumnConfigInterface,
   TableConfigInterface,
 } from "../interface/DatatableInterface";
-import { ActionsRenderer as actionsRenderer } from "../utils/actions/ActionsRenderer";
+import { ActionsRenderer as actionsRenderer } from "../components/actions/ActionsRenderer";
 import type { CustomColumnDef } from "../interface/CustomColumnDef";
 
 export interface HeaderInterface {
