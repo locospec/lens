@@ -1,0 +1,36 @@
+import { DatatableCell } from "./DatatableCell.tsx";
+import type { VirtualItem, Virtualizer } from "@tanstack/react-virtual";
+import type { Row } from "@tanstack/react-table";
+import { cn } from "@/components/utils/cn.ts";
+
+export interface DatatableRowInterface {
+  row: Row<any>;
+  virtualRow: VirtualItem;
+  rowVirtualizer: Virtualizer<HTMLDivElement, Element>;
+}
+
+const DatatableRow = ({
+  row,
+  virtualRow,
+  rowVirtualizer,
+}: DatatableRowInterface) => {
+  const isSelected = row.getIsSelected();
+  const translate = { transform: `translateY(${virtualRow.start}px)` };
+
+  return (
+    <div
+      className={cn("le-absolute le-top-0 le-flex le-w-full le-group")}
+      data-index={virtualRow.index}
+      ref={(node) => rowVirtualizer.measureElement(node)}
+      key={row.id}
+      style={translate}
+      data-state={isSelected && "selected"}
+    >
+      {row.getVisibleCells().map((cell) => (
+        <DatatableCell key={cell.id} cell={cell} />
+      ))}
+    </div>
+  );
+};
+
+export { DatatableRow };
