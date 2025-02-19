@@ -25,10 +25,11 @@ const DatatableList = () => {
     identifierKey,
     sensors,
     tableContainerRef,
+    columnVisibility,
+    setColumnVisibility,
   } = useDatatableContext();
   const [isInResizeArea, setIsInResizeArea] = React.useState(false);
   const [activeId, setActiveId] = React.useState<string | null>(null);
-  const [columnVisibility, setColumnVisibility] = React.useState<any>({});
 
   const [fixedColumns, _] = React.useState(
     () => columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id) || []

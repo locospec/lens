@@ -12,7 +12,7 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
-import { RowSelectionState } from "@tanstack/react-table";
+import type { RowSelectionState, VisibilityState } from "@tanstack/react-table";
 import { useTableConfig } from "../hooks/useTableConfig";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
@@ -37,6 +37,8 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   ...props
 }) => {
   const [selectedRows, setSelectedRows] = useState<RowSelectionState>({});
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+
   const tableContainerRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -45,6 +47,8 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
         selectedRows,
         setSelectedRows,
         tableContainerRef,
+        columnVisibility,
+        setColumnVisibility,
         ...props,
       }}
     >
