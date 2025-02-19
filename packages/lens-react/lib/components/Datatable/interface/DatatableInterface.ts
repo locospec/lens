@@ -1,4 +1,17 @@
-import { AttributeDefinitionMapType } from "@/components/Filters/src/interfaces";
+export type AttributeTypes = "string" | "number" | "boolean" | "date" | "enum";
+
+export interface AttributeDefinitionType {
+  label: string;
+  type: AttributeTypes;
+  isNullable?: boolean;
+  dependsOn?: string[];
+  modelName?: string;
+  options?: { label: string; value: string }[];
+}
+
+export type AttributeDefinitionMapType = {
+  [key: string]: AttributeDefinitionType;
+};
 
 type SelectionType = "single" | "multiple" | "none";
 type AlignType = "start" | "center" | "end";

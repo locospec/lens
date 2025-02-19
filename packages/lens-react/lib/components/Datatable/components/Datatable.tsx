@@ -1,19 +1,37 @@
 import React from "react";
 
 import { cn } from "@/base/lib/utils";
-import { useLensContext } from "../../LensProvider";
-// import { DatatableList } from "./DatatableList";
+import {
+  KeyboardSensor,
+  MouseSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import { DataTableContextWrapper } from "./DataTableContextWrapper";
+import { SelectionType } from "../interface/DatatableInterface";
 
-const Datatable: React.FC = () => {
-  const { isFetched } = useLensContext();
+export interface DatatableInterface {
+  selectionType?: SelectionType;
+}
+
+const Datatable: React.FC<DatatableInterface> = ({ selectionType }) => {
+  const sensors = useSensors(
+    useSensor(MouseSensor, {}),
+    useSensor(TouchSensor, {}),
+    useSensor(KeyboardSensor, {})
+  );
+
   return (
-    <div
-      className={cn(
-        "twp lens-data-table-root le-w-full le-h-full le-flex le-flex-col le-overflow-hidden"
-      )}
-    >
-      {isFetched ? <></> : "loading"}
-    </div>
+    <DataTableContextWrapper selectionType={selectionType} sensors={sensors}>
+      <div
+        className={cn(
+          "twp lens-data-table-root le-w-full le-h-full le-flex le-flex-col le-overflow-hidden"
+        )}
+      >
+        "DATA TABLE COMES HERE"
+      </div>
+    </DataTableContextWrapper>
   );
 };
 

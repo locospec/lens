@@ -2,7 +2,6 @@ import { createContext, useContext, useState } from "react";
 import { LensContext } from "@/main";
 import type {
   DatatableContextType,
-  DatatableContextLensProviderInterface,
   DatatableContextProviderInterface,
 } from "./ContextInterfaces";
 
@@ -22,6 +21,7 @@ const useDatatableContext = () => {
 const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   children,
   selectionType,
+  sensors,
 }) => {
   const [selectedRows, setSelectedRows] = useState<Set<number>>(new Set());
 
@@ -56,6 +56,7 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   return (
     <DatatableContext.Provider
       value={{
+        sensors,
         selectedRows,
         selectionType,
         clearSelection,
@@ -68,18 +69,18 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
 };
 
 const DataTableLensContextProvider: React.FC<
-  DatatableContextLensProviderInterface
-> = ({ children }) => {
+  DatatableContextProviderInterface
+> = ({ children, ...props }) => {
   const lensContext = useContext(LensContext);
   if (!lensContext) {
     throw new Error("useInfiniteFetch must be used within LensProvider");
   }
 
   const { config } = lensContext;
-  const selectionType = config.selectionType;
+  const selectionType = config?.selectionType || "none";
 
   return (
-    <DatatableContextProvider selectionType={selectionType}>
+    <DatatableContextProvider {...props} selectionType={selectionType}>
       {children}
     </DatatableContextProvider>
   );
