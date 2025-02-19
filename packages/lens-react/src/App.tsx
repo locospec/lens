@@ -4,6 +4,7 @@ import "./App.css";
 import { BrowserRouter as Routes, Route } from "react-router-dom";
 import { makeServer } from "./mocks/mirageServer";
 import ProviderExample from "./examples/ProviderExample";
+import RawDataExample from "./examples/RawDataExample";
 
 function App() {
   React.useEffect(() => {
@@ -13,7 +14,7 @@ function App() {
     };
   }, []);
 
-  const components = ["provider"];
+  const components = ["raw_data", "provider"];
 
   return (
     <main className="le-w-screen le-h-screen le-overflow-hidden">
@@ -26,7 +27,7 @@ function App() {
                 className="le-no-underline"
                 href={`/${component}`}
               >
-                {splitAndCapitalize(component)}
+                {splitAndCapitalize(component) + " Example"}
               </a>
             ))}
           </div>
@@ -40,6 +41,7 @@ function App() {
             <Routes>
               <Route path="*" children={<></>} />
               <Route path="/provider" children={<ProviderExample />} />
+              <Route path="/raw_data" children={<RawDataExample />} />
             </Routes>
           </div>
         </div>
