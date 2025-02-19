@@ -12,9 +12,6 @@ const ProviderExample = () => {
           <Datatable />
         </div>
       </LensProvider>
-      <div className="le-h-[200px]">
-        <Datatable selectionType="single" />
-      </div>
     </>
   );
 };
