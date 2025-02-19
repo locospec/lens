@@ -14,6 +14,7 @@ import { useColumnSizeVars } from "../hooks/useColumnSizeVars";
 import { useSyncSelection } from "../hooks/useSyncSelection";
 import { DatatableHeaderSection } from "./DatatableHeaderSection";
 import { createHandleDragEnd } from "../utils/createHandleDragEnd";
+import { DatatableBody, MemoizedDatatableBody } from "./DatatableBody";
 
 const DatatableList = () => {
   const {
@@ -32,10 +33,10 @@ const DatatableList = () => {
   const [fixedColumns, _] = React.useState(
     () => columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id) || []
   );
-  //   const lensContext = useContext(LensContext);
 
-  const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
-    useInfiniteFetch({});
+  const { flatData, fetchNextPage, isFetching, hasNextPage } = useInfiniteFetch(
+    {}
+  );
 
   const { adjustedColumns, isColumnsReady } = useColumnResize(
     tableContainerRef,
@@ -54,12 +55,12 @@ const DatatableList = () => {
     setActiveId: setActiveId,
   });
 
-  const { fetchMoreOnBottomReached } = useFetchMoreOnScroll(
-    tableContainerRef,
+  const { fetchMoreOnBottomReached } = useFetchMoreOnScroll({
+    containerRef: tableContainerRef,
     fetchNextPage,
     isFetching,
-    hasNextPage
-  );
+    hasNextPage,
+  });
 
   const table = useReactTable({
     data: flatData,
@@ -151,6 +152,14 @@ const DatatableList = () => {
               isInResizeArea={isInResizeArea}
               sensors={sensors}
             />
+            {isResizing ? (
+              <MemoizedDatatableBody
+                table={table}
+                rowVirtualizer={rowVirtualizer}
+              />
+            ) : (
+              <DatatableBody table={table} rowVirtualizer={rowVirtualizer} />
+            )}
           </div>
         </div>
       </div>
