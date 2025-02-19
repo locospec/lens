@@ -50,47 +50,48 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
       } as CustomColumnDef<any, any>);
     });
 
-    const selectionColumn = {
-      id: "select",
-      meta: {
-        fixed: true,
-      },
-      header: ({ table }: HeaderInterface) => (
-        <div className="le-flex le-h-full le-items-center le-justify-center">
-          <Checkbox
-            checked={
-              table.getIsAllPageRowsSelected() ||
-              (table.getIsSomePageRowsSelected() && "indeterminate")
-            }
-            onCheckedChange={(value) =>
-              table.toggleAllPageRowsSelected(!!value)
-            }
-            aria-label="Select all"
-          />
-        </div>
-      ),
-      cell: ({ row }: RowInterface) => (
-        <div className="le-flex le-h-full le-items-center le-justify-center">
-          <Checkbox
-            checked={row.getIsSelected()}
-            onCheckedChange={(value) => {
-              return row.toggleSelected(!!value);
-            }}
-            aria-label="Select row"
-          />
-        </div>
-      ),
-      enableSorting: false,
-      enableHiding: false,
-      size: 50,
-      minSize: 50,
-      maxSize: 50,
-    };
+    let finalColumns = columnsFromConfig;
 
-    const finalColumns =
-      selectionType === "none"
-        ? columnsFromConfig
-        : [selectionColumn, ...columnsFromConfig];
+    if (selectionType && selectionType !== "none") {
+      const selectionColumn = {
+        id: "select",
+        accessorKey: "select",
+        meta: {
+          fixed: true,
+        },
+        header: ({ table }: HeaderInterface) => (
+          <div className="le-flex le-h-full le-items-center le-justify-center">
+            <Checkbox
+              checked={
+                table.getIsAllPageRowsSelected() ||
+                (table.getIsSomePageRowsSelected() && "indeterminate")
+              }
+              onCheckedChange={(value) =>
+                table.toggleAllPageRowsSelected(!!value)
+              }
+              aria-label="Select all"
+            />
+          </div>
+        ),
+        cell: ({ row }: RowInterface) => (
+          <div className="le-flex le-h-full le-items-center le-justify-center">
+            <Checkbox
+              checked={row.getIsSelected()}
+              onCheckedChange={(value) => {
+                return row.toggleSelected(!!value);
+              }}
+              aria-label="Select row"
+            />
+          </div>
+        ),
+        enableSorting: false,
+        enableHiding: false,
+        size: 50,
+        minSize: 50,
+        maxSize: 50,
+      };
+      finalColumns = [selectionColumn, ...columnsFromConfig];
+    }
 
     if (actions) {
       const actionsColumn = {
