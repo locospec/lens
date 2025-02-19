@@ -8,7 +8,7 @@ const ProviderExample = () => {
   return (
     <>
       <LensProvider lensConfiguration={configEndpoint}>
-        <div className="le-h-[200px]">
+        <div className="le-h-[400px]">
           <Datatable />
         </div>
       </LensProvider>
