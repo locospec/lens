@@ -1,1 +1,1 @@
-export { Datatable } from "./Datatable";
+export { Datatable } from "./components/Datatable";
