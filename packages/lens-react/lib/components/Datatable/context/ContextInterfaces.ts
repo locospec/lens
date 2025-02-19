@@ -11,7 +11,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   sensors: SensorDescriptor<SensorOptions>[];
 }
 
-interface DataTableContextWrapperInterface
+interface DataTableLensContextProviderInterface
   extends Partial<DatatableContextProviderInterface> {}
 
 interface DatatableContextType
@@ -25,5 +25,5 @@ export type {
   CommonWrapperInterface,
   DatatableContextType,
   DatatableContextProviderInterface,
-  DataTableContextWrapperInterface,
+  DataTableLensContextProviderInterface,
 };

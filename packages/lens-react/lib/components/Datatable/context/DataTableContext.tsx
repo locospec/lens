@@ -3,7 +3,15 @@ import { LensContext } from "@/main";
 import type {
   DatatableContextType,
   DatatableContextProviderInterface,
+  DataTableLensContextProviderInterface,
 } from "./ContextInterfaces";
+import {
+  KeyboardSensor,
+  MouseSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
@@ -17,6 +25,7 @@ const useDatatableContext = () => {
     );
   }
 };
+useDatatableContext.displayName = "useDatatableContext";
 
 const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   children,
@@ -67,24 +76,32 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
     </DatatableContext.Provider>
   );
 };
+DatatableContextProvider.displayName = "DatatableContextProvider";
 
 const DataTableLensContextProvider: React.FC<
-  DatatableContextProviderInterface
-> = ({ children, ...props }) => {
+  DataTableLensContextProviderInterface
+> = ({ children }) => {
   const lensContext = useContext(LensContext);
   if (!lensContext) {
     throw new Error("useInfiniteFetch must be used within LensProvider");
   }
 
+  const sensors = useSensors(
+    useSensor(MouseSensor, {}),
+    useSensor(TouchSensor, {}),
+    useSensor(KeyboardSensor, {})
+  );
+
   const { config } = lensContext;
   const selectionType = config?.selectionType || "none";
 
   return (
-    <DatatableContextProvider {...props} selectionType={selectionType}>
+    <DatatableContextProvider selectionType={selectionType} sensors={sensors}>
       {children}
     </DatatableContextProvider>
   );
 };
+DataTableLensContextProvider.displayName = "DataTableLensContextProvider";
 
 export {
   useDatatableContext,

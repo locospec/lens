@@ -1,29 +1,13 @@
 import React from "react";
 
 import { cn } from "@/base/lib/utils";
-import {
-  KeyboardSensor,
-  MouseSensor,
-  TouchSensor,
-  useSensor,
-  useSensors,
-} from "@dnd-kit/core";
-import { DataTableContextWrapper } from "./DataTableContextWrapper";
-import { SelectionType } from "../interface/DatatableInterface";
+import { DataTableLensContextProvider } from "../context/DataTableContext";
 
-export interface DatatableInterface {
-  selectionType?: SelectionType;
-}
+export interface DatatableInterface {}
 
-const Datatable: React.FC<DatatableInterface> = ({ selectionType }) => {
-  const sensors = useSensors(
-    useSensor(MouseSensor, {}),
-    useSensor(TouchSensor, {}),
-    useSensor(KeyboardSensor, {})
-  );
-
+const Datatable: React.FC<DatatableInterface> = ({}) => {
   return (
-    <DataTableContextWrapper selectionType={selectionType} sensors={sensors}>
+    <DataTableLensContextProvider>
       <div
         className={cn(
           "twp lens-data-table-root le-w-full le-h-full le-flex le-flex-col le-overflow-hidden"
@@ -31,7 +15,7 @@ const Datatable: React.FC<DatatableInterface> = ({ selectionType }) => {
       >
         "DATA TABLE COMES HERE"
       </div>
-    </DataTableContextWrapper>
+    </DataTableLensContextProvider>
   );
 };
 
