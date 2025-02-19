@@ -28,6 +28,14 @@ interface DatatableContextType
   setSelectedRows: React.Dispatch<React.SetStateAction<RowSelectionState>>;
   columnVisibility: VisibilityState;
   setColumnVisibility: React.Dispatch<React.SetStateAction<VisibilityState>>;
+  activeId: string | null;
+  setActiveId: React.Dispatch<React.SetStateAction<string | null>>;
+  isInResizeArea: boolean;
+  setIsInResizeArea: React.Dispatch<React.SetStateAction<boolean>>;
+  columnOrder: string[];
+  setColumnOrder: React.Dispatch<React.SetStateAction<string[]>>;
+  adjustedColumns: any;
+  isColumnsReady: any;
   tableContainerRef: React.RefObject<HTMLDivElement>;
 }
 

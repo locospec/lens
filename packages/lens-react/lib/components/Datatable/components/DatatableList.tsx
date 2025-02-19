@@ -8,7 +8,6 @@ import {
   useReactTable,
   getFilteredRowModel,
 } from "@tanstack/react-table";
-import { useColumnResize } from "../hooks/useColumnResize";
 import { useRowVirtualizer } from "../hooks/useRowVirtualizer";
 import { useColumnSizeVars } from "../hooks/useColumnSizeVars";
 import { useSyncSelection } from "../hooks/useSyncSelection";
@@ -27,27 +26,21 @@ const DatatableList = () => {
     tableContainerRef,
     columnVisibility,
     setColumnVisibility,
+    activeId,
+    setActiveId,
+    isInResizeArea,
+    setIsInResizeArea,
+    adjustedColumns,
+    isColumnsReady,
+    columnOrder,
+    setColumnOrder,
   } = useDatatableContext();
-  const [isInResizeArea, setIsInResizeArea] = React.useState(false);
-  const [activeId, setActiveId] = React.useState<string | null>(null);
-
   const [fixedColumns, _] = React.useState(
     () => columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id) || []
   );
 
   const { flatData, fetchNextPage, isFetching, hasNextPage } = useInfiniteFetch(
     {}
-  );
-
-  const { adjustedColumns, isColumnsReady } = useColumnResize(
-    tableContainerRef,
-    columns,
-    0
-  );
-  const [columnOrder, setColumnOrder] = React.useState<string[]>(() =>
-    columns.map((c) => {
-      return c.id!;
-    })
   );
 
   const handleDragEnd = createHandleDragEnd({

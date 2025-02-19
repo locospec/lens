@@ -14,6 +14,7 @@ import {
 } from "@dnd-kit/core";
 import type { RowSelectionState, VisibilityState } from "@tanstack/react-table";
 import { useTableConfig } from "../hooks/useTableConfig";
+import { useColumnResize } from "../hooks/useColumnResize";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
@@ -34,12 +35,26 @@ useDatatableContext.displayName = "useDatatableContext";
 
 const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   children,
+  columns,
   ...props
 }) => {
   const [selectedRows, setSelectedRows] = useState<RowSelectionState>({});
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const [isInResizeArea, setIsInResizeArea] = useState(false);
+  const [columnOrder, setColumnOrder] = useState<string[]>(() =>
+    columns.map((c) => {
+      return c.id!;
+    })
+  );
 
   const tableContainerRef = useRef<HTMLDivElement>(null);
+
+  const { adjustedColumns, isColumnsReady } = useColumnResize(
+    tableContainerRef,
+    columns,
+    0
+  );
 
   return (
     <DatatableContext.Provider
@@ -49,6 +64,15 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
         tableContainerRef,
         columnVisibility,
         setColumnVisibility,
+        activeId,
+        setActiveId,
+        isInResizeArea,
+        setIsInResizeArea,
+        columns,
+        columnOrder,
+        setColumnOrder,
+        adjustedColumns,
+        isColumnsReady,
         ...props,
       }}
     >
