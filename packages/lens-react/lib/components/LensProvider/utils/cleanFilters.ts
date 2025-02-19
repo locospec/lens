@@ -1,7 +1,4 @@
-import {
-  Condition,
-  FilterGroup,
-} from "@/components/Filters/src/interfaces/src/FilterInterface";
+import { Condition, FilterGroup } from "../interfaces/FiltersInterface";
 
 const cleanConditions = (
   condition: Condition | FilterGroup

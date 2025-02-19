@@ -3,7 +3,6 @@ import React from "react";
 import { cn } from "@/base/lib/utils";
 import { DataTableLensContextProvider } from "../context/DataTableContext";
 import DatatableList from "./DatatableList";
-import "../Datatable.css";
 
 export interface DatatableInterface {}
 

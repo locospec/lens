@@ -1,6 +1,6 @@
 import { useInfiniteFetch } from "@/components/LensProvider/hooks/useInfiniteFetch";
 import { cn } from "@/components/utils/cn";
-import React, { useRef } from "react";
+import React from "react";
 import { useDatatableContext } from "../context/DataTableContext";
 import { useFetchMoreOnScroll } from "../hooks/useFetchMoreOnScroll";
 import {
