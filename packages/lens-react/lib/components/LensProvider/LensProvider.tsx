@@ -44,7 +44,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
         lensConfiguration,
       }}
     >
-      {children}
+      {config && isFetched ? children : <>loading....</>}
     </LensContext.Provider>
   );
 };
