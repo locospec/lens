@@ -1,8 +1,4 @@
-import {
-  Datatable,
-  LensProvider,
-  useLensContext,
-} from "../../../lens-react/lib/main";
+import { LensProvider, useLensContext } from "../../../lens-react/lib/main";
 import { RawDisplay } from "../../../lens-react/lib/main";
 
 const DisplayContext = () => {
@@ -26,7 +22,6 @@ const RawDataExample = () => {
         <div className="le-h-[400px]">
           <RawDisplay />
         </div>
-        <Datatable />
       </LensProvider>
     </>
   );
