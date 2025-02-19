@@ -12,10 +12,13 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
+import { RowSelectionState } from "@tanstack/react-table";
+import { useTableConfig } from "../hooks/useTableConfig";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
 );
+DatatableContext.displayName = "DatatableContext";
 
 const useDatatableContext = () => {
   const context = useContext(DatatableContext);
@@ -24,52 +27,23 @@ const useDatatableContext = () => {
       "useDatatableContext must be used within a DatatableContextProvider"
     );
   }
+  return context;
 };
+
 useDatatableContext.displayName = "useDatatableContext";
 
 const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   children,
-  selectionType,
-  sensors,
+  ...props
 }) => {
-  const [selectedRows, setSelectedRows] = useState<Set<number>>(new Set());
-
-  const handleRowSelection = (rowId: number) => {
-    if (selectionType === "none") return;
-
-    if (selectionType === "single") {
-      if (selectedRows.has(rowId)) {
-        setSelectedRows(new Set());
-      } else {
-        setSelectedRows(new Set([rowId]));
-      }
-    }
-
-    if (selectionType === "multiple") {
-      setSelectedRows((prev) => {
-        const updated = new Set(prev);
-        if (updated.has(rowId)) {
-          updated.delete(rowId);
-        } else {
-          updated.add(rowId);
-        }
-        return updated;
-      });
-    }
-  };
-
-  const clearSelection = () => {
-    setSelectedRows(new Set());
-  };
+  const [selectedRows, setSelectedRows] = useState<RowSelectionState>({});
 
   return (
     <DatatableContext.Provider
       value={{
-        sensors,
         selectedRows,
-        selectionType,
-        clearSelection,
-        handleRowSelection,
+        setSelectedRows,
+        ...props,
       }}
     >
       {children}
@@ -92,12 +66,20 @@ const DataTableLensContextProvider: React.FC<
     useSensor(KeyboardSensor, {})
   );
 
-  const { config } = lensContext;
+  const { config, endpoint, isFetched, isError } = lensContext;
   const selectionType = config?.selectionType || "none";
 
+  const { columns, identifierKey = "" } = useTableConfig(config);
+
   return (
-    <DatatableContextProvider selectionType={selectionType} sensors={sensors}>
-      {children}
+    <DatatableContextProvider
+      selectionType={selectionType}
+      sensors={sensors}
+      endpoint={endpoint}
+      columns={columns}
+      identifierKey={identifierKey}
+    >
+      {isFetched ? isError ? <>Error</> : children : "loading table...."}
     </DatatableContextProvider>
   );
 };

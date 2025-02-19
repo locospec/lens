@@ -1,6 +1,7 @@
 import type { SensorDescriptor, SensorOptions } from "@dnd-kit/core";
 import { SelectionType } from "../interface/DatatableInterface";
 import { ReactNode } from "react";
+import { AccessorKeyColumnDef, RowSelectionState } from "@tanstack/react-table";
 
 interface CommonWrapperInterface {
   children: ReactNode;
@@ -9,6 +10,9 @@ interface CommonWrapperInterface {
 interface DatatableContextProviderInterface extends CommonWrapperInterface {
   selectionType: SelectionType;
   sensors: SensorDescriptor<SensorOptions>[];
+  endpoint: string;
+  columns: never[] | AccessorKeyColumnDef<unknown, never>[];
+  identifierKey: string;
 }
 
 interface DataTableLensContextProviderInterface
@@ -16,9 +20,8 @@ interface DataTableLensContextProviderInterface
 
 interface DatatableContextType
   extends Omit<DatatableContextProviderInterface, "children"> {
-  selectedRows: Set<number>;
-  handleRowSelection: (rowId: number) => void;
-  clearSelection: () => void;
+  selectedRows: RowSelectionState;
+  setSelectedRows: React.Dispatch<React.SetStateAction<RowSelectionState>>;
 }
 
 export type {
