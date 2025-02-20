@@ -119,7 +119,7 @@ const DatatableList = () => {
     >
       <div
         className={cn(
-          "relative flex-1 overflow-auto w-full h-full border border-gray-400",
+          "relative flex-1 overflow-auto w-full h-full border border-gray-200",
           classNames && classNames?.wrapper
         )}
         onScroll={(e) => {
