@@ -19,3 +19,4 @@ export { RawDisplay } from "./components/RawDisplay";
 export { Datatable } from "./components/Datatable";
 
 export { SearchInput, useDebouncedSearch } from "./components/SearchInput";
+export { SimpleFilters } from "./components/SimpleFilters";

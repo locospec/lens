@@ -114,7 +114,7 @@ const DataTableLensContextProvider: React.FC<
     useSensor(KeyboardSensor, {})
   );
 
-  const { config, endpoint, isFetched, isError } = lensContext;
+  const { config, endpoint, isFetched, isError, filters } = lensContext;
   const selectionType = config?.selectionType || "none";
 
   const { columns, identifierKey = "" } = useTableConfig(config);
@@ -130,6 +130,7 @@ const DataTableLensContextProvider: React.FC<
       selectedItems={selectedItems || []}
       classNames={classNames}
       disableResizing={disableResizing}
+      filters={filters}
     >
       {isFetched ? isError ? <>Error</> : children : "loading table...."}
     </DatatableContextProvider>

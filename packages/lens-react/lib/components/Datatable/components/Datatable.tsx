@@ -1,6 +1,4 @@
 import React from "react";
-
-// import { cn } from "@/base/lib/utils";
 import { DataTableLensContextProvider } from "../context/DataTableContext";
 import DatatableList from "./DatatableList";
 import { TableStylingInterface } from "../interface/TableStylingInterface";

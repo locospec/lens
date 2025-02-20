@@ -126,6 +126,7 @@ export function makeServer() {
                 label: "DOB",
                 type: "date",
                 isNullable: false,
+                asSimple: true,
               },
               age: {
                 label: "Age",
@@ -149,6 +150,7 @@ export function makeServer() {
                 type: "enum",
                 isNullable: false,
                 modelName: "state",
+                asSimple: true,
               },
               district: {
                 label: "District",
@@ -156,6 +158,7 @@ export function makeServer() {
                 isNullable: false,
                 dependsOn: ["state"],
                 modelName: "district",
+                asSimple: true,
               },
               city: {
                 label: "City",

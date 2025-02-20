@@ -8,7 +8,7 @@ const SearchInput = () => {
   });
 
   return (
-    <div className="flex-1 cursor-writer flex items-center max-w-[400px] w-full p-1 relative rounded-full bg-gray-200">
+    <div className="flex-1 cursor-writer flex items-center min-w-[200px] max-w-[400px] w-full p-1 relative rounded-full bg-gray-200 h-fit">
       <input
         className={cn(
           "form-input w-full cursor-pointer border-none ml-2 bg-gray-200",

@@ -1,7 +1,6 @@
 import { useInfiniteFetch } from "@/components/LensProvider/hooks/useInfiniteFetch";
 import { cn } from "@/components/utils/cn";
 import { useDatatableContext } from "../context/DataTableContext";
-import { useFetchMoreOnScroll } from "../hooks/useFetchMoreOnScroll";
 import {
   getCoreRowModel,
   useReactTable,
@@ -13,7 +12,8 @@ import { useSyncSelection } from "../hooks/useSyncSelection";
 import { DatatableHeaderSection } from "./DatatableHeaderSection";
 import { createHandleDragEnd } from "../utils/createHandleDragEnd";
 import { DatatableBody, MemoizedDatatableBody } from "./DatatableBody";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
+import { useFetchMoreOnScroll } from "@/hooks/src/useFetchMoreOnScroll";
 
 const DatatableList = () => {
   const {
@@ -37,13 +37,17 @@ const DatatableList = () => {
     selectedItems,
     onSelect,
     classNames,
+    filters,
   } = useDatatableContext();
 
   useSyncSelection(selectedRows, selectedItems, setSelectedRows, onSelect);
 
-  const { flatData, fetchNextPage, isFetching, hasNextPage } = useInfiniteFetch(
-    {}
-  );
+  const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
+    useInfiniteFetch({});
+
+  useEffect(() => {
+    refetch();
+  }, [JSON.stringify(filters)]);
 
   const handleDragEnd = useCallback(
     createHandleDragEnd({

@@ -1,10 +1,15 @@
 import { useState } from "react";
-import { Datatable, LensProvider } from "../../../lens-react/lib/main";
+import {
+  Datatable,
+  LensProvider,
+  SimpleFilters,
+} from "../../../lens-react/lib/main";
 import SearchInput from "../../lib/components/SearchInput/SearchInput";
 
 const ProviderExample = () => {
   const configEndpoint = {
     endpoint: "/api/data-bench/auction-data",
+    permissionHeaders: { sample: "" },
   };
 
   const [checkedIds, setCheckedIds] = useState<string[] | []>([]);
@@ -20,8 +25,9 @@ const ProviderExample = () => {
   return (
     <LensProvider lensConfiguration={configEndpoint}>
       <div className="h-[400px] px-4">
-        <div className="border border-b-0 border-[#eee] py-4 px-2">
+        <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center">
           <SearchInput />
+          <SimpleFilters />
         </div>
         <Datatable
           selectedItems={checkedIds}
