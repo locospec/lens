@@ -85,19 +85,19 @@
 
 @layer base {
   * {
-    @apply le-border-border;
+    @apply border-border;
   }
   body {
-    @apply le-font-sans le-antialiased le-bg-background le-text-foreground;
+    @apply font-sans antialiased bg-background text-foreground;
   }
 }
 
 @layer base {
   * {
-    @apply le-border-border;
+    @apply border-border;
   }
   body {
-    @apply le-bg-background le-text-foreground;
+    @apply bg-background text-foreground;
   }
 }
 

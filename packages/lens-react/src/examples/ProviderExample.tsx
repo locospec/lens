@@ -19,7 +19,7 @@ const ProviderExample = () => {
   return (
     <>
       <LensProvider lensConfiguration={configEndpoint}>
-        <div className="le-h-[400px]">
+        <div className="h-[400px]">
           <Datatable
             selectedItems={checkedIds}
             onSelect={handleSelectionChange}

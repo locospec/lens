@@ -27,9 +27,9 @@ const ResizeHandle = ({
         setIsInResizeArea(false);
       }}
       className={cn(
-        "le-absolute le-right-0 le-top-0 le-h-full le-w-0.5 le-cursor-col-resize le-touch-none le-select-none",
-        "le-bg-transparent hover:le-bg-[var(--gray-6)]",
-        isResizing && "le-bg-[var(--gray-6)]"
+        "absolute right-0 top-0 h-full w-0.5 cursor-col-resize touch-none select-none",
+        "bg-transparent hover:bg-[var(--gray-6)]",
+        isResizing && "bg-[var(--gray-6)]"
       )}
     />
   );

@@ -3,12 +3,10 @@ const LoadingState = () => {
   return (
     <div
       className={
-        "twp le-lens-wrapper le-w-full le-h-full le-flex le-items-center le-justify-center le-border le-rounded-lg le-table-loading"
+        "twp lens-wrapper w-full h-full flex items-center justify-center border rounded-lg tabloading"
       }
     >
-      <label className="le-text-2xl le-font-semibold">
-        Loading Table.......
-      </label>
+      <label className="text-2xl font-semibold">Loading Table.......</label>
     </div>
   );
 };

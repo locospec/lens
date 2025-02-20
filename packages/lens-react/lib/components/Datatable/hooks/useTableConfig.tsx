@@ -60,7 +60,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
           fixed: true,
         },
         header: ({ table }: HeaderInterface) => (
-          <div className="le-flex le-h-full le-items-center le-justify-center">
+          <div className="flex h-full items-center justify-center">
             <Checkbox
               checked={
                 table.getIsAllPageRowsSelected() ||
@@ -74,7 +74,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
           </div>
         ),
         cell: ({ row }: RowInterface) => (
-          <div className="le-flex le-h-full le-items-center le-justify-center">
+          <div className="flex h-full items-center justify-center">
             <Checkbox
               checked={row.getIsSelected()}
               onCheckedChange={(value) => {

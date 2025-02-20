@@ -5,7 +5,7 @@ import {
 } from "tailwindcss-scoped-preflight";
 
 module.exports = {
-  prefix: "le-",
+  // prefix: "",
   darkMode: ["class"],
   content: ["./index.html", "lib/**/*.{ts,tsx}", "src/**/*.{ts,tsx}"],
   theme: {
@@ -93,10 +93,10 @@ module.exports = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    scopedPreflightStyles({
-      isolationStrategy: isolateInsideOfContainer(".twp", {
-        except: ".no-twp",
-      }),
-    }),
+    // scopedPreflightStyles({
+    //   isolationStrategy: isolateInsideOfContainer(".twp", {
+    //     except: ".no-twp",
+    //   }),
+    // }),
   ],
 };

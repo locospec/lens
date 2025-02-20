@@ -7,7 +7,7 @@ export interface ActionCTAInterface {
 const ActionCTA = ({ data, callback, icon }: any) => {
   return (
     <button
-      className="le-flex le-cursor-pointer"
+      className="flex cursor-pointer"
       onClick={() => {
         callback(data);
       }}

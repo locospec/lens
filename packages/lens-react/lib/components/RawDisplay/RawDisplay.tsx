@@ -28,13 +28,13 @@ const RawDisplay: React.FC = () => {
 
   return (
     <div
-      className="le-w-full le-h-full le-flex le-flex-col le-gap-y-1 le-overflow-y-scroll"
+      className="w-full h-full flex flex-col gap-y-1 overflow-y-scroll"
       onScroll={handleScroll}
       ref={ref}
     >
       {flatData.map((data: any, index: number) => (
         <div
-          className="le-text-sm le-inline-flex le-border le-bg-black le-text-green-400"
+          className="text-sm inline-flex border bg-black text-green-400"
           key={index}
         >
           {JSON.stringify(data, null, 2)}
