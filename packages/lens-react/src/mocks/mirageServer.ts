@@ -66,34 +66,34 @@ export function makeServer() {
                 minWidth: 80,
                 fixed: true,
               },
-              {
-                accessorKey: "state",
-                header: "State",
-                width: 100,
-                minWidth: 100,
-                show: false,
-              },
-              {
-                accessorKey: "district",
-                header: "District",
-                width: 100,
-                minWidth: 100,
-                // fixed: true,
-                show: false,
-              },
-              {
-                accessorKey: "cities",
-                header: "Cities",
-                width: 100,
-                minWidth: 100,
-                show: false,
-              },
-              {
-                accessorKey: "current_users",
-                header: "Current Users",
-                width: 100,
-                minWidth: 200,
-              },
+              // {
+              //   accessorKey: "state",
+              //   header: "State",
+              //   width: 100,
+              //   minWidth: 100,
+              //   show: false,
+              // },
+              // {
+              //   accessorKey: "district",
+              //   header: "District",
+              //   width: 100,
+              //   minWidth: 100,
+              //   // fixed: true,
+              //   show: false,
+              // },
+              // {
+              //   accessorKey: "cities",
+              //   header: "Cities",
+              //   width: 100,
+              //   minWidth: 100,
+              //   show: false,
+              // },
+              // {
+              //   accessorKey: "current_users",
+              //   header: "Current Users",
+              //   width: 100,
+              //   minWidth: 200,
+              // },
               {
                 accessorKey: "locality",
                 header: "Locality",
@@ -103,7 +103,7 @@ export function makeServer() {
               {
                 accessorKey: "properties",
                 header: "Properties",
-                width: 700,
+                width: 300,
                 minWidth: 100,
               },
             ],
@@ -193,6 +193,7 @@ export function makeServer() {
         const { cursor, search, ...rest } = body;
         const pageSize = 10;
         const filters = JSON.stringify(rest.filters);
+        // console.log(">>>>>>>>", rest);
 
         if (resource === "test-data") {
           const completeTestData = Array.from({ length: 200 }, (_, index) => ({
@@ -228,7 +229,7 @@ export function makeServer() {
             cities: `City ${index + 1}`,
             current_users: Math.floor(Math.random() * 1000),
             locality: `Locality ${index + 1}`,
-            properties: `Property ${index + 1} ${filters}`,
+            properties: `Property ${index + 1} ${filters} q=${search}`,
             "state.id": `state_${index + 1}`,
           }));
 
