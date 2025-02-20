@@ -40,10 +40,10 @@ const DatatableHeaderSection = ({
         setActiveId(event.active.id as string);
       }}
     >
-      <DragOverlay className="le-px-4 le-py-2 le-bg-[var(--gray-a2)] le-border le-backdrop-blur-md le-cursor-grabbing">
+      <DragOverlay className="px-4 py-2 bg-[var(--gray-a2)] border backdrop-blur-md cursor-grabbing">
         {activeId ? <label>{splitAndCapitalize(activeId)}</label> : null}
       </DragOverlay>
-      <div className="le-sticky le-top-0 le-z-10 le-backdrop-blur-[100px]">
+      <div className="sticky top-0 z-10 backdrop-blur-[100px]">
         {table.getHeaderGroups().map((headerGroup) => {
           return (
             <DataTableHeader

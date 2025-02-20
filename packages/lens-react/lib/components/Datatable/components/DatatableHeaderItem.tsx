@@ -42,7 +42,7 @@ const DatatableHeaderItem = ({
     minSize !== undefined && maxSize !== undefined ? minSize !== maxSize : true;
 
   const align = (header.column.columnDef.meta as any)?.align;
-  const align_class = align ? `le-justify-${align}` : "";
+  const align_class = align ? `justify-${align}` : "";
 
   return (
     <SortableContext
@@ -53,12 +53,12 @@ const DatatableHeaderItem = ({
       <div
         key={header.id}
         className={cn(
-          "le-table-header-cell le-truncate",
-          "le-relative le-text-left le-font-semibold",
-          "le-p-[var(--table-cell-padding)] le-min-h-[var(--table-cell-min-height)]",
-          "le-border-b le-border-[var(--gray-7)]",
+          "tabheader-cell truncate",
+          "relative text-left font-semibold",
+          "p-[var(--tabcell-padding)] min-h-[var(--tabcell-min-height)]",
+          "border-b border-[var(--gray-7)]",
           align_class,
-          header.id === "actions" ? "le-flex le-gap-x-2" : ""
+          header.id === "actions" ? "flex gap-x-2" : ""
         )}
         style={{
           width: `calc(var(--header-${id}-size) * 1px)`,

@@ -16,25 +16,25 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   const css = getColumnPinningStyles(column);
 
   const align = (cell.column.columnDef.meta as any)?.align;
-  const align_class = align ? `le-justify-${align}` : "";
+  const align_class = align ? `justify-${align}` : "";
   const align_class_block =
     align === "end"
-      ? "le-text-right"
+      ? "text-right"
       : align === "center"
-      ? "le-text-center"
-      : "le-text-left";
+      ? "text-center"
+      : "text-left";
   const isSelected = cell.row.getIsSelected();
 
   return (
     <div
       className={cn(
-        "le-table-cell",
-        "le-truncate le-px-4 le-py-2",
-        "le-p-[var(--table-cell-padding)] le-min-h-[var(--table-cell-min-height)]",
-        "group-hover:le-bg-[var(--gray-a2)]",
-        "le-border-b le-border-[var(--gray-7)] data-[state=selected]:le-bg-[var(--gray-a2)]",
+        "table-cell",
+        "truncate px-4 py-2",
+        "p-[var(--table-cell-padding)] min-h-[var(--table-cell-min-height)]",
+        "group-hover:bg-[var(--gray-a2)]",
+        "border-b border-[var(--gray-7)] data-[state=selected]:bg-[var(--gray-a2)]",
         align_class,
-        cell.column.id === "actions" && "le-flex le-gap-x-2",
+        cell.column.id === "actions" && "flex gap-x-2",
         cell.column.id === "actions" && align_class_block
       )}
       key={cell.id}

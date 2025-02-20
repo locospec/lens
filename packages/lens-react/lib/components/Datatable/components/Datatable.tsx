@@ -20,11 +20,7 @@ const Datatable: React.FC<DatatableInterface> = (
     // selectedItem={selectedItems}
     // onSelect={onSelect}
     >
-      <div
-        className={cn(
-          "le-w-full le-h-full le-flex le-flex-col le-overflow-hidden"
-        )}
-      >
+      <div className={cn("w-full h-full flex flex-col overflow-hidden")}>
         <DatatableList />
       </div>
     </DataTableLensContextProvider>

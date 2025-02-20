@@ -102,31 +102,31 @@ const DatatableList = () => {
       <div
         ref={tableContainerRef}
         className={cn(
-          "le-flex le-h-full le-w-full le-items-center le-justify-center le-bg-white"
+          "flex h-full w-full items-center justify-center bg-white"
         )}
       >
-        <div className="le-text-gray-500">Calculating column sizes...</div>
+        <div className="text-gray-500">Calculating column sizes...</div>
       </div>
     );
   }
 
   return (
-    <div className="le-flex le-flex-col le-w-full le-h-full">
+    <div className="flex flex-col w-full h-full">
       <div
         className={cn(
-          "le-flex-1 le-relative twp le-flex le-h-full le-flex-col le-gap-0 le-overflow-hidden",
-          "lens-data-table-root"
+          "flex-1 relative twp flex h-full flex-col gap-0 overflow-hidden",
+          "lens-data-tabroot"
         )}
       >
         <div
-          className="le-relative le-flex-1 le-overflow-auto le-w-full le-h-full"
+          className="relative flex-1 overflow-auto w-full h-full"
           onScroll={(e) => {
             fetchMoreOnBottomReached(e.target as HTMLDivElement);
           }}
           ref={tableContainerRef}
         >
           <div
-            className={cn("le-w-full le-h-full rt-TableRootTable")}
+            className={cn("w-full h-full rt-TableRootTable")}
             style={{
               ...columnSizeVars,
               width: "100%",

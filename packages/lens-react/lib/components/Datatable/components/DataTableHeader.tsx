@@ -15,7 +15,7 @@ const DataTableHeader = ({
   isInResizeArea,
 }: TableHeaderInterface) => {
   return (
-    <div key={headerGroup.id} className="le-flex le-w-full">
+    <div key={headerGroup.id} className="flex w-full">
       {headerGroup.headers.map((header) => {
         return (
           <DatatableHeaderItem

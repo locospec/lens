@@ -19,7 +19,7 @@ const DatatableRow = ({
 
   return (
     <div
-      className={cn("le-absolute le-top-0 le-flex le-w-full le-group")}
+      className={cn("absolute top-0 flex w-full group")}
       data-index={virtualRow.index}
       ref={(node) => rowVirtualizer.measureElement(node)}
       key={row.id}

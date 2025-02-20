@@ -17,14 +17,12 @@ export const DatatableBody = ({
 
   if (!rows.length) {
     return (
-      <div className="le-p-4 le-text-center le-text-gray-500">
-        No data available
-      </div>
+      <div className="p-4 text-center text-gray-500">No data available</div>
     );
   }
 
   return (
-    <div className="le-relative le-w-full le-h-full">
+    <div className="relative w-full h-full">
       {getVirtualItems().map((virtualRow) => {
         const row = rows[virtualRow.index];
         return (
