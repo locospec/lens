@@ -1,4 +1,4 @@
-import { createContext, useContext, useRef, useState } from "react";
+import { createContext, useContext, useMemo, useRef, useState } from "react";
 import { LensContext } from "@/main";
 import type {
   DatatableContextType,
@@ -15,6 +15,7 @@ import {
 import type { RowSelectionState, VisibilityState } from "@tanstack/react-table";
 import { useTableConfig } from "../hooks/useTableConfig";
 import { useColumnResize } from "../hooks/useColumnResize";
+import convertIntoObject from "@/components/utils/convertIntoObject";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
@@ -36,9 +37,15 @@ useDatatableContext.displayName = "useDatatableContext";
 const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   children,
   columns,
+  selectedItems,
   ...props
 }) => {
-  const [selectedRows, setSelectedRows] = useState<RowSelectionState>({});
+  const tableSelectedItems: any = useMemo(() => {
+    return selectedItems.length > 0 ? convertIntoObject(selectedItems) : {};
+  }, [selectedItems]);
+
+  const [selectedRows, setSelectedRows] =
+    useState<RowSelectionState>(tableSelectedItems);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [activeId, setActiveId] = useState<string | null>(null);
   const [isInResizeArea, setIsInResizeArea] = useState(false);
@@ -77,6 +84,7 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
         adjustedColumns,
         isColumnsReady,
         fixedColumns,
+        selectedItems,
         ...props,
       }}
     >
@@ -88,7 +96,7 @@ DatatableContextProvider.displayName = "DatatableContextProvider";
 
 const DataTableLensContextProvider: React.FC<
   DataTableLensContextProviderInterface
-> = ({ children }) => {
+> = ({ children, onSelect, selectedItems }) => {
   const lensContext = useContext(LensContext);
   if (!lensContext) {
     throw new Error("useInfiniteFetch must be used within LensProvider");
@@ -112,6 +120,8 @@ const DataTableLensContextProvider: React.FC<
       endpoint={endpoint}
       columns={columns}
       identifierKey={identifierKey}
+      onSelect={onSelect ? onSelect : () => {}}
+      selectedItems={selectedItems || []}
     >
       {isFetched ? isError ? <>Error</> : children : "loading table...."}
     </DatatableContextProvider>

@@ -17,6 +17,8 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   endpoint: string;
   columns: never[] | AccessorKeyColumnDef<unknown, never>[];
   identifierKey: string;
+  onSelect: (selected: any[]) => void;
+  selectedItems: string[];
 }
 
 interface DataTableLensContextProviderInterface

@@ -6,7 +6,7 @@ const ProviderExample = () => {
     endpoint: "/api/data-bench/auction-data",
   };
 
-  const [checkedIds, setCheckedIds] = useState<string | []>([]);
+  const [checkedIds, setCheckedIds] = useState<string[] | []>([]);
 
   const handleSelectionChange = (selectedItem: any) => {
     if (selectedItem) {
