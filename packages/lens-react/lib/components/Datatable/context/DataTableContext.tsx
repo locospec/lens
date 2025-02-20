@@ -96,7 +96,13 @@ DatatableContextProvider.displayName = "DatatableContextProvider";
 
 const DataTableLensContextProvider: React.FC<
   DataTableLensContextProviderInterface
-> = ({ children, onSelect, selectedItems }) => {
+> = ({
+  children,
+  onSelect,
+  selectedItems,
+  classNames,
+  disableResizing = false,
+}) => {
   const lensContext = useContext(LensContext);
   if (!lensContext) {
     throw new Error("useInfiniteFetch must be used within LensProvider");
@@ -122,6 +128,8 @@ const DataTableLensContextProvider: React.FC<
       identifierKey={identifierKey}
       onSelect={onSelect ? onSelect : () => {}}
       selectedItems={selectedItems || []}
+      classNames={classNames}
+      disableResizing={disableResizing}
     >
       {isFetched ? isError ? <>Error</> : children : "loading table...."}
     </DatatableContextProvider>

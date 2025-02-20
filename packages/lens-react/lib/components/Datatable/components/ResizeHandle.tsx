@@ -1,6 +1,7 @@
 import { cn } from "@/components/utils/cn";
 import type { Header } from "@tanstack/react-table";
 import React from "react";
+import { useDatatableContext } from "../context/DataTableContext";
 
 export interface ResizeHandleProps {
   header: Header<any, unknown>;
@@ -14,6 +15,7 @@ const ResizeHandle = ({
   setIsInResizeArea,
 }: ResizeHandleProps) => {
   const resizeHandle = header.getResizeHandler();
+  const { classNames } = useDatatableContext();
 
   return (
     <div
@@ -27,9 +29,10 @@ const ResizeHandle = ({
         setIsInResizeArea(false);
       }}
       className={cn(
-        "absolute right-0 top-0 h-full w-0.5 cursor-col-resize touch-none select-none",
-        "bg-transparent hover:bg-[var(--gray-6)]",
-        isResizing && "bg-[var(--gray-6)]"
+        "absolute right-0 top-0 h-full w-1 cursor-col-resize touch-none select-none",
+        "bg-gray-200 hover:bg-gray-400",
+        isResizing && "bg-gray-400",
+        classNames && classNames?.resizehandle
       )}
     />
   );

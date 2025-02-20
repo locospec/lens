@@ -65,7 +65,9 @@ interface TableConfigInterface {
 }
 
 export type {
+  MethodTypes,
   SelectionType,
+  AlignType,
   ColumnConfigInterface,
   TableConfigInterface,
   ActionOption,

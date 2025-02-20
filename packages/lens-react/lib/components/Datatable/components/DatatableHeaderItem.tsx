@@ -9,6 +9,8 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import { cn } from "@/components/utils/cn.ts";
 import { getColumnPinningStyles } from "../hooks/getColumnPinningStyles.ts";
+import { getStyleClasses } from "../utils/getStylesClassesForDataTable.ts";
+import { useDatatableContext } from "../context/DataTableContext.tsx";
 
 const DatatableHeaderItem = ({
   header,
@@ -18,6 +20,8 @@ const DatatableHeaderItem = ({
 }: any) => {
   const fixed = (header.column.columnDef.meta as any)?.fixed;
   const { column } = header;
+
+  const { classNames, disableResizing } = useDatatableContext();
 
   const css = getColumnPinningStyles(column);
 
@@ -42,7 +46,7 @@ const DatatableHeaderItem = ({
     minSize !== undefined && maxSize !== undefined ? minSize !== maxSize : true;
 
   const align = (header.column.columnDef.meta as any)?.align;
-  const align_class = align ? `justify-${align}` : "";
+  const styles = getStyleClasses(align);
 
   return (
     <SortableContext
@@ -53,12 +57,9 @@ const DatatableHeaderItem = ({
       <div
         key={header.id}
         className={cn(
-          "tabheader-cell truncate",
-          "relative text-left font-semibold",
-          "p-[var(--tabcell-padding)] min-h-[var(--tabcell-min-height)]",
-          "border-b border-[var(--gray-7)]",
-          align_class,
-          header.id === "actions" ? "flex gap-x-2" : ""
+          "relative font-semibold truncate px-2 py-2",
+          styles.text,
+          classNames && classNames.header
         )}
         style={{
           width: `calc(var(--header-${id}-size) * 1px)`,
@@ -72,7 +73,7 @@ const DatatableHeaderItem = ({
         {header.isPlaceholder
           ? null
           : flexRender(header.column.columnDef.header, header.getContext())}
-        {addResizeHandler && (
+        {addResizeHandler && !disableResizing && (
           <ResizeHandle
             header={header}
             isResizing={header.column.getIsResizing()}

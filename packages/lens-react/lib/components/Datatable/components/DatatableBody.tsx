@@ -17,7 +17,9 @@ export const DatatableBody = ({
 
   if (!rows.length) {
     return (
-      <div className="p-4 text-center text-gray-500">No data available</div>
+      <div className="relative w-full h-full p-4 text-center text-gray-500">
+        No data available
+      </div>
     );
   }
 

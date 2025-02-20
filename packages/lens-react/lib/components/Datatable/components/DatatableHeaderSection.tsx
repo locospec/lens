@@ -43,19 +43,17 @@ const DatatableHeaderSection = ({
       <DragOverlay className="px-4 py-2 bg-[var(--gray-a2)] border backdrop-blur-md cursor-grabbing">
         {activeId ? <label>{splitAndCapitalize(activeId)}</label> : null}
       </DragOverlay>
-      <div className="sticky top-0 z-10 backdrop-blur-[100px]">
-        {table.getHeaderGroups().map((headerGroup) => {
-          return (
-            <DataTableHeader
-              key={headerGroup.id}
-              headerGroup={headerGroup}
-              columnOrder={columnOrder}
-              setIsInResizeArea={setIsInResizeArea}
-              isInResizeArea={isInResizeArea}
-            />
-          );
-        })}
-      </div>
+      {table.getHeaderGroups().map((headerGroup) => {
+        return (
+          <DataTableHeader
+            key={headerGroup.id}
+            headerGroup={headerGroup}
+            columnOrder={columnOrder}
+            setIsInResizeArea={setIsInResizeArea}
+            isInResizeArea={isInResizeArea}
+          />
+        );
+      })}
     </DndContext>
   );
 };

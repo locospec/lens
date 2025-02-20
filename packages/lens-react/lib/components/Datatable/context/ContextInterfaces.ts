@@ -6,6 +6,7 @@ import {
   RowSelectionState,
   VisibilityState,
 } from "@tanstack/react-table";
+import { TableStylingInterface } from "../interface/TableStylingInterface";
 
 interface CommonWrapperInterface {
   children: ReactNode;
@@ -19,6 +20,8 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   identifierKey: string;
   onSelect: (selected: any[]) => void;
   selectedItems: string[];
+  classNames?: TableStylingInterface;
+  disableResizing: boolean;
 }
 
 interface DataTableLensContextProviderInterface
