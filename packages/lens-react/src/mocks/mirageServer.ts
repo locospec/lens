@@ -25,7 +25,7 @@ export function makeServer() {
           return {
             resource: "auction-data",
             identifierKey: "data-value",
-            selectionType: "multiple",
+            selectionType: "none",
             actions: {
               header: "Actions",
               align: "end",
@@ -98,14 +98,13 @@ export function makeServer() {
                 accessorKey: "locality",
                 header: "Locality",
                 width: 100,
-                // minWidth: 100,
+                minWidth: 200,
               },
               {
                 accessorKey: "properties",
                 header: "Properties",
                 width: 700,
                 minWidth: 100,
-                align: "end",
               },
             ],
             filters: {
@@ -222,7 +221,7 @@ export function makeServer() {
           };
         }
         if (resource === "auction-data") {
-          const completeTestData = Array.from({ length: 200 }, (_, index) => ({
+          const completeTestData = Array.from({ length: 40 }, (_, index) => ({
             id: index + 1,
             state: `State ${index + 1}`,
             district: `District ${index + 1}`,
