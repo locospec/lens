@@ -39,8 +39,10 @@ const SimpleFilterContextProvider: React.FC<
     endpoint,
     lensConfiguration,
   } = lensContext;
-  const permissionHeaders = lensConfiguration.permissionHeaders || {};
-  const queryEndpoint = endpoint + "/query";
+  // const permissionHeaders = lensConfiguration.permissionHeaders || {};
+  const { permissionHeaders = {}, queryEndpoint: query_endpoint = undefined } =
+    lensConfiguration;
+  const queryEndpoint = query_endpoint ? query_endpoint : endpoint + "/query";
   const filtersConfig = config.filters;
   const filterContainerRef = useRef<HTMLDivElement>(null);
   const { updateCondition } = useFilterFunctions({ setFilter: setFilters });

@@ -14,7 +14,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
   lensConfiguration,
   children,
 }) => {
-  const { endpoint } = lensConfiguration;
+  const { endpoint, configEndpoint } = lensConfiguration;
   const [error, _] = useState<string | null>(null);
   const [filters, setFilters] = useState<any>({});
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -23,11 +23,15 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     setSearchQuery(query);
   };
 
+  const config_endpoint = configEndpoint
+    ? configEndpoint
+    : `${endpoint}/config`;
+
   const {
     data: config,
     isFetched,
     isError,
-  } = useFetchConfig({ configEndpoint: `${endpoint}/config` });
+  } = useFetchConfig({ configEndpoint: config_endpoint });
 
   return (
     <LensContext.Provider

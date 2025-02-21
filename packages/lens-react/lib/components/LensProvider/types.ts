@@ -13,6 +13,9 @@ interface LensContextType {
 
 interface LensConfigurationInterface {
   endpoint: string;
+  configEndpoint?: string;
+  dataEndpoint?: string;
+  queryEndpoint?: string;
   permissionHeaders?: {
     [key: string]: string;
   };

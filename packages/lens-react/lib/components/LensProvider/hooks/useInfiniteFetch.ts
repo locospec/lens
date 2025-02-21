@@ -25,7 +25,8 @@ const useInfiniteFetch = ({ dataCallback }: UseInfiniteFetchParams) => {
   const body = { filters: getProcessedFilters(filters) };
   const refreshDep = [queryKey, globalFilter];
   const keepPreviousData = true;
-  const headers = lensConfiguration.permissionHeaders;
+  const { permissionHeaders: headers, dataEndpoint: data_endpoint } =
+    lensConfiguration;
 
   if (!dataCallback && !endpoint && !queryKey) {
     throw new Error(
@@ -33,7 +34,7 @@ const useInfiniteFetch = ({ dataCallback }: UseInfiniteFetchParams) => {
     );
   }
 
-  const dataEndpoint = `${endpoint}/fetch`;
+  const dataEndpoint = data_endpoint ? data_endpoint : `${endpoint}/fetch`;
 
   // TODO - Need to Modify to support normal pagination other than cursor pagination
   const fetchDataFunction = async ({ pageParam = null }) => {
