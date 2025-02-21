@@ -25,7 +25,7 @@ useSimpleFiltersContext.displayName = "useSimpleFiltersContext";
 
 const SimpleFilterContextProvider: React.FC<
   SimpleFiltersContextProviderInterface
-> = ({ children, defaultFiltersValue }) => {
+> = ({ children, defaultFiltersValue, classNames }) => {
   const lensContext = useContext(LensContext);
   if (!lensContext) {
     throw new Error(
@@ -68,6 +68,7 @@ const SimpleFilterContextProvider: React.FC<
         filter,
         queryEndpoint,
         permissionHeaders,
+        classNames,
       }}
     >
       {children}

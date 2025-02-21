@@ -1,10 +1,8 @@
 "use client";
 
-// import type { Condition, FilterGroup } from "../interfaces/src/FilterInterface";
 import * as React from "react";
 import { Check, ChevronsUpDown, X } from "lucide-react";
 import { cn } from "@/base/lib/utils";
-import { Button } from "@/base/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -47,6 +45,7 @@ export interface EnumInputInterface {
   resetInput?: string;
   multiple?: boolean;
   filterContainerRef: any;
+  className?: any;
 }
 
 const EnumInput = React.memo(function EnumInput({
@@ -60,13 +59,13 @@ const EnumInput = React.memo(function EnumInput({
   resetInput,
   multiple = true,
   filterContainerRef,
+  className = "",
 }: EnumInputInterface) {
-  const queryKey = `auction-data-${condition.attribute}-${JSON.stringify(
-    path
-  )}`;
-  // const { endpoint: queryEndpoint, filters: filter } = useLensContext();
   const { queryEndpoint, filter, permissionHeaders } =
     useSimpleFiltersContext();
+  const queryKey = `${queryEndpoint}-${condition.attribute}-${JSON.stringify(
+    path
+  )}`;
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState<string[]>(defaultValues);
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -85,6 +84,7 @@ const EnumInput = React.memo(function EnumInput({
       path: path,
       dependsOnArray: dependsOnArray,
     });
+
   const previousSameGroupRef = React.useRef(JSON.stringify(samegroup));
 
   const {
@@ -99,13 +99,10 @@ const EnumInput = React.memo(function EnumInput({
     dataEndpoint: `${queryEndpoint}/${modelName}`,
     keepPreviousData: true,
     body: { filters: getProcessedFilters(dependentFilter) },
-    context: () => {
-      return { dataEndpointHeaders: permissionHeaders };
-    },
+    context: () => ({ dataEndpointHeaders: permissionHeaders }),
   });
 
   const options = isConfigDriven ? configOptions : apiOptions;
-
   const { fetchMoreOnBottomReached } = useFetchMoreOnScroll({
     containerRef,
     fetchNextPage,
@@ -140,14 +137,36 @@ const EnumInput = React.memo(function EnumInput({
     setValues(defaultValues);
   }, [resetInput, defaultValues]);
 
+  const handleSelect = (currentValue: string) => {
+    setValues((prev) => {
+      let newValues = [];
+      if (multiple) {
+        newValues = prev.includes(currentValue)
+          ? prev.filter((val) => val !== currentValue)
+          : [...prev, currentValue];
+        callback && callback(newValues);
+      } else {
+        newValues = newValues = prev.includes(currentValue)
+          ? []
+          : [currentValue];
+        callback && callback(newValues.join(","));
+      }
+      return newValues;
+    });
+  };
+
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
+        <div
+          className={cn(
+            "relative flex items-center justify-start px-2 w-[200px] max-w-[300px] gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+            "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+            "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+            "h-9 px-4 py-2",
+            className
+          )}
           aria-expanded={open}
-          className={"relative w-[200px] justify-between max-w-[300px]"}
         >
           <div className="max-w-[150px] truncate">
             {values && values.length > 0
@@ -173,7 +192,7 @@ const EnumInput = React.memo(function EnumInput({
               <ChevronsUpDown className="shrink-0 opacity-50 hover:bg-accent" />
             </div>
           )}
-        </Button>
+        </div>
       </PopoverTrigger>
       <PopoverContent
         className="w-[200px] p-0"
@@ -206,26 +225,12 @@ const EnumInput = React.memo(function EnumInput({
                       key={option.value}
                       value={option.value}
                       onSelect={(currentValue: string) => {
-                        setValues((prev) => {
-                          let newValues = [];
-                          if (multiple) {
-                            newValues = prev.includes(currentValue)
-                              ? prev.filter((val) => val !== currentValue)
-                              : [...prev, currentValue];
-                            callback && callback(newValues);
-                          } else {
-                            newValues = newValues = prev.includes(currentValue)
-                              ? []
-                              : [currentValue];
-                            callback && callback(newValues.join(","));
-                          }
-                          return newValues;
-                        });
+                        handleSelect(currentValue);
                       }}
                     >
                       <Check
                         className={cn(
-                          "mr-2 h-4 w-4 ",
+                          "mr-2 h-4 w-4",
                           values.includes(option.value)
                             ? "opacity-100"
                             : "opacity-0"

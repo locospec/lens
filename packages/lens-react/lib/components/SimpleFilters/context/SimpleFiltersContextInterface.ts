@@ -11,6 +11,7 @@ interface SimpleFiltersContextInterface {
   permissionHeaders: {
     [key: string]: string;
   };
+  classNames: any;
 }
 
 interface CommonWrapperInterface {
@@ -18,6 +19,7 @@ interface CommonWrapperInterface {
 }
 interface SimpleFiltersContextProviderInterface extends CommonWrapperInterface {
   defaultFiltersValue?: any;
+  classNames?: any;
 }
 
 export type {

@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
-import type {
-  Condition,
-  FilterGroup,
-} from "../LensProvider/interfaces/FiltersInterface";
+import type { Condition } from "../LensProvider/interfaces/FiltersInterface";
 import EnumInput from "../EnumInput/EnumInput";
 import { useSimpleFiltersContext } from "./context/SimpleFiltersContext";
 import { DatePicker } from "@/base/components/ui/datepicker";
 
-export interface SimpleFiltersProps {
-  simpleFilters?: string[];
-  defaultFiltersValue?: FilterGroup;
-}
+export interface SimpleFiltersProps {}
 
 const SIMPLE_FILTER_TYPES = ["enum", "date"];
 
@@ -22,8 +16,11 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({}) => {
     updateCondition,
     filter,
     setFilters,
+    classNames,
   } = useSimpleFiltersContext();
   const [isLoading, setIsLoading] = useState(true);
+
+  const enumClassName = classNames?.enum || "";
 
   const init = () => {
     setFilters(initialisedFilter);
@@ -38,7 +35,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({}) => {
 
   return (
     <div
-      className="lens-wrapper p-4 w-full flex gap-x-3 justify-end"
+      className="lens-wrapper w-full flex gap-x-3 justify-end"
       ref={filterContainerRef}
     >
       {!isLoading &&
@@ -67,6 +64,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({}) => {
                     placeholder={`Select ${attribute.label}`}
                     resetInput={""}
                     filterContainerRef={filterContainerRef}
+                    className={enumClassName}
                   />
                 );
               }

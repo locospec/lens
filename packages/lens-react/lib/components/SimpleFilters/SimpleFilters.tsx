@@ -4,13 +4,21 @@ import { SimpleFilterContextProvider } from "./context/SimpleFiltersContext";
 import { SimpleFiltersList } from "./SimpleFiltersList";
 
 export interface SimpleFiltersProps {
-  simpleFilters?: string[];
   defaultFiltersValue?: FilterGroup;
+  classNames?: {
+    enum?: string;
+  };
 }
 
-const SimpleFilters: React.FC<SimpleFiltersProps> = ({}) => {
+const SimpleFilters: React.FC<SimpleFiltersProps> = ({
+  defaultFiltersValue,
+  classNames,
+}) => {
   return (
-    <SimpleFilterContextProvider>
+    <SimpleFilterContextProvider
+      defaultFiltersValue={defaultFiltersValue}
+      classNames={classNames}
+    >
       <SimpleFiltersList />
     </SimpleFilterContextProvider>
   );

@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 import { useInfiniteFetch } from "../LensProvider/hooks/useInfiniteFetch";
+import { useLensContext } from "../LensProvider";
 
 const RawDisplay: React.FC = () => {
-  const { flatData, fetchNextPage, hasNextPage, isFetching } = useInfiniteFetch(
-    {}
-  );
+  const { filters } = useLensContext();
+  const { flatData, fetchNextPage, hasNextPage, isFetching, refetch } =
+    useInfiniteFetch({});
   const ref = useRef<any>();
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
@@ -25,6 +26,10 @@ const RawDisplay: React.FC = () => {
       }
     }
   }, []);
+
+  useEffect(() => {
+    refetch();
+  }, [JSON.stringify(filters)]);
 
   return (
     <div
