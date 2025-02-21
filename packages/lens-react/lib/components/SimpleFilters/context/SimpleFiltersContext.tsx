@@ -40,7 +40,6 @@ const SimpleFilterContextProvider: React.FC<
   const filterContainerRef = useRef<HTMLDivElement>(null);
   const { updateCondition } = useFilterFunctions({ setFilter: setFilters });
 
-  console.log(">>>>>>> filtersConfig", filtersConfig);
   const attributesArray: any = Object.keys(filtersConfig)
     .filter((key) => filtersConfig[key] && filtersConfig[key].asSimple)
     .map((key) => {
