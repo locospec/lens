@@ -31,7 +31,7 @@ const SimpleFilterContextProvider: React.FC<
   const filtersConfig = config?.filters || undefined;
 
   // If filters config does not exists
-  if (filtersConfig) return null;
+  if (!filtersConfig) return null;
 
   const { permissionHeaders = {}, queryEndpoint: query_endpoint = undefined } =
     lensConfiguration;
@@ -40,6 +40,7 @@ const SimpleFilterContextProvider: React.FC<
   const filterContainerRef = useRef<HTMLDivElement>(null);
   const { updateCondition } = useFilterFunctions({ setFilter: setFilters });
 
+  console.log(">>>>>>> filtersConfig", filtersConfig);
   const attributesArray: any = Object.keys(filtersConfig)
     .filter((key) => filtersConfig[key] && filtersConfig[key].asSimple)
     .map((key) => {
