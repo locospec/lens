@@ -144,14 +144,14 @@ export function makeServer() {
                   { label: "Two", value: "Two" },
                   { label: "Three", value: "Four" },
                 ],
-                asSimple: true,
+                // asSimple: true,
               },
               state: {
                 label: "State",
                 type: "enum",
                 isNullable: false,
                 modelName: "state",
-                asSimple: true,
+                // asSimple: true,
               },
               district: {
                 label: "District",
@@ -159,7 +159,7 @@ export function makeServer() {
                 isNullable: false,
                 dependsOn: ["state"],
                 modelName: "district",
-                asSimple: true,
+                // asSimple: true,
               },
               city: {
                 label: "City",
