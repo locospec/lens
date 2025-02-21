@@ -12,7 +12,7 @@ interface LensContextType {
 }
 
 interface LensConfigurationInterface {
-  endpoint: string;
+  endpoint?: string;
   configEndpoint?: string;
   dataEndpoint?: string;
   queryEndpoint?: string;

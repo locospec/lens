@@ -28,13 +28,13 @@ const useInfiniteFetch = ({ dataCallback }: UseInfiniteFetchParams) => {
   const { permissionHeaders: headers, dataEndpoint: data_endpoint } =
     lensConfiguration;
 
-  if (!dataCallback && !endpoint && !queryKey) {
+  const dataEndpoint = data_endpoint ? data_endpoint : `${endpoint}/fetch`;
+
+  if (!dataCallback && !dataEndpoint && !queryKey) {
     throw new Error(
       "Either dataCallback or dataEndpoint or queryKey must be provided"
     );
   }
-
-  const dataEndpoint = data_endpoint ? data_endpoint : `${endpoint}/fetch`;
 
   // TODO - Need to Modify to support normal pagination other than cursor pagination
   const fetchDataFunction = async ({ pageParam = null }) => {

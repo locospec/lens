@@ -8,8 +8,11 @@ import {
 import CustomSearchInput from "./components/CustomSearch";
 
 const ProviderExample = () => {
-  const configEndpoint = {
-    endpoint: "/api/data-bench/auction-data",
+  const lensConfig = {
+    // endpoint: "/api/data-bench/auction-data",
+    configEndpoint: "/api/data-bench/auction-data/config",
+    dataEndpoint: "/api/data-bench/auction-data/fetch",
+    queryEndpoint: "/api/data-bench/auction-data/query",
     permissionHeaders: { sample: "" },
   };
 
@@ -24,7 +27,7 @@ const ProviderExample = () => {
   };
 
   return (
-    <LensProvider lensConfiguration={configEndpoint}>
+    <LensProvider lensConfiguration={lensConfig}>
       <div className="h-[400px] px-4">
         <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center">
           <CustomSearchInput />

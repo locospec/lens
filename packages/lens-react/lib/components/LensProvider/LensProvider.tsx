@@ -14,7 +14,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
   lensConfiguration,
   children,
 }) => {
-  const { endpoint, configEndpoint } = lensConfiguration;
+  const { endpoint = "", configEndpoint } = lensConfiguration;
   const [error, _] = useState<string | null>(null);
   const [filters, setFilters] = useState<any>({});
   const [searchQuery, setSearchQuery] = useState<string>("");
