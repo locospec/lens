@@ -16,6 +16,7 @@
     "lens:build": "lerna run build --scope @locospec/lens-react",
     "lens:release": "lerna run publish --scope @locospec/lens-react",
     "lens:dev": "lerna run dev --scope @locospec/lens-react",
+    "lens:canary": " npm run lens:build && npx auto canary --force",
     "site:start": "lerna run start --scope site",
     "site:build": "lerna run build --scope site",
     "site:serve": "lerna run serve --scope site",
