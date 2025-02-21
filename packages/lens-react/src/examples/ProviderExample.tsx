@@ -4,7 +4,8 @@ import {
   LensProvider,
   SimpleFilters,
 } from "../../../lens-react/lib/main";
-import SearchInput from "../../lib/components/SearchInput/SearchInput";
+// import SearchInput from "../../lib/components/SearchInput/SearchInput";
+import CustomSearchInput from "./components/CustomSearch";
 
 const ProviderExample = () => {
   const configEndpoint = {
@@ -26,8 +27,12 @@ const ProviderExample = () => {
     <LensProvider lensConfiguration={configEndpoint}>
       <div className="h-[400px] px-4">
         <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center">
-          <SearchInput />
-          <SimpleFilters />
+          <CustomSearchInput />
+          <SimpleFilters
+            classNames={{
+              enum: "bg-[#eee] text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
+            }}
+          />
         </div>
         <Datatable
           selectedItems={checkedIds}

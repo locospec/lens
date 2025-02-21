@@ -126,7 +126,7 @@ export function makeServer() {
                 label: "DOB",
                 type: "date",
                 isNullable: false,
-                asSimple: true,
+                // asSimple: true,
               },
               age: {
                 label: "Age",
@@ -144,6 +144,7 @@ export function makeServer() {
                   { label: "Two", value: "Two" },
                   { label: "Three", value: "Four" },
                 ],
+                asSimple: true,
               },
               state: {
                 label: "State",
