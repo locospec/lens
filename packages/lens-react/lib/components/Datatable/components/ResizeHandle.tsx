@@ -1,7 +1,7 @@
 import { cn } from "@/components/utils/cn";
 import type { Header } from "@tanstack/react-table";
 import React from "react";
-import { useDatatableContext } from "../context/DataTableContext";
+import { useDatatableContext } from "../context/useDatatableContext.ts";
 
 export interface ResizeHandleProps {
   header: Header<any, unknown>;

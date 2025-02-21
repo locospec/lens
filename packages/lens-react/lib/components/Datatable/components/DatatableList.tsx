@@ -1,6 +1,6 @@
 import { useInfiniteFetch } from "@/components/LensProvider/hooks/useInfiniteFetch";
 import { cn } from "@/components/utils/cn";
-import { useDatatableContext } from "../context/DataTableContext";
+import { useDatatableContext } from "../context/useDatatableContext.ts";
 import {
   getCoreRowModel,
   useReactTable,

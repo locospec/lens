@@ -3,7 +3,7 @@ import type { Cell } from "@tanstack/react-table";
 import { getColumnPinningStyles } from "../hooks/getColumnPinningStyles";
 import { cn } from "@/components/utils/cn";
 import { getStyleClasses } from "../utils/getStylesClassesForDataTable";
-import { useDatatableContext } from "../context/DataTableContext";
+import { useDatatableContext } from "../context/useDatatableContext";
 
 export interface DatatableCellProps {
   cell: Cell<any, unknown>;

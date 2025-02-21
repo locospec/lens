@@ -1,7 +1,7 @@
 import type { HeaderGroup } from "@tanstack/react-table";
 import DatatableHeaderItem from "./DatatableHeaderItem.tsx";
 import { cn } from "@/components/utils/cn.ts";
-import { useDatatableContext } from "../context/DataTableContext.tsx";
+import { useDatatableContext } from "../context/useDatatableContext.ts";
 
 export interface TableHeaderInterface {
   headerGroup: HeaderGroup<any>;

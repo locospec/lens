@@ -22,18 +22,6 @@ const DatatableContext = createContext<DatatableContextType | undefined>(
 );
 DatatableContext.displayName = "DatatableContext";
 
-const useDatatableContext = () => {
-  const context = useContext(DatatableContext);
-  if (!context) {
-    throw new Error(
-      "useDatatableContext must be used within a DatatableContextProvider"
-    );
-  }
-  return context;
-};
-
-useDatatableContext.displayName = "useDatatableContext";
-
 const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   children,
   columns,
@@ -139,7 +127,6 @@ const DataTableLensContextProvider: React.FC<
 DataTableLensContextProvider.displayName = "DataTableLensContextProvider";
 
 export {
-  useDatatableContext,
   DatatableContext,
   DatatableContextProvider,
   DataTableLensContextProvider,
