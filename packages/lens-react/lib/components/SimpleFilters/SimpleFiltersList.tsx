@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import type { Condition } from "../LensProvider/interfaces/FiltersInterface";
 import EnumInput from "../EnumInput/EnumInput";
-import { useSimpleFiltersContext } from "./context/SimpleFiltersContext";
+import { useSimpleFiltersContext } from "./context/useSimpleFiltersContext";
 import { DatePicker } from "@/base/components/ui/datepicker";
 
 export interface SimpleFiltersProps {}

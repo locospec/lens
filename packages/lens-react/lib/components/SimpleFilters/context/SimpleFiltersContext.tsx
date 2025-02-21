@@ -12,17 +12,6 @@ const SimpleFiltersContext = createContext<
 >(undefined);
 SimpleFiltersContext.displayName = "SimpleFiltersContext";
 
-const useSimpleFiltersContext = () => {
-  const context = useContext(SimpleFiltersContext);
-  if (!context) {
-    throw new Error(
-      "useSimpleFiltersContext must be used within a SimpleFiltersContextProvider"
-    );
-  }
-  return context;
-};
-useSimpleFiltersContext.displayName = "useSimpleFiltersContext";
-
 const SimpleFilterContextProvider: React.FC<
   SimpleFiltersContextProviderInterface
 > = ({ children, defaultFiltersValue, classNames }) => {
@@ -83,8 +72,4 @@ const SimpleFilterContextProvider: React.FC<
 };
 SimpleFilterContextProvider.displayName = "SimpleFilterContextProvider";
 
-export {
-  SimpleFilterContextProvider,
-  useSimpleFiltersContext,
-  SimpleFiltersContext,
-};
+export { SimpleFilterContextProvider, SimpleFiltersContext };

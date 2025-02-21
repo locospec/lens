@@ -27,7 +27,7 @@ import { getProcessedFilters } from "../LensProvider/utils";
 import getSameLevelConditions from "./getSameLevelConditions";
 import { useFetchMoreOnScroll } from "@/hooks/src/useFetchMoreOnScroll";
 import { AttributeDefinitionType } from "../Datatable/interface/DatatableInterface";
-import { useSimpleFiltersContext } from "../SimpleFilters/context/SimpleFiltersContext";
+import { useSimpleFiltersContext } from "../SimpleFilters/context/useSimpleFiltersContext";
 
 export interface OptionInterface {
   label: string;
