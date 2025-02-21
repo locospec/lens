@@ -1,8 +1,8 @@
 export { Datatable } from "./components/Datatable";
 
 // Context Exports
+export { useDatatableContext } from "./context/useDatatableContext";
 export {
-  useDatatableContext,
   DatatableContext,
   DatatableContextProvider,
   DataTableLensContextProvider,

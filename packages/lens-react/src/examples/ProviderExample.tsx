@@ -14,6 +14,9 @@ const ProviderExample = () => {
     dataEndpoint: "/api/data-bench/auction-data/fetch",
     queryEndpoint: "/api/data-bench/auction-data/query",
     permissionHeaders: { sample: "" },
+    // configCallback: () => {
+    //   console.log("sdabdjhagdhaghda");
+    // },
   };
 
   const [checkedIds, setCheckedIds] = useState<string[] | []>([]);

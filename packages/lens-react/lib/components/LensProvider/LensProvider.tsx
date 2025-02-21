@@ -14,7 +14,11 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
   lensConfiguration,
   children,
 }) => {
-  const { endpoint = "", configEndpoint } = lensConfiguration;
+  const {
+    endpoint = "",
+    configEndpoint,
+    configCallback = undefined,
+  } = lensConfiguration;
   const [error, _] = useState<string | null>(null);
   const [filters, setFilters] = useState<any>({});
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -31,7 +35,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     data: config,
     isFetched,
     isError,
-  } = useFetchConfig({ configEndpoint: config_endpoint });
+  } = useFetchConfig({ configEndpoint: config_endpoint, configCallback });
 
   if (isError) {
     return <>Error</>;
@@ -52,13 +56,13 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
         lensConfiguration,
       }}
     >
-      {config && isFetched ? (
-        children
-      ) : (
-        <>{JSON.stringify({ config, isFetched })}</>
-      )}
+      {config && isFetched ? children : <Loader />}
     </LensContext.Provider>
   );
+};
+
+const Loader = () => {
+  return <div className="w-full h-full bg-gray-50">loading</div>;
 };
 
 export const LensProvider: React.FC<LensProviderProps> = ({

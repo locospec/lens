@@ -19,6 +19,7 @@ interface LensConfigurationInterface {
   permissionHeaders?: {
     [key: string]: string;
   };
+  configCallback?: any;
 }
 
 interface LensProviderProps {
