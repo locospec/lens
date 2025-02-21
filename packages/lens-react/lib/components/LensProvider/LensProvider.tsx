@@ -33,6 +33,10 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     isError,
   } = useFetchConfig({ configEndpoint: config_endpoint });
 
+  if (isError) {
+    return <>Error</>;
+  }
+
   return (
     <LensContext.Provider
       value={{
@@ -48,7 +52,11 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
         lensConfiguration,
       }}
     >
-      {config && isFetched ? children : <>loading....</>}
+      {config && isFetched ? (
+        children
+      ) : (
+        <>{JSON.stringify({ config, isFetched })}</>
+      )}
     </LensContext.Provider>
   );
 };
