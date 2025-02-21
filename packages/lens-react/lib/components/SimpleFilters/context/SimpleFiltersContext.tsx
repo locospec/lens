@@ -28,10 +28,10 @@ const SimpleFilterContextProvider: React.FC<
     endpoint,
     lensConfiguration,
   } = lensContext;
-  const filtersConfig = config.filters;
+  const filtersConfig = config?.filters || undefined;
 
   // If filters config does not exists
-  if (config.filters) return null;
+  if (filtersConfig) return null;
 
   const { permissionHeaders = {}, queryEndpoint: query_endpoint = undefined } =
     lensConfiguration;
