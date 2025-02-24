@@ -24,6 +24,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   classNames?: TableStylingInterface;
   disableResizing: boolean;
   filters?: any;
+  viewId?: string;
 }
 
 interface DataTableLensContextProviderInterface

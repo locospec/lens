@@ -123,6 +123,7 @@ const DataTableLensContextProvider: React.FC<
   selectedItems,
   classNames,
   disableResizing = false,
+  viewId = "default",
 }) => {
   const lensContext = useContext(LensContext);
   if (!lensContext) {
@@ -137,8 +138,12 @@ const DataTableLensContextProvider: React.FC<
 
   const { config, isFetched, isError, filters, endpoints } = lensContext;
   const selectionType = config?.selectionType || "none";
+  let tableConfig = config;
+  if (config[viewId]) {
+    tableConfig = config[viewId];
+  }
 
-  const { columns, identifierKey = "" } = useTableConfig(config);
+  const { columns, identifierKey = "" } = useTableConfig(tableConfig);
 
   return (
     <DatatableContextProvider
