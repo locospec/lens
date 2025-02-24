@@ -3,16 +3,36 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import type { InfiniteData } from "@tanstack/react-query";
 import { LensContext } from "../LensProvider";
 import { getProcessedFilters } from "../utils";
+import type { keepPreviousData } from "@tanstack/react-query";
 
 export interface UseInfiniteFetchParams {
+  queryKey?: string;
+  globalFilter?: string;
+  dataEndpoint?: string;
+  keepPreviousData?:
+    | InfiniteData<any, unknown>
+    | typeof keepPreviousData
+    | boolean;
   dataCallback?: ({
     pageParam,
   }: {
     pageParam?: null | undefined;
   }) => Promise<any>;
+  refreshDep?: (string | number | boolean)[];
+  body?: Record<string, any>;
+  context?: () => { dataEndpointHeaders?: Record<string, string> };
 }
 
-const useInfiniteFetch = ({ dataCallback }: UseInfiniteFetchParams) => {
+const useInfiniteFetch = ({
+  queryKey: customQueryKey,
+  globalFilter: customGlobalFilter,
+  body: customBody,
+  dataEndpoint: customDataEndpoint,
+  keepPreviousData: customKeepPreviousData,
+  dataCallback,
+  refreshDep: customRefreshDep,
+  context,
+}: UseInfiniteFetchParams) => {
   const lensContext = useContext(LensContext);
   if (!lensContext) {
     throw new Error("useInfiniteFetch must be used within LensProvider");
@@ -20,14 +40,17 @@ const useInfiniteFetch = ({ dataCallback }: UseInfiniteFetchParams) => {
 
   const { searchQuery, filters, lensConfiguration, endpoints, modal_name } =
     lensContext;
-  const queryKey = modal_name;
-  const globalFilter = searchQuery;
-  const body = { filters: getProcessedFilters(filters) };
-  const refreshDep = [queryKey, globalFilter];
-  const keepPreviousData = true;
-  const { permissionHeaders: headers } = lensConfiguration;
+  const { dataEndpointHeaders = {} } = context ? context() : {};
 
-  const dataEndpoint = endpoints.read;
+  const queryKey = customQueryKey || modal_name;
+  const globalFilter = customGlobalFilter || searchQuery;
+  const body = customBody || { filters: getProcessedFilters(filters) };
+  const refreshDep = customRefreshDep || [queryKey, globalFilter];
+  const keepPreviousData = customKeepPreviousData ?? true;
+  const { permissionHeaders: headers } = lensConfiguration;
+  const dataCallHeaders = context ? dataEndpointHeaders : headers;
+
+  const dataEndpoint = customDataEndpoint || endpoints.read;
 
   if (!dataCallback && !dataEndpoint && !queryKey) {
     throw new Error(
@@ -41,7 +64,7 @@ const useInfiniteFetch = ({ dataCallback }: UseInfiniteFetchParams) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        ...headers,
+        ...dataCallHeaders,
       },
       body: JSON.stringify({
         cursor: pageParam,

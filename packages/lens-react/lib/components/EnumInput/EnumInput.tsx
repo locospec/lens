@@ -20,8 +20,8 @@ import {
 import {
   useDebouncedEffectAfterMount,
   useEffectAfterMount,
-  useInfiniteFetch,
 } from "@/hooks/index";
+import { useInfiniteFetch } from "@/components/LensProvider/hooks/useInfiniteFetch";
 import { Condition } from "../LensProvider/interfaces/FiltersInterface";
 import { getProcessedFilters } from "../LensProvider/utils";
 import getSameLevelConditions from "./getSameLevelConditions";
