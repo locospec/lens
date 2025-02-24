@@ -41,6 +41,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
         meta: {
           align: col.align || undefined,
           fixed: col.fixed || false,
+          show: col.show ?? true,
         },
         id: col.accessorKey,
         header: col.header,

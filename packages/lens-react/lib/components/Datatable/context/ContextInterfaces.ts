@@ -3,6 +3,7 @@ import { SelectionType } from "../interface/DatatableInterface";
 import { ReactNode } from "react";
 import {
   AccessorKeyColumnDef,
+  ColumnPinningState,
   RowSelectionState,
   VisibilityState,
 } from "@tanstack/react-table";
@@ -34,6 +35,8 @@ interface DatatableContextType
   setSelectedRows: React.Dispatch<React.SetStateAction<RowSelectionState>>;
   columnVisibility: VisibilityState;
   setColumnVisibility: React.Dispatch<React.SetStateAction<VisibilityState>>;
+  columnPining: ColumnPinningState;
+  setColumnPining: React.Dispatch<React.SetStateAction<ColumnPinningState>>;
   activeId: string | null;
   setActiveId: React.Dispatch<React.SetStateAction<string | null>>;
   isInResizeArea: boolean;

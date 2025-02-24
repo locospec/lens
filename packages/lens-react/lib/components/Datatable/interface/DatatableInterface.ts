@@ -53,6 +53,7 @@ interface ColumnConfigInterface {
   minWidth?: number;
   align?: AlignType;
   fixed?: boolean;
+  show?: boolean;
 }
 
 interface TableConfigInterface {

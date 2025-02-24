@@ -38,6 +38,8 @@ const DatatableList = () => {
     onSelect,
     classNames,
     filters,
+    columnPining,
+    setColumnPining,
   } = useDatatableContext();
 
   useSyncSelection(selectedRows, selectedItems, setSelectedRows, onSelect);
@@ -72,14 +74,10 @@ const DatatableList = () => {
     getFilteredRowModel: getFilteredRowModel(),
     onRowSelectionChange: setSelectedRows,
     onColumnVisibilityChange: setColumnVisibility,
+    onColumnPinningChange: setColumnPining,
     getRowId: (row) => row[identifierKey],
     initialState: {
-      columnPinning: {
-        // TODO: This is hard coded needs to be removed and to be fetched
-        // from table config once the config is modified allows pinning
-        // left: ["select", "id"],
-        // right: ["actions"],
-      },
+      columnPinning: columnPining,
     },
     state: {
       rowSelection: selectedRows,

@@ -12,10 +12,15 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
-import type { RowSelectionState, VisibilityState } from "@tanstack/react-table";
+import type {
+  ColumnPinningState,
+  RowSelectionState,
+  VisibilityState,
+} from "@tanstack/react-table";
 import { useTableConfig } from "../hooks/useTableConfig";
 import { useColumnResize } from "../hooks/useColumnResize";
 import convertIntoObject from "@/components/utils/convertIntoObject";
+import { CustomColumnMeta } from "../interface/CustomColumnDef";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
@@ -32,16 +37,42 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
     return selectedItems.length > 0 ? convertIntoObject(selectedItems) : {};
   }, [selectedItems]);
 
+  const defaultColShow: any = {};
+  const defaultColPinning: ColumnPinningState = {
+    left: [],
+    right: [],
+  };
+
+  const defaultColOrder = columns.map((col) => {
+    const meta = col?.meta as CustomColumnMeta;
+    const id = col.accessorKey || col.id || "";
+    const { fixed, show } = meta;
+    if (id && !show) {
+      defaultColShow[id] = false;
+    }
+    if (id && fixed) {
+      if (fixed === "left") {
+        (defaultColPinning?.left as string[]).push(id);
+      }
+      if (fixed === "right") {
+        (defaultColPinning?.right as string[]).push(id);
+      }
+    }
+
+    return id;
+  });
+
   const [selectedRows, setSelectedRows] =
     useState<RowSelectionState>(tableSelectedItems);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(
+    defaultColShow || {}
+  );
+  const [columnPining, setColumnPining] = useState<ColumnPinningState>(
+    defaultColPinning || {}
+  );
   const [activeId, setActiveId] = useState<string | null>(null);
   const [isInResizeArea, setIsInResizeArea] = useState(false);
-  const [columnOrder, setColumnOrder] = useState<string[]>(() =>
-    columns.map((c) => {
-      return c.id!;
-    })
-  );
+  const [columnOrder, setColumnOrder] = useState<string[]>(defaultColOrder);
 
   const fixedColumns =
     columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id) || [];
@@ -62,6 +93,8 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
         tableContainerRef,
         columnVisibility,
         setColumnVisibility,
+        columnPining,
+        setColumnPining,
         activeId,
         setActiveId,
         isInResizeArea,
