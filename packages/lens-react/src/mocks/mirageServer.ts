@@ -1,5 +1,5 @@
 import { Response, createServer } from "miragejs";
-import { config } from "./config";
+import { config, Default_VIEW } from "./config";
 
 export function makeServer() {
   const server = createServer({
@@ -11,7 +11,7 @@ export function makeServer() {
         const resource = request.params.resource;
 
         if (resource === "auction-data") {
-          return config;
+          return Default_VIEW;
         }
 
         return new Response(404, {}, { message: "Resource not found" });
