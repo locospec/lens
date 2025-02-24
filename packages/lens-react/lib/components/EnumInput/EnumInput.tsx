@@ -96,9 +96,12 @@ const EnumInput = React.memo(function EnumInput({
   } = useInfiniteFetch({
     queryKey,
     globalFilter: searchQuery,
-    dataEndpoint: `${queryEndpoint}/${modelName}`,
+    dataEndpoint: queryEndpoint,
     keepPreviousData: true,
-    body: { filters: getProcessedFilters(dependentFilter) },
+    body: {
+      relation: modelName,
+      filters: getProcessedFilters(dependentFilter),
+    },
     context: () => ({ dataEndpointHeaders: permissionHeaders }),
   });
 

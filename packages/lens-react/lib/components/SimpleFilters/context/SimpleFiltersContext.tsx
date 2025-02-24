@@ -26,7 +26,7 @@ const SimpleFilterContextProvider: React.FC<
     config,
     setFilters,
     filters: filter,
-    endpoint,
+    endpoints,
     lensConfiguration,
   } = lensContext;
   const filtersConfig = config?.filters || undefined;
@@ -34,9 +34,8 @@ const SimpleFilterContextProvider: React.FC<
   // If filters config does not exists
   if (!filtersConfig) return null;
 
-  const { permissionHeaders = {}, queryEndpoint: query_endpoint = undefined } =
-    lensConfiguration;
-  const queryEndpoint = query_endpoint ? query_endpoint : endpoint + "/query";
+  const { permissionHeaders = {} } = lensConfiguration;
+  const queryEndpoint = endpoints.read_relation_option;
 
   const filterContainerRef = useRef<HTMLDivElement>(null);
   const { updateCondition } = useFilterFunctions({ setFilter: setFilters });

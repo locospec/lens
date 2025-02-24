@@ -7,15 +7,18 @@ interface LensContextType {
   isFetched: boolean;
   isError: boolean;
   endpoint: string;
+  endpoints: {
+    config: string;
+    read: string;
+    read_relation_option: string;
+  };
+  modal_name: string;
   searchQuery: string;
   lensConfiguration: LensConfigurationInterface;
 }
 
 interface LensConfigurationInterface {
   endpoint?: string;
-  configEndpoint?: string;
-  dataEndpoint?: string;
-  queryEndpoint?: string;
   permissionHeaders?: {
     [key: string]: string;
   };

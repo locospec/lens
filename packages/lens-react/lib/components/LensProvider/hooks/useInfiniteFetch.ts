@@ -18,17 +18,16 @@ const useInfiniteFetch = ({ dataCallback }: UseInfiniteFetchParams) => {
     throw new Error("useInfiniteFetch must be used within LensProvider");
   }
 
-  const { endpoint, searchQuery, filters, lensConfiguration } = lensContext;
-  const queryKey = endpoint;
-  // TODO - need to refetch if query changes
+  const { searchQuery, filters, lensConfiguration, endpoints, modal_name } =
+    lensContext;
+  const queryKey = modal_name;
   const globalFilter = searchQuery;
   const body = { filters: getProcessedFilters(filters) };
   const refreshDep = [queryKey, globalFilter];
   const keepPreviousData = true;
-  const { permissionHeaders: headers, dataEndpoint: data_endpoint } =
-    lensConfiguration;
+  const { permissionHeaders: headers } = lensConfiguration;
 
-  const dataEndpoint = data_endpoint ? data_endpoint : `${endpoint}/fetch`;
+  const dataEndpoint = endpoints.read;
 
   if (!dataCallback && !dataEndpoint && !queryKey) {
     throw new Error(

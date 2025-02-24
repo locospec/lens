@@ -14,28 +14,27 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
   lensConfiguration,
   children,
 }) => {
-  const {
-    endpoint = "",
-    configEndpoint,
-    configCallback = undefined,
-  } = lensConfiguration;
+  const { endpoint = "", configCallback = undefined } = lensConfiguration;
   const [error, _] = useState<string | null>(null);
   const [filters, setFilters] = useState<any>({});
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const modal_name = endpoint.split("/").pop() as string;
+
+  const endpoints = {
+    config: endpoint + "/_config",
+    read: endpoint + "/_read",
+    read_relation_option: endpoint + "/_read_relation_options",
+  };
 
   const search = (query: string) => {
     setSearchQuery(query);
   };
 
-  const config_endpoint = configEndpoint
-    ? configEndpoint
-    : `${endpoint}/config`;
-
   const {
     data: config,
     isFetched,
     isError,
-  } = useFetchConfig({ configEndpoint: config_endpoint, configCallback });
+  } = useFetchConfig({ configEndpoint: endpoints.config, configCallback });
 
   if (isError) {
     return <>Error</>;
@@ -52,7 +51,9 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
         isFetched,
         isError,
         endpoint,
+        endpoints,
         searchQuery,
+        modal_name,
         lensConfiguration,
       }}
     >

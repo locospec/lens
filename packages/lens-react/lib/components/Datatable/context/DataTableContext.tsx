@@ -135,7 +135,7 @@ const DataTableLensContextProvider: React.FC<
     useSensor(KeyboardSensor, {})
   );
 
-  const { config, endpoint, isFetched, isError, filters } = lensContext;
+  const { config, isFetched, isError, filters, endpoints } = lensContext;
   const selectionType = config?.selectionType || "none";
 
   const { columns, identifierKey = "" } = useTableConfig(config);
@@ -144,7 +144,7 @@ const DataTableLensContextProvider: React.FC<
     <DatatableContextProvider
       selectionType={selectionType}
       sensors={sensors}
-      endpoint={endpoint}
+      endpoint={endpoints.read}
       columns={columns}
       identifierKey={identifierKey}
       onSelect={onSelect ? onSelect : () => {}}
