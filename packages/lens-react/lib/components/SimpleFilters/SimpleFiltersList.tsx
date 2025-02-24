@@ -77,6 +77,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({}) => {
               if (attribute.type === "date") {
                 return (
                   <DatePicker
+                    key={JSON.stringify([conIndex, index])}
                     placeholder={attribute.label}
                     containerRef={filterContainerRef}
                     callback={(v: any) => {
