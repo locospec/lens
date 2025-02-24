@@ -1,14 +1,10 @@
 import React from "react";
-import type { FilterGroup } from "../LensProvider/interfaces/FiltersInterface";
 import { SimpleFilterContextProvider } from "./context/SimpleFiltersContext";
 import { SimpleFiltersList } from "./SimpleFiltersList";
+import { SimpleFiltersContextProviderInterface } from "./context/SimpleFiltersContextInterface";
 
-export interface SimpleFiltersProps {
-  defaultFiltersValue?: FilterGroup;
-  classNames?: {
-    enum?: string;
-  };
-}
+export interface SimpleFiltersProps
+  extends Omit<SimpleFiltersContextProviderInterface, "children"> {}
 
 const SimpleFilters: React.FC<SimpleFiltersProps> = ({
   defaultFiltersValue,

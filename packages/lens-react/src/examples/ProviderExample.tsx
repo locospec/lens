@@ -36,14 +36,17 @@ const ProviderExample = () => {
           <CustomSearchInput />
           <SimpleFilters
             classNames={{
-              enum: "bg-[#eee] text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
+              wrapper: "",
+              enum: "!bg-[#eee] text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
+              dateTrigger:
+                "!bg-[#eee] text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
             }}
           />
         </div>
+
         <Datatable
           selectedItems={checkedIds}
           onSelect={handleSelectionChange}
-          disableResizing
           classNames={{
             wrapper: "border border-[#eee]",
             headers: "flex gap-x-[14px] pl-[14px] pr-[50px] py-[15px] border-0",

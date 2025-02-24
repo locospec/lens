@@ -21,6 +21,7 @@ const SimpleFilterContextProvider: React.FC<
       "useSimpleFiltersContext must be used within a LensProvider"
     );
   }
+
   const {
     config,
     setFilters,

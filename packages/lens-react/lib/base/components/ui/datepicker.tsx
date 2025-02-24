@@ -18,6 +18,9 @@ export interface DatePickerProps {
   containerRef?: any;
   callback?: any;
   placeholder?: string;
+  classNames?: {
+    triggerClassName?: string;
+  };
 }
 
 export function DatePicker({
@@ -25,8 +28,11 @@ export function DatePicker({
   containerRef,
   callback,
   placeholder = "",
+  classNames,
 }: DatePickerProps) {
   const [date, setDate] = React.useState<Date | undefined>(defaultDate);
+
+  const triggerClassName = classNames?.triggerClassName || "";
 
   return (
     <Popover>
@@ -35,7 +41,8 @@ export function DatePicker({
           variant={"outline"}
           className={cn(
             "max-w-[280px] min-w-[150px] justify-start text-left font-normal text-black",
-            !date && "text-muted-foreground"
+            !date && "text-muted-foreground",
+            triggerClassName
           )}
         >
           <CalendarIcon className="mr-2 h-4 w-4" />

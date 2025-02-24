@@ -1,3 +1,4 @@
+import { FilterGroup } from "@/components/LensProvider/interfaces/FiltersInterface";
 import { ReactNode } from "react";
 
 interface SimpleFiltersContextInterface {
@@ -11,18 +12,26 @@ interface SimpleFiltersContextInterface {
   permissionHeaders: {
     [key: string]: string;
   };
-  classNames: any;
+  classNames?: SimpleFiltersClassNames;
 }
 
 interface CommonWrapperInterface {
   children: ReactNode;
 }
+
+interface SimpleFiltersClassNames {
+  enum?: string;
+  wrapper?: string;
+  dateTrigger?: string;
+}
+
 interface SimpleFiltersContextProviderInterface extends CommonWrapperInterface {
-  defaultFiltersValue?: any;
-  classNames?: any;
+  defaultFiltersValue?: FilterGroup;
+  classNames?: SimpleFiltersClassNames;
 }
 
 export type {
   SimpleFiltersContextInterface,
   SimpleFiltersContextProviderInterface,
+  SimpleFiltersClassNames,
 };

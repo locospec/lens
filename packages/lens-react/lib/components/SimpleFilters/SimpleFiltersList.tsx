@@ -3,6 +3,7 @@ import type { Condition } from "../LensProvider/interfaces/FiltersInterface";
 import EnumInput from "../EnumInput/EnumInput";
 import { useSimpleFiltersContext } from "./context/useSimpleFiltersContext";
 import { DatePicker } from "@/base/components/ui/datepicker";
+import { cn } from "@/base/lib/utils";
 
 export interface SimpleFiltersProps {}
 
@@ -21,6 +22,8 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({}) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const enumClassName = classNames?.enum || "";
+  const wrapperClassName = classNames?.wrapper || "";
+  const dateTriggerClassName = classNames?.dateTrigger || "";
 
   const init = () => {
     setFilters(initialisedFilter);
@@ -35,7 +38,10 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({}) => {
 
   return (
     <div
-      className="lens-wrapper w-full flex gap-x-3 justify-end"
+      className={cn(
+        "lens-wrapper w-full flex gap-3 justify-end flex-wrap",
+        wrapperClassName
+      )}
       ref={filterContainerRef}
     >
       {!isLoading &&
@@ -75,6 +81,9 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({}) => {
                     containerRef={filterContainerRef}
                     callback={(v: any) => {
                       updateCondition([conIndex], "value", v);
+                    }}
+                    classNames={{
+                      triggerClassName: dateTriggerClassName,
                     }}
                   />
                 );
