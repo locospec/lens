@@ -1,5 +1,5 @@
 import { Response, createServer } from "miragejs";
-import { config, Default_VIEW } from "./config";
+import { config, Default_VIEW, sample_view_config } from "./config";
 
 export function makeServer() {
   const server = createServer({
@@ -14,6 +14,10 @@ export function makeServer() {
           return Default_VIEW;
         }
 
+        if (resource === "auction-data-2") {
+          return sample_view_config;
+        }
+
         return new Response(404, {}, { message: "Resource not found" });
       });
 
@@ -26,7 +30,7 @@ export function makeServer() {
         const pageSize = 10;
         const filters = JSON.stringify(rest.filters);
 
-        if (resource === "auction-data") {
+        if (resource === "auction-data" || resource === "auction-data-2") {
           const completeTestData = Array.from({ length: 40 }, (_, index) => ({
             id: index + 1,
             state: `State ${index + 1}`,
@@ -66,7 +70,7 @@ export function makeServer() {
         const pageSize = 20;
         const processed = JSON.stringify(filters);
 
-        if (resource === "auction-data") {
+        if (resource === "auction-data" || resource === "auction-data-2") {
           let completeTestData: any = [];
 
           completeTestData = Array.from({ length: 200 }, (_, index) => ({
