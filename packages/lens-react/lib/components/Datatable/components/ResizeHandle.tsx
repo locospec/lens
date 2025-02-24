@@ -7,12 +7,14 @@ export interface ResizeHandleProps {
   header: Header<any, unknown>;
   isResizing: boolean;
   setIsInResizeArea: React.Dispatch<React.SetStateAction<boolean>>;
+  disabled?: boolean;
 }
 
 const ResizeHandle = ({
   header,
   isResizing,
   setIsInResizeArea,
+  disabled = false,
 }: ResizeHandleProps) => {
   const resizeHandle = header.getResizeHandler();
   const { classNames } = useDatatableContext();
@@ -29,7 +31,8 @@ const ResizeHandle = ({
         setIsInResizeArea(false);
       }}
       className={cn(
-        "absolute right-0 top-0 h-full w-1 cursor-col-resize touch-none select-none",
+        "absolute right-0 top-0 h-full w-1  touch-none select-none",
+        disabled ? "cursor-not-allowed" : "cursor-col-resize",
         "bg-gray-200 hover:bg-gray-400",
         isResizing && "bg-gray-400",
         classNames && classNames?.resizehandle

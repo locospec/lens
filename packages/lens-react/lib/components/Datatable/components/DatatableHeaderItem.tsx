@@ -42,7 +42,7 @@ const DatatableHeaderItem = ({
 
   const id = header?.id;
   const { minSize, maxSize } = header.column.columnDef;
-  const addResizeHandler =
+  const enableResizeHandler =
     minSize !== undefined && maxSize !== undefined ? minSize !== maxSize : true;
 
   const align = (header.column.columnDef.meta as any)?.align;
@@ -73,11 +73,12 @@ const DatatableHeaderItem = ({
         {header.isPlaceholder
           ? null
           : flexRender(header.column.columnDef.header, header.getContext())}
-        {addResizeHandler && !disableResizing && (
+        {!disableResizing && (
           <ResizeHandle
             header={header}
             isResizing={header.column.getIsResizing()}
             setIsInResizeArea={setIsInResizeArea}
+            disabled={!enableResizeHandler}
           />
         )}
       </div>
