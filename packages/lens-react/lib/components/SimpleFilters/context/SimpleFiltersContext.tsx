@@ -14,7 +14,7 @@ SimpleFiltersContext.displayName = "SimpleFiltersContext";
 
 const SimpleFilterContextProvider: React.FC<
   SimpleFiltersContextProviderInterface
-> = ({ children, defaultFiltersValue, classNames }) => {
+> = ({ children, defaultFiltersValue, classNames, viewId = "default" }) => {
   const lensContext = useContext(LensContext);
   if (!lensContext) {
     throw new Error(
@@ -29,7 +29,14 @@ const SimpleFilterContextProvider: React.FC<
     endpoints,
     lensConfiguration,
   } = lensContext;
-  const filtersConfig = config?.filters || undefined;
+
+  let filtersConfig = config?.filters || undefined;
+  if (config[viewId]) {
+    filtersConfig = config[viewId]?.filters || undefined;
+  }
+  // const filtersConfig = config?.filters || undefined;
+
+  console.log(">>>>> viewId", viewId, filtersConfig);
 
   // If filters config does not exists
   if (!filtersConfig) return null;

@@ -13,6 +13,7 @@ interface SimpleFiltersContextInterface {
     [key: string]: string;
   };
   classNames?: SimpleFiltersClassNames;
+  viewId?: string;
 }
 
 interface CommonWrapperInterface {
@@ -28,6 +29,7 @@ interface SimpleFiltersClassNames {
 interface SimpleFiltersContextProviderInterface extends CommonWrapperInterface {
   defaultFiltersValue?: FilterGroup;
   classNames?: SimpleFiltersClassNames;
+  viewId?: string;
 }
 
 export type {

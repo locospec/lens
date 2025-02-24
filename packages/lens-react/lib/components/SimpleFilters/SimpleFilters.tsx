@@ -9,11 +9,13 @@ export interface SimpleFiltersProps
 const SimpleFilters: React.FC<SimpleFiltersProps> = ({
   defaultFiltersValue,
   classNames,
+  viewId,
 }) => {
   return (
     <SimpleFilterContextProvider
       defaultFiltersValue={defaultFiltersValue}
       classNames={classNames}
+      viewId={viewId}
     >
       <SimpleFiltersList />
     </SimpleFilterContextProvider>
