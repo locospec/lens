@@ -21,14 +21,12 @@ const OPDisplay: React.FC<OPDisplayProps> = ({
   handleGroupOperatorChange,
 }) => {
   if (index === 0) {
-    return (
-      <label className={cn("le-p-1 le-w-[70px] le-text-center")}>WHERE</label>
-    );
+    return <label className={cn("p-1 w-[70px] text-center")}>WHERE</label>;
   }
   if (index === 1) {
     return (
       <Select onValueChange={handleGroupOperatorChange}>
-        <SelectTrigger className="le-p-1 le-w-[70px] le-text-center">
+        <SelectTrigger className="p-1 w-[70px] text-center">
           <SelectValue placeholder={group.op.toUpperCase()} />
         </SelectTrigger>
         <SelectContent>
@@ -43,7 +41,7 @@ const OPDisplay: React.FC<OPDisplayProps> = ({
   }
 
   return (
-    <label className={cn("le-p-1 le-w-[70px] le-text-center")}>
+    <label className={cn("p-1 w-[70px] text-center")}>
       {group.op.toUpperCase()}
     </label>
   );

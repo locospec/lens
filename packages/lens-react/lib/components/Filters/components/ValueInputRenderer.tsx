@@ -7,7 +7,6 @@ import NumberInput from "@/components/NumberInput/NumberInput";
 import NumberRangeInput from "@/components/NumberRangeInput/NumberRangeInput";
 import EnumInput from "@/components/EnumInput/EnumInput";
 import { TextInput } from "@/components/TextInput";
-import "./input.css";
 
 export interface ValueRendererInterface {
   condition: Condition;

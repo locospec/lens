@@ -16,10 +16,10 @@ const AddButtonsTray: React.FC<AddButtonsTrayProps> = ({
   path,
 }) => {
   const common_button_classes =
-    "le-flex le-items-center le-text-sm le-cursor-pointer le-font-semibold";
+    "flex items-center text-sm cursor-pointer font-semibold";
 
   return (
-    <div className="le-mt-2 le-space-x-2 le-flex le-gap-x-4">
+    <div className="mt-2 space-x-2 flex gap-x-4">
       <Button
         onClick={(e) => {
           e.stopPropagation();

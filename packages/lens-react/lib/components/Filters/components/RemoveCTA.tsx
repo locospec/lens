@@ -10,12 +10,12 @@ const RemoveCTA = ({ onRemoveCallback, isFilterGroup }: RemoveCTAInterface) => {
   return (
     <Button
       onClick={onRemoveCallback}
-      className={isFilterGroup ? "le-self-end" : "le-self-center"}
+      className={isFilterGroup ? "self-end" : "self-center"}
       size={"icon"}
       variant={isFilterGroup ? "link" : "outline"}
     >
       {isFilterGroup ? (
-        <label className="le-text-sm">Clear</label>
+        <label className="text-sm">Clear</label>
       ) : (
         <Trash2 size={14} />
       )}

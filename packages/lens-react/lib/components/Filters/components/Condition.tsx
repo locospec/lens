@@ -35,7 +35,7 @@ const ConditionComponent: React.FC<ConditionProps> = ({
     : null;
 
   return (
-    <div className="le-flex le-gap-2 le-filter-condition">
+    <div className="flex gap-2 filter-condition">
       <Combobox
         // key={condition.attribute + JSON.stringify(path)}
         options={attributesArray.filter(

@@ -36,17 +36,17 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
   };
 
   return (
-    <div className="le-py-2 le-filter-builder-group le-flex le-flex-col le-w-full">
-      <div className="le-flex le-gap-x-2 le-w-full">
-        <div className="le-space-y-2 le-border-gray-200 le-w-full">
+    <div className="py-2 filter-builder-group flex flex-col w-full">
+      <div className="flex gap-x-2 w-full">
+        <div className="space-y-2 border-gray-200 w-full">
           {group.conditions.map((condition, index) => {
             const isFilterGroup = "conditions" in condition;
             return (
               <div
                 key={index}
                 className={cn(
-                  "le-flex le-items-center le-gap-2 le-bg-[var(--gray-a2)]",
-                  isFilterGroup ? "le-px-2" : "le-p-2"
+                  "flex items-center gap-2 bg-[var(--gray-a2)]",
+                  isFilterGroup ? "px-2" : "p-2"
                 )}
               >
                 <OPDisplay

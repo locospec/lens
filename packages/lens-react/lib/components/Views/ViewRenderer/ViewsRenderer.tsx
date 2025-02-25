@@ -14,6 +14,8 @@ import { Filter, Settings } from "lucide-react";
 import { initViewRendererStates } from "./initViewRendererStates";
 import SearchInput from "@/components/SearchInput/SearchInput";
 import AddViewTab from "./AddViewTab";
+import { FilterBuilder } from "@/components/Filters";
+import { Dialog, DialogTrigger } from "@/base/components/ui/dialog";
 
 const DEFAULT_TAB = "default";
 
@@ -68,10 +70,14 @@ const ViewsRenderer = () => {
               </TabsTrigger>
             </TabsList>
             <div className="flex items-center justify-center gap-x-3">
-              <Button variant={"outline"}>
-                <Filter />
-                Filters
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button variant={"outline"}>
+                    <Filter />
+                    Filters
+                  </Button>
+                </DialogTrigger>
+              </Dialog>
               <Button
                 variant={"outline"}
                 onClick={() => toggleShowSheet(activeTab)}
@@ -96,6 +102,15 @@ const ViewsRenderer = () => {
                   showSheetProp={showSheets[tab.key]}
                   setShowSheetProp={() => toggleShowSheet(tab.key)}
                 >
+                  {/* {tab.config.filters && (
+                    <FilterBuilder
+                      label={"Auction Filters"}
+                      maxDepth={2}
+                      attributes={tab.config.filters}
+                      queryEndpoint={"/api/data-bench/auction-data/query"}
+                      showAdvancedOption
+                    />
+                  )} */}
                   <div className="flex py-4 items-center">
                     <SearchInput />
                     <SimpleFilters defaultFiltersValue={default_scopes} />

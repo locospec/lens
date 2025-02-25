@@ -10,7 +10,6 @@ import { FilterProvider } from "../context";
 import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import useFilterFunctions from "@/components/LensProvider/hooks/useFilterFunction";
-import "./FilterBuilder.css";
 
 const queryClient = new QueryClient();
 
@@ -58,7 +57,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
           maxDepth={maxDepth}
         >
           <div
-            className="twp le-lens-wrapper le-p-4 le-space-y-4 le-border"
+            className="twp lens-wrapper p-4 space-y-4 border"
             ref={filterContainerRef}
           >
             <label>{label}</label>
