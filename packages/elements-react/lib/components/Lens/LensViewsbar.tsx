@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 // import { SlidersHorizontal } from "lucide-react";
 import LensSidebar from "./LensSidebar";
 import TextInput from "../Filters/src/inputs/TextInput";
 import { useLensContext } from "./context/LensContext";
 import { SimpleFilter } from "../Filters";
+import { SlidersHorizontal } from "lucide-react";
 
 export interface LensViewBarInterface {
   tableContainerRef: React.RefObject<HTMLDivElement>;
@@ -29,12 +30,13 @@ const LensViewBar = ({
 // setOpenAdvancedFilter,
 LensViewBarInterface) => {
   const {
-    showSidebar,
     filtersConfiguration,
     queryEndpoint,
     dataEndpointHeaders,
     setFilters,
   } = useLensContext();
+
+  const [showSideBar, setShowSideBar] = useState(false);
   return (
     <div className="le-min-h-12 le-flex le-items-center le-w-full le-justify-between le-gap-x-4">
       <TextInput
@@ -44,17 +46,13 @@ LensViewBarInterface) => {
         className="le-max-w-60"
       />
 
-      {/* <button
+      <button
         className="le-px-3 le-py-1 le-bg-[var(--gray-a4)] le-gap-x-1 le-h-8 le-flex le-items-center le-jusitfy-center le-text-[var(--gray-9)] le-rounded-md"
-        onClick={() =>
-          !isControllingAdvanced
-            ? setShowActionBar(!showActionBar)
-            : setOpenAdvancedFilter((prev: any) => !prev)
-        }
+        onClick={() => setShowSideBar((prev) => !prev)}
       >
         <SlidersHorizontal size={18} />
         Filters
-      </button> */}
+      </button>
       <div>
         {filtersConfiguration && queryEndpoint && (
           <SimpleFilter
@@ -72,7 +70,7 @@ LensViewBarInterface) => {
           />
         )}
       </div>
-      {showSidebar && (
+      {showSideBar && (
         <LensSidebar
           table={table}
           tableContainerRef={tableContainerRef}
