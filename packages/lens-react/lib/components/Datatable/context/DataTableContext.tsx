@@ -156,6 +156,11 @@ const DataTableLensContextProvider: React.FC<
   const selectionType = config?.selectionType || "none";
   let tableConfig = viewTableConfig || config[viewId];
 
+  if (!tableConfig) {
+    throw new Error(
+      "No TableConfig Found, Please check the view id or backend _config call response"
+    );
+  }
   const { columns, identifierKey = "" } = useTableConfig(tableConfig);
 
   return (
