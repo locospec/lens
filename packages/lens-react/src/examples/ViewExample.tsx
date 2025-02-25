@@ -27,11 +27,13 @@ const ViewExample = () => {
   // };
 
   return (
-    <LensProvider lensConfiguration={lensConfig}>
-      <div className="px-4 mt-4">
-        <ViewsRenderer />
-      </div>
-    </LensProvider>
+    <div className="w-full h-[50vh]">
+      <LensProvider lensConfiguration={lensConfig}>
+        <div className="px-4 mt-4">
+          <ViewsRenderer />
+        </div>
+      </LensProvider>
+    </div>
   );
 };
 
