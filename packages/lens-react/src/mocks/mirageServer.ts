@@ -1,5 +1,5 @@
 import { Response, createServer } from "miragejs";
-import { Default_VIEW, sample_view_config } from "./config";
+import { sample_view_config } from "./config";
 
 export function makeServer() {
   const server = createServer({
@@ -10,11 +10,7 @@ export function makeServer() {
       this.post("/:resource/_config", (_, request) => {
         const resource = request.params.resource;
 
-        if (resource === "auction-data") {
-          return Default_VIEW;
-        }
-
-        if (resource === "auction-data-2") {
+        if (resource === "auction-data" || resource === "auction-data-2") {
           return sample_view_config;
         }
 
