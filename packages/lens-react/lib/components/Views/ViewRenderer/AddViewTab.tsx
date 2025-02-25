@@ -1,5 +1,7 @@
 import { Card } from "@/base/components/ui/card";
+import { Dialog, DialogTrigger } from "@/base/components/ui/dialog";
 import { cn } from "@/components/utils/cn";
+import AddViewDialog from "./AddViewDialog";
 
 export interface AddViewTabInterface {
   activeTab: string;
@@ -16,8 +18,18 @@ const AddViewTab = ({ activeTab }: AddViewTabInterface) => {
       <div className="w-full h-full flex flex-col items-center justify-between">
         <h1 className="font-bold text-2xl">Add new view here</h1>
         <div className="flex gap-x-5">
-          <Card className={card_classes}>Add a Data Table</Card>
-          <Card className={card_classes}>Add a Raw Data </Card>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Card className={card_classes}>Add a Data Table</Card>
+            </DialogTrigger>
+            <AddViewDialog viewType="table" />
+          </Dialog>
+          <Dialog>
+            <DialogTrigger>
+              <Card className={card_classes}>Add a Raw Data </Card>
+            </DialogTrigger>
+            <AddViewDialog viewType="raw" />
+          </Dialog>
           <Card className={card_classes}>Coming Soon</Card>
         </div>
       </div>

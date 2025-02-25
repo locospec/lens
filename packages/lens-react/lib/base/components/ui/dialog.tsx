@@ -35,7 +35,7 @@ const DialogContent = React.forwardRef<
     containerRef?: any;
   }
 >(({ className, children, containerRef, ...props }, ref) => (
-  <DialogPortal container={containerRef.current}>
+  <DialogPortal container={containerRef?.current}>
     <DialogOverlay />
     <DialogPrimitive.Content
       ref={ref}
