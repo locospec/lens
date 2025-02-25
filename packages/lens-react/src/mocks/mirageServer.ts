@@ -7,7 +7,7 @@ export function makeServer() {
       this.namespace = "/api/data-bench";
 
       // Mocking the /config endpoint
-      this.get("/:resource/_config", (_, request) => {
+      this.post("/:resource/_config", (_, request) => {
         const resource = request.params.resource;
 
         if (resource === "auction-data") {

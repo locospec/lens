@@ -14,7 +14,7 @@ const useFetchConfig = ({
   }
   const configCallerFunction = async () => {
     const response = await fetch(configEndpoint, {
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
