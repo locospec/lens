@@ -2,6 +2,7 @@ const Default_VIEW = {
   view_id: "default",
   view_name: "Default View",
   selectionType: "none",
+  type: "table",
   columns: [
     {
       accessorKey: "id",
@@ -125,6 +126,7 @@ const Default_VIEW = {
 const View_1 = {
   view_name: "View 1",
   selectionType: "none",
+  type: "raw",
   columns: [
     {
       accessorKey: "id",
@@ -251,6 +253,7 @@ const View_1 = {
 const View_2 = {
   view_name: "View 2",
   selectionType: "multiple",
+  type: "table",
   columns: [
     {
       accessorKey: "id",

@@ -39,7 +39,7 @@ const RawDisplay: React.FC = () => {
     >
       {flatData.map((data: any, index: number) => (
         <div
-          className="text-sm inline-flex border bg-black text-green-400"
+          className="text-sm h-20 inline-flex border bg-black text-green-400"
           key={index}
         >
           {JSON.stringify(data, null, 2)}
