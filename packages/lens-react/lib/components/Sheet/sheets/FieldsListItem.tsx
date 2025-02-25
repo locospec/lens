@@ -30,9 +30,9 @@ const FieldsListItem = ({ column, isHidden }: any) => {
   return (
     <div
       className={cn(
-        "le-flex le-justify-between le-py-2",
+        "flex justify-between py-2",
         (headerDef?.meta as any)?.fixed
-          ? "le-pointer-events-none le-text-[var(--gray-7)]"
+          ? "pointer-events-none text-[var(--gray-7)]"
           : ""
       )}
       style={style as any}
@@ -40,10 +40,8 @@ const FieldsListItem = ({ column, isHidden }: any) => {
       ref={setNodeRef}
       {...attributes}
     >
-      <div className="le-flex le-gap-x-2">
-        {!isHidden && (
-          <GripVertical className="le-cursor-grab" {...listeners} />
-        )}
+      <div className="flex gap-x-2">
+        {!isHidden && <GripVertical className="cursor-grab" {...listeners} />}
         <label>{label}</label>
       </div>
 

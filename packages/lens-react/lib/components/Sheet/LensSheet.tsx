@@ -1,4 +1,4 @@
-import { SheetContent } from "@/base/components/ui/sheet";
+import { SheetContent, SheetTitle } from "@/base/components/ui/sheet";
 import React from "react";
 // import { SheetContent } from "./index.tsx";
 
@@ -14,8 +14,9 @@ const LensSidebar = ({ tableContainerRef }: LensSidebarInterface) => {
   return (
     <SheetContent
       containerRef={tableContainerRef}
-      className="le-h-full le-w-full le-overflow-y-auto le-lens-wrapper"
+      className="h-full w-full overflow-y-auto lens-wrapper"
     >
+      <SheetTitle>Sample </SheetTitle>
       {/* {currentSheet === "default" ? (
           <DefaultSheet setCurrentSheet={setCurrentSheet} />
         ) : currentSheet === "layout_options" ? (
