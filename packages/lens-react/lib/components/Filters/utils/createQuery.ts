@@ -1,4 +1,4 @@
-import type { Condition } from "../interfaces/src/FilterInterface";
+import type { Condition } from "../interfaces";
 
 const createQuery = (conditions: Condition[]) => {
   const qFrag = conditions.map(

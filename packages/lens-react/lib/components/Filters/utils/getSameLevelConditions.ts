@@ -1,4 +1,4 @@
-import { Condition, FilterGroup } from "../interfaces/src/FilterInterface";
+import { Condition, FilterGroup } from "../interfaces";
 
 export interface FunctionProps {
   filter: FilterGroup;

@@ -1,8 +1,4 @@
-import { AttributeTypes } from "../interfaces";
-import {
-  OperatorsList,
-  TypeOperatorsMap,
-} from "../interfaces/src/OperationsInterface";
+import { OperatorsList, TypeOperatorsMap, AttributeTypes } from "../interfaces";
 
 export const NULL_OPERATORS: OperatorsList = [
   { label: "Is empty", value: "is_empty" },

@@ -3,7 +3,9 @@ export type {
   FilterBuilderProps,
   FilterSizes,
   FilterVariants,
-} from "./src/FilterInterface";
+  Condition,
+  FilterGroup,
+} from "./FilterInterface";
 
 export type {
   AttributeDefinitionMapType,
@@ -12,4 +14,12 @@ export type {
   AttributeOptionItemType,
   OptionItemType,
   AttributeTypes,
-} from "./src/AttributesInterface";
+} from "./AttributesInterface";
+
+export type {
+  GroupOperator,
+  Operator,
+  OperatorOption,
+  OperatorsList,
+  TypeOperatorsMap,
+} from "./OperationsInterface";

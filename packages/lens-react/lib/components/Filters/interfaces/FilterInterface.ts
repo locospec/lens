@@ -53,11 +53,6 @@ export interface FilterGroup {
   conditions: (Condition | FilterGroup)[];
 }
 
-export interface OperatorOption {
-  label: string;
-  value: Operator | GroupOperator;
-}
-
 export type {
   FilterContextType,
   FilterBuilderProps,
