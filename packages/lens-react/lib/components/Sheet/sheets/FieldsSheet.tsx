@@ -47,9 +47,9 @@ const FieldsSheet = ({
     <>
       <SheetHeader>
         <FieldsSheetTitle
-          callback={(value: any) => {
-            // setCurrentSheet(value);
-          }}
+        //   callback={(value: any) => {
+        //     // setCurrentSheet(value);
+        //   }}
         />
       </SheetHeader>
 
