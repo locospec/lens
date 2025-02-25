@@ -78,7 +78,6 @@ const ViewsRenderer = () => {
             {tabsList.map((tab: any) => {
               const default_scopes = tab.config?.scope?.filters;
               const type = tab.config.type;
-              console.log(">>>>>>>", type);
               return (
                 <ModifiedTabsContent
                   className={cn(activeTab === tab.key ? "" : "hidden")}
