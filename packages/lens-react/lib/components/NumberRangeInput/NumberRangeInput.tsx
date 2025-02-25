@@ -1,6 +1,7 @@
 import { cn } from "@/components/utils/cn";
-import NumberInput from "./NumberInput";
 import React from "react";
+import { NumberInput } from "../NumberInput";
+import "./NumberRangeInput.modules.css";
 
 export interface NumberRangeInputInterface {
   condition: any;

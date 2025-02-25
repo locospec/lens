@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { Condition, FilterGroup } from "./interfaces/src/FilterInterface";
 import { JsonHighlighter } from "../../JsonHighlighter";
-import { FilterProvider } from "./context/FilterContext";
+import { FilterProvider } from "../context/FilterContext";
 import { FilterBuilderProps } from "./interfaces/src/FilterInterface";
 import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

@@ -1,27 +1,8 @@
-import {
-  AttributeDefinitionMapType,
-  AttributeOptionsArrayType,
-} from "./AttributesInterface";
+import { AttributeDefinitionMapType } from "./AttributesInterface";
 import { GroupOperator, Operator } from "./OperationsInterface";
 
 type FilterSizes = "1" | "2" | "3";
 type FilterVariants = "surface" | "soft" | "classic";
-
-interface FilterContextType {
-  size: FilterSizes;
-  variant: FilterVariants;
-  attributesArray: AttributeOptionsArrayType;
-  attributesObject: AttributeDefinitionMapType;
-  filterContainerRef?: any;
-  queryEndpoint: string;
-  filter: FilterGroup;
-  dataEndpointHeaders?: any;
-  updateCondition: (path: number[], field: string, value: any) => void;
-  addCondition: (parentPath?: number[]) => void;
-  addGroup: (parentPath?: number[]) => void;
-  removeItem: (path: number[]) => void;
-  maxDepth: number;
-}
 
 interface FilterBuilderProps {
   maxDepth?: number;
@@ -53,9 +34,4 @@ export interface FilterGroup {
   conditions: (Condition | FilterGroup)[];
 }
 
-export type {
-  FilterContextType,
-  FilterBuilderProps,
-  FilterSizes,
-  FilterVariants,
-};
+export type { FilterBuilderProps, FilterSizes, FilterVariants };

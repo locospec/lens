@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import type { Condition } from "./interfaces/src/FilterInterface";
 import Combobox from "@/base/components/ui/combobox";
-import { useFilterContext } from "./context/FilterContext";
+import { useFilterContext } from "../context/FilterContext";
 import OperatorsSelector from "./OperatorsSelector";
-import ValueInputRenderer from "./inputs/ValueInputRenderer";
+import ValueInputRenderer from "../components/ValueInputRenderer";
 import getSameLevelConditions from "./utils/getSameLevelConditions";
 
 export interface ConditionProps {

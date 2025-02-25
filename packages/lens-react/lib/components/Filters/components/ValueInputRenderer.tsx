@@ -1,13 +1,14 @@
 import { useCallback } from "react";
 import { useFilterContext } from "../context/FilterContext";
 import { AttributeDefinitionType } from "../interfaces";
-import type { Condition } from "../interfaces/src/FilterInterface";
-import TextInput from "./TextInput";
+import type { Condition } from "../interfaces";
+import TextInput from "../../TextInput/TextInput";
 import { DatePicker } from "@/base/components/ui/datepicker";
-import EnumInput from "./EnumInput";
-import NumberInput from "./NumberInput";
-import NumberRangeInput from "./NumberRangeInput";
+// import { EnumInput } from "../../EnumInput";
+import { NumberInput } from "../../NumberInput";
+import { NumberRangeInput } from "../../NumberRangeInput";
 import "./input.css";
+import EnumInput from "@/components/EnumInput/EnumInput";
 
 export interface ValueRendererInterface {
   condition: Condition;
@@ -93,6 +94,7 @@ const ValueInputRenderer = ({
         path={path}
         placeholder={`Select ${selectedAttribute.label}`}
         multiple={asMulti}
+        filterContainerRef={null}
       />
     );
   }

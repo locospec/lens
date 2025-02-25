@@ -8,7 +8,7 @@ import {
 } from "@/base/components/ui/select";
 import { returnOperators } from "./constants/ConditionOperators";
 import { Operator } from "./interfaces/src/OperationsInterface";
-import { useFilterContext } from "./context/FilterContext";
+import { useFilterContext } from "../context/FilterContext";
 import { useCallback, useMemo } from "react";
 
 export interface OperatorsSelectorInterface {

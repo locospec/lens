@@ -1,5 +1,4 @@
 export type {
-  FilterContextType,
   FilterBuilderProps,
   FilterSizes,
   FilterVariants,
