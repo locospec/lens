@@ -1,12 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { useInfiniteFetch } from "../LensProvider/hooks/useInfiniteFetch";
-import { useLensContext } from "../LensProvider";
+import { ViewContext } from "../Views/View/ViewContext";
+import { getProcessedFilters } from "../LensProvider/utils";
 
 const RawDisplay: React.FC = () => {
-  const { filters } = useLensContext();
+  const { viewChildRef, filters, searchQuery } = useContext(ViewContext) || {};
   const { flatData, fetchNextPage, hasNextPage, isFetching, refetch } =
-    useInfiniteFetch({});
-  const ref = useRef<any>();
+    useInfiniteFetch({
+      globalFilter: searchQuery,
+      body: { filters: getProcessedFilters(filters) },
+    });
+  const ref = viewChildRef || useRef<any>();
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const div = e.target as HTMLDivElement;
@@ -33,13 +37,13 @@ const RawDisplay: React.FC = () => {
 
   return (
     <div
-      className="w-full h-full flex flex-col gap-y-1 overflow-y-scroll"
+      className="relative w-full h-full flex flex-col gap-y-1 overflow-y-scroll"
       onScroll={handleScroll}
       ref={ref}
     >
       {flatData.map((data: any, index: number) => (
         <div
-          className="text-sm h-20 inline-flex border bg-black text-green-400"
+          className="text-lg h-28 inline-flex border bg-black text-green-400"
           key={index}
         >
           {JSON.stringify(data, null, 2)}
