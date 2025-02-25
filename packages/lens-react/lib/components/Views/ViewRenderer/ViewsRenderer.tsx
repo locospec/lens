@@ -1,14 +1,14 @@
-import {
-  Tabs,
-  //   TabsContent,
-  TabsList,
-  //   TabsTrigger,
-} from "@/base/components/ui/tabs";
+import { Tabs } from "@/base/components/ui/tabs";
 import { Datatable, LensContext, SimpleFilters, View } from "@/main";
 import { useContext, useState } from "react";
 import CustomSearchInput from "../../../../src/examples/components/CustomSearch";
 import { Card } from "@/base/components/ui/card";
 import { cn } from "@/components/utils/cn";
+import {
+  ModifiedTabsContent,
+  ModifiedTabsList,
+  ModifiedTabsTrigger,
+} from "@/base/components/ui/modified-tabs";
 
 const ViewsRenderer = () => {
   const lensContext = useContext(LensContext);
@@ -34,38 +34,36 @@ const ViewsRenderer = () => {
       {tabsList.length > 0 ? (
         <div className="h-fit bg-blue-50">
           <Tabs defaultValue="default" className="w-full h-full">
-            <TabsList className="flex gap-x-4">
+            <ModifiedTabsList className="flex gap-x-4">
               {tabsList.map((tab: any) => {
                 return (
-                  //   <TabsTrigger key={tab.key} value={tab.key}>
-                  //     {tab.config.view_name}
-                  //   </TabsTrigger>
-                  <div
+                  <ModifiedTabsTrigger
                     key={tab.key}
+                    value={tab.key}
                     className={cn(activeTab === tab.key ? "px-2 bg-white" : "")}
                     onClick={() => {
                       setActiveTab(tab.key);
                     }}
                   >
                     {tab.config.view_name}
-                  </div>
+                  </ModifiedTabsTrigger>
                 );
               })}
-              <div
-                // value="add"
-                // onChange={(v) => console.log(">>>>>>>> value")}
+              <ModifiedTabsTrigger
+                value="add"
                 onClick={() => setActiveTab("add")}
                 className={cn(activeTab === "add" ? "px-2 bg-white" : "")}
               >
                 +
-              </div>
-            </TabsList>
+              </ModifiedTabsTrigger>
+            </ModifiedTabsList>
             {tabsList.map((tab: any) => {
               const default_scopes = tab.config?.scope?.filters;
               return (
-                <div
+                <ModifiedTabsContent
                   className={cn(activeTab === tab.key ? "" : "hidden")}
                   key={tab.key}
+                  value={tab.key}
                 >
                   <View key={tab.key} viewId={tab.key}>
                     <div className="flex">
@@ -84,7 +82,7 @@ const ViewsRenderer = () => {
                       />
                     </div>
                   </View>
-                </div>
+                </ModifiedTabsContent>
               );
             })}
             <div
@@ -99,7 +97,7 @@ const ViewsRenderer = () => {
                 <div className="grid grid-cols-2 gap-5">
                   <Card className={card_classes}>Add a Data Table</Card>
                   <Card className={card_classes}>Add a Raw Data </Card>
-                  <Card className={card_classes}>AComing Soon</Card>
+                  <Card className={card_classes}>Coming Soon</Card>
                 </div>
               </div>
             </div>
