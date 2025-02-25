@@ -63,7 +63,7 @@ const Loader = () => {
     <div className="w-full h-full  flex flex-col items-center justify-center gap-y-2">
       <div className="relative flex items-center justify-center w-20 h-20 border-4 border-white rounded-full opacity-100 border-t-gray-600 animate-spin"></div>
       <label className="text-lg font-semibold">
-        Lens is Loading your Table's configuration. Please be patient..
+        Lens is Loading your configurations. Please be patient..
       </label>
     </div>
   );
