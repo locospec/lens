@@ -1,7 +1,10 @@
 import { CSSProperties } from "react";
 import type { Column } from "@tanstack/react-table";
 
-const getColumnPinningStyles = (column: Column<any>): CSSProperties => {
+const getColumnPinningStyles = (
+  column: Column<any>,
+  isHeader?: boolean
+): CSSProperties => {
   const isPinned = column.getIsPinned();
   const isLastLeftPinnedColumn =
     isPinned === "left" && column.getIsLastColumn("left");
@@ -10,14 +13,19 @@ const getColumnPinningStyles = (column: Column<any>): CSSProperties => {
 
   return {
     boxShadow: isLastLeftPinnedColumn
-      ? "-4px 0 4px -4px gray inset"
+      ? isHeader
+        ? "-5px 0 4px -4px gray inset"
+        : "-4px 0 4px -4px gray inset"
       : isFirstRightPinnedColumn
-      ? "4px 0 4px -4px gray inset"
+      ? isHeader
+        ? "5px 0 4px -4px gray inset"
+        : "4px 0 4px -4px gray inset"
       : undefined,
     left: isPinned === "left" ? `${column.getStart("left")}px` : undefined,
     right: isPinned === "right" ? `${column.getAfter("right")}px` : undefined,
     opacity: isPinned ? 0.95 : 1,
     position: isPinned ? "sticky" : "relative",
+    background: isPinned ? "#fff" : "",
     // width: column.getSize(),
     zIndex: isPinned ? 1 : 0,
   };

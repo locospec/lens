@@ -368,7 +368,7 @@ const View_2 = {
       isNullable: false,
       dependsOn: ["state", "district", "city"],
       modelName: "locality",
-      // asSimple: true,
+      asSimple: true,
     },
     availability: {
       label: "Availablity",

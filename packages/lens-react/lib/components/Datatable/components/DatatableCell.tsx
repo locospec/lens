@@ -15,7 +15,7 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   };
   const column = cell.column;
 
-  const css = getColumnPinningStyles(column);
+  const css = getColumnPinningStyles(column, false);
   const isSelected = cell.row.getIsSelected();
 
   const align = (cell.column.columnDef.meta as any)?.align;
@@ -30,7 +30,7 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   return (
     <div
       className={cn(
-        "truncate  px-2 py-4 text-gray-600 leading-3",
+        "truncate px-2 py-4 text-gray-600 leading-3",
         isAction || isLast
           ? "flex gap-x-4 border-r-0"
           : "border-r border-gray-100",

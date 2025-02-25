@@ -31,10 +31,10 @@ const ResizeHandle = ({
         setIsInResizeArea(false);
       }}
       className={cn(
-        "absolute right-0 top-0 h-full w-1  touch-none select-none",
+        "absolute right-0 top-0 h-full w-1 touch-none select-none border-r bg-transparent",
         disabled ? "cursor-not-allowed" : "cursor-col-resize",
-        "bg-gray-200 hover:bg-gray-400",
-        isResizing && "bg-gray-400",
+        "border-gray-200 hover:border-gray-400",
+        isResizing && "border-gray-400",
         classNames && classNames?.resizehandle
       )}
     />

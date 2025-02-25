@@ -23,7 +23,7 @@ const DatatableHeaderItem = ({
 
   const { classNames, disableResizing } = useDatatableContext();
 
-  const css = getColumnPinningStyles(column);
+  const css = getColumnPinningStyles(column, true);
 
   const { attributes, isDragging, listeners, setNodeRef, transform } =
     useSortable({
@@ -57,7 +57,7 @@ const DatatableHeaderItem = ({
       <div
         key={header.id}
         className={cn(
-          "relative font-semibold truncate px-2 py-2",
+          "relative truncate px-2 py-2 cursor-grab backdrop-blur-[200px]",
           styles.text,
           classNames && classNames.header
         )}
