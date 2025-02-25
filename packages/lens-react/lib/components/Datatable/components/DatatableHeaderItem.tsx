@@ -28,7 +28,7 @@ const DatatableHeaderItem = ({
   const { attributes, isDragging, listeners, setNodeRef, transform } =
     useSortable({
       id: header.column.id,
-      disabled: fixed || isInResizeArea,
+      disabled: ["left", "right"].includes(fixed) || isInResizeArea,
     });
 
   const style: CSSProperties = {

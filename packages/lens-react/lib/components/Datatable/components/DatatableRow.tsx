@@ -22,7 +22,7 @@ const DatatableRow = ({
   return (
     <div
       className={cn(
-        "absolute top-0 flex w-full border-b cursor-pointer",
+        "absolute top-0 flex w-full border-b border-gray-100 cursor-pointer",
         "hover:bg-gray-200 data-[state=selected]:bg-gray-200",
         classNames && classNames?.row
       )}

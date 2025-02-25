@@ -22,7 +22,7 @@ const DataTableHeader = ({
     <div
       key={headerGroup.id}
       className={cn(
-        "sticky flex top-0 z-10 backdrop-blur-[100px] border-b border-gray-200",
+        "sticky flex top-0 z-10 backdrop-blur-[100px] border-b border-gray-100",
         classNames && classNames?.headers
       )}
     >
