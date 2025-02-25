@@ -1,6 +1,8 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useRef, useState } from "react";
 import type { ViewContextType, ViewProviderProps } from "./types";
 import { LensContext } from "@/main";
+import LensSidebar from "@/components/Sheet/LensSheet";
+import { Sheet } from "@/base/components/ui/sheet";
 
 export const ViewContext = createContext<ViewContextType | undefined>(
   undefined
@@ -9,6 +11,8 @@ export const ViewContext = createContext<ViewContextType | undefined>(
 export const ViewProvider: React.FC<ViewProviderProps> = ({
   children,
   viewId = "default",
+  showSheetProp = false,
+  setShowSheetProp,
 }) => {
   const lensContext = useContext(LensContext);
   if (!lensContext) {
@@ -24,9 +28,12 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
       <>{`Invalid View Id {${viewId}}. Pls check the backend configuration`}</>
     );
   }
+  const viewChildRef = useRef<HTMLDivElement>(null);
 
   const [filters, setFilters] = useState<any>({});
   const [searchQuery, setSearchQuery] = useState<string>("");
+
+  const [showSheet, setShowSheet] = useState(false);
 
   const search = (query: string) => {
     setSearchQuery(query);
@@ -41,10 +48,18 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
         setFilters,
         search,
         searchQuery,
+        showSheet: (showSheetProp ??= showSheet),
+        setShowSheet: setShowSheetProp ?? setShowSheet,
+        viewChildRef,
       }}
     >
-      {JSON.stringify({ filters: filters, searchQuery })}
       {children}
+      <Sheet
+        open={(showSheetProp ??= showSheet)}
+        onOpenChange={(setShowSheetProp ??= setShowSheet)}
+      >
+        <LensSidebar tableContainerRef={viewChildRef} />
+      </Sheet>
     </ViewContext.Provider>
   );
 };

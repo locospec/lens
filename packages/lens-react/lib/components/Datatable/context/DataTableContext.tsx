@@ -32,6 +32,7 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   children,
   columns,
   selectedItems,
+  viewChildRef,
   ...props
 }) => {
   const tableSelectedItems: any = useMemo(() => {
@@ -78,7 +79,7 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   const fixedColumns =
     columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id) || [];
 
-  const tableContainerRef = useRef<HTMLDivElement>(null);
+  const tableContainerRef = viewChildRef || useRef<HTMLDivElement>(null);
 
   const { adjustedColumns, isColumnsReady } = useColumnResize(
     tableContainerRef,
@@ -141,6 +142,7 @@ const DataTableLensContextProvider: React.FC<
 
   const viewFilters = viewContext?.filters;
   const searchQuery = viewContext?.searchQuery;
+  const viewChildRef = viewContext?.viewChildRef;
 
   const sensors = useSensors(
     useSensor(MouseSensor, {}),
@@ -173,6 +175,7 @@ const DataTableLensContextProvider: React.FC<
       searchQuery={searchQuery}
       viewId={viewId}
       modalName={modal_name}
+      viewChildRef={viewChildRef}
     >
       {isFetched ? isError ? <>Error</> : children : "loading table...."}
     </DatatableContextProvider>

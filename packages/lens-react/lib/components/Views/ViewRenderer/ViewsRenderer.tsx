@@ -18,6 +18,20 @@ import {
 import { Button } from "@/base/components/ui/button";
 import { Settings } from "lucide-react";
 
+const initViewRendererStates = (config: any) => {
+  const tabsList = Object.keys(config).map((key) => {
+    return {
+      key: key,
+      config: config[key],
+    };
+  });
+  const initialShowSheets = Object.keys(config).reduce((acc, key) => {
+    acc[key] = false;
+    return acc;
+  }, {} as Record<string, boolean>);
+
+  return { tabsList, initialShowSheets };
+};
 const ViewsRenderer = () => {
   const lensContext = useContext(LensContext);
 
@@ -26,16 +40,20 @@ const ViewsRenderer = () => {
   }
   const { config } = lensContext;
 
-  const tabsList = Object.keys(config).map((key) => {
-    return {
-      key: key,
-      config: config[key],
-    };
-  });
+  const { tabsList, initialShowSheets } = initViewRendererStates(config);
 
   const [activeTab, setActiveTab] = useState<string>("default");
 
   const card_classes = "w-[200px] h-[200px] flex items-center justify-center";
+
+  const [showSheets, setShowSheets] = useState(initialShowSheets);
+
+  const toggleShowSheet = (tabKey: string) => {
+    setShowSheets((prev) => ({
+      ...prev,
+      [tabKey]: !prev[tabKey],
+    }));
+  };
 
   return (
     <>
@@ -69,7 +87,10 @@ const ViewsRenderer = () => {
                 </ModifiedTabsTrigger>
               </ModifiedTabsList>
               <div className="flex items-center justify-center">
-                <Button variant={"outline"} onClick={() => {}}>
+                <Button
+                  variant={"outline"}
+                  onClick={() => toggleShowSheet(activeTab)}
+                >
                   <Settings />
                   Customise
                 </Button>
@@ -84,7 +105,12 @@ const ViewsRenderer = () => {
                   key={tab.key}
                   value={tab.key}
                 >
-                  <View key={tab.key} viewId={tab.key}>
+                  <View
+                    key={tab.key}
+                    viewId={tab.key}
+                    showSheetProp={showSheets[tab.key]}
+                    setShowSheetProp={() => toggleShowSheet(tab.key)}
+                  >
                     <div className="flex">
                       <CustomSearchInput />
                       <SimpleFilters defaultFiltersValue={default_scopes} />
