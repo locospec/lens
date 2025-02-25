@@ -7,6 +7,7 @@ import ProviderExample from "./examples/ProviderExample";
 import RawDataExample from "./examples/RawDataExample";
 import ProviderExample2 from "./examples/ProviderExample2";
 import ViewExample from "./examples/ViewExample";
+import NoViewContextExample from "./examples/NoViewContextExample";
 
 function App() {
   React.useEffect(() => {
@@ -16,7 +17,7 @@ function App() {
     };
   }, []);
 
-  const components = ["raw_data", "provider", "provider_2", "views"];
+  const components = ["raw_data", "provider", "provider_2", "views", "no_view"];
 
   return (
     <main className="w-screen h-screen overflow-hidden">
@@ -46,6 +47,7 @@ function App() {
               <Route path="/raw_data" children={<RawDataExample />} />
               <Route path="/provider_2" children={<ProviderExample2 />} />
               <Route path="/views" children={<ViewExample />} />
+              <Route path="/no_view" children={<NoViewContextExample />} />
             </Routes>
           </div>
         </div>

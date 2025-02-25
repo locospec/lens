@@ -136,7 +136,7 @@ const DataTableLensContextProvider: React.FC<
 
   if (!viewContext) {
     console.warn(
-      "No View Context found so the global context of lens will be used to apply global filters. \n This can cause issue while using multiple datatable as filters can cause conflicts between each other. \n Using of View to wrap a data-table is recommneded"
+      `No View context found. The global Lens context will be used to apply filters, search, or render data. This may lead to issues when using multiple features, as settings could conflict with each other. It's recommended to wrap each feature, such as search, filters, or data display, in a View to avoid conflicts and ensure proper functionality`
     );
   }
 
