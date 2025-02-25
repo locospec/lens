@@ -21,7 +21,11 @@ const useFetchMoreOnScroll = ({
     (containerRefElement?: HTMLDivElement | null) => {
       if (containerRefElement) {
         const { scrollHeight, scrollTop, clientHeight } = containerRefElement;
+        const isHidden =
+          scrollHeight === 0 && scrollTop === 0 && clientHeight === 0;
+
         if (
+          !isHidden &&
           scrollHeight - scrollTop - clientHeight < offset &&
           !isFetching &&
           hasNextPage

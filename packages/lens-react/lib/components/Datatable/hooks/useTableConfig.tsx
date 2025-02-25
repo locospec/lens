@@ -58,7 +58,9 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
         id: "select",
         accessorKey: "select",
         meta: {
-          fixed: true,
+          align: "center",
+          fixed: "left",
+          show: true,
         },
         header: ({ table }: HeaderInterface) => (
           <div className="flex h-full items-center justify-center">

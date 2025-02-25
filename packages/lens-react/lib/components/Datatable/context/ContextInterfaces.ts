@@ -25,6 +25,8 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   disableResizing: boolean;
   filters?: any;
   viewId?: string;
+  modalName?: string;
+  searchQuery?: string;
 }
 
 interface DataTableLensContextProviderInterface

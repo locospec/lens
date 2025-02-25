@@ -14,6 +14,7 @@ import { createHandleDragEnd } from "../utils/createHandleDragEnd";
 import { DatatableBody, MemoizedDatatableBody } from "./DatatableBody";
 import { useCallback, useEffect } from "react";
 import { useFetchMoreOnScroll } from "@/hooks/src/useFetchMoreOnScroll";
+import { getProcessedFilters } from "@/components/LensProvider/utils/getProcessedFilters.tsx";
 
 const DatatableList = () => {
   const {
@@ -40,12 +41,19 @@ const DatatableList = () => {
     filters,
     columnPining,
     setColumnPining,
+    searchQuery,
+    viewId,
+    modalName,
   } = useDatatableContext();
 
   useSyncSelection(selectedRows, selectedItems, setSelectedRows, onSelect);
 
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
-    useInfiniteFetch({});
+    useInfiniteFetch({
+      queryKey: `${modalName}-${viewId}`,
+      body: { filters: getProcessedFilters(filters) },
+      globalFilter: searchQuery,
+    });
 
   useEffect(() => {
     refetch();

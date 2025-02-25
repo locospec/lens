@@ -1,3 +1,4 @@
+import { ViewContext } from "@/components/Views/View/ViewContext";
 import { LensContext } from "@/main";
 import { useContext, useEffect, useState } from "react";
 
@@ -13,10 +14,22 @@ const useDebouncedSearch = ({
   delay = DEFAULT_DELAY,
 }: UseDebouncedSearchOptions) => {
   const lensContext = useContext(LensContext);
-  if (!lensContext) {
-    throw new Error("useDebouncedSearch must be used within LensProvider");
+  const viewContext = useContext(ViewContext);
+  let parentType = "";
+  let parentContext = undefined;
+  if (viewContext) {
+    parentType = "ViewContext";
+    parentContext = viewContext;
+  } else if (lensContext) {
+    parentType = "LensContext";
+    parentContext = lensContext;
   }
-  const { searchQuery, search } = lensContext;
+
+  if (!parentContext) {
+    throw new Error("useDebouncedSearch must be used within LensContext ");
+  }
+  const { searchQuery, search } = parentContext;
+
   const [debouncedQuery, setDebouncedQuery] = useState(value);
 
   useEffect(() => {

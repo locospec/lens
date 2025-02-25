@@ -1,5 +1,5 @@
 import { Response, createServer } from "miragejs";
-import { config, Default_VIEW, sample_view_config } from "./config";
+import { Default_VIEW, sample_view_config } from "./config";
 
 export function makeServer() {
   const server = createServer({
@@ -31,7 +31,7 @@ export function makeServer() {
         const filters = JSON.stringify(rest.filters);
 
         if (resource === "auction-data" || resource === "auction-data-2") {
-          const completeTestData = Array.from({ length: 40 }, (_, index) => ({
+          const completeTestData = Array.from({ length: 200 }, (_, index) => ({
             id: index + 1,
             state: `State ${index + 1}`,
             district: `District ${index + 1}`,

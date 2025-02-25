@@ -6,6 +6,7 @@ import {
 import { LensContext } from "@/main";
 import { initilizeFilter } from "../utils/initilizeFilter";
 import useFilterFunctions from "@/components/LensProvider/hooks/useFilterFunction";
+import { ViewContext } from "@/components/Views/View/ViewContext";
 
 const SimpleFiltersContext = createContext<
   SimpleFiltersContextInterface | undefined
@@ -30,13 +31,24 @@ const SimpleFilterContextProvider: React.FC<
     lensConfiguration,
   } = lensContext;
 
+  const viewContext = useContext(ViewContext);
+  if (!viewContext) {
+    console.warn(
+      "No View Context found so the global context of lens will be used to apply global filters. \n This can cause issue while using multiple datatable as vilters can cause conflicts between each other. \n Use of View to wrapp a data table is recommneded"
+    );
+  }
+  const viewConfig = viewContext?.config;
+  const setViewFilters = viewContext?.setFilters;
+  const viewFilters = viewContext?.filters;
+
   let filtersConfig = config?.filters || undefined;
   if (config[viewId]) {
-    filtersConfig = config[viewId]?.filters || undefined;
+    if (viewConfig) {
+      filtersConfig = viewConfig?.filters;
+    } else {
+      filtersConfig = config[viewId]?.filters || undefined;
+    }
   }
-  // const filtersConfig = config?.filters || undefined;
-
-  console.log(">>>>> viewId", viewId, filtersConfig);
 
   // If filters config does not exists
   if (!filtersConfig) return null;
@@ -45,7 +57,9 @@ const SimpleFilterContextProvider: React.FC<
   const queryEndpoint = endpoints.read_relation_option;
 
   const filterContainerRef = useRef<HTMLDivElement>(null);
-  const { updateCondition } = useFilterFunctions({ setFilter: setFilters });
+  const { updateCondition } = useFilterFunctions({
+    setFilter: setViewFilters || setFilters,
+  });
 
   const attributesArray: any = Object.keys(filtersConfig)
     .filter((key) => filtersConfig[key] && filtersConfig[key].asSimple)
@@ -65,9 +79,9 @@ const SimpleFilterContextProvider: React.FC<
         attributesArray,
         initialisedFilter,
         filterContainerRef,
-        setFilters,
+        setFilters: setViewFilters || setFilters,
         updateCondition,
-        filter,
+        filter: viewFilters || filter,
         queryEndpoint,
         permissionHeaders,
         classNames,

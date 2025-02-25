@@ -21,6 +21,7 @@ import { useTableConfig } from "../hooks/useTableConfig";
 import { useColumnResize } from "../hooks/useColumnResize";
 import convertIntoObject from "@/components/utils/convertIntoObject";
 import { CustomColumnMeta } from "../interface/CustomColumnDef";
+import { ViewContext } from "@/components/Views/View/ViewContext";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
@@ -130,13 +131,25 @@ const DataTableLensContextProvider: React.FC<
     throw new Error("useInfiniteFetch must be used within LensProvider");
   }
 
+  const viewContext = useContext(ViewContext);
+
+  if (!viewContext) {
+    console.warn(
+      "No View Context found so the global context of lens will be used to apply global filters. \n This can cause issue while using multiple datatable as filters can cause conflicts between each other. \n Using of View to wrap a data-table is recommneded"
+    );
+  }
+
+  const viewFilters = viewContext?.filters;
+  const searchQuery = viewContext?.searchQuery;
+
   const sensors = useSensors(
     useSensor(MouseSensor, {}),
     useSensor(TouchSensor, {}),
     useSensor(KeyboardSensor, {})
   );
 
-  const { config, isFetched, isError, filters, endpoints } = lensContext;
+  const { config, isFetched, isError, filters, endpoints, modal_name } =
+    lensContext;
   const selectionType = config?.selectionType || "none";
   let tableConfig = config;
   if (config[viewId]) {
@@ -156,7 +169,10 @@ const DataTableLensContextProvider: React.FC<
       selectedItems={selectedItems || []}
       classNames={classNames}
       disableResizing={disableResizing}
-      filters={filters}
+      filters={viewFilters || filters}
+      searchQuery={searchQuery}
+      viewId={viewId}
+      modalName={modal_name}
     >
       {isFetched ? isError ? <>Error</> : children : "loading table...."}
     </DatatableContextProvider>

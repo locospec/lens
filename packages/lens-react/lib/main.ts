@@ -20,3 +20,4 @@ export { Datatable } from "./components/Datatable";
 
 export { SearchInput, useDebouncedSearch } from "./components/SearchInput";
 export { SimpleFilters } from "./components/SimpleFilters";
+export { View, ViewsRenderer } from "./components/Views";
