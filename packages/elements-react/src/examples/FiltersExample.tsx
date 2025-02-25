@@ -120,7 +120,7 @@ const FiltersExample = () => {
         maxDepth={2}
         attributes={attributes}
         queryEndpoint={"/api/data-bench/auction-data/query"}
-        asSimpleFilters
+        // asSimpleFilters
         showAdvancedOption
         // simpleFilters={["state", "city"]}
       />
