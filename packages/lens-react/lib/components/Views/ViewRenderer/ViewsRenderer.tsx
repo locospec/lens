@@ -1,4 +1,4 @@
-import { Tabs } from "@/base/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/base/components/ui/tabs";
 import {
   Datatable,
   LensContext,
@@ -7,31 +7,14 @@ import {
   View,
 } from "@/main";
 import { useContext, useState } from "react";
-import CustomSearchInput from "../../../../src/examples/components/CustomSearch";
 import { Card } from "@/base/components/ui/card";
 import { cn } from "@/components/utils/cn";
-import {
-  ModifiedTabsContent,
-  ModifiedTabsList,
-  ModifiedTabsTrigger,
-} from "@/base/components/ui/modified-tabs";
+import { ModifiedTabsContent } from "@/base/components/ui/modified-tabs";
 import { Button } from "@/base/components/ui/button";
 import { Settings } from "lucide-react";
+import { initViewRendererStates } from "./initViewRendererStates";
+import SearchInput from "@/components/SearchInput/SearchInput";
 
-const initViewRendererStates = (config: any) => {
-  const tabsList = Object.keys(config).map((key) => {
-    return {
-      key: key,
-      config: config[key],
-    };
-  });
-  const initialShowSheets = Object.keys(config).reduce((acc, key) => {
-    acc[key] = false;
-    return acc;
-  }, {} as Record<string, boolean>);
-
-  return { tabsList, initialShowSheets };
-};
 const ViewsRenderer = () => {
   const lensContext = useContext(LensContext);
 
@@ -58,13 +41,13 @@ const ViewsRenderer = () => {
   return (
     <>
       {tabsList.length > 0 ? (
-        <div className="h-fit bg-blue-50">
+        <div className="h-fit w-full">
           <Tabs defaultValue="default" className="w-full h-full">
             <div className="flex w-full justify-between">
-              <ModifiedTabsList className="flex gap-x-4">
+              <TabsList className="flex gap-x-4">
                 {tabsList.map((tab: any) => {
                   return (
-                    <ModifiedTabsTrigger
+                    <TabsTrigger
                       key={tab.key}
                       value={tab.key}
                       className={cn(
@@ -75,17 +58,17 @@ const ViewsRenderer = () => {
                       }}
                     >
                       {tab.config.view_name}
-                    </ModifiedTabsTrigger>
+                    </TabsTrigger>
                   );
                 })}
-                <ModifiedTabsTrigger
+                <TabsTrigger
                   value="add"
                   onClick={() => setActiveTab("add")}
                   className={cn(activeTab === "add" ? "px-2 bg-white" : "")}
                 >
                   +
-                </ModifiedTabsTrigger>
-              </ModifiedTabsList>
+                </TabsTrigger>
+              </TabsList>
               <div className="flex items-center justify-center">
                 <Button
                   variant={"outline"}
@@ -112,14 +95,13 @@ const ViewsRenderer = () => {
                     setShowSheetProp={() => toggleShowSheet(tab.key)}
                   >
                     <div className="flex">
-                      <CustomSearchInput />
+                      <SearchInput />
                       <SimpleFilters defaultFiltersValue={default_scopes} />
                     </div>
                     <div className="h-[400px]">
                       {type === "table" ? (
                         <Datatable
                           key={tab.key}
-                          viewId={tab.key}
                           onSelect={() => {}}
                           selectedItems={[]}
                           classNames={{
@@ -145,7 +127,7 @@ const ViewsRenderer = () => {
             >
               <div className="w-full h-full flex flex-col items-center justify-between">
                 <h1 className="font-bold text-2xl">Add new view here</h1>
-                <div className="grid grid-cols-2 gap-5">
+                <div className="flex gap-x-5">
                   <Card className={card_classes}>Add a Data Table</Card>
                   <Card className={card_classes}>Add a Raw Data </Card>
                   <Card className={card_classes}>Coming Soon</Card>
