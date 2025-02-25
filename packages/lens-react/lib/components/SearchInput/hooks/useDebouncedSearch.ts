@@ -26,7 +26,7 @@ const useDebouncedSearch = ({
   }
 
   if (!parentContext) {
-    throw new Error("useDebouncedSearch must be used within LensContext ");
+    throw new Error(`useDebouncedSearch must be used within ${parentType}`);
   }
   const { searchQuery, search } = parentContext;
 
