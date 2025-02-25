@@ -1,5 +1,6 @@
 interface ViewContextType {
   contextId: "View";
+  viewId: string;
   filters: any;
   setFilters: React.Dispatch<any>;
   search: (query: string) => void;

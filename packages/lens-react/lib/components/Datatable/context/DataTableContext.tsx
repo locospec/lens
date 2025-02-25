@@ -143,6 +143,7 @@ const DataTableLensContextProvider: React.FC<
   const viewFilters = viewContext?.filters;
   const searchQuery = viewContext?.searchQuery;
   const viewChildRef = viewContext?.viewChildRef;
+  const viewTableConfig = viewContext?.config;
 
   const sensors = useSensors(
     useSensor(MouseSensor, {}),
@@ -153,10 +154,7 @@ const DataTableLensContextProvider: React.FC<
   const { config, isFetched, isError, filters, endpoints, modal_name } =
     lensContext;
   const selectionType = config?.selectionType || "none";
-  let tableConfig = config;
-  if (config[viewId]) {
-    tableConfig = config[viewId];
-  }
+  let tableConfig = viewTableConfig || config[viewId];
 
   const { columns, identifierKey = "" } = useTableConfig(tableConfig);
 

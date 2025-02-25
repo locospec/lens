@@ -43,6 +43,7 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
     <ViewContext.Provider
       value={{
         contextId: "View",
+        viewId: viewId,
         config: configuration,
         filters,
         setFilters,
