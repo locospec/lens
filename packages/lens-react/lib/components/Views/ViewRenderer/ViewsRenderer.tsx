@@ -10,7 +10,7 @@ import { useContext, useState } from "react";
 import { cn } from "@/components/utils/cn";
 import { ModifiedTabsContent } from "@/base/components/ui/modified-tabs";
 import { Button } from "@/base/components/ui/button";
-import { Settings } from "lucide-react";
+import { Filter, Settings } from "lucide-react";
 import { initViewRendererStates } from "./initViewRendererStates";
 import SearchInput from "@/components/SearchInput/SearchInput";
 import AddViewTab from "./AddViewTab";
@@ -67,7 +67,11 @@ const ViewsRenderer = () => {
                 +
               </TabsTrigger>
             </TabsList>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center gap-x-3">
+              <Button variant={"outline"}>
+                <Filter />
+                Filters
+              </Button>
               <Button
                 variant={"outline"}
                 onClick={() => toggleShowSheet(activeTab)}
