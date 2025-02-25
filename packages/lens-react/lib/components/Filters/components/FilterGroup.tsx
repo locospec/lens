@@ -1,10 +1,8 @@
 import React from "react";
-import { FilterGroup } from "./interfaces/src/FilterInterface";
-import Condition from "./Condition";
-import { OPDisplay } from "./OpSelector";
-import AddButtonsTray from "./AddButtonsTray";
+import type { FilterGroup } from "../interfaces";
+import Condition from "../components/Condition";
+import { OpSelector as OPDisplay, AddButtonsTray, RemoveCTA } from "./index";
 import { cn } from "@/base/lib/utils";
-import RemoveCTA from "./RemoveCTA";
 
 export interface FilterGroupProps {
   group: FilterGroup;

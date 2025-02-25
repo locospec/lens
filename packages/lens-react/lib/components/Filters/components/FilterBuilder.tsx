@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import type { FilterGroup } from "./interfaces/src/FilterInterface";
-import FilterGroupComponent from "./FilterGroup";
+import type {
+  FilterGroup,
+  AttributeOptionsArrayType,
+  FilterBuilderProps,
+} from "../interfaces";
+import { FilterGroup as FilterGroupComponent } from "./index";
 import { JsonHighlighter } from "../../JsonHighlighter";
-import { FilterProvider } from "../context/FilterContext";
-import { FilterBuilderProps } from "./interfaces/src/FilterInterface";
+import { FilterProvider } from "../context";
 import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import useFilterFunctions from "./hooks/useFilterFunctions";
+import useFilterFunctions from "@/components/LensProvider/hooks/useFilterFunction";
 import "./FilterBuilder.css";
-import { AttributeOptionsArrayType } from "./interfaces";
 
 const queryClient = new QueryClient();
 

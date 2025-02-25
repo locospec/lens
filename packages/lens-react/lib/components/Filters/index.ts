@@ -1,14 +1,47 @@
-export { cleanFilterGroup } from "./src/utils/cleanFilters";
+//components
+export {
+  AddButtonsTray,
+  ConditionComponent,
+  FilterBuilder,
+  FilterGroup,
+  OpSelector,
+  OperatorsSelector,
+  RemoveCTA,
+  ValueInputRenderer,
+} from "./components";
 
-export { default as Condition } from "./src/Condition";
-export type { ConditionProps } from "./src/Condition";
+export {
+  BOOLEAN_OPERATORS,
+  DATE_OPERATORS,
+  ENUM_OPERATORS,
+  GROUP_OPERATORS,
+  NULL_OPERATORS,
+  NUMBER_OPERATORS,
+  STRING_OPERATORS,
+} from "./constants";
 
-export { default as FilterBuilder } from "./src/FilterBuilder";
-export type { FilterBuilderProps } from "./src/interfaces";
+// context
+export { FilterProvider, useFilterContext } from "./context";
+export type { FilterContextType, FilterProviderProps } from "./context";
 
-export { default as FilterGroupComponent } from "./src/FilterGroup";
-export type { FilterGroupProps } from "./src/FilterGroup";
+export type {
+  AttributeDefinitionMapType,
+  FilterGroup as FilterGroupType,
+  FilterSizes,
+  FilterVariants,
+  AttributeDefinitionType,
+  AttributeOptionItemType,
+  AttributeOptionsArrayType,
+  AttributeTypes,
+  Condition,
+  FilterBuilderProps,
+  GroupOperator,
+  Operator,
+  OperatorOption,
+  OperatorsList,
+  OptionItemType,
+  TypeOperatorsMap,
+} from "./interfaces";
 
-export { default as SimpleFilter } from "./src/SimpleFilter";
-
-export { default as FilterDecider } from "./src/FilterDecider";
+// utils
+export { createQuery, getSameLevelConditions } from "./utils";

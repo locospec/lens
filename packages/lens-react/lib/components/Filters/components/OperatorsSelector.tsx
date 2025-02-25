@@ -1,4 +1,4 @@
-import { AttributeDefinitionType } from "./interfaces";
+import { useCallback, useMemo } from "react";
 import {
   Select,
   SelectContent,
@@ -6,10 +6,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/base/components/ui/select";
-import { returnOperators } from "./constants/ConditionOperators";
-import { Operator } from "./interfaces/src/OperationsInterface";
+import { returnOperators } from "../constants";
+import { Operator, AttributeDefinitionType } from "../interfaces";
 import { useFilterContext } from "../context/FilterContext";
-import { useCallback, useMemo } from "react";
 
 export interface OperatorsSelectorInterface {
   selectedAttribute: AttributeDefinitionType | null;

@@ -5,9 +5,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/base/components/ui/select";
-import { FilterGroup } from "./interfaces/src/FilterInterface";
 import { cn } from "@/base/lib/utils";
-import { GROUP_OPERATORS } from "./constants/ConditionOperators";
+import { FilterGroup } from "../interfaces";
+import { GROUP_OPERATORS } from "../constants";
 
 export interface OPDisplayProps {
   index: number;
@@ -15,11 +15,11 @@ export interface OPDisplayProps {
   handleGroupOperatorChange: (value: string) => void;
 }
 
-const OPDisplay = ({
+const OPDisplay: React.FC<OPDisplayProps> = ({
   index,
   group,
   handleGroupOperatorChange,
-}: OPDisplayProps) => {
+}) => {
   if (index === 0) {
     return (
       <label className={cn("le-p-1 le-w-[70px] le-text-center")}>WHERE</label>
@@ -49,4 +49,4 @@ const OPDisplay = ({
   );
 };
 
-export { OPDisplay };
+export default OPDisplay;

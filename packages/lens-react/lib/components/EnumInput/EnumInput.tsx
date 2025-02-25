@@ -24,10 +24,10 @@ import {
 import { useInfiniteFetch } from "@/components/LensProvider/hooks/useInfiniteFetch";
 import { Condition } from "../LensProvider/interfaces/FiltersInterface";
 import { getProcessedFilters } from "../LensProvider/utils";
-import getSameLevelConditions from "./getSameLevelConditions";
 import { useFetchMoreOnScroll } from "@/hooks/src/useFetchMoreOnScroll";
 import { AttributeDefinitionType } from "../Datatable/interface/DatatableInterface";
 import { useSimpleFiltersContext } from "../SimpleFilters/context/useSimpleFiltersContext";
+import { getSameLevelConditions } from "../Filters";
 
 export interface OptionInterface {
   label: string;
