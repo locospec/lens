@@ -53,7 +53,6 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
         lensConfiguration,
       }}
     >
-      {/* <Loader /> */}
       {config && isFetched ? children : <Loader />}
     </LensContext.Provider>
   );
