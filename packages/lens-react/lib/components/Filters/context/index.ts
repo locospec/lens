@@ -1,7 +1,8 @@
-export { FilterProvider, useFilterContext } from "./FilterContext";
-export { FilterContextProvider, FiltersContext } from "./FilterContext2";
+export { FilterContextProvider, FiltersContext } from "./FilterContext";
+export { useFilterContext } from "./useFilterContext";
 
 export type {
-  FilterContextType,
-  FilterProviderProps,
+  FiltersClassNames,
+  FiltersContextInterface,
+  FiltersContextProviderInterface,
 } from "./ContextInterface";

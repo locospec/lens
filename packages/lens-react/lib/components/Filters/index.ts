@@ -21,8 +21,16 @@ export {
 } from "./constants";
 
 // context
-export { FilterProvider, useFilterContext } from "./context";
-export type { FilterContextType, FilterProviderProps } from "./context";
+export {
+  FilterContextProvider,
+  FiltersContext,
+  useFilterContext,
+} from "./context";
+export type {
+  FiltersClassNames,
+  FiltersContextInterface,
+  FiltersContextProviderInterface,
+} from "./context";
 
 export type {
   AttributeDefinitionMapType,
