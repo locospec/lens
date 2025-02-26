@@ -6,7 +6,7 @@ import NumberInput from "@/components/NumberInput/NumberInput";
 import NumberRangeInput from "@/components/NumberRangeInput/NumberRangeInput";
 import EnumInput from "@/components/EnumInput/EnumInput";
 import { TextInput } from "@/components/TextInput";
-import { useFilterContext2 } from "../context/useFilterContext2";
+import { useFilterContext } from "../context";
 
 export interface ValueRendererInterface {
   condition: Condition;
@@ -28,7 +28,7 @@ const ValueInputRenderer = ({
     return <></>;
   }
 
-  const { updateCondition, filterContainerRef } = useFilterContext2();
+  const { updateCondition, filterContainerRef } = useFilterContext();
 
   const handleValueChange = useCallback(
     (value: string | number | string[] | number[] | boolean) =>

@@ -8,7 +8,7 @@ import {
 } from "@/base/components/ui/select";
 import { returnOperators } from "../constants";
 import { Operator, AttributeDefinitionType } from "../interfaces";
-import { useFilterContext2 } from "../context/useFilterContext2";
+import { useFilterContext } from "../context";
 
 export interface OperatorsSelectorInterface {
   selectedAttribute: AttributeDefinitionType | null;
@@ -25,7 +25,7 @@ const OperatorsSelector = ({
     return <></>;
   }
 
-  const { updateCondition } = useFilterContext2();
+  const { updateCondition } = useFilterContext();
 
   const attributeType = selectedAttribute?.type;
   const isNullable = selectedAttribute?.isNullable ?? true;

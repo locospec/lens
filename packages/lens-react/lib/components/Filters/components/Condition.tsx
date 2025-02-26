@@ -3,7 +3,7 @@ import Combobox from "@/base/components/ui/combobox";
 import type { Condition } from "../interfaces";
 import { getSameLevelConditions } from "../utils";
 import { OperatorsSelector, ValueInputRenderer } from "./index";
-import { useFilterContext2 } from "../context/useFilterContext2";
+import { useFilterContext } from "../context";
 
 export interface ConditionProps {
   condition: Condition;
@@ -17,7 +17,7 @@ const ConditionComponent: React.FC<ConditionProps> = ({
   onUpdate,
 }) => {
   const { attributesArray, attributesObject, filter, filterContainerRef } =
-    useFilterContext2();
+    useFilterContext();
 
   const { sameGroup: conditions } = useMemo(
     () =>
