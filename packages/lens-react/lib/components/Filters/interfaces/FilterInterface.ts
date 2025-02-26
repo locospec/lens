@@ -1,4 +1,3 @@
-import { AttributeDefinitionMapType } from "./AttributesInterface";
 import { GroupOperator, Operator } from "./OperationsInterface";
 
 type FilterSizes = "1" | "2" | "3";
@@ -10,7 +9,6 @@ interface FilterBuilderProps {
   size?: FilterSizes;
   variant?: FilterVariants;
   label?: string;
-  attributes: AttributeDefinitionMapType;
   queryEndpoint: string;
   setFiltersCallback?: any;
   defaultFiltersValue?: any;
