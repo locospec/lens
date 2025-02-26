@@ -30,7 +30,7 @@ const FiltersTriggerButton = ({ toggleShowSheet, activeTab, config }: any) => {
             <DialogTitle>{`${activeConfig.view_name} Filters`}</DialogTitle>
             <DialogDescription>Add filters here</DialogDescription>
           </DialogHeader>
-          <View viewId={activeTab.key}>
+          <View viewId={activeTab}>
             <FilterBuilder
               label={"Auction Filters"}
               maxDepth={2}
