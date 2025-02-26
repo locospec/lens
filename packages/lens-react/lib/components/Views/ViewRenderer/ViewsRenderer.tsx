@@ -1,4 +1,9 @@
-import { Tabs, TabsList, TabsTrigger } from "@/base/components/ui/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/base/components/ui/tabs";
 import {
   Datatable,
   LensContext,
@@ -8,7 +13,6 @@ import {
 } from "@/main";
 import { useContext, useState } from "react";
 import { cn } from "@/components/utils/cn";
-import { ModifiedTabsContent } from "@/base/components/ui/modified-tabs";
 import { initViewRendererStates } from "./initViewRendererStates";
 import SearchInput from "@/components/SearchInput/SearchInput";
 import AddViewTab from "./AddViewTab";
@@ -51,9 +55,6 @@ const ViewsRenderer = () => {
                     <TabsTrigger
                       key={tab.key}
                       value={tab.key}
-                      className={cn(
-                        activeTab === tab.key ? "px-2 bg-white" : ""
-                      )}
                       onClick={() => {
                         setActiveTab(tab.key);
                       }}
@@ -64,8 +65,9 @@ const ViewsRenderer = () => {
                 })}
                 <TabsTrigger
                   value="add"
-                  onClick={() => setActiveTab("add")}
-                  className={cn(activeTab === "add" ? "px-2 bg-white" : "")}
+                  onClick={() => {
+                    setActiveTab("add");
+                  }}
                 >
                   +
                 </TabsTrigger>
@@ -80,11 +82,7 @@ const ViewsRenderer = () => {
               const default_scopes = tab.config?.scope?.filters;
               const type = tab.config.type;
               return (
-                <ModifiedTabsContent
-                  className={cn(activeTab === tab.key ? "" : "hidden")}
-                  key={tab.key}
-                  value={tab.key}
-                >
+                <TabsContent key={tab.key} value={tab.key}>
                   <View
                     key={tab.key}
                     viewId={tab.key}
@@ -112,10 +110,10 @@ const ViewsRenderer = () => {
                       )}
                     </div>
                   </View>
-                </ModifiedTabsContent>
+                </TabsContent>
               );
             })}
-            <AddViewTab activeTab={activeTab} />
+            <AddViewTab />
           </Tabs>
         ) : (
           <></>

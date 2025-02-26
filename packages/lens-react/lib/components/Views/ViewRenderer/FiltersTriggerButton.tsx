@@ -13,9 +13,20 @@ import {
   DialogTitle,
 } from "@/base/components/ui/dialog";
 
-const FiltersTriggerButton = ({ toggleShowSheet, activeTab, config }: any) => {
+interface FiltersTriggerButtonProps {
+  toggleShowSheet: (activeTab: string) => void;
+  activeTab: string;
+  config: any;
+}
+
+const FiltersTriggerButton: React.FC<FiltersTriggerButtonProps> = ({
+  toggleShowSheet,
+  activeTab,
+  config,
+}) => {
   const ref = useRef(null);
   const activeConfig = config[activeTab];
+  if (activeTab === "add") return null;
   return (
     <div className="flex items-center justify-center gap-x-3" ref={ref}>
       <Dialog>
@@ -30,6 +41,7 @@ const FiltersTriggerButton = ({ toggleShowSheet, activeTab, config }: any) => {
             <DialogTitle>{`${activeConfig.view_name} Filters`}</DialogTitle>
             <DialogDescription>Add filters here</DialogDescription>
           </DialogHeader>
+
           <View viewId={activeTab}>
             <FilterBuilder
               label={"Auction Filters"}
@@ -37,7 +49,7 @@ const FiltersTriggerButton = ({ toggleShowSheet, activeTab, config }: any) => {
               attributes={activeConfig.filters}
               queryEndpoint={"/api/data-bench/auction-data/query"}
               showAdvancedOption
-              showFilterJSON={false}
+              showFilterJSON={true}
             />
           </View>
           <DialogFooter>
