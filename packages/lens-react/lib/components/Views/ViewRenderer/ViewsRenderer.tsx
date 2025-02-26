@@ -12,7 +12,6 @@ import {
   View,
 } from "@/main";
 import { useContext, useState } from "react";
-import { cn } from "@/components/utils/cn";
 import { initViewRendererStates } from "./initViewRendererStates";
 import SearchInput from "@/components/SearchInput/SearchInput";
 import AddViewTab from "./AddViewTab";
