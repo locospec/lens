@@ -1,5 +1,6 @@
 interface ViewContextType {
-  contextId: "View";
+  view_uuid: string;
+  contextId: string;
   viewId: string;
   filters: any;
   setFilters: React.Dispatch<any>;

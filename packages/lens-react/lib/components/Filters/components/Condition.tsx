@@ -1,9 +1,9 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import Combobox from "@/base/components/ui/combobox";
 import type { Condition } from "../interfaces";
-import { useFilterContext } from "../context";
 import { getSameLevelConditions } from "../utils";
 import { OperatorsSelector, ValueInputRenderer } from "./index";
+import { useFilterContext2 } from "../context/useFilterContext2";
 
 export interface ConditionProps {
   condition: Condition;
@@ -16,14 +16,23 @@ const ConditionComponent: React.FC<ConditionProps> = ({
   path,
   onUpdate,
 }) => {
-  const { attributesArray, attributesObject, filter } = useFilterContext();
+  const { attributesArray, attributesObject, filter, filterContainerRef } =
+    useFilterContext2();
 
-  const { sameGroup: conditions } = getSameLevelConditions({
-    filter,
-    path,
-    excludeSelf: true,
-  });
-  const already_used_conditions = conditions.map((c) => c.attribute);
+  const { sameGroup: conditions } = useMemo(
+    () =>
+      getSameLevelConditions({
+        filter,
+        path,
+        excludeSelf: true,
+      }),
+    [JSON.stringify(filter), JSON.stringify(path)]
+  );
+
+  const already_used_conditions = useMemo(
+    () => conditions.map((c) => c.attribute),
+    [JSON.stringify(conditions)]
+  );
 
   const handleAttributeChange = useCallback(
     (value: string) => onUpdate(path, "attribute", value),
@@ -39,11 +48,12 @@ const ConditionComponent: React.FC<ConditionProps> = ({
       <Combobox
         // key={condition.attribute + JSON.stringify(path)}
         options={attributesArray.filter(
-          (o) =>
+          (o: any) =>
             !(already_used_conditions.includes(o.value) && o.type == "enum")
         )}
         defaultValue={condition.attribute}
         callback={handleAttributeChange}
+        containerRef={filterContainerRef}
       />
 
       <OperatorsSelector

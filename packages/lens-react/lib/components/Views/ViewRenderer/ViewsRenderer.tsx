@@ -107,7 +107,7 @@ const ViewsRenderer = () => {
                         attributes={tab.config.filters}
                         queryEndpoint={"/api/data-bench/auction-data/query"}
                         showAdvancedOption
-                        showFilterJSON={true}
+                        showFilterJSON={false}
                       />
                       <DialogFooter>
                         <Button type="submit">Save changes</Button>

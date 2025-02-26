@@ -15,50 +15,34 @@ SimpleFiltersContext.displayName = "SimpleFiltersContext";
 
 const SimpleFilterContextProvider: React.FC<
   SimpleFiltersContextProviderInterface
-> = ({ children, defaultFiltersValue, classNames, viewId = "default" }) => {
+> = ({ children, defaultFiltersValue, classNames }) => {
   const lensContext = useContext(LensContext);
   if (!lensContext) {
     throw new Error(
       "useSimpleFiltersContext must be used within a LensProvider"
     );
   }
-
-  const {
-    config,
-    setFilters,
-    filters: filter,
-    endpoints,
-    lensConfiguration,
-  } = lensContext;
+  const { endpoints, lensConfiguration } = lensContext;
+  const { permissionHeaders = {} } = lensConfiguration;
 
   const viewContext = useContext(ViewContext);
   if (!viewContext) {
-    console.warn(
-      "No View Context found so the global context of lens will be used to apply global filters. \n This can cause issue while using multiple datatable as vilters can cause conflicts between each other. \n Use of View to wrapp a data table is recommneded"
+    throw new Error(
+      "useSimpleFiltersContext must be used within a View Context"
     );
   }
-  const viewConfig = viewContext?.config;
-  const setViewFilters = viewContext?.setFilters;
-  const viewFilters = viewContext?.filters;
+  const { filters, setFilters, config } = viewContext;
 
-  let filtersConfig = config?.filters || undefined;
-  if (config[viewId]) {
-    if (viewConfig) {
-      filtersConfig = viewConfig?.filters;
-    } else {
-      filtersConfig = config[viewId]?.filters || undefined;
-    }
-  }
+  let filtersConfig = config?.filters;
 
   // If filters config does not exists
   if (!filtersConfig) return null;
 
-  const { permissionHeaders = {} } = lensConfiguration;
   const queryEndpoint = endpoints.read_relation_option;
 
   const filterContainerRef = useRef<HTMLDivElement>(null);
   const { updateCondition } = useFilterFunctions({
-    setFilter: setViewFilters || setFilters,
+    setFilter: setFilters,
   });
 
   const attributesArray: any = Object.keys(filtersConfig)
@@ -73,15 +57,25 @@ const SimpleFilterContextProvider: React.FC<
     ? defaultFiltersValue
     : initilizeFilter(attributesArray);
 
+  //Extract this as function
+  const passedFilters = filters;
+  const temp = {
+    op: passedFilters.op,
+    conditions: passedFilters?.conditions.filter((con: any) => {
+      console.log(con);
+      return !con?.conditions;
+    }),
+  };
+
   return (
     <SimpleFiltersContext.Provider
       value={{
         attributesArray,
         initialisedFilter,
         filterContainerRef,
-        setFilters: setViewFilters || setFilters,
+        setFilters: setFilters,
         updateCondition,
-        filter: viewFilters || filter,
+        filter: temp,
         queryEndpoint,
         permissionHeaders,
         classNames,

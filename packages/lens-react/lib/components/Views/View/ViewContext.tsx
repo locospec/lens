@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useRef, useState } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import type { ViewContextType, ViewProviderProps } from "./types";
 import { LensContext } from "@/main";
 import LensSidebar from "@/components/Sheet/LensSheet";
@@ -14,15 +21,17 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
   showSheetProp = false,
   setShowSheetProp,
 }) => {
+  const view_uuid = useMemo(
+    () => (Math.floor(Math.random() * 10000000000) + 1).toString(),
+    []
+  );
   const lensContext = useContext(LensContext);
   if (!lensContext) {
     throw new Error("View must be used within a LensProvider");
   }
-
   const { config } = lensContext;
 
   const configuration = config[viewId];
-
   if (configuration === undefined && viewId !== "default") {
     return (
       <>{`Invalid View Id {${viewId}}. Pls check the backend configuration`}</>
@@ -30,30 +39,69 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
   }
   const viewChildRef = useRef<HTMLDivElement>(null);
 
-  const [filters, setFilters] = useState<any>({});
+  const [filters, setFilters] = useState<any>({ op: "and", conditions: [] });
   const [searchQuery, setSearchQuery] = useState<string>("");
-
   const [showSheet, setShowSheet] = useState(false);
 
-  const search = (query: string) => {
-    setSearchQuery(query);
-  };
+  const memoizedContextValues = useMemo(
+    () => ({
+      view_uuid,
+      contextId: "View",
+      viewId,
+      config: configuration,
+      viewChildRef,
+      showSheet: showSheetProp ?? showSheet,
+      setShowSheet: setShowSheetProp ?? setShowSheet,
+    }),
+    [
+      view_uuid,
+      viewId,
+      JSON.stringify(configuration),
+      showSheetProp,
+      showSheet,
+      setShowSheetProp,
+    ]
+  );
+
+  const updateSearchQuery = useCallback(
+    (query: string) => setSearchQuery(query),
+    []
+  );
+  const updateFilters = useCallback(
+    (newFilters: any) => setFilters(newFilters),
+    []
+  );
+
+  const memoizedDynamicValues = useMemo(
+    () => ({
+      filters,
+      setFilters: updateFilters,
+      search: updateSearchQuery,
+      searchQuery,
+    }),
+    [filters, searchQuery, updateFilters, updateSearchQuery]
+  );
 
   return (
     <ViewContext.Provider
-      value={{
-        contextId: "View",
-        viewId: viewId,
-        config: configuration,
-        filters,
-        setFilters,
-        search,
-        searchQuery,
-        showSheet: (showSheetProp ??= showSheet),
-        setShowSheet: setShowSheetProp ?? setShowSheet,
-        viewChildRef,
-      }}
+      // value={{
+      //   view_uuid: view_uuid,
+      //   contextId: "View",
+      //   viewId: viewId,
+      //   config: configuration,
+      //   filters,
+      //   setFilters,
+      //   search,
+      //   searchQuery,
+      //   showSheet: (showSheetProp ??= showSheet),
+      //   setShowSheet: setShowSheetProp ?? setShowSheet,
+      //   viewChildRef,
+      // }}
+      value={{ ...memoizedContextValues, ...memoizedDynamicValues }}
     >
+      {view_uuid}
+      {JSON.stringify({ inView: viewId, filters: filters })}
+
       {children}
       <Sheet
         open={(showSheetProp ??= showSheet)}
@@ -65,4 +113,4 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
   );
 };
 
-export const LensConsumer = ViewContext.Consumer;
+export const ViewConsumer = ViewContext.Consumer;
