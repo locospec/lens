@@ -135,15 +135,8 @@ const DataTableLensContextProvider: React.FC<
   const viewContext = useContext(ViewContext);
 
   if (!viewContext) {
-    console.warn(
-      `No View context found. The global Lens context will be used to apply filters, search, or render data. This may lead to issues when using multiple features, as settings could conflict with each other. It's recommended to wrap each feature, such as search, filters, or data display, in a View to avoid conflicts and ensure proper functionality`
-    );
+    throw new Error("useInfiniteFetch must be used within View Context");
   }
-
-  const viewFilters = viewContext?.filters;
-  const searchQuery = viewContext?.searchQuery;
-  const viewChildRef = viewContext?.viewChildRef;
-  const viewTableConfig = viewContext?.config;
 
   const sensors = useSensors(
     useSensor(MouseSensor, {}),
@@ -151,10 +144,11 @@ const DataTableLensContextProvider: React.FC<
     useSensor(KeyboardSensor, {})
   );
 
-  const { config, isFetched, isError, filters, endpoints, modal_name } =
-    lensContext;
+  const { isFetched, isError, endpoints, modal_name } = lensContext;
+  const { filters, searchQuery, viewChildRef, config } = viewContext;
+
   const selectionType = config?.selectionType || "none";
-  let tableConfig = viewTableConfig || config[viewId];
+  let tableConfig = config;
 
   if (!tableConfig) {
     throw new Error(
@@ -174,7 +168,7 @@ const DataTableLensContextProvider: React.FC<
       selectedItems={selectedItems || []}
       classNames={classNames}
       disableResizing={disableResizing}
-      filters={viewFilters || filters}
+      filters={filters}
       searchQuery={searchQuery}
       viewId={viewId}
       modalName={modal_name}
