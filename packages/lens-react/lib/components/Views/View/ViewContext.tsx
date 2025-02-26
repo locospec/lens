@@ -86,8 +86,7 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
     <ViewContext.Provider
       value={{ ...memoizedContextValues, ...memoizedDynamicValues }}
     >
-      {JSON.stringify({ inView: viewId, filters: filters })}
-
+      {/* {JSON.stringify({ inView: viewId, filters: filters })} */}
       {children}
       <Sheet
         open={(showSheetProp ??= showSheet)}
