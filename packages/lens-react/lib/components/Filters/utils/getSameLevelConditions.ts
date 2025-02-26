@@ -13,6 +13,7 @@ const getSameLevelConditions = ({
   dependsOnArray,
   excludeSelf = false,
 }: FunctionProps): { sameGroup: Condition[]; filters: any } => {
+  if (path.length < 1) return { sameGroup: [], filters: filter };
   const [first, ...rest] = path;
 
   const isFilterGroup = (obj: any): obj is FilterGroup => "conditions" in obj;
