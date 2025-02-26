@@ -84,22 +84,8 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
 
   return (
     <ViewContext.Provider
-      // value={{
-      //   view_uuid: view_uuid,
-      //   contextId: "View",
-      //   viewId: viewId,
-      //   config: configuration,
-      //   filters,
-      //   setFilters,
-      //   search,
-      //   searchQuery,
-      //   showSheet: (showSheetProp ??= showSheet),
-      //   setShowSheet: setShowSheetProp ?? setShowSheet,
-      //   viewChildRef,
-      // }}
       value={{ ...memoizedContextValues, ...memoizedDynamicValues }}
     >
-      {view_uuid}
       {JSON.stringify({ inView: viewId, filters: filters })}
 
       {children}

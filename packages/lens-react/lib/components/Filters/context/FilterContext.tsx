@@ -22,13 +22,13 @@ const FilterContextProvider: React.FC<FiltersContextProviderInterface> = ({
   addGroup,
   removeItem,
 }) => {
-  const filter_uuid = useMemo(
-    () =>
-      `filter-${(Math.floor(Math.random() * 1000) + 1).toString()}-${(
-        Math.floor(Math.random() * 1000) + 1
-      ).toString()}`,
-    []
-  );
+  // const filter_uuid = useMemo(
+  //   () =>
+  //     `filter-${(Math.floor(Math.random() * 1000) + 1).toString()}-${(
+  //       Math.floor(Math.random() * 1000) + 1
+  //     ).toString()}`,
+  //   []
+  // );
   const lensContext = useContext(LensContext);
   if (!lensContext) {
     throw new Error("useFiltersContext must be used within a LensProvider");
@@ -102,7 +102,6 @@ const FilterContextProvider: React.FC<FiltersContextProviderInterface> = ({
 
   return (
     <FiltersContext.Provider value={memoizedContextValues}>
-      {filter_uuid}
       {children}
     </FiltersContext.Provider>
   );
