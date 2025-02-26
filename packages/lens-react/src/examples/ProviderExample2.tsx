@@ -30,24 +30,26 @@ const ProviderExample2 = () => {
 
   return (
     <LensProvider lensConfiguration={lensConfig}>
-      <div className="px-4">
-        <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center gap-x-2">
-          <CustomSearchInput />
-          <SimpleFilters
-            classNames={{
-              enum: "bg-[#eee] text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
-            }}
-          />
-        </div>
+      <View>
+        <div className="px-4">
+          <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center gap-x-2">
+            <CustomSearchInput />
+            <SimpleFilters
+              classNames={{
+                enum: "bg-[#eee] text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
+              }}
+            />
+          </div>
 
-        <div className="h-[400px]">
-          <Datatable
-            selectedItems={checkedIds}
-            onSelect={handleSelectionChange}
-          />
+          <div className="h-[400px]">
+            <Datatable
+              selectedItems={checkedIds}
+              onSelect={handleSelectionChange}
+            />
+          </div>
+          {/* <RawDisplay /> */}
         </div>
-        {/* <RawDisplay /> */}
-      </div>
+      </View>
       <View viewId="view_1">
         <h1>Independent View Context with specific View</h1>
         <div className="w-full bg-yellow-50 mt-10 flex flex-col gap-4">
