@@ -26,8 +26,9 @@ import { Condition } from "../LensProvider/interfaces/FiltersInterface";
 import { getProcessedFilters } from "../LensProvider/utils";
 import { useFetchMoreOnScroll } from "@/hooks/src/useFetchMoreOnScroll";
 import { AttributeDefinitionType } from "../Datatable/interface/DatatableInterface";
-import { useSimpleFiltersContext } from "../SimpleFilters/context/useSimpleFiltersContext";
 import { getSameLevelConditions } from "../Filters";
+import { SimpleFiltersContext } from "../SimpleFilters/context/SimpleFiltersContext";
+import { FiltersContext } from "../Filters/context";
 
 export interface OptionInterface {
   label: string;
@@ -48,6 +49,28 @@ export interface EnumInputInterface {
   className?: any;
 }
 
+const contextDecoder = () => {
+  const simpleFiltersContext = React.useContext(SimpleFiltersContext);
+  const filtersContext = React.useContext(FiltersContext);
+
+  if (!filtersContext && !simpleFiltersContext) {
+    throw new Error("useFiltersContext must be used within a Lens Provider");
+  }
+  if (filtersContext) {
+    const { queryEndpoint, filter, permissionHeaders, filterContainerRef } =
+      filtersContext;
+    return { queryEndpoint, filter, permissionHeaders, filterContainerRef };
+  } else if (simpleFiltersContext) {
+    const { queryEndpoint, filter, permissionHeaders, filterContainerRef } =
+      simpleFiltersContext;
+    return { queryEndpoint, filter, permissionHeaders, filterContainerRef };
+  } else {
+    throw new Error(
+      "useFiltersContext must be used within a Simple Filter or a Filter Provider"
+    );
+  }
+};
+
 const EnumInput = React.memo(function EnumInput({
   emptyLabel = "No options found...",
   placeholder = "Select an option....",
@@ -58,11 +81,10 @@ const EnumInput = React.memo(function EnumInput({
   path,
   resetInput,
   multiple = true,
-  filterContainerRef,
   className = "",
 }: EnumInputInterface) {
-  const { queryEndpoint, filter, permissionHeaders } =
-    useSimpleFiltersContext();
+  const { queryEndpoint, filter, permissionHeaders, filterContainerRef } =
+    contextDecoder();
   const queryKey = `${queryEndpoint}-${condition.attribute}-${JSON.stringify(
     path
   )}`;
