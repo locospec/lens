@@ -4,6 +4,7 @@ import type { InfiniteData } from "@tanstack/react-query";
 import { LensContext } from "../LensProvider";
 import { getProcessedFilters } from "../utils";
 import type { keepPreviousData } from "@tanstack/react-query";
+import { ViewContext } from "@/components/Views/View/ViewContext";
 
 export interface UseInfiniteFetchParams {
   queryKey?: string;
@@ -37,9 +38,13 @@ const useInfiniteFetch = ({
   if (!lensContext) {
     throw new Error("useInfiniteFetch must be used within LensProvider");
   }
+  const viewContext = useContext(ViewContext);
+  if (!viewContext) {
+    throw new Error("useInfiniteFetch must be used within View");
+  }
+  const { searchQuery, filters } = viewContext;
 
-  const { searchQuery, filters, lensConfiguration, endpoints, modal_name } =
-    lensContext;
+  const { lensConfiguration, endpoints, modal_name } = lensContext;
   const { dataEndpointHeaders = {} } = context ? context() : {};
 
   const queryKey = customQueryKey || modal_name;

@@ -1,5 +1,4 @@
 import { ViewContext } from "@/components/Views/View/ViewContext";
-import { LensContext } from "@/main";
 import { useContext, useEffect, useState } from "react";
 
 const DEFAULT_DELAY = 500;
@@ -13,22 +12,12 @@ const useDebouncedSearch = ({
   value,
   delay = DEFAULT_DELAY,
 }: UseDebouncedSearchOptions) => {
-  const lensContext = useContext(LensContext);
   const viewContext = useContext(ViewContext);
-  let parentType = "";
-  let parentContext = undefined;
-  if (viewContext) {
-    parentType = "ViewContext";
-    parentContext = viewContext;
-  } else if (lensContext) {
-    parentType = "LensContext";
-    parentContext = lensContext;
-  }
 
-  if (!parentContext) {
-    throw new Error(`useDebouncedSearch must be used within ${parentType}`);
+  if (!viewContext) {
+    throw new Error(`useDebouncedSearch must be used within ViewContext`);
   }
-  const { searchQuery, search } = parentContext;
+  const { searchQuery, search } = viewContext;
 
   const [debouncedQuery, setDebouncedQuery] = useState(value);
 
