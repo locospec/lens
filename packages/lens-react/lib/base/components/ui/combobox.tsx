@@ -31,6 +31,7 @@ export interface ComboBoxInterface {
   options: OptionInterface[];
   callback?: (value: string) => void;
   defaultValue?: string;
+  containerRef?: any;
 }
 
 export function Combobox({
@@ -39,6 +40,7 @@ export function Combobox({
   options,
   callback,
   defaultValue,
+  containerRef,
 }: ComboBoxInterface) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(defaultValue);
@@ -58,7 +60,7 @@ export function Combobox({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-[200px] p-0" containerRef={containerRef}>
         <Command>
           <CommandInput placeholder={placeholder} />
           <CommandSeparator />
