@@ -16,22 +16,13 @@ import { initViewRendererStates } from "./initViewRendererStates";
 import SearchInput from "@/components/SearchInput/SearchInput";
 import AddViewTab from "./AddViewTab";
 import FiltersTriggerButton from "./FiltersTriggerButton";
-import { Button } from "@/base/components/ui/button";
-import { FilterBuilder } from "@/components/Filters";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@/base/components/ui/dialog";
+import { Dialog } from "@/base/components/ui/dialog";
+import FiltersDialog from "./FiltersDialog";
 
 const DEFAULT_TAB = "default";
 
 const ViewsRenderer = () => {
   const lensContext = useContext(LensContext);
-  console.log(">> VIEW RENDERER  this is");
 
   if (!lensContext) {
     throw new Error("Views Must be used within Lens Provider");
@@ -96,23 +87,7 @@ const ViewsRenderer = () => {
                     showSheetProp={showSheets[tab.key]}
                     setShowSheetProp={() => toggleShowSheet(tab.key)}
                   >
-                    <DialogContent className="sm:max-w-[80vh]">
-                      <DialogHeader>
-                        <DialogTitle>{`${tab.config.view_name} Filters`}</DialogTitle>
-                        <DialogDescription>Add filters here</DialogDescription>
-                      </DialogHeader>
-
-                      <FilterBuilder
-                        maxDepth={2}
-                        attributes={tab.config.filters}
-                        queryEndpoint={"/api/data-bench/auction-data/query"}
-                        showAdvancedOption
-                        showFilterJSON={false}
-                      />
-                      <DialogFooter>
-                        <Button type="submit">Save changes</Button>
-                      </DialogFooter>
-                    </DialogContent>
+                    <FiltersDialog name={tab.config.view_name} />
                     <div className="flex py-4 items-center">
                       <SearchInput />
                       <SimpleFilters />
