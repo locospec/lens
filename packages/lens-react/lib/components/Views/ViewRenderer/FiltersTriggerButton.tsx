@@ -44,7 +44,6 @@ const FiltersTriggerButton: React.FC<FiltersTriggerButtonProps> = ({
 
           <View viewId={activeTab}>
             <FilterBuilder
-              label={"Auction Filters"}
               maxDepth={2}
               attributes={activeConfig.filters}
               queryEndpoint={"/api/data-bench/auction-data/query"}
