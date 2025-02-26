@@ -15,16 +15,12 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
   lensConfiguration,
   children,
 }) => {
+  const lens_uuid = `lens-${Math.floor(
+    Math.random() * 1000
+  ).toString()}-${Math.floor(Math.random() * 1000).toString()}`;
   const { endpoint = "", configCallback = undefined } = lensConfiguration;
   const [error, _] = useState<string | null>(null);
-  const [filters, setFilters] = useState<any>({});
-  const [searchQuery, setSearchQuery] = useState<string>("");
-
   const { modal_name, endpoints } = fetchDataFromEndpoint(endpoint);
-
-  const search = (query: string) => {
-    setSearchQuery(query);
-  };
 
   const {
     data: config,
@@ -40,15 +36,11 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     <LensContext.Provider
       value={{
         error,
-        filters,
-        setFilters,
-        search,
         config,
         isFetched,
         isError,
         endpoint,
         endpoints,
-        searchQuery,
         modal_name,
         lensConfiguration,
       }}

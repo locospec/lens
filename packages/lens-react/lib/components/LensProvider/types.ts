@@ -1,8 +1,5 @@
 interface LensContextType {
   error: string | null;
-  filters: any;
-  setFilters: React.Dispatch<any>;
-  search: (query: string) => void;
   config: any;
   isFetched: boolean;
   isError: boolean;
@@ -13,7 +10,6 @@ interface LensContextType {
     read_relation_option: string;
   };
   modal_name: string;
-  searchQuery: string;
   lensConfiguration: LensConfigurationInterface;
 }
 
