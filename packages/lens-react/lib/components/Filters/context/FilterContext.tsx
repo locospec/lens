@@ -25,9 +25,6 @@ export const FilterProvider = ({ children, ...props }: FilterProviderProps) => {
   if (!viewContext) {
     throw new Error("FilterProvider must be used within a View");
   }
-  const { endpoints } = lensContext;
-  const { filters, setFilters } = viewContext;
-  console.log(">>>>>>>>", filters, setFilters, endpoints.read_relation_option);
 
   return (
     <FilterContext.Provider value={props}>{children}</FilterContext.Provider>
