@@ -18,6 +18,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
   const lens_uuid = `lens-${Math.floor(
     Math.random() * 1000
   ).toString()}-${Math.floor(Math.random() * 1000).toString()}`;
+
   const { endpoint = "", configCallback = undefined } = lensConfiguration;
   const [error, _] = useState<string | null>(null);
   const { modal_name, endpoints } = fetchDataFromEndpoint(endpoint);
@@ -45,6 +46,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
         lensConfiguration,
       }}
     >
+      {lens_uuid}
       {config && isFetched ? children : <Loader />}
     </LensContext.Provider>
   );
