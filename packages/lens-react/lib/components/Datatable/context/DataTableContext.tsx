@@ -5,13 +5,6 @@ import type {
   DatatableContextProviderInterface,
   DataTableLensContextProviderInterface,
 } from "./ContextInterfaces";
-import {
-  KeyboardSensor,
-  MouseSensor,
-  TouchSensor,
-  useSensor,
-  useSensors,
-} from "@dnd-kit/core";
 import type {
   ColumnPinningState,
   RowSelectionState,
@@ -22,6 +15,7 @@ import { useColumnResize } from "../hooks/useColumnResize";
 import convertIntoObject from "@/components/utils/convertIntoObject";
 import { CustomColumnMeta } from "../interface/CustomColumnDef";
 import { ViewContext } from "@/components/Views/View/ViewContext";
+import { initialiseDnDSensors } from "../utils/initialiseDnDSensors";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
@@ -138,11 +132,7 @@ const DataTableLensContextProvider: React.FC<
     throw new Error("useInfiniteFetch must be used within View Context");
   }
 
-  const sensors = useSensors(
-    useSensor(MouseSensor, {}),
-    useSensor(TouchSensor, {}),
-    useSensor(KeyboardSensor, {})
-  );
+  const sensors = initialiseDnDSensors();
 
   const { isFetched, isError, endpoints, modal_name } = lensContext;
   const { filters, searchQuery, viewChildRef, config } = viewContext;
