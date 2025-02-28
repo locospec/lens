@@ -28,7 +28,7 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   const { defaultColPinning, defaultColShow, tableSelectedItems } =
     initialiseDefaultDatatableValues(selectedItems);
 
-  const defaultColOrder = initialiseDefaultColumnsConfig(
+  const { defaultColOrder, fixedColumns } = initialiseDefaultColumnsConfig(
     columns,
     defaultColShow,
     defaultColPinning
@@ -54,8 +54,6 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
     defaultColOrder,
   });
 
-  const fixedColumns =
-    columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id) || [];
   const tableContainerRef = viewChildRef || useRef<HTMLDivElement>(null);
   const { adjustedColumns, isColumnsReady } = useColumnResize(
     tableContainerRef,
