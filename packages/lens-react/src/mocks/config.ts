@@ -3,6 +3,28 @@ const Default_VIEW = {
   view_name: "Default View",
   selectionType: "none",
   type: "table",
+  actions: {
+    header: "Actions",
+    align: "end",
+    fixed: true,
+    minWidth: 200,
+    options: [
+      {
+        key: "edit",
+        url: "/edit/:id",
+        icon: "SquarePen",
+        method: "GET",
+      },
+      {
+        key: "delete",
+        url: "/delete/:id/for/:state.id",
+        icon: "Trash2",
+        text: "Delete",
+        method: "GET",
+        confirmation: true,
+      },
+    ],
+  },
   columns: [
     {
       accessorKey: "id",

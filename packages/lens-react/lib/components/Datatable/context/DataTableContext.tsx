@@ -15,7 +15,7 @@ import { useColumnResize } from "../hooks/useColumnResize";
 import { initialiseDnDSensors } from "../utils/initialiseDnDSensors";
 import { useViewContext } from "@/components/Views/View";
 import { initialiseDefaultDatatableValues } from "../utils/initialiseDefaultDatatableValues";
-import { initialiseDefaultColumnOrder } from "../utils/initialiseDefaultColumnOrder";
+import { initialiseDefaultColumnsConfig } from "../utils/initialiseDefaultColumnsConfig";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
@@ -32,7 +32,7 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   const { defaultColPinning, defaultColShow, tableSelectedItems } =
     initialiseDefaultDatatableValues(selectedItems);
 
-  const defaultColOrder = initialiseDefaultColumnOrder(
+  const defaultColOrder = initialiseDefaultColumnsConfig(
     columns,
     defaultColShow,
     defaultColPinning
