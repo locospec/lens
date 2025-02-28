@@ -7,6 +7,8 @@ import ProviderExample from "./examples/ProviderExample";
 import RawDataExample from "./examples/RawDataExample";
 import ProviderExample2 from "./examples/ProviderExample2";
 import ViewExample from "./examples/ViewExample";
+import SimpleFiltersExample from "./examples/SimpleFiltersExample";
+import FilterBuilderExample from "./examples/FilterBuilderExample";
 
 function App() {
   React.useEffect(() => {
@@ -16,7 +18,14 @@ function App() {
     };
   }, []);
 
-  const components = ["raw_data", "provider", "provider_2", "views"];
+  const components = [
+    "raw_data",
+    "provider",
+    "provider_2",
+    "views",
+    "simple_filter",
+    "filter_builder",
+  ];
 
   return (
     <main className="w-screen h-screen overflow-hidden">
@@ -46,6 +55,14 @@ function App() {
               <Route path="/raw_data" children={<RawDataExample />} />
               <Route path="/provider_2" children={<ProviderExample2 />} />
               <Route path="/views" children={<ViewExample />} />
+              <Route
+                path="/simple_filter"
+                children={<SimpleFiltersExample />}
+              />
+              <Route
+                path="/filter_builder"
+                children={<FilterBuilderExample />}
+              />
             </Routes>
           </div>
         </div>
