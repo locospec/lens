@@ -12,10 +12,10 @@ import type {
 } from "@tanstack/react-table";
 import { useTableConfig } from "../hooks/useTableConfig";
 import { useColumnResize } from "../hooks/useColumnResize";
-import { CustomColumnMeta } from "../interface/CustomColumnDef";
 import { initialiseDnDSensors } from "../utils/initialiseDnDSensors";
 import { useViewContext } from "@/components/Views/View";
 import { initialiseDefaultDatatableValues } from "../utils/initialiseDefaultDatatableValues";
+import { initialiseDefaultColumnOrder } from "../utils/initialiseDefaultColumnOrder";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
@@ -32,24 +32,11 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   const { defaultColPinning, defaultColShow, tableSelectedItems } =
     initialiseDefaultDatatableValues(selectedItems);
 
-  const defaultColOrder = columns.map((col) => {
-    const meta = col?.meta as CustomColumnMeta;
-    const id = col.accessorKey || col.id || "";
-    const { fixed, show } = meta;
-    if (id && !show) {
-      defaultColShow[id] = false;
-    }
-    if (id && fixed) {
-      if (fixed === "left") {
-        (defaultColPinning?.left as string[]).push(id);
-      }
-      if (fixed === "right") {
-        (defaultColPinning?.right as string[]).push(id);
-      }
-    }
-
-    return id;
-  });
+  const defaultColOrder = initialiseDefaultColumnOrder(
+    columns,
+    defaultColShow,
+    defaultColPinning
+  );
 
   const [selectedRows, setSelectedRows] =
     useState<RowSelectionState>(tableSelectedItems);
