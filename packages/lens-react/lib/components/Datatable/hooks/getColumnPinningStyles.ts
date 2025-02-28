@@ -25,7 +25,7 @@ const getColumnPinningStyles = (
     right: isPinned === "right" ? `${column.getAfter("right")}px` : undefined,
     opacity: isPinned ? 0.95 : 1,
     position: isPinned ? "sticky" : "relative",
-    background: isPinned ? "#fff" : "",
+    // background: isPinned ? "#fff" : "",
     // width: column.getSize(),
     zIndex: isPinned ? 1 : 0,
   };
