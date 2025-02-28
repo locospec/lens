@@ -14,11 +14,11 @@ const getColumnPinningStyles = (
   return {
     boxShadow: isLastLeftPinnedColumn
       ? isHeader
-        ? "-5px 0 4px -3px gray inset"
+        ? "-4px 0 4px -3px gray inset"
         : "-4px 0 4px -4px gray inset"
       : isFirstRightPinnedColumn
       ? isHeader
-        ? "5px 0 4px -3px gray inset"
+        ? "3px 0 4px -3px gray inset"
         : "4px 0 4px -4px gray inset"
       : undefined,
     left: isPinned === "left" ? `${column.getStart("left")}px` : undefined,
