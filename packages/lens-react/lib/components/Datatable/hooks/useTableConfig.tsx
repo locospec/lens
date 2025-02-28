@@ -98,11 +98,12 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
 
     if (actions) {
       const actionsColumn = {
-        id: "actions",
+        id: actions.header,
         accessorKey: actions.header,
         meta: {
           align: actions?.align || undefined,
           fixed: actions?.fixed || false,
+          show: actions?.show || true,
         },
         header: actions.header,
         cell: ({ row }: RowInterface) => {

@@ -6,7 +6,8 @@ const Default_VIEW = {
   actions: {
     header: "Actions",
     align: "end",
-    fixed: true,
+    fixed: "right",
+    show: true,
     minWidth: 200,
     options: [
       {

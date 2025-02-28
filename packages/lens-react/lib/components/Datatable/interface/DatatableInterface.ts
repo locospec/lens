@@ -1,4 +1,5 @@
 export type AttributeTypes = "string" | "number" | "boolean" | "date" | "enum";
+export type FixedType = false | "left" | "right";
 
 export interface AttributeDefinitionType {
   label: string;
@@ -41,7 +42,8 @@ interface ActionsConfig {
   width?: number;
   minWidth?: number;
   maxWidth?: number;
-  fixed?: boolean;
+  fixed?: FixedType;
+  show?: boolean;
   options: ActionOption[];
 }
 
@@ -52,7 +54,7 @@ interface ColumnConfigInterface {
   maxWidth?: number;
   minWidth?: number;
   align?: AlignType;
-  fixed?: boolean;
+  fixed?: FixedType;
   show?: boolean;
 }
 
