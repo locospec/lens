@@ -1,5 +1,5 @@
-import { createContext, useContext, useMemo, useRef, useState } from "react";
-import { LensContext } from "@/main";
+import { createContext, useRef, useState } from "react";
+import { useLensContext } from "@/main";
 import type {
   DatatableContextType,
   DatatableContextProviderInterface,
@@ -12,10 +12,10 @@ import type {
 } from "@tanstack/react-table";
 import { useTableConfig } from "../hooks/useTableConfig";
 import { useColumnResize } from "../hooks/useColumnResize";
-import convertIntoObject from "@/components/utils/convertIntoObject";
 import { CustomColumnMeta } from "../interface/CustomColumnDef";
-import { ViewContext } from "@/components/Views/View/ViewContext";
 import { initialiseDnDSensors } from "../utils/initialiseDnDSensors";
+import { useViewContext } from "@/components/Views/View";
+import { initialiseDefaultDatatableValues } from "../utils/initialiseDefaultDatatableValues";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
@@ -29,15 +29,8 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   viewChildRef,
   ...props
 }) => {
-  const tableSelectedItems: any = useMemo(() => {
-    return selectedItems.length > 0 ? convertIntoObject(selectedItems) : {};
-  }, [selectedItems]);
-
-  const defaultColShow: any = {};
-  const defaultColPinning: ColumnPinningState = {
-    left: [],
-    right: [],
-  };
+  const { defaultColPinning, defaultColShow, tableSelectedItems } =
+    initialiseDefaultDatatableValues(selectedItems);
 
   const defaultColOrder = columns.map((col) => {
     const meta = col?.meta as CustomColumnMeta;
@@ -121,17 +114,8 @@ const DataTableLensContextProvider: React.FC<
   disableResizing = false,
   viewId = "default",
 }) => {
-  const lensContext = useContext(LensContext);
-  if (!lensContext) {
-    throw new Error("useInfiniteFetch must be used within LensProvider");
-  }
-
-  const viewContext = useContext(ViewContext);
-
-  if (!viewContext) {
-    throw new Error("useInfiniteFetch must be used within View Context");
-  }
-
+  const lensContext = useLensContext();
+  const viewContext = useViewContext();
   const sensors = initialiseDnDSensors();
 
   const { isFetched, isError, endpoints, modal_name } = lensContext;
