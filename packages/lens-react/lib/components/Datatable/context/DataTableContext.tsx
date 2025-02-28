@@ -1,21 +1,17 @@
-import { createContext, useRef, useState } from "react";
+import { createContext, useRef } from "react";
 import { useLensContext } from "@/main";
 import type {
   DatatableContextType,
   DatatableContextProviderInterface,
   DataTableLensContextProviderInterface,
 } from "./ContextInterfaces";
-import type {
-  ColumnPinningState,
-  RowSelectionState,
-  VisibilityState,
-} from "@tanstack/react-table";
 import { useTableConfig } from "../hooks/useTableConfig";
 import { useColumnResize } from "../hooks/useColumnResize";
 import { initialiseDnDSensors } from "../utils/initialiseDnDSensors";
 import { useViewContext } from "@/components/Views/View";
 import { initialiseDefaultDatatableValues } from "../utils/initialiseDefaultDatatableValues";
 import { initialiseDefaultColumnsConfig } from "../utils/initialiseDefaultColumnsConfig";
+import { initialiseDatatableStates } from "../utils/initialiseDatatableStates";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
@@ -38,23 +34,29 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
     defaultColPinning
   );
 
-  const [selectedRows, setSelectedRows] =
-    useState<RowSelectionState>(tableSelectedItems);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(
-    defaultColShow || {}
-  );
-  const [columnPining, setColumnPining] = useState<ColumnPinningState>(
-    defaultColPinning || {}
-  );
-  const [activeId, setActiveId] = useState<string | null>(null);
-  const [isInResizeArea, setIsInResizeArea] = useState(false);
-  const [columnOrder, setColumnOrder] = useState<string[]>(defaultColOrder);
+  const {
+    selectedRows,
+    setSelectedRows,
+    columnVisibility,
+    setColumnVisibility,
+    columnPining,
+    setColumnPining,
+    activeId,
+    setActiveId,
+    isInResizeArea,
+    setIsInResizeArea,
+    columnOrder,
+    setColumnOrder,
+  } = initialiseDatatableStates({
+    tableSelectedItems,
+    defaultColShow,
+    defaultColPinning,
+    defaultColOrder,
+  });
 
   const fixedColumns =
     columns.filter((c: any) => c?.meta?.fixed).map((c) => c.id) || [];
-
   const tableContainerRef = viewChildRef || useRef<HTMLDivElement>(null);
-
   const { adjustedColumns, isColumnsReady } = useColumnResize(
     tableContainerRef,
     columns,
