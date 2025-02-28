@@ -103,7 +103,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
         meta: {
           align: actions?.align || undefined,
           fixed: actions?.fixed || false,
-          show: actions?.show || true,
+          show: actions?.show ?? true,
         },
         header: actions.header,
         cell: ({ row }: RowInterface) => {
