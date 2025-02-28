@@ -174,11 +174,23 @@ const DataTableLensContextProvider: React.FC<
       modalName={modal_name}
       viewChildRef={viewChildRef}
     >
-      {isFetched ? isError ? <>Error</> : children : "loading table...."}
+      {isFetched ? isError ? <>Error</> : children : <DatatableLoader />}
     </DatatableContextProvider>
   );
 };
 DataTableLensContextProvider.displayName = "DataTableLensContextProvider";
+
+const DatatableLoader = () => {
+  return (
+    <div className="w-full h-full  flex flex-col items-center justify-center gap-y-2">
+      <div className="relative flex items-center justify-center w-20 h-20 border-4 border-white rounded-full opacity-100 border-t-gray-600 animate-spin"></div>
+      <label className="text-lg font-semibold">
+        Lens Powered Dtatatable is rendering your configurations. Please be
+        patient..
+      </label>
+    </div>
+  );
+};
 
 export {
   DatatableContext,
