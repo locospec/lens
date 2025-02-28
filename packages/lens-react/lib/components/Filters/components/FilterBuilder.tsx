@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import type { FilterBuilderProps } from "../interfaces";
 import { FilterGroup as FilterGroupComponent } from "./index";
 import { FilterContextProvider } from "../context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import useFilterFunctions from "@/components/LensProvider/hooks/useFilterFunction";
-import { ViewContext } from "@/components/Views/View/ViewContext";
 import { JsonHighlighter } from "@/components/JsonHighlighter";
+import { useViewContext } from "@/components/Views/View";
 
 const queryClient = new QueryClient();
 
@@ -15,10 +15,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
 }) => {
   const filterContainerRef = React.useRef<HTMLDivElement>(null);
 
-  const viewContext = useContext(ViewContext);
-  if (!viewContext) {
-    throw new Error("Filter Builder Must be used within the context of ");
-  }
+  const viewContext = useViewContext();
   const { setFilters, filters } = viewContext;
 
   const { updateCondition, addCondition, addGroup, removeItem } =
