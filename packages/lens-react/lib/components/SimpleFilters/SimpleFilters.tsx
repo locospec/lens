@@ -4,12 +4,15 @@ import { SimpleFiltersList } from "./SimpleFiltersList";
 import { SimpleFiltersContextProviderInterface } from "./context/SimpleFiltersContextInterface";
 
 export interface SimpleFiltersProps
-  extends Omit<SimpleFiltersContextProviderInterface, "children"> {}
+  extends Omit<SimpleFiltersContextProviderInterface, "children"> {
+  asChip?: boolean;
+}
 
 const SimpleFilters: React.FC<SimpleFiltersProps> = ({
   defaultFiltersValue,
   classNames,
   viewId,
+  asChip = false,
 }) => {
   return (
     <SimpleFilterContextProvider
@@ -17,7 +20,7 @@ const SimpleFilters: React.FC<SimpleFiltersProps> = ({
       classNames={classNames}
       viewId={viewId}
     >
-      <SimpleFiltersList />
+      <SimpleFiltersList asChip={asChip} />
     </SimpleFilterContextProvider>
   );
 };

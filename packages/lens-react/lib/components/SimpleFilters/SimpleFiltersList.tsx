@@ -4,12 +4,15 @@ import EnumInput from "../EnumInput/EnumInput";
 import { useSimpleFiltersContext } from "./context/useSimpleFiltersContext";
 import { DatePicker } from "@/base/components/ui/datepicker";
 import { cn } from "@/base/lib/utils";
+import { ChipFilter } from "../ChipFilter";
 
-export interface SimpleFiltersProps {}
+export interface SimpleFiltersProps {
+  asChip: boolean;
+}
 
 const SIMPLE_FILTER_TYPES = ["enum", "date"];
 
-const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({}) => {
+const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
   const {
     filterContainerRef,
     attributesArray,
@@ -39,7 +42,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({}) => {
   return (
     <div
       className={cn(
-        "lens-wrapper w-full flex gap-3 justify-end flex-wrap",
+        "lens-wrapper w-full flex gap-3 justify-start flex-wrap",
         wrapperClassName
       )}
       ref={filterContainerRef}
@@ -58,20 +61,35 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({}) => {
             if (con) {
               if (attribute.type === "enum") {
                 return (
-                  <EnumInput
-                    key={JSON.stringify([conIndex, index])}
-                    callback={(v) => {
-                      updateCondition([conIndex], "value", v);
-                    }}
-                    defaultValues={(con?.value || []) as string[]}
-                    selectedAttribute={attribute}
-                    condition={con as any}
-                    path={[conIndex]}
-                    placeholder={`Select ${attribute.label}`}
-                    resetInput={""}
-                    filterContainerRef={filterContainerRef}
-                    className={enumClassName}
-                  />
+                  <>
+                    {asChip ? (
+                      <ChipFilter
+                        path={[index]}
+                        condition={con}
+                        attribute={attribute}
+                        defaultValues={(con?.value || []) as string[]}
+                        updateCallback={(v) => {
+                          updateCondition([conIndex], "value", v);
+                        }}
+                        showOp={false}
+                      />
+                    ) : (
+                      <EnumInput
+                        key={JSON.stringify([conIndex, index])}
+                        callback={(v) => {
+                          updateCondition([conIndex], "value", v);
+                        }}
+                        defaultValues={(con?.value || []) as string[]}
+                        selectedAttribute={attribute}
+                        condition={con as any}
+                        path={[conIndex]}
+                        placeholder={`Select ${attribute.label}`}
+                        resetInput={""}
+                        filterContainerRef={filterContainerRef}
+                        className={enumClassName}
+                      />
+                    )}
+                  </>
                 );
               }
               if (attribute.type === "date") {

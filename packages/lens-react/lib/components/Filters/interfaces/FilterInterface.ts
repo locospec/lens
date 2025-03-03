@@ -9,7 +9,7 @@ interface FilterBuilderProps {
   size?: FilterSizes;
   variant?: FilterVariants;
   label?: string;
-  queryEndpoint: string;
+  queryEndpoint?: string;
   setFiltersCallback?: any;
   defaultFiltersValue?: any;
   showAdvancedOption?: boolean;
