@@ -30,9 +30,9 @@ const Default_VIEW = {
     {
       accessorKey: "id",
       header: "Sr no.",
-      width: 80,
-      maxWidth: 80,
-      minWidth: 80,
+      // width: 80,
+      // maxWidth: 80,
+      // minWidth: 80,
     },
     {
       accessorKey: "state",
@@ -112,7 +112,7 @@ const Default_VIEW = {
     state: {
       label: "State",
       type: "enum",
-      isNullable: false,
+      isNullable: true,
       modelName: "state",
       asSimple: true,
     },
