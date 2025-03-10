@@ -75,7 +75,11 @@ export function makeServer() {
         const pageSize = 20;
         const processed = JSON.stringify(filters);
 
-        if (resource === "auction-data" || resource === "auction-data-2") {
+        if (
+          resource === "auction-data" ||
+          resource === "auction-data-2" ||
+          resource === "auction-data-3"
+        ) {
           let completeTestData: any = [];
 
           completeTestData = Array.from({ length: 200 }, (_, index) => ({

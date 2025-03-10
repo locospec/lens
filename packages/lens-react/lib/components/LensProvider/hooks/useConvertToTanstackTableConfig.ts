@@ -22,21 +22,25 @@ const useConvertToTanstackTableConfig = ({
       header: attributes[key].label,
       width: 100,
       minWidth: 100,
-      maxWidth: 200,
+      // maxWidth: 200,
       show: true,
     };
   });
 
   const processed_filters: any = {};
-  Object.keys(filters).map((key) => {
-    const modified_key = key.replace(".", "_");
-    processed_filters[modified_key] = {
+  Object.keys(filters).forEach((key) => {
+    processed_filters[key] = {
       label: filters[key].label,
       type: filters[key].type,
       isNullable: true,
-      //   dependsOn: ["state", "district"],
       modelName: filters[key].model,
     };
+    if (filters[key].dependsOn) {
+      processed_filters[key].dependsOn = filters[key].dependsOn;
+    }
+    if (["enum", "date"].includes(filters[key].type)) {
+      processed_filters[key].asSimple = true;
+    }
   });
 
   const processedConfig: any = {

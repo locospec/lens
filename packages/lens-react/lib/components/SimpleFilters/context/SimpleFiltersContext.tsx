@@ -61,12 +61,10 @@ const SimpleFilterContextProvider: React.FC<
   const passedFilters = filters;
   const temp = {
     op: passedFilters.op,
-    conditions: passedFilters?.conditions.filter(
+    conditions: passedFilters?.conditions?.filter(
       (con: any) => !con?.conditions
     ),
   };
-
-  console.log(">>>> initialisedFilter", initialisedFilter);
 
   return (
     <SimpleFiltersContext.Provider

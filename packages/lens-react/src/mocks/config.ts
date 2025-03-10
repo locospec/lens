@@ -307,7 +307,23 @@ const View_2 = {
       show: false,
     },
   ],
-  filters: {},
+  filters: {
+    state: {
+      label: "State",
+      type: "enum",
+      isNullable: false,
+      modelName: "state",
+      asSimple: true,
+    },
+    district: {
+      label: "District",
+      type: "enum",
+      isNullable: false,
+      dependsOn: ["state"],
+      modelName: "district",
+      asSimple: true,
+    },
+  },
   // scope: {
   //   filters: {
   //     op: "and",

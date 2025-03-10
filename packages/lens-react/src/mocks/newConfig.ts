@@ -24,10 +24,10 @@ const new_config = {
       },
     },
     lensSimpleFilters: {
-      cities: {
+      state: {
         type: "enum",
-        label: "Cities",
-        model: "cities",
+        label: "States",
+        model: "state",
       },
     },
   },
@@ -56,7 +56,7 @@ const new_config_table = {
       },
     },
     lensSimpleFilters: {
-      "asset_type.name": {
+      asset_type_name: {
         type: "enum",
         label: "Asset Type Name",
         model: "asset_type",
