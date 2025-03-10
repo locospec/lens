@@ -47,6 +47,15 @@ const new_config = {
         model: "locality",
         dependsOn: ["city.name"],
       },
+      category: {
+        type: "enum",
+        label: "Category",
+        options: [
+          { title: "One", const: "One" },
+          { title: "Two", const: "Two" },
+          { title: "Three", const: "Three" },
+        ],
+      },
     },
   },
   meta: [],

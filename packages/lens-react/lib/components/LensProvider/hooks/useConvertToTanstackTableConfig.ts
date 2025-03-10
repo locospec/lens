@@ -43,6 +43,9 @@ const useConvertToTanstackTableConfig = ({
       );
       processed_filters[key].dependsOn = dependencyArray;
     }
+    if (filters[key].type === "enum" && filters[key].options) {
+      processed_filters[key].options = filters[key].options;
+    }
     if (["enum", "date"].includes(filters[key].type)) {
       processed_filters[key].asSimple = true;
     }

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Check, ChevronsUpDown, X } from "lucide-react";
+import { Check, ChevronsUpDown, Search, X } from "lucide-react";
 import { cn } from "@/base/lib/utils";
 import {
   Command,
@@ -108,7 +108,6 @@ const EnumInput = React.memo(function EnumInput({
     });
 
   const previousSameGroupRef = React.useRef(JSON.stringify(samegroup));
-  console.log(">> previousSameGroupRef", previousSameGroupRef);
 
   const {
     flatData: apiOptions,
@@ -129,11 +128,6 @@ const EnumInput = React.memo(function EnumInput({
   });
 
   const options = isConfigDriven ? configOptions : apiOptions;
-  console.log(">>>>> TRACKER ARE>>>>>>>", {
-    isConfigDriven,
-    options,
-    isLoading,
-  });
   const { fetchMoreOnBottomReached } = useFetchMoreOnScroll({
     containerRef,
     fetchNextPage,
@@ -154,7 +148,6 @@ const EnumInput = React.memo(function EnumInput({
     if (open && !isConfigDriven) {
       const currentSameGroup = JSON.stringify(samegroup);
 
-      console.log(">>> THIS IS REFETCHIMG DATA", samegroup);
       if (previousSameGroupRef.current !== currentSameGroup) {
         setIsLoading(true);
         refetch()
@@ -234,23 +227,22 @@ const EnumInput = React.memo(function EnumInput({
         containerRef={filterContainerRef}
       >
         <Command>
-          {/* <CommandInput
-            placeholder={placeholder}
-            value={searchQuery}
-            onValueChange={(value) => {
-              setSearchQuery(value);
-            }}
-          /> */}
-          <input
-            className={cn(
-              "flex h-8 border-0 w-full bg-transparent py-1 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
-              className
-            )}
-            placeholder={placeholder}
-            onChange={(e) => {
-              setSearchQuery(e.target.value);
-            }}
-          />
+          <div
+            className="flex items-center border-b px-3"
+            cmdk-input-wrapper=""
+          >
+            <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+            <input
+              className={cn(
+                "flex h-8 border-0 w-full bg-transparent py-1 text-sm outline-none placeholder:text-muted-foreground hover:bg-transparent disabled:cursor-not-allowed disabled:opacity-50",
+                className
+              )}
+              placeholder={placeholder}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+              }}
+            />
+          </div>
           <CommandSeparator />
           <CommandList
             ref={containerRef}
