@@ -50,6 +50,7 @@ const new_config = {
       category: {
         type: "enum",
         label: "Category",
+        model: "category",
         options: [
           { title: "One", const: "One" },
           { title: "Two", const: "Two" },

@@ -127,7 +127,10 @@ const EnumInput = React.memo(function EnumInput({
     context: () => ({ dataEndpointHeaders: permissionHeaders }),
   });
 
+  console.log("configOptions configOptions configOptions", configOptions);
   const options = isConfigDriven ? configOptions : apiOptions;
+  console.log("options options options", options);
+
   const { fetchMoreOnBottomReached } = useFetchMoreOnScroll({
     containerRef,
     fetchNextPage,
