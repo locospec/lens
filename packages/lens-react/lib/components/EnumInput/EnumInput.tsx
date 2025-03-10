@@ -196,8 +196,8 @@ const EnumInput = React.memo(function EnumInput({
           <div className="max-w-[150px] truncate">
             {values && values.length > 0
               ? options
-                  .filter((option) => values.includes(option.value))
-                  .map((e) => e.label)
+                  .filter((option) => values.includes(option?.const))
+                  .map((option) => option.title)
                   .join(",")
               : placeholder}
           </div>
@@ -247,8 +247,8 @@ const EnumInput = React.memo(function EnumInput({
                 options.map((option) => {
                   return (
                     <CommandItem
-                      key={option.value}
-                      value={option.value}
+                      key={option?.const}
+                      value={option?.const}
                       onSelect={(currentValue: string) => {
                         handleSelect(currentValue);
                       }}
@@ -256,12 +256,12 @@ const EnumInput = React.memo(function EnumInput({
                       <Check
                         className={cn(
                           "mr-2 h-4 w-4",
-                          values.includes(option.value)
+                          values.includes(option?.const)
                             ? "opacity-100"
                             : "opacity-0"
                         )}
                       />
-                      {option.label}
+                      {option?.title}
                     </CommandItem>
                   );
                 })}

@@ -12,7 +12,6 @@ export function makeServer() {
         const resource = request.params.resource;
 
         if (resource === "auction-data" || resource === "auction-data-2") {
-          console.log(">>> resource", resource);
           return sample_view_config;
         }
         if (resource === "auction-data-3") {
@@ -95,8 +94,10 @@ export function makeServer() {
           let completeTestData: any = [];
 
           completeTestData = Array.from({ length: 200 }, (_, index) => ({
-            label: dataSource + "[" + processed + "]" + index,
-            value: dataSource + "_" + index,
+            // label: dataSource + "[" + processed + "]" + index,
+            // value: dataSource + "_" + index,
+            title: dataSource + "[" + processed + "]" + index,
+            const: dataSource + "_" + index,
           }));
 
           const paginatedTestData = completeTestData.slice(
