@@ -129,7 +129,7 @@ const EnumInput = React.memo(function EnumInput({
   });
 
   const options = isConfigDriven ? configOptions : apiOptions;
-  console.log(">>>>> OPTIONS ARE>>>>>>>", {
+  console.log(">>>>> TRACKER ARE>>>>>>>", {
     isConfigDriven,
     options,
     isLoading,
@@ -154,7 +154,7 @@ const EnumInput = React.memo(function EnumInput({
     if (open && !isConfigDriven) {
       const currentSameGroup = JSON.stringify(samegroup);
 
-      console.log(">>> THIS IS REFETCHIMG DATA");
+      console.log(">>> THIS IS REFETCHIMG DATA", samegroup);
       if (previousSameGroupRef.current !== currentSameGroup) {
         setIsLoading(true);
         refetch()
