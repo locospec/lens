@@ -33,8 +33,8 @@ const ResizeHandle = ({
       className={cn(
         "absolute right-0 top-0 h-full w-1 touch-none select-none border-r bg-transparent",
         disabled ? "cursor-not-allowed" : "cursor-col-resize",
-        "border-gray-100 hover:border-gray-400",
-        isResizing && "border-gray-400",
+        "border-gray-100 hover:border-gray-300",
+        isResizing && "border-gray-300",
         classNames && classNames?.resizehandle
       )}
     />
