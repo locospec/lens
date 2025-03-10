@@ -114,6 +114,7 @@ export function makeServer() {
             prev_cursor: null,
           };
           return {
+            success: true,
             data: paginatedTestData,
             meta: meta,
           };

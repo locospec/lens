@@ -234,11 +234,21 @@ const EnumInput = React.memo(function EnumInput({
         containerRef={filterContainerRef}
       >
         <Command>
-          <CommandInput
+          {/* <CommandInput
             placeholder={placeholder}
             value={searchQuery}
             onValueChange={(value) => {
               setSearchQuery(value);
+            }}
+          /> */}
+          <input
+            className={cn(
+              "flex h-8 border-0 w-full bg-transparent py-1 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
+              className
+            )}
+            placeholder={placeholder}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
             }}
           />
           <CommandSeparator />
@@ -275,7 +285,6 @@ const EnumInput = React.memo(function EnumInput({
                     </CommandItem>
                   );
                 })}
-              {JSON.stringify(options)}
             </CommandGroup>
           </CommandList>
         </Command>
