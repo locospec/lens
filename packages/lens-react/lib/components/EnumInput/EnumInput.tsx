@@ -108,6 +108,7 @@ const EnumInput = React.memo(function EnumInput({
     });
 
   const previousSameGroupRef = React.useRef(JSON.stringify(samegroup));
+  console.log(">> previousSameGroupRef", previousSameGroupRef);
 
   const {
     flatData: apiOptions,
