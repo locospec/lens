@@ -30,7 +30,7 @@ const ProviderExample = () => {
 
   return (
     <>
-      <LensProvider lensConfiguration={lensConfig3}>
+      <LensProvider lensConfiguration={lensConfig3} showDevTools>
         <label className="text-lg">
           This sample shows two data table using the same data but as they are
           wrapped in different View Context theirs search and filters do not

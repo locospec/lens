@@ -47,10 +47,10 @@ const useInfiniteFetch = ({
   const { lensConfiguration, endpoints, modal_name } = lensContext;
   const { dataEndpointHeaders = {} } = context ? context() : {};
 
-  const queryKey = customQueryKey || modal_name;
-  const globalFilter = customGlobalFilter || searchQuery;
-  const body = customBody || { filters: getProcessedFilters(filters) };
-  const refreshDep = customRefreshDep || [queryKey, globalFilter];
+  const queryKey = customQueryKey ?? modal_name;
+  const globalFilter = customGlobalFilter ?? searchQuery;
+  const body = customBody ?? { filters: getProcessedFilters(filters) };
+  const refreshDep = customRefreshDep ?? [queryKey, globalFilter];
   const keepPreviousData = customKeepPreviousData ?? true;
   const { permissionHeaders: headers } = lensConfiguration;
   const dataCallHeaders = context ? dataEndpointHeaders : headers;
