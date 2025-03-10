@@ -416,6 +416,38 @@ const View_2 = {
   },
 };
 
+const new_config = {
+  success: true,
+  data: {
+    name: "sub_asset_type_default_view",
+    label: "Sub Asset Types Default View",
+    type: "view",
+    model: "sub_asset_type",
+    attributes: {
+      uuid: {
+        type: "uuid",
+        label: "ID",
+      },
+      name: {
+        type: "string",
+        label: "Name",
+      },
+      asset_type_name: {
+        type: "string",
+        label: "Asset Type Name",
+      },
+    },
+    lensSimpleFilters: {
+      "asset_type.name": {
+        type: "enum",
+        label: "Asset Type Name",
+        model: "asset_type",
+      },
+    },
+  },
+  meta: [],
+};
+
 const sample_view_config = {
   default: Default_VIEW,
   view_1: View_1,

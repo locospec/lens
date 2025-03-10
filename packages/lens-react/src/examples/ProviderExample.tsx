@@ -64,7 +64,7 @@ const ProviderExample = () => {
         </div>
       </View>
 
-      <View>
+      {/* <View>
         <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center mt-2">
           <CustomSearchInput />
           <SimpleFilters
@@ -93,7 +93,7 @@ const ProviderExample = () => {
             }}
           />
         </div>
-      </View>
+      </View> */}
     </LensProvider>
   );
 };
