@@ -46,7 +46,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
       finalColumns = [selectionColumn, ...columnsFromConfig];
     }
 
-    if (actions) {
+    if (actions && Object.keys(actions).length > 0) {
       const actionsColumn = ActionsColumn(actions);
       finalColumns.push(actionsColumn);
     }

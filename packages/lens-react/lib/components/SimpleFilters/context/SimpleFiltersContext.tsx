@@ -36,7 +36,7 @@ const SimpleFilterContextProvider: React.FC<
   let filtersConfig = config?.filters;
 
   // If filters config does not exists
-  if (!filtersConfig) return null;
+  if (!filtersConfig || Object.keys(filtersConfig.length < 1)) return null;
 
   const queryEndpoint = endpoints.read_relation_option;
 
@@ -65,6 +65,8 @@ const SimpleFilterContextProvider: React.FC<
       (con: any) => !con?.conditions
     ),
   };
+
+  console.log(">>>> initialisedFilter", initialisedFilter);
 
   return (
     <SimpleFiltersContext.Provider
