@@ -27,7 +27,9 @@ export function makeServer() {
         const resource = request.params.resource;
 
         const body = JSON.parse(request.requestBody);
-        const { cursor, search, ...rest } = body;
+        const { search, pagination, ...rest } = body;
+        const { cursor } = pagination;
+
         const pageSize = 10;
         const filters = JSON.stringify(rest.filters);
 
@@ -55,10 +57,19 @@ export function makeServer() {
             cursor + pageSize < completeTestData.length
               ? cursor + pageSize
               : null;
+          const meta = {
+            count: 2,
+            per_page: pageSize,
+            has_more: null,
+            next_cursor: nextCursor,
+            prev_cursor: null,
+          };
 
           return {
+            success: true,
             data: paginatedTestData,
             next_cursor: nextCursor,
+            meta: meta,
             total: completeTestData.length,
           };
         }
@@ -70,7 +81,8 @@ export function makeServer() {
         const resource = request.params.resource;
 
         const body = JSON.parse(request.requestBody);
-        const { cursor, filters, relation } = body;
+        const { filters, relation, pagination } = body;
+        const { cursor } = pagination;
         const dataSource = relation;
         const pageSize = 20;
         const processed = JSON.stringify(filters);

@@ -72,7 +72,11 @@ const useInfiniteFetch = ({
         ...dataCallHeaders,
       },
       body: JSON.stringify({
-        cursor: pageParam,
+        pagination: {
+          type: "cursor",
+          per_page: 10,
+          cursor: pageParam,
+        },
         search: globalFilter,
         ...body,
       }),
