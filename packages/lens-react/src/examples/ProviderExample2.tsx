@@ -13,6 +13,7 @@ const ProviderExample2 = () => {
   const lensConfig = {
     endpoint: "/api/data-bench/auction-data-2",
     permissionHeaders: { sample: "" },
+    newConfig: false,
     // configCallback: () => {
     //   console.log("sdabdjhagdhaghda");
     // },

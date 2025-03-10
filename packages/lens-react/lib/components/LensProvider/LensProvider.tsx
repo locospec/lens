@@ -22,7 +22,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
   const {
     endpoint = "",
     configCallback = undefined,
-    newConfig = false,
+    newConfig = true,
   } = lensConfiguration;
   const [error, _] = useState<string | null>(null);
   const { modal_name, endpoints } = fetchDataFromEndpoint(endpoint);

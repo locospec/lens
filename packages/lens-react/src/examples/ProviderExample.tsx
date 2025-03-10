@@ -16,7 +16,6 @@ const ProviderExample = () => {
   const lensConfig3 = {
     endpoint: "/api/data-bench/auction-data-3",
     permissionHeaders: { sample: "" },
-    newConfig: true,
   };
 
   const [checkedIds, setCheckedIds] = useState<string[] | []>([]);

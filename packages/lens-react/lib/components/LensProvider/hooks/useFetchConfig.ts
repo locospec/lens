@@ -10,7 +10,7 @@ export interface useFetchConfigProps {
 const useFetchConfig = ({
   configEndpoint,
   configCallback,
-  newConfig = false,
+  newConfig = true,
 }: useFetchConfigProps) => {
   if (!configCallback && !configEndpoint) {
     throw new Error("Either configCallback or configEndpoint must be provided");
