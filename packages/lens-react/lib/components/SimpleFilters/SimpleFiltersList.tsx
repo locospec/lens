@@ -61,9 +61,10 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
             if (con) {
               if (attribute.type === "enum") {
                 return (
-                  <>
+                  <React.Fragment key={JSON.stringify([conIndex, index])}>
                     {asChip ? (
                       <ChipFilter
+                        key={JSON.stringify([conIndex, index])}
                         path={[index]}
                         condition={con}
                         attribute={attribute}
@@ -89,7 +90,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
                         className={enumClassName}
                       />
                     )}
-                  </>
+                  </React.Fragment>
                 );
               }
               if (attribute.type === "date") {
