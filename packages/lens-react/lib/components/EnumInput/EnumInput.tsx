@@ -128,6 +128,7 @@ const EnumInput = React.memo(function EnumInput({
   });
 
   const options = isConfigDriven ? configOptions : apiOptions;
+  console.log(">>>>> OPTIONS ARE>>>>>>>", options);
   const { fetchMoreOnBottomReached } = useFetchMoreOnScroll({
     containerRef,
     fetchNextPage,
