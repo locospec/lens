@@ -19,7 +19,11 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
   //   Math.random() * 1000
   // ).toString()}-${Math.floor(Math.random() * 1000).toString()}`;
 
-  const { endpoint = "", configCallback = undefined } = lensConfiguration;
+  const {
+    endpoint = "",
+    configCallback = undefined,
+    newConfig = false,
+  } = lensConfiguration;
   const [error, _] = useState<string | null>(null);
   const { modal_name, endpoints } = fetchDataFromEndpoint(endpoint);
 
@@ -27,7 +31,11 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     data: config,
     isFetched,
     isError,
-  } = useFetchConfig({ configEndpoint: endpoints.config, configCallback });
+  } = useFetchConfig({
+    configEndpoint: endpoints.config,
+    configCallback,
+    newConfig,
+  });
 
   if (isError) {
     return <>Error</>;

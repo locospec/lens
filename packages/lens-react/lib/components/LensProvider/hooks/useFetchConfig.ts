@@ -1,13 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
+import useConvertToTanstackTableConfig from "./useConvertToTanstackTableConfig";
 
 export interface useFetchConfigProps {
   configEndpoint: string;
   configCallback?: () => any;
+  newConfig?: boolean;
 }
 
 const useFetchConfig = ({
   configEndpoint,
   configCallback,
+  newConfig = false,
 }: useFetchConfigProps) => {
   if (!configCallback && !configEndpoint) {
     throw new Error("Either configCallback or configEndpoint must be provided");
@@ -24,7 +27,20 @@ const useFetchConfig = ({
       throw new Error("Failed to fetch table configuration.");
     }
 
-    return response.json();
+    const config = await response.json();
+
+    if (newConfig) {
+      if (config && config.success) {
+        const { processedConfig } = useConvertToTanstackTableConfig({
+          config: config,
+        });
+        return processedConfig;
+      }
+
+      return null;
+    } else {
+      return config;
+    }
   };
 
   return useQuery({

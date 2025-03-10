@@ -18,6 +18,7 @@ interface LensConfigurationInterface {
   permissionHeaders?: {
     [key: string]: string;
   };
+  newConfig?: boolean;
   configCallback?: any;
 }
 
