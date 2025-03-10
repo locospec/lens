@@ -95,8 +95,8 @@ const useInfiniteFetch = ({
       queryKey: refreshDep ? refreshDep : [queryKey, globalFilter],
       queryFn: dataCallback ? dataCallback : fetchDataFunction,
       initialPageParam: null,
-      getNextPageParam: (lastPage: any) => lastPage.next_cursor,
-      getPreviousPageParam: (firstPage) => firstPage.prev_cursor,
+      getNextPageParam: (lastPage: any) => lastPage.meta.next_cursor,
+      getPreviousPageParam: (firstPage) => firstPage.meta.prev_cursor,
       refetchOnWindowFocus: false,
       placeholderData: keepPreviousData as unknown as InfiniteData<
         any,

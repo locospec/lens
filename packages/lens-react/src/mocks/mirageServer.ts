@@ -67,9 +67,7 @@ export function makeServer() {
           return {
             success: true,
             data: paginatedTestData,
-            next_cursor: nextCursor,
             meta: meta,
-            total: completeTestData.length,
           };
         }
 
@@ -108,11 +106,16 @@ export function makeServer() {
             cursor + pageSize < completeTestData.length
               ? cursor + pageSize
               : null;
-
+          const meta = {
+            count: 2,
+            per_page: pageSize,
+            has_more: null,
+            next_cursor: nextCursor,
+            prev_cursor: null,
+          };
           return {
             data: paginatedTestData,
-            next_cursor: nextCursor,
-            total: completeTestData.length,
+            meta: meta,
           };
         }
 
