@@ -135,7 +135,15 @@ const DataTableLensContextProvider: React.FC<
       modalName={modal_name}
       viewChildRef={viewChildRef}
     >
-      {isFetched ? isError ? <>Error</> : children : <DatatableLoader />}
+      {isFetched ? (
+        isError ? (
+          <>Error IN Datatable Context</>
+        ) : (
+          children
+        )
+      ) : (
+        <DatatableLoader />
+      )}
     </DatatableContextProvider>
   );
 };
