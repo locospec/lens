@@ -1,3 +1,5 @@
+import { addDependenciesRecursively } from "../utils/addDependenciesRecursively";
+
 interface UseConvertToTanstackTableConfigInterface {
   config: any;
 }
@@ -22,7 +24,6 @@ const useConvertToTanstackTableConfig = ({
       header: attributes[key].label,
       width: 100,
       minWidth: 100,
-      // maxWidth: 200,
       show: true,
     };
   });
@@ -36,7 +37,11 @@ const useConvertToTanstackTableConfig = ({
       modelName: filters[key].model,
     };
     if (filters[key].dependsOn) {
-      processed_filters[key].dependsOn = filters[key].dependsOn;
+      const dependencyArray = addDependenciesRecursively(
+        filters[key].dependsOn,
+        filters
+      );
+      processed_filters[key].dependsOn = dependencyArray;
     }
     if (["enum", "date"].includes(filters[key].type)) {
       processed_filters[key].asSimple = true;

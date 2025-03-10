@@ -24,10 +24,28 @@ const new_config = {
       },
     },
     lensSimpleFilters: {
-      state: {
+      "state.name": {
         type: "enum",
         label: "States",
         model: "state",
+      },
+      "district.name": {
+        type: "enum",
+        label: "District",
+        model: "district",
+        dependsOn: ["state.name"],
+      },
+      "city.name": {
+        type: "enum",
+        label: "City",
+        model: "city",
+        dependsOn: ["district.name"],
+      },
+      "locality.name": {
+        type: "enum",
+        label: "Locality",
+        model: "locality",
+        dependsOn: ["city.name"],
       },
     },
   },
