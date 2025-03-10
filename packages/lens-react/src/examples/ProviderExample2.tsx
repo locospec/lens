@@ -50,7 +50,7 @@ const ProviderExample2 = () => {
           {/* <RawDisplay /> */}
         </div>
       </View>
-      <View viewId="view_1">
+      {/* <View viewId="view_1">
         <h1>Independent View Context with specific View</h1>
         <div className="w-full bg-yellow-50 mt-10 flex flex-col gap-4">
           <CustomSearchInput />
@@ -60,7 +60,7 @@ const ProviderExample2 = () => {
             }}
           />
         </div>
-      </View>
+      </View> */}
     </LensProvider>
   );
 };

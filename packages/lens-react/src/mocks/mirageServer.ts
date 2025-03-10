@@ -1,5 +1,6 @@
 import { Response, createServer } from "miragejs";
 import { sample_view_config } from "./config";
+import { new_config } from "./newConfig";
 
 export function makeServer() {
   const server = createServer({
@@ -11,7 +12,11 @@ export function makeServer() {
         const resource = request.params.resource;
 
         if (resource === "auction-data" || resource === "auction-data-2") {
+          console.log(">>> resource", resource);
           return sample_view_config;
+        }
+        if (resource === "auction-data-3") {
+          return new_config;
         }
 
         return new Response(404, {}, { message: "Resource not found" });
@@ -26,7 +31,11 @@ export function makeServer() {
         const pageSize = 10;
         const filters = JSON.stringify(rest.filters);
 
-        if (resource === "auction-data" || resource === "auction-data-2") {
+        if (
+          resource === "auction-data" ||
+          resource === "auction-data-2" ||
+          resource === "auction-data-3"
+        ) {
           const completeTestData = Array.from({ length: 200 }, (_, index) => ({
             id: index + 1,
             state: `State ${index + 1}`,

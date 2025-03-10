@@ -3,29 +3,29 @@ const Default_VIEW = {
   view_name: "Default View",
   selectionType: "none",
   type: "table",
-  actions: {
-    header: "Actions",
-    align: "end",
-    fixed: "right",
-    show: false,
-    minWidth: 200,
-    options: [
-      {
-        key: "edit",
-        url: "/edit/:id",
-        icon: "SquarePen",
-        method: "GET",
-      },
-      {
-        key: "delete",
-        url: "/delete/:id/for/:state.id",
-        icon: "Trash2",
-        text: "Delete",
-        method: "GET",
-        confirmation: true,
-      },
-    ],
-  },
+  // actions: {
+  //   header: "Actions",
+  //   align: "end",
+  //   fixed: "right",
+  //   show: false,
+  //   minWidth: 200,
+  //   options: [
+  //     {
+  //       key: "edit",
+  //       url: "/edit/:id",
+  //       icon: "SquarePen",
+  //       method: "GET",
+  //     },
+  //     {
+  //       key: "delete",
+  //       url: "/delete/:id/for/:state.id",
+  //       icon: "Trash2",
+  //       text: "Delete",
+  //       method: "GET",
+  //       confirmation: true,
+  //     },
+  //   ],
+  // },
   columns: [
     {
       accessorKey: "id",
@@ -306,150 +306,29 @@ const View_2 = {
       minWidth: 100,
       show: false,
     },
-    {
-      accessorKey: "current_users",
-      header: "Current Users",
-      width: 100,
-      minWidth: 200,
-    },
-    {
-      accessorKey: "locality",
-      header: "Locality",
-      width: 100,
-      minWidth: 200,
-    },
-    {
-      accessorKey: "properties",
-      header: "Properties",
-      width: 300,
-      minWidth: 100,
-    },
   ],
-  filters: {
-    f_name: {
-      label: "First Name",
-      type: "string",
-      isNullable: false,
-    },
-    l_name: {
-      label: "Last Name",
-      type: "string",
-    },
-    pan: {
-      label: "PAN",
-      type: "string",
-      isNullable: false,
-    },
-    date_of_birth: {
-      label: "DOB",
-      type: "date",
-      isNullable: false,
-      asSimple: true,
-    },
-    age: {
-      label: "Age",
-      type: "number",
-      isNullable: false,
-    },
-    category: {
-      label: "Category",
-      type: "enum",
-      isNullable: false,
-      selectionType: "single",
-      options: [
-        { label: "One", value: "One" },
-        { label: "Two", value: "Two" },
-        { label: "Three", value: "Three" },
-      ],
-      asSimple: true,
-    },
-    state: {
-      label: "State",
-      type: "enum",
-      isNullable: false,
-      modelName: "state",
-      asSimple: true,
-    },
-    district: {
-      label: "District",
-      type: "enum",
-      isNullable: false,
-      dependsOn: ["state"],
-      modelName: "district",
-      // asSimple: true,
-    },
-    city: {
-      label: "City",
-      type: "enum",
-      isNullable: false,
-      dependsOn: ["state", "district"],
-      modelName: "city",
-    },
-    locality: {
-      label: "Locality",
-      type: "enum",
-      isNullable: false,
-      dependsOn: ["state", "district", "city"],
-      modelName: "locality",
-      asSimple: true,
-    },
-    availability: {
-      label: "Availablity",
-      type: "boolean",
-    },
-  },
-  scope: {
-    filters: {
-      op: "and",
-      conditions: [
-        { attribute: "date_of_birth", op: "is", value: "" },
-        { attribute: "category", op: "is_any_of", value: "" },
-        { attribute: "state", op: "is_any_of", value: "" },
-        {
-          attribute: "locality",
-          op: "is_any_of",
-          value: ["locality_2", "locality_5"],
-        },
-      ],
-    },
-    searchQuery: "",
-  },
-};
-
-const new_config = {
-  success: true,
-  data: {
-    name: "sub_asset_type_default_view",
-    label: "Sub Asset Types Default View",
-    type: "view",
-    model: "sub_asset_type",
-    attributes: {
-      uuid: {
-        type: "uuid",
-        label: "ID",
-      },
-      name: {
-        type: "string",
-        label: "Name",
-      },
-      asset_type_name: {
-        type: "string",
-        label: "Asset Type Name",
-      },
-    },
-    lensSimpleFilters: {
-      "asset_type.name": {
-        type: "enum",
-        label: "Asset Type Name",
-        model: "asset_type",
-      },
-    },
-  },
-  meta: [],
+  filters: {},
+  // scope: {
+  //   filters: {
+  //     op: "and",
+  //     conditions: [
+  //       { attribute: "date_of_birth", op: "is", value: "" },
+  //       { attribute: "category", op: "is_any_of", value: "" },
+  //       { attribute: "state", op: "is_any_of", value: "" },
+  //       {
+  //         attribute: "locality",
+  //         op: "is_any_of",
+  //         value: ["locality_2", "locality_5"],
+  //       },
+  //     ],
+  //   },
+  //   searchQuery: "",
+  // },
 };
 
 const sample_view_config = {
-  default: Default_VIEW,
+  // default: Default_VIEW,
+  default: View_2,
   view_1: View_1,
   view_2: View_2,
 };
