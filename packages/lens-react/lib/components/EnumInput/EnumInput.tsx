@@ -128,7 +128,7 @@ const EnumInput = React.memo(function EnumInput({
   });
 
   const options = isConfigDriven ? configOptions : apiOptions;
-  console.log(">>>>> OPTIONS ARE>>>>>>>", options);
+  console.log(">>>>> OPTIONS ARE>>>>>>>", options, isLoading);
   const { fetchMoreOnBottomReached } = useFetchMoreOnScroll({
     containerRef,
     fetchNextPage,
@@ -149,12 +149,16 @@ const EnumInput = React.memo(function EnumInput({
     if (open && !isConfigDriven) {
       const currentSameGroup = JSON.stringify(samegroup);
 
+      console.log(">>> THIS IS REFETCHIMG DATA");
       if (previousSameGroupRef.current !== currentSameGroup) {
         setIsLoading(true);
-        refetch().then(() => {
-          previousSameGroupRef.current = currentSameGroup;
-          setIsLoading(false);
-        });
+        refetch()
+          .then(() => {
+            previousSameGroupRef.current = currentSameGroup;
+          })
+          .finally(() => {
+            setIsLoading(false);
+          });
       }
     }
   }, [open, isConfigDriven]);
