@@ -7,7 +7,6 @@ import {
   Command,
   CommandEmpty,
   CommandGroup,
-  // CommandInput,
   CommandItem,
   CommandList,
   CommandSeparator,
@@ -22,54 +21,11 @@ import {
   useEffectAfterMount,
 } from "@/hooks/index";
 import { useInfiniteFetch } from "@/components/LensProvider/hooks/useInfiniteFetch";
-import { Condition } from "../LensProvider/interfaces/FiltersInterface";
 import { getProcessedFilters } from "../LensProvider/utils";
 import { useFetchMoreOnScroll } from "@/hooks/src/useFetchMoreOnScroll";
-import { AttributeDefinitionType } from "../Datatable/interface/DatatableInterface";
 import { getSameLevelConditions } from "../Filters";
-import { SimpleFiltersContext } from "../SimpleFilters/context/SimpleFiltersContext";
-import { FiltersContext } from "../Filters/context";
-
-export interface OptionInterface {
-  label: string;
-  value: string;
-}
-
-export interface EnumInputInterface {
-  placeholder?: string;
-  emptyLabel?: string;
-  callback?: (values: string | string[]) => void;
-  defaultValues?: string[];
-  selectedAttribute: AttributeDefinitionType;
-  condition: Condition;
-  path: number[];
-  resetInput?: string;
-  multiple?: boolean;
-  filterContainerRef: any;
-  className?: any;
-}
-
-const contextDecoder = () => {
-  const simpleFiltersContext = React.useContext(SimpleFiltersContext);
-  const filtersContext = React.useContext(FiltersContext);
-
-  if (!filtersContext && !simpleFiltersContext) {
-    throw new Error("useFiltersContext must be used within a Lens Provider");
-  }
-  if (filtersContext) {
-    const { queryEndpoint, filter, permissionHeaders, filterContainerRef } =
-      filtersContext;
-    return { queryEndpoint, filter, permissionHeaders, filterContainerRef };
-  } else if (simpleFiltersContext) {
-    const { queryEndpoint, filter, permissionHeaders, filterContainerRef } =
-      simpleFiltersContext;
-    return { queryEndpoint, filter, permissionHeaders, filterContainerRef };
-  } else {
-    throw new Error(
-      "useFiltersContext must be used within a Simple Filter or a Filter Provider"
-    );
-  }
-};
+import { EnumInputInterface } from "./interface";
+import { contextDecoder } from "./utils";
 
 const EnumInput = React.memo(function EnumInput({
   emptyLabel = "No options found...",
@@ -127,9 +83,7 @@ const EnumInput = React.memo(function EnumInput({
     context: () => ({ dataEndpointHeaders: permissionHeaders }),
   });
 
-  console.log("configOptions configOptions configOptions", configOptions);
   const options = isConfigDriven ? configOptions : apiOptions;
-  console.log("options options options", options);
 
   const { fetchMoreOnBottomReached } = useFetchMoreOnScroll({
     containerRef,
@@ -287,5 +241,6 @@ const EnumInput = React.memo(function EnumInput({
     </Popover>
   );
 });
+EnumInput.displayName = "EnumInput";
 
 export default EnumInput;

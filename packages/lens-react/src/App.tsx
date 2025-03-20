@@ -9,6 +9,7 @@ import ProviderExample2 from "./examples/ProviderExample2";
 import ViewExample from "./examples/ViewExample";
 import SimpleFiltersExample from "./examples/SimpleFiltersExample";
 import FilterBuilderExample from "./examples/FilterBuilderExample";
+import ENUMExample from "./examples/ENUMExample";
 
 function App() {
   React.useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
     "views",
     "simple_filter",
     "filter_builder",
+    "enum",
   ];
 
   return (
@@ -63,6 +65,7 @@ function App() {
                 path="/filter_builder"
                 children={<FilterBuilderExample />}
               />
+              <Route path="/enum" children={<ENUMExample />} />
             </Routes>
           </div>
         </div>
