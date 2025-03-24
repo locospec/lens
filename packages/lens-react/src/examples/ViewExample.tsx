@@ -14,6 +14,7 @@ const ViewExample = () => {
   const lensConfig = {
     endpoint: "/api/data-bench/auction-data-2",
     permissionHeaders: { sample: "" },
+    newConfig: false,
   };
 
   // const [checkedIds, setCheckedIds] = useState<string[] | []>([]);
