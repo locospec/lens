@@ -180,7 +180,7 @@ const EnumInput = React.memo(function EnumInput({
         </div>
       </PopoverTrigger>
       <PopoverContent
-        className="w-[200px] p-0"
+        className="w-[200px] max-w-[320px] p-0"
         containerRef={filterContainerRef}
       >
         <Command>
