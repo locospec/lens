@@ -100,6 +100,7 @@ const DataTableLensContextProvider: React.FC<
   classNames,
   disableResizing = false,
   viewId = "default",
+  rowActions,
 }) => {
   const lensContext = useLensContext();
   const viewContext = useViewContext();
@@ -108,6 +109,14 @@ const DataTableLensContextProvider: React.FC<
   const { isFetched, isError, endpoints, modal_name } = lensContext;
   const { filters, searchQuery, viewChildRef, config } = viewContext;
 
+  const visibleAttributes =
+    config?.columns.map((column: any) => column.id) || [];
+  console.warn("Row actions must have the following keys :", visibleAttributes);
+  Object.keys(rowActions).forEach((key) => {
+    if (!visibleAttributes.includes(key)) {
+      console.error("Table does not contain the attribute", key);
+    }
+  });
   const selectionType = config?.selectionType || "none";
   let tableConfig = config;
 
@@ -134,10 +143,11 @@ const DataTableLensContextProvider: React.FC<
       viewId={viewId}
       modalName={modal_name}
       viewChildRef={viewChildRef}
+      rowActions={rowActions}
     >
       {isFetched ? (
         isError ? (
-          <>Error IN Datatable Context</>
+          <>Error in Datatable Context</>
         ) : (
           children
         )

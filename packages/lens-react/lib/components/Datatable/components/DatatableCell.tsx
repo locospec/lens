@@ -25,7 +25,8 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   const isAction = cell.column.id === "actions";
   const isLast = cell.column.getIsLastColumn();
 
-  const { classNames } = useDatatableContext();
+  const { classNames, rowActions } = useDatatableContext();
+  const cellAction = rowActions[cell.column.id] ?? null;
 
   return (
     <div
@@ -41,6 +42,7 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
       key={cell.id}
       style={{ ...width, ...css }}
       data-state={isSelected && "selected"}
+      onClick={() => cellAction && cellAction(cell.row.original)}
     >
       {flexRender(cell.column.columnDef.cell, cell.getContext())}
     </div>
