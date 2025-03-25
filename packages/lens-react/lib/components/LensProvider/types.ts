@@ -11,6 +11,7 @@ interface LensContextType {
   };
   modal_name: string;
   lensConfiguration: LensConfigurationInterface;
+  context: Record<string, any>;
 }
 
 interface LensConfigurationInterface {
@@ -20,6 +21,7 @@ interface LensConfigurationInterface {
   };
   newConfig?: boolean;
   configCallback?: any;
+  context?: Record<string, any>;
 }
 
 interface LensProviderProps {

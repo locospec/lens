@@ -44,7 +44,12 @@ const useInfiniteFetch = ({
   }
   const { searchQuery, filters } = viewContext;
 
-  const { lensConfiguration, endpoints, modal_name } = lensContext;
+  const {
+    lensConfiguration,
+    endpoints,
+    modal_name,
+    context: scopeContext,
+  } = lensContext;
   const { dataEndpointHeaders = {} } = context ? context() : {};
 
   const queryKey = customQueryKey ?? modal_name;
@@ -54,7 +59,6 @@ const useInfiniteFetch = ({
   const keepPreviousData = customKeepPreviousData ?? true;
   const { permissionHeaders: headers } = lensConfiguration;
   const dataCallHeaders = context ? dataEndpointHeaders : headers;
-
   const dataEndpoint = customDataEndpoint || endpoints.read;
 
   if (!dataCallback && !dataEndpoint && !queryKey) {
@@ -65,6 +69,10 @@ const useInfiniteFetch = ({
 
   // TODO - Need to Modify to support normal pagination other than cursor pagination
   const fetchDataFunction = async ({ pageParam = null }) => {
+    const contextPayload = { ...scopeContext };
+    if (globalFilter) {
+      contextPayload["search"] = globalFilter;
+    }
     const response = await fetch(dataEndpoint, {
       method: "POST",
       headers: {
@@ -78,6 +86,7 @@ const useInfiniteFetch = ({
           cursor: pageParam,
         },
         search: globalFilter,
+        context: contextPayload,
         ...body,
       }),
     });

@@ -24,6 +24,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     configCallback = undefined,
     newConfig = true,
     permissionHeaders,
+    context = {},
   } = lensConfiguration;
   const [error, _] = useState<string | null>(null);
   const { modal_name, endpoints } = fetchDataFromEndpoint(endpoint);
@@ -54,6 +55,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
         endpoints,
         modal_name,
         lensConfiguration,
+        context,
       }}
     >
       {config && isFetched ? children : <Loader />}
