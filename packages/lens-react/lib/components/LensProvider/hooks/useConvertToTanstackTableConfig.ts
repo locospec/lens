@@ -56,7 +56,7 @@ const useConvertToTanstackTableConfig = ({
       view_id: "default",
       view_name: configData.label,
       type: "table",
-      selectionType: "none",
+      selectionType: configData?.selectionType || "none",
       columns: processed_columns,
       filters: processed_filters,
       actions: {},
