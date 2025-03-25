@@ -9,10 +9,10 @@ import {
 import CustomSearchInput from "./components/CustomSearch";
 
 const ProviderExample = () => {
-  const lensConfig = {
-    endpoint: "/api/data-bench/auction-data",
-    permissionHeaders: { sample: "" },
-  };
+  // const lensConfig = {
+  //   endpoint: "/api/data-bench/auction-data",
+  //   permissionHeaders: { sample: "" },
+  // };
   const lensConfig3 = {
     endpoint: "/api/data-bench/auction-data-3",
     permissionHeaders: { sample: "" },
