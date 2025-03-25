@@ -22,6 +22,7 @@ interface LensConfigurationInterface {
   newConfig?: boolean;
   configCallback?: any;
   context?: Record<string, any>;
+  view?: string;
 }
 
 interface LensProviderProps {

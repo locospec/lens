@@ -25,10 +25,15 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     newConfig = true,
     permissionHeaders,
     context = {},
+    view,
   } = lensConfiguration;
   const [error, _] = useState<string | null>(null);
   const { modal_name, endpoints } = fetchDataFromEndpoint(endpoint);
 
+  const body: Record<string, any> = {};
+  if (view) {
+    body["view"] = view;
+  }
   const {
     data: config,
     isFetched,
@@ -38,6 +43,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     configCallback,
     newConfig,
     permissionHeaders,
+    body: body,
   });
 
   if (isError) {

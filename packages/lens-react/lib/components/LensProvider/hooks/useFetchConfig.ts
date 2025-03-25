@@ -6,6 +6,7 @@ export interface useFetchConfigProps {
   configCallback?: () => any;
   newConfig?: boolean;
   permissionHeaders?: any;
+  body?: any;
 }
 
 const useFetchConfig = ({
@@ -13,6 +14,7 @@ const useFetchConfig = ({
   configCallback,
   newConfig = true,
   permissionHeaders,
+  body,
 }: useFetchConfigProps) => {
   if (!configCallback && !configEndpoint) {
     throw new Error("Either configCallback or configEndpoint must be provided");
@@ -24,6 +26,7 @@ const useFetchConfig = ({
         "Content-Type": "application/json",
         ...permissionHeaders,
       },
+      body: body,
     });
 
     if (!response.ok) {

@@ -17,8 +17,9 @@ const ProviderExample = () => {
     endpoint: "/api/data-bench/auction-data-3",
     permissionHeaders: { sample: "" },
     context: {
-      unique_id: "Sample",
+      distributer_id: "abc",
     },
+    view: "default_view",
   };
 
   const [checkedIds, setCheckedIds] = useState<string[] | []>([]);
