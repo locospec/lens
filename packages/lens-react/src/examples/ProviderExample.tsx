@@ -39,7 +39,7 @@ const ProviderExample = () => {
           wrapped in different View Context theirs search and filters do not
           conflict with each other{" "}
         </label>
-        <View>
+        <View viewConfiguration={{ context: { sample: "value" } }}>
           <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center gap-x-2">
             <CustomSearchInput />
             <SimpleFilters

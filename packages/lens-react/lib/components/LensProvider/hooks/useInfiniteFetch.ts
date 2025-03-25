@@ -42,7 +42,7 @@ const useInfiniteFetch = ({
   if (!viewContext) {
     throw new Error("useInfiniteFetch must be used within View");
   }
-  const { searchQuery, filters } = viewContext;
+  const { searchQuery, filters, context: localContext } = viewContext;
 
   const {
     lensConfiguration,
@@ -86,7 +86,8 @@ const useInfiniteFetch = ({
           cursor: pageParam,
         },
         search: globalFilter,
-        context: contextPayload,
+        globalContext: contextPayload,
+        localContext: localContext,
         ...body,
       }),
     });

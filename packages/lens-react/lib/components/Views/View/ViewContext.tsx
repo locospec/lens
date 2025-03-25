@@ -19,12 +19,14 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
   children,
   viewId = "default",
   showSheetProp = false,
+  viewConfiguration,
   setShowSheetProp,
 }) => {
   const view_uuid = useMemo(
     () => (Math.floor(Math.random() * 10000000000) + 1).toString(),
     []
   );
+  const { context = {} } = viewConfiguration || {};
   const lensContext = useContext(LensContext);
   if (!lensContext) {
     throw new Error("View must be used within a LensProvider");
@@ -78,8 +80,9 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
       setFilters: updateFilters,
       search: updateSearchQuery,
       searchQuery,
+      context,
     }),
-    [filters, searchQuery, updateFilters, updateSearchQuery]
+    [filters, searchQuery, updateFilters, updateSearchQuery, context]
   );
 
   return (
