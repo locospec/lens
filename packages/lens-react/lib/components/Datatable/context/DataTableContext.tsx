@@ -108,6 +108,7 @@ const DataTableLensContextProvider: React.FC<
 
   const { isFetched, isError, endpoints, modal_name } = lensContext;
   const { filters, searchQuery, viewChildRef, config } = viewContext;
+  const viewName = config?.name || "default_view";
 
   const visibleAttributes =
     config?.columns.map((column: any) => column.id) || [];
@@ -144,6 +145,7 @@ const DataTableLensContextProvider: React.FC<
       modalName={modal_name}
       viewChildRef={viewChildRef}
       rowActions={rowActions}
+      viewName={viewName}
     >
       {isFetched ? (
         isError ? (

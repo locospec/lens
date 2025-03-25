@@ -44,6 +44,7 @@ const DatatableList = () => {
     searchQuery,
     viewId,
     modalName,
+    viewName,
   } = useDatatableContext();
 
   useSyncSelection(selectedRows, selectedItems, setSelectedRows, onSelect);
@@ -51,7 +52,7 @@ const DatatableList = () => {
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
     useInfiniteFetch({
       queryKey: `${modalName}-${viewId}`,
-      body: { filters: getProcessedFilters(filters) },
+      body: { filters: getProcessedFilters(filters), view: viewName },
       globalFilter: searchQuery,
     });
 

@@ -53,8 +53,8 @@ const useConvertToTanstackTableConfig = ({
 
   const processedConfig: any = {
     default: {
-      view_id: "default",
-      view_name: configData.label,
+      id: configData.id,
+      name: configData.name,
       type: "table",
       selectionType: configData?.selectionType || "none",
       columns: processed_columns,
