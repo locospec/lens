@@ -62,17 +62,17 @@ const ProviderExample = () => {
                 cell: "p-0 border-r-0",
                 actionsCell: "flex gap-x-4",
               }}
-              rowActions={{
-                cities: (rowData: any) => {
-                  console.log(rowData);
-                },
-                id: (rowData: any) => {
-                  console.log("FROM ID COLUMNS", rowData);
-                },
-                sample: () => {
-                  console.log("FROM sample COLUMNS");
-                },
-              }}
+              // rowActions={{
+              //   cities: (rowData: any) => {
+              //     console.log(rowData);
+              //   },
+              //   id: (rowData: any) => {
+              //     console.log("FROM ID COLUMNS", rowData);
+              //   },
+              //   sample: () => {
+              //     console.log("FROM sample COLUMNS");
+              //   },
+              // }}
             />
           </div>
         </View>

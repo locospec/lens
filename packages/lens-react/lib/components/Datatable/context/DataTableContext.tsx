@@ -110,14 +110,19 @@ const DataTableLensContextProvider: React.FC<
   const { filters, searchQuery, viewChildRef, config } = viewContext;
   const viewName = config?.name || "default_view";
 
-  const visibleAttributes =
-    config?.columns.map((column: any) => column.id) || [];
-  console.warn("Row actions must have the following keys :", visibleAttributes);
-  Object.keys(rowActions).forEach((key) => {
-    if (!visibleAttributes.includes(key)) {
-      console.error("Table does not contain the attribute", key);
-    }
-  });
+  if (rowActions) {
+    const visibleAttributes =
+      config?.columns.map((column: any) => column?.id) || [];
+    console.info(
+      "Row actions must have the following keys :",
+      visibleAttributes
+    );
+    Object.keys(rowActions).forEach((key) => {
+      if (!visibleAttributes.includes(key)) {
+        console.error("Table does not contain the attribute", key);
+      }
+    });
+  }
   const selectionType = config?.selectionType || "none";
   let tableConfig = config;
 
