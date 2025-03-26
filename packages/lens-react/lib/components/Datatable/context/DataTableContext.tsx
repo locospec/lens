@@ -113,13 +113,13 @@ const DataTableLensContextProvider: React.FC<
   if (rowActions) {
     const visibleAttributes =
       config?.columns.map((column: any) => column?.id) || [];
-    console.info(
-      "Row actions must have the following keys :",
-      visibleAttributes
-    );
     Object.keys(rowActions).forEach((key) => {
       if (!visibleAttributes.includes(key)) {
-        console.error("Table does not contain the attribute", key);
+        console.error(
+          `Table does not contain the attribute: "${key}"`,
+          "\n Please use one of the following to configure cell actions :",
+          visibleAttributes
+        );
       }
     });
   }
