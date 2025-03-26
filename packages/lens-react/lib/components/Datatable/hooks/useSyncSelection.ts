@@ -13,7 +13,7 @@ const useSyncSelection = (
       getOrderedKeys(selectedItems) !== getOrderedKeys(rowSelection);
 
     if (selectedItemsAreDifferentFromSelectedRows) {
-      setRowSelection(selectedItems);
+      onSelect(Object.keys(selectedItems));
     }
   }, [selectedItems]);
 
@@ -22,7 +22,7 @@ const useSyncSelection = (
       getOrderedKeys(selectedItems) !== getOrderedKeys(rowSelection);
 
     if (selectedItemsAreDifferentFromSelectedRows) {
-      onSelect(Object.keys(rowSelection));
+      setRowSelection(selectedItems);
     }
   }, [rowSelection]);
 };
