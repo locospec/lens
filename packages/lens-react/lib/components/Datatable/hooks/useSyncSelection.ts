@@ -25,10 +25,12 @@ const useSyncSelection = (
       getArrayKeys(selectedItems) !== getOrderedKeys(rowSelection);
 
     if (selectedItemsAreDifferentFromSelectedRows) {
+      console.log(">>> rowSelection", rowSelection);
       const records = Object.keys(rowSelection);
       const data =
         table && table.getRowCount() > 0
           ? records.map((idx) => {
+              console.log(">>>idx", idx);
               return table.getRow(idx).original;
             })
           : records;
