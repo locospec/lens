@@ -130,19 +130,10 @@ const DatatableList = () => {
     );
   }
 
-  console.log(">>> SELECTION VALUES IN TABLE ROOT", {
-    selectedItems,
-    selectedRows,
-  });
-
   return (
     <div
       className={"flex-1 relative flex h-full flex-col gap-0 overflow-hidden"}
     >
-      {JSON.stringify({
-        selectedItems,
-        selectedRows,
-      })}
       <div
         className={cn(
           "relative flex-1 overflow-auto w-full h-full border border-gray-200",
