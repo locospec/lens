@@ -1,10 +1,12 @@
+import type { Table } from "@tanstack/react-table";
 import { useEffect } from "react";
 
 const useSyncSelection = (
   selectedItems: any,
   rowSelection: any,
   setRowSelection: React.Dispatch<React.SetStateAction<any>>,
-  onSelect: (selectedIds: string[]) => void
+  onSelect: (selectedIds: string[]) => void,
+  table?: Table<any>
 ) => {
   const getOrderedKeys = (obj: any) => Object.keys(obj).sort().join(",");
 
@@ -13,7 +15,14 @@ const useSyncSelection = (
       getOrderedKeys(selectedItems) !== getOrderedKeys(rowSelection);
 
     if (selectedItemsAreDifferentFromSelectedRows) {
-      onSelect(Object.keys(selectedItems));
+      const records = Object.keys(selectedItems);
+      const data = table
+        ? records.map((idx) => {
+            return table?.getRow(idx).original;
+          })
+        : records;
+
+      onSelect(data);
     }
   }, [selectedItems]);
 

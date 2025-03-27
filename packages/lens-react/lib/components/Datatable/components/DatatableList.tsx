@@ -47,8 +47,6 @@ const DatatableList = () => {
     viewName,
   } = useDatatableContext();
 
-  useSyncSelection(selectedRows, selectedItems, setSelectedRows, onSelect);
-
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
     useInfiniteFetch({
       queryKey: `${modalName}-${viewId}`,
@@ -100,6 +98,14 @@ const DatatableList = () => {
     columnResizeMode: "onChange",
     enableMultiRowSelection: selectionType === "multiple",
   });
+
+  useSyncSelection(
+    selectedRows,
+    selectedItems,
+    setSelectedRows,
+    onSelect,
+    table
+  );
 
   const { rows } = table.getRowModel();
   const isResizing = table.getState().columnSizingInfo.isResizingColumn;

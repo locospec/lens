@@ -22,13 +22,16 @@ const ProviderExample = () => {
     view: "default_view",
   };
 
-  const [checkedIds, setCheckedIds] = useState<string[] | []>([]);
+  const [checkedIds, setCheckedIds] = useState<any[] | []>([]);
+  const [data, setData] = useState<any[] | []>([]);
 
   const handleSelectionChange = (selectedItem: any) => {
     if (selectedItem) {
-      setCheckedIds(selectedItem);
+      setCheckedIds(selectedItem.map((obj: any) => obj.id));
+      setData(selectedItem);
     } else {
       setCheckedIds([]);
+      setData([]);
     }
   };
 
@@ -38,8 +41,14 @@ const ProviderExample = () => {
         <label className="text-lg">
           This sample shows two data table using the same data but as they are
           wrapped in different View Context theirs search and filters do not
-          conflict with each other{" "}
+          conflict with each other
         </label>
+        <div className="flex flex-col">
+          <label className="bg-red-400">{JSON.stringify(checkedIds)}</label>
+          <label className="bg-blue-400 max-h-52 overflow-y-scroll">
+            {JSON.stringify(data)}
+          </label>
+        </div>
         <View viewConfiguration={{ context: { sample: "value" } }}>
           <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center gap-x-2">
             <CustomSearchInput />
