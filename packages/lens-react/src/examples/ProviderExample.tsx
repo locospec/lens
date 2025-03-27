@@ -22,7 +22,7 @@ const ProviderExample = () => {
     view: "default_view",
   };
 
-  const [checkedIds, setCheckedIds] = useState<any[] | []>([]);
+  const [checkedIds, setCheckedIds] = useState<any[] | []>(["uuid_1"]);
   const [data, setData] = useState<any[] | []>([]);
 
   const handleSelectionChange = (selectedItem: any) => {
@@ -78,9 +78,6 @@ const ProviderExample = () => {
                 },
                 id: (rowData: Record<string, any>) => {
                   console.log("FROM ID COLUMNS", rowData);
-                },
-                sample: () => {
-                  console.log("FROM sample COLUMNS");
                 },
               }}
             />

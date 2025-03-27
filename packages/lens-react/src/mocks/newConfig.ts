@@ -6,6 +6,7 @@ const new_config = {
     type: "view",
     model: "sub_asset_type",
     selectionType: "multiple",
+    selectionKey: "id",
     attributes: {
       id: {
         type: "string",

@@ -21,9 +21,9 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
 
     const {
       resource,
-      identifierKey,
       columns: rawColumns,
       selectionType = "none",
+      selectionKey,
       actions,
       filters,
     } = tableConfig;
@@ -54,7 +54,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
     return {
       columns: finalColumns,
       resource,
-      identifierKey,
+      identifierKey: selectionKey,
       hasSelection: true,
       filtersConfig: filters,
     };

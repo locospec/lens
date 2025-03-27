@@ -62,6 +62,7 @@ interface TableConfigInterface {
   resource: string;
   identifierKey: string;
   selectionType: SelectionType;
+  selectionKey?: string;
   actions?: ActionsConfig;
   columns: ColumnConfigInterface[];
   filters?: AttributeDefinitionMapType;

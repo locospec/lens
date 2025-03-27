@@ -16,12 +16,12 @@ const useSyncSelection = (
 
     if (selectedItemsAreDifferentFromSelectedRows) {
       const records = Object.keys(selectedItems);
-      const data = table
-        ? records.map((idx) => {
-            return table?.getRow(idx).original;
-          })
-        : records;
-
+      const data =
+        table && table.getRowCount() > 0
+          ? records.map((idx) => {
+              return table.getRow(idx).original;
+            })
+          : records;
       onSelect(data);
     }
   }, [selectedItems]);

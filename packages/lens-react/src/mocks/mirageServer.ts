@@ -38,7 +38,7 @@ export function makeServer() {
           resource === "auction-data-3"
         ) {
           const completeTestData = Array.from({ length: 200 }, (_, index) => ({
-            id: index + 1,
+            id: "uuid_" + (index + 1),
             state: `State ${index + 1}`,
             district: `District ${index + 1}`,
             cities: `City ${index + 1}`,
