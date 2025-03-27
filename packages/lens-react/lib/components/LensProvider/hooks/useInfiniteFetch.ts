@@ -91,6 +91,10 @@ const useInfiniteFetch = ({
         ...body,
       }),
     });
+    if (!response.ok) {
+      console.error(`Error: ${response.status} - ${dataEndpoint}`);
+      return { data: [] };
+    }
     const responseJson = await response.json();
 
     if (responseJson?.data && !Array.isArray(responseJson.data)) {

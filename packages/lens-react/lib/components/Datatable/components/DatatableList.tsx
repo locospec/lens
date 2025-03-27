@@ -82,7 +82,9 @@ const DatatableList = () => {
     onRowSelectionChange: setSelectedRows,
     onColumnVisibilityChange: setColumnVisibility,
     onColumnPinningChange: setColumnPining,
-    getRowId: (row) => row[identifierKey],
+    getRowId: (row) => {
+      return row[identifierKey];
+    },
     initialState: {
       columnPinning: columnPining,
     },
