@@ -106,7 +106,7 @@ const useInfiniteFetch = ({
       queryFn: dataCallback ? dataCallback : fetchDataFunction,
       initialPageParam: null,
       getNextPageParam: (lastPage: any) => lastPage?.meta?.next_cursor || null,
-      getPreviousPageParam: (firstPage) => firstPage.meta.prev_cursor,
+      getPreviousPageParam: (firstPage) => firstPage?.meta?.prev_cursor || null,
       refetchOnWindowFocus: false,
       placeholderData: keepPreviousData as unknown as InfiniteData<
         any,
