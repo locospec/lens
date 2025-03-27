@@ -14,7 +14,6 @@ const useSyncSelection = (
     const selectedItemsAreDifferentFromSelectedRows =
       getOrderedKeys(selectedItems) !== getOrderedKeys(rowSelection);
 
-    console.log(">>>>> IN useSyncSelection", selectedItems);
     if (selectedItemsAreDifferentFromSelectedRows) {
       const records = Object.keys(selectedItems);
       const data =

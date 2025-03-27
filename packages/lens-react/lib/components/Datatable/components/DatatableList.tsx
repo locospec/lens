@@ -46,7 +46,6 @@ const DatatableList = () => {
     modalName,
     viewName,
   } = useDatatableContext();
-  console.log(">> identifierKey", identifierKey);
 
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
     useInfiniteFetch({
@@ -100,14 +99,6 @@ const DatatableList = () => {
     enableMultiRowSelection: selectionType === "multiple",
   });
 
-  useSyncSelection(
-    selectedRows,
-    selectedItems,
-    setSelectedRows,
-    onSelect,
-    table
-  );
-
   const { rows } = table.getRowModel();
   const isResizing = table.getState().columnSizingInfo.isResizingColumn;
   const rowVirtualizer = useRowVirtualizer({ rows, tableContainerRef });
@@ -117,6 +108,14 @@ const DatatableList = () => {
     adjustedColumns,
     parentWidth: tableContainerRef?.current?.clientWidth,
   });
+
+  useSyncSelection(
+    selectedRows,
+    selectedItems,
+    setSelectedRows,
+    onSelect,
+    table
+  );
 
   if (!isColumnsReady) {
     return (

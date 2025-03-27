@@ -22,7 +22,7 @@ const ProviderExample = () => {
     view: "default_view",
   };
 
-  const [checkedIds, setCheckedIds] = useState<any[] | []>(["uuid_34"]);
+  const [checkedIds, setCheckedIds] = useState<any[] | []>(["uuid_2"]);
   const [data, setData] = useState<any[] | []>([]);
 
   const handleSelectionChange = (selectedItem: any) => {
