@@ -110,8 +110,8 @@ const DatatableList = () => {
   });
 
   useSyncSelection(
-    selectedRows,
     selectedItems,
+    selectedRows,
     setSelectedRows,
     onSelect,
     table
@@ -134,7 +134,10 @@ const DatatableList = () => {
     <div
       className={"flex-1 relative flex h-full flex-col gap-0 overflow-hidden"}
     >
-      {JSON.stringify(selectedRows)}
+      {JSON.stringify({
+        selectedItems,
+        selectedRows,
+      })}
       <div
         className={cn(
           "relative flex-1 overflow-auto w-full h-full border border-gray-200",
