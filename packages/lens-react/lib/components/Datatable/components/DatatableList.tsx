@@ -46,6 +46,7 @@ const DatatableList = () => {
     modalName,
     viewName,
   } = useDatatableContext();
+  console.log(">> identifierKey", identifierKey);
 
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
     useInfiniteFetch({
@@ -134,6 +135,7 @@ const DatatableList = () => {
     <div
       className={"flex-1 relative flex h-full flex-col gap-0 overflow-hidden"}
     >
+      {JSON.stringify(selectedRows)}
       <div
         className={cn(
           "relative flex-1 overflow-auto w-full h-full border border-gray-200",
