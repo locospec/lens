@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Datatable,
   LensProvider,
@@ -22,7 +22,7 @@ const ProviderExample = () => {
     view: "default_view",
   };
 
-  const [checkedIds, setCheckedIds] = useState<any[] | []>(["uuid_2"]);
+  const [checkedIds, setCheckedIds] = useState<any[] | []>([]);
   const [data, setData] = useState<any[] | []>([]);
 
   const handleSelectionChange = (selectedItem: any) => {
@@ -34,6 +34,12 @@ const ProviderExample = () => {
       setData([]);
     }
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCheckedIds(["uuid_1"]);
+    }, 2000);
+  }, []);
 
   return (
     <>
