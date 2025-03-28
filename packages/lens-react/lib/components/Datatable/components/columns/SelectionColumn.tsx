@@ -8,7 +8,7 @@ export interface HeaderInterface {
 export interface RowInterface {
   row: Row<any>;
 }
-const SelectionColumn = () => {
+const SelectionColumn = (selectionType: "single" | "multiple" | "none") => {
   return {
     id: "select",
     accessorKey: "select",
@@ -17,18 +17,24 @@ const SelectionColumn = () => {
       fixed: "left",
       show: true,
     },
-    header: ({ table }: HeaderInterface) => (
-      <div className="flex h-full items-center justify-center">
-        <Checkbox
-          checked={
-            table.getIsAllPageRowsSelected() ||
-            (table.getIsSomePageRowsSelected() && "indeterminate")
-          }
-          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-          aria-label="Select all"
-        />
-      </div>
-    ),
+    header: ({ table }: HeaderInterface) => {
+      if (selectionType === "multiple") {
+        return (
+          <div className="flex h-full items-center justify-center">
+            <Checkbox
+              checked={
+                table.getIsAllPageRowsSelected() ||
+                (table.getIsSomePageRowsSelected() && "indeterminate")
+              }
+              onCheckedChange={(value) =>
+                table.toggleAllPageRowsSelected(!!value)
+              }
+              aria-label="Select all"
+            />
+          </div>
+        );
+      }
+    },
     cell: ({ row }: RowInterface) => (
       <div className={cn("flex h-full items-center justify-center")}>
         <Checkbox

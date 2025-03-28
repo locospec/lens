@@ -5,7 +5,7 @@ const new_config = {
     label: "Sub Asset Types Default View",
     type: "view",
     model: "sub_asset_type",
-    selectionType: "multiple",
+    selectionType: "single",
     selectionKey: "id",
     expand: ["adjhad"],
     attributes: {

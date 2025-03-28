@@ -42,7 +42,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
     let finalColumns = columnsFromConfig;
 
     if (selectionType && selectionType !== "none") {
-      const selectionColumn = SelectionColumn();
+      const selectionColumn = SelectionColumn(selectionType);
       finalColumns = [selectionColumn, ...columnsFromConfig];
     }
 
