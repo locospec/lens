@@ -46,6 +46,7 @@ const DatatableList = () => {
     modalName,
     viewName,
     expand,
+    localContext,
   } = useDatatableContext();
 
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
@@ -55,6 +56,8 @@ const DatatableList = () => {
         filters: getProcessedFilters(filters),
         view: viewName,
         ...(expand.length > 0 && { expand }),
+        ...(localContext &&
+          Object.keys(localContext).length > 0 && { localContext }),
       },
       globalFilter: searchQuery,
     });

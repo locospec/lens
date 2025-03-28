@@ -31,6 +31,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   rowActions?: any;
   viewName: string;
   expand: string[];
+  localContext: any;
 }
 
 interface DataTableLensContextProviderInterface
