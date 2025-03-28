@@ -45,12 +45,17 @@ const DatatableList = () => {
     viewId,
     modalName,
     viewName,
+    expand,
   } = useDatatableContext();
 
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
     useInfiniteFetch({
       queryKey: `${modalName}-${viewId}`,
-      body: { filters: getProcessedFilters(filters), view: viewName },
+      body: {
+        filters: getProcessedFilters(filters),
+        view: viewName,
+        ...(expand.length > 0 && { expand }),
+      },
       globalFilter: searchQuery,
     });
 

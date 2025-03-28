@@ -30,6 +30,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   viewChildRef?: React.RefObject<HTMLDivElement>;
   rowActions?: any;
   viewName: string;
+  expand: string[];
 }
 
 interface DataTableLensContextProviderInterface

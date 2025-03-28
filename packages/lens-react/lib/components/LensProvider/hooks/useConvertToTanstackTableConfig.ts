@@ -55,6 +55,7 @@ const useConvertToTanstackTableConfig = ({
     default: {
       name: configData.name,
       type: "table",
+      expand: configData.expand || [],
       selectionType: configData?.selectionType || "none",
       selectionKey: configData?.selectionKey || "id",
       columns: processed_columns,

@@ -125,6 +125,7 @@ const DataTableLensContextProvider: React.FC<
   }
   const selectionType = config?.selectionType || "none";
   let tableConfig = config;
+  const expand = tableConfig?.expand || [];
 
   if (!tableConfig) {
     throw new Error(
@@ -151,6 +152,7 @@ const DataTableLensContextProvider: React.FC<
       viewChildRef={viewChildRef}
       rowActions={rowActions}
       viewName={viewName}
+      expand={expand}
     >
       {isFetched ? (
         isError ? (

@@ -7,6 +7,7 @@ const new_config = {
     model: "sub_asset_type",
     selectionType: "multiple",
     selectionKey: "id",
+    // expand: ["adjhad"],
     attributes: {
       id: {
         type: "string",
