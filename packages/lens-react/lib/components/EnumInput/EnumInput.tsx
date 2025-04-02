@@ -39,8 +39,13 @@ const EnumInput = React.memo(function EnumInput({
   multiple = true,
   className = "",
 }: EnumInputInterface) {
-  const { queryEndpoint, filter, permissionHeaders, filterContainerRef } =
-    contextDecoder();
+  const {
+    queryEndpoint,
+    filter,
+    permissionHeaders,
+    filterContainerRef,
+    allowedScopes,
+  } = contextDecoder();
   const queryKey = `${queryEndpoint}-${condition.attribute}-${JSON.stringify(
     path
   )}`;
@@ -79,6 +84,8 @@ const EnumInput = React.memo(function EnumInput({
     body: {
       relation: modelName,
       filters: getProcessedFilters(dependentFilter),
+      ...(allowedScopes &&
+        allowedScopes.length > 0 && { scopes: allowedScopes }),
     },
     context: () => ({ dataEndpointHeaders: permissionHeaders }),
   });
