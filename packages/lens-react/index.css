@@ -1,4 +1,5 @@
-@import "tailwindcss/base";
+@import "tailwindcss";
+/* @import "tailwindcss/base"; */
 /* @import "@radix-ui/themes/styles.css"; */
 /* @import "@radix-ui/themes/tokens.css"; */
 /* @import "@radix-ui/themes/tokens/base.css"; */
@@ -7,8 +8,8 @@
 /* @import "@radix-ui/themes/layout/components.css"; */
 /* @import "@radix-ui/themes/layout/utilities.css"; */
 
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+/* @import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
 
 @layer base {
   :root {
@@ -83,24 +84,6 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply font-sans antialiased bg-background text-foreground;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 @keyframes rt-skeleton-pulse {
   0% {
     background-color: var(--gray-a4);
@@ -110,8 +93,6 @@
     background-color: var(--gray-a4);
   }
 }
-
-
 
 @layer base {
   * {
