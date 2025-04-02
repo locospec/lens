@@ -47,6 +47,7 @@ const DatatableList = () => {
     viewName,
     expand,
     localContext,
+    allowedScopes,
   } = useDatatableContext();
 
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
@@ -58,6 +59,8 @@ const DatatableList = () => {
         ...(expand.length > 0 && { expand }),
         ...(localContext &&
           Object.keys(localContext).length > 0 && { localContext }),
+        ...(allowedScopes &&
+          allowedScopes.length > 0 && { scopes: allowedScopes }),
       },
       globalFilter: searchQuery,
     });

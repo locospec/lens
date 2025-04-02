@@ -66,6 +66,7 @@ interface TableConfigInterface {
   actions?: ActionsConfig;
   columns: ColumnConfigInterface[];
   filters?: AttributeDefinitionMapType;
+  allowedScopes?: string[];
 }
 
 export type {

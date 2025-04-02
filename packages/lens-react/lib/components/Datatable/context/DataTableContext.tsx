@@ -138,8 +138,13 @@ const DataTableLensContextProvider: React.FC<
       "No TableConfig Found, Please check the view id or backend _config call response"
     );
   }
-  const { columns, identifierKey = "" } = useTableConfig(tableConfig);
+  const {
+    columns,
+    identifierKey = "",
+    allowedScopes,
+  } = useTableConfig(tableConfig);
 
+  console.log(">>> tableConfig", tableConfig);
   return (
     <DatatableContextProvider
       selectionType={selectionType}
@@ -160,6 +165,7 @@ const DataTableLensContextProvider: React.FC<
       viewName={viewName}
       expand={expand}
       localContext={localContext}
+      allowedScopes={allowedScopes}
     >
       {isFetched ? (
         isError ? (

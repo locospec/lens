@@ -19,6 +19,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
       };
     }
 
+    console.log(">>>> tableConfig", tableConfig);
     const {
       resource,
       columns: rawColumns,
@@ -26,6 +27,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
       selectionKey,
       actions,
       filters,
+      allowedScopes,
     } = tableConfig;
 
     const columnsFromConfig = rawColumns.map((col: ColumnConfigInterface) => {
@@ -57,6 +59,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
       identifierKey: selectionKey,
       hasSelection: true,
       filtersConfig: filters,
+      allowedScopes,
     };
   }, [tableConfig]);
 };

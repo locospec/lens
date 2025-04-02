@@ -61,6 +61,7 @@ const new_config = {
         ],
       },
     },
+    allowedScopes: ["this", "is", "a", "sample", "scope"],
   },
   meta: [],
 };

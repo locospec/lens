@@ -51,6 +51,7 @@ const useConvertToTanstackTableConfig = ({
     }
   });
 
+  console.log(">>> CONFIG DATA ,", configData);
   const processedConfig: any = {
     default: {
       name: configData.name,
@@ -60,6 +61,7 @@ const useConvertToTanstackTableConfig = ({
       selectionKey: configData?.selectionKey || "id",
       columns: processed_columns,
       filters: processed_filters,
+      allowedScopes: configData?.allowedScopes || [],
       actions: {},
     },
   };
