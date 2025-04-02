@@ -18,9 +18,9 @@ const SimpleFiltersExample = () => {
           <SimpleFilters
             classNames={{
               wrapper: "",
-              // enum: "!bg-[#eee] text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
+              // enum: "bg-[#eee]! text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
               // dateTrigger:
-              //   "!bg-[#eee] text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
+              //   "bg-[#eee]! text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
             }}
           />
         </div>
@@ -32,9 +32,9 @@ const SimpleFiltersExample = () => {
             asChip
             classNames={{
               wrapper: "",
-              // enum: "!bg-[#eee] text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
+              // enum: "bg-[#eee]! text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
               // dateTrigger:
-              //   "!bg-[#eee] text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
+              //   "bg-[#eee]! text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
             }}
           />
         </div>

@@ -17,7 +17,7 @@ const CustomSearchInput = () => {
       <input
         className={cn(
           "form-input w-full cursor-pointer border-none ml-[19px] ",
-          "outline-none focus:ring-0 text-sm font-normal text-black leading-6"
+          "outline-hidden focus:ring-0 text-sm font-normal text-black leading-6"
         )}
         value={debouncedQuery}
         onChange={(e) => {
