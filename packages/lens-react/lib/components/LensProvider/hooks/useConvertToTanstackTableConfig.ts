@@ -51,7 +51,6 @@ const useConvertToTanstackTableConfig = ({
     }
   });
 
-  console.log(">>> CONFIG DATA ,", configData);
   const processedConfig: any = {
     default: {
       name: configData.name,

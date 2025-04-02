@@ -19,7 +19,6 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
       };
     }
 
-    console.log(">>>> tableConfig", tableConfig);
     const {
       resource,
       columns: rawColumns,

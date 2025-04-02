@@ -144,7 +144,6 @@ const DataTableLensContextProvider: React.FC<
     allowedScopes,
   } = useTableConfig(tableConfig);
 
-  console.log(">>> tableConfig", tableConfig);
   return (
     <DatatableContextProvider
       selectionType={selectionType}
