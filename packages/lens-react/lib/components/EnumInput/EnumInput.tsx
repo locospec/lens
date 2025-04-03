@@ -209,7 +209,6 @@ const EnumInput = React.memo(function EnumInput({
           </div>
           <CommandSeparator />
           <CommandList
-            ref={containerRef}
             key={condition.attribute}
             onScroll={(e) =>
               fetchMoreOnBottomReached(e.target as HTMLDivElement)
