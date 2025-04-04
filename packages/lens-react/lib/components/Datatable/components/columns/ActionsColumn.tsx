@@ -5,13 +5,13 @@ import { metaReader } from "../../utils/metaReader";
 
 const ActionsColumn = (actions: ActionsConfig) => {
   return {
-    id: actions.header,
+    id: "actions",
     accessorKey: actions.header,
     meta: metaReader(actions),
     header: actions.header,
     cell: ({ row }: RowInterface) => {
       return actionsRenderer({
-        actions: actions.options,
+        actions: actions.items,
         row: row.original,
       });
     },
