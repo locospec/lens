@@ -31,13 +31,15 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   return (
     <div
       className={cn(
-        "truncate px-2 py-4 text-gray-600 leading-3",
+        isAction ? "" : "truncate",
+        "px-2 py-4 text-gray-600 leading-3",
         isAction || isLast
           ? "flex gap-x-4 border-r-0"
-          : "border-r border-gray-100",
+          : "flex items-center border-r border-gray-100",
         styles?.items,
         styles?.text,
-        classNames && isAction ? classNames?.actionsCell : classNames?.cell
+        classNames?.cell || "",
+        (isAction && classNames?.actionsCell) || ""
       )}
       key={cell.id}
       style={{ ...width, ...css }}
