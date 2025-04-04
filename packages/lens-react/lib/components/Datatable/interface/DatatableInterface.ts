@@ -31,9 +31,14 @@ interface ActionOption {
   key: string;
   url: string;
   icon?: string;
-  text?: string;
+  label?: string;
   method?: MethodTypes;
   confirmation?: boolean;
+  options?: {
+    key: string;
+    label: string;
+    url: string;
+  }[];
 }
 
 interface ActionsConfig {
@@ -44,7 +49,7 @@ interface ActionsConfig {
   maxWidth?: number;
   fixed?: FixedType;
   show?: boolean;
-  options: ActionOption[];
+  items: ActionOption[];
 }
 
 interface ColumnConfigInterface {
