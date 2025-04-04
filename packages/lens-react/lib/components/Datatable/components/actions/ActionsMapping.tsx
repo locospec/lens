@@ -25,10 +25,11 @@ const ActionsMapping = ({ row, actionOption }: ActionsMappingInterface) => {
   const {
     key: id,
     icon: iconName,
-    text = "",
+    label = "",
     method = "GET",
     url = "",
     confirmation = false,
+    options = [],
   } = actionOption;
   const key = id + "_" + row.id;
 
@@ -73,13 +74,14 @@ const ActionsMapping = ({ row, actionOption }: ActionsMappingInterface) => {
         console.error("NO URL FOUND");
       }
     },
+    options: options,
   };
 
   return (
     <ActionCTA
       key={key}
       {...props}
-      icon={IconComponent ? <IconComponent /> : text || "NA"}
+      icon={IconComponent ? <IconComponent size={16} /> : label || "NA"}
     />
   );
 };
