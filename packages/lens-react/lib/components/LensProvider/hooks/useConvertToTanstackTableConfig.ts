@@ -58,10 +58,10 @@ const useConvertToTanstackTableConfig = ({
       expand: configData.expand || [],
       selectionType: configData?.selectionType || "none",
       selectionKey: configData?.selectionKey || "id",
+      actions: configData?.actions || {},
       columns: processed_columns,
       filters: processed_filters,
       allowedScopes: configData?.allowedScopes || [],
-      actions: {},
     },
   };
 

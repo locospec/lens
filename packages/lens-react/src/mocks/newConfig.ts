@@ -1,3 +1,64 @@
+const ACTION_1 = {
+  header: "Actions",
+  options: [
+    {
+      key: "edit",
+      url: "/edit/:id",
+      icon: "SquarePen",
+    },
+    {
+      key: "delete",
+      url: "/delete/:id/for/:state.id",
+      icon: "Trash2",
+      label: "Delete",
+      confirmation: true,
+    },
+  ],
+};
+
+const ACTION_2 = {
+  header: "Actions",
+  items: [
+    {
+      key: "edit",
+      label: "Edit",
+      url: "/update_asset_type?primary_key=:uuid",
+      icon: "SquarePen",
+      options: [
+        {
+          key: "update_asset_type",
+          label: "Update Asset Type",
+          url: "/update_asset_type?primary_key=:uuid",
+        },
+        {
+          key: "update_sub_asset_type",
+          label: "Update Sub Asset Type",
+          url: "/update_sub_asset_type?primary_key=:sub_asset_type.uuid",
+        },
+      ],
+    },
+    {
+      key: "delete",
+      label: "Delete",
+      url: "/delete_asset_type?primary_key=:uuid",
+      icon: "Trash2",
+      confirmation: "true",
+      options: [
+        {
+          key: "delete_asset_type",
+          label: "Delete Asset Type",
+          url: "/delete_asset_type?primary_key=:uuid",
+        },
+        {
+          key: "delete_sub_asset_type",
+          label: "Delete Sub Asset Type",
+          url: "/delete_sub_asset_type?primary_key=:sub_asset_type.uuid",
+        },
+      ],
+    },
+  ],
+};
+
 const new_config = {
   success: true,
   data: {
@@ -7,6 +68,7 @@ const new_config = {
     model: "sub_asset_type",
     selectionType: "single",
     selectionKey: "id",
+    actions: ACTION_2,
     expand: ["adjhad"],
     attributes: {
       id: {
