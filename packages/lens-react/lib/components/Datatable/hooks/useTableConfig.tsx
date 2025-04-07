@@ -8,10 +8,11 @@ import type { CustomColumnDef } from "../interface/CustomColumnDef";
 import SelectionColumn from "../components/columns/SelectionColumn";
 import ActionsColumn from "../components/columns/ActionsColumn";
 import { metaReader } from "../utils/metaReader";
+import { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
 
 const useTableConfig = (
   tableConfig: TableConfigInterface,
-  actionsMapping?: any
+  actionsMapping?: ActionsMappingPropInterface
 ) => {
   const columnHelper = createColumnHelper();
   return React.useMemo(() => {

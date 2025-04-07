@@ -2,6 +2,7 @@ import React from "react";
 import { DataTableLensContextProvider } from "../context/DataTableContext";
 import DatatableList from "./DatatableList";
 import { TableStylingInterface } from "../interface/TableStylingInterface";
+import { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
 
 export interface DatatableInterface {
   onSelect: (selected: any[]) => void;
@@ -10,7 +11,7 @@ export interface DatatableInterface {
   disableResizing?: boolean;
   viewId?: string;
   rowActions?: any;
-  actionsMapping?: any;
+  actionsMapping?: ActionsMappingPropInterface;
 }
 
 const Datatable: React.FC<DatatableInterface> = ({

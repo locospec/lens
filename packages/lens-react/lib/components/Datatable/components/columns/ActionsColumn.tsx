@@ -2,8 +2,12 @@ import { ActionsConfig } from "../../interface/DatatableInterface";
 import { RowInterface } from "./SelectionColumn";
 import { ActionsRenderer as actionsRenderer } from "../actions/ActionsRenderer";
 import { metaReader } from "../../utils/metaReader";
+import { ActionsMappingPropInterface } from "../../interface/ActionsMappingInterface";
 
-const ActionsColumn = (actions: ActionsConfig, actionsMapping?: any) => {
+const ActionsColumn = (
+  actions: ActionsConfig,
+  actionsMapping?: ActionsMappingPropInterface
+) => {
   return {
     id: "actions",
     accessorKey: actions.header,

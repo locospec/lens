@@ -8,6 +8,7 @@ import {
   VisibilityState,
 } from "@tanstack/react-table";
 import { TableStylingInterface } from "../interface/TableStylingInterface";
+import { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
 
 interface CommonWrapperInterface {
   children: ReactNode;
@@ -33,7 +34,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   expand: string[];
   localContext: any;
   allowedScopes?: string[];
-  actionsMapping?: any;
+  actionsMapping?: ActionsMappingPropInterface;
 }
 
 interface DataTableLensContextProviderInterface

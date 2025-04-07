@@ -3,11 +3,12 @@ import loadIcon from "./loadIcon";
 import { ActionCTA } from "./ActionCTA";
 import { ActionOption } from "../../interface/DatatableInterface";
 import type { Row } from "@tanstack/react-table";
+import type { ActionsMappingPropInterface } from "../../interface/ActionsMappingInterface";
 
 export interface ActionsMappingInterface {
   row: Row<any>;
   actionOption: ActionOption;
-  actionsMapping?: any;
+  actionsMapping?: ActionsMappingPropInterface;
 }
 
 type RowObject = {
@@ -48,12 +49,20 @@ const ActionsMapping = ({
     options = [],
   } = actionOption;
   const key = id + "_" + row.id;
-  const ActionObject = actionsMapping[id] ?? {};
-  const { icon: ActionIcon, url: actionURL = "" } = ActionObject;
+  const ActionObject = (actionsMapping ?? {})[id] ?? {};
+  const {
+    icon: ActionIcon,
+    url: actionURL = "",
+    component: ActionComponent,
+    styles: actionStyles,
+  } = ActionObject;
   const finalURL = url || actionURL;
 
-  const [IconComponent, setIconComponent] =
-    React.useState<React.ElementType | null>(null);
+  if (ActionComponent) {
+    return <React.Fragment key={key}>{ActionComponent}</React.Fragment>;
+  }
+
+  const [IconComponent, setIconComponent] = React.useState<any>(null);
 
   React.useEffect(() => {
     if (ActionIcon) {
@@ -110,6 +119,7 @@ const ActionsMapping = ({
     <ActionCTA
       key={key}
       url={finalURL}
+      classNames={actionStyles}
       {...props}
       icon={IconComponent ? <IconComponent size={16} /> : label || "NA"}
     />
