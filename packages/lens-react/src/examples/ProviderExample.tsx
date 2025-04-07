@@ -96,6 +96,7 @@ const ProviderExample = () => {
                 sample: {
                   url: "/sample/:id/:city.locality.id",
                   icon: Clock,
+                  confirmation: true,
                   callback: ({ url, data }: CallbackInterface) => {
                     console.log("Sample Callback ", url, data);
                   },

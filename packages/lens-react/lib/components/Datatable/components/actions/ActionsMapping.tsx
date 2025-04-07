@@ -45,7 +45,7 @@ const ActionsMapping = ({
     label = "",
     method = "HREF",
     url,
-    confirmation = false,
+    confirmation,
     options = [],
   } = actionOption;
   const key = id + "_" + row.id;
@@ -55,8 +55,10 @@ const ActionsMapping = ({
     url: actionURL = "",
     component: ActionComponent,
     styles: actionStyles,
+    confirmation: actionConfirmation,
   } = ActionObject;
   const finalURL = url || actionURL;
+  const confirmationState = confirmation ?? actionConfirmation ?? false;
 
   if (ActionComponent) {
     return <React.Fragment key={key}>{ActionComponent}</React.Fragment>;
@@ -86,7 +88,7 @@ const ActionsMapping = ({
       const modifiedURL = replacePlaceholders(url, flattenObject(data));
 
       if (url && modifiedURL) {
-        const userConfirmed = confirmation
+        const userConfirmed = confirmationState
           ? window.confirm("Are you sure you want to proceed?")
           : true;
 
