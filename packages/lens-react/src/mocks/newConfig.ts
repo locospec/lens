@@ -62,6 +62,11 @@ const ACTION_2 = {
         },
       ],
     },
+    {
+      key: "sample",
+      // label: "Sample",
+      // url: "/sample/:id",
+    },
   ],
 };
 
@@ -81,18 +86,18 @@ const new_config = {
         type: "string",
         label: "Sr. No.",
       },
-      // state: {
-      //   type: "string",
-      //   label: "State",
-      // },
-      // district: {
-      //   type: "string",
-      //   label: "District",
-      // },
-      // cities: {
-      //   type: "string",
-      //   label: "Cities",
-      // },
+      state: {
+        type: "string",
+        label: "State",
+      },
+      district: {
+        type: "string",
+        label: "District",
+      },
+      cities: {
+        type: "string",
+        label: "Cities",
+      },
     },
     lensSimpleFilters: {
       "state.name": {

@@ -7,6 +7,12 @@ import {
 } from "../../../lens-react/lib/main";
 // import SearchInput from "../../lib/components/SearchInput/SearchInput";
 import CustomSearchInput from "./components/CustomSearch";
+import { Clock } from "lucide-react";
+
+export interface CallbackInterface {
+  url: string;
+  data: Record<string, any>;
+}
 
 const ProviderExample = () => {
   // const lensConfig = {
@@ -60,7 +66,7 @@ const ProviderExample = () => {
             <CustomSearchInput />
             <SimpleFilters
               classNames={{
-                enum: "bg-[#eee] text-[#A8A8A8] hover:text-[#A1A1A1] hover:bg-[#eee] rounded-[7px]",
+                enum: "text-[#A8A8A8] hover:text-[#A1A1A1] rounded-[7px]",
               }}
             />
           </div>
@@ -84,6 +90,15 @@ const ProviderExample = () => {
                 },
                 id: (rowData: Record<string, any>) => {
                   console.log("FROM ID COLUMNS", rowData);
+                },
+              }}
+              actionsMapping={{
+                sample: {
+                  url: "/sample/:id",
+                  icon: Clock,
+                  callback: ({ url, data }: CallbackInterface) => {
+                    console.log(">>>>>", url, data);
+                  },
                 },
               }}
             />

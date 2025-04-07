@@ -3,11 +3,11 @@ import loadIcon from "./loadIcon";
 import { ActionCTA } from "./ActionCTA";
 import { ActionOption } from "../../interface/DatatableInterface";
 import type { Row } from "@tanstack/react-table";
-// import { useNavigate } from "react-router-dom";
 
 export interface ActionsMappingInterface {
   row: Row<any>;
   actionOption: ActionOption;
+  actionsMapping?: any;
 }
 
 type RowObject = {
@@ -33,31 +33,41 @@ const flattenObject = (obj: any, parentKey: string = ""): any => {
   }, {});
 };
 
-const ActionsMapping = ({ row, actionOption }: ActionsMappingInterface) => {
+const ActionsMapping = ({
+  row,
+  actionOption,
+  actionsMapping,
+}: ActionsMappingInterface) => {
   const {
     key: id,
     icon: iconName,
     label = "",
     method = "HREF",
-    url = "",
+    url,
     confirmation = false,
     options = [],
   } = actionOption;
   const key = id + "_" + row.id;
-  // const navigate = useNavigate();
+  const ActionObject = actionsMapping[id] ?? {};
+  const { icon: ActionIcon, url: actionURL = "" } = ActionObject;
+  const finalURL = url || actionURL;
 
   const [IconComponent, setIconComponent] =
     React.useState<React.ElementType | null>(null);
 
   React.useEffect(() => {
-    if (iconName) {
-      const fetchIcon = async () => {
-        const icon = await loadIcon(iconName);
-        if (icon) {
-          setIconComponent(() => icon);
-        }
-      };
-      fetchIcon();
+    if (ActionIcon) {
+      setIconComponent(() => ActionIcon);
+    } else {
+      if (iconName) {
+        const fetchIcon = async () => {
+          const icon = await loadIcon(iconName);
+          if (icon) {
+            setIconComponent(() => icon);
+          }
+        };
+        fetchIcon();
+      }
     }
   }, [iconName]);
 
@@ -99,7 +109,7 @@ const ActionsMapping = ({ row, actionOption }: ActionsMappingInterface) => {
   return (
     <ActionCTA
       key={key}
-      url={url}
+      url={finalURL}
       {...props}
       icon={IconComponent ? <IconComponent size={16} /> : label || "NA"}
     />
