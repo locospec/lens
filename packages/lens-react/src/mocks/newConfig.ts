@@ -22,37 +22,43 @@ const ACTION_2 = {
     {
       key: "edit",
       label: "Edit",
-      url: "/update_asset_type?primary_key=:uuid",
+      url: "/update_asset_type?primary_key=:id",
       icon: "SquarePen",
       options: [
         {
           key: "update_asset_type",
           label: "Update Asset Type",
-          url: "/update_asset_type?primary_key=:uuid",
+          url: "/update_asset_type?primary_key=:id&state=:state",
         },
         {
           key: "update_sub_asset_type",
           label: "Update Sub Asset Type",
-          url: "/update_sub_asset_type?primary_key=:sub_asset_type.uuid",
+          url: "/update_sub_asset_type?primary_key=:city.locality.id",
         },
       ],
     },
     {
+      key: "view",
+      label: "View",
+      url: "/view/:id",
+      icon: "EyeIcon",
+    },
+    {
       key: "delete",
       label: "Delete",
-      url: "/delete_asset_type?primary_key=:uuid",
+      url: "/delete_asset_type?primary_key=:id",
       icon: "Trash2",
       confirmation: "true",
       options: [
         {
           key: "delete_asset_type",
           label: "Delete Asset Type",
-          url: "/delete_asset_type?primary_key=:uuid",
+          url: "/delete_asset_type?primary_key=:id",
         },
         {
           key: "delete_sub_asset_type",
           label: "Delete Sub Asset Type",
-          url: "/delete_sub_asset_type?primary_key=:sub_asset_type.uuid",
+          url: "/delete_sub_asset_type?primary_key=:city.locality.pin",
         },
       ],
     },
