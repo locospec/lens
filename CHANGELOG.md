@@ -1,3 +1,25 @@
+# (Mon Apr 07 2025)
+
+#### 🐛 Bug Fix
+
+- chore: remove unnecessary whitespace in README.md ([@rjvim](https://github.com/rjvim))
+- chore: add script for running lens repo [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `@locospec/elements-react@0.20.8`, `@locospec/lens-react@0.0.2`
+  - feat: 🎉 add enhancements and customization support in Lens DataTable [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: cleanup [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `@locospec/lens-react@0.0.2`
+  - chore: add lens provider [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: create new sample dir for lens react package [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `@locospec/elements-react@0.20.8`
+  - chore: format [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # (Mon Feb 17 2025)
 
 #### 🐛 Bug Fix

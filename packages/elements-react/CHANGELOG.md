@@ -1,3 +1,20 @@
+# v0.20.8 (Mon Apr 07 2025)
+
+#### 🐛 Bug Fix
+
+- feat: 🎉 add enhancements and customization support in Lens DataTable [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: tailwind styles fixes ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: ported code form elements react for Filters and filters builder ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modified elemenst example for testung sidebar ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: format [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: cleanup [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.20.7 (Mon Feb 17 2025)
 
 #### 🐛 Bug Fix
