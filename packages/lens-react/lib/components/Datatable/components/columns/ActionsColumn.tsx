@@ -3,7 +3,7 @@ import { RowInterface } from "./SelectionColumn";
 import { ActionsRenderer as actionsRenderer } from "../actions/ActionsRenderer";
 import { metaReader } from "../../utils/metaReader";
 
-const ActionsColumn = (actions: ActionsConfig) => {
+const ActionsColumn = (actions: ActionsConfig, actionsMapping?: any) => {
   return {
     id: "actions",
     accessorKey: actions.header,
@@ -13,6 +13,7 @@ const ActionsColumn = (actions: ActionsConfig) => {
       return actionsRenderer({
         actions: actions.items,
         row: row.original,
+        actionsMapping: actionsMapping,
       });
     },
     enableSorting: false,

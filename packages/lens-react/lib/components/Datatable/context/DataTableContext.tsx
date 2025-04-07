@@ -101,6 +101,7 @@ const DataTableLensContextProvider: React.FC<
   disableResizing = false,
   viewId = "default",
   rowActions,
+  actionsMapping,
 }) => {
   const lensContext = useLensContext();
   const viewContext = useViewContext();
@@ -142,7 +143,7 @@ const DataTableLensContextProvider: React.FC<
     columns,
     identifierKey = "",
     allowedScopes,
-  } = useTableConfig(tableConfig);
+  } = useTableConfig(tableConfig, actionsMapping);
 
   return (
     <DatatableContextProvider

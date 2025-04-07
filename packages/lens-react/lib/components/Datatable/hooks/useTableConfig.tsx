@@ -9,7 +9,10 @@ import SelectionColumn from "../components/columns/SelectionColumn";
 import ActionsColumn from "../components/columns/ActionsColumn";
 import { metaReader } from "../utils/metaReader";
 
-const useTableConfig = (tableConfig: TableConfigInterface) => {
+const useTableConfig = (
+  tableConfig: TableConfigInterface,
+  actionsMapping?: any
+) => {
   const columnHelper = createColumnHelper();
   return React.useMemo(() => {
     if (!tableConfig) {
@@ -48,7 +51,7 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
     }
 
     if (actions && Object.keys(actions).length > 0) {
-      const actionsColumn = ActionsColumn(actions);
+      const actionsColumn = ActionsColumn(actions, actionsMapping);
       finalColumns.push(actionsColumn);
     }
 

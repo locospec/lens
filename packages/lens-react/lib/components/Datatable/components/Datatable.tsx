@@ -10,6 +10,7 @@ export interface DatatableInterface {
   disableResizing?: boolean;
   viewId?: string;
   rowActions?: any;
+  actionsMapping?: any;
 }
 
 const Datatable: React.FC<DatatableInterface> = ({
@@ -19,6 +20,7 @@ const Datatable: React.FC<DatatableInterface> = ({
   disableResizing = false,
   viewId,
   rowActions,
+  actionsMapping,
 }) => {
   return (
     <DataTableLensContextProvider
@@ -28,6 +30,7 @@ const Datatable: React.FC<DatatableInterface> = ({
       disableResizing={disableResizing}
       viewId={viewId}
       rowActions={rowActions}
+      actionsMapping={actionsMapping}
     >
       <DatatableList />
     </DataTableLensContextProvider>
