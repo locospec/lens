@@ -67,6 +67,11 @@ const ACTION_2 = {
       // label: "Sample",
       // url: "/sample/:id",
     },
+    {
+      key: "sample2",
+      // label: "Sample",
+      // url: "/sample/:id",
+    },
   ],
 };
 

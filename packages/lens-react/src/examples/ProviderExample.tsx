@@ -7,7 +7,7 @@ import {
 } from "../../../lens-react/lib/main";
 // import SearchInput from "../../lib/components/SearchInput/SearchInput";
 import CustomSearchInput from "./components/CustomSearch";
-import { Clock } from "lucide-react";
+import { Clock, AArrowDown, Edit3Icon } from "lucide-react";
 
 export interface CallbackInterface {
   url: string;
@@ -94,11 +94,26 @@ const ProviderExample = () => {
               }}
               actionsMapping={{
                 sample: {
-                  url: "/sample/:id",
+                  url: "/sample/:id/:city.locality.id",
                   icon: Clock,
                   callback: ({ url, data }: CallbackInterface) => {
-                    console.log(">>>>>", url, data);
+                    console.log("Sample Callback ", url, data);
                   },
+                },
+                edit: {
+                  icon: Edit3Icon,
+                },
+                sample2: {
+                  component: (
+                    <div
+                      className="flex items-center gap-x-2 rounded-full bg-red-200 hover:bg-red-300 cursor-pointer p-1"
+                      onClick={() => {
+                        console.log(">> CLICKED ON ACTIONS COMPONENT");
+                      }}
+                    >
+                      <AArrowDown />
+                    </div>
+                  ),
                 },
               }}
             />
