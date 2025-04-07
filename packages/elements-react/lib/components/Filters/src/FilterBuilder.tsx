@@ -7,7 +7,6 @@ import { FilterBuilderProps } from "./interfaces/src/FilterInterface";
 import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import useFilterFunctions from "./hooks/useFilterFunctions";
-import "./FilterBuilder.css";
 import { AttributeOptionsArrayType } from "./interfaces";
 
 const queryClient = new QueryClient();
