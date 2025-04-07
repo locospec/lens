@@ -103,6 +103,8 @@ const ProviderExample = () => {
                 },
                 edit: {
                   icon: Edit3Icon,
+                  styles:
+                    "font-bold bg-blue-300 px-2 rounded-full hover:bg-blue-500 text-red-400 font-bold hover:text-red-500",
                 },
                 sample2: {
                   component: (
