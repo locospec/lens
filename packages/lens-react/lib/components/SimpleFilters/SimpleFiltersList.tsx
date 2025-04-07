@@ -24,7 +24,6 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
   } = useSimpleFiltersContext();
   const [isLoading, setIsLoading] = useState(true);
 
-  const enumClassName = classNames?.enum || "";
   const wrapperClassName = classNames?.wrapper || "";
   const dateTriggerClassName = classNames?.dateTrigger || "";
 
@@ -87,7 +86,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
                         placeholder={`Select ${attribute.label}`}
                         resetInput={""}
                         filterContainerRef={filterContainerRef}
-                        className={enumClassName}
+                        className={classNames}
                       />
                     )}
                   </React.Fragment>

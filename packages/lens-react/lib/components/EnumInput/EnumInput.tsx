@@ -27,6 +27,28 @@ import { getSameLevelConditions } from "../Filters";
 import { EnumInputInterface } from "./interface";
 import { contextDecoder } from "./utils";
 
+const generateStylingClasses = (classNamesObject: Record<string, string>) => {
+  const enumClasses = classNamesObject?.enum || "";
+  const popoverWrapperClasses = classNamesObject?.popoverWrapper || "";
+  const popoverClasses = classNamesObject?.popover || "";
+  const searchInputWrapperClasses = classNamesObject?.searchInputWrapper || "";
+  const searchIconClasses = classNamesObject?.searchIcon || "";
+  const searchInputClasses = classNamesObject?.searchInput || "";
+  const itemClasses = classNamesObject?.items || "";
+  const separatorClasses = classNamesObject?.separator || "";
+
+  return {
+    enumClasses,
+    popoverWrapperClasses,
+    popoverClasses,
+    searchInputWrapperClasses,
+    searchIconClasses,
+    searchInputClasses,
+    itemClasses,
+    separatorClasses,
+  };
+};
+
 const EnumInput = React.memo(function EnumInput({
   emptyLabel = "No options found...",
   placeholder = "Select an option....",
@@ -60,6 +82,17 @@ const EnumInput = React.memo(function EnumInput({
   } = selectedAttribute;
   const [isLoading, setIsLoading] = React.useState(false);
   const isConfigDriven = configOptions.length > 0;
+
+  const {
+    enumClasses,
+    popoverWrapperClasses,
+    popoverClasses,
+    searchInputWrapperClasses,
+    searchIconClasses,
+    searchInputClasses,
+    itemClasses,
+    separatorClasses,
+  } = generateStylingClasses(className);
 
   const { sameGroup: samegroup, filters: dependentFilter } =
     getSameLevelConditions({
@@ -156,7 +189,7 @@ const EnumInput = React.memo(function EnumInput({
             "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
             "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
             "h-9 px-4 py-2",
-            className
+            enumClasses
           )}
           aria-expanded={open}
         >
@@ -187,19 +220,27 @@ const EnumInput = React.memo(function EnumInput({
         </div>
       </PopoverTrigger>
       <PopoverContent
-        className="w-[200px] max-w-[320px] p-0"
+        className={cn("w-[200px] max-w-[320px] p-0", popoverWrapperClasses)}
         containerRef={filterContainerRef}
       >
         <Command>
           <div
-            className="flex items-center border-b px-3"
+            className={cn(
+              "flex items-center border-b px-3",
+              searchInputWrapperClasses
+            )}
             cmdk-input-wrapper=""
           >
-            <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+            <Search
+              className={cn(
+                "mr-2 h-4 w-4 shrink-0 opacity-50",
+                searchIconClasses
+              )}
+            />
             <input
               className={cn(
                 "flex h-8 border-0 w-full bg-transparent py-1 text-sm outline-none placeholder:text-muted-foreground hover:bg-transparent disabled:cursor-not-allowed disabled:opacity-50",
-                className
+                searchInputClasses
               )}
               placeholder={placeholder}
               onChange={(e) => {
@@ -207,13 +248,14 @@ const EnumInput = React.memo(function EnumInput({
               }}
             />
           </div>
-          <CommandSeparator />
+          <CommandSeparator className={separatorClasses} />
           <CommandList
             ref={containerRef}
             key={condition.attribute}
             onScroll={(e) =>
               fetchMoreOnBottomReached(e.target as HTMLDivElement)
             }
+            className={popoverClasses}
           >
             <CommandEmpty>
               {isLoading ? "Loading options" : emptyLabel}
@@ -228,6 +270,7 @@ const EnumInput = React.memo(function EnumInput({
                       onSelect={(currentValue: string) => {
                         handleSelect(currentValue);
                       }}
+                      className={itemClasses}
                     >
                       <Check
                         className={cn(

@@ -67,6 +67,13 @@ const ProviderExample = () => {
             <SimpleFilters
               classNames={{
                 enum: "text-[#A8A8A8] hover:text-[#A1A1A1] rounded-[7px]",
+                popoverWrapper: "max-h-[40vh] h-[300px]",
+                popover: "max-h-[300px]",
+                // separator: "bg-red-600",
+                // searchInput: "bg-yellow-400",
+                // searchInputWrapper: "bg-yellow-600",
+                // searchIcon: "text-green-400",
+                // items: "",
               }}
             />
           </div>
