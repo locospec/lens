@@ -62,16 +62,16 @@ const ACTION_2 = {
         },
       ],
     },
-    {
-      key: "sample",
-      // label: "Sample",
-      // url: "/sample/:id",
-    },
-    {
-      key: "sample2",
-      // label: "Sample",
-      // url: "/sample/:id",
-    },
+    // {
+    //   key: "sample",
+    //   // label: "Sample",
+    //   // url: "/sample/:id",
+    // },
+    // {
+    //   key: "sample2",
+    //   // label: "Sample",
+    //   // url: "/sample/:id",
+    // },
   ],
 };
 
