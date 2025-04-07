@@ -4,6 +4,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/base/components/ui/popover";
+import { cn } from "@/base/lib/utils";
 
 export interface ActionCTAInterface {
   data: any;
@@ -11,6 +12,7 @@ export interface ActionCTAInterface {
   icon: any;
   url: string;
   options: any[];
+  classNames?: string;
 }
 
 export interface DropdownButtonInterface {
@@ -18,6 +20,7 @@ export interface DropdownButtonInterface {
   callback: any;
   icon: any;
   options: any[];
+  classNames?: string;
 }
 
 const DropdownButton: React.FC<DropdownButtonInterface> = ({
@@ -25,6 +28,7 @@ const DropdownButton: React.FC<DropdownButtonInterface> = ({
   callback,
   icon,
   options,
+  classNames = "",
 }) => {
   const [open, setOpen] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
@@ -47,7 +51,7 @@ const DropdownButton: React.FC<DropdownButtonInterface> = ({
         <button
           role="combobox"
           aria-expanded={open}
-          className="flex items-center cursor-pointer"
+          className={cn("flex items-center cursor-pointer", classNames)}
         >
           {icon}
         </button>
@@ -80,6 +84,7 @@ const ActionCTA = ({
   url,
   icon,
   options,
+  classNames = "",
 }: ActionCTAInterface) => {
   if (options && options.length > 0) {
     return (
@@ -87,13 +92,14 @@ const ActionCTA = ({
         data={data}
         callback={callback}
         icon={icon}
+        classNames={classNames}
         options={options}
       />
     );
   }
   return (
     <button
-      className="flex cursor-pointer"
+      className={cn("flex cursor-pointer items-center", classNames)}
       onClick={() => {
         callback({ url, data });
       }}
