@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/lens-react@0.0.4`
+  - chore: added actions header in classnames for action header styling customisation [#128](https://github.com/locospec/ui/pull/128) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Tue Apr 08 2025)
+
+#### 🐛 Bug Fix
+
 - `@locospec/lens-react@0.0.3`
   - chore: added display of filter selected values if options are null [#127](https://github.com/locospec/ui/pull/127) ([@ShreyDhyani](https://github.com/ShreyDhyani))
 
