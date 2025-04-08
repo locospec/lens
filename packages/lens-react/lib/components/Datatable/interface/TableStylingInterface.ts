@@ -6,6 +6,7 @@ interface TableStylingInterface {
   row?: string;
   cell?: string;
   actionsCell?: string;
+  actionsHeader?: string;
   resizehandle?: string;
 }
 
