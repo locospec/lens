@@ -33,7 +33,7 @@ const ResizeHandle = ({
         setIsInResizeArea(false);
       }}
       className={cn(
-        " absolute right-0 top-0 h-full w-1 touch-none select-none",
+        "absolute right-0 top-0 h-full w-1 touch-none select-none",
         variantClasses.resize_handler,
         disabled ? "cursor-not-allowed" : "cursor-col-resize",
         disabled && variantClasses.resize_handler_isresizing,

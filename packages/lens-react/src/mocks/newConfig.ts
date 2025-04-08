@@ -17,7 +17,7 @@ const ACTION_1 = {
 };
 
 const ACTION_2 = {
-  header: "Actions",
+  // header: "Actions",
   items: [
     {
       key: "edit",
@@ -82,7 +82,7 @@ const new_config = {
     label: "Sub Asset Types Default View",
     type: "view",
     model: "sub_asset_type",
-    selectionType: "single",
+    selectionType: "multiple",
     selectionKey: "id",
     actions: ACTION_2,
     expand: ["adjhad"],

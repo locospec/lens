@@ -2,23 +2,29 @@ import { cn } from "@/base/lib/utils";
 
 const VANILLA_THEME = {
   no_data: cn("text-gray-600", "dark:text-gray-400"),
-  cell: cn("border-gray-500", "dark:border-gray-100"),
+  wrapper: cn("rounded-md", "border-gray-500 ", "dark:border-gray-100"),
   header_row: cn(
     "border-b border-gray-500 text-black font-semibold",
     "dark:border-gray-100 dark:text-white"
   ),
-  wrapper: cn("border-gray-500", "dark:border-gray-100"),
-  row: cn(
-    "hover:bg-gray-200 data-[state=selected]:bg-gray-200 text-gray-900 border-b border-gray-500",
-    "dark:hover:bg-gray-800 dark:data-[state=selected]:bg-gray-800 dark:text-gray-100 dark:border-gray-100"
-  ),
+  header_cell: cn("border-r data-[islast=true]:border-r-0"),
   resize_handler: cn(
     "bg-transparent  border-r data-[islast=true]:border-r-0 border-gray-500 hover:border-gray-700 hover:bg-gray-600",
+    // "bg-transparent  border-r-0 border-gray-500 bg-gray-50 hover:border-gray-700 hover:bg-gray-600",
     "dark:border-gray-200 dark:hover:border-gray-300 dark:hover:bg-gray-400"
   ),
   resize_handler_isresizing: cn(
     "data-[isresising=true]:bg-gray-700",
     "dark:data-[isresising=true]:bg-gray-300"
+  ),
+  row: cn(
+    "hover:bg-gray-200 data-[state=selected]:bg-gray-200 text-gray-900 border-b border-gray-500",
+    "dark:hover:bg-gray-800 dark:data-[state=selected]:bg-gray-800 dark:text-gray-100 dark:border-gray-100"
+  ),
+  cell: cn(
+    "border-r data-[islast=true]:border-r-0",
+    "border-gray-500",
+    "dark:border-gray-100"
   ),
   checkbox: cn(
     "border-gray-900 data-[state=checked]:bg-gray-900 data-[state=checked]:text-white",
