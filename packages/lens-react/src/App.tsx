@@ -10,6 +10,8 @@ import ViewExample from "./examples/ViewExample";
 import SimpleFiltersExample from "./examples/SimpleFiltersExample";
 import FilterBuilderExample from "./examples/FilterBuilderExample";
 import ENUMExample from "./examples/ENUMExample";
+import { cn } from "../lib/components/utils/cn";
+import { MoonIcon, SunIcon } from "lucide-react";
 
 function App() {
   React.useEffect(() => {
@@ -18,6 +20,11 @@ function App() {
       makeServer().shutdown();
     };
   }, []);
+
+  const [mode, setMode] = React.useState("light");
+  const toggleMode = () => {
+    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+  };
 
   const components = [
     "raw_data",
@@ -30,9 +37,9 @@ function App() {
   ];
 
   return (
-    <main className="w-screen h-screen overflow-hidden">
+    <main className={cn("w-screen h-screen overflow-hidden", mode)}>
       <div className="w-full h-full flex">
-        <div className="min-w-[50px] lg:min-w-[200px] w-[10vw] lg:w-[20vw] bg-gray-50 flex flex-col gap-y-2 p-4">
+        <div className="min-w-[50px] lg:min-w-[200px] w-[10vw] lg:w-[20vw] bg-gray-50 dark:bg-gray-800 flex flex-col gap-y-2 p-4 text-black dark:text-white">
           <div className="flex flex-col gap-y-10 text-sm lg:text-2xl font-bold">
             {components.map((component) => (
               <a
@@ -46,11 +53,17 @@ function App() {
           </div>
         </div>
         <div className="w-[90vw] lg:w-[80vw] flex flex-col h-full">
-          <header className="bg-gray-50 flex items-center justify-center">
+          <header className="relative bg-gray-50 dark:bg-gray-800 dark:text-white flex items-center justify-center h-14">
             <h1 className="text-xl font-bold">Header Section - Title</h1>
+            <div
+              className="absolute top-1/2 -translate-y-1/2 right-0 w-8 h-8 flex items-center justify-center cursor-pointer"
+              onClick={toggleMode}
+            >
+              {mode === "dark" ? <SunIcon /> : <MoonIcon />}
+            </div>
           </header>
 
-          <div className="flex-grow overflow-auto pt-4">
+          <div className="flex-grow overflow-auto pt-4 bg-white dark:bg-gray-700">
             <Routes>
               <Route path="*" children={<></>} />
               <Route path="/provider" children={<ProviderExample />} />
