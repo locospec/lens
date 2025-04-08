@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import {
   Datatable,
   LensProvider,
-  // SimpleFilters,
+  SimpleFilters,
   View,
 } from "../../../lens-react/lib/main";
 // import SearchInput from "../../lib/components/SearchInput/SearchInput";
-// import CustomSearchInput from "./components/CustomSearch";
+import CustomSearchInput from "./components/CustomSearch";
 // import { Clock, AArrowDown, Edit3Icon } from "lucide-react";
 
 export interface CallbackInterface {
@@ -58,7 +58,7 @@ const ProviderExample = () => {
           </label>
         </div>
         <View viewConfiguration={{ context: { sample: "value" } }}>
-          {/* <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center gap-x-2 mt-10">
+          <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center gap-x-2 mt-10">
             <CustomSearchInput />
             <SimpleFilters
               classNames={{
@@ -72,7 +72,7 @@ const ProviderExample = () => {
                 // items: "",
               }}
             />
-          </div> */}
+          </div>
           <div className="h-[400px] px-4">
             <Datatable
               selectedItems={checkedIds}
