@@ -85,7 +85,6 @@ const new_config = {
     selectionType: "multiple",
     selectionKey: "id",
     actions: ACTION_2,
-    expand: ["adjhad"],
     attributes: {
       id: {
         type: "string",

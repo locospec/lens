@@ -16,8 +16,8 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   const column = cell.column;
 
   const css = getColumnPinningStyles(column, false);
+  const isPinned = column.getIsPinned();
   const isSelected = cell.row.getIsSelected();
-
   const align = (cell.column.columnDef.meta as any)?.align;
   const styles = getStyleClasses(
     ["select"].includes(cell.column.id) ? undefined : align
@@ -31,11 +31,10 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   return (
     <div
       className={cn(
-        isAction ? "" : "truncate",
+        isAction || isPinned ? "flex items-center gap-x-4" : "truncate",
         "px-2 py-4 leading-3",
-        isAction || isLast
-          ? "flex gap-x-4"
-          : cn("flex items-center", variantClasses.cell),
+        variantClasses.cell,
+        isPinned && variantClasses.pinned_cells,
         styles?.items,
         styles?.text,
         classNames?.cell || "",

@@ -22,7 +22,7 @@ const DatatableRow = ({
   return (
     <div
       className={cn(
-        "absolute top-0 flex w-full cursor-pointer",
+        "absolute top-0 flex w-full cursor-pointer group",
         variantClasses.row,
         classNames && classNames?.row
       )}

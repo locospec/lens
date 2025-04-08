@@ -7,24 +7,35 @@ const VANILLA_THEME = {
     "border-b border-gray-500 text-black font-semibold",
     "dark:border-gray-100 dark:text-white"
   ),
-  header_cell: cn("border-r data-[islast=true]:border-r-0"),
+  header_cell: cn(
+    "border-r",
+    "bg-gray-50",
+    "dark:bg-gray-800",
+    "data-[islast=true]:border-r-0"
+  ),
   resize_handler: cn(
-    "bg-transparent  border-r data-[islast=true]:border-r-0 border-gray-500 hover:border-gray-700 hover:bg-gray-600",
-    // "bg-transparent  border-r-0 border-gray-500 bg-gray-50 hover:border-gray-700 hover:bg-gray-600",
-    "dark:border-gray-200 dark:hover:border-gray-300 dark:hover:bg-gray-400"
+    // "bg-transparent border-r data-[islast=true]:border-r-0 border-gray-500 hover:border-gray-700 hover:bg-gray-600",
+    "border-r-0",
+    "border-gray-500 bg-gray-100 hover:border-gray-700 hover:bg-gray-600",
+    "dark:border-gray-200 dark:bg-gray-900 dark:hover:border-gray-300 dark:hover:bg-gray-400"
   ),
   resize_handler_isresizing: cn(
     "data-[isresising=true]:bg-gray-700",
     "dark:data-[isresising=true]:bg-gray-300"
   ),
   row: cn(
-    "hover:bg-gray-200 data-[state=selected]:bg-gray-200 text-gray-900 border-b border-gray-500",
-    "dark:hover:bg-gray-800 dark:data-[state=selected]:bg-gray-800 dark:text-gray-100 dark:border-gray-100"
+    "hover:bg-gray-200 data-[state=selected]:bg-gray-200 text-gray-900 border-b border-gray-500 bg-white",
+    "dark:hover:bg-gray-800 dark:data-[state=selected]:bg-gray-800 dark:text-gray-100 dark:border-gray-100 dark:bg-gray-700"
   ),
   cell: cn(
-    "border-r data-[islast=true]:border-r-0",
+    // "border-r data-[islast=true]:border-r-0",
     "border-gray-500",
     "dark:border-gray-100"
+  ),
+  pinned_cells: cn(
+    // "border-r data-[islast=true]:border-r-0",
+    "group-hover:bg-gray-200 border-gray-500 bg-white",
+    "dark:group-hover:bg-gray-800 dark:border-gray-100 dark:bg-gray-700"
   ),
   checkbox: cn(
     "border-gray-900 data-[state=checked]:bg-gray-900 data-[state=checked]:text-white",

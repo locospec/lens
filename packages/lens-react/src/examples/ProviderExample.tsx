@@ -41,11 +41,11 @@ const ProviderExample = () => {
     }
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setCheckedIds(["uuid_1"]);
-    }, 2000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setCheckedIds(["uuid_1"]);
+  //   }, 2000);
+  // }, []);
 
   return (
     <>
