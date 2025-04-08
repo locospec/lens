@@ -47,6 +47,7 @@ const DatatableHeaderItem = ({
 
   const align = (header.column.columnDef.meta as any)?.align;
   const styles = getStyleClasses(align);
+  const isAction = column.id === "actions";
 
   return (
     <SortableContext
@@ -59,7 +60,8 @@ const DatatableHeaderItem = ({
         className={cn(
           "relative truncate px-2 py-2 cursor-grab backdrop-blur-[200px]",
           styles.text,
-          classNames && classNames.header
+          classNames && classNames.header,
+          (isAction && classNames?.actionsHeader) || ""
         )}
         style={{
           width: `calc(var(--header-${id}-size) * 1px)`,
