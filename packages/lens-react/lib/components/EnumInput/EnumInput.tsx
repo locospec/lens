@@ -195,10 +195,12 @@ const EnumInput = React.memo(function EnumInput({
         >
           <div className="max-w-[150px] truncate">
             {values && values.length > 0
-              ? options
-                  .filter((option) => values.includes(option?.const))
-                  .map((option) => option.title)
-                  .join(",")
+              ? options.length > 0
+                ? options
+                    .filter((option) => values.includes(option?.const))
+                    .map((option) => option.title)
+                    .join(",")
+                : values.join(",")
               : placeholder}
           </div>
           {values && values.length > 0 ? (
