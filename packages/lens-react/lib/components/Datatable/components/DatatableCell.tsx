@@ -20,7 +20,6 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   const isSelected = cell.row.getIsSelected();
   const align = (cell.column.columnDef.meta as any)?.align;
   const styles = getStyleClasses(align);
-  console.log(">>>> align", align, cell.column.id, styles);
   const isAction = cell.column.id === "actions";
   const isLast = cell.column.getIsLastColumn();
 

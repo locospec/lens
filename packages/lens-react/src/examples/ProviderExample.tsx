@@ -78,16 +78,16 @@ const ProviderExample = () => {
               selectedItems={checkedIds}
               onSelect={handleSelectionChange}
               variant="vanilla"
-              // classNames={{
-              //   wrapper: "border border-[#eee]",
-              //   headers:
-              //     "flex gap-x-[14px] pl-[14px] pr-[50px] py-[15px] border-0",
-              //   header: "leading-[16px] p-0",
-              //   resizehandle: "bg-gray-100 hover:bg-gray-300",
-              //   row: "flex gap-x-[14px] pl-[17px] pr-[31px] pt-[15px] pb-4 border-b border-[#eee] hover:bg-gray-50",
-              //   cell: "p-0 border-r-0",
-              //   actionsCell: "p-0 gap-x-4 leading-3",
-              // }}
+              classNames={{
+                // wrapper: "border border-[#eee]",
+                // headers:
+                //   "flex gap-x-[14px] pl-[14px] pr-[50px] py-[15px] border-0",
+                // header: "leading-[16px] p-0",
+                // resizehandle: "bg-gray-100 hover:bg-gray-300",
+                // row: "flex gap-x-[14px] pl-[17px] pr-[31px] pt-[15px] pb-4 border-b border-[#eee] hover:bg-gray-50",
+                // cell: "p-0 border-r-0",
+                actionsCell: "justify-end",
+              }}
               // variant=""
               rowActions={{
                 cities: (rowData: Record<string, any>) => {

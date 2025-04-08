@@ -14,7 +14,6 @@ const VANILLA_THEME = {
     "data-[islast=true]:border-r-0"
   ),
   resize_handler: cn(
-    // "bg-transparent border-r data-[islast=true]:border-r-0 border-gray-500 hover:border-gray-700 hover:bg-gray-600",
     "border-r-0",
     "border-gray-500 bg-gray-100 hover:border-gray-700 hover:bg-gray-600",
     "dark:border-gray-200 dark:bg-gray-900 dark:hover:border-gray-300 dark:hover:bg-gray-400"
@@ -27,13 +26,8 @@ const VANILLA_THEME = {
     "hover:bg-gray-200 data-[state=selected]:bg-gray-200 text-gray-900 border-b border-gray-500 bg-white",
     "dark:hover:bg-gray-800 dark:data-[state=selected]:bg-gray-800 dark:text-gray-100 dark:border-gray-100 dark:bg-gray-700"
   ),
-  cell: cn(
-    // "border-r data-[islast=true]:border-r-0",
-    "border-gray-500",
-    "dark:border-gray-100"
-  ),
+  cell: cn("border-gray-500", "dark:border-gray-100"),
   pinned_cells: cn(
-    // "border-r data-[islast=true]:border-r-0",
     "group-hover:bg-gray-200 border-gray-500 bg-white",
     "dark:group-hover:bg-gray-800 dark:border-gray-100 dark:bg-gray-700"
   ),
