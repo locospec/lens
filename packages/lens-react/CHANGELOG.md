@@ -1,3 +1,27 @@
+# v0.0.4 (Tue Apr 08 2025)
+
+#### 🐛 Bug Fix
+
+- chore: added actions header in classnames for action header styling customisation [#128](https://github.com/locospec/ui/pull/128) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# v0.0.3 (Tue Apr 08 2025)
+
+#### 🐛 Bug Fix
+
+- chore: added display of filter selected values if options are null [#127](https://github.com/locospec/ui/pull/127) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.2 (Mon Apr 07 2025)
 
 #### 🐛 Bug Fix

@@ -46,6 +46,7 @@ const DatatableHeaderItem = ({
   const isLast = column.getIsLastColumn();
   const align = (header.column.columnDef.meta as any)?.align;
   const styles = getStyleClasses(align);
+  const isAction = column.id === "actions";
 
   return (
     <SortableContext
@@ -60,7 +61,8 @@ const DatatableHeaderItem = ({
           variantClasses.header_cell,
           enableResizeHandler ? "cursor-grab" : "cursor-pointer",
           styles.text,
-          classNames && classNames.header
+          classNames && classNames.header,
+          (isAction && classNames?.actionsHeader) || ""
         )}
         style={{
           width: `calc(var(--header-${id}-size) * 1px)`,
