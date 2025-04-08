@@ -34,8 +34,8 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
         isAction ? "" : "truncate",
         "px-2 py-4 leading-3",
         isAction || isLast
-          ? "flex gap-x-4 border-r-0"
-          : cn("flex items-center border-r", variantClasses.cell),
+          ? "flex gap-x-4"
+          : cn("flex items-center", variantClasses.cell),
         styles?.items,
         styles?.text,
         classNames?.cell || "",
@@ -45,6 +45,7 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
       style={{ ...width, ...css }}
       data-state={isSelected && "selected"}
       onClick={() => cellAction && cellAction(cell.row.original)}
+      data-islast={isLast ? "true" : "false"}
     >
       {flexRender(cell.column.columnDef.cell, cell.getContext())}
     </div>
