@@ -21,8 +21,26 @@ function App() {
     };
   }, []);
 
-  const [mode, setMode] = React.useState("light");
+  const setLocalStorage = (key: string, value: string) => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem(key, value);
+    }
+  };
+
+  const getLocalStorage = (key: string) => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem(key);
+    }
+    return null;
+  };
+
+  const [mode, setMode] = React.useState(getLocalStorage("theme") || "light");
   const toggleMode = () => {
+    if (mode === "dark") {
+      setLocalStorage("theme", "light");
+    } else {
+      setLocalStorage("theme", "dark");
+    }
     setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
   };
 
