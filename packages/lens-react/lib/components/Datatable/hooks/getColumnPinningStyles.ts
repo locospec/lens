@@ -12,15 +12,15 @@ const getColumnPinningStyles = (
     isPinned === "right" && column.getIsFirstColumn("right");
 
   return {
-    boxShadow: isLastLeftPinnedColumn
-      ? isHeader
-        ? "-4px 0 4px -3px gray inset"
-        : "-4px 0 4px -4px gray inset"
-      : isFirstRightPinnedColumn
-      ? isHeader
-        ? "3px 0 4px -3px gray inset"
-        : "4px 0 4px -4px gray inset"
-      : undefined,
+    // boxShadow: isLastLeftPinnedColumn
+    //   ? isHeader
+    //     ? "-4px 0 4px -3px gray inset"
+    //     : "-4px 0 4px -4px gray inset"
+    //   : isFirstRightPinnedColumn
+    //   ? isHeader
+    //     ? "3px 0 4px -3px gray inset"
+    //     : "4px 0 4px -4px gray inset"
+    //   : undefined,
     left: isPinned === "left" ? `${column.getStart("left")}px` : undefined,
     right: isPinned === "right" ? `${column.getAfter("right")}px` : undefined,
     opacity: isPinned ? 0.95 : 1,

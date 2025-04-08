@@ -25,17 +25,17 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   const isAction = cell.column.id === "actions";
   const isLast = cell.column.getIsLastColumn();
 
-  const { classNames, rowActions } = useDatatableContext();
+  const { classNames, rowActions, variantClasses } = useDatatableContext();
   const cellAction = rowActions && (rowActions[cell.column.id] ?? null);
 
   return (
     <div
       className={cn(
         isAction ? "" : "truncate",
-        "px-2 py-4 text-gray-600 leading-3",
+        "px-2 py-4 leading-3",
         isAction || isLast
           ? "flex gap-x-4 border-r-0"
-          : "flex items-center border-r border-gray-100",
+          : cn("flex items-center border-r", variantClasses.cell),
         styles?.items,
         styles?.text,
         classNames?.cell || "",

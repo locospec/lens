@@ -72,8 +72,8 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
 const Loader = () => {
   return (
     <div className="w-full h-full  flex flex-col items-center justify-center gap-y-2">
-      <div className="relative flex items-center justify-center w-20 h-20 border-4 border-white rounded-full opacity-100 border-t-gray-600 animate-spin"></div>
-      <label className="text-lg font-semibold">
+      <div className="relative flex items-center justify-center w-20 h-20 border-4 dark:border-white border-gray-800 rounded-full opacity-100 border-t-gray-200 dark:border-t-gray-600 animate-spin"></div>
+      <label className="text-lg font-semibold text-black dark:text-white">
         Lens is Loading your configurations. Please be patient..
       </label>
     </div>

@@ -12,6 +12,7 @@ import { useViewContext } from "@/components/Views/View";
 import { initialiseDefaultDatatableValues } from "../utils/initialiseDefaultDatatableValues";
 import { initialiseDefaultColumnsConfig } from "../utils/initialiseDefaultColumnsConfig";
 import { initialiseDatatableStates } from "../utils/initialiseDatatableStates";
+import { fetchStylesFromVariants } from "../hooks/fetchStylesFromVariants";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
@@ -23,6 +24,7 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   columns,
   selectedItems,
   viewChildRef,
+  variant = "vanilla",
   ...props
 }) => {
   const { defaultColPinning, defaultColShow, tableSelectedItems } =
@@ -102,10 +104,12 @@ const DataTableLensContextProvider: React.FC<
   viewId = "default",
   rowActions,
   actionsMapping,
+  variant,
 }) => {
   const lensContext = useLensContext();
   const viewContext = useViewContext();
   const sensors = initialiseDnDSensors();
+  const DATA_TABLE_STYLING_CLASSES = fetchStylesFromVariants(variant);
 
   const { isFetched, isError, endpoints, modal_name } = lensContext;
   const {
@@ -143,7 +147,7 @@ const DataTableLensContextProvider: React.FC<
     columns,
     identifierKey = "",
     allowedScopes,
-  } = useTableConfig(tableConfig, actionsMapping);
+  } = useTableConfig(tableConfig, actionsMapping, DATA_TABLE_STYLING_CLASSES);
 
   return (
     <DatatableContextProvider
@@ -166,6 +170,8 @@ const DataTableLensContextProvider: React.FC<
       expand={expand}
       localContext={localContext}
       allowedScopes={allowedScopes}
+      variant={variant}
+      variantClasses={DATA_TABLE_STYLING_CLASSES}
     >
       {isFetched ? (
         isError ? (

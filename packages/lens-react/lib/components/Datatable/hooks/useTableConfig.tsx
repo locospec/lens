@@ -12,7 +12,8 @@ import { ActionsMappingPropInterface } from "../interface/ActionsMappingInterfac
 
 const useTableConfig = (
   tableConfig: TableConfigInterface,
-  actionsMapping?: ActionsMappingPropInterface
+  actionsMapping?: ActionsMappingPropInterface,
+  variantClasses?: any
 ) => {
   const columnHelper = createColumnHelper();
   return React.useMemo(() => {
@@ -47,7 +48,7 @@ const useTableConfig = (
     let finalColumns = columnsFromConfig;
 
     if (selectionType && selectionType !== "none") {
-      const selectionColumn = SelectionColumn(selectionType);
+      const selectionColumn = SelectionColumn(selectionType, variantClasses);
       finalColumns = [selectionColumn, ...columnsFromConfig];
     }
 

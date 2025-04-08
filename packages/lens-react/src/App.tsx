@@ -74,7 +74,7 @@ function App() {
           <header className="relative bg-gray-50 dark:bg-gray-800 dark:text-white flex items-center justify-center h-14">
             <h1 className="text-xl font-bold">Header Section - Title</h1>
             <div
-              className="absolute top-1/2 -translate-y-1/2 right-0 w-8 h-8 flex items-center justify-center cursor-pointer"
+              className="absolute top-1/2 -translate-y-1/2 right-2 w-8 h-8 flex items-center justify-center cursor-pointer"
               onClick={toggleMode}
             >
               {mode === "dark" ? <SunIcon /> : <MoonIcon />}

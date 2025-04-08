@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import {
   Datatable,
   LensProvider,
-  SimpleFilters,
+  // SimpleFilters,
   View,
 } from "../../../lens-react/lib/main";
 // import SearchInput from "../../lib/components/SearchInput/SearchInput";
-import CustomSearchInput from "./components/CustomSearch";
-import { Clock, AArrowDown, Edit3Icon } from "lucide-react";
+// import CustomSearchInput from "./components/CustomSearch";
+// import { Clock, AArrowDown, Edit3Icon } from "lucide-react";
 
 export interface CallbackInterface {
   url: string;
@@ -50,19 +50,15 @@ const ProviderExample = () => {
   return (
     <>
       <LensProvider lensConfiguration={lensConfig3} showDevTools>
-        <label className="text-lg">
-          This sample shows two data table using the same data but as they are
+        <div className="px-2 py-4">
+          <label className="text-lg  dark:text-white text-left">
+            {`This sample shows two data table using the same data but as they are
           wrapped in different View Context theirs search and filters do not
-          conflict with each other
-        </label>
-        <div className="flex flex-col">
-          <label className="bg-red-400">{JSON.stringify(checkedIds)}</label>
-          <label className="bg-blue-400 max-h-52 overflow-y-scroll">
-            {JSON.stringify(data)}
+          conflict with each other`}
           </label>
         </div>
         <View viewConfiguration={{ context: { sample: "value" } }}>
-          <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center gap-x-2">
+          {/* <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center gap-x-2 mt-10">
             <CustomSearchInput />
             <SimpleFilters
               classNames={{
@@ -76,11 +72,12 @@ const ProviderExample = () => {
                 // items: "",
               }}
             />
-          </div>
+          </div> */}
           <div className="h-[400px] px-4">
             <Datatable
               selectedItems={checkedIds}
               onSelect={handleSelectionChange}
+              variant="vanilla"
               // classNames={{
               //   wrapper: "border border-[#eee]",
               //   headers:
@@ -91,6 +88,7 @@ const ProviderExample = () => {
               //   cell: "p-0 border-r-0",
               //   actionsCell: "p-0 gap-x-4 leading-3",
               // }}
+              // variant=""
               rowActions={{
                 cities: (rowData: Record<string, any>) => {
                   console.log(rowData);

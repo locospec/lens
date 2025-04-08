@@ -14,6 +14,14 @@ interface CommonWrapperInterface {
   children: ReactNode;
 }
 
+type DatatableVariants =
+  | "vanilla"
+  | "plum"
+  | "citrus"
+  | "blossom"
+  | "cosmic"
+  | undefined;
+
 interface DatatableContextProviderInterface extends CommonWrapperInterface {
   selectionType: SelectionType;
   sensors: SensorDescriptor<SensorOptions>[];
@@ -35,6 +43,8 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   localContext: any;
   allowedScopes?: string[];
   actionsMapping?: ActionsMappingPropInterface;
+  variant?: DatatableVariants;
+  variantClasses?: any;
 }
 
 interface DataTableLensContextProviderInterface
@@ -61,6 +71,7 @@ interface DatatableContextType
 }
 
 export type {
+  DatatableVariants,
   CommonWrapperInterface,
   DatatableContextType,
   DatatableContextProviderInterface,
