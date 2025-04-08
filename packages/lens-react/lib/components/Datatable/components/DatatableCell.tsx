@@ -19,9 +19,8 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   const isPinned = column.getIsPinned();
   const isSelected = cell.row.getIsSelected();
   const align = (cell.column.columnDef.meta as any)?.align;
-  const styles = getStyleClasses(
-    ["select"].includes(cell.column.id) ? undefined : align
-  );
+  const styles = getStyleClasses(align);
+  console.log(">>>> align", align, cell.column.id, styles);
   const isAction = cell.column.id === "actions";
   const isLast = cell.column.getIsLastColumn();
 
