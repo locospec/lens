@@ -15,7 +15,7 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   };
   const column = cell.column;
 
-  const css = getColumnPinningStyles(column, false);
+  const css = getColumnPinningStyles(column);
   const isSelected = cell.row.getIsSelected();
 
   const align = (cell.column.columnDef.meta as any)?.align;
