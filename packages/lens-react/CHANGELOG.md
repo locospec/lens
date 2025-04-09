@@ -1,3 +1,19 @@
+# v0.0.7 (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
+- chore: removed unused prop isHeader from getColumnPinningStyles function [#132](https://github.com/locospec/ui/pull/132) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: change prop name rowActions to cellActions [#131](https://github.com/locospec/ui/pull/131) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: example change [#131](https://github.com/locospec/ui/pull/131) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed box shadow for pinned columns [#131](https://github.com/locospec/ui/pull/131) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: spelling correction [#131](https://github.com/locospec/ui/pull/131) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.6 (Wed Apr 09 2025)
 
 #### 🐛 Bug Fix
