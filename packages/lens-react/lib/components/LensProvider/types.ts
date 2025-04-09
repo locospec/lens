@@ -21,6 +21,7 @@ interface LensConfigurationInterface {
   };
   newConfig?: boolean;
   configCallback?: any;
+  dataCallback?: any;
   context?: Record<string, any>;
   view?: string;
 }
