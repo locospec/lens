@@ -23,7 +23,7 @@ const DatatableHeaderItem = ({
 
   const { classNames, disableResizing } = useDatatableContext();
 
-  const css = getColumnPinningStyles(column, true);
+  const css = getColumnPinningStyles(column);
 
   const { attributes, isDragging, listeners, setNodeRef, transform } =
     useSortable({
