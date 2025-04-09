@@ -10,7 +10,7 @@ export interface DatatableInterface {
   classNames?: TableStylingInterface;
   disableResizing?: boolean;
   viewId?: string;
-  rowActions?: any;
+  cellActions?: any;
   actionsMapping?: ActionsMappingPropInterface;
 }
 
@@ -20,7 +20,7 @@ const Datatable: React.FC<DatatableInterface> = ({
   classNames,
   disableResizing = false,
   viewId,
-  rowActions,
+  cellActions,
   actionsMapping,
 }) => {
   return (
@@ -30,7 +30,7 @@ const Datatable: React.FC<DatatableInterface> = ({
       classNames={classNames}
       disableResizing={disableResizing}
       viewId={viewId}
-      rowActions={rowActions}
+      cellActions={cellActions}
       actionsMapping={actionsMapping}
     >
       <DatatableList />

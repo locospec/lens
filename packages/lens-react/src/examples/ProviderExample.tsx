@@ -137,7 +137,7 @@ const ProviderExample = () => {
                 resizehandle:
                   "w-1 bg-blue-200 hover:bg-blue-400 cursor-col-resize",
               }}
-              // rowActions={{
+              // cellActions={{
               //   cities: (rowData: Record<string, any>) => {
               //     console.log(rowData);
               //   },

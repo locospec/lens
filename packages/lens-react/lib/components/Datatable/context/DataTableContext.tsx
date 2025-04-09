@@ -100,7 +100,7 @@ const DataTableLensContextProvider: React.FC<
   classNames,
   disableResizing = false,
   viewId = "default",
-  rowActions,
+  cellActions,
   actionsMapping,
 }) => {
   const lensContext = useLensContext();
@@ -120,10 +120,10 @@ const DataTableLensContextProvider: React.FC<
   } = viewContext;
   const viewName = config?.name || "default_view";
 
-  if (rowActions) {
+  if (cellActions) {
     const visibleAttributes =
       config?.columns.map((column: any) => column?.id) || [];
-    Object.keys(rowActions).forEach((key) => {
+    Object.keys(cellActions).forEach((key) => {
       if (!visibleAttributes.includes(key)) {
         console.error(
           `Table does not contain the attribute: "${key}"`,
@@ -164,7 +164,7 @@ const DataTableLensContextProvider: React.FC<
       viewId={viewId}
       modalName={modal_name}
       viewChildRef={viewChildRef}
-      rowActions={rowActions}
+      cellActions={cellActions}
       viewName={viewName}
       expand={expand}
       localContext={localContext}
