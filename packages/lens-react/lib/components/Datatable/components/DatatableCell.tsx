@@ -25,8 +25,8 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   const isAction = cell.column.id === "actions";
   const isLast = cell.column.getIsLastColumn();
 
-  const { classNames, rowActions } = useDatatableContext();
-  const cellAction = rowActions && (rowActions[cell.column.id] ?? null);
+  const { classNames, cellActions } = useDatatableContext();
+  const cellAction = cellActions && (cellActions[cell.column.id] ?? null);
 
   return (
     <div
