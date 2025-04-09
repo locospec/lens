@@ -109,7 +109,7 @@ const DataTableLensContextProvider: React.FC<
 
   const { isFetched, isError, endpoints, modal_name, lensConfiguration } =
     lensContext;
-  const { dataCallback } = lensConfiguration;
+  const { dataCallback, permissionHeaders } = lensConfiguration;
 
   const {
     filters,
@@ -146,7 +146,7 @@ const DataTableLensContextProvider: React.FC<
     columns,
     identifierKey = "",
     allowedScopes,
-  } = useTableConfig(tableConfig, actionsMapping);
+  } = useTableConfig(tableConfig, actionsMapping, permissionHeaders);
 
   return (
     <DatatableContextProvider
