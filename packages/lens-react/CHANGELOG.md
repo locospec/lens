@@ -1,3 +1,17 @@
+# v0.0.6 (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
+- site: modified examples [#130](https://github.com/locospec/ui/pull/130) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: enabled using dataCallback function to fetch data for table [#130](https://github.com/locospec/ui/pull/130) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added datacallback to Lens config as interface [#130](https://github.com/locospec/ui/pull/130) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.5 (Wed Apr 09 2025)
 
 #### 🐛 Bug Fix

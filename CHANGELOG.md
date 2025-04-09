@@ -2,6 +2,21 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/lens-react@0.0.6`
+  - site: modified examples [#130](https://github.com/locospec/ui/pull/130) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: enabled using dataCallback function to fetch data for table [#130](https://github.com/locospec/ui/pull/130) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added datacallback to Lens config as interface [#130](https://github.com/locospec/ui/pull/130) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
 - `@locospec/lens-react@0.0.5`
   - chore: modified provider example [#129](https://github.com/locospec/ui/pull/129) ([@ShreyDhyani](https://github.com/ShreyDhyani))
   - chore: made selection props optional [#129](https://github.com/locospec/ui/pull/129) ([@ShreyDhyani](https://github.com/ShreyDhyani))
