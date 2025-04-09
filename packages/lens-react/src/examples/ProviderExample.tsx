@@ -9,6 +9,37 @@ import {
 import CustomSearchInput from "./components/CustomSearch";
 import { Clock, AArrowDown, Edit3Icon } from "lucide-react";
 
+const dataCallback = (data: any) => {
+  const dataSource = "sample";
+  const processed = "{";
+  const cursor = 0;
+  const pageSize = 10;
+  let completeTestData: any = [];
+
+  completeTestData = Array.from({ length: 200 }, (_, index) => ({
+    // label: dataSource + "[" + processed + "]" + index,
+    // value: dataSource + "_" + index,
+    title: dataSource + "[" + processed + "]" + index,
+    const: dataSource + "_" + index,
+  }));
+
+  const paginatedTestData = completeTestData.slice(cursor, cursor + pageSize);
+  const nextCursor =
+    cursor + pageSize < completeTestData.length ? cursor + pageSize : null;
+  const meta = {
+    count: 2,
+    per_page: pageSize,
+    has_more: null,
+    next_cursor: nextCursor,
+    prev_cursor: null,
+  };
+  return {
+    success: true,
+    data: paginatedTestData,
+    meta: meta,
+  };
+};
+
 export interface CallbackInterface {
   url: string;
   data: Record<string, any>;
@@ -25,6 +56,7 @@ const ProviderExample = () => {
     context: {
       distributer_id: "abc",
     },
+    // dataCallback: dataCallback,
     view: "default_view",
   };
 
