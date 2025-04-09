@@ -1,3 +1,17 @@
+# (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.5`
+  - chore: modified provider example [#129](https://github.com/locospec/ui/pull/129) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: made selection props optional [#129](https://github.com/locospec/ui/pull/129) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # (Tue Apr 08 2025)
 
 #### 🐛 Bug Fix

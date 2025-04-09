@@ -1,3 +1,16 @@
+# v0.0.5 (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
+- chore: modified provider example [#129](https://github.com/locospec/ui/pull/129) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: made selection props optional [#129](https://github.com/locospec/ui/pull/129) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.4 (Tue Apr 08 2025)
 
 #### 🐛 Bug Fix
