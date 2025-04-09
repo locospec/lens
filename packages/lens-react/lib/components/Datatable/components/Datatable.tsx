@@ -5,8 +5,8 @@ import { TableStylingInterface } from "../interface/TableStylingInterface";
 import { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
 
 export interface DatatableInterface {
-  onSelect: (selected: any[]) => void;
-  selectedItems: string[];
+  onSelect?: (selected: any[]) => void;
+  selectedItems?: string[];
   classNames?: TableStylingInterface;
   disableResizing?: boolean;
   viewId?: string;
@@ -15,8 +15,8 @@ export interface DatatableInterface {
 }
 
 const Datatable: React.FC<DatatableInterface> = ({
-  selectedItems,
-  onSelect,
+  selectedItems = [],
+  onSelect = () => {},
   classNames,
   disableResizing = false,
   viewId,
