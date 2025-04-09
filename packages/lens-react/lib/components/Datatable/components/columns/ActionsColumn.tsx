@@ -6,7 +6,8 @@ import { ActionsMappingPropInterface } from "../../interface/ActionsMappingInter
 
 const ActionsColumn = (
   actions: ActionsConfig,
-  actionsMapping?: ActionsMappingPropInterface
+  actionsMapping?: ActionsMappingPropInterface,
+  permissionHeaders?: any
 ) => {
   return {
     id: "actions",
@@ -18,6 +19,7 @@ const ActionsColumn = (
         actions: actions.items,
         row: row.original,
         actionsMapping: actionsMapping,
+        permissionHeaders: permissionHeaders,
       });
     },
     enableSorting: false,

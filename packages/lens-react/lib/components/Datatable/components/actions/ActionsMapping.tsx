@@ -9,6 +9,7 @@ export interface ActionsMappingInterface {
   row: Row<any>;
   actionOption: ActionOption;
   actionsMapping?: ActionsMappingPropInterface;
+  permissionHeaders?: any;
 }
 
 type RowObject = {
@@ -38,6 +39,7 @@ const ActionsMapping = ({
   row,
   actionOption,
   actionsMapping,
+  permissionHeaders,
 }: ActionsMappingInterface) => {
   const {
     key: id,
@@ -99,6 +101,10 @@ const ActionsMapping = ({
             try {
               const response = await fetch(modifiedURL, {
                 method: method || "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                  ...permissionHeaders,
+                },
               });
               const responseJson = await response.json();
               return responseJson;
