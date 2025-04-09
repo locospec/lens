@@ -107,7 +107,10 @@ const DataTableLensContextProvider: React.FC<
   const viewContext = useViewContext();
   const sensors = initialiseDnDSensors();
 
-  const { isFetched, isError, endpoints, modal_name } = lensContext;
+  const { isFetched, isError, endpoints, modal_name, lensConfiguration } =
+    lensContext;
+  const { dataCallback } = lensConfiguration;
+
   const {
     filters,
     searchQuery,
@@ -166,6 +169,7 @@ const DataTableLensContextProvider: React.FC<
       expand={expand}
       localContext={localContext}
       allowedScopes={allowedScopes}
+      dataCallback={dataCallback}
     >
       {isFetched ? (
         isError ? (
