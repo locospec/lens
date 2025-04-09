@@ -1,3 +1,16 @@
+# v0.0.8 (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
+- chore: modified example for testing [#133](https://github.com/locospec/ui/pull/133) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added permission headers for action columns fetch requests [#133](https://github.com/locospec/ui/pull/133) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.7 (Wed Apr 09 2025)
 
 #### 🐛 Bug Fix

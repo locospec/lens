@@ -2,6 +2,20 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/lens-react@0.0.8`
+  - chore: modified example for testing [#133](https://github.com/locospec/ui/pull/133) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added permission headers for action columns fetch requests [#133](https://github.com/locospec/ui/pull/133) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
 - `@locospec/lens-react@0.0.7`
   - chore: removed unused prop isHeader from getColumnPinningStyles function [#132](https://github.com/locospec/ui/pull/132) ([@ShreyDhyani](https://github.com/ShreyDhyani))
   - chore: change prop name rowActions to cellActions [#131](https://github.com/locospec/ui/pull/131) ([@ShreyDhyani](https://github.com/ShreyDhyani))
