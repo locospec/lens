@@ -49,6 +49,7 @@ const ACTION_2 = {
       url: "/delete_asset_type?primary_key=:id",
       icon: "Trash2",
       confirmation: "true",
+      method: "POST",
       options: [
         {
           key: "delete_asset_type",
