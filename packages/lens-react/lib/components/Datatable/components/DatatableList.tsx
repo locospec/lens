@@ -48,6 +48,7 @@ const DatatableList = () => {
     expand,
     localContext,
     allowedScopes,
+    dataCallback,
   } = useDatatableContext();
 
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
@@ -63,6 +64,7 @@ const DatatableList = () => {
           allowedScopes.length > 0 && { scopes: allowedScopes }),
       },
       globalFilter: searchQuery,
+      dataCallback: dataCallback,
     });
 
   useEffect(() => {

@@ -35,6 +35,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   localContext: any;
   allowedScopes?: string[];
   actionsMapping?: ActionsMappingPropInterface;
+  dataCallback?: any;
 }
 
 interface DataTableLensContextProviderInterface
