@@ -8,8 +8,6 @@ import React, {
 } from "react";
 import type { ViewContextType, ViewProviderProps } from "./types";
 import { LensContext } from "@/main";
-import LensSidebar from "@/components/Sheet/LensSheet";
-import { Sheet } from "@/base/components/ui/sheet";
 
 export const ViewContext = createContext<ViewContextType | undefined>(
   undefined
@@ -18,9 +16,7 @@ export const ViewContext = createContext<ViewContextType | undefined>(
 export const ViewProvider: React.FC<ViewProviderProps> = ({
   children,
   viewId = "default",
-  showSheetProp = false,
   viewConfiguration,
-  setShowSheetProp,
 }) => {
   const view_uuid = useMemo(
     () => (Math.floor(Math.random() * 10000000000) + 1).toString(),
@@ -43,7 +39,6 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
 
   const [filters, setFilters] = useState<any>({ op: "and", conditions: [] });
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [showSheet, setShowSheet] = useState(false);
 
   const memoizedContextValues = useMemo(
     () => ({
@@ -52,17 +47,8 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
       viewId,
       config: configuration,
       viewChildRef,
-      showSheet: showSheetProp ?? showSheet,
-      setShowSheet: setShowSheetProp ?? setShowSheet,
     }),
-    [
-      view_uuid,
-      viewId,
-      JSON.stringify(configuration),
-      showSheetProp,
-      showSheet,
-      setShowSheetProp,
-    ]
+    [view_uuid, viewId, JSON.stringify(configuration)]
   );
 
   const updateSearchQuery = useCallback(
@@ -91,12 +77,6 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
     >
       {/* {JSON.stringify({ inView: viewId, filters: filters })} */}
       {children}
-      <Sheet
-        open={(showSheetProp ??= showSheet)}
-        onOpenChange={(setShowSheetProp ??= setShowSheet)}
-      >
-        <LensSidebar tableContainerRef={viewChildRef} />
-      </Sheet>
     </ViewContext.Provider>
   );
 };
