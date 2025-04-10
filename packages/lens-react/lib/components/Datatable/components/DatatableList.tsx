@@ -50,6 +50,7 @@ const DatatableList = () => {
     allowedScopes,
     variantClasses,
     dataCallback,
+    disableReordering,
   } = useDatatableContext();
 
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
@@ -175,7 +176,7 @@ const DatatableList = () => {
             columnSizeVars={columnSizeVars}
             tableContainerRef={tableContainerRef}
             columnOrder={columnOrder}
-            handleDragEnd={handleDragEnd}
+            handleDragEnd={disableReordering ? () => {} : handleDragEnd}
             setActiveId={setActiveId}
             activeId={activeId}
             setIsInResizeArea={setIsInResizeArea}

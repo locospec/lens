@@ -105,6 +105,7 @@ const DataTableLensContextProvider: React.FC<
   cellActions,
   actionsMapping,
   variant,
+  disableReordering,
 }) => {
   const lensContext = useLensContext();
   const viewContext = useViewContext();
@@ -167,7 +168,6 @@ const DataTableLensContextProvider: React.FC<
       onSelect={onSelect ? onSelect : () => {}}
       selectedItems={selectedItems || []}
       classNames={classNames}
-      disableResizing={disableResizing}
       filters={filters}
       searchQuery={searchQuery}
       viewId={viewId}
@@ -181,6 +181,8 @@ const DataTableLensContextProvider: React.FC<
       variant={variant}
       variantClasses={DATA_TABLE_STYLING_CLASSES}
       dataCallback={dataCallback}
+      disableResizing={disableResizing}
+      disableReordering={disableReordering}
     >
       {isFetched ? (
         isError ? (

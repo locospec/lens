@@ -46,6 +46,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   variant?: DatatableVariants;
   variantClasses?: any;
   dataCallback?: any;
+  disableReordering?: boolean;
 }
 
 interface DataTableLensContextProviderInterface

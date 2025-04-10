@@ -11,6 +11,7 @@ export interface DatatableInterface {
   selectedItems?: string[];
   classNames?: TableStylingInterface;
   disableResizing?: boolean;
+  disableReordering?: boolean;
   viewId?: string;
   cellActions?: any;
   actionsMapping?: ActionsMappingPropInterface;
@@ -22,6 +23,7 @@ const Datatable: React.FC<DatatableInterface> = ({
   onSelect = () => {},
   classNames,
   disableResizing = false,
+  disableReordering = false,
   viewId,
   cellActions,
   actionsMapping,
@@ -32,11 +34,12 @@ const Datatable: React.FC<DatatableInterface> = ({
       selectedItems={selectedItems}
       onSelect={onSelect}
       classNames={classNames}
-      disableResizing={disableResizing}
       viewId={viewId}
       cellActions={cellActions}
       actionsMapping={actionsMapping}
       variant={variant}
+      disableResizing={disableResizing}
+      disableReordering={disableReordering}
     >
       <DatatableList />
     </DataTableLensContextProvider>

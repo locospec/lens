@@ -20,7 +20,8 @@ const DatatableHeaderItem = ({
 }: any) => {
   const fixed = (header.column.columnDef.meta as any)?.fixed;
   const { column } = header;
-  const { classNames, disableResizing, variantClasses } = useDatatableContext();
+  const { classNames, disableResizing, variantClasses, disableReordering } =
+    useDatatableContext();
 
   const css = getColumnPinningStyles(column);
 
@@ -59,7 +60,9 @@ const DatatableHeaderItem = ({
         className={cn(
           "relative truncate px-2 py-2",
           variantClasses.header_cell,
-          enableResizeHandler ? "cursor-grab" : "cursor-pointer",
+          !disableReordering && enableResizeHandler
+            ? "cursor-grab"
+            : "cursor-pointer",
           styles.text,
           classNames && classNames.header,
           (isAction && classNames?.actionsHeader) || ""

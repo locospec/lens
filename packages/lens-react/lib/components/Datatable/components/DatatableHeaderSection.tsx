@@ -32,7 +32,7 @@ const DatatableHeaderSection = ({
   isInResizeArea,
   sensors,
 }: DatatableHeaderSectionInterface) => {
-  const { variantClasses } = useDatatableContext();
+  const { variantClasses, disableReordering } = useDatatableContext();
   return (
     <DndContext
       collisionDetection={closestCenter}
@@ -40,19 +40,25 @@ const DatatableHeaderSection = ({
       onDragEnd={handleDragEnd}
       sensors={sensors}
       onDragStart={(event) => {
-        setActiveId(event.active.id as string);
-        document.body.classList.add("cursor-grabbing");
+        if (!disableReordering) {
+          setActiveId(event.active.id as string);
+          document.body.classList.add("cursor-grabbing");
+        }
       }}
       onDragCancel={() => {
-        setActiveId(null);
-        document.body.classList.remove("cursor-grabbing");
+        if (!disableReordering) {
+          setActiveId(null);
+          document.body.classList.remove("cursor-grabbing");
+        }
       }}
     >
-      <DragOverlay
-        className={cn("absolute px-4 py-2 h-20", variantClasses.dragoverlay)}
-      >
-        {activeId ? <label>{splitAndCapitalize(activeId)}</label> : null}
-      </DragOverlay>
+      {!disableReordering && (
+        <DragOverlay
+          className={cn("absolute px-4 py-2 h-20", variantClasses.dragoverlay)}
+        >
+          {activeId ? <label>{splitAndCapitalize(activeId)}</label> : null}
+        </DragOverlay>
+      )}
       {table.getHeaderGroups().map((headerGroup) => {
         return (
           <DataTableHeader
