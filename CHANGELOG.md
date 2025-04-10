@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/lens-react@0.0.10`
+  - chore: fixed import for Search input [#135](https://github.com/locospec/ui/pull/135) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Thu Apr 10 2025)
+
+#### 🐛 Bug Fix
+
 - `@locospec/lens-react@0.0.9`
   - Vanilla variant [#134](https://github.com/locospec/ui/pull/134) ([@ShreyDhyani](https://github.com/ShreyDhyani))
 

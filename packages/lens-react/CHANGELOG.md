@@ -1,3 +1,15 @@
+# v0.0.10 (Thu Apr 10 2025)
+
+#### 🐛 Bug Fix
+
+- chore: fixed import for Search input [#135](https://github.com/locospec/ui/pull/135) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.9 (Thu Apr 10 2025)
 
 #### 🐛 Bug Fix
