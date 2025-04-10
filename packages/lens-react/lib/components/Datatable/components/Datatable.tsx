@@ -7,23 +7,23 @@ import type { DatatableVariants } from "../context/ContextInterfaces";
 import "../styles.css";
 
 export interface DatatableInterface {
-  onSelect: (selected: any[]) => void;
-  selectedItems: string[];
+  onSelect?: (selected: any[]) => void;
+  selectedItems?: string[];
   classNames?: TableStylingInterface;
   disableResizing?: boolean;
   viewId?: string;
-  rowActions?: any;
+  cellActions?: any;
   actionsMapping?: ActionsMappingPropInterface;
   variant?: DatatableVariants;
 }
 
 const Datatable: React.FC<DatatableInterface> = ({
-  selectedItems,
-  onSelect,
+  selectedItems = [],
+  onSelect = () => {},
   classNames,
   disableResizing = false,
   viewId,
-  rowActions,
+  cellActions,
   actionsMapping,
   variant,
 }) => {
@@ -34,7 +34,7 @@ const Datatable: React.FC<DatatableInterface> = ({
       classNames={classNames}
       disableResizing={disableResizing}
       viewId={viewId}
-      rowActions={rowActions}
+      cellActions={cellActions}
       actionsMapping={actionsMapping}
       variant={variant}
     >

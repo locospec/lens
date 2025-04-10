@@ -102,7 +102,7 @@ const DataTableLensContextProvider: React.FC<
   classNames,
   disableResizing = false,
   viewId = "default",
-  rowActions,
+  cellActions,
   actionsMapping,
   variant,
 }) => {
@@ -111,7 +111,10 @@ const DataTableLensContextProvider: React.FC<
   const sensors = initialiseDnDSensors();
   const DATA_TABLE_STYLING_CLASSES = fetchStylesFromVariants(variant);
 
-  const { isFetched, isError, endpoints, modal_name } = lensContext;
+  const { isFetched, isError, endpoints, modal_name, lensConfiguration } =
+    lensContext;
+  const { dataCallback, permissionHeaders } = lensConfiguration;
+
   const {
     filters,
     searchQuery,
@@ -121,10 +124,10 @@ const DataTableLensContextProvider: React.FC<
   } = viewContext;
   const viewName = config?.name || "default_view";
 
-  if (rowActions) {
+  if (cellActions) {
     const visibleAttributes =
       config?.columns.map((column: any) => column?.id) || [];
-    Object.keys(rowActions).forEach((key) => {
+    Object.keys(cellActions).forEach((key) => {
       if (!visibleAttributes.includes(key)) {
         console.error(
           `Table does not contain the attribute: "${key}"`,
@@ -147,7 +150,12 @@ const DataTableLensContextProvider: React.FC<
     columns,
     identifierKey = "",
     allowedScopes,
-  } = useTableConfig(tableConfig, actionsMapping, DATA_TABLE_STYLING_CLASSES);
+  } = useTableConfig(
+    tableConfig,
+    actionsMapping,
+    DATA_TABLE_STYLING_CLASSES,
+    permissionHeaders
+  );
 
   return (
     <DatatableContextProvider
@@ -165,13 +173,14 @@ const DataTableLensContextProvider: React.FC<
       viewId={viewId}
       modalName={modal_name}
       viewChildRef={viewChildRef}
-      rowActions={rowActions}
+      cellActions={cellActions}
       viewName={viewName}
       expand={expand}
       localContext={localContext}
       allowedScopes={allowedScopes}
       variant={variant}
       variantClasses={DATA_TABLE_STYLING_CLASSES}
+      dataCallback={dataCallback}
     >
       {isFetched ? (
         isError ? (
@@ -192,7 +201,7 @@ const DatatableLoader = () => {
     <div className="w-full h-full  flex flex-col items-center justify-center gap-y-2">
       <div className="relative flex items-center justify-center w-20 h-20 border-4 border-white rounded-full opacity-100 border-t-gray-600 animate-spin"></div>
       <label className="text-lg font-semibold">
-        Lens Powered Dtatatable is rendering your configurations. Please be
+        Lens Powered Datatable is rendering your configurations. Please be
         patient..
       </label>
     </div>

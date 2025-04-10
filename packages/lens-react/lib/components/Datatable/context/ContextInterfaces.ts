@@ -37,7 +37,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   modalName?: string;
   searchQuery?: string;
   viewChildRef?: React.RefObject<HTMLDivElement>;
-  rowActions?: any;
+  cellActions?: any;
   viewName: string;
   expand: string[];
   localContext: any;
@@ -45,6 +45,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   actionsMapping?: ActionsMappingPropInterface;
   variant?: DatatableVariants;
   variantClasses?: any;
+  dataCallback?: any;
 }
 
 interface DataTableLensContextProviderInterface

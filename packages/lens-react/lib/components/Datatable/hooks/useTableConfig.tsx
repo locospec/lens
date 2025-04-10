@@ -13,7 +13,8 @@ import { ActionsMappingPropInterface } from "../interface/ActionsMappingInterfac
 const useTableConfig = (
   tableConfig: TableConfigInterface,
   actionsMapping?: ActionsMappingPropInterface,
-  variantClasses?: any
+  variantClasses?: any,
+  permissionHeaders?: any
 ) => {
   const columnHelper = createColumnHelper();
   return React.useMemo(() => {
@@ -53,7 +54,11 @@ const useTableConfig = (
     }
 
     if (actions && Object.keys(actions).length > 0) {
-      const actionsColumn = ActionsColumn(actions, actionsMapping);
+      const actionsColumn = ActionsColumn(
+        actions,
+        actionsMapping,
+        permissionHeaders
+      );
       finalColumns.push(actionsColumn);
     }
 

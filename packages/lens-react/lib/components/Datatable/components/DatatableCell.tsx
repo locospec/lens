@@ -15,16 +15,16 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   };
   const column = cell.column;
 
-  const css = getColumnPinningStyles(column, false);
   const isPinned = column.getIsPinned();
+  const css = getColumnPinningStyles(column);
   const isSelected = cell.row.getIsSelected();
   const align = (cell.column.columnDef.meta as any)?.align;
   const styles = getStyleClasses(align);
   const isAction = cell.column.id === "actions";
   const isLast = cell.column.getIsLastColumn();
 
-  const { classNames, rowActions, variantClasses } = useDatatableContext();
-  const cellAction = rowActions && (rowActions[cell.column.id] ?? null);
+  const { classNames, cellActions, variantClasses } = useDatatableContext();
+  const cellAction = cellActions && (cellActions[cell.column.id] ?? null);
 
   return (
     <div

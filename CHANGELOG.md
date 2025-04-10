@@ -1,3 +1,63 @@
+# (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.8`
+  - chore: modified example for testing [#133](https://github.com/locospec/ui/pull/133) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added permission headers for action columns fetch requests [#133](https://github.com/locospec/ui/pull/133) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.7`
+  - chore: removed unused prop isHeader from getColumnPinningStyles function [#132](https://github.com/locospec/ui/pull/132) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: change prop name rowActions to cellActions [#131](https://github.com/locospec/ui/pull/131) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: example change [#131](https://github.com/locospec/ui/pull/131) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: removed box shadow for pinned columns [#131](https://github.com/locospec/ui/pull/131) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: spelling correction [#131](https://github.com/locospec/ui/pull/131) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.6`
+  - site: modified examples [#130](https://github.com/locospec/ui/pull/130) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: enabled using dataCallback function to fetch data for table [#130](https://github.com/locospec/ui/pull/130) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added datacallback to Lens config as interface [#130](https://github.com/locospec/ui/pull/130) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.5`
+  - chore: modified provider example [#129](https://github.com/locospec/ui/pull/129) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: made selection props optional [#129](https://github.com/locospec/ui/pull/129) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # (Tue Apr 08 2025)
 
 #### 🐛 Bug Fix
