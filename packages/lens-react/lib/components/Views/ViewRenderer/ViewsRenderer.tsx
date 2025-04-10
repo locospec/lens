@@ -13,7 +13,7 @@ import {
 } from "@/main";
 import { useContext, useState } from "react";
 import { initViewRendererStates } from "./initViewRendererStates";
-import SearchInput from "@/components/SearchInput/SearchInput";
+import { SearchInput } from "@/components/SearchInput/SearchInput";
 import AddViewTab from "./AddViewTab";
 import FiltersTriggerButton from "./FiltersTriggerButton";
 import { Dialog } from "@/base/components/ui/dialog";

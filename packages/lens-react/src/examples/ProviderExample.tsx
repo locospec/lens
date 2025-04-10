@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {
   Datatable,
   LensProvider,
+  // SearchInput,
   SimpleFilters,
   View,
 } from "../../../lens-react/lib/main";
@@ -92,6 +93,7 @@ const ProviderExample = () => {
         <View viewConfiguration={{ context: { sample: "value" } }}>
           <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center gap-x-2 mt-10">
             <CustomSearchInput />
+            {/* <SearchInput /> */}
             <SimpleFilters
               classNames={{
                 enum: "text-[#A8A8A8] hover:text-[#A1A1A1] rounded-[7px]",
