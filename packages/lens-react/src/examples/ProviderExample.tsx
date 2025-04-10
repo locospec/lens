@@ -110,17 +110,19 @@ const ProviderExample = () => {
               selectedItems={checkedIds}
               onSelect={handleSelectionChange}
               variant="vanilla"
+              disableResizing
               classNames={{
-                // wrapper: "border border-[#eee]",
-                // headers:
-                //   "flex gap-x-[14px] pl-[14px] pr-[50px] py-[15px] border-0",
-                // header: "leading-[16px] p-0",
-                // resizehandle: "bg-gray-100 hover:bg-gray-300",
-                // row: "flex gap-x-[14px] pl-[17px] pr-[31px] pt-[15px] pb-4 border-b border-[#eee] hover:bg-gray-50",
-                // cell: "p-0 border-r-0",
-                actionsCell: "justify-end",
+                wrapper: "border border-[#eee]",
+                headers:
+                  "border-b border-[#eee] bg-white pl-3 flex gap-x-3 py-[15px]",
+                header: "leading-[16px] p-0 bg-white",
+                resizehandle: "bg-gray-100 hover:bg-gray-300",
+                row: "border-b border-[#eee] hover:bg-gray-50 pl-3 flex gap-x-3 pt-[18px] pb-3",
+                cell: "p-0 border-r-0 leading-8 group-hover:bg-gray-50",
+
+                actionsCell: "flex gap-x-4 justify-end px-4",
+                actionsHeader: "justify-end text-end text-right pr-4",
               }}
-              // variant=""
               cellActions={{
                 cities: (rowData: Record<string, any>) => {
                   console.log(rowData);
@@ -129,33 +131,6 @@ const ProviderExample = () => {
                   console.log("FROM ID COLUMNS", rowData);
                 },
               }}
-              // actionsMapping={{
-              //   sample: {
-              //     url: "/sample/:id/:city.locality.id",
-              //     icon: Clock,
-              //     confirmation: true,
-              //     callback: ({ url, data }: CallbackInterface) => {
-              //       console.log("Sample Callback ", url, data);
-              //     },
-              //   },
-              //   edit: {
-              //     icon: Edit3Icon,
-              //     styles:
-              //       "font-bold bg-blue-300 px-2 rounded-full hover:bg-blue-500 text-red-400 font-bold hover:text-red-500",
-              //   },
-              //   sample2: {
-              //     component: (
-              //       <div
-              //         className="flex items-center gap-x-2 rounded-full bg-red-200 hover:bg-red-300 cursor-pointer p-1"
-              //         onClick={() => {
-              //           console.log(">> CLICKED ON ACTIONS COMPONENT");
-              //         }}
-              //       >
-              //         <AArrowDown />
-              //       </div>
-              //     ),
-              //   },
-              // }}
             />
           </div>
         </View>
