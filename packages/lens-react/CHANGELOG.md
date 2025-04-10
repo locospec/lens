@@ -1,3 +1,33 @@
+# v0.0.9 (Thu Apr 10 2025)
+
+#### 🐛 Bug Fix
+
+- Vanilla variant [#134](https://github.com/locospec/ui/pull/134) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modifed exxample with AB design ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added prop to datatable to disable reordering ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added styling modification for AB designs in example ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: fix issue with lookup of undefined value ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: latest pull from main ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: changed orientation for Simple Filters ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed log and modified theme variation ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: fixed alignment for select issue ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: latest pull form main ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modified styling ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Merge branch 'main' of github.com:locospec/ui into VanillaVariant ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modified to work with multi select theme ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: moved border to data state and theme ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: moved border to theme ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added themes with basic and coloured themes samples ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added theme fetching from local storage ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added Mode switcher ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed default styling ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.8 (Wed Apr 09 2025)
 
 #### 🐛 Bug Fix
