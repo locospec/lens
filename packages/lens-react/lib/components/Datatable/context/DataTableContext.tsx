@@ -13,6 +13,8 @@ import { initialiseDefaultDatatableValues } from "../utils/initialiseDefaultData
 import { initialiseDefaultColumnsConfig } from "../utils/initialiseDefaultColumnsConfig";
 import { initialiseDatatableStates } from "../utils/initialiseDatatableStates";
 import { fetchStylesFromVariants } from "../hooks/fetchStylesFromVariants";
+import LensSidebar from "@/components/Sheet/LensSheet.tsx";
+import { Sheet } from "@/base/components/ui/sheet";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
@@ -87,6 +89,9 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
         ...props,
       }}
     >
+      <Sheet open={props.showSheet} onOpenChange={props.setShowSheet}>
+        <LensSidebar tableContainerRef={tableContainerRef} />
+      </Sheet>
       {children}
     </DatatableContext.Provider>
   );
@@ -106,6 +111,8 @@ const DataTableLensContextProvider: React.FC<
   actionsMapping,
   variant,
   disableReordering,
+  showSheet,
+  setShowSheet,
 }) => {
   const lensContext = useLensContext();
   const viewContext = useViewContext();
@@ -183,6 +190,8 @@ const DataTableLensContextProvider: React.FC<
       dataCallback={dataCallback}
       disableResizing={disableResizing}
       disableReordering={disableReordering}
+      showSheet={showSheet}
+      setShowSheet={setShowSheet}
     >
       {isFetched ? (
         isError ? (

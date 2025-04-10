@@ -16,6 +16,8 @@ export interface DatatableInterface {
   cellActions?: any;
   actionsMapping?: ActionsMappingPropInterface;
   variant?: DatatableVariants;
+  showSheet?: boolean;
+  setShowSheet?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Datatable: React.FC<DatatableInterface> = ({
@@ -28,6 +30,8 @@ const Datatable: React.FC<DatatableInterface> = ({
   cellActions,
   actionsMapping,
   variant,
+  showSheet,
+  setShowSheet,
 }) => {
   return (
     <DataTableLensContextProvider
@@ -40,6 +44,8 @@ const Datatable: React.FC<DatatableInterface> = ({
       variant={variant}
       disableResizing={disableResizing}
       disableReordering={disableReordering}
+      showSheet={showSheet}
+      setShowSheet={setShowSheet}
     >
       <DatatableList />
     </DataTableLensContextProvider>

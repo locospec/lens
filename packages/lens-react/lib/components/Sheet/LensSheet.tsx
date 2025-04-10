@@ -1,5 +1,6 @@
 import { SheetContent, SheetTitle } from "@/base/components/ui/sheet";
 import React from "react";
+import DefaultSheet from "./sheets/DefaultSheet";
 // import { SheetContent } from "./index.tsx";
 
 export interface LensSidebarInterface {
@@ -16,7 +17,7 @@ const LensSidebar = ({ tableContainerRef }: LensSidebarInterface) => {
       containerRef={tableContainerRef}
       className="h-full w-full overflow-y-auto lens-wrapper"
     >
-      <SheetTitle>Sample </SheetTitle>
+      <DefaultSheet setCurrentSheet={() => {}} />
       {/* {currentSheet === "default" ? (
           <DefaultSheet setCurrentSheet={setCurrentSheet} />
         ) : currentSheet === "layout_options" ? (
@@ -35,7 +36,7 @@ const LensSidebar = ({ tableContainerRef }: LensSidebarInterface) => {
         ) : (
           <></>
         )} */}
-      This is sample lens side bar
+      {/* <DefaultShee */}
     </SheetContent>
   );
 };
