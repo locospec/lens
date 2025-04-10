@@ -41,7 +41,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
   return (
     <div
       className={cn(
-        "lens-wrapper w-full flex gap-3 justify-start flex-wrap",
+        "lens-wrapper w-full flex gap-3 justify-end flex-wrap",
         wrapperClassName
       )}
       ref={filterContainerRef}

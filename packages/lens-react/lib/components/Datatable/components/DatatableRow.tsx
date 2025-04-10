@@ -17,13 +17,13 @@ const DatatableRow = ({
 }: DatatableRowInterface) => {
   const isSelected = row.getIsSelected();
   const translate = { transform: `translateY(${virtualRow.start}px)` };
-  const { classNames } = useDatatableContext();
+  const { classNames, variantClasses } = useDatatableContext();
 
   return (
     <div
       className={cn(
-        "absolute top-0 flex w-full border-b border-gray-100 cursor-pointer",
-        "hover:bg-gray-200 data-[state=selected]:bg-gray-200",
+        "absolute top-0 flex w-full cursor-pointer group",
+        variantClasses.row,
         classNames && classNames?.row
       )}
       data-index={virtualRow.index}

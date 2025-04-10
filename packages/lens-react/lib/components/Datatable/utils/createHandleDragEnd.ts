@@ -39,6 +39,7 @@ function createHandleDragEnd({
       });
     }
 
+    document.body.classList.remove("cursor-grabbing");
     setActiveId(null);
   };
 }

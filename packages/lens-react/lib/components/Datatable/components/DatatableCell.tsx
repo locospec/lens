@@ -15,27 +15,24 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   };
   const column = cell.column;
 
+  const isPinned = column.getIsPinned();
   const css = getColumnPinningStyles(column);
   const isSelected = cell.row.getIsSelected();
-
   const align = (cell.column.columnDef.meta as any)?.align;
-  const styles = getStyleClasses(
-    ["select"].includes(cell.column.id) ? undefined : align
-  );
+  const styles = getStyleClasses(align);
   const isAction = cell.column.id === "actions";
   const isLast = cell.column.getIsLastColumn();
 
-  const { classNames, cellActions } = useDatatableContext();
+  const { classNames, cellActions, variantClasses } = useDatatableContext();
   const cellAction = cellActions && (cellActions[cell.column.id] ?? null);
 
   return (
     <div
       className={cn(
-        isAction ? "" : "truncate",
-        "px-2 py-4 text-gray-600 leading-3",
-        isAction || isLast
-          ? "flex gap-x-4 border-r-0"
-          : "flex items-center border-r border-gray-100",
+        isAction || isPinned ? "flex items-center gap-x-4" : "truncate",
+        "px-2 py-4 leading-3",
+        variantClasses.cell,
+        isPinned && variantClasses.pinned_cells,
         styles?.items,
         styles?.text,
         classNames?.cell || "",
@@ -45,6 +42,7 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
       style={{ ...width, ...css }}
       data-state={isSelected && "selected"}
       onClick={() => cellAction && cellAction(cell.row.original)}
+      data-islast={isLast ? "true" : "false"}
     >
       {flexRender(cell.column.columnDef.cell, cell.getContext())}
     </div>

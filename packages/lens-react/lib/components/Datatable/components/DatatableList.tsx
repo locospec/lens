@@ -48,7 +48,9 @@ const DatatableList = () => {
     expand,
     localContext,
     allowedScopes,
+    variantClasses,
     dataCallback,
+    disableReordering,
   } = useDatatableContext();
 
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
@@ -137,7 +139,7 @@ const DatatableList = () => {
       <div
         ref={tableContainerRef}
         className={cn(
-          "flex h-full w-full items-center justify-center bg-white"
+          "flex h-full w-full items-center justify-center text-black dark:text-white"
         )}
       >
         <div className="text-gray-500">Calculating column sizes...</div>
@@ -151,7 +153,8 @@ const DatatableList = () => {
     >
       <div
         className={cn(
-          "relative flex-1 overflow-auto w-full h-full border border-gray-200",
+          "relative flex-1 overflow-auto w-full h-full border",
+          variantClasses.wrapper,
           classNames && classNames?.wrapper
         )}
         onScroll={(e) => {
@@ -160,6 +163,7 @@ const DatatableList = () => {
         ref={tableContainerRef}
       >
         <div
+          className="table-body-wrapper"
           style={{
             ...columnSizeVars,
             width: "100%",
@@ -172,7 +176,7 @@ const DatatableList = () => {
             columnSizeVars={columnSizeVars}
             tableContainerRef={tableContainerRef}
             columnOrder={columnOrder}
-            handleDragEnd={handleDragEnd}
+            handleDragEnd={disableReordering ? () => {} : handleDragEnd}
             setActiveId={setActiveId}
             activeId={activeId}
             setIsInResizeArea={setIsInResizeArea}

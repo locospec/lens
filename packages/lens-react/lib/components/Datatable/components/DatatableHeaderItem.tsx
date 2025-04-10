@@ -20,8 +20,8 @@ const DatatableHeaderItem = ({
 }: any) => {
   const fixed = (header.column.columnDef.meta as any)?.fixed;
   const { column } = header;
-
-  const { classNames, disableResizing } = useDatatableContext();
+  const { classNames, disableResizing, variantClasses, disableReordering } =
+    useDatatableContext();
 
   const css = getColumnPinningStyles(column);
 
@@ -44,7 +44,7 @@ const DatatableHeaderItem = ({
   const { minSize, maxSize } = header.column.columnDef;
   const enableResizeHandler =
     minSize !== undefined && maxSize !== undefined ? minSize !== maxSize : true;
-
+  const isLast = column.getIsLastColumn();
   const align = (header.column.columnDef.meta as any)?.align;
   const styles = getStyleClasses(align);
   const isAction = column.id === "actions";
@@ -58,7 +58,11 @@ const DatatableHeaderItem = ({
       <div
         key={header.id}
         className={cn(
-          "relative truncate px-2 py-2 cursor-grab backdrop-blur-[200px]",
+          "relative truncate px-2 py-2",
+          variantClasses.header_cell,
+          !disableReordering && enableResizeHandler
+            ? "cursor-grab"
+            : "cursor-pointer",
           styles.text,
           classNames && classNames.header,
           (isAction && classNames?.actionsHeader) || ""
@@ -71,6 +75,7 @@ const DatatableHeaderItem = ({
         ref={setNodeRef}
         {...attributes}
         {...listeners}
+        data-islast={isLast}
       >
         {header.isPlaceholder
           ? null
@@ -81,6 +86,7 @@ const DatatableHeaderItem = ({
             isResizing={header.column.getIsResizing()}
             setIsInResizeArea={setIsInResizeArea}
             disabled={!enableResizeHandler}
+            isLast={isLast}
           />
         )}
       </div>

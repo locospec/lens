@@ -6,7 +6,6 @@ const getColumnPinningStyles = (
   // isHeader?: boolean
 ): CSSProperties => {
   const isPinned = column.getIsPinned();
-
   // const isLastLeftPinnedColumn =
   //   isPinned === "left" && column.getIsLastColumn("left");
   // const isFirstRightPinnedColumn =
