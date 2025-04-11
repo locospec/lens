@@ -17,6 +17,7 @@ import {
 } from "@dnd-kit/sortable";
 import FieldsListItem from "./FieldsListItem";
 import { SheetHeader } from "@/base/components/ui/sheet";
+import { SheetOptionsType } from "./interface";
 
 const measuringConfig = {
   droppable: {
@@ -25,17 +26,17 @@ const measuringConfig = {
 };
 
 export interface FieldsSheetInterface {
-  // setCurrentSheet: React.Dispatch<React.SetStateAction<SheetOptionsType>>;
+  setCurrentSheet: React.Dispatch<React.SetStateAction<SheetOptionsType>>;
   tableContainerRef?: React.RefObject<HTMLDivElement>;
   table: Table<any>;
-  handleDragEnd: any;
+  // handleDragEnd: any;
 }
 
 const FieldsSheet = ({
-  // setCurrentSheet,
+  setCurrentSheet,
   table,
-  handleDragEnd,
-}: FieldsSheetInterface) => {
+}: // handleDragEnd,
+FieldsSheetInterface) => {
   const columns = table.getAllLeafColumns();
   // const { sensors } = useLensContext();
   const columnVisibility = table.getState().columnVisibility;
@@ -58,7 +59,7 @@ const FieldsSheet = ({
           <DndContext
             collisionDetection={closestCenter}
             modifiers={[restrictToVerticalAxis, restrictToParentElement]}
-            onDragEnd={handleDragEnd}
+            // onDragEnd={handleDragEnd}
             // sensors={sensors}
             measuring={measuringConfig}
           >

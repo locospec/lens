@@ -1,6 +1,8 @@
 import { SheetContent, SheetTitle } from "@/base/components/ui/sheet";
-import React from "react";
+import React, { useEffect } from "react";
 import DefaultSheet from "./sheets/DefaultSheet";
+import { SheetOptionsType } from "./sheets/interface";
+import FieldsSheet from "./sheets/FieldsSheet";
 // import { SheetContent } from "./index.tsx";
 
 export interface LensSidebarInterface {
@@ -9,15 +11,40 @@ export interface LensSidebarInterface {
   triggerIcon?: React.ReactNode;
   sidebarTitle?: string;
   children?: React.ReactNode;
+  table?: any;
+  show?: boolean;
 }
 
-const LensSidebar = ({ tableContainerRef }: LensSidebarInterface) => {
+const LensSidebar = ({
+  tableContainerRef,
+  table,
+  show,
+}: LensSidebarInterface) => {
+  const [currentSheet, setCurrentSheet] =
+    React.useState<SheetOptionsType>("default");
+
+  useEffect(() => {
+    if (!show) {
+      setCurrentSheet("default");
+    }
+  }, [show]);
+
   return (
     <SheetContent
       containerRef={tableContainerRef}
       className="h-full w-full overflow-y-auto lens-wrapper"
     >
-      <DefaultSheet setCurrentSheet={() => {}} />
+      {currentSheet === "default" && (
+        <DefaultSheet setCurrentSheet={setCurrentSheet} />
+      )}
+      {currentSheet === "field_options" && (
+        <FieldsSheet
+          setCurrentSheet={setCurrentSheet}
+          tableContainerRef={tableContainerRef}
+          table={table}
+          // handleDragEnd={handleDragEnd}
+        />
+      )}
       {/* {currentSheet === "default" ? (
           <DefaultSheet setCurrentSheet={setCurrentSheet} />
         ) : currentSheet === "layout_options" ? (
