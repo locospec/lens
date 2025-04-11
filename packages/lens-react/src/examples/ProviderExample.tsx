@@ -112,7 +112,7 @@ const ProviderExample = () => {
               selectedItems={checkedIds}
               onSelect={handleSelectionChange}
               variant="vanilla"
-              disableResizing
+              // disableResizing
               disableReordering
               classNames={{
                 wrapper: "border border-[#eee]",
