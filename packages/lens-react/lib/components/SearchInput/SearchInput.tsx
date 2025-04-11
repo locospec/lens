@@ -1,8 +1,9 @@
+import React from "react";
 import { cn } from "@/base/lib/utils";
 import { Search, X } from "lucide-react";
 import { useDebouncedSearch } from "./hooks/useDebouncedSearch";
 
-const SearchInput = () => {
+const SearchInput: React.FC = () => {
   const { debouncedQuery, setDebouncedQuery } = useDebouncedSearch({
     value: "",
   });
@@ -37,4 +38,4 @@ const SearchInput = () => {
   );
 };
 
-export default SearchInput;
+export { SearchInput };

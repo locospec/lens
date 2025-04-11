@@ -8,8 +8,14 @@ import type { CustomColumnDef } from "../interface/CustomColumnDef";
 import SelectionColumn from "../components/columns/SelectionColumn";
 import ActionsColumn from "../components/columns/ActionsColumn";
 import { metaReader } from "../utils/metaReader";
+import { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
 
-const useTableConfig = (tableConfig: TableConfigInterface) => {
+const useTableConfig = (
+  tableConfig: TableConfigInterface,
+  actionsMapping?: ActionsMappingPropInterface,
+  variantClasses?: any,
+  permissionHeaders?: any
+) => {
   const columnHelper = createColumnHelper();
   return React.useMemo(() => {
     if (!tableConfig) {
@@ -43,12 +49,16 @@ const useTableConfig = (tableConfig: TableConfigInterface) => {
     let finalColumns = columnsFromConfig;
 
     if (selectionType && selectionType !== "none") {
-      const selectionColumn = SelectionColumn(selectionType);
+      const selectionColumn = SelectionColumn(selectionType, variantClasses);
       finalColumns = [selectionColumn, ...columnsFromConfig];
     }
 
     if (actions && Object.keys(actions).length > 0) {
-      const actionsColumn = ActionsColumn(actions);
+      const actionsColumn = ActionsColumn(
+        actions,
+        actionsMapping,
+        permissionHeaders
+      );
       finalColumns.push(actionsColumn);
     }
 

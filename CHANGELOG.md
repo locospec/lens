@@ -1,3 +1,137 @@
+# (Thu Apr 10 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.10`
+  - chore: fixed import for Search input [#135](https://github.com/locospec/ui/pull/135) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Thu Apr 10 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.9`
+  - Vanilla variant [#134](https://github.com/locospec/ui/pull/134) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.8`
+  - chore: modified example for testing [#133](https://github.com/locospec/ui/pull/133) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added permission headers for action columns fetch requests [#133](https://github.com/locospec/ui/pull/133) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.7`
+  - chore: removed unused prop isHeader from getColumnPinningStyles function [#132](https://github.com/locospec/ui/pull/132) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: change prop name rowActions to cellActions [#131](https://github.com/locospec/ui/pull/131) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: example change [#131](https://github.com/locospec/ui/pull/131) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: removed box shadow for pinned columns [#131](https://github.com/locospec/ui/pull/131) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: spelling correction [#131](https://github.com/locospec/ui/pull/131) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.6`
+  - site: modified examples [#130](https://github.com/locospec/ui/pull/130) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: enabled using dataCallback function to fetch data for table [#130](https://github.com/locospec/ui/pull/130) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added datacallback to Lens config as interface [#130](https://github.com/locospec/ui/pull/130) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Wed Apr 09 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.5`
+  - chore: modified provider example [#129](https://github.com/locospec/ui/pull/129) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: made selection props optional [#129](https://github.com/locospec/ui/pull/129) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Tue Apr 08 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.4`
+  - chore: added actions header in classnames for action header styling customisation [#128](https://github.com/locospec/ui/pull/128) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Tue Apr 08 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.3`
+  - chore: added display of filter selected values if options are null [#127](https://github.com/locospec/ui/pull/127) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Mon Apr 07 2025)
+
+#### 🐛 Bug Fix
+
+- chore: remove unnecessary whitespace in README.md ([@rjvim](https://github.com/rjvim))
+- chore: add script for running lens repo [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `@locospec/elements-react@0.20.8`, `@locospec/lens-react@0.0.2`
+  - feat: 🎉 add enhancements and customization support in Lens DataTable [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: cleanup [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `@locospec/lens-react@0.0.2`
+  - chore: add lens provider [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: create new sample dir for lens react package [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `@locospec/elements-react@0.20.8`
+  - chore: format [#125](https://github.com/locospec/ui/pull/125) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # (Mon Feb 17 2025)
 
 #### 🐛 Bug Fix

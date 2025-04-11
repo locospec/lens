@@ -8,10 +8,19 @@ import {
   VisibilityState,
 } from "@tanstack/react-table";
 import { TableStylingInterface } from "../interface/TableStylingInterface";
+import { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
 
 interface CommonWrapperInterface {
   children: ReactNode;
 }
+
+type DatatableVariants =
+  | "vanilla"
+  | "plum"
+  | "citrus"
+  | "blossom"
+  | "cosmic"
+  | undefined;
 
 interface DatatableContextProviderInterface extends CommonWrapperInterface {
   selectionType: SelectionType;
@@ -28,11 +37,16 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   modalName?: string;
   searchQuery?: string;
   viewChildRef?: React.RefObject<HTMLDivElement>;
-  rowActions?: any;
+  cellActions?: any;
   viewName: string;
   expand: string[];
   localContext: any;
   allowedScopes?: string[];
+  actionsMapping?: ActionsMappingPropInterface;
+  variant?: DatatableVariants;
+  variantClasses?: any;
+  dataCallback?: any;
+  disableReordering?: boolean;
 }
 
 interface DataTableLensContextProviderInterface
@@ -59,6 +73,7 @@ interface DatatableContextType
 }
 
 export type {
+  DatatableVariants,
   CommonWrapperInterface,
   DatatableContextType,
   DatatableContextProviderInterface,

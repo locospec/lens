@@ -1,3 +1,81 @@
+const ACTION_1 = {
+  header: "Actions",
+  options: [
+    {
+      key: "edit",
+      url: "/edit/:id",
+      icon: "SquarePen",
+    },
+    {
+      key: "delete",
+      url: "/delete/:id/for/:state.id",
+      icon: "Trash2",
+      label: "Delete",
+      confirmation: true,
+    },
+  ],
+};
+
+const ACTION_2 = {
+  // header: "Actions",
+  items: [
+    {
+      key: "edit",
+      label: "Edit",
+      url: "/update_asset_type?primary_key=:id",
+      icon: "SquarePen",
+      options: [
+        {
+          key: "update_asset_type",
+          label: "Update Asset Type",
+          url: "/update_asset_type?primary_key=:id&state=:state",
+        },
+        {
+          key: "update_sub_asset_type",
+          label: "Update Sub Asset Type",
+          url: "/update_sub_asset_type?primary_key=:city.locality.id",
+        },
+      ],
+    },
+    {
+      key: "view",
+      label: "View",
+      url: "/view/:id",
+      icon: "EyeIcon",
+    },
+    {
+      key: "delete",
+      label: "Delete",
+      url: "/delete_asset_type?primary_key=:id",
+      icon: "Trash2",
+      confirmation: "true",
+      method: "POST",
+      options: [
+        {
+          key: "delete_asset_type",
+          label: "Delete Asset Type",
+          url: "/delete_asset_type?primary_key=:id",
+        },
+        {
+          key: "delete_sub_asset_type",
+          label: "Delete Sub Asset Type",
+          url: "/delete_sub_asset_type?primary_key=:city.locality.pin",
+        },
+      ],
+    },
+    // {
+    //   key: "sample",
+    //   // label: "Sample",
+    //   // url: "/sample/:id",
+    // },
+    // {
+    //   key: "sample2",
+    //   // label: "Sample",
+    //   // url: "/sample/:id",
+    // },
+  ],
+};
+
 const new_config = {
   success: true,
   data: {
@@ -5,9 +83,9 @@ const new_config = {
     label: "Sub Asset Types Default View",
     type: "view",
     model: "sub_asset_type",
-    selectionType: "single",
+    selectionType: "multiple",
     selectionKey: "id",
-    expand: ["adjhad"],
+    actions: ACTION_2,
     attributes: {
       id: {
         type: "string",

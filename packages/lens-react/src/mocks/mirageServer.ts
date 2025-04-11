@@ -46,6 +46,15 @@ export function makeServer() {
             locality: `Locality ${index + 1}`,
             properties: `Property ${index + 1} ${filters} q=${search}`,
             "state.id": `state_${index + 1}`,
+            city: {
+              id: `city_${index + 1}`,
+              name: "City " + (index + 1),
+              locality: {
+                id: `locality_${index + 1}`,
+                name: "Locality " + (index + 1),
+                pin: "Pin " + (index + 1),
+              },
+            },
           }));
 
           const paginatedTestData = completeTestData.slice(

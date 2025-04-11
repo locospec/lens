@@ -24,7 +24,6 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
   } = useSimpleFiltersContext();
   const [isLoading, setIsLoading] = useState(true);
 
-  const enumClassName = classNames?.enum || "";
   const wrapperClassName = classNames?.wrapper || "";
   const dateTriggerClassName = classNames?.dateTrigger || "";
 
@@ -42,7 +41,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
   return (
     <div
       className={cn(
-        "lens-wrapper w-full flex gap-3 justify-start flex-wrap",
+        "lens-wrapper w-full flex gap-3 justify-end flex-wrap",
         wrapperClassName
       )}
       ref={filterContainerRef}
@@ -87,7 +86,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
                         placeholder={`Select ${attribute.label}`}
                         resetInput={""}
                         filterContainerRef={filterContainerRef}
-                        className={enumClassName}
+                        className={classNames}
                       />
                     )}
                   </React.Fragment>

@@ -16,13 +16,14 @@ const DataTableHeader = ({
   setIsInResizeArea,
   isInResizeArea,
 }: TableHeaderInterface) => {
-  const { classNames } = useDatatableContext();
+  const { classNames, variantClasses } = useDatatableContext();
 
   return (
     <div
       key={headerGroup.id}
       className={cn(
-        "sticky flex top-0 z-10 backdrop-blur-[100px] border-b border-gray-100",
+        "sticky flex top-0 z-10 backdrop-blur-[100px]",
+        variantClasses.header_row,
         classNames && classNames?.headers
       )}
     >

@@ -22,6 +22,13 @@ interface CommonWrapperInterface {
 
 interface SimpleFiltersClassNames {
   enum?: string;
+  popoverWrapper?: string;
+  popover?: string;
+  searchInput?: string;
+  searchInputWrapper?: string;
+  searchIcon?: string;
+  items?: string;
+  separator?: string;
   wrapper?: string;
   dateTrigger?: string;
 }

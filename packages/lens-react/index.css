@@ -147,9 +147,9 @@
   }
 }
 
-@keyframes accordion-down {
-  from {
-    height: 0;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
   to {
     height: var(--radix-accordion-content-height);

@@ -2,17 +2,24 @@ import { ActionsConfig } from "../../interface/DatatableInterface";
 import { RowInterface } from "./SelectionColumn";
 import { ActionsRenderer as actionsRenderer } from "../actions/ActionsRenderer";
 import { metaReader } from "../../utils/metaReader";
+import { ActionsMappingPropInterface } from "../../interface/ActionsMappingInterface";
 
-const ActionsColumn = (actions: ActionsConfig) => {
+const ActionsColumn = (
+  actions: ActionsConfig,
+  actionsMapping?: ActionsMappingPropInterface,
+  permissionHeaders?: any
+) => {
   return {
-    id: actions.header,
+    id: "actions",
     accessorKey: actions.header,
     meta: metaReader(actions),
     header: actions.header,
     cell: ({ row }: RowInterface) => {
       return actionsRenderer({
-        actions: actions.options,
+        actions: actions.items,
         row: row.original,
+        actionsMapping: actionsMapping,
+        permissionHeaders: permissionHeaders,
       });
     },
     enableSorting: false,
