@@ -1,3 +1,16 @@
+# v0.0.12 (Fri Apr 11 2025)
+
+#### 🐛 Bug Fix
+
+- chore: package upgrade for react version resolution issue [#140](https://github.com/locospec/ui/pull/140) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: handle undefined lensSimpleFilters in useConvertToTanstackTableConfig [#140](https://github.com/locospec/ui/pull/140) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.11 (Fri Apr 11 2025)
 
 #### 🐛 Bug Fix

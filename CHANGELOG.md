@@ -2,6 +2,20 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/lens-react@0.0.12`
+  - chore: package upgrade for react version resolution issue [#140](https://github.com/locospec/ui/pull/140) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: handle undefined lensSimpleFilters in useConvertToTanstackTableConfig [#140](https://github.com/locospec/ui/pull/140) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Fri Apr 11 2025)
+
+#### 🐛 Bug Fix
+
 - Modified Examples [#138](https://github.com/locospec/ui/pull/138) ([@ShreyDhyani](https://github.com/ShreyDhyani))
 - `@locospec/lens-react@0.0.11`
   - Republish [#139](https://github.com/locospec/ui/pull/139) ([@ShreyDhyani](https://github.com/ShreyDhyani))
