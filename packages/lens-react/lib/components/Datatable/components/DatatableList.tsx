@@ -15,6 +15,8 @@ import { DatatableBody, MemoizedDatatableBody } from "./DatatableBody";
 import { useCallback, useEffect } from "react";
 import { useFetchMoreOnScroll } from "@/hooks/src/useFetchMoreOnScroll";
 import { getProcessedFilters } from "@/components/LensProvider/utils/getProcessedFilters.tsx";
+import LensSidebar from "@/components/Sheet/LensSheet.tsx";
+import { Sheet } from "@/base/components/ui/sheet";
 
 const DatatableList = () => {
   const {
@@ -51,7 +53,11 @@ const DatatableList = () => {
     variantClasses,
     dataCallback,
     disableReordering,
+    showSheet,
+    setShowSheet,
   } = useDatatableContext();
+
+  const renderSheet = showSheet && setShowSheet ? true : false;
 
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
     useInfiniteFetch({
@@ -148,52 +154,63 @@ const DatatableList = () => {
   }
 
   return (
-    <div
-      className={"flex-1 relative flex h-full flex-col gap-0 overflow-hidden"}
-    >
+    <>
+      {renderSheet && (
+        <Sheet open={showSheet} onOpenChange={setShowSheet}>
+          <LensSidebar
+            tableContainerRef={tableContainerRef}
+            table={table}
+            show={showSheet}
+          />
+        </Sheet>
+      )}
       <div
-        className={cn(
-          "relative flex-1 overflow-auto w-full h-full border",
-          variantClasses.wrapper,
-          classNames && classNames?.wrapper
-        )}
-        onScroll={(e) => {
-          fetchMoreOnBottomReached(e.target as HTMLDivElement);
-        }}
-        ref={tableContainerRef}
+        className={"flex-1 relative flex h-full flex-col gap-0 overflow-hidden"}
       >
         <div
-          className="table-body-wrapper"
-          style={{
-            ...columnSizeVars,
-            width: "100%",
-            height: `${rowVirtualizer.getTotalSize()}px`,
-            minWidth: `${table.getTotalSize()}px`,
-          }}
-        >
-          <DatatableHeaderSection
-            table={table}
-            columnSizeVars={columnSizeVars}
-            tableContainerRef={tableContainerRef}
-            columnOrder={columnOrder}
-            handleDragEnd={disableReordering ? () => {} : handleDragEnd}
-            setActiveId={setActiveId}
-            activeId={activeId}
-            setIsInResizeArea={setIsInResizeArea}
-            isInResizeArea={isInResizeArea}
-            sensors={sensors}
-          />
-          {isResizing ? (
-            <MemoizedDatatableBody
-              table={table}
-              rowVirtualizer={rowVirtualizer}
-            />
-          ) : (
-            <DatatableBody table={table} rowVirtualizer={rowVirtualizer} />
+          className={cn(
+            "relative flex-1 overflow-auto w-full h-full border",
+            variantClasses.wrapper,
+            classNames && classNames?.wrapper
           )}
+          onScroll={(e) => {
+            fetchMoreOnBottomReached(e.target as HTMLDivElement);
+          }}
+          ref={tableContainerRef}
+        >
+          <div
+            className="table-body-wrapper"
+            style={{
+              ...columnSizeVars,
+              width: "100%",
+              height: `${rowVirtualizer.getTotalSize()}px`,
+              minWidth: `${table.getTotalSize()}px`,
+            }}
+          >
+            <DatatableHeaderSection
+              table={table}
+              columnSizeVars={columnSizeVars}
+              tableContainerRef={tableContainerRef}
+              columnOrder={columnOrder}
+              handleDragEnd={disableReordering ? () => {} : handleDragEnd}
+              setActiveId={setActiveId}
+              activeId={activeId}
+              setIsInResizeArea={setIsInResizeArea}
+              isInResizeArea={isInResizeArea}
+              sensors={sensors}
+            />
+            {isResizing ? (
+              <MemoizedDatatableBody
+                table={table}
+                rowVirtualizer={rowVirtualizer}
+              />
+            ) : (
+              <DatatableBody table={table} rowVirtualizer={rowVirtualizer} />
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
