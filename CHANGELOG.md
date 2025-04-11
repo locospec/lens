@@ -1,3 +1,19 @@
+# (Fri Apr 11 2025)
+
+#### 🐛 Bug Fix
+
+- Modified Examples [#138](https://github.com/locospec/ui/pull/138) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `@locospec/lens-react@0.0.11`
+  - Republish [#139](https://github.com/locospec/ui/pull/139) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified example styling [#137](https://github.com/locospec/ui/pull/137) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - Lens spec init/tailwindv4 [#136](https://github.com/locospec/ui/pull/136) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # (Thu Apr 10 2025)
 
 #### 🐛 Bug Fix

@@ -1,3 +1,32 @@
+# v0.0.11 (Fri Apr 11 2025)
+
+#### 🐛 Bug Fix
+
+- Republish [#139](https://github.com/locospec/ui/pull/139) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: latest pull from main ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added styling change for dark mode with tailwind v4 ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Merge branch 'main' into Republish ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: example modified ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modified example styling [#137](https://github.com/locospec/ui/pull/137) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modified example styling ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Lens spec init/tailwindv4 [#136](https://github.com/locospec/ui/pull/136) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed ref from command list component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modified sheet and popover with container ref, added absolute positioning for sheet for scopped view ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: updated shadcn component with to tailwind v4 version ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: minor update for shadcn calender component ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: upgraded button to v4 ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added tw-animate-css import to index.css ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed tailwind.config.ts from lens package ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed tailwind.config dependency ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: updated to tailwind css v4 ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: index.css changes ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.10 (Thu Apr 10 2025)
 
 #### 🐛 Bug Fix
