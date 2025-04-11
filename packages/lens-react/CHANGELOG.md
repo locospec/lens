@@ -1,3 +1,16 @@
+# v0.0.13 (Fri Apr 11 2025)
+
+#### 🐛 Bug Fix
+
+- chore: removed log for serialise [#141](https://github.com/locospec/ui/pull/141) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added feature for adding column with serialised index [#141](https://github.com/locospec/ui/pull/141) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.12 (Fri Apr 11 2025)
 
 #### 🐛 Bug Fix
