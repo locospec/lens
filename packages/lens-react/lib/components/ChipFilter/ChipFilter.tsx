@@ -65,7 +65,7 @@ const ChipFilter: React.FC<ChipFilterInteface> = ({
   return (
     <div
       className={cn(
-        "relative border border-gray-300 rounded-lg bg-gray-200 flex items-center !gap-x-px py-0 px-0 h-6 w-fit shrink-0"
+        "relative border border-gray-300 rounded-lg bg-gray-200 flex items-center gap-x-px! py-0 px-0 h-6 w-fit shrink-0"
       )}
       ref={ref}
     >

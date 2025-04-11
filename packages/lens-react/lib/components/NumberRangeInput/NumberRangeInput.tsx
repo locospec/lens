@@ -9,7 +9,7 @@ export interface NumberRangeInputInterface {
   handleValueChange: any;
 }
 
-const errorClasses = "border border-red-500 !ring-red-500 horizontal-shake";
+const errorClasses = "border border-red-500 ring-red-500! horizontal-shake";
 const defaultClasses = "max-w-32";
 
 const NumberRangeInput = ({

@@ -26,7 +26,7 @@ const OPDisplay: React.FC<OPDisplayProps> = ({
   if (index === 1) {
     return (
       <Select onValueChange={handleGroupOperatorChange}>
-        <SelectTrigger className="p-1 !w-[70px] text-center">
+        <SelectTrigger className="p-1 w-[70px]! text-center">
           <SelectValue placeholder={group.op.toUpperCase()} />
         </SelectTrigger>
         <SelectContent>
