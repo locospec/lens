@@ -59,6 +59,7 @@ const useConvertToTanstackTableConfig = ({
       selectionType: configData?.selectionType || "none",
       selectionKey: configData?.selectionKey || "id",
       actions: configData?.actions || {},
+      serialize: configData?.serialize || false,
       columns: processed_columns,
       filters: processed_filters,
       allowedScopes: configData?.allowedScopes || [],

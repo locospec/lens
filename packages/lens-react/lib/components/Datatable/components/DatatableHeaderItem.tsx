@@ -63,7 +63,7 @@ const DatatableHeaderItem = ({
           !disableReordering && enableResizeHandler
             ? "cursor-grab"
             : "cursor-pointer",
-          styles.text,
+          styles?.text,
           classNames && classNames.header,
           (isAction && classNames?.actionsHeader) || ""
         )}

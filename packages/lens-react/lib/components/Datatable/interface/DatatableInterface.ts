@@ -63,12 +63,22 @@ interface ColumnConfigInterface {
   show?: boolean;
 }
 
+interface SerializeInterface {
+  header?: string;
+  align?: AlignType;
+  fixed?: FixedType;
+  width?: number;
+  minWidth?: number;
+  maxWidth?: number;
+}
+
 interface TableConfigInterface {
   resource: string;
   identifierKey: string;
   selectionType: SelectionType;
   selectionKey?: string;
   actions?: ActionsConfig;
+  serialize?: SerializeInterface;
   columns: ColumnConfigInterface[];
   filters?: AttributeDefinitionMapType;
   allowedScopes?: string[];
