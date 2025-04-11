@@ -49,7 +49,6 @@ const useTableConfig = (
 
     let finalColumns = columnsFromConfig;
 
-    console.log(">>>> serialize", serialize);
     if (serialize) {
       const indexColumn = {
         id: "serialize",
