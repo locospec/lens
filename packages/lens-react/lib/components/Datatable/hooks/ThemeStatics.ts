@@ -23,8 +23,8 @@ const VANILLA_THEME = {
     "dark:data-[isresising=true]:bg-gray-300"
   ),
   row: cn(
-    "hover:bg-gray-200 data-[state=selected]:bg-gray-200 text-gray-900 border-b border-gray-500 bg-white",
-    "dark:hover:bg-gray-800 dark:data-[state=selected]:bg-gray-800 dark:text-gray-100 dark:border-gray-100 dark:bg-gray-700"
+    "hover:bg-gray-200 data-[state=checked]:bg-gray-200 text-gray-900 border-b border-gray-500 bg-white",
+    "dark:hover:bg-gray-800 dark:data-[state=checked]:bg-gray-800 dark:text-gray-100 dark:border-gray-100 dark:bg-gray-700"
   ),
   cell: cn("border-gray-500", "dark:border-gray-100"),
   pinned_cells: cn(
@@ -50,8 +50,8 @@ const PLUM_THEME = {
   ),
   wrapper: cn("border-purple-400", "dark:border-purple-300"),
   row: cn(
-    "hover:bg-purple-100 data-[state=selected]:bg-purple-100 text-purple-900 border-b border-purple-300",
-    "dark:hover:bg-purple-900 dark:data-[state=selected]:bg-purple-900 dark:text-purple-100 dark:border-purple-300"
+    "hover:bg-purple-100 data-[state=checked]:bg-purple-100 text-purple-900 border-b border-purple-300",
+    "dark:hover:bg-purple-900 dark:data-[state=checked]:bg-purple-900 dark:text-purple-100 dark:border-purple-300"
   ),
   resize_handler: cn(
     "bg-transparent border-r data-[islast=true]:border-r-0 border-purple-400 hover:border-purple-600 hover:bg-purple-300/20",
@@ -80,8 +80,8 @@ const CITRUS_THEME = {
   ),
   wrapper: cn("border-yellow-500", "dark:border-amber-300"),
   row: cn(
-    "hover:bg-yellow-100 data-[state=selected]:bg-yellow-200 text-orange-900 border-b border-yellow-400",
-    "dark:hover:bg-yellow-900 dark:data-[state=selected]:bg-yellow-800 dark:text-amber-100 dark:border-yellow-300"
+    "hover:bg-yellow-100 data-[state=checked]:bg-yellow-200 text-orange-900 border-b border-yellow-400",
+    "dark:hover:bg-yellow-900 dark:data-[state=checked]:bg-yellow-800 dark:text-amber-100 dark:border-yellow-300"
   ),
   resize_handler: cn(
     "bg-transparent border-r data-[islast=true]:border-r-0 border-yellow-400 hover:border-yellow-600 hover:bg-amber-200/50",
@@ -110,8 +110,8 @@ const BLOSSOM_THEME = {
   ),
   wrapper: cn("border-pink-400", "dark:border-pink-300"),
   row: cn(
-    "hover:bg-rose-100 data-[state=selected]:bg-rose-200 text-rose-900 border-b border-pink-300",
-    "dark:hover:bg-pink-900 dark:data-[state=selected]:bg-pink-800 dark:text-pink-100 dark:border-pink-300"
+    "hover:bg-rose-100 data-[state=checked]:bg-rose-200 text-rose-900 border-b border-pink-300",
+    "dark:hover:bg-pink-900 dark:data-[state=checked]:bg-pink-800 dark:text-pink-100 dark:border-pink-300"
   ),
   resize_handler: cn(
     "bg-transparent border-r data-[islast=true]:border-r-0 border-pink-300 hover:border-rose-500 hover:bg-pink-300/20",
@@ -143,8 +143,8 @@ const COSMIC_THEME = {
     "dark:border-fuchsia-300 dark:bg-black"
   ),
   row: cn(
-    "hover:bg-gray-800 data-[state=selected]:bg-gray-800 text-white border-b border-gray-700",
-    "dark:hover:bg-fuchsia-950 dark:data-[state=selected]:bg-fuchsia-950 dark:text-fuchsia-100 dark:border-fuchsia-300"
+    "hover:bg-gray-800 data-[state=checked]:bg-gray-800 text-white border-b border-gray-700",
+    "dark:hover:bg-fuchsia-950 dark:data-[state=checked]:bg-fuchsia-950 dark:text-fuchsia-100 dark:border-fuchsia-300"
   ),
   resize_handler: cn(
     "bg-transparent border-r data-[islast=true]:border-r-0 border-gray-600 hover:border-fuchsia-400 hover:bg-fuchsia-500/10",
