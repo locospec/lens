@@ -1,3 +1,16 @@
+# (Tue Apr 15 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.14`
+  - chore: modified data-state selection value to be consistent with checkbox [#142](https://github.com/locospec/ui/pull/142) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # (Fri Apr 11 2025)
 
 #### 🐛 Bug Fix
