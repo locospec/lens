@@ -40,7 +40,7 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
       )}
       key={cell.id}
       style={{ ...width, ...css }}
-      data-state={isSelected && "selected"}
+      data-state={isSelected && "checked"}
       onClick={() => cellAction && cellAction(cell.row.original)}
       data-islast={isLast ? "true" : "false"}
     >

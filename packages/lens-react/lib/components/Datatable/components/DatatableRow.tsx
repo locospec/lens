@@ -30,7 +30,7 @@ const DatatableRow = ({
       ref={(node) => rowVirtualizer.measureElement(node)}
       key={row.id}
       style={translate}
-      data-state={isSelected && "selected"}
+      data-state={isSelected && "checked"}
     >
       {row.getVisibleCells().map((cell) => (
         <DatatableCell key={cell.id} cell={cell} />

@@ -120,8 +120,8 @@ const ProviderExample = () => {
                   "border-b border-[#eee] bg-white dark:bg-gray-800 pl-3 flex gap-x-3 py-[15px]",
                 header: "leading-[16px] p-0 bg-white border-r-0",
                 resizehandle: "bg-gray-100 hover:bg-gray-300",
-                row: "border-b border-[#eee] hover:bg-gray-50 pl-3 flex gap-x-3 pt-[18px] pb-3",
-                cell: "p-0 border-r-0 leading-8 group-hover:bg-gray-50 dark:group-hover:bg-gray-800",
+                row: "border-b border-[#eee] hover:bg-gray-200 pl-3 flex gap-x-3 pt-[18px] pb-3",
+                cell: "p-0 border-r-0 leading-8 data-[state=checked]:bg-gray-200 group-hover:bg-gray-200 dark:group-hover:bg-gray-800",
                 actionsCell: "flex gap-x-4 justify-end px-4",
                 actionsHeader: "justify-end text-end text-right pr-4",
               }}
