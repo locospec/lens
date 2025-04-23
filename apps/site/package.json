@@ -30,11 +30,8 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.16.4",
     "lucide-react": "^0.469.0",
-    "miragejs": "^0.1.48",
     "prism-react-renderer": "^2.3.0",
     "raw-loader": "^4.0.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
     "react-resizable-panels": "^2.1.7",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7"
