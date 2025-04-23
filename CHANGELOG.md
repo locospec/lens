@@ -1,3 +1,25 @@
+# (Wed Apr 23 2025)
+
+#### 🐛 Bug Fix
+
+- Remove clutter [#145](https://github.com/locospec/ui/pull/145) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed unused folders form app site [#144](https://github.com/locospec/ui/pull/144) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added optional dependency [#144](https://github.com/locospec/ui/pull/144) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modified package-lock.json for dependency [#144](https://github.com/locospec/ui/pull/144) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed elements-react package from packages folder [#144](https://github.com/locospec/ui/pull/144) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `@locospec/lens-react@0.0.15`
+  - chore: fixes for build issues [#144](https://github.com/locospec/ui/pull/144) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified package.json for mirage package.json [#144](https://github.com/locospec/ui/pull/144) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: rmoved blueprint-react package [#144](https://github.com/locospec/ui/pull/144) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - Fix checkbox ui [#143](https://github.com/locospec/ui/pull/143) ([@Jainarihant348](https://github.com/Jainarihant348))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Arihant Jain ([@Jainarihant348](https://github.com/Jainarihant348))
+
+---
+
 # (Tue Apr 15 2025)
 
 #### 🐛 Bug Fix

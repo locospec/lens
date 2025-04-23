@@ -1,3 +1,22 @@
+# v0.0.15 (Wed Apr 23 2025)
+
+#### 🐛 Bug Fix
+
+- chore: fixes for build issues [#144](https://github.com/locospec/ui/pull/144) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modified package.json for mirage package.json [#144](https://github.com/locospec/ui/pull/144) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: rmoved blueprint-react package [#144](https://github.com/locospec/ui/pull/144) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: fixes for build issues ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modified package.json for mirage package.json ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: rmoved blueprint-react package ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Fix checkbox ui [#143](https://github.com/locospec/ui/pull/143) ([@Jainarihant348](https://github.com/Jainarihant348))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Arihant Jain ([@Jainarihant348](https://github.com/Jainarihant348))
+
+---
+
 # v0.0.14 (Tue Apr 15 2025)
 
 #### 🐛 Bug Fix
