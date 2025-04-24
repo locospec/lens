@@ -1,3 +1,18 @@
+# v0.0.16 (Thu Apr 24 2025)
+
+#### 🐛 Bug Fix
+
+- chore: fixed issues with react-router-dom [#146](https://github.com/locospec/ui/pull/146) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed unused app package.json [#146](https://github.com/locospec/ui/pull/146) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added react as dev dep [#146](https://github.com/locospec/ui/pull/146) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added react as dev dependency [#146](https://github.com/locospec/ui/pull/146) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.15 (Wed Apr 23 2025)
 
 #### 🐛 Bug Fix

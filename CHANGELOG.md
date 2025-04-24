@@ -1,3 +1,20 @@
+# (Thu Apr 24 2025)
+
+#### 🐛 Bug Fix
+
+- chore: removed app folder and dir specific gitignore [#146](https://github.com/locospec/ui/pull/146) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- `@locospec/lens-react@0.0.16`
+  - chore: fixed issues with react-router-dom [#146](https://github.com/locospec/ui/pull/146) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: removed unused app package.json [#146](https://github.com/locospec/ui/pull/146) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added react as dev dep [#146](https://github.com/locospec/ui/pull/146) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added react as dev dependency [#146](https://github.com/locospec/ui/pull/146) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # (Wed Apr 23 2025)
 
 #### 🐛 Bug Fix
