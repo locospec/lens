@@ -1,3 +1,15 @@
+# v0.0.17 (Thu Apr 24 2025)
+
+#### 🐛 Bug Fix
+
+- chore: removed unused checkbox [#147](https://github.com/locospec/ui/pull/147) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.16 (Thu Apr 24 2025)
 
 #### 🐛 Bug Fix

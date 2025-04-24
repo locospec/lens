@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/lens-react@0.0.17`
+  - chore: removed unused checkbox [#147](https://github.com/locospec/ui/pull/147) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Thu Apr 24 2025)
+
+#### 🐛 Bug Fix
+
 - chore: removed app folder and dir specific gitignore [#146](https://github.com/locospec/ui/pull/146) ([@ShreyDhyani](https://github.com/ShreyDhyani))
 - `@locospec/lens-react@0.0.16`
   - chore: fixed issues with react-router-dom [#146](https://github.com/locospec/ui/pull/146) ([@ShreyDhyani](https://github.com/ShreyDhyani))
