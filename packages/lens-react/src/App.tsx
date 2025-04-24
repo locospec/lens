@@ -1,7 +1,7 @@
 import React from "react";
 import { splitAndCapitalize } from "../lib/components/utils/splitAndCapitalize";
 import "./App.css";
-import { BrowserRouter as Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { makeServer } from "./mocks/mirageServer";
 import ProviderExample from "./examples/ProviderExample";
 import RawDataExample from "./examples/RawDataExample";
@@ -82,22 +82,24 @@ function App() {
           </header>
 
           <div className="flex-grow overflow-auto pt-4 bg-white dark:bg-gray-700">
-            <Routes>
-              <Route path="*" children={<></>} />
-              <Route path="/provider" children={<ProviderExample />} />
-              <Route path="/raw_data" children={<RawDataExample />} />
-              <Route path="/provider_2" children={<ProviderExample2 />} />
-              <Route path="/views" children={<ViewExample />} />
-              <Route
-                path="/simple_filter"
-                children={<SimpleFiltersExample />}
-              />
-              <Route
-                path="/filter_builder"
-                children={<FilterBuilderExample />}
-              />
-              <Route path="/enum" children={<ENUMExample />} />
-            </Routes>
+            <BrowserRouter>
+              <Routes>
+                <Route path="*" element={<></>} />
+                <Route path="/provider" element={<ProviderExample />} />
+                <Route path="/raw_data" element={<RawDataExample />} />
+                <Route path="/provider_2" element={<ProviderExample2 />} />
+                <Route path="/views" element={<ViewExample />} />
+                <Route
+                  path="/simple_filter"
+                  element={<SimpleFiltersExample />}
+                />
+                <Route
+                  path="/filter_builder"
+                  element={<FilterBuilderExample />}
+                />
+                <Route path="/enum" element={<ENUMExample />} />
+              </Routes>
+            </BrowserRouter>
           </div>
         </div>
       </div>
