@@ -8,7 +8,7 @@
     "email": "shrey@betalectic.com",
     "url": "https://github.com/ShreyDhyani"
   },
-  "version": "0.0.15",
+  "version": "0.0.16",
   "type": "module",
   "exports": {
     ".": {
@@ -75,8 +75,6 @@
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
-    "react": "^19.1.0",
-    "react-router-dom": "^7.5.1",
     "@tailwindcss/postcss": "^4.1.1",
     "@types/node": "^22.5.4",
     "@types/react": "^18.3.5",
@@ -90,6 +88,8 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.11",
     "glob": "^11.0.0",
+    "react": "^19.1.0",
+    "react-router-dom": "^7.5.1",
     "storybook": "^8.0.9",
     "tailwindcss": "^4.1.1",
     "typescript": "^5.6.2",
