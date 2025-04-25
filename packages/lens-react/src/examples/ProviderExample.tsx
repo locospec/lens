@@ -91,7 +91,7 @@ const ProviderExample = () => {
           </label>
         </div>
         <View viewConfiguration={{ context: { sample: "value" } }}>
-          <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center gap-x-2 mt-10">
+          <div className="border border-b-0 border-[#eee] py-4 px-4 flex justify-between items-center gap-x-2 mt-10">
             <CustomSearchInput />
             {/* <SearchInput /> */}
             <SimpleFilters
