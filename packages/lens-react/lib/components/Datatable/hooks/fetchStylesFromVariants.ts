@@ -5,12 +5,15 @@ import {
   COSMIC_THEME,
   CITRUS_THEME,
   PLUM_THEME,
+  STRIPPED_THEME,
 } from "./ThemeStatics";
 
 const fetchStylesFromVariants = (variant: DatatableVariants) => {
   switch (variant) {
     case "vanilla":
       return VANILLA_THEME;
+    case "stripped":
+      return STRIPPED_THEME;
     case "plum":
       return PLUM_THEME;
     case "citrus":
