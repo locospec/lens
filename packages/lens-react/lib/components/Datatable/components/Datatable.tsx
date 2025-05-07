@@ -14,6 +14,7 @@ export interface DatatableInterface {
   disableReordering?: boolean;
   viewId?: string;
   cellActions?: any;
+  cellOverflow?: "wrap" | "clip" | "ellipsis";
   actionsMapping?: ActionsMappingPropInterface;
   variant?: DatatableVariants;
 }
@@ -28,6 +29,7 @@ const Datatable: React.FC<DatatableInterface> = ({
   cellActions,
   actionsMapping,
   variant,
+  cellOverflow,
 }) => {
   return (
     <DataTableLensContextProvider
@@ -40,6 +42,7 @@ const Datatable: React.FC<DatatableInterface> = ({
       variant={variant}
       disableResizing={disableResizing}
       disableReordering={disableReordering}
+      cellOverflow={cellOverflow}
     >
       <DatatableList />
     </DataTableLensContextProvider>
