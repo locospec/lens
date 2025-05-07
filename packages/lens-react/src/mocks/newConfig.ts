@@ -110,6 +110,10 @@ const new_config = {
         type: "string",
         label: "Cities",
       },
+      properties: {
+        type: "string",
+        label: "Properties",
+      },
     },
     lensSimpleFilters: {
       "state.name": {

@@ -44,7 +44,9 @@ export function makeServer() {
             cities: `City ${index + 1}`,
             current_users: Math.floor(Math.random() * 1000),
             locality: `Locality ${index + 1}`,
-            properties: `Property ${index + 1} ${filters} q=${search}`,
+            properties: `Property This is sample long text ${
+              index + 1
+            } ${filters} q=${search}`,
             "state.id": `state_${index + 1}`,
             city: {
               id: `city_${index + 1}`,

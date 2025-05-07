@@ -1,3 +1,19 @@
+# v0.0.19 (Wed May 07 2025)
+
+#### 🐛 Bug Fix
+
+- chore: added cell overflow styles to data table cells [#154](https://github.com/locospec/lens/pull/154) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added cell overflow styles to datatable context [#154](https://github.com/locospec/lens/pull/154) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added util function to get style for overflow [#154](https://github.com/locospec/lens/pull/154) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added examples testing celloverflow variations [#154](https://github.com/locospec/lens/pull/154) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added interface and types [#154](https://github.com/locospec/lens/pull/154) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.18 (Wed May 07 2025)
 
 #### 🐛 Bug Fix

@@ -48,6 +48,8 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   variantClasses?: any;
   dataCallback?: any;
   disableReordering?: boolean;
+  cellOverflow?: "wrap" | "clip" | "ellipsis";
+  cellOverFlowStyles: string;
 }
 
 interface DataTableLensContextProviderInterface

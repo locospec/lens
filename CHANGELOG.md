@@ -2,6 +2,23 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/lens-react@0.0.19`
+  - chore: added cell overflow styles to data table cells [#154](https://github.com/locospec/lens/pull/154) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added cell overflow styles to datatable context [#154](https://github.com/locospec/lens/pull/154) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added util function to get style for overflow [#154](https://github.com/locospec/lens/pull/154) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added examples testing celloverflow variations [#154](https://github.com/locospec/lens/pull/154) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added interface and types [#154](https://github.com/locospec/lens/pull/154) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Wed May 07 2025)
+
+#### 🐛 Bug Fix
+
 - `@locospec/lens-react@0.0.18`
   - chore: modified example [#153](https://github.com/locospec/lens/pull/153) ([@ShreyDhyani](https://github.com/ShreyDhyani))
   - chore: added example for styling modification for variation [#153](https://github.com/locospec/lens/pull/153) ([@ShreyDhyani](https://github.com/ShreyDhyani))
