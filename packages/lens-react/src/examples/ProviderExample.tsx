@@ -125,14 +125,14 @@ const ProviderExample = () => {
               //   actionsCell: "flex gap-x-4 justify-end px-4",
               //   actionsHeader: "justify-end text-end text-right pr-4",
               // }}
-              classNames={{
-                headers: "bg-neutral-0",
-                row: "data-[even=true]:bg-blue-400 data-[even=true]:hover:bg-blue-500 data-[even=false]:bg-red-400",
-                pinned_cells:
-                  "data-[even=true]:bg-blue-400 data-[even=true]:group-hover:bg-blue-500 data-[even=false]:bg-red-400",
-                // row: "hover:bg-neutral-100",
-                // cell: "border-r-0 leading-8 group-hover:bg-gray-50 data-[state=checked]:text-white data-[state=checked]:bg-brand-300",
-              }}
+              // classNames={{
+              //   headers: "bg-neutral-0",
+              //   row: "data-[even=true]:bg-blue-400 data-[even=true]:hover:bg-blue-500 data-[even=false]:bg-red-400",
+              //   pinned_cells:
+              //     "data-[even=true]:bg-blue-400 data-[even=true]:group-hover:bg-blue-500 data-[even=false]:bg-red-400",
+              //   // row: "hover:bg-neutral-100",
+              //   // cell: "border-r-0 leading-8 group-hover:bg-gray-50 data-[state=checked]:text-white data-[state=checked]:bg-brand-300",
+              // }}
               cellActions={{
                 cities: (rowData: Record<string, any>) => {
                   console.log(rowData);
@@ -141,6 +141,7 @@ const ProviderExample = () => {
                   console.log("FROM ID COLUMNS", rowData);
                 },
               }}
+              // cellOverflow="wrap"
             />
           </div>
         </View>
