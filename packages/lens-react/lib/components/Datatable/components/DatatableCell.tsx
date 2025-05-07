@@ -23,7 +23,8 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   const isAction = cell.column.id === "actions";
   const isLast = cell.column.getIsLastColumn();
 
-  const { classNames, cellActions, variantClasses } = useDatatableContext();
+  const { classNames, cellActions, variantClasses, cellOverFlowStyles } =
+    useDatatableContext();
   const cellAction = cellActions && (cellActions[cell.column.id] ?? null);
 
   return (
@@ -31,6 +32,7 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
       className={cn(
         isAction || isPinned ? "flex items-center gap-x-4" : "truncate",
         "px-2 py-4 leading-3",
+        cellOverFlowStyles,
         variantClasses.cell,
         isPinned && variantClasses.pinned_cells,
         styles?.items,
