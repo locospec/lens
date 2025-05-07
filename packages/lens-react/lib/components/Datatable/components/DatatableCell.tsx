@@ -23,9 +23,17 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   const isAction = cell.column.id === "actions";
   const isLast = cell.column.getIsLastColumn();
 
-  const { classNames, cellActions, variantClasses, cellOverFlowStyles } =
-    useDatatableContext();
+  const {
+    classNames,
+    cellActions,
+    variantClasses,
+    cellOverFlowStyles,
+    cellRenderer,
+  } = useDatatableContext();
   const cellAction = cellActions && (cellActions[cell.column.id] ?? null);
+
+  const customCellRenderer =
+    (cellRenderer && cellRenderer[cell.column.id]) ?? null;
 
   return (
     <div
@@ -48,7 +56,9 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
       onClick={() => cellAction && cellAction(cell.row.original)}
       data-islast={isLast ? "true" : "false"}
     >
-      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+      {customCellRenderer
+        ? customCellRenderer(cell.row.original)
+        : flexRender(cell.column.columnDef.cell, cell.getContext())}
     </div>
   );
 };

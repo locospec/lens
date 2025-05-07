@@ -108,6 +108,7 @@ const DataTableLensContextProvider: React.FC<
   variant,
   disableReordering,
   cellOverflow,
+  cellRenderer,
 }) => {
   const lensContext = useLensContext();
   const viewContext = useViewContext();
@@ -187,6 +188,7 @@ const DataTableLensContextProvider: React.FC<
       disableResizing={disableResizing}
       disableReordering={disableReordering}
       cellOverFlowStyles={cellOverFlowStyles}
+      cellRenderer={cellRenderer}
     >
       {isFetched ? (
         isError ? (
