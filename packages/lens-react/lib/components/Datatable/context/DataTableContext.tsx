@@ -13,6 +13,7 @@ import { initialiseDefaultDatatableValues } from "../utils/initialiseDefaultData
 import { initialiseDefaultColumnsConfig } from "../utils/initialiseDefaultColumnsConfig";
 import { initialiseDatatableStates } from "../utils/initialiseDatatableStates";
 import { fetchStylesFromVariants } from "../hooks/fetchStylesFromVariants";
+import { getCellOverFlowStyles } from "../utils/getCellOverFlowStyles";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
@@ -106,11 +107,13 @@ const DataTableLensContextProvider: React.FC<
   actionsMapping,
   variant,
   disableReordering,
+  cellOverflow,
 }) => {
   const lensContext = useLensContext();
   const viewContext = useViewContext();
   const sensors = initialiseDnDSensors();
   const DATA_TABLE_STYLING_CLASSES = fetchStylesFromVariants(variant);
+  const cellOverFlowStyles = getCellOverFlowStyles(cellOverflow);
 
   const { isFetched, isError, endpoints, modal_name, lensConfiguration } =
     lensContext;
@@ -183,6 +186,7 @@ const DataTableLensContextProvider: React.FC<
       dataCallback={dataCallback}
       disableResizing={disableResizing}
       disableReordering={disableReordering}
+      cellOverFlowStyles={cellOverFlowStyles}
     >
       {isFetched ? (
         isError ? (
