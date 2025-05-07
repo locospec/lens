@@ -127,9 +127,9 @@ const ProviderExample = () => {
               // }}
               classNames={{
                 headers: "bg-neutral-0",
-                row: "data-[even=true]:bg-blue-400 data-[even=true]:hover:bg-blue-500",
+                row: "data-[even=true]:bg-blue-400 data-[even=true]:hover:bg-blue-500 data-[even=false]:bg-red-400",
                 pinned_cells:
-                  "data-[even=true]:bg-blue-400 data-[even=true]:group-hover:bg-blue-500",
+                  "data-[even=true]:bg-blue-400 data-[even=true]:group-hover:bg-blue-500 data-[even=false]:bg-red-400",
                 // row: "hover:bg-neutral-100",
                 // cell: "border-r-0 leading-8 group-hover:bg-gray-50 data-[state=checked]:text-white data-[state=checked]:bg-brand-300",
               }}
