@@ -27,6 +27,7 @@ const DatatableRow = ({
         classNames && classNames?.row
       )}
       data-index={virtualRow.index}
+      data-even={virtualRow.index % 2 === 0 ? "true" : "false"}
       ref={(node) => rowVirtualizer.measureElement(node)}
       key={row.id}
       style={translate}
