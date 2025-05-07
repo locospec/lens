@@ -15,13 +15,7 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   };
   const column = cell.column;
 
-  const isPinned = column.getIsPinned();
   const css = getColumnPinningStyles(column);
-  const isSelected = cell.row.getIsSelected();
-  const align = (cell.column.columnDef.meta as any)?.align;
-  const styles = getStyleClasses(align);
-  const isAction = cell.column.id === "actions";
-  const isLast = cell.column.getIsLastColumn();
 
   const {
     classNames,
@@ -30,10 +24,24 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
     cellOverFlowStyles,
     cellRenderer,
   } = useDatatableContext();
-  const cellAction = cellActions && (cellActions[cell.column.id] ?? null);
-
   const customCellRenderer =
     (cellRenderer && cellRenderer[cell.column.id]) ?? null;
+
+  if (customCellRenderer) {
+    return (
+      <div className="flex items-center" style={{ ...width, ...css }}>
+        {customCellRenderer(cell.row.original)}
+      </div>
+    );
+  }
+
+  const isPinned = column.getIsPinned();
+  const isSelected = cell.row.getIsSelected();
+  const align = (cell.column.columnDef.meta as any)?.align;
+  const styles = getStyleClasses(align);
+  const isAction = cell.column.id === "actions";
+  const isLast = cell.column.getIsLastColumn();
+  const cellAction = cellActions && (cellActions[cell.column.id] ?? null);
 
   return (
     <div
@@ -56,9 +64,7 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
       onClick={() => cellAction && cellAction(cell.row.original)}
       data-islast={isLast ? "true" : "false"}
     >
-      {customCellRenderer
-        ? customCellRenderer(cell.row.original)
-        : flexRender(cell.column.columnDef.cell, cell.getContext())}
+      {flexRender(cell.column.columnDef.cell, cell.getContext())}
     </div>
   );
 };
