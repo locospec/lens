@@ -144,11 +144,11 @@ const ProviderExample = () => {
               cellRenderer={{
                 cities: (rowData: Record<string, any>) => {
                   return (
-                    <div className="w-full flex items-center justify-center">
-                      <div className="bg-red-400 rounded-3xl px-3 py-2 w-fit text-white">
-                        {rowData.cities}
-                      </div>
+                    // <div className="w-full flex items-center justify-center">
+                    <div className="bg-red-400 rounded-3xl px-3 py-2 w-fit text-white">
+                      {rowData.cities}
                     </div>
+                    // </div>
                   );
                 },
               }}
