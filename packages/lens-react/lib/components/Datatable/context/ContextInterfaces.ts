@@ -16,6 +16,7 @@ interface CommonWrapperInterface {
 
 type DatatableVariants =
   | "vanilla"
+  | "stripped"
   | "plum"
   | "citrus"
   | "blossom"
