@@ -8,6 +8,7 @@ interface TableStylingInterface {
   actionsCell?: string;
   actionsHeader?: string;
   resizehandle?: string;
+  pinned_cells?: string;
 }
 
 export type { TableStylingInterface };
