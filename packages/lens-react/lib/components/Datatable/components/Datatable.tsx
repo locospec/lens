@@ -3,7 +3,10 @@ import { DataTableLensContextProvider } from "../context/DataTableContext";
 import DatatableList from "./DatatableList";
 import type { TableStylingInterface } from "../interface/TableStylingInterface";
 import type { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
-import type { DatatableVariants } from "../context/ContextInterfaces";
+import type {
+  CellRendererMap,
+  DatatableVariants,
+} from "../context/ContextInterfaces";
 import "../styles.css";
 
 export interface DatatableInterface {
@@ -17,6 +20,7 @@ export interface DatatableInterface {
   cellOverflow?: "wrap" | "clip" | "ellipsis";
   actionsMapping?: ActionsMappingPropInterface;
   variant?: DatatableVariants;
+  cellRenderer?: CellRendererMap;
 }
 
 const Datatable: React.FC<DatatableInterface> = ({
@@ -30,6 +34,7 @@ const Datatable: React.FC<DatatableInterface> = ({
   actionsMapping,
   variant,
   cellOverflow,
+  cellRenderer,
 }) => {
   return (
     <DataTableLensContextProvider
@@ -43,6 +48,7 @@ const Datatable: React.FC<DatatableInterface> = ({
       disableResizing={disableResizing}
       disableReordering={disableReordering}
       cellOverflow={cellOverflow}
+      cellRenderer={cellRenderer}
     >
       <DatatableList />
     </DataTableLensContextProvider>
