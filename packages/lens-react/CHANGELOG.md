@@ -1,3 +1,26 @@
+# v0.0.18 (Wed May 07 2025)
+
+#### 🐛 Bug Fix
+
+- chore: modified example [#153](https://github.com/locospec/lens/pull/153) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added example for styling modification for variation [#153](https://github.com/locospec/lens/pull/153) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added pinned_cells to class interface [#153](https://github.com/locospec/lens/pull/153) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added stripped style variant [#153](https://github.com/locospec/lens/pull/153) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added even true or value data state [#153](https://github.com/locospec/lens/pull/153) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added new class for styling pinned columns differently [#153](https://github.com/locospec/lens/pull/153) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### ⚠️ Pushed to `main`
+
+- Update padding from px-2 to px-4 in ProviderExample component ([@rjvim](https://github.com/rjvim))
+- Update repository URLs from locospec/ui to locospec/lens ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.0.17 (Thu Apr 24 2025)
 
 #### 🐛 Bug Fix
