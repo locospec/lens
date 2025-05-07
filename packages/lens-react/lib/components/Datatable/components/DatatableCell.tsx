@@ -36,8 +36,10 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
         styles?.items,
         styles?.text,
         classNames?.cell || "",
+        (isPinned && classNames?.pinned_cells) || "",
         (isAction && classNames?.actionsCell) || ""
       )}
+      data-even={cell.row.index % 2 === 0 ? "true" : "false"}
       key={cell.id}
       style={{ ...width, ...css }}
       data-state={isSelected && "checked"}
