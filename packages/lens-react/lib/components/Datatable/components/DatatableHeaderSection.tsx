@@ -3,9 +3,9 @@ import { DataTableHeader } from "./DataTableHeader.tsx";
 import type { Table } from "@tanstack/react-table";
 import { closestCenter, DndContext, DragOverlay } from "@dnd-kit/core";
 import { restrictToHorizontalAxis } from "@dnd-kit/modifiers";
-import { splitAndCapitalize } from "@/components/utils/splitAndCapitalize.ts";
+import { splitAndCapitalize } from "@lens/components/utils/splitAndCapitalize.ts";
 import { useDatatableContext } from "../context/useDatatableContext.ts";
-import { cn } from "@/base/lib/utils.ts";
+import { cn } from "@lens/base/lib/utils.ts";
 // import { useLensContext } from "./context/LensContext.tsx";
 // import { splitAndCapitalize } from "../utils/splitAndCapitalize.ts";
 

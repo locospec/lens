@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { cn } from "@/base/lib/utils";
+import { cn } from "@lens/base/lib/utils";
 import {
   Command,
   CommandEmpty,
@@ -10,12 +10,12 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@/base/components/ui/command";
+} from "@lens/base/components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/base/components/ui/popover";
+} from "@lens/base/components/ui/popover";
 
 export interface OptionInterface {
   label: string;

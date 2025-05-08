@@ -1,6 +1,6 @@
 import React, { useMemo, useRef } from "react";
 import type { Condition } from "../Filters";
-import { cn } from "@/base/lib/utils";
+import { cn } from "@lens/base/lib/utils";
 import { X } from "lucide-react";
 import ChipOP from "./ChipOp";
 import { returnOperators } from "../Filters/constants";

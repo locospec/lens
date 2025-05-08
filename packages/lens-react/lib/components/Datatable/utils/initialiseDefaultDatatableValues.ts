@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import convertIntoObject from "@/components/utils/convertIntoObject";
+import convertIntoObject from "@lens/components/utils/convertIntoObject";
 import type { ColumnPinningState } from "@tanstack/react-table";
 
 const initialiseDefaultDatatableValues = (selectedItems: string[]) => {

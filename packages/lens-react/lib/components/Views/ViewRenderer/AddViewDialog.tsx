@@ -1,12 +1,12 @@
-import { Button } from "@/base/components/ui/button";
+import { Button } from "@lens/base/components/ui/button";
 import {
   DialogContent,
   DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/base/components/ui/dialog";
-import { cn } from "@/components/utils/cn";
+} from "@lens/base/components/ui/dialog";
+import { cn } from "@lens/components/utils/cn";
 
 export interface AddViewDialogInterface {
   viewType: "table" | "raw";

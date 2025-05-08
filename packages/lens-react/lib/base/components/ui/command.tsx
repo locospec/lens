@@ -7,8 +7,8 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/base/components/ui/dialog";
-import { cn } from "@/base/lib/utils";
+} from "@lens/base/components/ui/dialog";
+import { cn } from "@lens/base/lib/utils";
 
 function Command({
   className,
