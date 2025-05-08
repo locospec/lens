@@ -2,6 +2,22 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/lens-react@0.0.20`
+  - chore: example code cleanup [#156](https://github.com/locospec/lens/pull/156) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modifed renderer for custom cells [#156](https://github.com/locospec/lens/pull/156) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added custom renderer for cells [#156](https://github.com/locospec/lens/pull/156) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added custom interface for cell renderes prop and added to Datatable Context [#156](https://github.com/locospec/lens/pull/156) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Wed May 07 2025)
+
+#### 🐛 Bug Fix
+
 - `@locospec/lens-react@0.0.19`
   - chore: added cell overflow styles to data table cells [#154](https://github.com/locospec/lens/pull/154) ([@ShreyDhyani](https://github.com/ShreyDhyani))
   - chore: added cell overflow styles to datatable context [#154](https://github.com/locospec/lens/pull/154) ([@ShreyDhyani](https://github.com/ShreyDhyani))

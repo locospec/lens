@@ -15,16 +15,32 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
   };
   const column = cell.column;
 
-  const isPinned = column.getIsPinned();
   const css = getColumnPinningStyles(column);
+
+  const {
+    classNames,
+    cellActions,
+    variantClasses,
+    cellOverFlowStyles,
+    cellRenderer,
+  } = useDatatableContext();
+  const customCellRenderer =
+    (cellRenderer && cellRenderer[cell.column.id]) ?? null;
+
+  if (customCellRenderer) {
+    return (
+      <div className="flex items-center" style={{ ...width, ...css }}>
+        {customCellRenderer(cell.row.original)}
+      </div>
+    );
+  }
+
+  const isPinned = column.getIsPinned();
   const isSelected = cell.row.getIsSelected();
   const align = (cell.column.columnDef.meta as any)?.align;
   const styles = getStyleClasses(align);
   const isAction = cell.column.id === "actions";
   const isLast = cell.column.getIsLastColumn();
-
-  const { classNames, cellActions, variantClasses, cellOverFlowStyles } =
-    useDatatableContext();
   const cellAction = cellActions && (cellActions[cell.column.id] ?? null);
 
   return (
