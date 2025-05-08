@@ -1,4 +1,4 @@
-import { Input } from "@/base/components/ui/input";
+import { Input } from "@lens/base/components/ui/input";
 
 export interface NumberInputInterface {
   placeholder?: string;

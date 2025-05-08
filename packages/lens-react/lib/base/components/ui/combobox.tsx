@@ -3,8 +3,8 @@
 import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 
-import { cn } from "@/base/lib/utils";
-import { Button } from "@/base/components/ui/button";
+import { cn } from "@lens/base/lib/utils";
+import { Button } from "@lens/base/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -18,7 +18,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/base/components/ui/popover";
+} from "@lens/base/components/ui/popover";
 
 export interface OptionInterface {
   label: string;

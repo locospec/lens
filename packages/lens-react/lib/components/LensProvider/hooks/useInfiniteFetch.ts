@@ -4,7 +4,7 @@ import type { InfiniteData } from "@tanstack/react-query";
 import { LensContext } from "../LensProvider";
 import { getProcessedFilters } from "../utils";
 import type { keepPreviousData } from "@tanstack/react-query";
-import { ViewContext } from "@/components/Views/View/ViewContext";
+import { ViewContext } from "@lens/components/Views/View/ViewContext";
 
 export interface UseInfiniteFetchParams {
   queryKey?: string;

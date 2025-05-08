@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/base/lib/utils";
+import { cn } from "@lens/base/lib/utils";
 import { Search, X } from "lucide-react";
 import { useDebouncedSearch } from "./hooks/useDebouncedSearch";
 

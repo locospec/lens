@@ -1,4 +1,4 @@
-import { cn } from "@/components/utils/cn";
+import { cn } from "@lens/components/utils/cn";
 import type { Header } from "@tanstack/react-table";
 import React from "react";
 import { useDatatableContext } from "../context/useDatatableContext.ts";

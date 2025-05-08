@@ -1,7 +1,7 @@
 import { DatatableCell } from "./DatatableCell.tsx";
 import type { VirtualItem, Virtualizer } from "@tanstack/react-virtual";
 import type { Row } from "@tanstack/react-table";
-import { cn } from "@/components/utils/cn.ts";
+import { cn } from "@lens/components/utils/cn.ts";
 import { useDatatableContext } from "../context/useDatatableContext.ts";
 
 export interface DatatableRowInterface {

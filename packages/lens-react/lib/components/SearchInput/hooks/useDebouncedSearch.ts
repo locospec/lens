@@ -1,4 +1,4 @@
-import { ViewContext } from "@/components/Views/View/ViewContext";
+import { ViewContext } from "@lens/components/Views/View/ViewContext";
 import { useContext, useEffect, useState } from "react";
 
 const DEFAULT_DELAY = 500;

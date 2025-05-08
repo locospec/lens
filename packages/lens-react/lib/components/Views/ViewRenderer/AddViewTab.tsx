@@ -1,7 +1,7 @@
-import { Card } from "@/base/components/ui/card";
-import { Dialog, DialogTrigger } from "@/base/components/ui/dialog";
+import { Card } from "@lens/base/components/ui/card";
+import { Dialog, DialogTrigger } from "@lens/base/components/ui/dialog";
 import AddViewDialog from "./AddViewDialog";
-import { TabsContent } from "@/base/components/ui/tabs";
+import { TabsContent } from "@lens/base/components/ui/tabs";
 
 export interface AddViewTabInterface {}
 

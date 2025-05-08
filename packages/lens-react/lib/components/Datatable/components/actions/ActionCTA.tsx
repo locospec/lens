@@ -3,8 +3,8 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/base/components/ui/popover";
-import { cn } from "@/base/lib/utils";
+} from "@lens/base/components/ui/popover";
+import { cn } from "@lens/base/lib/utils";
 
 export interface ActionCTAInterface {
   data: any;

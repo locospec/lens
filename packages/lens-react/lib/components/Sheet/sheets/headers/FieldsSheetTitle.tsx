@@ -1,4 +1,4 @@
-import { SheetTitle } from "@/base/components/ui/sheet";
+import { SheetTitle } from "@lens/base/components/ui/sheet";
 import { ArrowLeft } from "lucide-react";
 
 const FieldsSheetTitle = ({ callback }: { callback?: any }) => {

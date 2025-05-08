@@ -1,4 +1,4 @@
-import { cn } from "@/components/utils/cn";
+import { cn } from "@lens/components/utils/cn";
 import React from "react";
 import { NumberInput } from "../NumberInput";
 import "./NumberRangeInput.modules.css";

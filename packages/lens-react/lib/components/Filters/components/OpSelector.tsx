@@ -4,8 +4,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/base/components/ui/select";
-import { cn } from "@/base/lib/utils";
+} from "@lens/base/components/ui/select";
+import { cn } from "@lens/base/lib/utils";
 import { FilterGroup } from "../interfaces";
 import { GROUP_OPERATORS } from "../constants";
 

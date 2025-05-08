@@ -1,11 +1,11 @@
 import { useCallback } from "react";
 import { AttributeDefinitionType } from "../interfaces";
 import type { Condition } from "../interfaces";
-import { DatePicker } from "@/base/components/ui/datepicker";
-import NumberInput from "@/components/NumberInput/NumberInput";
-import NumberRangeInput from "@/components/NumberRangeInput/NumberRangeInput";
-import EnumInput from "@/components/EnumInput/EnumInput";
-import { TextInput } from "@/components/TextInput";
+import { DatePicker } from "@lens/base/components/ui/datepicker";
+import NumberInput from "@lens/components/NumberInput/NumberInput";
+import NumberRangeInput from "@lens/components/NumberRangeInput/NumberRangeInput";
+import EnumInput from "@lens/components/EnumInput/EnumInput";
+import { TextInput } from "@lens/components/TextInput";
 import { useFilterContext } from "../context";
 
 export interface ValueRendererInterface {

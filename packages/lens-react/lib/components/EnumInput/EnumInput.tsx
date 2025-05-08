@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Check, ChevronsUpDown, Search, X } from "lucide-react";
-import { cn } from "@/base/lib/utils";
+import { cn } from "@lens/base/lib/utils";
 import {
   Command,
   CommandEmpty,
@@ -10,19 +10,19 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@/base/components/ui/command";
+} from "@lens/base/components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/base/components/ui/popover";
+} from "@lens/base/components/ui/popover";
 import {
   useDebouncedEffectAfterMount,
   useEffectAfterMount,
-} from "@/hooks/index";
-import { useInfiniteFetch } from "@/components/LensProvider/hooks/useInfiniteFetch";
+} from "@lens/hooks/index";
+import { useInfiniteFetch } from "@lens/components/LensProvider/hooks/useInfiniteFetch";
 import { getProcessedFilters } from "../LensProvider/utils";
-import { useFetchMoreOnScroll } from "@/hooks/src/useFetchMoreOnScroll";
+import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
 import { getSameLevelConditions } from "../Filters";
 import { EnumInputInterface } from "./interface";
 import { contextDecoder } from "./utils";

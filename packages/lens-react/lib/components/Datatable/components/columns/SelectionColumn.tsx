@@ -1,6 +1,6 @@
 import type { Table, Row } from "@tanstack/react-table";
-import { Checkbox } from "@/base/components/ui/checkbox";
-import { cn } from "@/components/utils/cn";
+import { Checkbox } from "@lens/base/components/ui/checkbox";
+import { cn } from "@lens/components/utils/cn";
 
 export interface HeaderInterface {
   table: Table<any>;

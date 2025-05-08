@@ -1,4 +1,4 @@
-import { FilterGroup } from "@/components/LensProvider/interfaces/FiltersInterface";
+import { FilterGroup } from "@lens/components/LensProvider/interfaces/FiltersInterface";
 import { ReactNode } from "react";
 
 interface FiltersContextInterface {
