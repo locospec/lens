@@ -1,6 +1,6 @@
 // "use client";
 
-// import { SheetHeader, SheetTitle } from "@/components/Sheet";
+// import { SheetHeader, SheetTitle } from "@lens/components/Sheet";
 // import { ChevronRight, List, ListCheck } from "lucide-react";
 // import { SheetOptionsType } from "./interface";
 // import { OptionWrapper } from "../wrappers";

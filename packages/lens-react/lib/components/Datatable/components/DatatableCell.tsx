@@ -1,7 +1,7 @@
 import { flexRender } from "@tanstack/react-table";
 import type { Cell } from "@tanstack/react-table";
 import { getColumnPinningStyles } from "../hooks/getColumnPinningStyles";
-import { cn } from "@/components/utils/cn";
+import { cn } from "@lens/components/utils/cn";
 import { getStyleClasses } from "../utils/getStylesClassesForDataTable";
 import { useDatatableContext } from "../context/useDatatableContext";
 

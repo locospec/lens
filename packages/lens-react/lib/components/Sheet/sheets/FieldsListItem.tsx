@@ -1,5 +1,5 @@
-import { Switch } from "@/base/components/ui/switch";
-import { cn } from "@/base/lib/utils";
+import { Switch } from "@lens/base/components/ui/switch";
+import { cn } from "@lens/base/lib/utils";
 import { defaultAnimateLayoutChanges, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { GripVertical } from "lucide-react";

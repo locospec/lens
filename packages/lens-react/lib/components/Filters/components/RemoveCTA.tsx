@@ -1,5 +1,5 @@
 import { Trash2 } from "lucide-react";
-import { Button } from "@/base/components/ui/button";
+import { Button } from "@lens/base/components/ui/button";
 
 export interface RemoveCTAInterface {
   onRemoveCallback: () => void;

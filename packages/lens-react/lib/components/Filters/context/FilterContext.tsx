@@ -3,8 +3,8 @@ import {
   FiltersContextInterface,
   FiltersContextProviderInterface,
 } from "./ContextInterface";
-import { LensContext } from "@/main";
-import { ViewContext } from "@/components/Views/View/ViewContext";
+import { LensContext } from "@lens/main";
+import { ViewContext } from "@lens/components/Views/View/ViewContext";
 
 const FiltersContext = createContext<FiltersContextInterface | undefined>(
   undefined

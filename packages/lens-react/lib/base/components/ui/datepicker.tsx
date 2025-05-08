@@ -4,14 +4,14 @@ import * as React from "react";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 
-import { cn } from "@/base/lib/utils";
-import { Button } from "@/base/components/ui/button";
-import { Calendar } from "@/base/components/ui/calendar";
+import { cn } from "@lens/base/lib/utils";
+import { Button } from "@lens/base/components/ui/button";
+import { Calendar } from "@lens/base/components/ui/calendar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/base/components/ui/popover";
+} from "@lens/base/components/ui/popover";
 
 export interface DatePickerProps {
   defaultDate?: Date | undefined;

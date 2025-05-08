@@ -1,4 +1,4 @@
-import { cn } from "@/base/lib/utils";
+import { cn } from "@lens/base/lib/utils";
 
 const VANILLA_THEME = {
   no_data: cn("text-gray-600", "dark:text-gray-400"),

@@ -1,5 +1,5 @@
 import { createContext, useRef } from "react";
-import { useLensContext } from "@/main";
+import { useLensContext } from "@lens/main";
 import type {
   DatatableContextType,
   DatatableContextProviderInterface,
@@ -8,7 +8,7 @@ import type {
 import { useTableConfig } from "../hooks/useTableConfig";
 import { useColumnResize } from "../hooks/useColumnResize";
 import { initialiseDnDSensors } from "../utils/initialiseDnDSensors";
-import { useViewContext } from "@/components/Views/View";
+import { useViewContext } from "@lens/components/Views/View";
 import { initialiseDefaultDatatableValues } from "../utils/initialiseDefaultDatatableValues";
 import { initialiseDefaultColumnsConfig } from "../utils/initialiseDefaultColumnsConfig";
 import { initialiseDatatableStates } from "../utils/initialiseDatatableStates";

@@ -1,6 +1,6 @@
 import { Plus } from "lucide-react";
-import { Button } from "@/base/components/ui/button";
-import { cn } from "@/components/utils/cn";
+import { Button } from "@lens/base/components/ui/button";
+import { cn } from "@lens/components/utils/cn";
 
 export interface AddButtonsTrayProps {
   onAddCondition: (path: any) => void;

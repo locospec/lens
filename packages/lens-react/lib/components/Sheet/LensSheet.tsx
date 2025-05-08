@@ -1,4 +1,4 @@
-import { SheetContent, SheetTitle } from "@/base/components/ui/sheet";
+import { SheetContent, SheetTitle } from "@lens/base/components/ui/sheet";
 import React from "react";
 // import { SheetContent } from "./index.tsx";
 

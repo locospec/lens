@@ -3,20 +3,20 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/base/components/ui/tabs";
+} from "@lens/base/components/ui/tabs";
 import {
   Datatable,
   LensContext,
   RawDisplay,
   View,
   SimpleFilters,
-} from "@/main";
+} from "@lens/main";
 import { useContext, useState } from "react";
 import { initViewRendererStates } from "./initViewRendererStates";
-import { SearchInput } from "@/components/SearchInput/SearchInput";
+import { SearchInput } from "@lens/components/SearchInput/SearchInput";
 import AddViewTab from "./AddViewTab";
 import FiltersTriggerButton from "./FiltersTriggerButton";
-import { Dialog } from "@/base/components/ui/dialog";
+import { Dialog } from "@lens/base/components/ui/dialog";
 import FiltersDialog from "./FiltersDialog";
 
 const DEFAULT_TAB = "default";

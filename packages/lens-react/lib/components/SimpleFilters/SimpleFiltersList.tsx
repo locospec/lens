@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import type { Condition } from "../LensProvider/interfaces/FiltersInterface";
 import EnumInput from "../EnumInput/EnumInput";
 import { useSimpleFiltersContext } from "./context/useSimpleFiltersContext";
-import { DatePicker } from "@/base/components/ui/datepicker";
-import { cn } from "@/base/lib/utils";
+import { DatePicker } from "@lens/base/components/ui/datepicker";
+import { cn } from "@lens/base/lib/utils";
 import { ChipFilter } from "../ChipFilter";
 
 export interface SimpleFiltersProps {

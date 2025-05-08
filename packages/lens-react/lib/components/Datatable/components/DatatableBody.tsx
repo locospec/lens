@@ -2,7 +2,7 @@ import React from "react";
 import { DatatableRow } from "./DatatableRow.tsx";
 import type { Table } from "@tanstack/react-table";
 import { Virtualizer } from "@tanstack/react-virtual";
-import { cn } from "@/base/lib/utils.ts";
+import { cn } from "@lens/base/lib/utils.ts";
 import { useDatatableContext } from "../context/useDatatableContext.ts";
 
 export interface DatatableBodyProps {

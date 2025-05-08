@@ -2,7 +2,7 @@ import React from "react";
 import type { FilterGroup } from "../interfaces";
 import Condition from "../components/Condition";
 import { OpSelector as OPDisplay, AddButtonsTray, RemoveCTA } from "./index";
-import { cn } from "@/base/lib/utils";
+import { cn } from "@lens/base/lib/utils";
 
 export interface FilterGroupProps {
   group: FilterGroup;
