@@ -54,6 +54,8 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   variantClasses?: any;
   dataCallback?: any;
   disableReordering?: boolean;
+  showSheet?: boolean;
+  setShowSheet?: React.Dispatch<React.SetStateAction<boolean>>;
   cellOverflow?: "wrap" | "clip" | "ellipsis";
   cellOverFlowStyles: string;
   cellRenderer?: CellRendererMap;

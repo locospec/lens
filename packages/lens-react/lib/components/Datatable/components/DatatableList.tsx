@@ -12,11 +12,14 @@ import { useSyncSelection } from "../hooks/useSyncSelection";
 import { DatatableHeaderSection } from "./DatatableHeaderSection";
 import { createHandleDragEnd } from "../utils/createHandleDragEnd";
 import { DatatableBody, MemoizedDatatableBody } from "./DatatableBody";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
+import LensSidebar from "@lens/components/Sheet/LensSheet.tsx";
+import { Sheet } from "@lens/base/components/ui/sheet";
 import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
 import { getProcessedFilters } from "@lens/components/LensProvider/utils/getProcessedFilters.tsx";
 
 const DatatableList = () => {
+  const tableWrapperRef = useRef(null);
   const {
     selectionType,
     selectedRows,
@@ -51,7 +54,11 @@ const DatatableList = () => {
     variantClasses,
     dataCallback,
     disableReordering,
+    showSheet,
+    setShowSheet,
   } = useDatatableContext();
+
+  const renderSheet = showSheet && setShowSheet ? true : false;
 
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
     useInfiniteFetch({
@@ -148,52 +155,66 @@ const DatatableList = () => {
   }
 
   return (
-    <div
-      className={"flex-1 relative flex h-full flex-col gap-0 overflow-hidden"}
-    >
+    <>
       <div
-        className={cn(
-          "relative flex-1 overflow-auto w-full h-full border",
-          variantClasses.wrapper,
-          classNames && classNames?.wrapper
-        )}
-        onScroll={(e) => {
-          fetchMoreOnBottomReached(e.target as HTMLDivElement);
-        }}
-        ref={tableContainerRef}
+        className={"flex-1 relative flex h-full flex-col gap-0 overflow-hidden"}
+        ref={tableWrapperRef}
       >
-        <div
-          className="table-body-wrapper"
-          style={{
-            ...columnSizeVars,
-            width: "100%",
-            height: `${rowVirtualizer.getTotalSize()}px`,
-            minWidth: `${table.getTotalSize()}px`,
-          }}
-        >
-          <DatatableHeaderSection
-            table={table}
-            columnSizeVars={columnSizeVars}
-            tableContainerRef={tableContainerRef}
-            columnOrder={columnOrder}
-            handleDragEnd={disableReordering ? () => {} : handleDragEnd}
-            setActiveId={setActiveId}
-            activeId={activeId}
-            setIsInResizeArea={setIsInResizeArea}
-            isInResizeArea={isInResizeArea}
-            sensors={sensors}
-          />
-          {isResizing ? (
-            <MemoizedDatatableBody
+        {renderSheet && (
+          <Sheet open={showSheet} onOpenChange={setShowSheet}>
+            <LensSidebar
+              // tableContainerRef={tableContainerRef}
+              tableContainerRef={tableWrapperRef}
+              handleDragEnd={handleDragEnd}
               table={table}
-              rowVirtualizer={rowVirtualizer}
+              show={showSheet}
             />
-          ) : (
-            <DatatableBody table={table} rowVirtualizer={rowVirtualizer} />
+          </Sheet>
+        )}
+        <div
+          className={cn(
+            "relative flex-1 overflow-auto w-full h-full border",
+            variantClasses.wrapper,
+            classNames && classNames?.wrapper
           )}
+          onScroll={(e) => {
+            fetchMoreOnBottomReached(e.target as HTMLDivElement);
+          }}
+          ref={tableContainerRef}
+        >
+          <div
+            className="table-body-wrapper"
+            style={{
+              ...columnSizeVars,
+              width: "100%",
+              height: `${rowVirtualizer.getTotalSize()}px`,
+              minWidth: `${table.getTotalSize()}px`,
+            }}
+          >
+            <DatatableHeaderSection
+              table={table}
+              columnSizeVars={columnSizeVars}
+              tableContainerRef={tableContainerRef}
+              columnOrder={columnOrder}
+              handleDragEnd={disableReordering ? () => {} : handleDragEnd}
+              setActiveId={setActiveId}
+              activeId={activeId}
+              setIsInResizeArea={setIsInResizeArea}
+              isInResizeArea={isInResizeArea}
+              sensors={sensors}
+            />
+            {isResizing ? (
+              <MemoizedDatatableBody
+                table={table}
+                rowVirtualizer={rowVirtualizer}
+              />
+            ) : (
+              <DatatableBody table={table} rowVirtualizer={rowVirtualizer} />
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

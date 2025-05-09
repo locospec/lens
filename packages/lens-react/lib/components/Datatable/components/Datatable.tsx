@@ -20,6 +20,8 @@ export interface DatatableInterface {
   cellOverflow?: "wrap" | "clip" | "ellipsis";
   actionsMapping?: ActionsMappingPropInterface;
   variant?: DatatableVariants;
+  showSheet?: boolean;
+  setShowSheet?: React.Dispatch<React.SetStateAction<boolean>>;
   cellRenderer?: CellRendererMap;
 }
 
@@ -33,6 +35,8 @@ const Datatable: React.FC<DatatableInterface> = ({
   cellActions,
   actionsMapping,
   variant,
+  showSheet,
+  setShowSheet,
   cellOverflow,
   cellRenderer,
 }) => {
@@ -47,6 +51,8 @@ const Datatable: React.FC<DatatableInterface> = ({
       variant={variant}
       disableResizing={disableResizing}
       disableReordering={disableReordering}
+      showSheet={showSheet}
+      setShowSheet={setShowSheet}
       cellOverflow={cellOverflow}
       cellRenderer={cellRenderer}
     >

@@ -3,6 +3,7 @@ import { cn } from "@lens/base/lib/utils";
 import { defaultAnimateLayoutChanges, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { GripVertical } from "lucide-react";
+import { splitAndCapitalize } from "@lens/components/utils/splitAndCapitalize";
 
 const animateLayoutChanges = (args: any) =>
   args.isSorting || args.wasDragging ? defaultAnimateLayoutChanges(args) : true;
@@ -10,7 +11,8 @@ const animateLayoutChanges = (args: any) =>
 const FieldsListItem = ({ column, isHidden }: any) => {
   const headerDef = column.columnDef;
   const fixed = headerDef.meta.fixed || false;
-  const label = headerDef?.header as string;
+  const label =
+    (headerDef?.header as string) || splitAndCapitalize(column.id) || column.id;
 
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({

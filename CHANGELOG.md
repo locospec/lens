@@ -1,3 +1,18 @@
+# (Fri May 09 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.21`
+  - Feature sheet [#159](https://github.com/locospec/lens/pull/159) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: changed @ alias [#157](https://github.com/locospec/lens/pull/157) ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Shubham Joshi ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+
+---
+
 # (Wed May 07 2025)
 
 #### 🐛 Bug Fix
