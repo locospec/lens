@@ -107,6 +107,8 @@ const DataTableLensContextProvider: React.FC<
   actionsMapping,
   variant,
   disableReordering,
+  showSheet,
+  setShowSheet,
   cellOverflow,
   cellRenderer,
 }) => {
@@ -187,6 +189,8 @@ const DataTableLensContextProvider: React.FC<
       dataCallback={dataCallback}
       disableResizing={disableResizing}
       disableReordering={disableReordering}
+      showSheet={showSheet}
+      setShowSheet={setShowSheet}
       cellOverFlowStyles={cellOverFlowStyles}
       cellRenderer={cellRenderer}
     >

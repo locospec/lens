@@ -7,8 +7,6 @@ interface ViewContextType {
   search: (query: string) => void;
   config: any;
   searchQuery: string;
-  showSheet: boolean;
-  setShowSheet: React.Dispatch<React.SetStateAction<boolean>>;
   viewChildRef: React.RefObject<HTMLDivElement>;
   context: Record<string, any>;
 }
@@ -20,8 +18,6 @@ interface ViewConfigurationInterface {
 interface ViewProviderProps {
   children: React.ReactNode;
   viewId?: string;
-  showSheetProp?: boolean;
-  setShowSheetProp?: any;
   viewConfiguration?: ViewConfigurationInterface;
 }
 

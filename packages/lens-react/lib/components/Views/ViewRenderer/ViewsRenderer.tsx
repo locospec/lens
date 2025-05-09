@@ -31,16 +31,8 @@ const ViewsRenderer: React.FC<ViewsRendererInterface> = ({}) => {
   }
   const { config } = lensContext;
 
-  const { tabsList, initialShowSheets } = initViewRendererStates(config);
+  const { tabsList } = initViewRendererStates(config);
   const [activeTab, setActiveTab] = useState<string>(DEFAULT_TAB);
-  const [showSheets, setShowSheets] = useState(initialShowSheets);
-
-  const toggleShowSheet = (tabKey: string) => {
-    setShowSheets((prev) => ({
-      ...prev,
-      [tabKey]: !prev[tabKey],
-    }));
-  };
 
   return (
     <Dialog>
@@ -73,21 +65,13 @@ const ViewsRenderer: React.FC<ViewsRendererInterface> = ({}) => {
                 +
               </TabsTrigger>
             </TabsList>
-            <FiltersTriggerButton
-              toggleShowSheet={toggleShowSheet}
-              activeTab={activeTab}
-            />
+            <FiltersTriggerButton activeTab={activeTab} />
           </div>
           {tabsList.map((tab: any) => {
             const type = tab.config.type;
             return (
               <TabsContent key={tab.key} value={tab.key}>
-                <View
-                  key={tab.key}
-                  viewId={tab.key}
-                  showSheetProp={showSheets[tab.key]}
-                  setShowSheetProp={() => toggleShowSheet(tab.key)}
-                >
+                <View key={tab.key} viewId={tab.key}>
                   <FiltersDialog name={tab.config.view_name} />
                   <div className="flex py-4 items-center">
                     <SearchInput />
