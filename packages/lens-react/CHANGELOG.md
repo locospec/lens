@@ -1,3 +1,30 @@
+# v0.0.21 (Fri May 09 2025)
+
+#### 🐛 Bug Fix
+
+- Feature sheet [#159](https://github.com/locospec/lens/pull/159) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: example clean up ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: clean up ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: enable drag and drop and visibility swith for Columns from style sheet ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: moved unused code to bottom ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: Fixed Build issue ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: fix for sheet import ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: latest pull form main ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: changed @ alias [#157](https://github.com/locospec/lens/pull/157) ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+- chore: sheets addd ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed sidesheet from datatable context object ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added conditional rendering for lens side sheet ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added Sheet to Datatable context ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added Options wrapper and Default sheet for table ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed sheet form view context ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Shubham Joshi ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+
+---
+
 # v0.0.20 (Wed May 07 2025)
 
 #### 🐛 Bug Fix
