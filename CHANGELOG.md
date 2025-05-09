@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@locospec/lens-react@0.0.22`
+  - chore: fixed styling for dark mode [#160](https://github.com/locospec/lens/pull/160) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Fri May 09 2025)
+
+#### 🐛 Bug Fix
+
 - `@locospec/lens-react@0.0.21`
   - Feature sheet [#159](https://github.com/locospec/lens/pull/159) ([@ShreyDhyani](https://github.com/ShreyDhyani))
   - chore: changed @ alias [#157](https://github.com/locospec/lens/pull/157) ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))

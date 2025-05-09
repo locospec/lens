@@ -1,3 +1,15 @@
+# v0.0.22 (Fri May 09 2025)
+
+#### 🐛 Bug Fix
+
+- chore: fixed styling for dark mode [#160](https://github.com/locospec/lens/pull/160) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.21 (Fri May 09 2025)
 
 #### 🐛 Bug Fix
