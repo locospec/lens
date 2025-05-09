@@ -111,7 +111,7 @@ const ProviderExample = () => {
             <Datatable
               selectedItems={checkedIds}
               onSelect={handleSelectionChange}
-              variant="stripped"
+              variant="vanilla"
               disableReordering
               classNames={{
                 headers: "bg-neutral-0",

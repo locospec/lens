@@ -3,17 +3,28 @@ import { cn } from "@lens/base/lib/utils";
 import { Search, X } from "lucide-react";
 import { useDebouncedSearch } from "./hooks/useDebouncedSearch";
 
-const SearchInput: React.FC = () => {
+interface SearchInputType {
+  size?: "small" | "medium" | "large";
+}
+
+const SearchInput: React.FC<SearchInputType> = ({
+  size = "small",
+}: SearchInputType) => {
   const { debouncedQuery, setDebouncedQuery } = useDebouncedSearch({
     value: "",
   });
 
   return (
-    <div className="flex-1 cursor-writer flex items-center min-w-[200px] max-w-[400px] w-full p-1 relative rounded-full bg-gray-200 h-fit">
+    <div
+      className={cn(
+        "flex-1 cursor-writer flex items-center min-w-[200px] max-w-[400px] w-full p-1 relative rounded-full h-fit border rounded-lg"
+      )}
+    >
       <input
         className={cn(
-          "form-input w-full cursor-pointer border-none ml-2 bg-gray-200",
-          "outline-hidden focus:ring-0 text-sm font-normal text-black leading-6 rounded-full"
+          "form-input w-full cursor-pointer border-none",
+          "outline-hidden focus:ring-0 text-sm font-normal text-black leading-6 rounded-full",
+          size === "small" ? "py-0 px-1" : "p-1"
         )}
         value={debouncedQuery}
         onChange={(e) => {
@@ -23,15 +34,15 @@ const SearchInput: React.FC = () => {
       />
       {debouncedQuery && (
         <button
-          className="mr-2 text-gray-500"
+          className={cn("text-gray-500")}
           onClick={() => setDebouncedQuery("")}
         >
-          <X />
+          <X size={size === "small" ? 20 : 24} />
         </button>
       )}
       {!debouncedQuery && (
-        <div className="mr-2 text-gray-500">
-          <Search />
+        <div className={cn("text-gray-500")}>
+          <Search size={size === "small" ? 20 : 24} />
         </div>
       )}
     </div>

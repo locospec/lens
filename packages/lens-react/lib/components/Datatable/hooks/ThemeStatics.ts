@@ -2,9 +2,9 @@ import { cn } from "@lens/base/lib/utils";
 
 const VANILLA_THEME = {
   no_data: cn("text-gray-600", "dark:text-gray-400"),
-  wrapper: cn("rounded-md", "border-gray-500 ", "dark:border-gray-100"),
+  wrapper: cn("border-gray-500 border-[#eee] ", "dark:border-gray-100"),
   header_row: cn(
-    "border-b border-gray-500 text-black font-semibold",
+    "border-b border-gray-200 text-gray-500 font-normal text-sm",
     "dark:border-gray-100 dark:text-white"
   ),
   header_cell: cn(
@@ -15,20 +15,25 @@ const VANILLA_THEME = {
   ),
   resize_handler: cn(
     "border-r-0",
-    "border-gray-500 bg-gray-100 hover:border-gray-700 hover:bg-gray-600",
-    "dark:border-gray-200 dark:bg-gray-900 dark:hover:border-gray-300 dark:hover:bg-gray-400"
+    "hover:border-gray-700 hover:bg-gray-600",
+    "dark:hover:border-gray-300 dark:hover:bg-gray-400"
   ),
   resize_handler_isresizing: cn(
     "data-[isresising=true]:bg-gray-700",
     "dark:data-[isresising=true]:bg-gray-300"
   ),
   row: cn(
-    "hover:bg-gray-200 data-[state=checked]:bg-gray-200 text-gray-900 border-b border-gray-500 bg-white",
+    "hover:bg-gray-200 data-[state=checked]:bg-gray-200 text-gray-900 border-b border-gray-100 bg-white text-sm",
     "dark:hover:bg-gray-800 dark:data-[state=checked]:bg-gray-800 dark:text-gray-100 dark:border-gray-100 dark:bg-gray-700"
   ),
-  cell: cn("border-gray-500", "dark:border-gray-100"),
+  cell: cn(
+    "border-gray-100",
+    "dark:border-gray-100",
+    "border-r"
+    // 'data-[islast=true]:border-r-0',
+  ),
   pinned_cells: cn(
-    "group-hover:bg-gray-200 border-gray-500 bg-white",
+    "group-hover:bg-gray-200 border-gray-100 bg-white",
     "dark:group-hover:bg-gray-800 dark:border-gray-100 dark:bg-gray-700"
   ),
   checkbox: cn(
@@ -37,10 +42,9 @@ const VANILLA_THEME = {
   ),
   dragoverlay: cn(
     "bg-transparent border backdrop-blur-md cursor-grabbing text-black",
-    "dark:text-white"
+    "dark:text-white "
   ),
 };
-
 const STRIPPED_THEME = {
   no_data: cn("text-gray-600", "dark:text-gray-400"),
   wrapper: cn("rounded-md", "border-gray-500 ", "dark:border-gray-100"),
