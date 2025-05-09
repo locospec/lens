@@ -149,7 +149,9 @@ const DatatableList = () => {
           "flex h-full w-full items-center justify-center text-black dark:text-white"
         )}
       >
-        <div className="text-gray-500">Calculating column sizes...</div>
+        <div className="text-gray-700 dark:text-gray-300">
+          Calculating column sizes...
+        </div>
       </div>
     );
   }

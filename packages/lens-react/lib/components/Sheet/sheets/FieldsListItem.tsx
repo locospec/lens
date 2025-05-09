@@ -14,12 +14,18 @@ const FieldsListItem = ({ column, isHidden }: any) => {
   const label =
     (headerDef?.header as string) || splitAndCapitalize(column.id) || column.id;
 
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({
-      animateLayoutChanges,
-      id: column.id,
-      disabled: fixed,
-    });
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({
+    animateLayoutChanges,
+    id: column.id,
+    disabled: fixed,
+  });
 
   const style = {
     transform: CSS.Translate.toString(transform),
@@ -43,7 +49,12 @@ const FieldsListItem = ({ column, isHidden }: any) => {
       {...attributes}
     >
       <div className="flex gap-x-2">
-        {!isHidden && <GripVertical className="cursor-grab" {...listeners} />}
+        {!isHidden && (
+          <GripVertical
+            className={isDragging ? "cursor-grabbing" : "cursor-grab"}
+            {...listeners}
+          />
+        )}
         <label>{label}</label>
       </div>
 

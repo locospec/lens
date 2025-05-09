@@ -52,7 +52,7 @@ const FieldsSheet = ({
         />
       </SheetHeader>
 
-      <div className="flex flex-col gap-2 px-4 pb-4">
+      <div className="flex flex-col gap-2 px-4 pb-4 text-gray-900 dark:text-gray-100">
         <div id="draggabshown-list" className="flex flex-col gap-x-2">
           <DndContext
             collisionDetection={closestCenter}
@@ -65,9 +65,7 @@ const FieldsSheet = ({
               items={columns}
               strategy={verticalListSortingStrategy}
             >
-              <label className="text-sm text-gray-900 dark:text-gray-100">
-                Shown
-              </label>
+              <label className="text-sm">Shown</label>
               {(() => {
                 const visibleColumns = columns.filter(
                   (c) => !invisibleColumns.includes(c.id)
@@ -88,9 +86,7 @@ const FieldsSheet = ({
             </SortableContext>
           </DndContext>
         </div>
-        <label className="text-sm text-gray-900 dark:text-gray-100">
-          Hidden
-        </label>
+        <label className="text-sm">Hidden</label>
         {(() => {
           const hiddenColumns = columns.filter((c) =>
             invisibleColumns.includes(c.id)

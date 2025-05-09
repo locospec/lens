@@ -22,7 +22,7 @@ const DefaultSheet = ({ setCurrentSheet }: DefaultSheetInterface) => {
           }}
         >
           <div className="flex gap-x-2 text-sm items-center cursor-pointer">
-            <ListCheck className="text-[var(--gray-9)]" size={14} />
+            <ListCheck className="" size={14} />
             <label className="cursor-pointer">Fields</label>
           </div>
           <ChevronRight size={15} className="text-[var(--gray-9)]" />
