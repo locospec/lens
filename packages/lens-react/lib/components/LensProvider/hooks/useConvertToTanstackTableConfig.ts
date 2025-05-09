@@ -15,7 +15,7 @@ const useConvertToTanstackTableConfig = ({
   const configData = config.data;
 
   const attributes = configData.attributes;
-  const filters = configData.lensSimpleFilters;
+  const filters = configData?.lensSimpleFilters || {};
 
   const processed_columns = Object.keys(attributes).map((key) => {
     return {
@@ -59,6 +59,7 @@ const useConvertToTanstackTableConfig = ({
       selectionType: configData?.selectionType || "none",
       selectionKey: configData?.selectionKey || "id",
       actions: configData?.actions || {},
+      serialize: configData?.serialize || false,
       columns: processed_columns,
       filters: processed_filters,
       allowedScopes: configData?.allowedScopes || [],

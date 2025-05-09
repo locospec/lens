@@ -1,7 +1,7 @@
 import { useRef } from "react";
-import { Button } from "@/base/components/ui/button";
+import { Button } from "@lens/base/components/ui/button";
 import { Filter, Settings } from "lucide-react";
-import { DialogTrigger } from "@/base/components/ui/dialog";
+import { DialogTrigger } from "@lens/base/components/ui/dialog";
 
 interface FiltersTriggerButtonProps {
   toggleShowSheet: (activeTab: string) => void;

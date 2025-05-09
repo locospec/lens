@@ -1,7 +1,7 @@
 import React from "react";
 import { SimpleFiltersContext } from "../../../SimpleFilters/context/SimpleFiltersContext";
 import { FiltersContext } from "../../../Filters/context";
-import { useViewContext } from "@/components/Views/View";
+import { useViewContext } from "@lens/components/Views/View";
 
 const contextDecoder = () => {
   const viewContext = useViewContext();

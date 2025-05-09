@@ -5,7 +5,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/base/components/ui/select";
+} from "@lens/base/components/ui/select";
 import { returnOperators } from "../constants";
 import { Operator, AttributeDefinitionType } from "../interfaces";
 import { useFilterContext } from "../context";

@@ -31,6 +31,7 @@ const useTableConfig = (
       selectionType = "none",
       selectionKey,
       actions,
+      serialize,
       filters,
       allowedScopes,
     } = tableConfig;
@@ -48,9 +49,29 @@ const useTableConfig = (
 
     let finalColumns = columnsFromConfig;
 
+    if (serialize) {
+      const indexColumn = {
+        id: "serialize",
+        accessorKey: "serialize",
+        meta: {
+          align: serialize?.align || "center",
+          fixed: serialize?.fixed || "left",
+          show: true,
+        },
+        header: serialize?.header || "#",
+        cell: ({ row }: any) => row.index + 1,
+        enableSorting: false,
+        enableHiding: false,
+        size: serialize?.width || 50,
+        minSize: serialize?.minWidth || 80,
+        maxSize: serialize?.maxWidth || 80,
+      };
+      finalColumns = [indexColumn, ...finalColumns];
+    }
+
     if (selectionType && selectionType !== "none") {
       const selectionColumn = SelectionColumn(selectionType, variantClasses);
-      finalColumns = [selectionColumn, ...columnsFromConfig];
+      finalColumns = [selectionColumn, ...finalColumns];
     }
 
     if (actions && Object.keys(actions).length > 0) {

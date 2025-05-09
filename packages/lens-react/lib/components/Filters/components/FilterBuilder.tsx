@@ -3,9 +3,9 @@ import type { FilterBuilderProps } from "../interfaces";
 import { FilterGroup as FilterGroupComponent } from "./index";
 import { FilterContextProvider } from "../context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import useFilterFunctions from "@/components/LensProvider/hooks/useFilterFunction";
-import { JsonHighlighter } from "@/components/JsonHighlighter";
-import { useViewContext } from "@/components/Views/View";
+import useFilterFunctions from "@lens/components/LensProvider/hooks/useFilterFunction";
+import { JsonHighlighter } from "@lens/components/JsonHighlighter";
+import { useViewContext } from "@lens/components/Views/View";
 
 const queryClient = new QueryClient();
 

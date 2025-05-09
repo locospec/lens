@@ -10,12 +10,19 @@ import {
 import { TableStylingInterface } from "../interface/TableStylingInterface";
 import { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
 
+type CellRendererFn<T = any> = (rowData: T) => React.ReactNode;
+
+type CellRendererMap<T = any> = {
+  [columnKey: string]: CellRendererFn<T>;
+};
+
 interface CommonWrapperInterface {
   children: ReactNode;
 }
 
 type DatatableVariants =
   | "vanilla"
+  | "stripped"
   | "plum"
   | "citrus"
   | "blossom"
@@ -49,6 +56,9 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   disableReordering?: boolean;
   showSheet?: boolean;
   setShowSheet?: React.Dispatch<React.SetStateAction<boolean>>;
+  cellOverflow?: "wrap" | "clip" | "ellipsis";
+  cellOverFlowStyles: string;
+  cellRenderer?: CellRendererMap;
 }
 
 interface DataTableLensContextProviderInterface
@@ -75,6 +85,7 @@ interface DatatableContextType
 }
 
 export type {
+  CellRendererMap,
   DatatableVariants,
   CommonWrapperInterface,
   DatatableContextType,

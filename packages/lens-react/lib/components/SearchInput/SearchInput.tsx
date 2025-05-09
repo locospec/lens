@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/base/lib/utils";
+import { cn } from "@lens/base/lib/utils";
 import { Search, X } from "lucide-react";
 import { useDebouncedSearch } from "./hooks/useDebouncedSearch";
 
@@ -13,7 +13,7 @@ const SearchInput: React.FC = () => {
       <input
         className={cn(
           "form-input w-full cursor-pointer border-none ml-2 bg-gray-200",
-          "outline-none focus:ring-0 text-sm font-normal text-black leading-6 rounded-full"
+          "outline-hidden focus:ring-0 text-sm font-normal text-black leading-6 rounded-full"
         )}
         value={debouncedQuery}
         onChange={(e) => {

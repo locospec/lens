@@ -1,5 +1,5 @@
-import { useInfiniteFetch } from "@/components/LensProvider/hooks/useInfiniteFetch";
-import { cn } from "@/components/utils/cn";
+import { useInfiniteFetch } from "@lens/components/LensProvider/hooks/useInfiniteFetch";
+import { cn } from "@lens/components/utils/cn";
 import { useDatatableContext } from "../context/useDatatableContext.ts";
 import {
   getCoreRowModel,
@@ -17,6 +17,8 @@ import { useFetchMoreOnScroll } from "@/hooks/src/useFetchMoreOnScroll";
 import { getProcessedFilters } from "@/components/LensProvider/utils/getProcessedFilters.tsx";
 import LensSidebar from "@/components/Sheet/LensSheet.tsx";
 import { Sheet } from "@/base/components/ui/sheet";
+import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
+import { getProcessedFilters } from "@lens/components/LensProvider/utils/getProcessedFilters.tsx";
 
 const DatatableList = () => {
   const {

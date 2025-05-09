@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-// import { SheetHeader } from "@/components/Sheet";
+// import { SheetHeader } from "@lens/components/Sheet";
 // import { SheetOptionsType } from "./interface";
 import type { Table } from "@tanstack/react-table";
 import FieldsSheetTitle from "./headers/FieldsSheetTitle";
@@ -16,8 +16,8 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import FieldsListItem from "./FieldsListItem";
-import { SheetHeader } from "@/base/components/ui/sheet";
 import { SheetOptionsType } from "./interface";
+import { SheetHeader } from "@lens/base/components/ui/sheet";
 
 const measuringConfig = {
   droppable: {

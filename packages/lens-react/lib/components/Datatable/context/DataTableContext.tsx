@@ -1,5 +1,5 @@
 import { createContext, useRef } from "react";
-import { useLensContext } from "@/main";
+import { useLensContext } from "@lens/main";
 import type {
   DatatableContextType,
   DatatableContextProviderInterface,
@@ -8,11 +8,12 @@ import type {
 import { useTableConfig } from "../hooks/useTableConfig";
 import { useColumnResize } from "../hooks/useColumnResize";
 import { initialiseDnDSensors } from "../utils/initialiseDnDSensors";
-import { useViewContext } from "@/components/Views/View";
+import { useViewContext } from "@lens/components/Views/View";
 import { initialiseDefaultDatatableValues } from "../utils/initialiseDefaultDatatableValues";
 import { initialiseDefaultColumnsConfig } from "../utils/initialiseDefaultColumnsConfig";
 import { initialiseDatatableStates } from "../utils/initialiseDatatableStates";
 import { fetchStylesFromVariants } from "../hooks/fetchStylesFromVariants";
+import { getCellOverFlowStyles } from "../utils/getCellOverFlowStyles";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
   undefined
@@ -108,11 +109,14 @@ const DataTableLensContextProvider: React.FC<
   disableReordering,
   showSheet,
   setShowSheet,
+  cellOverflow,
+  cellRenderer,
 }) => {
   const lensContext = useLensContext();
   const viewContext = useViewContext();
   const sensors = initialiseDnDSensors();
   const DATA_TABLE_STYLING_CLASSES = fetchStylesFromVariants(variant);
+  const cellOverFlowStyles = getCellOverFlowStyles(cellOverflow);
 
   const { isFetched, isError, endpoints, modal_name, lensConfiguration } =
     lensContext;
@@ -187,6 +191,8 @@ const DataTableLensContextProvider: React.FC<
       disableReordering={disableReordering}
       showSheet={showSheet}
       setShowSheet={setShowSheet}
+      cellOverFlowStyles={cellOverFlowStyles}
+      cellRenderer={cellRenderer}
     >
       {isFetched ? (
         isError ? (

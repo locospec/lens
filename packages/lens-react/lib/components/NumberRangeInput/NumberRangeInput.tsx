@@ -1,4 +1,4 @@
-import { cn } from "@/components/utils/cn";
+import { cn } from "@lens/components/utils/cn";
 import React from "react";
 import { NumberInput } from "../NumberInput";
 import "./NumberRangeInput.modules.css";
@@ -9,7 +9,7 @@ export interface NumberRangeInputInterface {
   handleValueChange: any;
 }
 
-const errorClasses = "border border-red-500 !ring-red-500 horizontal-shake";
+const errorClasses = "border border-red-500 ring-red-500! horizontal-shake";
 const defaultClasses = "max-w-32";
 
 const NumberRangeInput = ({

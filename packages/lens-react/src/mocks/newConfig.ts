@@ -86,6 +86,13 @@ const new_config = {
     selectionType: "multiple",
     selectionKey: "id",
     actions: ACTION_2,
+    serialize: {
+      header: "index",
+      align: "center",
+      minWidth: 40,
+      maxWidth: 80,
+    },
+    // serialize: true,
     attributes: {
       id: {
         type: "string",
@@ -102,6 +109,10 @@ const new_config = {
       cities: {
         type: "string",
         label: "Cities",
+      },
+      properties: {
+        type: "string",
+        label: "Properties",
       },
     },
     lensSimpleFilters: {

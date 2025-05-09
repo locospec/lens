@@ -5,13 +5,13 @@
   "main": "index.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/locospec/ui.git"
+    "url": "git+https://github.com/locospec/lens.git"
   },
   "keywords": [
     "configuration"
   ],
   "license": "MIT",
   "type": "module",
-  "homepage": "https://github.com/locospec/ui#readme",
-  "description": "Configuration files for locospec ui"
+  "homepage": "https://github.com/locospec/lens#readme",
+  "description": "Configuration files for locospec lens"
 }

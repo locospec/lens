@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { cn } from "@/base/lib/utils";
+import { cn } from "@lens/base/lib/utils";
 import {
   Command,
   CommandEmpty,
@@ -10,12 +10,12 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@/base/components/ui/command";
+} from "@lens/base/components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/base/components/ui/popover";
+} from "@lens/base/components/ui/popover";
 
 export interface OptionInterface {
   label: string;
@@ -68,7 +68,7 @@ const ChipOP: React.FC<ComboBoxInterface> = ({
         </div>
       </PopoverTrigger>
       <PopoverContent
-        className="w-fit !p-0 bg-blue-300"
+        className="w-fit p-0! bg-blue-300"
         containerRef={containerRef}
       >
         <Command>
@@ -89,7 +89,7 @@ const ChipOP: React.FC<ComboBoxInterface> = ({
                       callback && callback(currentValue);
                       setOpen(false);
                     }}
-                    className="sm:text-xs !px-1 !py-0.5"
+                    className="sm:text-xs px-1! py-0.5!"
                   >
                     {option.label}
                   </CommandItem>

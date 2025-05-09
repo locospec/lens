@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from "react";
-import Combobox from "@/base/components/ui/combobox";
+import Combobox from "@lens/base/components/ui/combobox";
 import type { Condition } from "../interfaces";
 import { getSameLevelConditions } from "../utils";
 import { OperatorsSelector, ValueInputRenderer } from "./index";

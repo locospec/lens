@@ -1,12 +1,12 @@
-import { Button } from "@/base/components/ui/button";
-import { FilterBuilder } from "@/components/Filters";
+import { Button } from "@lens/base/components/ui/button";
+import { FilterBuilder } from "@lens/components/Filters";
 import {
   DialogContent,
   DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/base/components/ui/dialog";
+} from "@lens/base/components/ui/dialog";
 
 interface FiltersDialogInterface {
   name: string;

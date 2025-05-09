@@ -1,9 +1,12 @@
 "use client";
 
-import { SheetHeader, SheetTitle } from "@/base/components/ui/sheet";
 import { ChevronRight, List, ListCheck } from "lucide-react";
 import { SheetOptionsType } from "./interface";
 import { OptionWrapper } from "./OptionWrapper";
+import { SheetHeader, SheetTitle } from "@lens/components/Sheet";
+// import { ChevronRight, List, ListCheck } from "lucide-react";
+// import { SheetOptionsType } from "./interface";
+// import { OptionWrapper } from "../wrappers";
 
 export interface DefaultSheetInterface {
   setCurrentSheet: React.Dispatch<React.SetStateAction<SheetOptionsType>>;

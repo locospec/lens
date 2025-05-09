@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Check, ChevronsUpDown, Search, X } from "lucide-react";
-import { cn } from "@/base/lib/utils";
+import { cn } from "@lens/base/lib/utils";
 import {
   Command,
   CommandEmpty,
@@ -10,19 +10,19 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@/base/components/ui/command";
+} from "@lens/base/components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/base/components/ui/popover";
+} from "@lens/base/components/ui/popover";
 import {
   useDebouncedEffectAfterMount,
   useEffectAfterMount,
-} from "@/hooks/index";
-import { useInfiniteFetch } from "@/components/LensProvider/hooks/useInfiniteFetch";
+} from "@lens/hooks/index";
+import { useInfiniteFetch } from "@lens/components/LensProvider/hooks/useInfiniteFetch";
 import { getProcessedFilters } from "../LensProvider/utils";
-import { useFetchMoreOnScroll } from "@/hooks/src/useFetchMoreOnScroll";
+import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
 import { getSameLevelConditions } from "../Filters";
 import { EnumInputInterface } from "./interface";
 import { contextDecoder } from "./utils";
@@ -185,9 +185,9 @@ const EnumInput = React.memo(function EnumInput({
       <PopoverTrigger asChild>
         <div
           className={cn(
-            "relative flex items-center justify-start px-2 w-[200px] max-w-[300px] gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+            "relative flex items-center justify-start px-2 w-[200px] max-w-[300px] gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
             "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-            "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+            "border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
             "h-9 px-4 py-2",
             enumClasses
           )}
@@ -252,7 +252,6 @@ const EnumInput = React.memo(function EnumInput({
           </div>
           <CommandSeparator className={separatorClasses} />
           <CommandList
-            ref={containerRef}
             key={condition.attribute}
             onScroll={(e) =>
               fetchMoreOnBottomReached(e.target as HTMLDivElement)

@@ -126,24 +126,25 @@ const ProviderExample = () => {
               // disableResizing
               // disableReordering
               classNames={{
-                wrapper: "border border-[#eee]",
-                headers:
-                  "border-b border-[#eee] bg-white pl-3 flex gap-x-3 py-[15px]",
-                header: "leading-[16px] p-0 bg-white border-r-0",
-                resizehandle: "bg-gray-100 hover:bg-gray-300",
-                row: "border-b border-[#eee] hover:bg-gray-50 pl-3 flex gap-x-3 pt-[18px] pb-3",
-                cell: "p-0 border-r-0 leading-8 group-hover:bg-gray-50",
-                actionsCell: "flex gap-x-4 justify-end px-4",
-                actionsHeader: "justify-end text-end text-right pr-4",
+                headers: "bg-neutral-0",
               }}
-              // cellActions={{
-              //   cities: (rowData: Record<string, any>) => {
-              //     console.log(rowData);
-              //   },
-              //   id: (rowData: Record<string, any>) => {
-              //     console.log("FROM ID COLUMNS", rowData);
-              //   },
-              // }}
+              cellActions={{
+                cities: (rowData: Record<string, any>) => {
+                  console.log(rowData);
+                },
+                id: (rowData: Record<string, any>) => {
+                  console.log("FROM ID COLUMNS", rowData);
+                },
+              }}
+              cellRenderer={{
+                cities: (rowData: Record<string, any>) => {
+                  return (
+                    <div className="bg-red-400 rounded-3xl px-3 py-2 w-fit text-white">
+                      {rowData.cities}
+                    </div>
+                  );
+                },
+              }}
             />
           </div>
         </View>

@@ -1,7 +1,7 @@
 import { DatatableCell } from "./DatatableCell.tsx";
 import type { VirtualItem, Virtualizer } from "@tanstack/react-virtual";
 import type { Row } from "@tanstack/react-table";
-import { cn } from "@/components/utils/cn.ts";
+import { cn } from "@lens/components/utils/cn.ts";
 import { useDatatableContext } from "../context/useDatatableContext.ts";
 
 export interface DatatableRowInterface {
@@ -27,10 +27,11 @@ const DatatableRow = ({
         classNames && classNames?.row
       )}
       data-index={virtualRow.index}
+      data-even={virtualRow.index % 2 === 0 ? "true" : "false"}
       ref={(node) => rowVirtualizer.measureElement(node)}
       key={row.id}
       style={translate}
-      data-state={isSelected && "selected"}
+      data-state={isSelected && "checked"}
     >
       {row.getVisibleCells().map((cell) => (
         <DatatableCell key={cell.id} cell={cell} />

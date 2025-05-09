@@ -7,7 +7,9 @@ import React, {
   useState,
 } from "react";
 import type { ViewContextType, ViewProviderProps } from "./types";
-import { LensContext } from "@/main";
+import { LensContext } from "@lens/main";
+import LensSidebar from "@lens/components/Sheet/LensSheet";
+import { Sheet } from "@lens/base/components/ui/sheet";
 
 export const ViewContext = createContext<ViewContextType | undefined>(
   undefined

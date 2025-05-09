@@ -3,7 +3,10 @@ import { DataTableLensContextProvider } from "../context/DataTableContext";
 import DatatableList from "./DatatableList";
 import type { TableStylingInterface } from "../interface/TableStylingInterface";
 import type { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
-import type { DatatableVariants } from "../context/ContextInterfaces";
+import type {
+  CellRendererMap,
+  DatatableVariants,
+} from "../context/ContextInterfaces";
 import "../styles.css";
 
 export interface DatatableInterface {
@@ -14,10 +17,12 @@ export interface DatatableInterface {
   disableReordering?: boolean;
   viewId?: string;
   cellActions?: any;
+  cellOverflow?: "wrap" | "clip" | "ellipsis";
   actionsMapping?: ActionsMappingPropInterface;
   variant?: DatatableVariants;
   showSheet?: boolean;
   setShowSheet?: React.Dispatch<React.SetStateAction<boolean>>;
+  cellRenderer?: CellRendererMap;
 }
 
 const Datatable: React.FC<DatatableInterface> = ({
@@ -32,6 +37,8 @@ const Datatable: React.FC<DatatableInterface> = ({
   variant,
   showSheet,
   setShowSheet,
+  cellOverflow,
+  cellRenderer,
 }) => {
   return (
     <DataTableLensContextProvider
@@ -46,6 +53,8 @@ const Datatable: React.FC<DatatableInterface> = ({
       disableReordering={disableReordering}
       showSheet={showSheet}
       setShowSheet={setShowSheet}
+      cellOverflow={cellOverflow}
+      cellRenderer={cellRenderer}
     >
       <DatatableList />
     </DataTableLensContextProvider>

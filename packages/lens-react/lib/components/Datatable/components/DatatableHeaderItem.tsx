@@ -7,7 +7,7 @@ import {
   useSortable,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { cn } from "@/components/utils/cn.ts";
+import { cn } from "@lens/components/utils/cn.ts";
 import { getColumnPinningStyles } from "../hooks/getColumnPinningStyles.ts";
 import { getStyleClasses } from "../utils/getStylesClassesForDataTable.ts";
 import { useDatatableContext } from "../context/useDatatableContext.ts";
@@ -63,7 +63,7 @@ const DatatableHeaderItem = ({
           !disableReordering && enableResizeHandler
             ? "cursor-grab"
             : "cursor-pointer",
-          styles.text,
+          styles?.text,
           classNames && classNames.header,
           (isAction && classNames?.actionsHeader) || ""
         )}
