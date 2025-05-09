@@ -13,10 +13,8 @@ import { DatatableHeaderSection } from "./DatatableHeaderSection";
 import { createHandleDragEnd } from "../utils/createHandleDragEnd";
 import { DatatableBody, MemoizedDatatableBody } from "./DatatableBody";
 import { useCallback, useEffect } from "react";
-import { useFetchMoreOnScroll } from "@/hooks/src/useFetchMoreOnScroll";
-import { getProcessedFilters } from "@/components/LensProvider/utils/getProcessedFilters.tsx";
-import LensSidebar from "@/components/Sheet/LensSheet.tsx";
-import { Sheet } from "@/base/components/ui/sheet";
+import LensSidebar from "@lens/components/Sheet/LensSheet.tsx";
+import { Sheet } from "@lens/base/components/ui/sheet";
 import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
 import { getProcessedFilters } from "@lens/components/LensProvider/utils/getProcessedFilters.tsx";
 

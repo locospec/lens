@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import DefaultSheet from "./sheets/DefaultSheet";
 import { SheetOptionsType } from "./sheets/interface";
 import FieldsSheet from "./sheets/FieldsSheet";
-import { SheetContent, SheetTitle } from "@lens/base/components/ui/sheet";
-// import { SheetContent } from "./index.tsx";
+import { SheetContent } from "@lens/base/components/ui/sheet";
 
 export interface LensSidebarInterface {
   tableContainerRef?: React.RefObject<HTMLDivElement>;

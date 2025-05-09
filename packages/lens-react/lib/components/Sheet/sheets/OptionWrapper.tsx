@@ -1,4 +1,4 @@
-import { cn } from "@/components/utils/cn";
+import { cn } from "@lens/components/utils/cn";
 
 export interface OptionWrapperInterface {
   callback?: any;

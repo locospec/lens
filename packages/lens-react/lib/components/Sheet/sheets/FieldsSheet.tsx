@@ -33,7 +33,7 @@ export interface FieldsSheetInterface {
 }
 
 const FieldsSheet = ({
-  setCurrentSheet,
+  // setCurrentSheet,
   table,
 }: // handleDragEnd,
 FieldsSheetInterface) => {
