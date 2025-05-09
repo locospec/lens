@@ -12,12 +12,14 @@ export interface LensSidebarInterface {
   children?: React.ReactNode;
   table?: any;
   show?: boolean;
+  handleDragEnd?: any;
 }
 
 const LensSidebar = ({
   tableContainerRef,
   table,
   show,
+  handleDragEnd,
 }: LensSidebarInterface) => {
   const [currentSheet, setCurrentSheet] =
     React.useState<SheetOptionsType>("default");
@@ -41,28 +43,15 @@ const LensSidebar = ({
           setCurrentSheet={setCurrentSheet}
           tableContainerRef={tableContainerRef}
           table={table}
-          // handleDragEnd={handleDragEnd}
+          handleDragEnd={handleDragEnd}
         />
       )}
-      {/* {currentSheet === "default" ? (
-          <DefaultSheet setCurrentSheet={setCurrentSheet} />
-        ) : currentSheet === "layout_options" ? (
-          <LayoutSheet
+
+      {/* <LayoutSheet
             setCurrentSheet={setCurrentSheet}
             tableContainerRef={tableContainerRef}
             table={table}
-          />
-        ) : currentSheet === "field_options" ? (
-          <FieldsSheet
-            setCurrentSheet={setCurrentSheet}
-            tableContainerRef={tableContainerRef}
-            table={table}
-            handleDragEnd={handleDragEnd}
-          />
-        ) : (
-          <></>
-        )} */}
-      {/* <DefaultShee */}
+          /> */}
     </SheetContent>
   );
 };
