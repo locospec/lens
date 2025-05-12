@@ -197,9 +197,9 @@ const EnumInput = React.memo(function EnumInput({
             {values && values.length > 0
               ? options.length > 0
                 ? options
-                    .filter((option) => values.includes(option?.const))
-                    .map((option) => option.title)
-                    .join(",")
+                  .filter((option) => values.includes(option?.const))
+                  .map((option) => option.title)
+                  .join(",")
                 : values.join(",")
               : placeholder}
           </div>

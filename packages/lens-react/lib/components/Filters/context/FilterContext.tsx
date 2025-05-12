@@ -44,7 +44,7 @@ const FilterContextProvider: React.FC<FiltersContextProviderInterface> = ({
   let filtersConfig = config?.filters || undefined;
 
   // If filters config does not exists
-  if (!filtersConfig) return null;
+  if (!filtersConfig) {return null;}
 
   const { permissionHeaders = {} } = lensConfiguration;
   const queryEndpoint = endpoints.read_relation_option;
