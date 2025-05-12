@@ -9,6 +9,7 @@ interface TableStylingInterface {
   actionsHeader?: string;
   resizehandle?: string;
   pinned_cells?: string;
+  checkbox?: string;
 }
 
 export type { TableStylingInterface };
