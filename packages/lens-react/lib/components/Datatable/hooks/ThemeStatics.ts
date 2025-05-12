@@ -2,7 +2,7 @@ import { cn } from "@lens/base/lib/utils";
 
 const VANILLA_THEME = {
   no_data: cn("text-gray-600", "dark:text-gray-400"),
-  wrapper: cn("border-gray-500 border-[#eee] ", "dark:border-gray-100"),
+  wrapper: cn("border-gray-500 border-gray-100 ", "dark:border-gray-100"),
   header_row: cn(
     "border-b border-gray-200 text-gray-500 font-normal text-sm",
     "dark:border-gray-100 dark:text-white"
@@ -48,7 +48,7 @@ const VANILLA_THEME = {
 
 const STRIPPED_THEME = {
   no_data: cn("text-gray-600", "dark:text-gray-400"),
-  wrapper: cn("border-gray-500 border-[#eee] ", "dark:border-gray-100"),
+  wrapper: cn("border-gray-500 border-gray-100 ", "dark:border-gray-100"),
   header_row: cn(
     "border-b border-gray-200 text-gray-500 font-normal text-xs",
     "dark:border-gray-100 dark:text-white"
