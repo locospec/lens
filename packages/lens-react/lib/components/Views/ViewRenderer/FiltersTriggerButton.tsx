@@ -4,12 +4,12 @@ import { Filter, Settings } from "lucide-react";
 import { DialogTrigger } from "@lens/base/components/ui/dialog";
 
 interface FiltersTriggerButtonProps {
-  toggleShowSheet: (activeTab: string) => void;
+  toggleShowSheet?: (activeTab: string) => void;
   activeTab: string;
 }
 
 const FiltersTriggerButton: React.FC<FiltersTriggerButtonProps> = ({
-  toggleShowSheet,
+  toggleShowSheet = () => {},
   activeTab,
 }) => {
   const ref = useRef(null);
