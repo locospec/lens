@@ -1,3 +1,20 @@
+# v0.0.23 (Mon May 12 2025)
+
+#### 🐛 Bug Fix
+
+- Fix styling for Vanilla and Stripped themes [#161](https://github.com/locospec/lens/pull/161) ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+- fix:classnames fix ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+- replaced #eee with bg-gray-100 ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+- chore: conflicts fixed ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+- updated stripped theme ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+- fix: fixed styling for vanilla theme ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+
+#### Authors: 1
+
+- Shubham Joshi ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+
+---
+
 # v0.0.22 (Fri May 09 2025)
 
 #### 🐛 Bug Fix
