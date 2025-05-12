@@ -78,7 +78,7 @@ const FieldsSheet = ({
                 ) : (
                   visibleColumns.map((column) => {
                     if (column?.id === "select" || column?.id === "serialize")
-                      return null;
+                    {return null;}
                     return <FieldsListItem column={column} key={column.id} />;
                   })
                 );

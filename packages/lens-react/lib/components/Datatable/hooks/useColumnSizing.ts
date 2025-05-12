@@ -10,7 +10,7 @@ const useColumnSizing = (columns: Column[], containerWidth: number) => {
   const [adjustedColumns, setAdjustedColumns] = useState<any>(columns);
 
   useMemo(() => {
-    if (!containerWidth || !columns.length) return columns;
+    if (!containerWidth || !columns.length) {return columns;}
 
     const totalMinWidth = columns.reduce(
       (acc: number, col: Column) => acc + (col.size || 200),

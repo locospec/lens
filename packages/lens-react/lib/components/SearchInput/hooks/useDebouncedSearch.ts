@@ -15,7 +15,7 @@ const useDebouncedSearch = ({
   const viewContext = useContext(ViewContext);
 
   if (!viewContext) {
-    throw new Error(`useDebouncedSearch must be used within ViewContext`);
+    throw new Error("useDebouncedSearch must be used within ViewContext");
   }
   const { searchQuery, search } = viewContext;
 

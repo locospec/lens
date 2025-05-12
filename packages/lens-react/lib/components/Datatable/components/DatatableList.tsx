@@ -104,7 +104,7 @@ const DatatableList = () => {
     onRowSelectionChange: setSelectedRows,
     onColumnVisibilityChange: setColumnVisibility,
     onColumnPinningChange: setColumnPining,
-    getRowId: (row) => {
+    getRowId: row => {
       return row[identifierKey];
     },
     initialState: {
@@ -179,7 +179,7 @@ const DatatableList = () => {
             variantClasses.wrapper,
             classNames && classNames?.wrapper
           )}
-          onScroll={(e) => {
+          onScroll={e => {
             fetchMoreOnBottomReached(e.target as HTMLDivElement);
           }}
           ref={tableContainerRef}

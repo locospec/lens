@@ -10,20 +10,20 @@ import {
 
 const fetchStylesFromVariants = (variant: DatatableVariants) => {
   switch (variant) {
-    case "vanilla":
-      return VANILLA_THEME;
-    case "stripped":
-      return STRIPPED_THEME;
-    case "plum":
-      return PLUM_THEME;
-    case "citrus":
-      return CITRUS_THEME;
-    case "blossom":
-      return BLOSSOM_THEME;
-    case "cosmic":
-      return COSMIC_THEME;
-    default:
-      return VANILLA_THEME;
+  case "vanilla":
+    return VANILLA_THEME;
+  case "stripped":
+    return STRIPPED_THEME;
+  case "plum":
+    return PLUM_THEME;
+  case "citrus":
+    return CITRUS_THEME;
+  case "blossom":
+    return BLOSSOM_THEME;
+  case "cosmic":
+    return COSMIC_THEME;
+  default:
+    return VANILLA_THEME;
   }
 };
 

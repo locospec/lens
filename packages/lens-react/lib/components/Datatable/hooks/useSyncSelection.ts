@@ -36,11 +36,11 @@ const useSyncSelection = (
       const data =
         table && table.getRowCount() > 0
           ? records
-              .map((idx) => {
-                const row = table.getRow(idx);
-                return row ? row.original : null;
-              })
-              .filter(Boolean)
+            .map((idx) => {
+              const row = table.getRow(idx);
+              return row ? row.original : null;
+            })
+            .filter(Boolean)
           : records;
       onSelect(data);
     }

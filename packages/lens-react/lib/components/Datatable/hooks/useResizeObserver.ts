@@ -9,7 +9,7 @@ const useResizeObserver = (
   callback: ResizeObserverCallback
 ): void => {
   useEffect(() => {
-    if (!ref.current) return;
+    if (!ref.current) {return;}
 
     const resizeObserver = new ResizeObserver(callback);
     resizeObserver.observe(ref.current);
