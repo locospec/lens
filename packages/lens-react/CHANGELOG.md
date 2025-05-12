@@ -1,3 +1,16 @@
+# v0.0.24 (Mon May 12 2025)
+
+#### 🐛 Bug Fix
+
+- chore: upgrade eslint-plugin-react-hooks from 4.6.2 to 5.2.0 [#163](https://github.com/locospec/lens/pull/163) ([@rjvim](https://github.com/rjvim))
+- chore: update eslint config and enforce consistent code style [#163](https://github.com/locospec/lens/pull/163) ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 1
+
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.0.23 (Mon May 12 2025)
 
 #### 🐛 Bug Fix
