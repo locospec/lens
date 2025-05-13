@@ -47,7 +47,7 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
     <div
       className={cn(
         isAction || isPinned ? "flex items-center gap-x-4" : "truncate",
-        "px-2 py-4 leading-3",
+        "px-2 py-2",
         cellOverFlowStyles,
         variantClasses.cell,
         isPinned && variantClasses.pinned_cells,

@@ -1,3 +1,30 @@
+# (Mon May 12 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.24`
+  - chore: upgrade eslint-plugin-react-hooks from 4.6.2 to 5.2.0 [#163](https://github.com/locospec/lens/pull/163) ([@rjvim](https://github.com/rjvim))
+  - chore: update eslint config and enforce consistent code style [#163](https://github.com/locospec/lens/pull/163) ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 1
+
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
+# (Mon May 12 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.0.23`
+  - Fix styling for Vanilla and Stripped themes [#161](https://github.com/locospec/lens/pull/161) ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+
+#### Authors: 1
+
+- Shubham Joshi ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+
+---
+
 # (Fri May 09 2025)
 
 #### 🐛 Bug Fix

@@ -48,7 +48,7 @@ const ChipOP: React.FC<ComboBoxInterface> = ({
   containerRef,
   disabled = true,
 }) => {
-  if (!op || !show) return null;
+  if (!op || !show) {return null;}
 
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(defaultValue);

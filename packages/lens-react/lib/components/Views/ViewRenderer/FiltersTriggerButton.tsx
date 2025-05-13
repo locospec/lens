@@ -13,7 +13,7 @@ const FiltersTriggerButton: React.FC<FiltersTriggerButtonProps> = ({
   activeTab,
 }) => {
   const ref = useRef(null);
-  if (activeTab === "add") return null;
+  if (activeTab === "add") {return null;}
   return (
     <div className="flex items-center justify-center gap-x-3" ref={ref}>
       <DialogTrigger asChild>

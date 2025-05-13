@@ -1,3 +1,45 @@
+# v0.0.24 (Mon May 12 2025)
+
+#### 🐛 Bug Fix
+
+- chore: upgrade eslint-plugin-react-hooks from 4.6.2 to 5.2.0 [#163](https://github.com/locospec/lens/pull/163) ([@rjvim](https://github.com/rjvim))
+- chore: update eslint config and enforce consistent code style [#163](https://github.com/locospec/lens/pull/163) ([@rjvim](https://github.com/rjvim))
+
+#### Authors: 1
+
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
+# v0.0.23 (Mon May 12 2025)
+
+#### 🐛 Bug Fix
+
+- Fix styling for Vanilla and Stripped themes [#161](https://github.com/locospec/lens/pull/161) ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+- fix:classnames fix ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+- replaced #eee with bg-gray-100 ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+- chore: conflicts fixed ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+- updated stripped theme ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+- fix: fixed styling for vanilla theme ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+
+#### Authors: 1
+
+- Shubham Joshi ([@ShubhamJoshi-1994](https://github.com/ShubhamJoshi-1994))
+
+---
+
+# v0.0.22 (Fri May 09 2025)
+
+#### 🐛 Bug Fix
+
+- chore: fixed styling for dark mode [#160](https://github.com/locospec/lens/pull/160) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.0.21 (Fri May 09 2025)
 
 #### 🐛 Bug Fix
