@@ -45,7 +45,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     configCallback,
     newConfig,
     permissionHeaders,
-    body: body,
+    body: JSON.stringify(body),
   });
 
   if (isError) {
