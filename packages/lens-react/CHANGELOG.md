@@ -1,3 +1,33 @@
+# v0.1.0 (Tue May 13 2025)
+
+#### 🚀 Enhancement
+
+- feat: add checkbox styling support to table interface ([@rjvim](https://github.com/rjvim))
+
+#### 🐛 Bug Fix
+
+- chore: added stringify conversion for _config body api request [#164](https://github.com/locospec/lens/pull/164) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added context fall through to lensprovider _config api request [#164](https://github.com/locospec/lens/pull/164) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: latest pull from main ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: remove button storybook stories file ([@rjvim](https://github.com/rjvim))
+- chore: latest pull form main ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Merge branch 'main' of github.com:locospec/ui [#160](https://github.com/locospec/lens/pull/160) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Merge branch 'main' of github.com:locospec/ui [#156](https://github.com/locospec/lens/pull/156) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Merge branch 'main' of github.com:locospec/ui [#154](https://github.com/locospec/lens/pull/154) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Merge branch 'main' of github.com:locospec/ui [#153](https://github.com/locospec/lens/pull/153) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed unused checkbox [#147](https://github.com/locospec/lens/pull/147) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'main' of github.com:locospec/ui ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.0.24 (Mon May 12 2025)
 
 #### 🐛 Bug Fix
