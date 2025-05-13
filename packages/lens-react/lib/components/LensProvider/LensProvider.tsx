@@ -30,7 +30,9 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
   const [error, _] = useState<string | null>(null);
   const { modal_name, endpoints } = fetchDataFromEndpoint(endpoint);
 
-  const body: Record<string, any> = {};
+  const body: Record<string, any> = {
+    globalContext: context,
+  };
   if (view) {
     body["view"] = view;
   }
