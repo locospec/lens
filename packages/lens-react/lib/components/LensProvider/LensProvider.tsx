@@ -1,10 +1,9 @@
-import React, { createContext, useState } from "react";
+import React, { createContext } from "react";
 import type { LensContextType, LensProviderProps } from "./types";
 import { useFetchConfig } from "./hooks/useFetchConfig";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { fetchDataFromEndpoint } from "./utils/fetchDataFromEndpoint";
-import { ErrorModal } from "../ErrorModal";
 
 const queryClient = new QueryClient();
 
@@ -15,9 +14,7 @@ export const LensContext = createContext<LensContextType | undefined>(
 export const LensProviderBase: React.FC<LensProviderProps> = ({
   lensConfiguration,
   children,
-  errorModalCallback,
 }) => {
-  const [open, setOpen] = useState(true);
   // const lens_uuid = `lens-${Math.floor(
   //   Math.random() * 1000
   // ).toString()}-${Math.floor(Math.random() * 1000).toString()}`;
@@ -51,18 +48,14 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     body: JSON.stringify(body),
   });
   if (isError) {
-    if (error.code === 403) {
-      return (
-        <ErrorModal
-          open={open}
-          setOpen={setOpen}
-          title={error?.name}
-          description={error?.message}
-          errorModalCallback={errorModalCallback}
-        />
-      );
-    }
-    return <>Error</>;
+    return (
+      <div className="flex flex-col items-center justify-center">
+        <h1 className="mt-4 text-4xl font-bold">
+          {error?.code} {error?.name}
+        </h1>
+        <p className="mt-2 max-w-md text-sm text-gray-600">{error?.message}</p>
+      </div>
+    );
   }
 
   return (
