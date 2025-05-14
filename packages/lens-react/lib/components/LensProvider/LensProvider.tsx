@@ -4,6 +4,7 @@ import { useFetchConfig } from "./hooks/useFetchConfig";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { fetchDataFromEndpoint } from "./utils/fetchDataFromEndpoint";
+import { ErrorModal } from "../ErrorModal";
 
 const queryClient = new QueryClient();
 
@@ -14,7 +15,9 @@ export const LensContext = createContext<LensContextType | undefined>(
 export const LensProviderBase: React.FC<LensProviderProps> = ({
   lensConfiguration,
   children,
+  errorModalCallback,
 }) => {
+  const [open, setOpen] = useState(true);
   // const lens_uuid = `lens-${Math.floor(
   //   Math.random() * 1000
   // ).toString()}-${Math.floor(Math.random() * 1000).toString()}`;
@@ -27,7 +30,6 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     context = {},
     view,
   } = lensConfiguration;
-  const [error, _] = useState<string | null>(null);
   const { modal_name, endpoints } = fetchDataFromEndpoint(endpoint);
 
   const body: Record<string, any> = {
@@ -40,15 +42,26 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     data: config,
     isFetched,
     isError,
-  } = useFetchConfig({
+    error,
+  }: any = useFetchConfig({
     configEndpoint: endpoints.config,
     configCallback,
     newConfig,
     permissionHeaders,
     body: JSON.stringify(body),
   });
-
   if (isError) {
+    if (error.code === 403) {
+      return (
+        <ErrorModal
+          open={open}
+          setOpen={setOpen}
+          title={error?.name}
+          description={error?.message}
+          errorModalCallback={errorModalCallback}
+        />
+      );
+    }
     return <>Error</>;
   }
 
