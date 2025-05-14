@@ -1,3 +1,17 @@
+# (Wed May 14 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.1.1`
+  - chore: removed modal [#165](https://github.com/locospec/lens/pull/165) ([@rajeshn95](https://github.com/rajeshn95))
+  - Handled 403 error, error modal added [#165](https://github.com/locospec/lens/pull/165) ([@rajeshn95](https://github.com/rajeshn95))
+
+#### Authors: 1
+
+- Rajesh Nautiyal ([@rajeshn95](https://github.com/rajeshn95))
+
+---
+
 # (Tue May 13 2025)
 
 #### 🚀 Enhancement
