@@ -1,14 +1,14 @@
-import type { SensorDescriptor, SensorOptions } from "@dnd-kit/core";
-import { SelectionType } from "../interface/DatatableInterface";
-import { ReactNode } from "react";
+import type { SensorDescriptor, SensorOptions } from '@dnd-kit/core';
 import {
   AccessorKeyColumnDef,
   ColumnPinningState,
   RowSelectionState,
   VisibilityState,
-} from "@tanstack/react-table";
-import { TableStylingInterface } from "../interface/TableStylingInterface";
-import { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
+} from '@tanstack/react-table';
+import { ReactNode } from 'react';
+import { ActionsMappingPropInterface } from '../interface/ActionsMappingInterface';
+import { SelectionType } from '../interface/DatatableInterface';
+import { TableStylingInterface } from '../interface/TableStylingInterface';
 
 type CellRendererFn<T = any> = (rowData: T) => React.ReactNode;
 
@@ -21,12 +21,12 @@ interface CommonWrapperInterface {
 }
 
 type DatatableVariants =
-  | "vanilla"
-  | "stripped"
-  | "plum"
-  | "citrus"
-  | "blossom"
-  | "cosmic"
+  | 'vanilla'
+  | 'stripped'
+  | 'plum'
+  | 'citrus'
+  | 'blossom'
+  | 'cosmic'
   | undefined;
 
 interface DatatableContextProviderInterface extends CommonWrapperInterface {
@@ -43,7 +43,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   viewId?: string;
   modalName?: string;
   searchQuery?: string;
-  viewChildRef?: React.RefObject<HTMLDivElement>;
+  viewChildRef?: React.RefObject<HTMLDivElement | null>;
   cellActions?: any;
   viewName: string;
   expand: string[];
@@ -56,7 +56,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   disableReordering?: boolean;
   showSheet?: boolean;
   setShowSheet?: React.Dispatch<React.SetStateAction<boolean>>;
-  cellOverflow?: "wrap" | "clip" | "ellipsis";
+  cellOverflow?: 'wrap' | 'clip' | 'ellipsis';
   cellOverFlowStyles: string;
   cellRenderer?: CellRendererMap;
 }
@@ -65,7 +65,7 @@ interface DataTableLensContextProviderInterface
   extends Partial<DatatableContextProviderInterface> {}
 
 interface DatatableContextType
-  extends Omit<DatatableContextProviderInterface, "children"> {
+  extends Omit<DatatableContextProviderInterface, 'children'> {
   selectedRows: RowSelectionState;
   setSelectedRows: React.Dispatch<React.SetStateAction<RowSelectionState>>;
   columnVisibility: VisibilityState;
@@ -81,14 +81,14 @@ interface DatatableContextType
   adjustedColumns: any;
   isColumnsReady: any;
   fixedColumns: (string | undefined)[];
-  tableContainerRef: React.RefObject<HTMLDivElement>;
+  tableContainerRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export type {
   CellRendererMap,
-  DatatableVariants,
   CommonWrapperInterface,
-  DatatableContextType,
   DatatableContextProviderInterface,
+  DatatableContextType,
   DataTableLensContextProviderInterface,
+  DatatableVariants,
 };

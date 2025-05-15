@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { useResizeObserver } from "./useResizeObserver";
-import { useColumnSizing } from "./useColumnSizing";
+import { useState } from 'react';
+import { useColumnSizing } from './useColumnSizing';
+import { useResizeObserver } from './useResizeObserver';
 
 const useColumnResize = (
-  tableContainerRef: React.RefObject<HTMLDivElement>,
+  tableContainerRef: React.RefObject<HTMLDivElement | null>,
   columns: any[],
-  initialWidth: number
+  initialWidth: number,
 ) => {
   const [containerWidth, setContainerWidth] = useState(initialWidth);
 
@@ -16,12 +16,12 @@ const useColumnResize = (
 
   const { adjustedColumns, isColumnsReady } = useColumnSizing(
     columns,
-    containerWidth
+    containerWidth,
   );
 
   return { adjustedColumns, isColumnsReady, containerWidth };
 };
 
-useColumnResize.displayName = "useColumnResize";
+useColumnResize.displayName = 'useColumnResize';
 
 export { useColumnResize };

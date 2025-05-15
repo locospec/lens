@@ -1,9 +1,9 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect } from 'react';
 
 const DEFAULT_OFFSET = 200;
 
 interface UseFetchMoreOnScrollInterface {
-  containerRef: React.RefObject<HTMLDivElement>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
   fetchNextPage: () => void;
   isFetching: boolean;
   hasNextPage: boolean;
@@ -34,7 +34,7 @@ const useFetchMoreOnScroll = ({
         }
       }
     },
-    [fetchNextPage, isFetching, hasNextPage]
+    [fetchNextPage, isFetching, hasNextPage],
   );
 
   useEffect(() => {
@@ -44,6 +44,6 @@ const useFetchMoreOnScroll = ({
   return { fetchMoreOnBottomReached };
 };
 
-useFetchMoreOnScroll.displayName = "useFetchMoreOnScroll";
+useFetchMoreOnScroll.displayName = 'useFetchMoreOnScroll';
 
 export { useFetchMoreOnScroll };

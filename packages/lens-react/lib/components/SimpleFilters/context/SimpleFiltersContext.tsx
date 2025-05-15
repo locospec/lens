@@ -1,17 +1,17 @@
-import { createContext, useContext, useRef } from "react";
+import useFilterFunctions from '@lens/components/LensProvider/hooks/useFilterFunction';
+import { ViewContext } from '@lens/components/Views/View/ViewContext';
+import { LensContext } from '@lens/main';
+import { createContext, useContext, useRef } from 'react';
+import { initilizeFilter } from '../utils/initilizeFilter';
 import {
   SimpleFiltersContextInterface,
   SimpleFiltersContextProviderInterface,
-} from "./SimpleFiltersContextInterface";
-import { LensContext } from "@lens/main";
-import { initilizeFilter } from "../utils/initilizeFilter";
-import useFilterFunctions from "@lens/components/LensProvider/hooks/useFilterFunction";
-import { ViewContext } from "@lens/components/Views/View/ViewContext";
+} from './SimpleFiltersContextInterface';
 
 const SimpleFiltersContext = createContext<
   SimpleFiltersContextInterface | undefined
 >(undefined);
-SimpleFiltersContext.displayName = "SimpleFiltersContext";
+SimpleFiltersContext.displayName = 'SimpleFiltersContext';
 
 const SimpleFilterContextProvider: React.FC<
   SimpleFiltersContextProviderInterface
@@ -19,7 +19,7 @@ const SimpleFilterContextProvider: React.FC<
   const lensContext = useContext(LensContext);
   if (!lensContext) {
     throw new Error(
-      "useSimpleFiltersContext must be used within a LensProvider"
+      'useSimpleFiltersContext must be used within a LensProvider',
     );
   }
   const { endpoints, lensConfiguration } = lensContext;
@@ -28,7 +28,7 @@ const SimpleFilterContextProvider: React.FC<
   const viewContext = useContext(ViewContext);
   if (!viewContext) {
     throw new Error(
-      "useSimpleFiltersContext must be used within a View Context"
+      'useSimpleFiltersContext must be used within a View Context',
     );
   }
   const { filters, setFilters, config } = viewContext;
@@ -36,11 +36,13 @@ const SimpleFilterContextProvider: React.FC<
   let filtersConfig = config?.filters;
 
   // If filters config does not exists
-  if (!filtersConfig || Object.keys(filtersConfig).length < 1) {return null;}
+  if (!filtersConfig || Object.keys(filtersConfig).length < 1) {
+    return null;
+  }
 
   const queryEndpoint = endpoints.read_relation_option;
 
-  const filterContainerRef = useRef<HTMLDivElement>(null);
+  const filterContainerRef = useRef<HTMLDivElement | null>(null);
   const { updateCondition } = useFilterFunctions({
     setFilter: setFilters,
   });
@@ -62,7 +64,7 @@ const SimpleFilterContextProvider: React.FC<
   const temp = {
     op: passedFilters.op,
     conditions: passedFilters?.conditions?.filter(
-      (con: any) => !con?.conditions
+      (con: any) => !con?.conditions,
     ),
   };
 
@@ -84,6 +86,6 @@ const SimpleFilterContextProvider: React.FC<
     </SimpleFiltersContext.Provider>
   );
 };
-SimpleFilterContextProvider.displayName = "SimpleFilterContextProvider";
+SimpleFilterContextProvider.displayName = 'SimpleFilterContextProvider';
 
 export { SimpleFilterContextProvider, SimpleFiltersContext };

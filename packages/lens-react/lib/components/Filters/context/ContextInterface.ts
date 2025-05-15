@@ -1,11 +1,11 @@
-import { FilterGroup } from "@lens/components/LensProvider/interfaces/FiltersInterface";
-import { ReactNode } from "react";
+import { FilterGroup } from '@lens/components/LensProvider/interfaces/FiltersInterface';
+import { ReactNode } from 'react';
 
 interface FiltersContextInterface {
   attributesArray: any;
   attributesObject: any;
   initialisedFilter: any;
-  filterContainerRef: React.RefObject<HTMLDivElement>;
+  filterContainerRef: React.RefObject<HTMLDivElement | null>;
   setFilters: React.Dispatch<any>;
   updateCondition: (path: number[], field: string, value: any) => void;
   addCondition: (parentPath?: number[]) => void;
@@ -36,7 +36,7 @@ interface FiltersContextProviderInterface extends CommonWrapperInterface {
   classNames?: FiltersClassNames;
   viewId?: string;
   maxDepth?: number;
-  filterContainerRef: React.RefObject<HTMLDivElement>;
+  filterContainerRef: React.RefObject<HTMLDivElement | null>;
   setFilters: React.Dispatch<any>;
   updateCondition: (path: number[], field: string, value: any) => void;
   addCondition: (parentPath?: number[]) => void;
@@ -45,7 +45,7 @@ interface FiltersContextProviderInterface extends CommonWrapperInterface {
 }
 
 export type {
+  FiltersClassNames,
   FiltersContextInterface,
   FiltersContextProviderInterface,
-  FiltersClassNames,
 };

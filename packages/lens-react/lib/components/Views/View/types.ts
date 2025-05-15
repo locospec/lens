@@ -7,7 +7,7 @@ interface ViewContextType {
   search: (query: string) => void;
   config: any;
   searchQuery: string;
-  viewChildRef: React.RefObject<HTMLDivElement>;
+  viewChildRef: React.RefObject<HTMLDivElement | null>;
   context: Record<string, any>;
 }
 
@@ -21,4 +21,4 @@ interface ViewProviderProps {
   viewConfiguration?: ViewConfigurationInterface;
 }
 
-export type { ViewContextType, ViewProviderProps, ViewConfigurationInterface };
+export type { ViewConfigurationInterface, ViewContextType, ViewProviderProps };
