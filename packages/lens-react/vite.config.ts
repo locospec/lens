@@ -1,11 +1,10 @@
-import { defineConfig } from "vite";
-import { extname, relative, resolve } from "path";
-import { fileURLToPath } from "node:url";
-import { glob } from "glob";
 import react from "@vitejs/plugin-react";
+import { glob } from "glob";
+import { fileURLToPath } from "node:url";
+import path, { extname, relative, resolve } from "path";
+import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
-import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -41,7 +40,7 @@ export default defineConfig({
           .sync("lib/**/*.{ts,tsx}", {
             ignore: ["lib/**/*.d.ts"],
           })
-          .map((file) => [
+          .map(file => [
             // 1. The name of the entry point
             // lib/nested/foo.js becomes nested/foo
             relative("lib", file.slice(0, file.length - extname(file).length)),
