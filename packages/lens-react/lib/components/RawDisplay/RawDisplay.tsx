@@ -1,7 +1,7 @@
-import { useContext, useEffect, useRef } from 'react';
-import { useInfiniteFetch } from '../LensProvider/hooks/useInfiniteFetch';
-import { getProcessedFilters } from '../LensProvider/utils';
-import { ViewContext } from '../Views/View/ViewContext';
+import { useContext, useEffect, useRef } from "react";
+import { useInfiniteFetch } from "../LensProvider/hooks/useInfiniteFetch";
+import { getProcessedFilters } from "../LensProvider/utils";
+import { ViewContext } from "../Views/View/ViewContext";
 
 const RawDisplay: React.FC = () => {
   const { viewChildRef, filters, searchQuery } = useContext(ViewContext) || {};
@@ -53,6 +53,6 @@ const RawDisplay: React.FC = () => {
   );
 };
 
-RawDisplay.displayName = 'RawDisplay';
+RawDisplay.displayName = "RawDisplay";
 
 export { RawDisplay };
