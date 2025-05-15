@@ -1,22 +1,22 @@
+import { Sheet } from "@lens/base/components/ui/sheet";
 import { useInfiniteFetch } from "@lens/components/LensProvider/hooks/useInfiniteFetch";
+import { getProcessedFilters } from "@lens/components/LensProvider/utils/getProcessedFilters.tsx";
+import LensSidebar from "@lens/components/Sheet/LensSheet.tsx";
 import { cn } from "@lens/components/utils/cn";
-import { useDatatableContext } from "../context/useDatatableContext.ts";
+import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
 import {
   getCoreRowModel,
-  useReactTable,
   getFilteredRowModel,
+  useReactTable,
 } from "@tanstack/react-table";
-import { useRowVirtualizer } from "../hooks/useRowVirtualizer";
+import { useCallback, useEffect, useRef } from "react";
+import { useDatatableContext } from "../context/useDatatableContext.ts";
 import { useColumnSizeVars } from "../hooks/useColumnSizeVars";
+import { useRowVirtualizer } from "../hooks/useRowVirtualizer";
 import { useSyncSelection } from "../hooks/useSyncSelection";
-import { DatatableHeaderSection } from "./DatatableHeaderSection";
 import { createHandleDragEnd } from "../utils/createHandleDragEnd";
 import { DatatableBody, MemoizedDatatableBody } from "./DatatableBody";
-import { useCallback, useEffect, useRef } from "react";
-import LensSidebar from "@lens/components/Sheet/LensSheet.tsx";
-import { Sheet } from "@lens/base/components/ui/sheet";
-import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
-import { getProcessedFilters } from "@lens/components/LensProvider/utils/getProcessedFilters.tsx";
+import { DatatableHeaderSection } from "./DatatableHeaderSection";
 
 const DatatableList = () => {
   const tableWrapperRef = useRef(null);
@@ -159,7 +159,7 @@ const DatatableList = () => {
   return (
     <>
       <div
-        className={"flex-1 relative flex h-full flex-col gap-0 overflow-hidden"}
+        className={"relative flex h-full flex-1 flex-col gap-0 overflow-hidden"}
         ref={tableWrapperRef}
       >
         {renderSheet && (
@@ -175,7 +175,7 @@ const DatatableList = () => {
         )}
         <div
           className={cn(
-            "relative flex-1 overflow-auto w-full h-full border",
+            "relative h-full w-full flex-1 overflow-auto border",
             variantClasses.wrapper,
             classNames && classNames?.wrapper
           )}
@@ -209,9 +209,14 @@ const DatatableList = () => {
               <MemoizedDatatableBody
                 table={table}
                 rowVirtualizer={rowVirtualizer}
+                isFetching={isFetching}
               />
             ) : (
-              <DatatableBody table={table} rowVirtualizer={rowVirtualizer} />
+              <DatatableBody
+                table={table}
+                rowVirtualizer={rowVirtualizer}
+                isFetching={isFetching}
+              />
             )}
           </div>
         </div>

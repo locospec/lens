@@ -1,18 +1,20 @@
-import React from "react";
-import { DatatableRow } from "./DatatableRow.tsx";
+import { cn } from "@lens/base/lib/utils.ts";
 import type { Table } from "@tanstack/react-table";
 import { Virtualizer } from "@tanstack/react-virtual";
-import { cn } from "@lens/base/lib/utils.ts";
+import React from "react";
 import { useDatatableContext } from "../context/useDatatableContext.ts";
+import { DatatableRow } from "./DatatableRow.tsx";
 
 export interface DatatableBodyProps {
   table: Table<any>;
   rowVirtualizer: Virtualizer<HTMLDivElement, Element>;
+  isFetching?: boolean;
 }
 
 export const DatatableBody = ({
   table,
   rowVirtualizer,
+  isFetching,
 }: DatatableBodyProps) => {
   const { rows } = table.getRowModel();
   const { getVirtualItems } = rowVirtualizer;
@@ -22,18 +24,18 @@ export const DatatableBody = ({
     return (
       <div
         className={cn(
-          "relative w-full h-full p-4 pt-10 text-center text-xl font-semibold",
+          "relative h-full w-full p-4 pt-10 text-center text-xl font-semibold",
           variantClasses.no_data
         )}
       >
-        No data available
+        {isFetching ? "Loading Table Data..." : "No data available"}
       </div>
     );
   }
 
   return (
-    <div className="relative w-full h-full">
-      {getVirtualItems().map((virtualRow) => {
+    <div className="relative h-full w-full">
+      {getVirtualItems().map(virtualRow => {
         const row = rows[virtualRow.index];
         return (
           <DatatableRow
