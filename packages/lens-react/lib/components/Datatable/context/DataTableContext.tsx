@@ -57,7 +57,7 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
     defaultColOrder,
   });
 
-  const tableContainerRef = viewChildRef || useRef<HTMLDivElement | null>(null);
+  const tableContainerRef = viewChildRef || useRef<HTMLDivElement>(null);
   const { adjustedColumns, isColumnsReady } = useColumnResize(
     tableContainerRef,
     columns,
