@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect } from 'react';
 
 const DEFAULT_OFFSET = 200;
 
@@ -34,7 +34,7 @@ const useFetchMoreOnScroll = ({
         }
       }
     },
-    [fetchNextPage, isFetching, hasNextPage]
+    [fetchNextPage, isFetching, hasNextPage],
   );
 
   useEffect(() => {
@@ -44,6 +44,6 @@ const useFetchMoreOnScroll = ({
   return { fetchMoreOnBottomReached };
 };
 
-useFetchMoreOnScroll.displayName = "useFetchMoreOnScroll";
+useFetchMoreOnScroll.displayName = 'useFetchMoreOnScroll';
 
 export { useFetchMoreOnScroll };

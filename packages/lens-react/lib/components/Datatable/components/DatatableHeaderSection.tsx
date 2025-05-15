@@ -1,11 +1,11 @@
-import { closestCenter, DndContext, DragOverlay } from "@dnd-kit/core";
-import { restrictToHorizontalAxis } from "@dnd-kit/modifiers";
-import { cn } from "@lens/base/lib/utils.ts";
-import { splitAndCapitalize } from "@lens/components/utils/splitAndCapitalize.ts";
-import type { Table } from "@tanstack/react-table";
-import React from "react";
-import { useDatatableContext } from "../context/useDatatableContext.ts";
-import { DataTableHeader } from "./DataTableHeader.tsx";
+import { closestCenter, DndContext, DragOverlay } from '@dnd-kit/core';
+import { restrictToHorizontalAxis } from '@dnd-kit/modifiers';
+import { cn } from '@lens/base/lib/utils.ts';
+import { splitAndCapitalize } from '@lens/components/utils/splitAndCapitalize.ts';
+import type { Table } from '@tanstack/react-table';
+import React from 'react';
+import { useDatatableContext } from '../context/useDatatableContext.ts';
+import { DataTableHeader } from './DataTableHeader.tsx';
 // import { useLensContext } from "./context/LensContext.tsx";
 // import { splitAndCapitalize } from "../utils/splitAndCapitalize.ts";
 
@@ -39,27 +39,27 @@ const DatatableHeaderSection = ({
       modifiers={[restrictToHorizontalAxis]}
       onDragEnd={handleDragEnd}
       sensors={sensors}
-      onDragStart={event => {
+      onDragStart={(event) => {
         if (!disableReordering) {
           setActiveId(event.active.id as string);
-          document.body.classList.add("cursor-grabbing");
+          document.body.classList.add('cursor-grabbing');
         }
       }}
       onDragCancel={() => {
         if (!disableReordering) {
           setActiveId(null);
-          document.body.classList.remove("cursor-grabbing");
+          document.body.classList.remove('cursor-grabbing');
         }
       }}
     >
       {!disableReordering && (
         <DragOverlay
-          className={cn("absolute h-20 px-4 py-2", variantClasses.dragoverlay)}
+          className={cn('absolute h-20 px-4 py-2', variantClasses.dragoverlay)}
         >
           {activeId ? <label>{splitAndCapitalize(activeId)}</label> : null}
         </DragOverlay>
       )}
-      {table.getHeaderGroups().map(headerGroup => {
+      {table.getHeaderGroups().map((headerGroup) => {
         return (
           <DataTableHeader
             key={headerGroup.id}

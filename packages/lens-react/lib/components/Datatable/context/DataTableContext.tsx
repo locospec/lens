@@ -1,31 +1,31 @@
-import { useViewContext } from "@lens/components/Views/View";
-import { useLensContext } from "@lens/main";
-import { createContext, useRef } from "react";
-import { fetchStylesFromVariants } from "../hooks/fetchStylesFromVariants";
-import { useColumnResize } from "../hooks/useColumnResize";
-import { useTableConfig } from "../hooks/useTableConfig";
-import { getCellOverFlowStyles } from "../utils/getCellOverFlowStyles";
-import { initialiseDatatableStates } from "../utils/initialiseDatatableStates";
-import { initialiseDefaultColumnsConfig } from "../utils/initialiseDefaultColumnsConfig";
-import { initialiseDefaultDatatableValues } from "../utils/initialiseDefaultDatatableValues";
-import { initialiseDnDSensors } from "../utils/initialiseDnDSensors";
+import { useViewContext } from '@lens/components/Views/View';
+import { useLensContext } from '@lens/main';
+import { createContext, useRef } from 'react';
+import { fetchStylesFromVariants } from '../hooks/fetchStylesFromVariants';
+import { useColumnResize } from '../hooks/useColumnResize';
+import { useTableConfig } from '../hooks/useTableConfig';
+import { getCellOverFlowStyles } from '../utils/getCellOverFlowStyles';
+import { initialiseDatatableStates } from '../utils/initialiseDatatableStates';
+import { initialiseDefaultColumnsConfig } from '../utils/initialiseDefaultColumnsConfig';
+import { initialiseDefaultDatatableValues } from '../utils/initialiseDefaultDatatableValues';
+import { initialiseDnDSensors } from '../utils/initialiseDnDSensors';
 import type {
   DatatableContextProviderInterface,
   DatatableContextType,
   DataTableLensContextProviderInterface,
-} from "./ContextInterfaces";
+} from './ContextInterfaces';
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
-  undefined
+  undefined,
 );
-DatatableContext.displayName = "DatatableContext";
+DatatableContext.displayName = 'DatatableContext';
 
 const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   children,
   columns,
   selectedItems,
   viewChildRef,
-  variant = "vanilla",
+  variant = 'vanilla',
   ...props
 }) => {
   const { defaultColPinning, defaultColShow, tableSelectedItems } =
@@ -34,7 +34,7 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   const { defaultColOrder, fixedColumns } = initialiseDefaultColumnsConfig(
     columns,
     defaultColShow,
-    defaultColPinning
+    defaultColPinning,
   );
 
   const {
@@ -61,7 +61,7 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
   const { adjustedColumns, isColumnsReady } = useColumnResize(
     tableContainerRef,
     columns,
-    0
+    0,
   );
 
   return (
@@ -92,7 +92,7 @@ const DatatableContextProvider: React.FC<DatatableContextProviderInterface> = ({
     </DatatableContext.Provider>
   );
 };
-DatatableContextProvider.displayName = "DatatableContextProvider";
+DatatableContextProvider.displayName = 'DatatableContextProvider';
 
 const DataTableLensContextProvider: React.FC<
   DataTableLensContextProviderInterface
@@ -102,7 +102,7 @@ const DataTableLensContextProvider: React.FC<
   selectedItems,
   classNames,
   disableResizing = false,
-  viewId = "default",
+  viewId = 'default',
   cellActions,
   actionsMapping,
   variant,
@@ -129,39 +129,39 @@ const DataTableLensContextProvider: React.FC<
     config,
     context: localContext,
   } = viewContext;
-  const viewName = config?.name || "default_view";
+  const viewName = config?.name || 'default_view';
 
   if (cellActions) {
     const visibleAttributes =
       config?.columns.map((column: any) => column?.id) || [];
-    Object.keys(cellActions).forEach(key => {
+    Object.keys(cellActions).forEach((key) => {
       if (!visibleAttributes.includes(key)) {
         console.error(
           `Table does not contain the attribute: "${key}"`,
-          "\n Please use one of the following to configure cell actions :",
-          visibleAttributes
+          '\n Please use one of the following to configure cell actions :',
+          visibleAttributes,
         );
       }
     });
   }
-  const selectionType = config?.selectionType || "none";
+  const selectionType = config?.selectionType || 'none';
   let tableConfig = config;
   const expand = tableConfig?.expand || [];
 
   if (!tableConfig) {
     throw new Error(
-      "No TableConfig Found, Please check the view id or backend _config call response"
+      'No TableConfig Found, Please check the view id or backend _config call response',
     );
   }
   const {
     columns,
-    identifierKey = "",
+    identifierKey = '',
     allowedScopes,
   } = useTableConfig(
     tableConfig,
     actionsMapping,
     DATA_TABLE_STYLING_CLASSES,
-    permissionHeaders
+    permissionHeaders,
   );
 
   return (
@@ -206,7 +206,7 @@ const DataTableLensContextProvider: React.FC<
     </DatatableContextProvider>
   );
 };
-DataTableLensContextProvider.displayName = "DataTableLensContextProvider";
+DataTableLensContextProvider.displayName = 'DataTableLensContextProvider';
 
 const DatatableLoader = () => {
   return (

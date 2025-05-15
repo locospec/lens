@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Command,
@@ -8,28 +8,28 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@lens/base/components/ui/command";
+} from '@lens/base/components/ui/command';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@lens/base/components/ui/popover";
-import { cn } from "@lens/base/lib/utils";
-import { useInfiniteFetch } from "@lens/components/LensProvider/hooks/useInfiniteFetch";
+} from '@lens/base/components/ui/popover';
+import { cn } from '@lens/base/lib/utils';
+import { useInfiniteFetch } from '@lens/components/LensProvider/hooks/useInfiniteFetch';
 import {
   useDebouncedEffectAfterMount,
   useEffectAfterMount,
-} from "@lens/hooks/index";
-import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
-import { Check } from "lucide-react";
-import * as React from "react";
-import { AttributeDefinitionType } from "../Datatable/interface/DatatableInterface";
-import { getSameLevelConditions } from "../Filters";
-import { FiltersContext } from "../Filters/context";
-import { Condition } from "../LensProvider/interfaces/FiltersInterface";
-import { getProcessedFilters } from "../LensProvider/utils";
-import { SimpleFiltersContext } from "../SimpleFilters/context/SimpleFiltersContext";
-import DashedCircle from "./icons/DashedCircle";
+} from '@lens/hooks/index';
+import { useFetchMoreOnScroll } from '@lens/hooks/src/useFetchMoreOnScroll';
+import { Check } from 'lucide-react';
+import * as React from 'react';
+import { AttributeDefinitionType } from '../Datatable/interface/DatatableInterface';
+import { getSameLevelConditions } from '../Filters';
+import { FiltersContext } from '../Filters/context';
+import { Condition } from '../LensProvider/interfaces/FiltersInterface';
+import { getProcessedFilters } from '../LensProvider/utils';
+import { SimpleFiltersContext } from '../SimpleFilters/context/SimpleFiltersContext';
+import DashedCircle from './icons/DashedCircle';
 
 export interface OptionInterface {
   label: string;
@@ -54,7 +54,7 @@ const contextDecoder = () => {
   const filtersContext = React.useContext(FiltersContext);
 
   if (!filtersContext && !simpleFiltersContext) {
-    throw new Error("useFiltersContext must be used within a Lens Provider");
+    throw new Error('useFiltersContext must be used within a Lens Provider');
   }
   if (filtersContext) {
     const { queryEndpoint, filter, permissionHeaders, filterContainerRef } =
@@ -66,17 +66,17 @@ const contextDecoder = () => {
     return { queryEndpoint, filter, permissionHeaders, filterContainerRef };
   } else {
     throw new Error(
-      "useFiltersContext must be used within a Simple Filter or a Filter Provider"
+      'useFiltersContext must be used within a Simple Filter or a Filter Provider',
     );
   }
 };
 
 const COMMON_RENDERER_CLASSES =
-  "text-xs cursor-pointer bg-white w-fit h-full flex items-center px-1.5 py-1 first:rounded-l-lg last:rounded-r-lg text-gray-700";
+  'text-xs cursor-pointer bg-white w-fit h-full flex items-center px-1.5 py-1 first:rounded-l-lg last:rounded-r-lg text-gray-700';
 
 const SelectOptions = React.memo(function SelectOptions({
-  emptyLabel = "No options found...",
-  placeholder = "Select an option....",
+  emptyLabel = 'No options found...',
+  placeholder = 'Select an option....',
   callback,
   defaultValues = [],
   selectedAttribute,
@@ -88,11 +88,11 @@ const SelectOptions = React.memo(function SelectOptions({
   const { queryEndpoint, filter, permissionHeaders, filterContainerRef } =
     contextDecoder();
   const queryKey = `${queryEndpoint}-${condition.attribute}-${JSON.stringify(
-    path
+    path,
   )}`;
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState<string[]>(defaultValues);
-  const [searchQuery, setSearchQuery] = React.useState("");
+  const [searchQuery, setSearchQuery] = React.useState('');
   const containerRef = React.useRef<HTMLDivElement>(null);
   const {
     dependsOn: dependsOnArray = [],
@@ -143,7 +143,7 @@ const SelectOptions = React.memo(function SelectOptions({
       setValues([]);
     },
     [JSON.stringify(samegroup)],
-    500
+    500,
   );
 
   useEffectAfterMount(() => {
@@ -165,10 +165,10 @@ const SelectOptions = React.memo(function SelectOptions({
   }, [resetInput, defaultValues]);
 
   const handleSelect = (currentValue: string) => {
-    setValues(prev => {
+    setValues((prev) => {
       let newValues = [];
       newValues = prev.includes(currentValue)
-        ? prev.filter(val => val !== currentValue)
+        ? prev.filter((val) => val !== currentValue)
         : [...prev, currentValue];
       callback && callback(newValues);
       return newValues;
@@ -195,7 +195,7 @@ const SelectOptions = React.memo(function SelectOptions({
         }
       }
     }
-    return "...";
+    return '...';
   };
 
   return (
@@ -204,8 +204,8 @@ const SelectOptions = React.memo(function SelectOptions({
         <div
           className={cn(
             COMMON_RENDERER_CLASSES,
-            "hover:bg-gray-50",
-            !showClose && "rounded-r-lg"
+            'hover:bg-gray-50',
+            !showClose && 'rounded-r-lg',
           )}
           aria-expanded={open}
         >
@@ -221,7 +221,7 @@ const SelectOptions = React.memo(function SelectOptions({
           <CommandInput
             placeholder={placeholder}
             value={searchQuery}
-            onValueChange={value => {
+            onValueChange={(value) => {
               setSearchQuery(value);
             }}
           />
@@ -229,14 +229,16 @@ const SelectOptions = React.memo(function SelectOptions({
           <CommandList
             ref={containerRef}
             key={condition.attribute}
-            onScroll={e => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
+            onScroll={(e) =>
+              fetchMoreOnBottomReached(e.target as HTMLDivElement)
+            }
           >
             <CommandEmpty>
-              {isLoading ? "Loading options" : emptyLabel}
+              {isLoading ? 'Loading options' : emptyLabel}
             </CommandEmpty>
             <CommandGroup>
               {!isLoading &&
-                options.map(option => {
+                options.map((option) => {
                   return (
                     <CommandItem
                       key={option.value}
@@ -247,10 +249,10 @@ const SelectOptions = React.memo(function SelectOptions({
                     >
                       <Check
                         className={cn(
-                          "mr-2 h-4 w-4",
+                          'mr-2 h-4 w-4',
                           values.includes(option.value)
-                            ? "opacity-100"
-                            : "opacity-0"
+                            ? 'opacity-100'
+                            : 'opacity-0',
                         )}
                       />
                       {option.label}
