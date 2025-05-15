@@ -2,9 +2,9 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@lens/base/components/ui/popover';
-import { cn } from '@lens/base/lib/utils';
-import React from 'react';
+} from "@lens/base/components/ui/popover";
+import { cn } from "@lens/base/lib/utils";
+import React from "react";
 
 export interface ActionCTAInterface {
   data: any;
@@ -28,7 +28,7 @@ const DropdownButton: React.FC<DropdownButtonInterface> = ({
   callback,
   icon,
   options,
-  classNames = '',
+  classNames = "",
 }) => {
   const [open, setOpen] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
@@ -39,9 +39,9 @@ const DropdownButton: React.FC<DropdownButtonInterface> = ({
         setOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -51,7 +51,7 @@ const DropdownButton: React.FC<DropdownButtonInterface> = ({
         <button
           role="combobox"
           aria-expanded={open}
-          className={cn('flex cursor-pointer items-center', classNames)}
+          className={cn("flex cursor-pointer items-center", classNames)}
         >
           {icon}
         </button>
@@ -61,7 +61,7 @@ const DropdownButton: React.FC<DropdownButtonInterface> = ({
         align="start"
         className="min-w-[200px] p-1 text-sm"
       >
-        {options.map((option) => (
+        {options.map(option => (
           <button
             key={option.key}
             className="flex w-full cursor-pointer items-center px-4 py-2 text-sm hover:bg-gray-100"
@@ -84,7 +84,7 @@ const ActionCTA = ({
   url,
   icon,
   options,
-  classNames = '',
+  classNames = "",
 }: ActionCTAInterface) => {
   if (options && options.length > 0) {
     return (
@@ -99,7 +99,7 @@ const ActionCTA = ({
   }
   return (
     <button
-      className={cn('flex cursor-pointer items-center', classNames)}
+      className={cn("flex cursor-pointer items-center", classNames)}
       onClick={() => {
         callback({ url, data });
       }}
