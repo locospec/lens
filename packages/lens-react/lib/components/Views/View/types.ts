@@ -7,7 +7,7 @@ interface ViewContextType {
   search: (query: string) => void;
   config: any;
   searchQuery: string;
-  viewChildRef: React.RefObject<HTMLDivElement | null>;
+  viewChildRef: React.RefObject<HTMLDivElement>;
   context: Record<string, any>;
 }
 
