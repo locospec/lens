@@ -43,7 +43,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   viewId?: string;
   modalName?: string;
   searchQuery?: string;
-  viewChildRef?: React.RefObject<HTMLDivElement>;
+  viewChildRef?: React.RefObject<HTMLDivElement | null>;
   cellActions?: any;
   viewName: string;
   expand: string[];
@@ -81,7 +81,7 @@ interface DatatableContextType
   adjustedColumns: any;
   isColumnsReady: any;
   fixedColumns: (string | undefined)[];
-  tableContainerRef: React.RefObject<HTMLDivElement>;
+  tableContainerRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export type {

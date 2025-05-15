@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 interface SimpleFiltersContextInterface {
   attributesArray: any;
   initialisedFilter: any;
-  filterContainerRef: React.RefObject<HTMLDivElement>;
+  filterContainerRef: React.RefObject<HTMLDivElement | null>;
   setFilters: React.Dispatch<any>;
   updateCondition: (path: number[], field: string, value: any) => void;
   filter: any;
