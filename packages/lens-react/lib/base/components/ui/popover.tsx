@@ -23,7 +23,7 @@ function PopoverContent({
   containerRef,
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Content> & {
-  containerRef?: React.RefObject<HTMLElement>;
+  containerRef?: React.RefObject<HTMLElement | null>;
 }) {
   return (
     <PopoverPrimitive.Portal container={containerRef?.current}>
