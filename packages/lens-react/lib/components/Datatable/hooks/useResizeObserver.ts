@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 export interface ResizeObserverCallback {
   (entries: ResizeObserverEntry[]): void;
@@ -6,7 +6,7 @@ export interface ResizeObserverCallback {
 
 const useResizeObserver = (
   ref: React.RefObject<HTMLElement | null>,
-  callback: ResizeObserverCallback,
+  callback: ResizeObserverCallback
 ): void => {
   useEffect(() => {
     if (!ref.current) {
@@ -19,6 +19,6 @@ const useResizeObserver = (
   }, [ref, callback]);
 };
 
-useResizeObserver.displayName = 'useResizeObserver';
+useResizeObserver.displayName = "useResizeObserver";
 
 export { useResizeObserver };

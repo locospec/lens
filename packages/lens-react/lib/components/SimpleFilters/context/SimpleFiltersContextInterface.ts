@@ -1,5 +1,5 @@
-import { FilterGroup } from '@lens/components/LensProvider/interfaces/FiltersInterface';
-import { ReactNode } from 'react';
+import { FilterGroup } from "@lens/components/LensProvider/interfaces/FiltersInterface";
+import { ReactNode } from "react";
 
 interface SimpleFiltersContextInterface {
   attributesArray: any;
