@@ -1,10 +1,10 @@
-import { FilterGroup } from "@lens/components/LensProvider/interfaces/FiltersInterface";
-import { ReactNode } from "react";
+import { FilterGroup } from '@lens/components/LensProvider/interfaces/FiltersInterface';
+import { ReactNode } from 'react';
 
 interface SimpleFiltersContextInterface {
   attributesArray: any;
   initialisedFilter: any;
-  filterContainerRef: React.RefObject<HTMLDivElement>;
+  filterContainerRef: React.RefObject<HTMLDivElement | null>;
   setFilters: React.Dispatch<any>;
   updateCondition: (path: number[], field: string, value: any) => void;
   filter: any;
@@ -40,7 +40,7 @@ interface SimpleFiltersContextProviderInterface extends CommonWrapperInterface {
 }
 
 export type {
+  SimpleFiltersClassNames,
   SimpleFiltersContextInterface,
   SimpleFiltersContextProviderInterface,
-  SimpleFiltersClassNames,
 };

@@ -1,18 +1,18 @@
-import React from "react";
-import { DataTableHeader } from "./DataTableHeader.tsx";
-import type { Table } from "@tanstack/react-table";
-import { closestCenter, DndContext, DragOverlay } from "@dnd-kit/core";
-import { restrictToHorizontalAxis } from "@dnd-kit/modifiers";
-import { splitAndCapitalize } from "@lens/components/utils/splitAndCapitalize.ts";
-import { useDatatableContext } from "../context/useDatatableContext.ts";
-import { cn } from "@lens/base/lib/utils.ts";
+import { closestCenter, DndContext, DragOverlay } from '@dnd-kit/core';
+import { restrictToHorizontalAxis } from '@dnd-kit/modifiers';
+import { cn } from '@lens/base/lib/utils.ts';
+import { splitAndCapitalize } from '@lens/components/utils/splitAndCapitalize.ts';
+import type { Table } from '@tanstack/react-table';
+import React from 'react';
+import { useDatatableContext } from '../context/useDatatableContext.ts';
+import { DataTableHeader } from './DataTableHeader.tsx';
 // import { useLensContext } from "./context/LensContext.tsx";
 // import { splitAndCapitalize } from "../utils/splitAndCapitalize.ts";
 
 export interface DatatableHeaderSectionInterface {
   table: Table<any>;
   columnSizeVars?: any;
-  tableContainerRef?: React.RefObject<HTMLDivElement>;
+  tableContainerRef?: React.RefObject<HTMLDivElement | null>;
   columnOrder: string[];
   handleDragEnd: any;
   setActiveId: any;
@@ -42,19 +42,19 @@ const DatatableHeaderSection = ({
       onDragStart={(event) => {
         if (!disableReordering) {
           setActiveId(event.active.id as string);
-          document.body.classList.add("cursor-grabbing");
+          document.body.classList.add('cursor-grabbing');
         }
       }}
       onDragCancel={() => {
         if (!disableReordering) {
           setActiveId(null);
-          document.body.classList.remove("cursor-grabbing");
+          document.body.classList.remove('cursor-grabbing');
         }
       }}
     >
       {!disableReordering && (
         <DragOverlay
-          className={cn("absolute px-4 py-2 h-20", variantClasses.dragoverlay)}
+          className={cn('absolute h-20 px-4 py-2', variantClasses.dragoverlay)}
         >
           {activeId ? <label>{splitAndCapitalize(activeId)}</label> : null}
         </DragOverlay>

@@ -1,7 +1,7 @@
-import { useContext, useEffect, useRef } from "react";
-import { useInfiniteFetch } from "../LensProvider/hooks/useInfiniteFetch";
-import { ViewContext } from "../Views/View/ViewContext";
-import { getProcessedFilters } from "../LensProvider/utils";
+import { useContext, useEffect, useRef } from 'react';
+import { useInfiniteFetch } from '../LensProvider/hooks/useInfiniteFetch';
+import { getProcessedFilters } from '../LensProvider/utils';
+import { ViewContext } from '../Views/View/ViewContext';
 
 const RawDisplay: React.FC = () => {
   const { viewChildRef, filters, searchQuery } = useContext(ViewContext) || {};
@@ -10,7 +10,7 @@ const RawDisplay: React.FC = () => {
       globalFilter: searchQuery,
       body: { filters: getProcessedFilters(filters) },
     });
-  const ref = viewChildRef || useRef<any>();
+  const ref = viewChildRef || useRef<any>({});
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const div = e.target as HTMLDivElement;
@@ -37,13 +37,13 @@ const RawDisplay: React.FC = () => {
 
   return (
     <div
-      className="relative w-full h-full flex flex-col gap-y-1 overflow-y-scroll"
+      className="relative flex h-full w-full flex-col gap-y-1 overflow-y-scroll"
       onScroll={handleScroll}
       ref={ref}
     >
       {flatData.map((data: any, index: number) => (
         <div
-          className="text-lg h-28 inline-flex border bg-black text-green-400"
+          className="inline-flex h-28 border bg-black text-lg text-green-400"
           key={index}
         >
           {JSON.stringify(data, null, 2)}
@@ -53,6 +53,6 @@ const RawDisplay: React.FC = () => {
   );
 };
 
-RawDisplay.displayName = "RawDisplay";
+RawDisplay.displayName = 'RawDisplay';
 
 export { RawDisplay };

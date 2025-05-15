@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
-import React from "react";
-import type { Table } from "@tanstack/react-table";
-import FieldsSheetTitle from "./headers/FieldsSheetTitle";
-import { closestCenter, DndContext, MeasuringStrategy } from "@dnd-kit/core";
+import { closestCenter, DndContext, MeasuringStrategy } from '@dnd-kit/core';
 import {
-  restrictToVerticalAxis,
   restrictToParentElement,
-} from "@dnd-kit/modifiers";
+  restrictToVerticalAxis,
+} from '@dnd-kit/modifiers';
 import {
   SortableContext,
   verticalListSortingStrategy,
-} from "@dnd-kit/sortable";
-import FieldsListItem from "./FieldsListItem";
-import { SheetOptionsType } from "./interface";
-import { SheetHeader } from "@lens/base/components/ui/sheet";
-import { useDatatableContext } from "@lens/components/Datatable";
+} from '@dnd-kit/sortable';
+import { SheetHeader } from '@lens/base/components/ui/sheet';
+import { useDatatableContext } from '@lens/components/Datatable';
+import type { Table } from '@tanstack/react-table';
+import React from 'react';
+import FieldsListItem from './FieldsListItem';
+import FieldsSheetTitle from './headers/FieldsSheetTitle';
+import { SheetOptionsType } from './interface';
 
 const measuringConfig = {
   droppable: {
@@ -25,7 +25,7 @@ const measuringConfig = {
 
 export interface FieldsSheetInterface {
   setCurrentSheet: React.Dispatch<React.SetStateAction<SheetOptionsType>>;
-  tableContainerRef?: React.RefObject<HTMLDivElement>;
+  tableContainerRef?: React.RefObject<HTMLDivElement | null>;
   handleDragEnd: any;
   table: Table<any>;
 }
@@ -39,7 +39,7 @@ const FieldsSheet = ({
   const { sensors } = useDatatableContext();
   const columnVisibility = table.getState().columnVisibility;
   const invisibleColumns = Object.keys(columnVisibility).filter(
-    (e) => !columnVisibility[e]
+    (e) => !columnVisibility[e],
   );
 
   return (
@@ -68,17 +68,18 @@ const FieldsSheet = ({
               <label className="text-sm">Shown</label>
               {(() => {
                 const visibleColumns = columns.filter(
-                  (c) => !invisibleColumns.includes(c.id)
+                  (c) => !invisibleColumns.includes(c.id),
                 );
 
                 return visibleColumns.length === 0 ? (
-                  <p className="text-sm text-gray-500 w-full text-center">
+                  <p className="w-full text-center text-sm text-gray-500">
                     No items
                   </p>
                 ) : (
                   visibleColumns.map((column) => {
-                    if (column?.id === "select" || column?.id === "serialize")
-                    {return null;}
+                    if (column?.id === 'select' || column?.id === 'serialize') {
+                      return null;
+                    }
                     return <FieldsListItem column={column} key={column.id} />;
                   })
                 );
@@ -89,11 +90,11 @@ const FieldsSheet = ({
         <label className="text-sm">Hidden</label>
         {(() => {
           const hiddenColumns = columns.filter((c) =>
-            invisibleColumns.includes(c.id)
+            invisibleColumns.includes(c.id),
           );
 
           return hiddenColumns.length === 0 ? (
-            <p className="text-sm text-gray-500 w-full text-center">No items</p>
+            <p className="w-full text-center text-sm text-gray-500">No items</p>
           ) : (
             hiddenColumns.map((column) => (
               <FieldsListItem column={column} key={column.id} isHidden={true} />
