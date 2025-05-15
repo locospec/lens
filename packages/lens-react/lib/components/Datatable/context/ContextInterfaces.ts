@@ -1,14 +1,14 @@
 import type { SensorDescriptor, SensorOptions } from "@dnd-kit/core";
-import { SelectionType } from "../interface/DatatableInterface";
-import { ReactNode } from "react";
 import {
   AccessorKeyColumnDef,
   ColumnPinningState,
   RowSelectionState,
   VisibilityState,
 } from "@tanstack/react-table";
-import { TableStylingInterface } from "../interface/TableStylingInterface";
+import { ReactNode } from "react";
 import { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
+import { SelectionType } from "../interface/DatatableInterface";
+import { TableStylingInterface } from "../interface/TableStylingInterface";
 
 type CellRendererFn<T = any> = (rowData: T) => React.ReactNode;
 
@@ -43,7 +43,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   viewId?: string;
   modalName?: string;
   searchQuery?: string;
-  viewChildRef?: React.RefObject<HTMLDivElement>;
+  viewChildRef?: React.RefObject<HTMLDivElement | null>;
   cellActions?: any;
   viewName: string;
   expand: string[];
@@ -81,14 +81,14 @@ interface DatatableContextType
   adjustedColumns: any;
   isColumnsReady: any;
   fixedColumns: (string | undefined)[];
-  tableContainerRef: React.RefObject<HTMLDivElement>;
+  tableContainerRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export type {
   CellRendererMap,
-  DatatableVariants,
   CommonWrapperInterface,
-  DatatableContextType,
   DatatableContextProviderInterface,
+  DatatableContextType,
   DataTableLensContextProviderInterface,
+  DatatableVariants,
 };

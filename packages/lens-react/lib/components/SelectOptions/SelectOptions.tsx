@@ -1,8 +1,5 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import { Check } from "lucide-react";
-import { cn } from "@lens/base/lib/utils";
 import {
   Command,
   CommandEmpty,
@@ -11,25 +8,28 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@lens/base/components/ui/command";
+} from '@lens/base/components/ui/command';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@lens/base/components/ui/popover";
+} from '@lens/base/components/ui/popover';
+import { cn } from '@lens/base/lib/utils';
+import { useInfiniteFetch } from '@lens/components/LensProvider/hooks/useInfiniteFetch';
 import {
   useDebouncedEffectAfterMount,
   useEffectAfterMount,
-} from "@lens/hooks/index";
-import { useInfiniteFetch } from "@lens/components/LensProvider/hooks/useInfiniteFetch";
-import { Condition } from "../LensProvider/interfaces/FiltersInterface";
-import { getProcessedFilters } from "../LensProvider/utils";
-import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
-import { AttributeDefinitionType } from "../Datatable/interface/DatatableInterface";
-import { getSameLevelConditions } from "../Filters";
-import { SimpleFiltersContext } from "../SimpleFilters/context/SimpleFiltersContext";
-import { FiltersContext } from "../Filters/context";
-import DashedCircle from "./icons/DashedCircle";
+} from '@lens/hooks/index';
+import { useFetchMoreOnScroll } from '@lens/hooks/src/useFetchMoreOnScroll';
+import { Check } from 'lucide-react';
+import * as React from 'react';
+import { AttributeDefinitionType } from '../Datatable/interface/DatatableInterface';
+import { getSameLevelConditions } from '../Filters';
+import { FiltersContext } from '../Filters/context';
+import { Condition } from '../LensProvider/interfaces/FiltersInterface';
+import { getProcessedFilters } from '../LensProvider/utils';
+import { SimpleFiltersContext } from '../SimpleFilters/context/SimpleFiltersContext';
+import DashedCircle from './icons/DashedCircle';
 
 export interface OptionInterface {
   label: string;
@@ -54,7 +54,7 @@ const contextDecoder = () => {
   const filtersContext = React.useContext(FiltersContext);
 
   if (!filtersContext && !simpleFiltersContext) {
-    throw new Error("useFiltersContext must be used within a Lens Provider");
+    throw new Error('useFiltersContext must be used within a Lens Provider');
   }
   if (filtersContext) {
     const { queryEndpoint, filter, permissionHeaders, filterContainerRef } =
@@ -66,17 +66,17 @@ const contextDecoder = () => {
     return { queryEndpoint, filter, permissionHeaders, filterContainerRef };
   } else {
     throw new Error(
-      "useFiltersContext must be used within a Simple Filter or a Filter Provider"
+      'useFiltersContext must be used within a Simple Filter or a Filter Provider',
     );
   }
 };
 
 const COMMON_RENDERER_CLASSES =
-  "text-xs cursor-pointer bg-white w-fit h-full flex items-center px-1.5 py-1 first:rounded-l-lg last:rounded-r-lg text-gray-700";
+  'text-xs cursor-pointer bg-white w-fit h-full flex items-center px-1.5 py-1 first:rounded-l-lg last:rounded-r-lg text-gray-700';
 
 const SelectOptions = React.memo(function SelectOptions({
-  emptyLabel = "No options found...",
-  placeholder = "Select an option....",
+  emptyLabel = 'No options found...',
+  placeholder = 'Select an option....',
   callback,
   defaultValues = [],
   selectedAttribute,
@@ -88,11 +88,11 @@ const SelectOptions = React.memo(function SelectOptions({
   const { queryEndpoint, filter, permissionHeaders, filterContainerRef } =
     contextDecoder();
   const queryKey = `${queryEndpoint}-${condition.attribute}-${JSON.stringify(
-    path
+    path,
   )}`;
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState<string[]>(defaultValues);
-  const [searchQuery, setSearchQuery] = React.useState("");
+  const [searchQuery, setSearchQuery] = React.useState('');
   const containerRef = React.useRef<HTMLDivElement>(null);
   const {
     dependsOn: dependsOnArray = [],
@@ -143,7 +143,7 @@ const SelectOptions = React.memo(function SelectOptions({
       setValues([]);
     },
     [JSON.stringify(samegroup)],
-    500
+    500,
   );
 
   useEffectAfterMount(() => {
@@ -183,10 +183,10 @@ const SelectOptions = React.memo(function SelectOptions({
         } else {
           return (
             <div className="relative flex items-center gap-x-2 text-xs">
-              <div className="relative w-[14px] h-[14px] text-white bg-gray-600 rounded-full z-20 flex items-center justify-center text-[10px]">
+              <div className="relative z-20 flex h-[14px] w-[14px] items-center justify-center rounded-full bg-gray-600 text-[10px] text-white">
                 {values.length}
               </div>
-              <div className="absolute w-[14px] h-[14px] rounded-full left-1 z-10">
+              <div className="absolute left-1 z-10 h-[14px] w-[14px] rounded-full">
                 <DashedCircle />
               </div>
               <label>{`${values.length} Selected`}</label>
@@ -195,7 +195,7 @@ const SelectOptions = React.memo(function SelectOptions({
         }
       }
     }
-    return "...";
+    return '...';
   };
 
   return (
@@ -204,8 +204,8 @@ const SelectOptions = React.memo(function SelectOptions({
         <div
           className={cn(
             COMMON_RENDERER_CLASSES,
-            "hover:bg-gray-50",
-            !showClose && "rounded-r-lg"
+            'hover:bg-gray-50',
+            !showClose && 'rounded-r-lg',
           )}
           aria-expanded={open}
         >
@@ -234,7 +234,7 @@ const SelectOptions = React.memo(function SelectOptions({
             }
           >
             <CommandEmpty>
-              {isLoading ? "Loading options" : emptyLabel}
+              {isLoading ? 'Loading options' : emptyLabel}
             </CommandEmpty>
             <CommandGroup>
               {!isLoading &&
@@ -249,10 +249,10 @@ const SelectOptions = React.memo(function SelectOptions({
                     >
                       <Check
                         className={cn(
-                          "mr-2 h-4 w-4",
+                          'mr-2 h-4 w-4',
                           values.includes(option.value)
-                            ? "opacity-100"
-                            : "opacity-0"
+                            ? 'opacity-100'
+                            : 'opacity-0',
                         )}
                       />
                       {option.label}

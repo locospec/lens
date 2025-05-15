@@ -1,8 +1,8 @@
 "use client";
 
-import * as React from "react";
-import * as PopoverPrimitive from "@radix-ui/react-popover";
 import { cn } from "@lens/base/lib/utils";
+import * as PopoverPrimitive from "@radix-ui/react-popover";
+import * as React from "react";
 
 function Popover({
   ...props
@@ -23,7 +23,7 @@ function PopoverContent({
   containerRef,
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Content> & {
-  containerRef?: React.RefObject<HTMLElement>;
+  containerRef?: React.RefObject<HTMLElement | null>;
 }) {
   return (
     <PopoverPrimitive.Portal container={containerRef?.current}>
@@ -47,4 +47,4 @@ function PopoverAnchor({
   return <PopoverPrimitive.Anchor data-slot="popover-anchor" {...props} />;
 }
 
-export { Popover, PopoverTrigger, PopoverContent, PopoverAnchor };
+export { Popover, PopoverAnchor, PopoverContent, PopoverTrigger };
