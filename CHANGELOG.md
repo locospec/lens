@@ -1,3 +1,28 @@
+# (Thu May 15 2025)
+
+#### 🚀 Enhancement
+
+- `@locospec/lens-react@0.2.0`
+  - feat: contribute changes from local to source [#170](https://github.com/locospec/lens/pull/170) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: fix for ref issue [#168](https://github.com/locospec/lens/pull/168) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: contribute changes from local to source [#168](https://github.com/locospec/lens/pull/168) ([@rjvim](https://github.com/rjvim))
+
+#### 🐛 Bug Fix
+
+- chore: add Prettier plugins for organizing imports and Tailwind CSS support ([@rjvim](https://github.com/rjvim))
+- `@locospec/lens-react@0.2.0`
+  - Revert "chore: removed null from ref type variables" [#168](https://github.com/locospec/lens/pull/168) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: formatting change [#168](https://github.com/locospec/lens/pull/168) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: change react type to v19.1.0 [#168](https://github.com/locospec/lens/pull/168) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: removed null from ref type variables [#168](https://github.com/locospec/lens/pull/168) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # (Wed May 14 2025)
 
 #### 🐛 Bug Fix
