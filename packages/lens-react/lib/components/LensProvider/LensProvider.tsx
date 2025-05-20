@@ -1,8 +1,9 @@
-import React, { createContext } from "react";
-import type { LensContextType, LensProviderProps } from "./types";
-import { useFetchConfig } from "./hooks/useFetchConfig";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import React, { createContext } from "react";
+import Loader from "../Loader";
+import { useFetchConfig } from "./hooks/useFetchConfig";
+import type { LensContextType, LensProviderProps } from "./types";
 import { fetchDataFromEndpoint } from "./utils/fetchDataFromEndpoint";
 
 const queryClient = new QueryClient();
@@ -74,17 +75,6 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     >
       {config && isFetched ? children : <Loader />}
     </LensContext.Provider>
-  );
-};
-
-const Loader = () => {
-  return (
-    <div className="w-full h-full  flex flex-col items-center justify-center gap-y-2">
-      <div className="relative flex items-center justify-center w-20 h-20 border-4 dark:border-white border-gray-800 rounded-full opacity-100 border-t-gray-200 dark:border-t-gray-600 animate-spin"></div>
-      <label className="text-lg font-semibold text-black dark:text-white">
-        Lens is Loading your configurations. Please be patient..
-      </label>
-    </div>
   );
 };
 

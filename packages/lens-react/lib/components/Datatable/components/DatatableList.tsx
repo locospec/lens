@@ -157,71 +157,67 @@ const DatatableList = () => {
   }
 
   return (
-    <>
+    <div
+      id="table-parent-wrapper"
+      className={
+        "relative flex h-full flex-1 flex-col overflow-hidden bg-white text-black dark:bg-black dark:text-white"
+      }
+      ref={tableWrapperRef}
+    >
+      {renderSheet && (
+        <Sheet open={showSheet} onOpenChange={setShowSheet}>
+          <LensSidebar
+            tableContainerRef={tableWrapperRef}
+            handleDragEnd={handleDragEnd}
+            table={table}
+            show={showSheet}
+          />
+        </Sheet>
+      )}
       <div
-        className={"relative flex h-full flex-1 flex-col gap-0 overflow-hidden"}
-        ref={tableWrapperRef}
-      >
-        {renderSheet && (
-          <Sheet open={showSheet} onOpenChange={setShowSheet}>
-            <LensSidebar
-              // tableContainerRef={tableContainerRef}
-              tableContainerRef={tableWrapperRef}
-              handleDragEnd={handleDragEnd}
-              table={table}
-              show={showSheet}
-            />
-          </Sheet>
+        id="table-wrapper"
+        className={cn(
+          "relative h-full w-full flex-1 overflow-auto rounded border text-sm",
+          variantClasses.wrapper,
+          classNames && classNames?.wrapper
         )}
+        onScroll={e => {
+          fetchMoreOnBottomReached(e.target as HTMLDivElement);
+        }}
+        ref={tableContainerRef}
+      >
         <div
-          className={cn(
-            "relative h-full w-full flex-1 overflow-auto border",
-            variantClasses.wrapper,
-            classNames && classNames?.wrapper
-          )}
-          onScroll={e => {
-            fetchMoreOnBottomReached(e.target as HTMLDivElement);
+          id="table-body-wrapper"
+          style={{
+            ...columnSizeVars,
+            width: "100%",
+            height: `${rowVirtualizer.getTotalSize()}px`,
+            minWidth: `${table.getTotalSize()}px`,
           }}
-          ref={tableContainerRef}
         >
-          <div
-            className="table-body-wrapper"
-            style={{
-              ...columnSizeVars,
-              width: "100%",
-              height: `${rowVirtualizer.getTotalSize()}px`,
-              minWidth: `${table.getTotalSize()}px`,
-            }}
-          >
-            <DatatableHeaderSection
+          <DatatableHeaderSection
+            table={table}
+            columnSizeVars={columnSizeVars}
+            tableContainerRef={tableContainerRef}
+            columnOrder={columnOrder}
+            handleDragEnd={disableReordering ? () => {} : handleDragEnd}
+            setActiveId={setActiveId}
+            activeId={activeId}
+            setIsInResizeArea={setIsInResizeArea}
+            isInResizeArea={isInResizeArea}
+            sensors={sensors}
+          />
+          {isResizing ? (
+            <MemoizedDatatableBody
               table={table}
-              columnSizeVars={columnSizeVars}
-              tableContainerRef={tableContainerRef}
-              columnOrder={columnOrder}
-              handleDragEnd={disableReordering ? () => {} : handleDragEnd}
-              setActiveId={setActiveId}
-              activeId={activeId}
-              setIsInResizeArea={setIsInResizeArea}
-              isInResizeArea={isInResizeArea}
-              sensors={sensors}
+              rowVirtualizer={rowVirtualizer}
             />
-            {isResizing ? (
-              <MemoizedDatatableBody
-                table={table}
-                rowVirtualizer={rowVirtualizer}
-                isFetching={isFetching}
-              />
-            ) : (
-              <DatatableBody
-                table={table}
-                rowVirtualizer={rowVirtualizer}
-                isFetching={isFetching}
-              />
-            )}
-          </div>
+          ) : (
+            <DatatableBody table={table} rowVirtualizer={rowVirtualizer} />
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

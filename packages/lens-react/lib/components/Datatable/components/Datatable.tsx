@@ -1,13 +1,13 @@
 import React from "react";
-import { DataTableLensContextProvider } from "../context/DataTableContext";
-import DatatableList from "./DatatableList";
-import type { TableStylingInterface } from "../interface/TableStylingInterface";
-import type { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
 import type {
   CellRendererMap,
   DatatableVariants,
 } from "../context/ContextInterfaces";
+import { DataTableLensContextProvider } from "../context/DataTableContext";
+import type { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
+import type { TableStylingInterface } from "../interface/TableStylingInterface";
 import "../styles.css";
+import DatatableList from "./DatatableList";
 
 export interface DatatableInterface {
   onSelect?: (selected: any[]) => void;

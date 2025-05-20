@@ -2,16 +2,14 @@ import { cn } from "@lens/base/lib/utils";
 
 const VANILLA_THEME = {
   no_data: cn("text-gray-600", "dark:text-gray-400"),
-  wrapper: cn("border-gray-100 ", "dark:border-gray-100"),
+  wrapper: cn("", ""),
   header_row: cn(
-    "border-b border-gray-200 text-gray-500 font-normal text-sm",
-    "dark:border-gray-100 dark:text-white"
+    "border-b border-gray-200 font-normal",
+    "dark:border-gray-100"
   ),
   header_cell: cn(
-    "border-r",
-    "bg-gray-50",
-    "dark:bg-gray-800",
-    "data-[islast=true]:border-r-0"
+    "bg-gray-100 hover:bg-gray-200 text-gray-600 font-semibold",
+    "dark:bg-black dark:group-hover:bg-gray-800 dark:text-gray-100"
   ),
   resize_handler: cn(
     "border-r-0",
@@ -23,27 +21,19 @@ const VANILLA_THEME = {
     "dark:data-[isresising=true]:bg-gray-300"
   ),
   row: cn(
-    "hover:bg-gray-200 data-[state=checked]:bg-gray-200 text-gray-900 border-b border-gray-100 bg-white text-sm",
-    "dark:hover:bg-gray-800 dark:data-[state=checked]:bg-gray-800 dark:text-gray-100 dark:border-gray-100 dark:bg-gray-700"
+    "hover:bg-gray-100 data-[state=checked]:bg-gray-200 border-b border-gray-200 bg-white",
+    "dark:hover:bg-gray-800 dark:data-[state=checked]:bg-gray-800 dark:border-gray-100 dark:bg-gray-700"
   ),
-  cell: cn(
-    "border-gray-100",
-    "dark:border-gray-100",
-    "border-r"
-    // 'data-[islast=true]:border-r-0',
-  ),
+  cell: cn("border-gray-100", "dark:border-gray-100"),
   pinned_cells: cn(
-    "group-hover:bg-gray-200 border-gray-100 bg-white",
+    "group-hover:bg-gray-100 border-gray-100 bg-white",
     "dark:group-hover:bg-gray-800 dark:border-gray-100 dark:bg-gray-700"
   ),
   checkbox: cn(
     "border-gray-900 data-[state=checked]:bg-gray-900 data-[state=checked]:text-white",
     "dark:border-gray-200 dark:data-[state=checked]:bg-gray-200 dark:data-[state=checked]:text-black"
   ),
-  dragoverlay: cn(
-    "bg-transparent border backdrop-blur-md cursor-grabbing text-black",
-    "dark:text-white "
-  ),
+  dragoverlay: cn("bg-transparent border backdrop-blur-md cursor-grabbing", ""),
 };
 
 const STRIPPED_THEME = {
@@ -215,10 +205,10 @@ const COSMIC_THEME = {
 };
 
 export {
-  VANILLA_THEME,
-  STRIPPED_THEME,
   BLOSSOM_THEME,
-  COSMIC_THEME,
   CITRUS_THEME,
+  COSMIC_THEME,
   PLUM_THEME,
+  STRIPPED_THEME,
+  VANILLA_THEME,
 };
