@@ -35,6 +35,7 @@ const DatatableHeaderSection = ({
   const { variantClasses, disableReordering } = useDatatableContext();
   return (
     <DndContext
+      id="draggable-headers-container"
       collisionDetection={closestCenter}
       modifiers={[restrictToHorizontalAxis]}
       onDragEnd={handleDragEnd}
@@ -54,6 +55,7 @@ const DatatableHeaderSection = ({
     >
       {!disableReordering && (
         <DragOverlay
+          key={"darg-overlay-container"}
           className={cn("absolute h-20 px-4 py-2", variantClasses.dragoverlay)}
         >
           {activeId ? <label>{splitAndCapitalize(activeId)}</label> : null}

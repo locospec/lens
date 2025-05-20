@@ -1,7 +1,7 @@
-import type { HeaderGroup } from "@tanstack/react-table";
-import DatatableHeaderItem from "./DatatableHeaderItem.tsx";
 import { cn } from "@lens/components/utils/cn.ts";
+import type { HeaderGroup } from "@tanstack/react-table";
 import { useDatatableContext } from "../context/useDatatableContext.ts";
+import DatatableHeaderItem from "./DatatableHeaderItem.tsx";
 
 export interface TableHeaderInterface {
   headerGroup: HeaderGroup<any>;
@@ -20,14 +20,15 @@ const DataTableHeader = ({
 
   return (
     <div
+      id="datatable-header-row"
       key={headerGroup.id}
       className={cn(
-        "sticky flex top-0 z-10 backdrop-blur-[100px]",
+        "group sticky top-0 z-10 flex",
         variantClasses.header_row,
         classNames && classNames?.headers
       )}
     >
-      {headerGroup.headers.map((header) => {
+      {headerGroup.headers.map(header => {
         return (
           <DatatableHeaderItem
             key={`${header.id}-${columnOrder.join("-")}`}

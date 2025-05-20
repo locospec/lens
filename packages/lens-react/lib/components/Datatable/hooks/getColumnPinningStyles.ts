@@ -1,5 +1,5 @@
-import { CSSProperties } from "react";
 import type { Column } from "@tanstack/react-table";
+import { CSSProperties } from "react";
 
 const getColumnPinningStyles = (
   column: Column<any>
@@ -23,7 +23,7 @@ const getColumnPinningStyles = (
     //   : undefined,
     left: isPinned === "left" ? `${column.getStart("left")}px` : undefined,
     right: isPinned === "right" ? `${column.getAfter("right")}px` : undefined,
-    opacity: isPinned ? 0.95 : 1,
+    // opacity: isPinned ? 0.95 : 1,
     position: isPinned ? "sticky" : "relative",
     // background: isPinned ? "#fff" : "",
     // width: column.getSize(),

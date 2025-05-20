@@ -1,6 +1,3 @@
-import { CSSProperties } from "react";
-import { flexRender } from "@tanstack/react-table";
-import { ResizeHandle } from "./ResizeHandle.tsx";
 import {
   horizontalListSortingStrategy,
   SortableContext,
@@ -8,9 +5,13 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { cn } from "@lens/components/utils/cn.ts";
+import { flexRender } from "@tanstack/react-table";
+import { ChevronsUpDownIcon } from "lucide-react";
+import { CSSProperties } from "react";
+import { useDatatableContext } from "../context/useDatatableContext.ts";
 import { getColumnPinningStyles } from "../hooks/getColumnPinningStyles.ts";
 import { getStyleClasses } from "../utils/getStylesClassesForDataTable.ts";
-import { useDatatableContext } from "../context/useDatatableContext.ts";
+import { ResizeHandle } from "./ResizeHandle.tsx";
 
 const DatatableHeaderItem = ({
   header,
@@ -58,7 +59,7 @@ const DatatableHeaderItem = ({
       <div
         key={header.id}
         className={cn(
-          "relative truncate px-2 py-2",
+          "group/header relative flex truncate px-2 py-2 dark:bg-black",
           variantClasses.header_cell,
           !disableReordering && enableResizeHandler
             ? "cursor-grab"
@@ -77,9 +78,25 @@ const DatatableHeaderItem = ({
         {...listeners}
         data-islast={isLast}
       >
-        {header.isPlaceholder
-          ? null
-          : flexRender(header.column.columnDef.header, header.getContext())}
+        <span className="block overflow-hidden text-ellipsis whitespace-nowrap">
+          {header.isPlaceholder
+            ? null
+            : flexRender(header.column.columnDef.header, header.getContext())}
+        </span>
+        {!["serialize", "actions"].includes(id) && (
+          <div
+            className="z-50 ml-1 flex h-full items-center justify-center opacity-0 group-hover/header:opacity-100"
+            onClick={e => {
+              e.preventDefault();
+              e.stopPropagation();
+              console.log("TODO: Sorting Logic goes here");
+            }}
+          >
+            <div className="rounded p-0.5 hover:bg-gray-300">
+              <ChevronsUpDownIcon className="h-3 w-3" />
+            </div>
+          </div>
+        )}
         {!disableResizing && (
           <ResizeHandle
             header={header}
