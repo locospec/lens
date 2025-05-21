@@ -25,7 +25,8 @@ const SelectionColumn = (
         return (
           <Checkbox
             className={cn(
-              "border-gray-900 data-[state=checked]:bg-gray-900 data-[state=checked]:text-white",
+              "size-3.5",
+              "border-gray-400 data-[state=checked]:bg-gray-900 data-[state=checked]:text-white",
               "dark:border-gray-100 dark:data-[state=checked]:bg-gray-200 dark:data-[state=checked]:text-black",
               variantClasses?.checkbox || ""
             )}
@@ -41,7 +42,7 @@ const SelectionColumn = (
     },
     cell: ({ row }: RowInterface) => (
       <Checkbox
-        className={cn(variantClasses.checkbox)}
+        className={cn("size-3.5", variantClasses.checkbox)}
         checked={row.getIsSelected()}
         onCheckedChange={value => {
           return row.toggleSelected(!!value);
