@@ -159,9 +159,7 @@ const DatatableList = () => {
   return (
     <div
       id="table-parent-wrapper"
-      className={
-        "relative flex h-full flex-1 flex-col overflow-hidden bg-white text-gray-800 dark:bg-black dark:text-white"
-      }
+      className={"relative flex h-full flex-1 flex-col overflow-hidden"}
       ref={tableWrapperRef}
     >
       {renderSheet && (
@@ -177,7 +175,7 @@ const DatatableList = () => {
       <div
         id="table-wrapper"
         className={cn(
-          "relative h-full w-full flex-1 overflow-auto rounded text-sm",
+          "relative h-full w-full flex-1 overflow-auto rounded bg-white text-sm text-gray-800 dark:bg-black dark:text-white",
           variantClasses.wrapper,
           classNames && classNames?.wrapper
         )}
