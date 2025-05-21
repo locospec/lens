@@ -48,6 +48,8 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
       className={cn(
         isAction || isPinned ? "flex items-center gap-x-4" : "truncate",
         "px-2 py-2",
+        "data-[state=checked]:bg-gray-100",
+        "dark:data-[state=checked]:bg-gray-800",
         cellOverFlowStyles,
         "border-gray-100",
         "dark:border-gray-100",

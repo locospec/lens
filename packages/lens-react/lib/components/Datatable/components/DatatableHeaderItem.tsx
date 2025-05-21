@@ -40,7 +40,6 @@ const DatatableHeaderItem = ({
     whiteSpace: "nowrap",
     zIndex: isDragging ? 1 : 0,
   };
-
   const id = header?.id;
   const { minSize, maxSize } = header.column.columnDef;
   const enableResizeHandler =
@@ -49,6 +48,7 @@ const DatatableHeaderItem = ({
   const align = (header.column.columnDef.meta as any)?.align;
   const styles = getStyleClasses(align);
   const isAction = column.id === "actions";
+  const isSelect = column.id === "select";
 
   return (
     <SortableContext
@@ -67,6 +67,7 @@ const DatatableHeaderItem = ({
             ? "cursor-grab"
             : "cursor-pointer",
           styles?.text,
+          isSelect && "flex items-center justify-center",
           classNames && classNames.header,
           (isAction && classNames?.actionsHeader) || ""
         )}
@@ -85,7 +86,7 @@ const DatatableHeaderItem = ({
             ? null
             : flexRender(header.column.columnDef.header, header.getContext())}
         </span>
-        {!["serialize", "actions"].includes(id) && (
+        {!["serialize", "select", "actions"].includes(id) && (
           <div
             className="z-50 ml-1 flex h-full items-center justify-center opacity-0 group-hover/header:opacity-100"
             onClick={e => {
