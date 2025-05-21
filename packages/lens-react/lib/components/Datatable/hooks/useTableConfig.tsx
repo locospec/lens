@@ -1,14 +1,14 @@
-import React from "react";
 import { createColumnHelper } from "@tanstack/react-table";
+import React from "react";
+import ActionsColumn from "../components/columns/ActionsColumn";
+import SelectionColumn from "../components/columns/SelectionColumn";
+import { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
+import type { CustomColumnDef } from "../interface/CustomColumnDef";
 import type {
   ColumnConfigInterface,
   TableConfigInterface,
 } from "../interface/DatatableInterface";
-import type { CustomColumnDef } from "../interface/CustomColumnDef";
-import SelectionColumn from "../components/columns/SelectionColumn";
-import ActionsColumn from "../components/columns/ActionsColumn";
 import { metaReader } from "../utils/metaReader";
-import { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
 
 const useTableConfig = (
   tableConfig: TableConfigInterface,
@@ -54,7 +54,7 @@ const useTableConfig = (
         id: "serialize",
         accessorKey: "serialize",
         meta: {
-          align: serialize?.align || "center",
+          align: serialize?.align || "left",
           fixed: serialize?.fixed || "left",
           show: true,
         },
@@ -62,9 +62,9 @@ const useTableConfig = (
         cell: ({ row }: any) => row.index + 1,
         enableSorting: false,
         enableHiding: false,
-        size: serialize?.width || 50,
-        minSize: serialize?.minWidth || 80,
-        maxSize: serialize?.maxWidth || 80,
+        size: serialize?.width || 40,
+        minSize: serialize?.minWidth || 40,
+        maxSize: serialize?.maxWidth || 40,
       };
       finalColumns = [indexColumn, ...finalColumns];
     }

@@ -111,6 +111,7 @@ const DataTableLensContextProvider: React.FC<
   setShowSheet,
   cellOverflow,
   cellRenderer,
+  rowAction,
 }) => {
   const lensContext = useLensContext();
   const viewContext = useViewContext();
@@ -193,6 +194,7 @@ const DataTableLensContextProvider: React.FC<
       setShowSheet={setShowSheet}
       cellOverFlowStyles={cellOverFlowStyles}
       cellRenderer={cellRenderer}
+      rowAction={rowAction}
     >
       {isFetched ? (
         isError ? (

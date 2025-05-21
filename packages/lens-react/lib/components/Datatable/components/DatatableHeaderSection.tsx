@@ -56,7 +56,11 @@ const DatatableHeaderSection = ({
       {!disableReordering && (
         <DragOverlay
           key={"darg-overlay-container"}
-          className={cn("absolute h-20 px-4 py-2", variantClasses.dragoverlay)}
+          className={cn(
+            "absolute h-20 px-4 py-2",
+            "cursor-grabbing border bg-transparent backdrop-blur-md",
+            variantClasses.dragoverlay
+          )}
         >
           {activeId ? <label>{splitAndCapitalize(activeId)}</label> : null}
         </DragOverlay>
