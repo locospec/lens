@@ -10,14 +10,12 @@ export interface DatatableBodyProps {
   table: Table<any>;
   rowVirtualizer: Virtualizer<HTMLDivElement, Element>;
   isFetching?: any;
-  hasNextPage?: any;
 }
 
 export const DatatableBody = ({
   table,
   rowVirtualizer,
   isFetching,
-  hasNextPage,
 }: DatatableBodyProps) => {
   const { rows } = table.getRowModel();
   const { getVirtualItems, getTotalSize } = rowVirtualizer;

@@ -210,14 +210,12 @@ const DatatableList = () => {
               table={table}
               rowVirtualizer={rowVirtualizer}
               isFetching={isFetching}
-              hasNextPage={hasNextPage}
             />
           ) : (
             <DatatableBody
               table={table}
               rowVirtualizer={rowVirtualizer}
               isFetching={isFetching}
-              hasNextPage={hasNextPage}
             />
           )}
         </div>
