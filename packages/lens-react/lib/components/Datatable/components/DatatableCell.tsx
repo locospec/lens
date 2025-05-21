@@ -1,9 +1,9 @@
-import { flexRender } from "@tanstack/react-table";
-import type { Cell } from "@tanstack/react-table";
-import { getColumnPinningStyles } from "../hooks/getColumnPinningStyles";
 import { cn } from "@lens/components/utils/cn";
-import { getStyleClasses } from "../utils/getStylesClassesForDataTable";
+import type { Cell } from "@tanstack/react-table";
+import { flexRender } from "@tanstack/react-table";
 import { useDatatableContext } from "../context/useDatatableContext";
+import { getColumnPinningStyles } from "../hooks/getColumnPinningStyles";
+import { getStyleClasses } from "../utils/getStylesClassesForDataTable";
 
 export interface DatatableCellProps {
   cell: Cell<any, unknown>;
@@ -49,8 +49,15 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
         isAction || isPinned ? "flex items-center gap-x-4" : "truncate",
         "px-2 py-2",
         cellOverFlowStyles,
+        "border-gray-100",
+        "dark:border-gray-100",
         variantClasses.cell,
-        isPinned && variantClasses.pinned_cells,
+        isPinned &&
+          cn(
+            "border-gray-100 bg-white group-hover:bg-gray-100",
+            "dark:border-gray-100 dark:bg-gray-700 dark:group-hover:bg-gray-800",
+            variantClasses.pinned_cells
+          ),
         styles?.items,
         styles?.text,
         classNames?.cell || "",
@@ -61,7 +68,12 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
       key={cell.id}
       style={{ ...width, ...css }}
       data-state={isSelected && "checked"}
-      onClick={() => cellAction && cellAction(cell.row.original)}
+      onClick={e => {
+        if (cellAction) {
+          e.stopPropagation();
+          cellAction(cell.row.original);
+        }
+      }}
       data-islast={isLast ? "true" : "false"}
     >
       {flexRender(cell.column.columnDef.cell, cell.getContext())}

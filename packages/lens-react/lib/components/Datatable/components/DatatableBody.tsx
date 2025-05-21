@@ -1,9 +1,9 @@
-import React from "react";
-import { DatatableRow } from "./DatatableRow.tsx";
+import { cn } from "@lens/base/lib/utils.ts";
 import type { Table } from "@tanstack/react-table";
 import { Virtualizer } from "@tanstack/react-virtual";
-import { cn } from "@lens/base/lib/utils.ts";
+import React from "react";
 import { useDatatableContext } from "../context/useDatatableContext.ts";
+import { DatatableRow } from "./DatatableRow.tsx";
 
 export interface DatatableBodyProps {
   table: Table<any>;
@@ -22,7 +22,9 @@ export const DatatableBody = ({
     return (
       <div
         className={cn(
-          "relative w-full h-full p-4 pt-10 text-center text-xl font-semibold",
+          "relative h-full w-full p-4 pt-10 text-center text-xl font-semibold",
+          "text-gray-600",
+          "dark:text-gray-400",
           variantClasses.no_data
         )}
       >
@@ -32,8 +34,8 @@ export const DatatableBody = ({
   }
 
   return (
-    <div className="relative w-full h-full">
-      {getVirtualItems().map((virtualRow) => {
+    <div className="relative h-full w-full">
+      {getVirtualItems().map(virtualRow => {
         const row = rows[virtualRow.index];
         return (
           <DatatableRow

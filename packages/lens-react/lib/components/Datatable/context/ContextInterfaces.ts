@@ -59,6 +59,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   cellOverflow?: "wrap" | "clip" | "ellipsis";
   cellOverFlowStyles: string;
   cellRenderer?: CellRendererMap;
+  rowAction?: any;
 }
 
 interface DataTableLensContextProviderInterface

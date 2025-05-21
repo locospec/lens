@@ -1,8 +1,8 @@
-import { ActionsConfig } from "../../interface/DatatableInterface";
-import { RowInterface } from "./SelectionColumn";
-import { ActionsRenderer as actionsRenderer } from "../actions/ActionsRenderer";
-import { metaReader } from "../../utils/metaReader";
 import { ActionsMappingPropInterface } from "../../interface/ActionsMappingInterface";
+import { ActionsConfig } from "../../interface/DatatableInterface";
+import { metaReader } from "../../utils/metaReader";
+import { ActionsRenderer as actionsRenderer } from "../actions/ActionsRenderer";
+import { RowInterface } from "./SelectionColumn";
 
 const ActionsColumn = (
   actions: ActionsConfig,

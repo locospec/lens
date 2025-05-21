@@ -1,39 +1,16 @@
 import { cn } from "@lens/base/lib/utils";
 
 const VANILLA_THEME = {
-  no_data: cn("text-gray-600", "dark:text-gray-400"),
-  wrapper: cn("", ""),
-  header_row: cn(
-    "border-b border-gray-200 font-normal",
-    "dark:border-gray-100"
-  ),
-  header_cell: cn(
-    "bg-gray-100 hover:bg-gray-200 text-gray-600 font-semibold",
-    "dark:bg-black dark:group-hover:bg-gray-800 dark:text-gray-100"
-  ),
-  resize_handler: cn(
-    "border-r-0",
-    "hover:border-gray-700 hover:bg-gray-600",
-    "dark:hover:border-gray-300 dark:hover:bg-gray-400"
-  ),
-  resize_handler_isresizing: cn(
-    "data-[isresising=true]:bg-gray-700",
-    "dark:data-[isresising=true]:bg-gray-300"
-  ),
-  row: cn(
-    "hover:bg-gray-100 data-[state=checked]:bg-gray-200 border-b border-gray-200 bg-white",
-    "dark:hover:bg-gray-800 dark:data-[state=checked]:bg-gray-800 dark:border-gray-100 dark:bg-gray-700"
-  ),
-  cell: cn("border-gray-100", "dark:border-gray-100"),
-  pinned_cells: cn(
-    "group-hover:bg-gray-100 border-gray-100 bg-white",
-    "dark:group-hover:bg-gray-800 dark:border-gray-100 dark:bg-gray-700"
-  ),
-  checkbox: cn(
-    "border-gray-900 data-[state=checked]:bg-gray-900 data-[state=checked]:text-white",
-    "dark:border-gray-200 dark:data-[state=checked]:bg-gray-200 dark:data-[state=checked]:text-black"
-  ),
-  dragoverlay: cn("bg-transparent border backdrop-blur-md cursor-grabbing", ""),
+  no_data: cn(""),
+  wrapper: cn(""),
+  header_row: cn(""),
+  header_cell: cn(""),
+  resize_handler: cn(""),
+  row: cn(""),
+  cell: cn(""),
+  pinned_cells: cn(""),
+  checkbox: cn(""),
+  dragoverlay: cn(""),
 };
 
 const STRIPPED_THEME = {

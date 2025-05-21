@@ -1,9 +1,9 @@
-import React from "react";
-import loadIcon from "./loadIcon";
-import { ActionCTA } from "./ActionCTA";
-import { ActionOption } from "../../interface/DatatableInterface";
 import type { Row } from "@tanstack/react-table";
+import React from "react";
 import type { ActionsMappingPropInterface } from "../../interface/ActionsMappingInterface";
+import { ActionOption } from "../../interface/DatatableInterface";
+import { ActionCTA } from "./ActionCTA";
+import loadIcon from "./loadIcon";
 
 export interface ActionsMappingInterface {
   row: Row<any>;
@@ -129,7 +129,16 @@ const ActionsMapping = ({
       url={finalURL}
       classNames={actionStyles}
       {...props}
-      icon={IconComponent ? <IconComponent size={16} /> : label || "NA"}
+      icon={
+        IconComponent ? (
+          <IconComponent
+            className="text-gray-500 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white"
+            size={16}
+          />
+        ) : (
+          label || "NA"
+        )
+      }
     />
   );
 };

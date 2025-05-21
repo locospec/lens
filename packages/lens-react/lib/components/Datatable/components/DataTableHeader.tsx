@@ -24,6 +24,8 @@ const DataTableHeader = ({
       key={headerGroup.id}
       className={cn(
         "group sticky top-0 z-10 flex",
+        "border-b-2 border-gray-300 font-normal",
+        "dark:border-gray-100",
         variantClasses.header_row,
         classNames && classNames?.headers
       )}

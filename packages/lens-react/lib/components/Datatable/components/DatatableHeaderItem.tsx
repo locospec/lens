@@ -59,7 +59,9 @@ const DatatableHeaderItem = ({
       <div
         key={header.id}
         className={cn(
-          "group/header relative flex truncate px-2 py-2 dark:bg-black",
+          "group/header relative flex truncate px-2 py-2 text-xs",
+          "bg-gray-100 text-gray-500 hover:bg-gray-200",
+          "dark:bg-black dark:text-gray-100 dark:group-hover:bg-gray-800",
           variantClasses.header_cell,
           !disableReordering && enableResizeHandler
             ? "cursor-grab"
