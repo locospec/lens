@@ -41,35 +41,37 @@ export const DatatableBody = ({
       className="relative h-full w-full"
       style={{ height: getTotalSize() + (isFetching ? 50 : 0) }} // Add space for loader
     >
-      {getVirtualItems().map(virtualRow => {
-        const row = rows[virtualRow.index];
-        return (
-          <DatatableRow
-            key={row.id}
-            row={row}
-            virtualRow={virtualRow}
-            rowVirtualizer={rowVirtualizer}
-          />
-        );
-      })}
-      {isFetching && (
-        <div
-          className={cn(
-            "absolute left-0 flex items-center justify-center text-gray-500 dark:text-gray-300",
-            "w-full",
-            "animate-fade-in",
-            variantClasses.row
-          )}
-          style={{
-            transform: `translateY(${getTotalSize()}px)`,
-            height: "50px",
-          }}
-        >
-          <div className="w-full py-2 text-center text-sm font-medium">
-            Loading<span className="dot-flash ml-1 inline-block">...</span>
+      <>
+        {getVirtualItems().map(virtualRow => {
+          const row = rows[virtualRow.index];
+          return (
+            <DatatableRow
+              key={row.id}
+              row={row}
+              virtualRow={virtualRow}
+              rowVirtualizer={rowVirtualizer}
+            />
+          );
+        })}
+        {isFetching && (
+          <div
+            className={cn(
+              "absolute left-0 flex items-center justify-center text-gray-500 dark:text-gray-300",
+              "w-full",
+              "animate-fade-in",
+              variantClasses.row
+            )}
+            style={{
+              transform: `translateY(${getTotalSize()}px)`,
+              height: "50px",
+            }}
+          >
+            <div className="w-full py-2 text-center text-sm font-medium">
+              Loading<span className="dot-flash ml-1 inline-block">...</span>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </>
     </div>
   );
 };

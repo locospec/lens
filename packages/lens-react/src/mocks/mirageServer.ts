@@ -29,7 +29,7 @@ export function makeServer() {
         const { search, pagination, ...rest } = body;
         const { cursor } = pagination;
 
-        const pageSize = 10;
+        const pageSize = 20;
         const filters = JSON.stringify(rest.filters);
 
         if (

@@ -83,7 +83,7 @@ const new_config = {
     label: "Sub Asset Types Default View",
     type: "view",
     model: "sub_asset_type",
-    selectionType: "multiple",
+    // selectionType: "multiple",
     selectionKey: "id",
     actions: ACTION_2,
     serialize: {

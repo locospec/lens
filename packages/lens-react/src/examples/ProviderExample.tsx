@@ -1,11 +1,5 @@
 import { useState } from "react";
-import {
-  Datatable,
-  LensProvider,
-  SimpleFilters,
-  View,
-} from "../../../lens-react/lib/main";
-import CustomSearchInput from "./components/CustomSearch";
+import { Datatable, LensProvider, View } from "../../../lens-react/lib/main";
 
 export interface CallbackInterface {
   url: string;
@@ -43,17 +37,17 @@ const ProviderExample = () => {
     <>
       <LensProvider lensConfiguration={lensConfig3} showDevTools>
         <div className="px-2 py-4">
-          <label className="text-lg  dark:text-white text-left">
+          <label className="text-left text-lg dark:text-white">
             {`This sample shows two data table using the same data but as they are
           wrapped in different View Context theirs search and filters do not
           conflict with each other`}
           </label>
         </div>
         <View viewConfiguration={{ context: { sample: "value" } }}>
-          <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center gap-x-2 mt-10 *:">
-            <div className="flex flex-col h-full justify-between gap-y-2">
+          <div className="*: mt-10 flex items-center justify-between gap-x-2 border border-b-0 border-[#eee] px-2 py-4">
+            {/* <div className="flex h-full flex-col justify-between gap-y-2">
               <button
-                className="bg-gray-100 border border-gray-500 p-2 h-9 text-center"
+                className="h-9 border border-gray-500 bg-gray-100 p-2 text-center"
                 onClick={() => {
                   setShowSheet((prev: any) => !prev);
                 }}
@@ -61,8 +55,8 @@ const ProviderExample = () => {
                 Customise
               </button>
               <CustomSearchInput />
-            </div>
-            <SimpleFilters
+            </div> */}
+            {/* <SimpleFilters
               classNames={{
                 enum: "text-[#A8A8A8] hover:text-[#A1A1A1] rounded-[7px]",
                 popoverWrapper: "max-h-[40vh] h-[300px]",
@@ -73,9 +67,9 @@ const ProviderExample = () => {
                 // searchIcon: "text-green-400",
                 // items: "",
               }}
-            />
+            /> */}
           </div>
-          <div className="h-[400px] px-4">
+          <div className="h-[500px] px-4">
             <Datatable
               selectedItems={checkedIds}
               onSelect={handleSelectionChange}
@@ -84,9 +78,9 @@ const ProviderExample = () => {
               // variant="vanilla"
               // disableResizing
               // disableReordering
-              classNames={{
-                headers: "bg-neutral-0",
-              }}
+              // classNames={{
+              //   headers: "bg-neutral-0",
+              // }}
               cellActions={{
                 cities: (rowData: Record<string, any>) => {
                   console.log(rowData);
@@ -98,7 +92,7 @@ const ProviderExample = () => {
               cellRenderer={{
                 cities: (rowData: Record<string, any>) => {
                   return (
-                    <div className="bg-red-400 rounded-3xl px-3 py-2 w-fit text-white">
+                    <div className="w-fit rounded-3xl bg-red-400 px-3 py-2 text-white">
                       {rowData.cities}
                     </div>
                   );

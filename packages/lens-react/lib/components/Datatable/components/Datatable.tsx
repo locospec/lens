@@ -7,7 +7,9 @@ import { DataTableLensContextProvider } from "../context/DataTableContext";
 import type { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
 import type { TableStylingInterface } from "../interface/TableStylingInterface";
 import "../styles.css";
-import DatatableList from "./DatatableList";
+// import DatatableList from "./DatatableList";
+// import DatatableList from "./DatatableListv2";
+import DatatableList from "./DatatableListv3";
 
 export interface DatatableInterface {
   onSelect?: (selected: any[]) => void;
