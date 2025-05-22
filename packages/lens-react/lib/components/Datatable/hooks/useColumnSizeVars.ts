@@ -1,5 +1,5 @@
-import { useMemo } from "react";
 import type { Table } from "@tanstack/react-table";
+import { useMemo } from "react";
 
 export interface UseColumnSizeVarsInterface {
   table: Table<any>;
