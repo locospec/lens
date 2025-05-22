@@ -25,14 +25,10 @@ const DatatableList = () => {
     selectedRows,
     setSelectedRows,
     identifierKey,
-    sensors,
     tableContainerRef,
     columnVisibility,
     setColumnVisibility,
-    activeId,
     setActiveId,
-    isInResizeArea,
-    setIsInResizeArea,
     adjustedColumns,
     isColumnsReady,
     columnOrder,
@@ -53,9 +49,10 @@ const DatatableList = () => {
     allowedScopes,
     variantClasses,
     dataCallback,
-    disableReordering,
     showSheet,
     setShowSheet,
+    sortPayload,
+    processSortPayload,
   } = useDatatableContext();
 
   const renderSheet = showSheet && setShowSheet ? true : false;
@@ -71,6 +68,7 @@ const DatatableList = () => {
           Object.keys(localContext).length > 0 && { localContext }),
         ...(allowedScopes &&
           allowedScopes.length > 0 && { scopes: allowedScopes }),
+        sorts: processSortPayload(sortPayload),
       },
       globalFilter: searchQuery,
       dataCallback: dataCallback,
@@ -78,7 +76,7 @@ const DatatableList = () => {
 
   useEffect(() => {
     refetch();
-  }, [JSON.stringify(filters)]);
+  }, [JSON.stringify(filters), JSON.stringify(sortPayload)]);
 
   const handleDragEnd = useCallback(
     createHandleDragEnd({
@@ -193,18 +191,7 @@ const DatatableList = () => {
             minWidth: `${table.getTotalSize()}px`,
           }}
         >
-          <DatatableHeaderSection
-            table={table}
-            columnSizeVars={columnSizeVars}
-            tableContainerRef={tableContainerRef}
-            columnOrder={columnOrder}
-            handleDragEnd={disableReordering ? () => {} : handleDragEnd}
-            setActiveId={setActiveId}
-            activeId={activeId}
-            setIsInResizeArea={setIsInResizeArea}
-            isInResizeArea={isInResizeArea}
-            sensors={sensors}
-          />
+          <DatatableHeaderSection table={table} columnOrder={columnOrder} />
           {isResizing ? (
             <MemoizedDatatableBody
               table={table}

@@ -29,6 +29,10 @@ type DatatableVariants =
   | "cosmic"
   | undefined;
 
+type SortType = "ASC" | "DESC" | "NONE";
+
+type SortPayloadType = Record<string, SortType>;
+
 interface DatatableContextProviderInterface extends CommonWrapperInterface {
   selectionType: SelectionType;
   sensors: SensorDescriptor<SensorOptions>[];
@@ -60,6 +64,9 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   cellOverFlowStyles: string;
   cellRenderer?: CellRendererMap;
   rowAction?: any;
+  sortPayload: SortPayloadType;
+  setSortPayload: React.Dispatch<React.SetStateAction<SortPayloadType>>;
+  processSortPayload?: any;
 }
 
 interface DataTableLensContextProviderInterface
@@ -92,4 +99,6 @@ export type {
   DatatableContextType,
   DataTableLensContextProviderInterface,
   DatatableVariants,
+  SortPayloadType,
+  SortType,
 };

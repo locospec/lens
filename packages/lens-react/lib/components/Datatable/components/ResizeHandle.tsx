@@ -33,7 +33,7 @@ const ResizeHandle = ({
         setIsInResizeArea(false);
       }}
       className={cn(
-        "absolute top-0 right-0 flex h-full w-1 touch-none items-center justify-end select-none",
+        "absolute top-0 right-0 z-20 flex h-full w-1 touch-none items-center justify-end select-none",
         disabled ? "cursor-not-allowed" : "cursor-col-resize"
       )}
       data-isresising={isResizing ? "true" : "false"}
