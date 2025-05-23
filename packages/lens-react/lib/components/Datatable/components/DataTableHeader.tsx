@@ -6,11 +6,15 @@ import DatatableHeaderItem from "./DatatableHeaderItem.tsx";
 export interface TableHeaderInterface {
   headerGroup: HeaderGroup<any>;
   columnOrder: string[];
+  setIsInResizeArea: any;
+  isInResizeArea: any;
 }
 
 const DataTableHeader = ({
   headerGroup,
   columnOrder,
+  setIsInResizeArea,
+  isInResizeArea,
 }: TableHeaderInterface) => {
   const { classNames, variantClasses } = useDatatableContext();
 
@@ -20,8 +24,6 @@ const DataTableHeader = ({
       key={headerGroup.id}
       className={cn(
         "group sticky top-0 z-10 flex",
-        "border-b-2 border-gray-300 font-normal",
-        "dark:border-gray-100",
         variantClasses.header_row,
         classNames && classNames?.headers
       )}
@@ -31,6 +33,9 @@ const DataTableHeader = ({
           <DatatableHeaderItem
             key={`${header.id}-${columnOrder.join("-")}`}
             header={header}
+            isInResizeArea={isInResizeArea}
+            columnOrder={columnOrder}
+            setIsInResizeArea={setIsInResizeArea}
           />
         );
       })}

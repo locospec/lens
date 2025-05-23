@@ -33,23 +33,15 @@ const ResizeHandle = ({
         setIsInResizeArea(false);
       }}
       className={cn(
-        "absolute top-0 right-0 z-20 flex h-full w-1 touch-none items-center justify-end select-none",
-        disabled ? "cursor-not-allowed" : "cursor-col-resize"
+        "absolute right-0 top-0 h-full w-1 touch-none select-none",
+        variantClasses.resize_handler,
+        disabled ? "cursor-not-allowed" : "cursor-col-resize",
+        disabled && variantClasses.resize_handler_isresizing,
+        classNames && classNames?.resizehandle
       )}
       data-isresising={isResizing ? "true" : "false"}
       data-islast={isLast ? "true" : "false"}
-    >
-      <div
-        className={cn(
-          disabled ? "hidden" : "opactity-1",
-          "h-1/2 w-0.5 rounded-l-md",
-          "bg-gray-300 hover:bg-gray-500",
-          "dark:bg-gray-500 dark:hover:bg-gray-400",
-          variantClasses.resize_handler,
-          classNames && classNames?.resizehandle
-        )}
-      />
-    </div>
+    />
   );
 };
 

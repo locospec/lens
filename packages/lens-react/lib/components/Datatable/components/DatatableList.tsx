@@ -25,10 +25,14 @@ const DatatableList = () => {
     selectedRows,
     setSelectedRows,
     identifierKey,
+    sensors,
     tableContainerRef,
     columnVisibility,
     setColumnVisibility,
+    activeId,
     setActiveId,
+    isInResizeArea,
+    setIsInResizeArea,
     adjustedColumns,
     isColumnsReady,
     columnOrder,
@@ -49,10 +53,9 @@ const DatatableList = () => {
     allowedScopes,
     variantClasses,
     dataCallback,
+    disableReordering,
     showSheet,
     setShowSheet,
-    sortPayload,
-    processSortPayload,
   } = useDatatableContext();
 
   const renderSheet = showSheet && setShowSheet ? true : false;
@@ -68,7 +71,6 @@ const DatatableList = () => {
           Object.keys(localContext).length > 0 && { localContext }),
         ...(allowedScopes &&
           allowedScopes.length > 0 && { scopes: allowedScopes }),
-        sorts: processSortPayload(sortPayload),
       },
       globalFilter: searchQuery,
       dataCallback: dataCallback,
@@ -76,7 +78,7 @@ const DatatableList = () => {
 
   useEffect(() => {
     refetch();
-  }, [JSON.stringify(filters), JSON.stringify(sortPayload)]);
+  }, [JSON.stringify(filters)]);
 
   const handleDragEnd = useCallback(
     createHandleDragEnd({
@@ -157,7 +159,9 @@ const DatatableList = () => {
   return (
     <div
       id="table-parent-wrapper"
-      className={"relative flex h-full flex-1 flex-col overflow-hidden"}
+      className={
+        "relative flex h-full flex-1 flex-col overflow-hidden bg-white text-black dark:bg-black dark:text-white"
+      }
       ref={tableWrapperRef}
     >
       {renderSheet && (
@@ -173,7 +177,7 @@ const DatatableList = () => {
       <div
         id="table-wrapper"
         className={cn(
-          "relative h-full w-full flex-1 overflow-auto bg-white text-sm text-gray-800 dark:bg-black dark:text-white",
+          "relative h-full w-full flex-1 overflow-auto rounded border text-sm",
           variantClasses.wrapper,
           classNames && classNames?.wrapper
         )}
@@ -191,19 +195,25 @@ const DatatableList = () => {
             minWidth: `${table.getTotalSize()}px`,
           }}
         >
-          <DatatableHeaderSection table={table} columnOrder={columnOrder} />
+          <DatatableHeaderSection
+            table={table}
+            columnSizeVars={columnSizeVars}
+            tableContainerRef={tableContainerRef}
+            columnOrder={columnOrder}
+            handleDragEnd={disableReordering ? () => {} : handleDragEnd}
+            setActiveId={setActiveId}
+            activeId={activeId}
+            setIsInResizeArea={setIsInResizeArea}
+            isInResizeArea={isInResizeArea}
+            sensors={sensors}
+          />
           {isResizing ? (
             <MemoizedDatatableBody
               table={table}
               rowVirtualizer={rowVirtualizer}
-              isFetching={isFetching}
             />
           ) : (
-            <DatatableBody
-              table={table}
-              rowVirtualizer={rowVirtualizer}
-              isFetching={isFetching}
-            />
+            <DatatableBody table={table} rowVirtualizer={rowVirtualizer} />
           )}
         </div>
       </div>

@@ -23,7 +23,6 @@ export interface DatatableInterface {
   showSheet?: boolean;
   setShowSheet?: React.Dispatch<React.SetStateAction<boolean>>;
   cellRenderer?: CellRendererMap;
-  rowAction?: any;
 }
 
 const Datatable: React.FC<DatatableInterface> = ({
@@ -40,7 +39,6 @@ const Datatable: React.FC<DatatableInterface> = ({
   setShowSheet,
   cellOverflow,
   cellRenderer,
-  rowAction,
 }) => {
   return (
     <DataTableLensContextProvider
@@ -57,7 +55,6 @@ const Datatable: React.FC<DatatableInterface> = ({
       setShowSheet={setShowSheet}
       cellOverflow={cellOverflow}
       cellRenderer={cellRenderer}
-      rowAction={rowAction}
     >
       <DatatableList />
     </DataTableLensContextProvider>

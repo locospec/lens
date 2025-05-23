@@ -1,39 +1,52 @@
-import { Input } from "@lens/base/components/ui/input";
-import { ArrowRightIcon, SearchIcon } from "lucide-react";
-import { useId } from "react";
+import React from "react";
+import { cn } from "@lens/base/lib/utils";
+import { Search, X } from "lucide-react";
 import { useDebouncedSearch } from "./hooks/useDebouncedSearch";
 
-export default function SearchInput() {
-  const id = useId();
+interface SearchInputType {
+  size?: "small" | "medium" | "large";
+}
 
+const SearchInput: React.FC<SearchInputType> = ({
+  size = "small",
+}: SearchInputType) => {
   const { debouncedQuery, setDebouncedQuery } = useDebouncedSearch({
     value: "",
   });
 
   return (
-    <div className="relative">
-      <Input
-        id={id}
-        className="peer ps-9 pe-9"
-        placeholder="Search..."
-        type="search"
-        onChange={e => {
+    <div
+      className={cn(
+        "flex-1 cursor-writer flex items-center min-w-[200px] max-w-[400px] w-full p-1 relative rounded-full h-fit border rounded-lg"
+      )}
+    >
+      <input
+        className={cn(
+          "form-input w-full cursor-pointer border-none",
+          "outline-hidden focus:ring-0 text-sm font-normal text-black leading-6 rounded-full",
+          size === "small" ? "py-0 px-1" : "p-1"
+        )}
+        value={debouncedQuery}
+        onChange={(e) => {
           setDebouncedQuery(e.target.value);
         }}
-        value={debouncedQuery}
+        placeholder={"Search.."}
       />
-      <div className="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50">
-        <SearchIcon size={16} />
-      </div>
-      <button
-        className="text-muted-foreground/80 hover:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md transition-[color,box-shadow] outline-none focus:z-10 focus-visible:ring-[3px] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
-        aria-label="Submit search"
-        type="submit"
-      >
-        <ArrowRightIcon size={16} aria-hidden="true" />
-      </button>
+      {debouncedQuery && (
+        <button
+          className={cn("text-gray-500")}
+          onClick={() => setDebouncedQuery("")}
+        >
+          <X size={size === "small" ? 20 : 24} />
+        </button>
+      )}
+      {!debouncedQuery && (
+        <div className={cn("text-gray-500")}>
+          <Search size={size === "small" ? 20 : 24} />
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export { SearchInput };

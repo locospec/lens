@@ -1,6 +1,6 @@
+import type { Table, Row } from "@tanstack/react-table";
 import { Checkbox } from "@lens/base/components/ui/checkbox";
 import { cn } from "@lens/components/utils/cn";
-import type { Row, Table } from "@tanstack/react-table";
 
 export interface HeaderInterface {
   table: Table<any>;
@@ -23,32 +23,43 @@ const SelectionColumn = (
     header: ({ table }: HeaderInterface) => {
       if (selectionType === "multiple") {
         return (
+          // <div
+          //   className={cn(
+          //     "flex w-full h-full items-center justify-center",
+          //     variantClasses?.header_cell
+          //   )}
+          // >
           <Checkbox
-            className={cn(
-              "size-3.5",
-              "border-gray-400 data-[state=checked]:bg-gray-900 data-[state=checked]:text-white",
-              "dark:border-gray-100 dark:data-[state=checked]:bg-gray-200 dark:data-[state=checked]:text-black",
-              variantClasses?.checkbox || ""
-            )}
+            className={cn(variantClasses?.checkbox || "")}
             checked={
               table.getIsAllPageRowsSelected() ||
               (table.getIsSomePageRowsSelected() && "indeterminate")
             }
-            onCheckedChange={value => table.toggleAllPageRowsSelected(!!value)}
+            onCheckedChange={(value) =>
+              table.toggleAllPageRowsSelected(!!value)
+            }
             aria-label="Select all"
           />
+          // </div>
         );
       }
     },
     cell: ({ row }: RowInterface) => (
+      // <div
+      //   className={cn(
+      //     "flex w-full h-full items-center justify-center",
+      //     variantClasses.cell
+      //   )}
+      // >
       <Checkbox
-        className={cn("size-3.5", variantClasses.checkbox)}
+        className={cn(variantClasses.checkbox)}
         checked={row.getIsSelected()}
-        onCheckedChange={value => {
+        onCheckedChange={(value) => {
           return row.toggleSelected(!!value);
         }}
         aria-label="Select row"
       />
+      // </div>
     ),
     enableSorting: false,
     enableHiding: false,

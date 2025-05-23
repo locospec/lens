@@ -2,9 +2,11 @@ const LoadingState = () => {
   // const { variantClass } = useLensContext();
   return (
     <div
-      className={"flex h-full w-full items-center justify-center rounded-lg"}
+      className={
+        "twp lens-wrapper w-full h-full flex items-center justify-center border rounded-lg tabloading"
+      }
     >
-      <label className="text-2xl font-semibold">Loading Table Data...</label>
+      <label className="text-2xl font-semibold">Loading Table.......</label>
     </div>
   );
 };

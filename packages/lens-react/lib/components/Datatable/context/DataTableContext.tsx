@@ -1,6 +1,6 @@
 import { useViewContext } from "@lens/components/Views/View";
 import { useLensContext } from "@lens/main";
-import { createContext, useRef, useState } from "react";
+import { createContext, useRef } from "react";
 import { fetchStylesFromVariants } from "../hooks/fetchStylesFromVariants";
 import { useColumnResize } from "../hooks/useColumnResize";
 import { useTableConfig } from "../hooks/useTableConfig";
@@ -13,8 +13,6 @@ import type {
   DatatableContextProviderInterface,
   DatatableContextType,
   DataTableLensContextProviderInterface,
-  SortPayloadType,
-  SortType,
 } from "./ContextInterfaces";
 
 const DatatableContext = createContext<DatatableContextType | undefined>(
@@ -113,25 +111,12 @@ const DataTableLensContextProvider: React.FC<
   setShowSheet,
   cellOverflow,
   cellRenderer,
-  rowAction,
 }) => {
   const lensContext = useLensContext();
   const viewContext = useViewContext();
   const sensors = initialiseDnDSensors();
   const DATA_TABLE_STYLING_CLASSES = fetchStylesFromVariants(variant);
   const cellOverFlowStyles = getCellOverFlowStyles(cellOverflow);
-  const [sortPayload, setSortPayload] = useState<SortPayloadType>({});
-
-  const processSortPayload = (payload: Record<string, SortType>) => {
-    return Object.keys(payload).map(key => {
-      if (payload[key] !== "NONE") {
-        return {
-          attribute: key,
-          direction: payload[key],
-        };
-      }
-    });
-  };
 
   const { isFetched, isError, endpoints, modal_name, lensConfiguration } =
     lensContext;
@@ -208,10 +193,6 @@ const DataTableLensContextProvider: React.FC<
       setShowSheet={setShowSheet}
       cellOverFlowStyles={cellOverFlowStyles}
       cellRenderer={cellRenderer}
-      rowAction={rowAction}
-      sortPayload={sortPayload}
-      setSortPayload={setSortPayload}
-      processSortPayload={processSortPayload}
     >
       {isFetched ? (
         isError ? (

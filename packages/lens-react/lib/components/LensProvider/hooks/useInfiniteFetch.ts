@@ -1,9 +1,10 @@
-import { ViewContext } from "@lens/components/Views/View/ViewContext";
-import type { InfiniteData, keepPreviousData } from "@tanstack/react-query";
-import { useInfiniteQuery } from "@tanstack/react-query";
 import { useContext, useMemo } from "react";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import type { InfiniteData } from "@tanstack/react-query";
 import { LensContext } from "../LensProvider";
 import { getProcessedFilters } from "../utils";
+import type { keepPreviousData } from "@tanstack/react-query";
+import { ViewContext } from "@lens/components/Views/View/ViewContext";
 
 export interface UseInfiniteFetchParams {
   queryKey?: string;
@@ -108,7 +109,7 @@ const useInfiniteFetch = ({
       queryFn: dataCallback ? dataCallback : fetchDataFunction,
       initialPageParam: null,
       getNextPageParam: (lastPage: any) => lastPage?.meta?.next_cursor || null,
-      getPreviousPageParam: firstPage => firstPage?.meta?.prev_cursor || null,
+      getPreviousPageParam: (firstPage) => firstPage?.meta?.prev_cursor || null,
       refetchOnWindowFocus: false,
       placeholderData: keepPreviousData as unknown as InfiniteData<
         any,
@@ -117,17 +118,11 @@ const useInfiniteFetch = ({
     });
 
   const flatData = useMemo(
-    () => data?.pages?.flatMap(page => page.data) ?? [],
+    () => data?.pages?.flatMap((page) => page.data) ?? [],
     [data]
   );
 
-  return {
-    flatData,
-    fetchNextPage,
-    isFetching,
-    hasNextPage,
-    refetch,
-  };
+  return { flatData, fetchNextPage, isFetching, hasNextPage, refetch };
 };
 
 useInfiniteFetch.displayName = "useInfiniteFetch";
