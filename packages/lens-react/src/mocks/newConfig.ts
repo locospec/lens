@@ -86,13 +86,11 @@ const new_config = {
     selectionType: "multiple",
     selectionKey: "id",
     actions: ACTION_2,
-    serialize: {
-      header: "index",
-      align: "center",
-      minWidth: 40,
-      maxWidth: 80,
-    },
-    // serialize: true,
+    // serialize: {
+    //   minWidth: 40,
+    //   maxWidth: 40,
+    // },
+    serialize: true,
     attributes: {
       id: {
         type: "string",

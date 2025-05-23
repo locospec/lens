@@ -1,10 +1,4 @@
-import {
-  Datatable,
-  LensProvider,
-  SearchInput,
-  SimpleFilters,
-  View,
-} from "../../../lens-react/lib/main";
+import { LensProvider } from "../../../lens-react/lib/main";
 // import CustomSearchInput from "./components/CustomSearch";
 
 export interface CallbackInterface {
@@ -22,9 +16,15 @@ const ProviderExample = () => {
     view: "default_view",
   };
 
-  return (
-    <LensProvider lensConfiguration={lensConfig3}>
-      <View viewConfiguration={{ context: { sample: "value" } }}>
+  return <LensProvider lensConfiguration={lensConfig3} />;
+};
+
+export default ProviderExample;
+
+// const [showSheet, setShowSheet] = useState(false);
+
+{
+  /* <View>
         <div className="flex items-center justify-between gap-x-2 border border-b-0 border-[#eee] p-4">
           <div className="flex h-full flex-col justify-between gap-y-2">
             <SearchInput />
@@ -35,13 +35,8 @@ const ProviderExample = () => {
           <Datatable />
         </div>
       </View>
-    </LensProvider>
-  );
-};
-
-export default ProviderExample;
-
-// const [showSheet, setShowSheet] = useState(false);
+    </LensProvider> */
+}
 
 {
   /* <button
