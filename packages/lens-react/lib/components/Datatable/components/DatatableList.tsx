@@ -45,7 +45,6 @@ const DatatableList = () => {
     modalName,
     viewName,
     expand,
-    localContext,
     allowedScopes,
     variantClasses,
     dataCallback,
@@ -64,8 +63,6 @@ const DatatableList = () => {
         filters: getProcessedFilters(filters),
         view: viewName,
         ...(expand.length > 0 && { expand }),
-        ...(localContext &&
-          Object.keys(localContext).length > 0 && { localContext }),
         ...(allowedScopes &&
           allowedScopes.length > 0 && { scopes: allowedScopes }),
         sorts: processSortPayload(sortPayload),

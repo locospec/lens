@@ -16,13 +16,11 @@ export const ViewContext = createContext<ViewContextType | undefined>(
 export const ViewProvider: React.FC<ViewProviderProps> = ({
   children,
   viewId = "default",
-  viewConfiguration,
 }) => {
   const view_uuid = useMemo(
     () => (Math.floor(Math.random() * 10000000000) + 1).toString(),
     []
   );
-  const { context = {} } = viewConfiguration || {};
   const lensContext = useContext(LensContext);
   if (!lensContext) {
     throw new Error("View must be used within a LensProvider");
@@ -66,9 +64,8 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
       setFilters: updateFilters,
       search: updateSearchQuery,
       searchQuery,
-      context,
     }),
-    [filters, searchQuery, updateFilters, updateSearchQuery, context]
+    [filters, searchQuery, updateFilters, updateSearchQuery]
   );
 
   return (
