@@ -43,17 +43,17 @@ const ProviderExample = () => {
     <>
       <LensProvider lensConfiguration={lensConfig3} showDevTools>
         <div className="px-2 py-4">
-          <label className="text-lg  dark:text-white text-left">
+          <label className="text-left text-lg dark:text-white">
             {`This sample shows two data table using the same data but as they are
           wrapped in different View Context theirs search and filters do not
           conflict with each other`}
           </label>
         </div>
         <View viewConfiguration={{ context: { sample: "value" } }}>
-          <div className="border border-b-0 border-[#eee] py-4 px-2 flex justify-between items-center gap-x-2 mt-10 *:">
-            <div className="flex flex-col h-full justify-between gap-y-2">
+          <div className="*: mt-10 flex items-center justify-between gap-x-2 border border-b-0 border-[#eee] px-2 py-4">
+            <div className="flex h-full flex-col justify-between gap-y-2">
               <button
-                className="bg-gray-100 border border-gray-500 p-2 h-9 text-center"
+                className="h-9 border border-gray-500 bg-gray-100 p-2 text-center"
                 onClick={() => {
                   setShowSheet((prev: any) => !prev);
                 }}
@@ -98,7 +98,7 @@ const ProviderExample = () => {
               cellRenderer={{
                 cities: (rowData: Record<string, any>) => {
                   return (
-                    <div className="bg-red-400 rounded-3xl px-3 py-2 w-fit text-white">
+                    <div className="w-fit rounded-3xl bg-red-400 px-3 py-2 text-white">
                       {rowData.cities}
                     </div>
                   );
