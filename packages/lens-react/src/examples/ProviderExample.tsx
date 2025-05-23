@@ -49,7 +49,7 @@ const ProviderExample = () => {
           conflict with each other`}
           </label>
         </div>
-        <View viewConfiguration={{ context: { sample: "value" } }}>
+        <View>
           <div className="*: mt-10 flex items-center justify-between gap-x-2 border border-b-0 border-[#eee] px-2 py-4">
             <div className="flex h-full flex-col justify-between gap-y-2">
               <button
