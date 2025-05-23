@@ -1,17 +1,17 @@
+import { MoonIcon, SunIcon } from "lucide-react";
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { cn } from "../lib/components/utils/cn";
 import { splitAndCapitalize } from "../lib/components/utils/splitAndCapitalize";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { makeServer } from "./mocks/mirageServer";
-import ProviderExample from "./examples/ProviderExample";
-import RawDataExample from "./examples/RawDataExample";
-import ProviderExample2 from "./examples/ProviderExample2";
-import ViewExample from "./examples/ViewExample";
-import SimpleFiltersExample from "./examples/SimpleFiltersExample";
-import FilterBuilderExample from "./examples/FilterBuilderExample";
 import ENUMExample from "./examples/ENUMExample";
-import { cn } from "../lib/components/utils/cn";
-import { MoonIcon, SunIcon } from "lucide-react";
+import FilterBuilderExample from "./examples/FilterBuilderExample";
+import ProviderExample from "./examples/ProviderExample";
+import ProviderExample2 from "./examples/ProviderExample2";
+import RawDataExample from "./examples/RawDataExample";
+import SimpleFiltersExample from "./examples/SimpleFiltersExample";
+import ViewExample from "./examples/ViewExample";
+import { makeServer } from "./mocks/mirageServer";
 
 function App() {
   React.useEffect(() => {
@@ -41,7 +41,7 @@ function App() {
     } else {
       setLocalStorage("theme", "dark");
     }
-    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+    setMode(prevMode => (prevMode === "light" ? "dark" : "light"));
   };
 
   const components = [
@@ -55,11 +55,11 @@ function App() {
   ];
 
   return (
-    <main className={cn("w-screen h-screen overflow-hidden", mode)}>
-      <div className="w-full h-full flex">
-        <div className="min-w-[50px] lg:min-w-[200px] w-[10vw] lg:w-[20vw] bg-gray-50 dark:bg-gray-800 flex flex-col gap-y-2 p-4 text-black dark:text-white">
-          <div className="flex flex-col gap-y-10 text-sm lg:text-2xl font-bold">
-            {components.map((component) => (
+    <main className={cn("h-screen w-screen overflow-hidden", mode)}>
+      <div className="flex h-full w-full">
+        <div className="flex w-[100px] min-w-[100px] flex-col gap-y-2 bg-gray-50 p-4 text-black lg:w-[20vw] lg:min-w-[200px] dark:bg-gray-800 dark:text-white">
+          <div className="flex flex-col gap-y-10 text-sm font-bold lg:text-2xl">
+            {components.map(component => (
               <a
                 key={component}
                 className="no-underline"
@@ -70,18 +70,18 @@ function App() {
             ))}
           </div>
         </div>
-        <div className="w-[90vw] lg:w-[80vw] flex flex-col h-full">
-          <header className="relative bg-gray-50 dark:bg-gray-800 dark:text-white flex items-center justify-center h-14">
+        <div className="flex h-full w-[90vw] flex-col lg:w-[80vw]">
+          <header className="relative flex h-14 items-center justify-center bg-gray-50 dark:bg-gray-800 dark:text-white">
             <h1 className="text-xl font-bold">Header Section - Title</h1>
             <div
-              className="absolute top-1/2 -translate-y-1/2 right-2 w-8 h-8 flex items-center justify-center cursor-pointer"
+              className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 cursor-pointer items-center justify-center"
               onClick={toggleMode}
             >
               {mode === "dark" ? <SunIcon /> : <MoonIcon />}
             </div>
           </header>
 
-          <div className="flex-grow overflow-auto pt-4 bg-white dark:bg-gray-700">
+          <div className="flex-grow overflow-auto bg-white pt-4 dark:bg-gray-700">
             <BrowserRouter>
               <Routes>
                 <Route path="*" element={<></>} />
