@@ -5,13 +5,14 @@ export interface LensDefaultChildrenInterface {}
 const LensDefaultChildren: React.FC<LensDefaultChildrenInterface> = () => {
   return (
     <View>
-      <div className="flex items-center justify-between gap-x-2 border border-b-0 border-[#eee] p-4">
-        <div className="flex h-full flex-col justify-between gap-y-2">
-          <SearchInput />
+      <div className="flex h-full flex-col gap-y-4 px-4 py-2">
+        <div className="flex items-center justify-between gap-x-2">
+          <div className="flex flex-col gap-y-2">
+            <SearchInput />
+          </div>
+          <SimpleFilters />
         </div>
-        <SimpleFilters />
-      </div>
-      <div className="h-[400px] px-4">
+
         <Datatable />
       </div>
     </View>
