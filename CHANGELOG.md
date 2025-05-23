@@ -1,3 +1,32 @@
+# (Fri May 23 2025)
+
+#### 🚀 Enhancement
+
+- `@locospec/lens-react@0.3.0`
+  - feat: contribute changes from local to source [#174](https://github.com/locospec/lens/pull/174) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: contribute changes from local to source [#173](https://github.com/locospec/lens/pull/173) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: contribute changes from local to source [#172](https://github.com/locospec/lens/pull/172) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - feat: contribute changes from local to source [#171](https://github.com/locospec/lens/pull/171) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.3.0`
+  - chore: fixed build issue for type import [#176](https://github.com/locospec/lens/pull/176) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: import reordering [#176](https://github.com/locospec/lens/pull/176) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified search input and searchbar placement [#176](https://github.com/locospec/lens/pull/176) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified Styling for default childrens [#176](https://github.com/locospec/lens/pull/176) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified example for testing [#176](https://github.com/locospec/lens/pull/176) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added sample defualt lensprovider child [#176](https://github.com/locospec/lens/pull/176) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added sample skeleton for dev tools [#176](https://github.com/locospec/lens/pull/176) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified examples [#176](https://github.com/locospec/lens/pull/176) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified JSON highlighter ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # (Thu May 15 2025)
 
 #### 🚀 Enhancement
