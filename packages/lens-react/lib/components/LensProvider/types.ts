@@ -33,4 +33,4 @@ interface LensProviderProps {
   errorModalCallback?: () => void;
 }
 
-export type { LensContextType, LensProviderProps, LensConfigurationInterface };
+export type { LensConfigurationInterface, LensContextType, LensProviderProps };
