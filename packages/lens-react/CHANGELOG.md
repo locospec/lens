@@ -1,3 +1,26 @@
+# v0.3.1 (Fri May 23 2025)
+
+#### 🐛 Bug Fix
+
+- Feature/default styling [#177](https://github.com/locospec/lens/pull/177) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: latest pull form main ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed localContext from interface ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: removed context from view and removed local context ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: fixed build issue for type import ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: import reordering ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modified search input and searchbar placement ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modified Styling for default childrens ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modified example for testing ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added sample defualt lensprovider child ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added sample skeleton for dev tools ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: modified examples ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # v0.3.0 (Fri May 23 2025)
 
 #### 🚀 Enhancement

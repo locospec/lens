@@ -1,5 +1,18 @@
 # (Fri May 23 2025)
 
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.3.1`
+  - Feature/default styling [#177](https://github.com/locospec/lens/pull/177) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
+# (Fri May 23 2025)
+
 #### 🚀 Enhancement
 
 - `@locospec/lens-react@0.3.0`
