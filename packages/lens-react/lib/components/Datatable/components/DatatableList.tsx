@@ -173,7 +173,7 @@ const DatatableList = () => {
       <div
         id="table-wrapper"
         className={cn(
-          "relative h-full w-full flex-1 overflow-auto border bg-white text-sm text-gray-800 dark:bg-black dark:text-white",
+          "relative h-full w-full flex-1 overflow-auto bg-white text-sm text-gray-800 dark:bg-black dark:text-white",
           variantClasses.wrapper,
           classNames && classNames?.wrapper
         )}
