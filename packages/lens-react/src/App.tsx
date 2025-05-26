@@ -71,7 +71,7 @@ function App() {
           </div>
         </div>
         <div className="flex h-full w-[90vw] flex-col lg:w-[80vw]">
-          <header className="relative flex h-14 items-center justify-center bg-gray-50 dark:bg-gray-800 dark:text-white">
+          <header className="relative flex h-14 min-h-14 items-center justify-center bg-gray-50 dark:bg-gray-800 dark:text-white">
             <h1 className="text-xl font-bold">Header Section - Title</h1>
             <div
               className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 cursor-pointer items-center justify-center"
