@@ -1,20 +1,20 @@
-const ACTION_1 = {
-  header: "Actions",
-  options: [
-    {
-      key: "edit",
-      url: "/edit/:id",
-      icon: "SquarePen",
-    },
-    {
-      key: "delete",
-      url: "/delete/:id/for/:state.id",
-      icon: "Trash2",
-      label: "Delete",
-      confirmation: true,
-    },
-  ],
-};
+// const ACTION_1 = {
+//   header: "Actions",
+//   options: [
+//     {
+//       key: "edit",
+//       url: "/edit/:id",
+//       icon: "SquarePen",
+//     },
+//     {
+//       key: "delete",
+//       url: "/delete/:id/for/:state.id",
+//       icon: "Trash2",
+//       label: "Delete",
+//       confirmation: true,
+//     },
+//   ],
+// };
 
 const ACTION_2 = {
   // header: "Actions",
@@ -136,6 +136,7 @@ const new_config = {
         label: "Locality",
         model: "locality",
         dependsOn: ["city.name"],
+        selectionType: "single",
       },
       category: {
         type: "enum",
