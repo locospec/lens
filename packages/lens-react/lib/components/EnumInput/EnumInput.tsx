@@ -36,7 +36,7 @@ const EnumInput = React.memo(function EnumInput({
   condition,
   path,
   resetInput,
-  multiple = false,
+  multiple = true,
   className = "",
 }: EnumInputInterface) {
   const id = React.useId();
