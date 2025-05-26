@@ -16,7 +16,7 @@ const ENUMExample = () => {
         <div className="mt-4 px-4">
           <View>
             <div className="flex flex-col gap-y-4">
-              <SimpleFilters />
+              <SimpleFilters alignment="right" />
 
               <SimpleFilters asChip />
             </div>
