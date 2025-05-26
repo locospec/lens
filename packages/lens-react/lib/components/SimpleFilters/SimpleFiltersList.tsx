@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import type { Condition } from "../LensProvider/interfaces/FiltersInterface";
-import EnumInput from "../EnumInput/EnumInput";
-import { useSimpleFiltersContext } from "./context/useSimpleFiltersContext";
 import { DatePicker } from "@lens/base/components/ui/datepicker";
 import { cn } from "@lens/base/lib/utils";
+import React, { useEffect, useState } from "react";
 import { ChipFilter } from "../ChipFilter";
+import EnumInput from "../EnumInput/EnumInput";
+import type { Condition } from "../LensProvider/interfaces/FiltersInterface";
+import { useSimpleFiltersContext } from "./context/useSimpleFiltersContext";
 
 export interface SimpleFiltersProps {
   asChip: boolean;
@@ -41,7 +41,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
   return (
     <div
       className={cn(
-        "lens-wrapper w-full flex gap-3 justify-end flex-wrap",
+        "lens-wrapper flex w-fit flex-wrap justify-end gap-3",
         wrapperClassName
       )}
       ref={filterContainerRef}
@@ -68,7 +68,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
                         condition={con}
                         attribute={attribute}
                         defaultValues={(con?.value || []) as string[]}
-                        updateCallback={(v) => {
+                        updateCallback={v => {
                           updateCondition([conIndex], "value", v);
                         }}
                         showOp={false}
@@ -76,7 +76,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
                     ) : (
                       <EnumInput
                         key={JSON.stringify([conIndex, index])}
-                        callback={(v) => {
+                        callback={v => {
                           updateCondition([conIndex], "value", v);
                         }}
                         defaultValues={(con?.value || []) as string[]}

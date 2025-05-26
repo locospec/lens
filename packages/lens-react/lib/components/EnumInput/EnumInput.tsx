@@ -1,8 +1,5 @@
 "use client";
 
-import * as React from "react";
-import { Check, ChevronsUpDown, Search, X } from "lucide-react";
-import { cn } from "@lens/base/lib/utils";
 import {
   Command,
   CommandEmpty,
@@ -16,14 +13,17 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@lens/base/components/ui/popover";
+import { cn } from "@lens/base/lib/utils";
+import { useInfiniteFetch } from "@lens/components/LensProvider/hooks/useInfiniteFetch";
 import {
   useDebouncedEffectAfterMount,
   useEffectAfterMount,
 } from "@lens/hooks/index";
-import { useInfiniteFetch } from "@lens/components/LensProvider/hooks/useInfiniteFetch";
-import { getProcessedFilters } from "../LensProvider/utils";
 import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
+import { Check, ChevronsUpDown, Search, X } from "lucide-react";
+import * as React from "react";
 import { getSameLevelConditions } from "../Filters";
+import { getProcessedFilters } from "../LensProvider/utils";
 import { EnumInputInterface } from "./interface";
 import { contextDecoder } from "./utils";
 
@@ -163,11 +163,11 @@ const EnumInput = React.memo(function EnumInput({
   }, [resetInput, defaultValues]);
 
   const handleSelect = (currentValue: string) => {
-    setValues((prev) => {
+    setValues(prev => {
       let newValues = [];
       if (multiple) {
         newValues = prev.includes(currentValue)
-          ? prev.filter((val) => val !== currentValue)
+          ? prev.filter(val => val !== currentValue)
           : [...prev, currentValue];
         callback && callback(newValues);
       } else {
@@ -185,9 +185,9 @@ const EnumInput = React.memo(function EnumInput({
       <PopoverTrigger asChild>
         <div
           className={cn(
-            "relative flex items-center justify-start px-2 w-[200px] max-w-[300px] gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+            "focus-visible:outline-hidden focus-visible:ring-ring relative flex w-[200px] max-w-[300px] items-center justify-start gap-2 whitespace-nowrap rounded-md px-2 text-sm font-medium transition-colors focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50",
             "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-            "border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
+            "border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground border",
             "h-9 px-4 py-2",
             enumClasses
           )}
@@ -197,16 +197,16 @@ const EnumInput = React.memo(function EnumInput({
             {values && values.length > 0
               ? options.length > 0
                 ? options
-                  .filter((option) => values.includes(option?.const))
-                  .map((option) => option.title)
-                  .join(",")
+                    .filter(option => values.includes(option?.const))
+                    .map(option => option.title)
+                    .join(",")
                 : values.join(",")
               : placeholder}
           </div>
           {values && values.length > 0 ? (
             <div
-              className="h-4 w-4 absolute right-2 hover:bg-aaccent"
-              onClick={(e) => {
+              className="hover:bg-aaccent absolute right-2 h-4 w-4"
+              onClick={e => {
                 e.stopPropagation();
                 setValues([]);
                 callback && callback("");
@@ -215,8 +215,8 @@ const EnumInput = React.memo(function EnumInput({
               <X className="shrink-0 opacity-50" />
             </div>
           ) : (
-            <div className="h-4 w-4 absolute right-2">
-              <ChevronsUpDown className="shrink-0 opacity-50 hover:bg-accent" />
+            <div className="absolute right-2 h-4 w-4">
+              <ChevronsUpDown className="hover:bg-accent shrink-0 opacity-50" />
             </div>
           )}
         </div>
@@ -241,11 +241,11 @@ const EnumInput = React.memo(function EnumInput({
             />
             <input
               className={cn(
-                "flex h-8 border-0 w-full bg-transparent py-1 text-sm outline-none placeholder:text-muted-foreground hover:bg-transparent disabled:cursor-not-allowed disabled:opacity-50",
+                "placeholder:text-muted-foreground flex h-8 w-full border-0 bg-transparent py-1 text-sm outline-none hover:bg-transparent disabled:cursor-not-allowed disabled:opacity-50",
                 searchInputClasses
               )}
               placeholder={placeholder}
-              onChange={(e) => {
+              onChange={e => {
                 setSearchQuery(e.target.value);
               }}
             />
@@ -253,9 +253,7 @@ const EnumInput = React.memo(function EnumInput({
           <CommandSeparator className={separatorClasses} />
           <CommandList
             key={condition.attribute}
-            onScroll={(e) =>
-              fetchMoreOnBottomReached(e.target as HTMLDivElement)
-            }
+            onScroll={e => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
             className={popoverClasses}
           >
             <CommandEmpty>
@@ -263,7 +261,7 @@ const EnumInput = React.memo(function EnumInput({
             </CommandEmpty>
             <CommandGroup>
               {!isLoading &&
-                options.map((option) => {
+                options.map(option => {
                   return (
                     <CommandItem
                       key={option?.const}
