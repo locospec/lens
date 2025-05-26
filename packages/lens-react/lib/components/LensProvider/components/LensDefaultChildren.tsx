@@ -7,9 +7,7 @@ const LensDefaultChildren: React.FC<LensDefaultChildrenInterface> = () => {
     <View>
       <div className="flex h-full flex-col gap-y-4 px-4 py-2">
         <div className="flex items-start justify-between gap-x-2">
-          <div className="flex flex-col gap-y-2">
-            <SearchInput />
-          </div>
+          <SearchInput />
           <SimpleFilters />
         </div>
 
