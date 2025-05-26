@@ -36,7 +36,7 @@ const EnumInput = React.memo(function EnumInput({
   condition,
   path,
   resetInput,
-  multiple = true,
+  multiple = false,
   className = "",
 }: EnumInputInterface) {
   const id = React.useId();
@@ -165,13 +165,12 @@ const EnumInput = React.memo(function EnumInput({
       <PopoverTrigger asChild>
         <div
           className={cn(
-            "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input shadow-xs relative flex h-9 w-full min-w-0 items-center rounded-md border bg-transparent px-3 py-1 text-base outline-none transition-[color,box-shadow] file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-            "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-            "w-[200px] max-w-[300px]",
+            "dark:bg-input/30 border-input shadow-xs relative flex items-center rounded-md border bg-transparent text-base outline-none transition-[color,box-shadow] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+            "h-9 w-[200px] min-w-0 max-w-[300px] px-3 py-1",
             open && "border-ring",
+            values.length <= 0 && "text-muted-foreground",
             enumClasses
           )}
-          tabIndex={0}
           aria-expanded={open}
         >
           <div className="max-w-[150px] truncate">
@@ -232,6 +231,7 @@ const EnumInput = React.memo(function EnumInput({
               }}
             />
           </div>
+
           <CommandSeparator className={separatorClasses} />
           <CommandList
             key={condition.attribute}
