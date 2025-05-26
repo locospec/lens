@@ -33,9 +33,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({
 
   const init = () => {
     setFilters(initialisedFilter);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 100);
+    setIsLoading(false);
   };
 
   useEffect(() => {
