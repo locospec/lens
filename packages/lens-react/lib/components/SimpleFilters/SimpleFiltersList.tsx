@@ -40,10 +40,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
 
   return (
     <div
-      className={cn(
-        "lens-wrapper flex w-fit flex-wrap justify-end gap-3",
-        wrapperClassName
-      )}
+      className={cn("flex w-fit flex-wrap justify-end gap-3", wrapperClassName)}
       ref={filterContainerRef}
     >
       {!isLoading &&
@@ -59,6 +56,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
             const con = filter.conditions[conIndex] as Condition;
             if (con) {
               if (attribute.type === "enum") {
+                const selectionType = attribute?.selectionType === "multiple";
                 return (
                   <React.Fragment key={JSON.stringify([conIndex, index])}>
                     {asChip ? (
@@ -87,6 +85,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
                         resetInput={""}
                         filterContainerRef={filterContainerRef}
                         className={classNames}
+                        multiple={selectionType}
                       />
                     )}
                   </React.Fragment>
