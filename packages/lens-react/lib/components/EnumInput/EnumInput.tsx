@@ -149,13 +149,10 @@ const EnumInput = React.memo(function EnumInput({
         newValues = prev.includes(currentValue)
           ? prev.filter(val => val !== currentValue)
           : [...prev, currentValue];
-        callback && callback(newValues);
       } else {
-        newValues = newValues = prev.includes(currentValue)
-          ? []
-          : [currentValue];
-        callback && callback(newValues.join(","));
+        newValues = prev.includes(currentValue) ? [] : [currentValue];
       }
+      callback && callback(newValues);
       return newValues;
     });
   };
