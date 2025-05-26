@@ -25,29 +25,7 @@ import * as React from "react";
 import { getSameLevelConditions } from "../Filters";
 import { getProcessedFilters } from "../LensProvider/utils";
 import { EnumInputInterface } from "./interface";
-import { contextDecoder } from "./utils";
-
-const generateStylingClasses = (classNamesObject: Record<string, string>) => {
-  const enumClasses = classNamesObject?.enum || "";
-  const popoverWrapperClasses = classNamesObject?.popoverWrapper || "";
-  const popoverClasses = classNamesObject?.popover || "";
-  const searchInputWrapperClasses = classNamesObject?.searchInputWrapper || "";
-  const searchIconClasses = classNamesObject?.searchIcon || "";
-  const searchInputClasses = classNamesObject?.searchInput || "";
-  const itemClasses = classNamesObject?.items || "";
-  const separatorClasses = classNamesObject?.separator || "";
-
-  return {
-    enumClasses,
-    popoverWrapperClasses,
-    popoverClasses,
-    searchInputWrapperClasses,
-    searchIconClasses,
-    searchInputClasses,
-    itemClasses,
-    separatorClasses,
-  };
-};
+import { contextDecoder, generateStylingClasses } from "./utils";
 
 const EnumInput = React.memo(function EnumInput({
   emptyLabel = "No options found...",
