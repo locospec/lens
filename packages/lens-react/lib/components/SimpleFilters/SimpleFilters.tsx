@@ -1,7 +1,7 @@
 import React from "react";
 import { SimpleFilterContextProvider } from "./context/SimpleFiltersContext";
-import { SimpleFiltersList } from "./SimpleFiltersList";
 import { SimpleFiltersContextProviderInterface } from "./context/SimpleFiltersContextInterface";
+import { SimpleFiltersList } from "./SimpleFiltersList";
 
 export interface SimpleFiltersProps
   extends Omit<SimpleFiltersContextProviderInterface, "children"> {

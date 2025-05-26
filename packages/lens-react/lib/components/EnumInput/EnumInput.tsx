@@ -39,6 +39,8 @@ const EnumInput = React.memo(function EnumInput({
   multiple = true,
   className = "",
 }: EnumInputInterface) {
+  const id = React.useId();
+
   const {
     queryEndpoint,
     filter,
@@ -159,16 +161,17 @@ const EnumInput = React.memo(function EnumInput({
   };
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover open={open} onOpenChange={setOpen} key={id}>
       <PopoverTrigger asChild>
         <div
           className={cn(
-            "focus-visible:outline-hidden focus-visible:ring-ring relative flex w-[200px] max-w-[300px] items-center justify-start gap-2 whitespace-nowrap rounded-md px-2 text-sm font-medium transition-colors focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50",
-            "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-            "border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground border",
-            "h-9 px-4 py-2",
+            "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input shadow-xs relative flex h-9 w-full min-w-0 items-center rounded-md border bg-transparent px-3 py-1 text-base outline-none transition-[color,box-shadow] file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+            "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+            "w-[200px] max-w-[300px]",
+            open && "border-ring",
             enumClasses
           )}
+          tabIndex={0}
           aria-expanded={open}
         >
           <div className="max-w-[150px] truncate">
@@ -181,22 +184,23 @@ const EnumInput = React.memo(function EnumInput({
                 : values.join(",")
               : placeholder}
           </div>
-          {values && values.length > 0 ? (
-            <div
-              className="hover:bg-aaccent absolute right-2 h-4 w-4"
-              onClick={e => {
+          <div
+            role="button"
+            className="absolute right-2 h-4 w-4 cursor-pointer"
+            onClick={e => {
+              if (values?.length > 0) {
                 e.stopPropagation();
                 setValues([]);
-                callback && callback("");
-              }}
-            >
-              <X className="shrink-0 opacity-50" />
-            </div>
-          ) : (
-            <div className="absolute right-2 h-4 w-4">
-              <ChevronsUpDown className="hover:bg-accent shrink-0 opacity-50" />
-            </div>
-          )}
+                callback?.("");
+              }
+            }}
+          >
+            {values?.length > 0 ? (
+              <X size={16} className="shrink-0 opacity-50" />
+            ) : (
+              <ChevronsUpDown size={16} className="shrink-0 opacity-50" />
+            )}
+          </div>
         </div>
       </PopoverTrigger>
       <PopoverContent
