@@ -8,11 +8,15 @@ import { useSimpleFiltersContext } from "./context/useSimpleFiltersContext";
 
 export interface SimpleFiltersProps {
   asChip: boolean;
+  alignment: "left" | "right";
 }
 
 const SIMPLE_FILTER_TYPES = ["enum", "date"];
 
-const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
+const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({
+  asChip,
+  alignment,
+}) => {
   const {
     filterContainerRef,
     attributesArray,
@@ -40,7 +44,11 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
 
   return (
     <div
-      className={cn("flex w-fit flex-wrap justify-end gap-3", wrapperClassName)}
+      className={cn(
+        "flex w-fit flex-wrap gap-2",
+        alignment === "right" ? "justify-start" : "justify-end",
+        wrapperClassName
+      )}
       ref={filterContainerRef}
     >
       {!isLoading &&
