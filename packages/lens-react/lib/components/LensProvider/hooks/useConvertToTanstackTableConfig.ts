@@ -51,7 +51,6 @@ const useConvertToTanstackTableConfig = ({
       processed_filters[key].asSimple = true;
     }
   });
-  console.log("Processed Filters:", processed_filters);
 
   const processedConfig: any = {
     default: {

@@ -60,14 +60,16 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({
             );
 
             const con = filter.conditions[conIndex] as Condition;
+            const genKey = `${attribute.type}-${attribute.value}-${index}`;
+
             if (con) {
               if (attribute.type === "enum") {
                 const selectionType = attribute?.selectionType === "multiple";
                 return (
-                  <React.Fragment key={JSON.stringify([conIndex, index])}>
+                  <React.Fragment key={genKey}>
                     {asChip ? (
                       <ChipFilter
-                        key={JSON.stringify([conIndex, index])}
+                        key={genKey}
                         path={[index]}
                         condition={con}
                         attribute={attribute}
@@ -79,7 +81,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({
                       />
                     ) : (
                       <EnumInput
-                        key={JSON.stringify([conIndex, index])}
+                        key={genKey}
                         callback={v => {
                           updateCondition([conIndex], "value", v);
                         }}
@@ -100,7 +102,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({
               if (attribute.type === "date") {
                 return (
                   <DatePicker
-                    key={JSON.stringify([conIndex, index])}
+                    key={genKey}
                     placeholder={attribute.label}
                     containerRef={filterContainerRef}
                     callback={(v: any) => {
