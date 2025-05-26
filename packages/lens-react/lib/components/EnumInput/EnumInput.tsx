@@ -25,7 +25,7 @@ import * as React from "react";
 import { getSameLevelConditions } from "../Filters";
 import { getProcessedFilters } from "../LensProvider/utils";
 import { EnumInputInterface } from "./interface";
-import { contextDecoder, generateStylingClasses } from "./utils";
+import { contextDecoder } from "./utils";
 
 const EnumInput = React.memo(function EnumInput({
   emptyLabel = "No options found...",
@@ -64,15 +64,15 @@ const EnumInput = React.memo(function EnumInput({
   const isConfigDriven = configOptions.length > 0;
 
   const {
-    enumClasses,
-    popoverWrapperClasses,
-    popoverClasses,
-    searchInputWrapperClasses,
-    searchIconClasses,
-    searchInputClasses,
-    itemClasses,
-    separatorClasses,
-  } = generateStylingClasses(className);
+    enum: enumClasses,
+    popoverWrapper: popoverWrapperClasses,
+    popover: popoverClasses,
+    searchInputWrapper: searchInputWrapperClasses,
+    searchIcon: searchIconClasses,
+    searchInput: searchInputClasses,
+    items: itemClasses,
+    separator: separatorClasses,
+  } = className;
 
   const { sameGroup: samegroup, filters: dependentFilter } =
     getSameLevelConditions({
@@ -163,8 +163,7 @@ const EnumInput = React.memo(function EnumInput({
         <div
           className={cn(
             "border-input shadow-xs relative flex items-center rounded-md border bg-white text-base outline-none transition-[color,box-shadow] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:bg-gray-800",
-            "h-9 w-[200px] min-w-0 max-w-[300px] px-3 py-1",
-            open && "border-ring",
+            "h-9 w-[200px] min-w-0 max-w-[300px] px-4 py-1",
             values.length <= 0 && "text-muted-foreground",
             enumClasses
           )}
@@ -200,7 +199,10 @@ const EnumInput = React.memo(function EnumInput({
         </div>
       </PopoverTrigger>
       <PopoverContent
-        className={cn("w-[250px] max-w-[350px] p-0", popoverWrapperClasses)}
+        className={cn(
+          "w-[250px] max-w-[350px] p-0 text-xs",
+          popoverWrapperClasses
+        )}
         containerRef={filterContainerRef}
       >
         <Command>
@@ -212,14 +214,13 @@ const EnumInput = React.memo(function EnumInput({
             cmdk-input-wrapper=""
           >
             <Search
-              className={cn(
-                "mr-2 h-4 w-4 shrink-0 opacity-50",
-                searchIconClasses
-              )}
+              size={16}
+              strokeWidth={3}
+              className={cn("mr-2 shrink-0 opacity-50", searchIconClasses)}
             />
             <input
               className={cn(
-                "placeholder:text-muted-foreground flex h-8 w-full border-0 bg-transparent py-1 text-sm outline-none hover:bg-transparent disabled:cursor-not-allowed disabled:opacity-50",
+                "placeholder:text-muted-foreground flex h-9 w-full border-0 bg-transparent py-1 outline-none hover:bg-transparent disabled:cursor-not-allowed disabled:opacity-50",
                 searchInputClasses
               )}
               placeholder={placeholder}
@@ -227,13 +228,20 @@ const EnumInput = React.memo(function EnumInput({
                 setSearchQuery(e.target.value);
               }}
             />
+            {/* TODO Complete functionality HERE */}
+            {/* <div
+              role="button"
+              className="absolute right-2 cursor-pointer text-xs text-gray-500 transition-all"
+            >
+              Select All
+            </div> */}
           </div>
 
-          <CommandSeparator className={separatorClasses} />
+          <CommandSeparator className={cn(separatorClasses)} />
           <CommandList
             key={condition.attribute}
             onScroll={e => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
-            className={popoverClasses}
+            className={cn(popoverClasses)}
           >
             <CommandEmpty>
               {isLoading ? "Loading options" : emptyLabel}
@@ -248,8 +256,10 @@ const EnumInput = React.memo(function EnumInput({
                       onSelect={(currentValue: string) => {
                         handleSelect(currentValue);
                       }}
-                      className={itemClasses}
+                      className={cn(itemClasses)}
                     >
+                      <div className="absolute h-2 w-2 border"></div>
+
                       <Check
                         className={cn(
                           "mr-2 h-4 w-4",
@@ -264,6 +274,7 @@ const EnumInput = React.memo(function EnumInput({
                 })}
             </CommandGroup>
           </CommandList>
+          <div className="h-10 w-full bg-red-400"></div>
         </Command>
       </PopoverContent>
     </Popover>

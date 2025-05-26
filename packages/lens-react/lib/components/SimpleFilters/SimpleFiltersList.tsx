@@ -50,9 +50,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({
       ref={filterContainerRef}
     >
       {!isLoading &&
-        filter &&
-        filter.conditions &&
-        filter.conditions.length > 0 &&
+        filter?.conditions?.length > 0 &&
         attributesArray.map((attribute: any, index: number) => {
           if (SIMPLE_FILTER_TYPES.includes(attribute.type)) {
             const conIndex = filter.conditions.findIndex(
@@ -82,18 +80,18 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({
                     ) : (
                       <EnumInput
                         key={genKey}
-                        callback={v => {
-                          updateCondition([conIndex], "value", v);
-                        }}
+                        path={[conIndex]}
+                        condition={con as any}
                         defaultValues={(con?.value || []) as string[]}
                         selectedAttribute={attribute}
-                        condition={con as any}
-                        path={[conIndex]}
                         placeholder={`Select ${attribute.label}`}
                         resetInput={""}
                         filterContainerRef={filterContainerRef}
                         className={classNames}
                         multiple={selectionType}
+                        callback={v => {
+                          updateCondition([conIndex], "value", v);
+                        }}
                       />
                     )}
                   </React.Fragment>
