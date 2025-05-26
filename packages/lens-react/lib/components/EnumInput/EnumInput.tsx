@@ -162,7 +162,7 @@ const EnumInput = React.memo(function EnumInput({
       <PopoverTrigger asChild>
         <div
           className={cn(
-            "dark:bg-input/30 border-input shadow-xs relative flex items-center rounded-md border bg-transparent text-base outline-none transition-[color,box-shadow] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+            "border-input shadow-xs relative flex items-center rounded-md border bg-white text-base outline-none transition-[color,box-shadow] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:bg-gray-800",
             "h-9 w-[200px] min-w-0 max-w-[300px] px-3 py-1",
             open && "border-ring",
             values.length <= 0 && "text-muted-foreground",
@@ -200,7 +200,7 @@ const EnumInput = React.memo(function EnumInput({
         </div>
       </PopoverTrigger>
       <PopoverContent
-        className={cn("w-[200px] max-w-[320px] p-0", popoverWrapperClasses)}
+        className={cn("w-[250px] max-w-[350px] p-0", popoverWrapperClasses)}
         containerRef={filterContainerRef}
       >
         <Command>
