@@ -1,8 +1,8 @@
 import { cn } from "@lens/base/lib/utils";
 import { Datatable, SearchInput, SimpleFilters, View } from "@lens/main";
-import { SettingsIcon } from "lucide-react";
+import { ListFilterIcon, SettingsIcon } from "lucide-react";
 import React from "react";
-import FilterToggleCTA from "./FilterToggleCTA";
+import TopbarCTA from "./TopbarCTA";
 
 export interface LensDefaultChildrenInterface {}
 
@@ -17,25 +17,17 @@ const LensDefaultChildren: React.FC<LensDefaultChildrenInterface> = () => {
           <SearchInput classes="w-1/2" />
 
           <div className="flex gap-x-2">
-            <FilterToggleCTA
-              showFilters={showFilters}
-              setShowFilters={setShowFilters}
+            <TopbarCTA
+              state={showFilters}
+              setState={setShowFilters}
+              icon={ListFilterIcon as any}
             />
-            <div
-              onClick={() => setShowSheet(prev => !prev)}
-              className={cn(
-                "rounded-full p-1 transition-all duration-300 ease-in-out hover:bg-gray-300/80",
-                showSheet ? "bg-gray-200" : ""
-              )}
-            >
-              <SettingsIcon
-                size={24}
-                className={cn(
-                  "cursor-pointer text-gray-700 ring-0 transition-all duration-300 ease-in-out",
-                  showSheet ? "rotate-180 text-black" : ""
-                )}
-              />
-            </div>
+            <TopbarCTA
+              state={showSheet}
+              setState={setShowSheet}
+              icon={SettingsIcon as any}
+              iconClassName="data-[active=true]:rotate-180"
+            />
           </div>
         </div>
         <div
