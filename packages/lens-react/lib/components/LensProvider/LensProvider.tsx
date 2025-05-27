@@ -73,7 +73,6 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
 
   return (
     <LensContext.Provider
-      key={lens_uuid}
       value={{
         error,
         config,
