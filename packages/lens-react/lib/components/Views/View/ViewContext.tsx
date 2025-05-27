@@ -72,7 +72,6 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
     <ViewContext.Provider
       value={{ ...memoizedContextValues, ...memoizedDynamicValues }}
     >
-      {/* {JSON.stringify({ inView: viewId, filters: filters })} */}
       {children}
     </ViewContext.Provider>
   );

@@ -2,8 +2,13 @@ import { Input } from "@lens/base/components/ui/input";
 import { useDebouncedSearch } from "@lens/main";
 import { SearchIcon, X } from "lucide-react";
 import { useId } from "react";
+import { cn } from "../utils/cn";
 
-export default function SearchInput() {
+export interface SearchInputProps {
+  classes?: string;
+}
+
+export default function SearchInput({ classes = "" }: SearchInputProps) {
   const id = useId();
 
   const { debouncedQuery, setDebouncedQuery } = useDebouncedSearch({
@@ -11,7 +16,7 @@ export default function SearchInput() {
   });
 
   return (
-    <div className="relative">
+    <div className={cn("relative", classes)}>
       <Input
         id={id}
         className="peer pe-9 ps-9 focus-visible:ring-[0px]"
