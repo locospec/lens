@@ -21,6 +21,7 @@ const LensDefaultChildren: React.FC<LensDefaultChildrenInterface> = () => {
               state={showFilters}
               setState={setShowFilters}
               icon={ListFilterIcon as any}
+              iconClassName="data-[active=true]:scale-y-100 data-[active=false]:scale-y-75"
             />
             <TopbarCTA
               state={showSheet}
