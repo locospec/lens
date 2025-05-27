@@ -13,6 +13,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@lens/base/components/ui/popover";
+import { StylisedCheckbox } from "@lens/base/components/ui/stylised-checkbox";
 import { cn } from "@lens/base/lib/utils";
 import { useInfiniteFetch } from "@lens/components/LensProvider/hooks/useInfiniteFetch";
 import {
@@ -20,8 +21,9 @@ import {
   useEffectAfterMount,
 } from "@lens/hooks/index";
 import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
-import { Check, ChevronsUpDown, Search, X } from "lucide-react";
+import { ChevronsUpDown, Search, X } from "lucide-react";
 import * as React from "react";
+import { Button } from "../Button";
 import { getSameLevelConditions } from "../Filters";
 import { getProcessedFilters } from "../LensProvider/utils";
 import { EnumInputInterface } from "./interface";
@@ -162,9 +164,9 @@ const EnumInput = React.memo(function EnumInput({
       <PopoverTrigger asChild>
         <div
           className={cn(
-            "border-input shadow-xs relative flex items-center rounded-md border bg-white text-base outline-none transition-[color,box-shadow] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:bg-gray-800",
+            "border-input shadow-xs dark:bg-popover relative flex items-center rounded-md border bg-white text-base outline-none transition-[color,box-shadow] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:text-gray-100",
             "h-9 w-[200px] min-w-0 max-w-[300px] px-4 py-1",
-            values.length <= 0 && "text-muted-foreground",
+            values.length <= 0 && "text-muted-foreground dark:text-gray-300",
             enumClasses
           )}
           aria-expanded={open}
@@ -204,13 +206,11 @@ const EnumInput = React.memo(function EnumInput({
           popoverWrapperClasses
         )}
         containerRef={filterContainerRef}
+        align="start"
       >
         <Command>
           <div
-            className={cn(
-              "flex items-center border-b px-3",
-              searchInputWrapperClasses
-            )}
+            className={cn("flex items-center px-3", searchInputWrapperClasses)}
             cmdk-input-wrapper=""
           >
             <Search
@@ -220,7 +220,7 @@ const EnumInput = React.memo(function EnumInput({
             />
             <input
               className={cn(
-                "placeholder:text-muted-foreground flex h-9 w-full border-0 bg-transparent py-1 outline-none hover:bg-transparent disabled:cursor-not-allowed disabled:opacity-50",
+                "placeholder:text-muted-foreground flex h-9 w-full bg-transparent py-1 outline-none hover:bg-transparent disabled:cursor-not-allowed disabled:opacity-50",
                 searchInputClasses
               )}
               placeholder={placeholder}
@@ -253,20 +253,16 @@ const EnumInput = React.memo(function EnumInput({
                     <CommandItem
                       key={option?.const}
                       value={option?.const}
-                      onSelect={(currentValue: string) => {
-                        handleSelect(currentValue);
+                      onSelect={value => {
+                        handleSelect(value);
                       }}
-                      className={cn(itemClasses)}
+                      className={cn(
+                        "hover:bg-accent data-[selected=true]:bg-transparent",
+                        itemClasses
+                      )}
                     >
-                      <div className="absolute h-2 w-2 border"></div>
-
-                      <Check
-                        className={cn(
-                          "mr-2 h-4 w-4",
-                          values.includes(option?.const)
-                            ? "opacity-100"
-                            : "opacity-0"
-                        )}
+                      <StylisedCheckbox
+                        checked={values.includes(option?.const)}
                       />
                       {option?.title}
                     </CommandItem>
@@ -274,7 +270,22 @@ const EnumInput = React.memo(function EnumInput({
                 })}
             </CommandGroup>
           </CommandList>
-          <div className="h-10 w-full bg-red-400"></div>
+          <div className="flex items-center justify-between px-3 py-2 pb-4">
+            <Button
+              className={cn(
+                "rounded-xs flex h-8 w-full cursor-pointer items-center justify-center text-sm",
+                "bg-black text-white hover:bg-black/80",
+                "dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-white/80",
+                "disabled:cursor-not-allowed disabled:opacity-50"
+              )}
+              onClick={() => {
+                setOpen(false);
+              }}
+              disabled={isLoading || options.length <= 0}
+            >
+              Confirm
+            </Button>
+          </div>
         </Command>
       </PopoverContent>
     </Popover>
