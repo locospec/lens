@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import DefaultSheet from "./sheets/DefaultSheet";
 import FieldsSheet from "./sheets/FieldsSheet";
 import { SheetOptionsType } from "./sheets/interface";
+import LayoutSheet from "./sheets/LayoutSheet";
 
 export interface LensSidebarInterface {
   tableContainerRef?: React.RefObject<HTMLDivElement | null>;
@@ -33,7 +34,7 @@ const LensSidebar = ({
   return (
     <SheetContent
       containerRef={tableContainerRef}
-      className="lens-wrapper h-full w-full overflow-y-auto"
+      className="h-full w-full overflow-y-auto border shadow-2xl"
     >
       {currentSheet === "default" && (
         <DefaultSheet setCurrentSheet={setCurrentSheet} />
@@ -46,12 +47,14 @@ const LensSidebar = ({
           handleDragEnd={handleDragEnd}
         />
       )}
-
-      {/* <LayoutSheet
-            setCurrentSheet={setCurrentSheet}
-            tableContainerRef={tableContainerRef}
-            table={table}
-          /> */}
+      {currentSheet === "layout_options" && (
+        <LayoutSheet
+          setCurrentSheet={setCurrentSheet}
+          tableContainerRef={tableContainerRef}
+          table={table}
+          handleDragEnd={handleDragEnd}
+        />
+      )}
     </SheetContent>
   );
 };
