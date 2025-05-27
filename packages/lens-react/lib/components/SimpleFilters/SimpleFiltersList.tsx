@@ -43,7 +43,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({
   return (
     <div
       className={cn(
-        "flex w-fit flex-wrap gap-2",
+        "flex w-full flex-wrap gap-2",
         alignment === "left" ? "justify-start" : "justify-end",
         wrapperClassName
       )}
