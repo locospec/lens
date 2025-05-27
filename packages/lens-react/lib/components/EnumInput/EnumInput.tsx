@@ -208,36 +208,41 @@ const EnumInput = React.memo(function EnumInput({
         containerRef={filterContainerRef}
         align="start"
       >
-        <Command>
-          <div
-            className={cn("flex items-center px-3", searchInputWrapperClasses)}
-            cmdk-input-wrapper=""
-          >
-            <Search
-              size={16}
-              strokeWidth={3}
-              className={cn("mr-2 shrink-0 opacity-50", searchIconClasses)}
-            />
-            <input
+        <Command className="justify-between">
+          <div>
+            <div
               className={cn(
-                "placeholder:text-muted-foreground flex h-9 w-full bg-transparent py-1 outline-none hover:bg-transparent disabled:cursor-not-allowed disabled:opacity-50",
-                searchInputClasses
+                "flex items-center px-3",
+                searchInputWrapperClasses
               )}
-              placeholder={placeholder}
-              onChange={e => {
-                setSearchQuery(e.target.value);
-              }}
-            />
-          </div>
+              cmdk-input-wrapper=""
+            >
+              <Search
+                size={16}
+                strokeWidth={3}
+                className={cn("mr-2 shrink-0 opacity-50", searchIconClasses)}
+              />
+              <input
+                className={cn(
+                  "placeholder:text-muted-foreground flex h-9 w-full bg-transparent py-1 outline-none hover:bg-transparent disabled:cursor-not-allowed disabled:opacity-50",
+                  searchInputClasses
+                )}
+                placeholder={placeholder}
+                onChange={e => {
+                  setSearchQuery(e.target.value);
+                }}
+              />
+            </div>
 
-          <CommandSeparator className={cn(separatorClasses)} />
+            <CommandSeparator className={cn(separatorClasses)} />
+          </div>
           <CommandList
             key={condition.attribute}
             onScroll={e => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
             className={cn(popoverClasses)}
           >
             <CommandEmpty>
-              {isLoading ? "Loading options" : emptyLabel}
+              {isLoading || isFetching ? "Loading options" : `${emptyLabel}`}
             </CommandEmpty>
             <CommandGroup>
               {!isLoading &&
@@ -265,7 +270,7 @@ const EnumInput = React.memo(function EnumInput({
                 })}
             </CommandGroup>
           </CommandList>
-          <div className="flex items-center justify-between px-3 py-2 pb-4">
+          <div className="flex items-center justify-between px-3 py-2 pb-4 align-bottom">
             <Button
               className={cn(
                 "rounded-xs flex h-8 w-full cursor-pointer items-center justify-center text-sm",
