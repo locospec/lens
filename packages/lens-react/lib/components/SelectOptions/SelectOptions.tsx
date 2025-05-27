@@ -14,6 +14,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@lens/base/components/ui/popover";
+import { StylisedCheckbox } from "@lens/base/components/ui/stylised-checkbox";
 import { cn } from "@lens/base/lib/utils";
 import { useInfiniteFetch } from "@lens/components/LensProvider/hooks/useInfiniteFetch";
 import {
@@ -21,7 +22,6 @@ import {
   useEffectAfterMount,
 } from "@lens/hooks/index";
 import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
-import { Check } from "lucide-react";
 import * as React from "react";
 import { AttributeDefinitionType } from "../Datatable/interface/DatatableInterface";
 import { getSameLevelConditions } from "../Filters";
@@ -71,9 +71,6 @@ const contextDecoder = () => {
   }
 };
 
-const COMMON_RENDERER_CLASSES =
-  "text-xs cursor-pointer bg-white w-fit h-full flex items-center px-1.5 py-1 first:rounded-l-lg last:rounded-r-lg text-gray-700";
-
 const SelectOptions = React.memo(function SelectOptions({
   emptyLabel = "No options found...",
   placeholder = "Select an option....",
@@ -84,9 +81,9 @@ const SelectOptions = React.memo(function SelectOptions({
   path,
   resetInput,
   showClose,
+  filterContainerRef,
 }: SelectOptionsInterface) {
-  const { queryEndpoint, filter, permissionHeaders, filterContainerRef } =
-    contextDecoder();
+  const { queryEndpoint, filter, permissionHeaders } = contextDecoder();
   const queryKey = `${queryEndpoint}-${condition.attribute}-${JSON.stringify(
     path
   )}`;
@@ -203,18 +200,17 @@ const SelectOptions = React.memo(function SelectOptions({
       <PopoverTrigger asChild>
         <div
           className={cn(
-            COMMON_RENDERER_CLASSES,
-            "hover:bg-gray-50",
+            "flex h-full w-fit cursor-pointer items-center px-1.5 py-1 text-xs first:rounded-l-lg last:rounded-r-lg",
+            "bg-white text-gray-700 hover:bg-gray-50",
             !showClose && "rounded-r-lg"
           )}
           aria-expanded={open}
         >
-          {/* {JSON.stringify(values)} */}
           {showValues(values)}
         </div>
       </PopoverTrigger>
       <PopoverContent
-        className="w-[200px] p-0"
+        className="w-[250px] p-0"
         containerRef={filterContainerRef}
       >
         <Command>
@@ -239,21 +235,19 @@ const SelectOptions = React.memo(function SelectOptions({
                 options.map(option => {
                   return (
                     <CommandItem
-                      key={option.value}
-                      value={option.value}
+                      key={option.const}
+                      value={option.const}
                       onSelect={(currentValue: string) => {
                         handleSelect(currentValue);
                       }}
+                      className="hover:bg-accent data-[selected=true]:bg-transparent"
                     >
-                      <Check
-                        className={cn(
-                          "mr-2 h-4 w-4",
-                          values.includes(option.value)
-                            ? "opacity-100"
-                            : "opacity-0"
-                        )}
+                      <StylisedCheckbox
+                        checked={values.includes(option?.const)}
                       />
-                      {option.label}
+                      <label className="max-w-[200px] overflow-hidden truncate whitespace-nowrap">
+                        {option?.title}
+                      </label>
                     </CommandItem>
                   );
                 })}
