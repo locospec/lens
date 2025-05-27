@@ -12,9 +12,17 @@ const COMMON_RENDERER_CLASSES =
 
 interface AttributeRendererInterface {
   label: string;
+  reference?: any;
 }
-const AttributeRenderer: React.FC<AttributeRendererInterface> = ({ label }) => {
-  return <label className={cn(COMMON_RENDERER_CLASSES)}>{label}</label>;
+const AttributeRenderer: React.FC<AttributeRendererInterface> = ({
+  label,
+  reference,
+}) => {
+  return (
+    <label className={cn(COMMON_RENDERER_CLASSES)} ref={reference}>
+      {label}
+    </label>
+  );
 };
 
 interface ChipFilterInteface {
@@ -65,11 +73,11 @@ const ChipFilter: React.FC<ChipFilterInteface> = ({
   return (
     <div
       className={cn(
-        "gap-x-px! relative flex h-6 w-fit shrink-0 items-center rounded-lg border border-gray-300 bg-gray-200 px-0 py-0"
+        "gap-x-px! relative flex h-6 w-fit shrink-0 items-center rounded-lg border border-dashed border-gray-300 bg-gray-200 px-0 py-0"
       )}
-      ref={ref}
+      // ref={ref}
     >
-      <AttributeRenderer label={attribute.label} />
+      <AttributeRenderer label={attribute.label} reference={ref} />
       <ChipOP
         options={operators}
         callback={handleOperatorChange}
