@@ -228,13 +228,6 @@ const EnumInput = React.memo(function EnumInput({
                 setSearchQuery(e.target.value);
               }}
             />
-            {/* TODO Complete functionality HERE */}
-            {/* <div
-              role="button"
-              className="absolute right-2 cursor-pointer text-xs text-gray-500 transition-all"
-            >
-              Select All
-            </div> */}
           </div>
 
           <CommandSeparator className={cn(separatorClasses)} />
@@ -264,7 +257,9 @@ const EnumInput = React.memo(function EnumInput({
                       <StylisedCheckbox
                         checked={values.includes(option?.const)}
                       />
-                      {option?.title}
+                      <label className="max-w-[200px] overflow-hidden truncate whitespace-nowrap">
+                        {option?.title}
+                      </label>
                     </CommandItem>
                   );
                 })}
