@@ -11,7 +11,7 @@ const ActionsColumn = (
 ) => {
   return {
     id: "actions",
-    accessorKey: actions.header,
+    accessorKey: "actions",
     meta: metaReader(actions),
     header: actions.header,
     cell: ({ row }: RowInterface) => {
@@ -22,8 +22,8 @@ const ActionsColumn = (
         permissionHeaders: permissionHeaders,
       });
     },
-    enableSorting: false,
-    enableHiding: false,
+    enableSorting: true,
+    enableHiding: true,
     size: actions?.width || 140,
     minSize: actions?.minWidth || 100,
     maxSize: actions?.maxWidth || 800,

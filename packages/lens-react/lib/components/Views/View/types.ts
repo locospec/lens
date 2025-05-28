@@ -8,17 +8,11 @@ interface ViewContextType {
   config: any;
   searchQuery: string;
   viewChildRef: React.RefObject<HTMLDivElement | null>;
-  context: Record<string, any>;
-}
-
-interface ViewConfigurationInterface {
-  context: Record<string, any>;
 }
 
 interface ViewProviderProps {
   children: React.ReactNode;
   viewId?: string;
-  viewConfiguration?: ViewConfigurationInterface;
 }
 
-export type { ViewConfigurationInterface, ViewContextType, ViewProviderProps };
+export type { ViewContextType, ViewProviderProps };

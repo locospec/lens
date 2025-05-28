@@ -11,7 +11,7 @@ const useFilterFunctions = ({
   callback,
 }: useFilterFunctionProps) => {
   const addCondition = useCallback((parentPath: number[] = []) => {
-    setFilter((current) => {
+    setFilter(current => {
       const newFilter = { ...current };
       let target = newFilter;
       for (const index of parentPath) {
@@ -24,7 +24,7 @@ const useFilterFunctions = ({
   }, []);
 
   const addGroup = useCallback((parentPath: number[] = []) => {
-    setFilter((current) => {
+    setFilter(current => {
       const newFilter = { ...current };
       let target = newFilter;
 
@@ -49,7 +49,7 @@ const useFilterFunctions = ({
   }, []);
 
   const removeItem = useCallback((path: number[]) => {
-    setFilter((current) => {
+    setFilter(current => {
       const newFilter = { ...current };
       let target = newFilter;
 
@@ -66,7 +66,7 @@ const useFilterFunctions = ({
 
   const updateCondition = useCallback(
     (path: number[], field: string, value: any) => {
-      setFilter((current) => {
+      setFilter(current => {
         const newFilter = { ...current };
 
         if (path.length === 0) {

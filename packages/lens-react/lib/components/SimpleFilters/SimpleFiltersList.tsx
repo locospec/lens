@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from "react";
-import type { Condition } from "../LensProvider/interfaces/FiltersInterface";
-import EnumInput from "../EnumInput/EnumInput";
-import { useSimpleFiltersContext } from "./context/useSimpleFiltersContext";
 import { DatePicker } from "@lens/base/components/ui/datepicker";
 import { cn } from "@lens/base/lib/utils";
+import React, { useEffect, useState } from "react";
 import { ChipFilter } from "../ChipFilter";
+import EnumInput from "../EnumInput/EnumInput";
+import type { Condition } from "../LensProvider/interfaces/FiltersInterface";
+import { useSimpleFiltersContext } from "./context/useSimpleFiltersContext";
 
 export interface SimpleFiltersProps {
   asChip: boolean;
+  alignment: "left" | "right";
 }
 
 const SIMPLE_FILTER_TYPES = ["enum", "date"];
 
-const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
+const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({
+  asChip,
+  alignment,
+}) => {
   const {
     filterContainerRef,
     attributesArray,
@@ -29,9 +33,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
 
   const init = () => {
     setFilters(initialisedFilter);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 100);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -41,15 +43,14 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
   return (
     <div
       className={cn(
-        "lens-wrapper w-full flex gap-3 justify-end flex-wrap",
+        "flex w-full flex-wrap gap-2",
+        alignment === "left" ? "justify-start" : "justify-end",
         wrapperClassName
       )}
       ref={filterContainerRef}
     >
       {!isLoading &&
-        filter &&
-        filter.conditions &&
-        filter.conditions.length > 0 &&
+        filter?.conditions?.length > 0 &&
         attributesArray.map((attribute: any, index: number) => {
           if (SIMPLE_FILTER_TYPES.includes(attribute.type)) {
             const conIndex = filter.conditions.findIndex(
@@ -57,36 +58,40 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
             );
 
             const con = filter.conditions[conIndex] as Condition;
+            const genKey = `${attribute.type}-${attribute.value}-${index}`;
+
             if (con) {
               if (attribute.type === "enum") {
+                const selectionType = attribute?.selectionType === "multiple";
                 return (
-                  <React.Fragment key={JSON.stringify([conIndex, index])}>
+                  <React.Fragment key={genKey}>
                     {asChip ? (
                       <ChipFilter
-                        key={JSON.stringify([conIndex, index])}
+                        key={genKey}
                         path={[index]}
                         condition={con}
                         attribute={attribute}
                         defaultValues={(con?.value || []) as string[]}
-                        updateCallback={(v) => {
+                        updateCallback={v => {
                           updateCondition([conIndex], "value", v);
                         }}
                         showOp={false}
                       />
                     ) : (
                       <EnumInput
-                        key={JSON.stringify([conIndex, index])}
-                        callback={(v) => {
-                          updateCondition([conIndex], "value", v);
-                        }}
+                        key={genKey}
+                        path={[conIndex]}
+                        condition={con as any}
                         defaultValues={(con?.value || []) as string[]}
                         selectedAttribute={attribute}
-                        condition={con as any}
-                        path={[conIndex]}
                         placeholder={`Select ${attribute.label}`}
                         resetInput={""}
                         filterContainerRef={filterContainerRef}
                         className={classNames}
+                        multiple={selectionType}
+                        callback={v => {
+                          updateCondition([conIndex], "value", v);
+                        }}
                       />
                     )}
                   </React.Fragment>
@@ -95,7 +100,7 @@ const SimpleFiltersList: React.FC<SimpleFiltersProps> = ({ asChip }) => {
               if (attribute.type === "date") {
                 return (
                   <DatePicker
-                    key={JSON.stringify([conIndex, index])}
+                    key={genKey}
                     placeholder={attribute.label}
                     containerRef={filterContainerRef}
                     callback={(v: any) => {

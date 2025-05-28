@@ -26,11 +26,4 @@ interface LensConfigurationInterface {
   view?: string;
 }
 
-interface LensProviderProps {
-  children: React.ReactNode;
-  showDevTools?: boolean;
-  lensConfiguration: LensConfigurationInterface;
-  errorModalCallback?: () => void;
-}
-
-export type { LensContextType, LensProviderProps, LensConfigurationInterface };
+export type { LensConfigurationInterface, LensContextType };

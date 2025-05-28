@@ -19,7 +19,7 @@ function createHandleDragEnd({
       const activeId = active.id as string;
       const overId = over?.id as string;
 
-      setColumnOrder((columnOrder) => {
+      setColumnOrder(columnOrder => {
         const oldIndex = columnOrder.indexOf(activeId);
         const newIndex = columnOrder.indexOf(overId);
 

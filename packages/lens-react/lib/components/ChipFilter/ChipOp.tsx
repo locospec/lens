@@ -1,7 +1,5 @@
 "use client";
 
-import * as React from "react";
-import { cn } from "@lens/base/lib/utils";
 import {
   Command,
   CommandEmpty,
@@ -16,14 +14,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@lens/base/components/ui/popover";
+import { cn } from "@lens/base/lib/utils";
+import * as React from "react";
 
 export interface OptionInterface {
   label: string;
   value: string;
 }
-
-const COMMON_RENDERER_CLASSES =
-  "text-xs bg-white w-fit h-full flex items-center px-1.5 py-1 first:rounded-l-lg last:rounded-r-lg text-gray-700";
 
 export interface ComboBoxInterface {
   op?: string;
@@ -48,7 +45,9 @@ const ChipOP: React.FC<ComboBoxInterface> = ({
   containerRef,
   disabled = true,
 }) => {
-  if (!op || !show) {return null;}
+  if (!op || !show) {
+    return null;
+  }
 
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(defaultValue);
@@ -60,7 +59,7 @@ const ChipOP: React.FC<ComboBoxInterface> = ({
           role="combobox"
           aria-expanded={open}
           className={cn(
-            COMMON_RENDERER_CLASSES,
+            "flex h-full w-fit items-center border-0 bg-white px-1.5 py-1 text-xs text-gray-700 first:rounded-l-lg last:rounded-r-lg",
             disabled ? "" : "cursor-pointer hover:bg-gray-50"
           )}
         >
@@ -68,7 +67,7 @@ const ChipOP: React.FC<ComboBoxInterface> = ({
         </div>
       </PopoverTrigger>
       <PopoverContent
-        className="w-fit p-0! bg-blue-300"
+        className="p-0! w-fit bg-blue-300"
         containerRef={containerRef}
       >
         <Command>
@@ -79,17 +78,17 @@ const ChipOP: React.FC<ComboBoxInterface> = ({
           <CommandList>
             <CommandEmpty>{emptyLabel}</CommandEmpty>
             <CommandGroup>
-              {options.map((option) => {
+              {options.map(option => {
                 return (
                   <CommandItem
                     key={option.value}
                     value={option.value}
-                    onSelect={(currentValue) => {
+                    onSelect={currentValue => {
                       setValue(currentValue === value ? "" : currentValue);
                       callback && callback(currentValue);
                       setOpen(false);
                     }}
-                    className="sm:text-xs px-1! py-0.5!"
+                    className="px-1! py-0.5! sm:text-xs"
                   >
                     {option.label}
                   </CommandItem>

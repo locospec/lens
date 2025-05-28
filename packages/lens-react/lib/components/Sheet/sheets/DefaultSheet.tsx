@@ -1,9 +1,9 @@
 "use client";
 
+import { SheetHeader, SheetTitle } from "@lens/base/components/ui/sheet";
 import { ChevronRight, ListCheck } from "lucide-react";
 import { SheetOptionsType } from "./interface";
 import { OptionWrapper } from "./OptionWrapper";
-import { SheetHeader, SheetTitle } from "@lens/base/components/ui/sheet";
 
 export interface DefaultSheetInterface {
   setCurrentSheet: React.Dispatch<React.SetStateAction<SheetOptionsType>>;
@@ -21,31 +21,26 @@ const DefaultSheet = ({ setCurrentSheet }: DefaultSheetInterface) => {
             setCurrentSheet("field_options");
           }}
         >
-          <div className="flex gap-x-2 text-sm items-center cursor-pointer">
+          <div className="flex cursor-pointer items-center gap-x-2 text-sm">
             <ListCheck className="" size={14} />
             <label className="cursor-pointer">Fields</label>
           </div>
           <ChevronRight size={15} className="text-[var(--gray-9)]" />
         </OptionWrapper>
+        {/* <OptionWrapper
+          callback={() => {
+            setCurrentSheet("layout_options");
+          }}
+        >
+          <div className="flex cursor-pointer items-center gap-x-2 text-sm">
+            <LayoutDashboardIcon className="" size={14} />
+            <label className="cursor-pointer">Layout Options</label>
+          </div>
+          <ChevronRight size={15} className="text-[var(--gray-9)]" />
+        </OptionWrapper> */}
       </div>
     </>
   );
 };
 
 export default DefaultSheet;
-
-// Code For Separator
-/* <div className="w-full h-[1px] bg-gray-300" /> */
-
-// Code for Layout Ouptions
-/* <OptionWrapper
-      callback={() => {
-        setCurrentSheet("layout_options");
-      }}
-    >
-      <div className="flex gap-x-2 text-sm items-center cursor-pointer">
-        <List className="text-[var(--gray-9)]" size={14} />
-        <label className="cursor-pointer">Layout Options</label>
-      </div>
-      <ChevronRight size={15} className="text-[var(--gray-9)]" />
-    </OptionWrapper> */

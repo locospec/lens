@@ -1,15 +1,16 @@
-import { Switch } from "@lens/base/components/ui/switch";
-import { cn } from "@lens/base/lib/utils";
 import { defaultAnimateLayoutChanges, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { GripVertical } from "lucide-react";
+import { Switch } from "@lens/base/components/ui/switch";
+import { cn } from "@lens/base/lib/utils";
 import { splitAndCapitalize } from "@lens/components/utils/splitAndCapitalize";
+import { GripVertical } from "lucide-react";
 
 const animateLayoutChanges = (args: any) =>
   args.isSorting || args.wasDragging ? defaultAnimateLayoutChanges(args) : true;
 
 const FieldsListItem = ({ column, isHidden }: any) => {
   const headerDef = column.columnDef;
+  const visibility = column.getIsVisible();
   const fixed = headerDef.meta.fixed || false;
   const label =
     (headerDef?.header as string) || splitAndCapitalize(column.id) || column.id;
@@ -31,27 +32,38 @@ const FieldsListItem = ({ column, isHidden }: any) => {
     transform: CSS.Translate.toString(transform),
     transition,
     alignItems: "center",
-    cursor: "grab",
     userSelect: "none",
+  };
+
+  const handleOnCheckChange = () => {
+    column.toggleVisibility(!visibility);
   };
 
   return (
     <div
+      key={column.id}
       className={cn(
-        "flex justify-between py-2",
+        "flex justify-between px-1 py-2 hover:bg-gray-100",
+        "animate-in slide-in-from-bottom-4",
         (headerDef?.meta as any)?.fixed
-          ? "pointer-events-none text-[var(--gray-7)]"
-          : ""
+          ? "pointer-events-none text-gray-400"
+          : "",
+        isDragging &&
+          "dark:bg-foreground z-20 cursor-grabbing rounded-sm border border-gray-600 bg-white shadow-xl"
       )}
       style={style as any}
-      key={column.id}
       ref={setNodeRef}
+      data-visible={visibility}
       {...attributes}
     >
-      <div className="flex gap-x-2">
+      <div className={cn("flex items-center gap-x-2 text-sm")}>
         {!isHidden && (
           <GripVertical
-            className={isDragging ? "cursor-grabbing" : "cursor-grab"}
+            size={16}
+            className={cn(
+              "text-gray-300 dark:text-gray-200",
+              isDragging ? "cursor-grabbing" : "cursor-grab"
+            )}
             {...listeners}
           />
         )}
@@ -59,11 +71,12 @@ const FieldsListItem = ({ column, isHidden }: any) => {
       </div>
 
       <Switch
+        className="cursor-pointer"
         id={column.id}
         value={column.id}
         disabled={(headerDef?.meta as any)?.fixed}
-        checked={column.getIsVisible()}
-        onCheckedChange={() => column.toggleVisibility(!column.getIsVisible())}
+        checked={visibility}
+        onCheckedChange={handleOnCheckChange}
       />
     </div>
   );
