@@ -137,7 +137,13 @@ const DataTableLensContextProvider: React.FC<
     lensContext;
   const { dataCallback, permissionHeaders } = lensConfiguration;
 
-  const { filters, searchQuery, viewChildRef, config } = viewContext;
+  const {
+    filters,
+    searchQuery,
+    viewChildRef,
+    config,
+    context: localContext,
+  } = viewContext;
   const viewName = config?.name || "default_view";
 
   if (cellActions) {
@@ -191,6 +197,7 @@ const DataTableLensContextProvider: React.FC<
       cellActions={cellActions}
       viewName={viewName}
       expand={expand}
+      localContext={localContext}
       allowedScopes={allowedScopes}
       variant={variant}
       variantClasses={DATA_TABLE_STYLING_CLASSES}

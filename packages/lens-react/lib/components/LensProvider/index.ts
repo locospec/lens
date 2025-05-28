@@ -1,4 +1,4 @@
-export { LensContext, LensProvider } from "./LensProvider";
+export { LensProvider, LensContext } from "./LensProvider";
 export { useLensContext } from "./useLensContext";
 
-export type { LensContextType } from "./types";
+export type { LensContextType, LensProviderProps } from "./types";

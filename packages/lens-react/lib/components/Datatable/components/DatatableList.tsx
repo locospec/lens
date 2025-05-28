@@ -45,6 +45,7 @@ const DatatableList = () => {
     modalName,
     viewName,
     expand,
+    localContext,
     allowedScopes,
     variantClasses,
     dataCallback,
@@ -63,6 +64,8 @@ const DatatableList = () => {
         filters: getProcessedFilters(filters),
         view: viewName,
         ...(expand.length > 0 && { expand }),
+        ...(localContext &&
+          Object.keys(localContext).length > 0 && { localContext }),
         ...(allowedScopes &&
           allowedScopes.length > 0 && { scopes: allowedScopes }),
         sorts: processSortPayload(sortPayload),
@@ -170,7 +173,7 @@ const DatatableList = () => {
       <div
         id="table-wrapper"
         className={cn(
-          "relative h-full w-full flex-1 overflow-auto border bg-white text-sm text-gray-800 dark:bg-black dark:text-white",
+          "relative h-full w-full flex-1 overflow-auto bg-white text-sm text-gray-800 dark:bg-black dark:text-white",
           variantClasses.wrapper,
           classNames && classNames?.wrapper
         )}

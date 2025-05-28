@@ -51,6 +51,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   cellActions?: any;
   viewName: string;
   expand: string[];
+  localContext: any;
   allowedScopes?: string[];
   actionsMapping?: ActionsMappingPropInterface;
   variant?: DatatableVariants;

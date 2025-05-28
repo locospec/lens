@@ -1,17 +1,10 @@
-import { cn } from "@lens/base/lib/utils";
 import React from "react";
 
 export interface JsonHighlighterProps {
   json: any;
-  wrapper?: boolean;
-  wrapperClasses?: string;
 }
 
-const JsonHighlighter: React.FC<JsonHighlighterProps> = ({
-  json,
-  wrapper = false,
-  wrapperClasses = "",
-}) => {
+const JsonHighlighter: React.FC<JsonHighlighterProps> = ({ json }) => {
   const syntaxHighlight = (json: any): string => {
     if (typeof json !== "string") {
       json = JSON.stringify(json, undefined, 2);
@@ -43,24 +36,14 @@ const JsonHighlighter: React.FC<JsonHighlighterProps> = ({
 
   const highlightedJson = syntaxHighlight(json);
 
-  const component = (
+  return (
     <pre
-      className="whitespace-pre-wrap break-all rounded bg-[var(--gray-a3)] p-2 text-xs leading-loose"
+      className="p-2 text-xs leading-loose break-all whitespace-pre-wrap bg-[var(--gray-a3)] rounded"
       style={{ wordBreak: "break-word" }}
     >
       <code dangerouslySetInnerHTML={{ __html: highlightedJson }} />
     </pre>
   );
-
-  if (wrapper) {
-    return (
-      <div className={cn("h-screen overflow-scroll", wrapperClasses)}>
-        {component}
-      </div>
-    );
-  }
-
-  return component;
 };
 
 export default JsonHighlighter;

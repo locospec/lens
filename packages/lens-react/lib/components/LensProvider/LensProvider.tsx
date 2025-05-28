@@ -2,10 +2,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import React, { createContext } from "react";
 import Loader from "../Loader";
-import { LensDefaultChildren } from "./components";
-import { LensDevTools } from "./devTools/LensDevTools";
 import { useFetchConfig } from "./hooks/useFetchConfig";
-import type { LensConfigurationInterface, LensContextType } from "./types";
+import type { LensContextType, LensProviderProps } from "./types";
 import { fetchDataFromEndpoint } from "./utils/fetchDataFromEndpoint";
 
 const queryClient = new QueryClient();
@@ -14,21 +12,13 @@ export const LensContext = createContext<LensContextType | undefined>(
   undefined
 );
 
-interface LensProviderProps {
-  children?: React.ReactNode;
-  showDevTools?: boolean;
-  lensConfiguration: LensConfigurationInterface;
-  errorModalCallback?: () => void;
-}
-
 export const LensProviderBase: React.FC<LensProviderProps> = ({
   lensConfiguration,
   children,
-  showDevTools,
 }) => {
-  const lens_uuid = `lens-${Math.floor(
-    Math.random() * 1000
-  ).toString()}-${Math.floor(Math.random() * 1000).toString()}`;
+  // const lens_uuid = `lens-${Math.floor(
+  //   Math.random() * 1000
+  // ).toString()}-${Math.floor(Math.random() * 1000).toString()}`;
 
   const {
     endpoint = "",
@@ -69,8 +59,6 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     );
   }
 
-  const renderComponnet = children ?? <LensDefaultChildren />;
-
   return (
     <LensContext.Provider
       value={{
@@ -85,8 +73,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
         context,
       }}
     >
-      {showDevTools && <LensDevTools key={lens_uuid} config={config} />}
-      {config && isFetched ? renderComponnet : <Loader />}
+      {config && isFetched ? children : <Loader />}
     </LensContext.Provider>
   );
 };
