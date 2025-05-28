@@ -1,20 +1,20 @@
-const ACTION_1 = {
-  header: "Actions",
-  options: [
-    {
-      key: "edit",
-      url: "/edit/:id",
-      icon: "SquarePen",
-    },
-    {
-      key: "delete",
-      url: "/delete/:id/for/:state.id",
-      icon: "Trash2",
-      label: "Delete",
-      confirmation: true,
-    },
-  ],
-};
+// const ACTION_1 = {
+//   header: "Actions",
+//   options: [
+//     {
+//       key: "edit",
+//       url: "/edit/:id",
+//       icon: "SquarePen",
+//     },
+//     {
+//       key: "delete",
+//       url: "/delete/:id/for/:state.id",
+//       icon: "Trash2",
+//       label: "Delete",
+//       confirmation: true,
+//     },
+//   ],
+// };
 
 const ACTION_2 = {
   // header: "Actions",
@@ -83,7 +83,7 @@ const new_config = {
     label: "Sub Asset Types Default View",
     type: "view",
     model: "sub_asset_type",
-    selectionType: "multiple",
+    selectionType: "single",
     selectionKey: "id",
     actions: ACTION_2,
     // serialize: {
@@ -136,6 +136,7 @@ const new_config = {
         label: "Locality",
         model: "locality",
         dependsOn: ["city.name"],
+        selectionType: "single",
       },
       category: {
         type: "enum",

@@ -1,3 +1,45 @@
+# (Wed May 28 2025)
+
+#### 🐛 Bug Fix
+
+- `@locospec/lens-react@0.3.2`
+  - chore: fix build typescript error [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: commented lens sheet [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified condition for rendering resize handler [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified filter CTA icon [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: adde styling animation [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added sample layout sheet [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified top bar buttons with reusable component [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added radio styled checkbox for single selction table [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified default lens provider renderer [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: removed key from Lens Provider [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: formatted [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified styles for Chip Filters [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added trailing ellipsis for text [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added checkbox for dropdown [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified styling [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: fixed issue with key and removed log [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: removed timeout [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: fix alignment class [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified popup size and background for trigger input [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added alignment for Simple Filters [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added fix for multiple and single selection type value passed as arrray in both cases [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: formatting [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added selection type with default as multiple for simple filters [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: formatting and fixed deafult value for multi select [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified styling for enum trigger and removed not applicable classes [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified enum example [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified styling for EnumInput popover trigger to match with search input [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: added utility for generating classes [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: modified default styling [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+  - chore: Modified example and default styling for Example screens [#178](https://github.com/locospec/lens/pull/178) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 1
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+
+---
+
 # (Fri May 23 2025)
 
 #### 🐛 Bug Fix

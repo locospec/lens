@@ -27,17 +27,6 @@ const DefaultSheet = ({ setCurrentSheet }: DefaultSheetInterface) => {
           </div>
           <ChevronRight size={15} className="text-[var(--gray-9)]" />
         </OptionWrapper>
-        {/* <OptionWrapper
-          callback={() => {
-            setCurrentSheet("layout_options");
-          }}
-        >
-          <div className="flex cursor-pointer items-center gap-x-2 text-sm">
-            <LayoutDashboardIcon className="" size={14} />
-            <label className="cursor-pointer">Layout Options</label>
-          </div>
-          <ChevronRight size={15} className="text-[var(--gray-9)]" />
-        </OptionWrapper> */}
       </div>
     </>
   );
