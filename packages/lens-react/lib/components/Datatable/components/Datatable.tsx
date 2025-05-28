@@ -6,7 +6,6 @@ import type {
 import { DataTableLensContextProvider } from "../context/DataTableContext";
 import type { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
 import type { TableStylingInterface } from "../interface/TableStylingInterface";
-import "../styles.css";
 import DatatableList from "./DatatableList";
 
 export interface DatatableInterface {

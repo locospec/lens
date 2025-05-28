@@ -19,7 +19,7 @@ export default function SearchInput({ classes = "" }: SearchInputProps) {
     <div className={cn("relative", classes)}>
       <Input
         id={id}
-        className="peer pe-9 ps-9 focus-visible:ring-[0px]"
+        className="peer ps-9 pe-9 focus-visible:ring-[0px]"
         placeholder="Search..."
         onChange={e => {
           setDebouncedQuery(e.target.value);

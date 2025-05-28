@@ -7,5 +7,5 @@ export const textVariants = {
   body: "text-base font-normal leading-relaxed",
   caption: "text-sm font-normal leading-normal tracking-wide",
   overline: "text-xs font-medium uppercase tracking-widest",
-  "muted-heading": "text-xs text-gray-400 tracking-widest",
+  "muted-heading": "text-xs text-gray-600 dark:text-gray-200",
 };
