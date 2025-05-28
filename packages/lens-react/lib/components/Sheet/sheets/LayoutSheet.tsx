@@ -15,7 +15,7 @@ export interface LayoutSheetInterface {
   table: Table<any>;
 }
 
-const LayoutSheet = ({ setCurrentSheet, table }: LayoutSheetInterface) => {
+const LayoutSheet = ({ setCurrentSheet }: LayoutSheetInterface) => {
   return (
     <>
       <SheetHeader>
