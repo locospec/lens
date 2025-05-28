@@ -72,16 +72,15 @@ const DatatableHeaderItem = ({ header }: DatatableHeaderItemInterface) => {
           setSortPayload={setSortPayload}
         />
       )}
-      {!disableResizing ||
-        (!enableResizeHandler && (
-          <ResizeHandle
-            header={header}
-            isResizing={header.column.getIsResizing()}
-            setIsInResizeArea={setIsInResizeArea}
-            disabled={!enableResizeHandler}
-            isLast={isLast}
-          />
-        ))}
+      {!disableResizing && (
+        <ResizeHandle
+          header={header}
+          isResizing={header.column.getIsResizing()}
+          setIsInResizeArea={setIsInResizeArea}
+          disabled={!enableResizeHandler}
+          isLast={isLast}
+        />
+      )}
     </div>
   );
 };
