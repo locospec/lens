@@ -5,9 +5,11 @@ import React from "react";
 import TopbarCTA from "./TopbarCTA";
 import { useViewContext } from "../../Views/View";
 
-export interface LensDefaultChildrenInterface {}
+export interface LensDefaultChildrenInterface {
+  tableProps?: any;
+}
 
-const Component: React.FC<LensDefaultChildrenInterface> = () => {
+const Component: React.FC<LensDefaultChildrenInterface> = ({ tableProps }) => {
   const { config } = useViewContext();
 
   const renderFilters =
@@ -17,7 +19,7 @@ const Component: React.FC<LensDefaultChildrenInterface> = () => {
   const [showFilters, setShowFilters] = React.useState(false);
 
   return (
-    <div className="flex h-full flex-col gap-y-4 px-4 py-2 min-h-[40vh] max-h-[80vh]">
+    <div className="flex h-full flex-col gap-y-4">
       <div className="flex items-start justify-between gap-x-2">
         <SearchInput classes="w-1/2 bg-white" />
 
@@ -50,15 +52,21 @@ const Component: React.FC<LensDefaultChildrenInterface> = () => {
           <SimpleFilters />
         </div>
       )}
-      <Datatable showSheet={showSheet} setShowSheet={setShowSheet} />
+      <Datatable
+        showSheet={showSheet}
+        setShowSheet={setShowSheet}
+        {...tableProps}
+      />
     </div>
   );
 };
 
-const LensDefaultChildren = () => {
+const LensDefaultChildren: React.FC<LensDefaultChildrenInterface> = ({
+  tableProps,
+}) => {
   return (
     <View>
-      <Component />
+      <Component tableProps={tableProps} />
     </View>
   );
 };

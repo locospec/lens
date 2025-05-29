@@ -7,6 +7,7 @@ import { LensDevTools } from "./devTools/LensDevTools";
 import { useFetchConfig } from "./hooks/useFetchConfig";
 import type { LensConfigurationInterface, LensContextType } from "./types";
 import { fetchDataFromEndpoint } from "./utils/fetchDataFromEndpoint";
+import { DatatableInterface } from "../Datatable/components/Datatable";
 
 const queryClient = new QueryClient();
 
@@ -19,12 +20,14 @@ interface LensProviderProps {
   showDevTools?: boolean;
   lensConfiguration: LensConfigurationInterface;
   errorModalCallback?: () => void;
+  tableProps?: DatatableInterface;
 }
 
 export const LensProviderBase: React.FC<LensProviderProps> = ({
   lensConfiguration,
   children,
   showDevTools,
+  tableProps,
 }) => {
   const lens_uuid = `lens-${Math.floor(
     Math.random() * 1000
@@ -69,7 +72,9 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     );
   }
 
-  const renderComponnet = children ?? <LensDefaultChildren />;
+  const renderComponnet = children ?? (
+    <LensDefaultChildren tableProps={tableProps} />
+  );
 
   return (
     <LensContext.Provider
