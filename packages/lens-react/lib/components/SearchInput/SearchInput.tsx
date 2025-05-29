@@ -16,7 +16,7 @@ export default function SearchInput({ classes = "" }: SearchInputProps) {
   });
 
   return (
-    <div className={cn("relative", classes)}>
+    <div className={cn("relative rounded-md", classes)}>
       <Input
         id={id}
         className="peer ps-9 pe-9 focus-visible:ring-[0px]"
