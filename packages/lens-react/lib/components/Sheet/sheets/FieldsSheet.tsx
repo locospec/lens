@@ -13,7 +13,6 @@ import { SheetHeader } from "@lens/base/components/ui/sheet";
 import { useDatatableContext } from "@lens/components/Datatable";
 import type { Table } from "@tanstack/react-table";
 import React from "react";
-import { Text } from "../../Text";
 import FieldsListItem from "./FieldsListItem";
 import FieldsSheetTitle from "./headers/FieldsSheetTitle";
 import { SheetOptionsType } from "./interface";
@@ -66,18 +65,21 @@ const FieldsSheet = ({
               items={columns}
               strategy={verticalListSortingStrategy}
             >
-              <Text variant="muted-heading">Shown</Text>
+              <label className="text-sm">Shown</label>
               {(() => {
                 const visibleColumns = columns.filter(
                   c => !invisibleColumns.includes(c.id)
                 );
 
                 return visibleColumns.length === 0 ? (
-                  <p className="w-full text-center text-base text-gray-500">
+                  <p className="w-full text-center text-sm text-gray-500">
                     No items
                   </p>
                 ) : (
                   visibleColumns.map(column => {
+                    if (column?.id === "select" || column?.id === "serialize") {
+                      return null;
+                    }
                     return <FieldsListItem column={column} key={column.id} />;
                   })
                 );
@@ -85,8 +87,7 @@ const FieldsSheet = ({
             </SortableContext>
           </DndContext>
         </div>
-        <Text variant="muted-heading">Hidden</Text>
-
+        <label className="text-sm">Hidden</label>
         {(() => {
           const hiddenColumns = columns.filter(c =>
             invisibleColumns.includes(c.id)

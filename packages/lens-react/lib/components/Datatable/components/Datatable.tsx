@@ -6,6 +6,7 @@ import type {
 import { DataTableLensContextProvider } from "../context/DataTableContext";
 import type { ActionsMappingPropInterface } from "../interface/ActionsMappingInterface";
 import type { TableStylingInterface } from "../interface/TableStylingInterface";
+import "../styles.css";
 import DatatableList from "./DatatableList";
 
 export interface DatatableInterface {
@@ -23,7 +24,6 @@ export interface DatatableInterface {
   setShowSheet?: React.Dispatch<React.SetStateAction<boolean>>;
   cellRenderer?: CellRendererMap;
   rowAction?: any;
-  enableSorting?: boolean;
 }
 
 const Datatable: React.FC<DatatableInterface> = ({
@@ -41,7 +41,6 @@ const Datatable: React.FC<DatatableInterface> = ({
   cellOverflow,
   cellRenderer,
   rowAction,
-  enableSorting = false,
 }) => {
   return (
     <DataTableLensContextProvider
@@ -59,7 +58,6 @@ const Datatable: React.FC<DatatableInterface> = ({
       cellOverflow={cellOverflow}
       cellRenderer={cellRenderer}
       rowAction={rowAction}
-      enableSorting={enableSorting}
     >
       <DatatableList />
     </DataTableLensContextProvider>

@@ -42,12 +42,7 @@ const SelectionColumn = (
     },
     cell: ({ row }: RowInterface) => (
       <Checkbox
-        asRadio={selectionType === "single"}
-        className={cn(
-          "size-3.5",
-          selectionType === "multiple" ? "" : "rounded-full",
-          variantClasses.checkbox
-        )}
+        className={cn("size-3.5", variantClasses.checkbox)}
         checked={row.getIsSelected()}
         onCheckedChange={value => {
           return row.toggleSelected(!!value);

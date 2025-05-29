@@ -20,7 +20,6 @@ const DatatableHeaderItem = ({ header }: DatatableHeaderItemInterface) => {
     setIsInResizeArea,
     sortPayload,
     setSortPayload,
-    enableSorting,
   } = useDatatableContext();
 
   const css = getColumnPinningStyles(column);
@@ -66,7 +65,7 @@ const DatatableHeaderItem = ({ header }: DatatableHeaderItemInterface) => {
           ? null
           : flexRender(header.column.columnDef.header, header.getContext())}
       </span>
-      {enableSorting && !["serialize", "select", "actions"].includes(id) && (
+      {!["serialize", "select", "actions"].includes(id) && (
         <SortSection
           id={id}
           sortType={sortPayload[id] || "NONE"}

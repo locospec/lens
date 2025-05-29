@@ -1,28 +1,20 @@
-import { cn } from "@lens/base/lib/utils";
-import { X } from "lucide-react";
 import React, { useMemo, useRef } from "react";
 import type { Condition } from "../Filters";
+import { cn } from "@lens/base/lib/utils";
+import { X } from "lucide-react";
+import ChipOP from "./ChipOp";
 import { returnOperators } from "../Filters/constants";
 import SelectOptions from "../SelectOptions/SelectOptions";
 import { useSimpleFiltersContext } from "../SimpleFilters/context/useSimpleFiltersContext";
-import ChipOP from "./ChipOp";
 
 const COMMON_RENDERER_CLASSES =
   "text-xs cursor-pointer bg-white w-fit h-full flex items-center px-1.5 py-1 first:rounded-l-lg last:rounded-r-lg text-gray-700";
 
 interface AttributeRendererInterface {
   label: string;
-  reference?: any;
 }
-const AttributeRenderer: React.FC<AttributeRendererInterface> = ({
-  label,
-  reference,
-}) => {
-  return (
-    <label className={cn(COMMON_RENDERER_CLASSES)} ref={reference}>
-      {label}
-    </label>
-  );
+const AttributeRenderer: React.FC<AttributeRendererInterface> = ({ label }) => {
+  return <label className={cn(COMMON_RENDERER_CLASSES)}>{label}</label>;
 };
 
 interface ChipFilterInteface {
@@ -73,11 +65,11 @@ const ChipFilter: React.FC<ChipFilterInteface> = ({
   return (
     <div
       className={cn(
-        "gap-x-px! relative flex h-6 w-fit shrink-0 items-center rounded-lg border border-dashed border-gray-300 bg-gray-200 px-0 py-0"
+        "relative border border-gray-300 rounded-lg bg-gray-200 flex items-center gap-x-px! py-0 px-0 h-6 w-fit shrink-0"
       )}
-      // ref={ref}
+      ref={ref}
     >
-      <AttributeRenderer label={attribute.label} reference={ref} />
+      <AttributeRenderer label={attribute.label} />
       <ChipOP
         options={operators}
         callback={handleOperatorChange}
@@ -96,7 +88,7 @@ const ChipFilter: React.FC<ChipFilterInteface> = ({
       />
       {showClose && (
         <div
-          className={cn(COMMON_RENDERER_CLASSES, "rounded-r-lg px-1 text-xs")}
+          className={cn(COMMON_RENDERER_CLASSES, "rounded-r-lg text-xs px-1")}
           onClick={clearValue}
         >
           <X size={12} />

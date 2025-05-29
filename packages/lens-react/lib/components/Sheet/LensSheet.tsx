@@ -33,7 +33,7 @@ const LensSidebar = ({
   return (
     <SheetContent
       containerRef={tableContainerRef}
-      className="h-full w-full overflow-y-auto border shadow-2xl"
+      className="lens-wrapper h-full w-full overflow-y-auto"
     >
       {currentSheet === "default" && (
         <DefaultSheet setCurrentSheet={setCurrentSheet} />
@@ -46,14 +46,12 @@ const LensSidebar = ({
           handleDragEnd={handleDragEnd}
         />
       )}
-      {/* {currentSheet === "layout_options" && (
-        <LayoutSheet
-          setCurrentSheet={setCurrentSheet}
-          tableContainerRef={tableContainerRef}
-          table={table}
-          handleDragEnd={handleDragEnd}
-        />
-      )} */}
+
+      {/* <LayoutSheet
+            setCurrentSheet={setCurrentSheet}
+            tableContainerRef={tableContainerRef}
+            table={table}
+          /> */}
     </SheetContent>
   );
 };

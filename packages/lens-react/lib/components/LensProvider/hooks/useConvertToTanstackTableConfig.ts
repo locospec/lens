@@ -17,7 +17,7 @@ const useConvertToTanstackTableConfig = ({
   const attributes = configData.attributes;
   const filters = configData?.lensSimpleFilters || {};
 
-  const processed_columns = Object.keys(attributes).map(key => {
+  const processed_columns = Object.keys(attributes).map((key) => {
     return {
       id: key,
       accessorKey: key,
@@ -29,13 +29,12 @@ const useConvertToTanstackTableConfig = ({
   });
 
   const processed_filters: any = {};
-  Object.keys(filters).forEach(key => {
+  Object.keys(filters).forEach((key) => {
     processed_filters[key] = {
       label: filters[key].label,
       type: filters[key].type,
       isNullable: true,
       modelName: filters[key].model,
-      selectionType: filters[key].selectionType || "multiple",
     };
     if (filters[key].dependsOn) {
       const dependencyArray = addDependenciesRecursively(

@@ -1,5 +1,8 @@
 "use client";
 
+import * as React from "react";
+import { Check, ChevronsUpDown, Search, X } from "lucide-react";
+import { cn } from "@lens/base/lib/utils";
 import {
   Command,
   CommandEmpty,
@@ -13,21 +16,38 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@lens/base/components/ui/popover";
-import { StylisedCheckbox } from "@lens/base/components/ui/stylised-checkbox";
-import { cn } from "@lens/base/lib/utils";
-import { useInfiniteFetch } from "@lens/components/LensProvider/hooks/useInfiniteFetch";
 import {
   useDebouncedEffectAfterMount,
   useEffectAfterMount,
 } from "@lens/hooks/index";
-import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
-import { ChevronsUpDown, Search, X } from "lucide-react";
-import * as React from "react";
-import { Button } from "../Button";
-import { getSameLevelConditions } from "../Filters";
+import { useInfiniteFetch } from "@lens/components/LensProvider/hooks/useInfiniteFetch";
 import { getProcessedFilters } from "../LensProvider/utils";
+import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
+import { getSameLevelConditions } from "../Filters";
 import { EnumInputInterface } from "./interface";
 import { contextDecoder } from "./utils";
+
+const generateStylingClasses = (classNamesObject: Record<string, string>) => {
+  const enumClasses = classNamesObject?.enum || "";
+  const popoverWrapperClasses = classNamesObject?.popoverWrapper || "";
+  const popoverClasses = classNamesObject?.popover || "";
+  const searchInputWrapperClasses = classNamesObject?.searchInputWrapper || "";
+  const searchIconClasses = classNamesObject?.searchIcon || "";
+  const searchInputClasses = classNamesObject?.searchInput || "";
+  const itemClasses = classNamesObject?.items || "";
+  const separatorClasses = classNamesObject?.separator || "";
+
+  return {
+    enumClasses,
+    popoverWrapperClasses,
+    popoverClasses,
+    searchInputWrapperClasses,
+    searchIconClasses,
+    searchInputClasses,
+    itemClasses,
+    separatorClasses,
+  };
+};
 
 const EnumInput = React.memo(function EnumInput({
   emptyLabel = "No options found...",
@@ -41,8 +61,6 @@ const EnumInput = React.memo(function EnumInput({
   multiple = true,
   className = "",
 }: EnumInputInterface) {
-  const id = React.useId();
-
   const {
     queryEndpoint,
     filter,
@@ -66,15 +84,15 @@ const EnumInput = React.memo(function EnumInput({
   const isConfigDriven = configOptions.length > 0;
 
   const {
-    enum: enumClasses,
-    popoverWrapper: popoverWrapperClasses,
-    popover: popoverClasses,
-    searchInputWrapper: searchInputWrapperClasses,
-    searchIcon: searchIconClasses,
-    searchInput: searchInputClasses,
-    items: itemClasses,
-    separator: separatorClasses,
-  } = className;
+    enumClasses,
+    popoverWrapperClasses,
+    popoverClasses,
+    searchInputWrapperClasses,
+    searchIconClasses,
+    searchInputClasses,
+    itemClasses,
+    separatorClasses,
+  } = generateStylingClasses(className);
 
   const { sameGroup: samegroup, filters: dependentFilter } =
     getSameLevelConditions({
@@ -145,28 +163,32 @@ const EnumInput = React.memo(function EnumInput({
   }, [resetInput, defaultValues]);
 
   const handleSelect = (currentValue: string) => {
-    setValues(prev => {
+    setValues((prev) => {
       let newValues = [];
       if (multiple) {
         newValues = prev.includes(currentValue)
-          ? prev.filter(val => val !== currentValue)
+          ? prev.filter((val) => val !== currentValue)
           : [...prev, currentValue];
+        callback && callback(newValues);
       } else {
-        newValues = prev.includes(currentValue) ? [] : [currentValue];
+        newValues = newValues = prev.includes(currentValue)
+          ? []
+          : [currentValue];
+        callback && callback(newValues.join(","));
       }
-      callback && callback(newValues);
       return newValues;
     });
   };
 
   return (
-    <Popover open={open} onOpenChange={setOpen} key={id}>
+    <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <div
           className={cn(
-            "border-input shadow-xs dark:bg-popover relative flex items-center rounded-md border bg-white text-base outline-none transition-[color,box-shadow] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:text-gray-100",
-            "h-9 w-[200px] min-w-0 max-w-[300px] px-4 py-1",
-            values.length <= 0 && "text-muted-foreground dark:text-gray-300",
+            "relative flex items-center justify-start px-2 w-[200px] max-w-[300px] gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+            "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+            "border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
+            "h-9 px-4 py-2",
             enumClasses
           )}
           aria-expanded={open}
@@ -175,117 +197,96 @@ const EnumInput = React.memo(function EnumInput({
             {values && values.length > 0
               ? options.length > 0
                 ? options
-                    .filter(option => values.includes(option?.const))
-                    .map(option => option.title)
-                    .join(",")
+                  .filter((option) => values.includes(option?.const))
+                  .map((option) => option.title)
+                  .join(",")
                 : values.join(",")
               : placeholder}
           </div>
-          <div
-            role="button"
-            className="absolute right-2 h-4 w-4 cursor-pointer"
-            onClick={e => {
-              if (values?.length > 0) {
+          {values && values.length > 0 ? (
+            <div
+              className="h-4 w-4 absolute right-2 hover:bg-aaccent"
+              onClick={(e) => {
                 e.stopPropagation();
                 setValues([]);
-                callback?.("");
-              }
-            }}
-          >
-            {values?.length > 0 ? (
-              <X size={16} className="shrink-0 opacity-50" />
-            ) : (
-              <ChevronsUpDown size={16} className="shrink-0 opacity-50" />
-            )}
-          </div>
+                callback && callback("");
+              }}
+            >
+              <X className="shrink-0 opacity-50" />
+            </div>
+          ) : (
+            <div className="h-4 w-4 absolute right-2">
+              <ChevronsUpDown className="shrink-0 opacity-50 hover:bg-accent" />
+            </div>
+          )}
         </div>
       </PopoverTrigger>
       <PopoverContent
-        className={cn(
-          "w-[250px] max-w-[350px] p-0 text-xs",
-          popoverWrapperClasses
-        )}
+        className={cn("w-[200px] max-w-[320px] p-0", popoverWrapperClasses)}
         containerRef={filterContainerRef}
-        align="start"
       >
-        <Command className="justify-between">
-          <div>
-            <div
+        <Command>
+          <div
+            className={cn(
+              "flex items-center border-b px-3",
+              searchInputWrapperClasses
+            )}
+            cmdk-input-wrapper=""
+          >
+            <Search
               className={cn(
-                "flex items-center px-3",
-                searchInputWrapperClasses
+                "mr-2 h-4 w-4 shrink-0 opacity-50",
+                searchIconClasses
               )}
-              cmdk-input-wrapper=""
-            >
-              <Search
-                size={16}
-                strokeWidth={3}
-                className={cn("mr-2 shrink-0 opacity-50", searchIconClasses)}
-              />
-              <input
-                className={cn(
-                  "placeholder:text-muted-foreground flex h-9 w-full bg-transparent py-1 outline-none hover:bg-transparent disabled:cursor-not-allowed disabled:opacity-50",
-                  searchInputClasses
-                )}
-                placeholder={placeholder}
-                onChange={e => {
-                  setSearchQuery(e.target.value);
-                }}
-              />
-            </div>
-
-            <CommandSeparator className={cn(separatorClasses)} />
+            />
+            <input
+              className={cn(
+                "flex h-8 border-0 w-full bg-transparent py-1 text-sm outline-none placeholder:text-muted-foreground hover:bg-transparent disabled:cursor-not-allowed disabled:opacity-50",
+                searchInputClasses
+              )}
+              placeholder={placeholder}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+              }}
+            />
           </div>
+          <CommandSeparator className={separatorClasses} />
           <CommandList
             key={condition.attribute}
-            onScroll={e => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
-            className={cn(popoverClasses)}
+            onScroll={(e) =>
+              fetchMoreOnBottomReached(e.target as HTMLDivElement)
+            }
+            className={popoverClasses}
           >
             <CommandEmpty>
-              {isLoading || isFetching ? "Loading options" : `${emptyLabel}`}
+              {isLoading ? "Loading options" : emptyLabel}
             </CommandEmpty>
             <CommandGroup>
               {!isLoading &&
-                options.map(option => {
+                options.map((option) => {
                   return (
                     <CommandItem
                       key={option?.const}
                       value={option?.const}
-                      onSelect={value => {
-                        handleSelect(value);
+                      onSelect={(currentValue: string) => {
+                        handleSelect(currentValue);
                       }}
-                      className={cn(
-                        "hover:bg-accent data-[selected=true]:bg-transparent",
-                        itemClasses
-                      )}
+                      className={itemClasses}
                     >
-                      <StylisedCheckbox
-                        checked={values.includes(option?.const)}
+                      <Check
+                        className={cn(
+                          "mr-2 h-4 w-4",
+                          values.includes(option?.const)
+                            ? "opacity-100"
+                            : "opacity-0"
+                        )}
                       />
-                      <label className="max-w-[200px] overflow-hidden truncate whitespace-nowrap">
-                        {option?.title}
-                      </label>
+                      {option?.title}
                     </CommandItem>
                   );
                 })}
             </CommandGroup>
           </CommandList>
-          <div className="flex items-center justify-between px-3 py-2 pb-4 align-bottom">
-            <Button
-              className={cn(
-                "rounded-xs flex h-8 w-full cursor-pointer items-center justify-center text-sm",
-                "bg-black text-white hover:bg-black/80",
-                "dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-white/80",
-                "disabled:cursor-not-allowed disabled:opacity-50"
-              )}
-              onClick={() => {
-                setOpen(false);
-              }}
-              disabled={isLoading || options.length <= 0}
-            >
-              Confirm
-            </Button>
-          </div>
         </Command>
       </PopoverContent>
     </Popover>

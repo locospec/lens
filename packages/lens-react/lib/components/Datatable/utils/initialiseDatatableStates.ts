@@ -1,9 +1,9 @@
+import { useState } from "react";
 import type {
   ColumnPinningState,
   RowSelectionState,
   VisibilityState,
 } from "@tanstack/react-table";
-import { useState } from "react";
 
 const initialiseDatatableStates = ({
   tableSelectedItems,

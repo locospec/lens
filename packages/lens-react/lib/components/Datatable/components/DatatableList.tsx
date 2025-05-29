@@ -54,7 +54,7 @@ const DatatableList = () => {
     processSortPayload,
   } = useDatatableContext();
 
-  const renderSheet = setShowSheet ? true : false;
+  const renderSheet = showSheet && setShowSheet ? true : false;
 
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
     useInfiniteFetch({
