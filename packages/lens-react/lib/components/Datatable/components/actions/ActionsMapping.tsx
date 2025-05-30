@@ -63,7 +63,7 @@ const ActionsMapping = ({
   const confirmationState = confirmation ?? actionConfirmation ?? false;
 
   if (ActionComponent) {
-    return <React.Fragment key={key}>{ActionComponent}</React.Fragment>;
+    return <React.Fragment key={key}>{ActionComponent(row)}</React.Fragment>;
   }
 
   const [IconComponent, setIconComponent] = React.useState<any>(null);

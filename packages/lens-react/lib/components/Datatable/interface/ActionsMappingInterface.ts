@@ -37,7 +37,7 @@ interface ActionItem {
   confirmation?: boolean;
   callback?: (params: CallbackInterface) => void;
   options?: ActionOption[];
-  component?: React.ReactNode;
+  component?: (row: any) => JSX.Element;
 }
 
 interface ActionsMappingPropInterface {
