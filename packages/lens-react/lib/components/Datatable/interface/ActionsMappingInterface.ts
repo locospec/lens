@@ -1,5 +1,4 @@
 import { LucideProps } from "lucide-react";
-import React from "react";
 
 interface CallbackInterface {
   url: string;
@@ -38,7 +37,7 @@ interface ActionItem {
   confirmation?: boolean;
   callback?: (params: CallbackInterface) => void;
   options?: ActionOption[];
-  component?: (row: any) => React.JSX.Element;
+  component?: React.ReactNode;
 }
 
 interface ActionsMappingPropInterface {

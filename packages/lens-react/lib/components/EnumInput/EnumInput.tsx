@@ -164,8 +164,8 @@ const EnumInput = React.memo(function EnumInput({
       <PopoverTrigger asChild>
         <div
           className={cn(
-            "border-input shadow-xs dark:bg-popover relative flex items-center rounded-md border bg-white text-base outline-none transition-[color,box-shadow] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:text-gray-100",
-            "h-9 w-[200px] min-w-0 max-w-[300px] px-4 py-1",
+            "border-input shadow-xs dark:bg-popover relative flex items-center rounded-md border text-base outline-none transition-[color,box-shadow] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+            "h-9 w-[250px] min-w-0 max-w-[300px] px-4 py-1 dark:text-gray-100 bg-white ",
             values.length <= 0 && "text-muted-foreground dark:text-gray-300",
             enumClasses
           )}
@@ -224,14 +224,24 @@ const EnumInput = React.memo(function EnumInput({
               />
               <input
                 className={cn(
-                  "placeholder:text-muted-foreground flex h-9 w-full bg-transparent py-1 outline-none hover:bg-transparent disabled:cursor-not-allowed disabled:opacity-50",
+                  "placeholder:text-muted-foreground flex h-9 w-full bg-transparent py-1 outline-none hover:bg-transparent",
+                  "disabled:cursor-not-allowed disabled:opacity-50",
+                  "border-input ring-0 border-0",
                   searchInputClasses
                 )}
+                value={searchQuery}
                 placeholder={placeholder}
                 onChange={e => {
                   setSearchQuery(e.target.value);
                 }}
               />
+              {searchQuery?.length > 0 && (
+                <X
+                  size={16}
+                  className="shrink-0 opacity-50 cursor-pointer"
+                  onClick={() => setSearchQuery("")}
+                />
+              )}
             </div>
 
             <CommandSeparator className={cn(separatorClasses)} />
@@ -255,7 +265,7 @@ const EnumInput = React.memo(function EnumInput({
                         handleSelect(value);
                       }}
                       className={cn(
-                        "hover:bg-accent data-[selected=true]:bg-transparent",
+                        "hover:bg-accent hover:text-black data-[selected=true]:bg-transparent data-[selected=true]:text-black",
                         itemClasses
                       )}
                     >
