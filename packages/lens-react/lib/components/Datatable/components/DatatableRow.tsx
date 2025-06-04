@@ -23,7 +23,7 @@ const DatatableRow = ({
     <div
       className={cn(
         "group absolute top-0 flex w-full border-b border-dotted",
-        "border-gray-100 bg-white hover:bg-gray-100",
+        "border-gray-300 bg-white hover:bg-gray-100",
         "dark:border-gray-100 dark:bg-gray-700 dark:hover:bg-gray-800",
         variantClasses.row,
         classNames && classNames?.row
