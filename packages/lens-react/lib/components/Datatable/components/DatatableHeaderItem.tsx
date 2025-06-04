@@ -45,8 +45,8 @@ const DatatableHeaderItem = ({ header }: DatatableHeaderItemInterface) => {
     <div
       key={header.id}
       className={cn(
-        "group/header relative flex truncate px-2 py-2 text-xs",
-        "bg-gray-100 text-gray-500 hover:bg-gray-200",
+        "group/header relative flex truncate px-2 py-2 text-xs font-medium",
+        "bg-gray-50 text-gray-800 hover:bg-gray-100 cursor-pointer",
         "dark:bg-black dark:text-gray-100 dark:group-hover:bg-gray-800",
         variantClasses.header_cell,
         styles?.text,
