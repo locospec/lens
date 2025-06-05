@@ -26,12 +26,12 @@ const ResizeHandle = ({
       onDoubleClick={() => header.column.resetSize()}
       onMouseDown={resizeHandle}
       onTouchStart={resizeHandle}
-      onMouseEnter={() => {
-        setIsInResizeArea(true);
-      }}
-      onMouseLeave={() => {
-        setIsInResizeArea(false);
-      }}
+      // onMouseEnter={() => {
+      //   setIsInResizeArea(true);
+      // }}
+      // onMouseLeave={() => {
+      //   setIsInResizeArea(false);
+      // }}
       className={cn(
         "absolute top-0 right-0 z-20 flex h-full w-1 touch-none items-center justify-end select-none",
         disabled ? "cursor-not-allowed" : "cursor-ew-resize"
