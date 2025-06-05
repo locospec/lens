@@ -17,7 +17,6 @@ const DatatableHeaderItem = ({ header }: DatatableHeaderItemInterface) => {
     classNames,
     disableResizing,
     variantClasses,
-    isInResizeArea,
     setIsInResizeArea,
     sortPayload,
     setSortPayload,
@@ -41,10 +40,6 @@ const DatatableHeaderItem = ({ header }: DatatableHeaderItemInterface) => {
   const styles = getStyleClasses(align);
   const isAction = column.id === "actions";
   const isSelect = column.id === "select";
-
-  useEffect(() => {
-    setIsInResizeArea(header.column.getIsResizing());
-  }, [header.column.getIsResizing()]);
 
   return (
     <div
