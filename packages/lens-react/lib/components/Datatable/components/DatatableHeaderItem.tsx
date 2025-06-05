@@ -1,6 +1,6 @@
 import { cn } from "@lens/components/utils/cn.ts";
 import { flexRender } from "@tanstack/react-table";
-import { CSSProperties } from "react";
+import { CSSProperties, useEffect } from "react";
 import { useDatatableContext } from "../context/useDatatableContext.ts";
 import { getColumnPinningStyles } from "../hooks/getColumnPinningStyles.ts";
 import { getStyleClasses } from "../utils/getStylesClassesForDataTable.ts";
@@ -17,6 +17,7 @@ const DatatableHeaderItem = ({ header }: DatatableHeaderItemInterface) => {
     classNames,
     disableResizing,
     variantClasses,
+    isInResizeArea,
     setIsInResizeArea,
     sortPayload,
     setSortPayload,
@@ -41,13 +42,18 @@ const DatatableHeaderItem = ({ header }: DatatableHeaderItemInterface) => {
   const isAction = column.id === "actions";
   const isSelect = column.id === "select";
 
+  useEffect(() => {
+    setIsInResizeArea(header.column.getIsResizing());
+  }, [header.column.getIsResizing()]);
+
   return (
     <div
       key={header.id}
       className={cn(
         "group/header relative flex truncate px-2 py-2 text-xs font-medium",
-        "bg-gray-50 text-gray-800 hover:bg-gray-100 cursor-pointer",
+        "bg-gray-50 text-gray-800 cursor-pointer",
         "dark:bg-black dark:text-gray-100 dark:group-hover:bg-gray-800",
+        "group-data-[resizing=false]:hover:bg-gray-100",
         variantClasses.header_cell,
         styles?.text,
         isSelect && "flex items-center justify-center",

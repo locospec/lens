@@ -12,7 +12,7 @@ const DataTableHeader = ({
   headerGroup,
   columnOrder,
 }: TableHeaderInterface) => {
-  const { classNames, variantClasses } = useDatatableContext();
+  const { classNames, variantClasses, isInResizeArea } = useDatatableContext();
 
   return (
     <div
@@ -25,6 +25,7 @@ const DataTableHeader = ({
         variantClasses.header_row,
         classNames && classNames?.headers
       )}
+      data-resizing={isInResizeArea}
     >
       {headerGroup.headers.map(header => {
         return (
