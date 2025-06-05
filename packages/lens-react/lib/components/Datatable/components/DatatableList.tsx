@@ -181,12 +181,14 @@ const DatatableList = () => {
       >
         <div
           id="table-body-wrapper"
+          className="group data-[resizing=true]:cursor-ew-resize!"
           style={{
             ...columnSizeVars,
             width: "100%",
             height: `${rowVirtualizer.getTotalSize()}px`,
             minWidth: `${table.getTotalSize()}px`,
           }}
+          data-resizing={isResizing ? true : false}
         >
           <DatatableHeaderSection table={table} columnOrder={columnOrder} />
           {isResizing ? (
