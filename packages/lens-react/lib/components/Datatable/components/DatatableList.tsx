@@ -52,6 +52,7 @@ const DatatableList = () => {
     setShowSheet,
     sortPayload,
     processSortPayload,
+    readPerPage,
   } = useDatatableContext();
 
   const renderSheet = setShowSheet ? true : false;
@@ -69,6 +70,7 @@ const DatatableList = () => {
       },
       globalFilter: searchQuery,
       dataCallback: dataCallback,
+      perPage: readPerPage,
     });
 
   useEffect(() => {
@@ -181,7 +183,7 @@ const DatatableList = () => {
       >
         <div
           id="table-body-wrapper"
-          className="group data-[resizing=true]:cursor-ew-resize!"
+          className="data-[resizing=true]:cursor-ew-resize! group"
           style={{
             ...columnSizeVars,
             width: "100%",

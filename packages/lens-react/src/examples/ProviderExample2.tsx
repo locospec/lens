@@ -15,7 +15,12 @@ const ProviderExample = () => {
     view: "default_view",
   };
 
-  return <LensProvider lensConfiguration={lensConfig3} />;
+  return (
+    <LensProvider
+      lensConfiguration={lensConfig3}
+      tableProps={{ readPerPage: 30 }}
+    />
+  );
 };
 
 export default ProviderExample;
