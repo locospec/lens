@@ -135,7 +135,8 @@ const DatatableList = () => {
     selectedRows,
     setSelectedRows,
     onSelect,
-    table
+    table,
+    identifierKey
   );
 
   if (!isColumnsReady) {
