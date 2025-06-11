@@ -1,6 +1,6 @@
 import { cn } from "@lens/components/utils/cn.ts";
 import { flexRender } from "@tanstack/react-table";
-import { CSSProperties, useEffect } from "react";
+import { CSSProperties } from "react";
 import { useDatatableContext } from "../context/useDatatableContext.ts";
 import { getColumnPinningStyles } from "../hooks/getColumnPinningStyles.ts";
 import { getStyleClasses } from "../utils/getStylesClassesForDataTable.ts";
@@ -17,7 +17,6 @@ const DatatableHeaderItem = ({ header }: DatatableHeaderItemInterface) => {
     classNames,
     disableResizing,
     variantClasses,
-    setIsInResizeArea,
     sortPayload,
     setSortPayload,
     enableSorting,
@@ -46,7 +45,7 @@ const DatatableHeaderItem = ({ header }: DatatableHeaderItemInterface) => {
       key={header.id}
       className={cn(
         "group/header relative flex truncate px-2 py-2 text-xs font-medium",
-        "bg-gray-50 text-gray-800 cursor-pointer",
+        "cursor-pointer bg-gray-50 text-gray-800",
         "dark:bg-black dark:text-gray-100 dark:group-hover:bg-gray-800",
         "group-data-[resizing=false]:hover:bg-gray-100",
         variantClasses.header_cell,
@@ -78,7 +77,6 @@ const DatatableHeaderItem = ({ header }: DatatableHeaderItemInterface) => {
         <ResizeHandle
           header={header}
           isResizing={header.column.getIsResizing()}
-          setIsInResizeArea={setIsInResizeArea}
           disabled={!enableResizeHandler}
           isLast={isLast}
         />
