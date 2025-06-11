@@ -24,7 +24,6 @@ export interface DatatableInterface {
   cellRenderer?: CellRendererMap;
   rowAction?: any;
   enableSorting?: boolean;
-  readPerPage?: number;
 }
 
 const Datatable: React.FC<DatatableInterface> = ({
@@ -43,7 +42,6 @@ const Datatable: React.FC<DatatableInterface> = ({
   cellRenderer,
   rowAction,
   enableSorting = false,
-  readPerPage = 10,
 }) => {
   return (
     <DataTableLensContextProvider
@@ -62,7 +60,6 @@ const Datatable: React.FC<DatatableInterface> = ({
       cellRenderer={cellRenderer}
       rowAction={rowAction}
       enableSorting={enableSorting}
-      readPerPage={readPerPage}
     >
       <DatatableList />
     </DataTableLensContextProvider>

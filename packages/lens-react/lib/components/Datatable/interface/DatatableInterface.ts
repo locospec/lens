@@ -85,11 +85,11 @@ interface TableConfigInterface {
 }
 
 export type {
-  ActionOption,
-  ActionsConfig,
-  AlignType,
-  ColumnConfigInterface,
   MethodTypes,
   SelectionType,
+  AlignType,
+  ColumnConfigInterface,
   TableConfigInterface,
+  ActionOption,
+  ActionsConfig,
 };

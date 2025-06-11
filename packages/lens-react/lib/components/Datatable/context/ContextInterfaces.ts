@@ -67,7 +67,6 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   setSortPayload: React.Dispatch<React.SetStateAction<SortPayloadType>>;
   processSortPayload?: any;
   enableSorting?: any;
-  readPerPage?: number;
 }
 
 interface DataTableLensContextProviderInterface

@@ -114,7 +114,6 @@ const DataTableLensContextProvider: React.FC<
   cellOverflow,
   cellRenderer,
   rowAction,
-  readPerPage = 10,
 }) => {
   const lensContext = useLensContext();
   const viewContext = useViewContext();
@@ -206,7 +205,6 @@ const DataTableLensContextProvider: React.FC<
       sortPayload={sortPayload}
       setSortPayload={setSortPayload}
       processSortPayload={processSortPayload}
-      readPerPage={readPerPage}
     >
       {isFetched ? (
         isError ? (

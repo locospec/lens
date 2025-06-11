@@ -21,7 +21,6 @@ export interface UseInfiniteFetchParams {
   refreshDep?: (string | number | boolean)[];
   body?: Record<string, any>;
   context?: () => { dataEndpointHeaders?: Record<string, string> };
-  perPage?: number;
 }
 
 const useInfiniteFetch = ({
@@ -33,7 +32,6 @@ const useInfiniteFetch = ({
   dataCallback,
   refreshDep: customRefreshDep,
   context,
-  perPage = 10,
 }: UseInfiniteFetchParams) => {
   const lensContext = useContext(LensContext);
   if (!lensContext) {
@@ -83,7 +81,7 @@ const useInfiniteFetch = ({
       body: JSON.stringify({
         pagination: {
           type: "cursor",
-          per_page: perPage ?? 10,
+          per_page: 10,
           cursor: pageParam,
         },
         search: globalFilter,
