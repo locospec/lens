@@ -1,3 +1,36 @@
+# v0.4.0 (Wed Jun 11 2025)
+
+#### 🚀 Enhancement
+
+- Contribute changes from local to source [#191](https://github.com/locospec/lens/pull/191) ([@rjvim](https://github.com/rjvim))
+- feat: contribute changes from local to source ([@rjvim](https://github.com/rjvim))
+- Contribute changes from local to source [#190](https://github.com/locospec/lens/pull/190) ([@rjvim](https://github.com/rjvim))
+- Contribute changes from local to source [#189](https://github.com/locospec/lens/pull/189) ([@rjvim](https://github.com/rjvim))
+- Contribute changes from local to source [#188](https://github.com/locospec/lens/pull/188) ([@rjvim](https://github.com/rjvim))
+- feat: contribute changes from local to source [#187](https://github.com/locospec/lens/pull/187) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: use React.JSX [#185](https://github.com/locospec/lens/pull/185) ([@rjvim](https://github.com/rjvim))
+- chore: Action mapping to accept a JSX Element function [#184](https://github.com/locospec/lens/pull/184) ([@rjvim](https://github.com/rjvim))
+- feat: contribute changes from local to source [#183](https://github.com/locospec/lens/pull/183) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: contribute changes from local to source [#181](https://github.com/locospec/lens/pull/181) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Contribute changes from local to source [#180](https://github.com/locospec/lens/pull/180) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- feat: contribute changes from local to source ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### 🐛 Bug Fix
+
+- chore: Removed unused imports [#192](https://github.com/locospec/lens/pull/192) ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- choe: fixed issue with pinned cell hover issue ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: props fallthrough ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: added perPage props for useInfinite fetch query ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- Merge branch 'main' into contribute-2025-05-28 ([@ShreyDhyani](https://github.com/ShreyDhyani))
+- chore: fix for showing resize handler in Datatable header items ([@ShreyDhyani](https://github.com/ShreyDhyani))
+
+#### Authors: 2
+
+- [@ShreyDhyani](https://github.com/ShreyDhyani)
+- Rajiv Seelam ([@rjvim](https://github.com/rjvim))
+
+---
+
 # v0.3.2 (Wed May 28 2025)
 
 #### 🐛 Bug Fix
