@@ -56,7 +56,7 @@ const DatatableCell = ({ cell }: DatatableCellProps) => {
         variantClasses.cell,
         isPinned &&
           cn(
-            "border-gray-100 bg-white group-hover:bg-gray-100",
+            "border-gray-100 bg-white group-hover/row:bg-gray-100",
             "dark:border-gray-100 dark:bg-gray-700 dark:group-hover:bg-gray-800",
             variantClasses.pinned_cells
           ),
