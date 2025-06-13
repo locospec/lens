@@ -43,7 +43,7 @@ const DatatableList = () => {
     searchQuery,
     viewId,
     modalName,
-    viewName,
+    queryName,
     expand,
     allowedScopes,
     variantClasses,
@@ -62,7 +62,7 @@ const DatatableList = () => {
       queryKey: `${modalName}-${viewId}`,
       body: {
         filters: getProcessedFilters(filters),
-        view: viewName,
+        query: queryName,
         ...(expand.length > 0 && { expand }),
         ...(allowedScopes &&
           allowedScopes.length > 0 && { scopes: allowedScopes }),
@@ -184,7 +184,7 @@ const DatatableList = () => {
       >
         <div
           id="table-body-wrapper"
-          className="data-[resizing=true]:cursor-ew-resize! group"
+          className="group data-[resizing=true]:cursor-ew-resize!"
           style={{
             ...columnSizeVars,
             width: "100%",

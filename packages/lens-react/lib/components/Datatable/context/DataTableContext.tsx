@@ -139,7 +139,7 @@ const DataTableLensContextProvider: React.FC<
   const { dataCallback, permissionHeaders } = lensConfiguration;
 
   const { filters, searchQuery, viewChildRef, config } = viewContext;
-  const viewName = config?.name || "default_view";
+  const queryName = config?.name || "default_query";
 
   if (cellActions) {
     const visibleAttributes =
@@ -190,7 +190,7 @@ const DataTableLensContextProvider: React.FC<
       modalName={modal_name}
       viewChildRef={viewChildRef}
       cellActions={cellActions}
-      viewName={viewName}
+      queryName={queryName}
       expand={expand}
       allowedScopes={allowedScopes}
       variant={variant}
