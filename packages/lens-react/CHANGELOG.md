@@ -1,3 +1,15 @@
+# v0.5.0 (Fri Jun 13 2025)
+
+#### 🚀 Enhancement
+
+- feat: contribute changes from local to source [#193](https://github.com/locospec/lens/pull/193) ([@rajeshn95](https://github.com/rajeshn95))
+
+#### Authors: 1
+
+- Rajesh Nautiyal ([@rajeshn95](https://github.com/rajeshn95))
+
+---
+
 # v0.4.0 (Wed Jun 11 2025)
 
 #### 🚀 Enhancement
