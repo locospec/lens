@@ -49,7 +49,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   searchQuery?: string;
   viewChildRef?: React.RefObject<HTMLDivElement | null>;
   cellActions?: any;
-  viewName: string;
+  queryName: string;
   expand: string[];
   allowedScopes?: string[];
   actionsMapping?: ActionsMappingPropInterface;
