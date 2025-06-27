@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import type {
   FilterGroup,
   GroupOperator,
@@ -9,114 +9,107 @@ export interface useFilterFunctionProps {
   callback?: (filter: any) => any;
 }
 
+function cloneFilterGroup(group: FilterGroup): FilterGroup {
+  return {
+    op: group.op,
+    conditions: group.conditions.map(cond =>
+      "conditions" in cond ? cloneFilterGroup(cond as FilterGroup) : { ...cond }
+    ),
+  };
+}
+
+function getGroupAtPath(root: FilterGroup, path: number[]): FilterGroup {
+  return path.reduce((acc, idx) => acc.conditions[idx] as FilterGroup, root);
+}
+
+function isGroup(item: any): item is FilterGroup {
+  return "conditions" in item;
+}
+
 const useFilterFunctions = ({
   setFilter,
   callback,
 }: useFilterFunctionProps) => {
-  const addCondition = useCallback((parentPath: number[] = []) => {
-    setFilter(current => {
-      const newFilter = { ...current };
-      let target = newFilter;
-      for (const index of parentPath) {
-        target = target.conditions[index] as FilterGroup;
-      }
-      target.conditions.push({ attribute: "", op: undefined, value: "" });
-      callback && callback(newFilter);
-      return newFilter;
-    });
-  }, []);
-
-  const addGroup = useCallback((parentPath: number[] = []) => {
-    setFilter(current => {
-      const newFilter = { ...current };
-      let target = newFilter;
-
-      for (const index of parentPath) {
-        target = target.conditions[index] as FilterGroup;
-      }
-
-      target.conditions.push({
-        op: "and",
-        conditions: [
-          {
-            attribute: "",
-            op: undefined,
-            value: "",
-          },
-        ],
+  const addCondition = useCallback(
+    (parentPath: number[] = []) => {
+      setFilter(current => {
+        const newFilter = cloneFilterGroup(current);
+        const target = getGroupAtPath(newFilter, parentPath);
+        target.conditions.push({ attribute: "", op: undefined, value: "" });
+        callback?.(newFilter);
+        return newFilter;
       });
+    },
+    [setFilter, callback]
+  );
 
-      callback && callback(newFilter);
-      return newFilter;
-    });
-  }, []);
+  const addGroup = useCallback(
+    (parentPath: number[] = []) => {
+      setFilter(current => {
+        const newFilter = cloneFilterGroup(current);
+        const target = getGroupAtPath(newFilter, parentPath);
 
-  const removeItem = useCallback((path: number[]) => {
-    setFilter(current => {
-      const newFilter = { ...current };
-      let target = newFilter;
+        target.conditions.push({
+          op: "and",
+          conditions: [
+            {
+              attribute: "",
+              op: undefined,
+              value: "",
+            },
+          ],
+        });
 
-      for (let i = 0; i < path.length - 1; i++) {
-        target = target.conditions[path[i]] as FilterGroup;
-      }
+        callback?.(newFilter);
+        return newFilter;
+      });
+    },
+    [setFilter, callback]
+  );
 
-      target.conditions.splice(path[path.length - 1], 1);
-
-      callback && callback(newFilter);
-      return newFilter;
-    });
-  }, []);
+  const removeItem = useCallback(
+    (path: number[]) => {
+      setFilter(current => {
+        const newFilter = cloneFilterGroup(current);
+        const target = getGroupAtPath(newFilter, path.slice(0, -1));
+        target.conditions.splice(path[path.length - 1], 1);
+        callback?.(newFilter);
+        return newFilter;
+      });
+    },
+    [setFilter, callback]
+  );
 
   const updateCondition = useCallback(
     (path: number[], field: string, value: any) => {
       setFilter(current => {
-        const newFilter = { ...current };
+        const newFilter = cloneFilterGroup(current);
 
         if (path.length === 0) {
-          return {
-            ...newFilter,
-            [field]: value,
-          };
+          return { ...newFilter, [field]: value };
         }
 
-        let target = newFilter;
-
-        for (let i = 0; i < path.length - 1; i++) {
-          target = target.conditions[path[i]] as FilterGroup;
-        }
-
+        const target = getGroupAtPath(newFilter, path.slice(0, -1));
         const lastIndex = path[path.length - 1];
         const item = target.conditions[lastIndex];
 
-        if ("conditions" in item) {
-          target.conditions[lastIndex] = {
-            ...item,
-            [field]: value,
-          };
+        if (isGroup(item)) {
+          target.conditions[lastIndex] = { ...item, [field]: value };
         } else {
+          const updated = { ...item, [field]: value };
+
           if (field === "attribute") {
-            target.conditions[lastIndex] = {
-              [field]: value,
-            };
-          } else if (field === "op") {
-            target.conditions[lastIndex] = {
-              attribute: item.attribute,
-              [field]: value,
-            };
-          } else {
-            // HERE WE CAN ADD OR MODIFY LOGIC FOR WHEN FIELD "value" IS CHANGED
-            target.conditions[lastIndex] = {
-              ...item,
-              [field]: value,
-            };
+            updated.op = undefined;
           }
+
+          target.conditions[lastIndex] = updated;
         }
 
-        callback && callback(newFilter);
+        callback?.(newFilter);
         return newFilter;
       });
     },
-    []
+    [setFilter, callback]
   );
 
   const clearAll = useCallback(() => {
@@ -125,10 +118,19 @@ const useFilterFunctions = ({
       conditions: [],
     };
     setFilter(newFilter);
-    callback && callback(newFilter);
+    callback?.(newFilter);
   }, [setFilter, callback]);
 
-  return { addCondition, addGroup, removeItem, updateCondition, clearAll };
+  return useMemo(
+    () => ({
+      addCondition,
+      addGroup,
+      removeItem,
+      updateCondition,
+      clearAll,
+    }),
+    [addCondition, addGroup, removeItem, updateCondition, clearAll]
+  );
 };
 
 export default useFilterFunctions;
