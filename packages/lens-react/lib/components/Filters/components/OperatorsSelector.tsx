@@ -46,6 +46,11 @@ const OperatorsSelector = ({
           updateCondition(path, "value", "");
         }
       }
+      if (value === "is_empty" || value === "is_not_empty") {
+        updateCondition(path, "op", value);
+        updateCondition(path, "value", []);
+        return;
+      }
       updateCondition(path, "op", value);
     },
     [updateCondition, path]

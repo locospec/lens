@@ -9,7 +9,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@lens/base/components/ui/popover";
 import { PopoverClose } from "@radix-ui/react-popover";
 
 export interface LensDefaultChildrenInterface {
@@ -90,7 +90,7 @@ const Component: React.FC<LensDefaultChildrenInterface> = ({ tableProps }) => {
                   <FilterBuilder
                     maxDepth={2}
                     showAdvancedOption
-                    showFilterJSON={false}
+                    // showFilterJSON={false}
                     wrapperClassName="border-0"
                   />
                 </PopoverContent>
