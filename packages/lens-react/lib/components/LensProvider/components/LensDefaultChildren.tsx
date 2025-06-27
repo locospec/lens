@@ -1,6 +1,6 @@
 import { cn } from "@lens/base/lib/utils";
 import { Datatable, SearchInput, SimpleFilters, View } from "@lens/main";
-import { ListFilterIcon, SettingsIcon, SquareActivity, X } from "lucide-react";
+import { ListFilterIcon, SettingsIcon, X } from "lucide-react";
 import React from "react";
 import TopbarCTA from "./TopbarCTA";
 import { useViewContext } from "../../Views/View";
