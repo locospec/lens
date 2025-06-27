@@ -30,7 +30,7 @@ const ConditionComponent: React.FC<ConditionProps> = ({
   );
 
   const already_used_conditions = useMemo(
-    () => conditions.map((c) => c.attribute),
+    () => conditions.map(c => c.attribute),
     [JSON.stringify(conditions)]
   );
 

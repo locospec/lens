@@ -55,7 +55,7 @@ const useInfiniteFetch = ({
 
   const queryKey = customQueryKey ?? modal_name;
   const globalFilter = customGlobalFilter ?? searchQuery;
-  const body = customBody ?? { filters: getProcessedFilters(filters) };
+  const body = customBody ?? { filters: getProcessedFilters(filters).cleaned };
   const refreshDep = customRefreshDep ?? [queryKey, globalFilter];
   const keepPreviousData = customKeepPreviousData ?? true;
   const { permissionHeaders: headers } = lensConfiguration;

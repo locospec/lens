@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import { AttributeDefinitionType } from "../interfaces";
 import type { Condition } from "../interfaces";
+import type { AttributeDefinitionType } from "../../Datatable/interface/DatatableInterface";
 import { DatePicker } from "@lens/base/components/ui/datepicker";
 import NumberInput from "@lens/components/NumberInput/NumberInput";
 import NumberRangeInput from "@lens/components/NumberRangeInput/NumberRangeInput";
@@ -36,7 +36,7 @@ const ValueInputRenderer = ({
     [updateCondition, path]
   );
 
-  if (selectedAttribute.type === "string") {
+  if (["string", "text"].includes(selectedAttribute.type)) {
     return (
       <TextInput
         placeholder={selectedAttribute?.label}
@@ -48,7 +48,7 @@ const ValueInputRenderer = ({
     );
   }
 
-  if (selectedAttribute.type === "number") {
+  if (["integer", "decimal"].includes(selectedAttribute.type)) {
     if (condition.op === "between" || condition.op === "not_between") {
       return (
         <NumberRangeInput
@@ -69,7 +69,7 @@ const ValueInputRenderer = ({
     );
   }
 
-  if (selectedAttribute.type === "date") {
+  if (["date", "timestamp"].includes(selectedAttribute.type)) {
     return (
       <DatePicker
         containerRef={filterContainerRef}

@@ -57,7 +57,7 @@ export const GROUP_OPERATORS: OperatorsList = [
 export const returnOperators = (type: AttributeTypes, isNullable: boolean) => {
   let returnList = TYPE_OPERATORS_MAP[type];
   if (isNullable) {
-    returnList = [...returnList, ...NULL_OPERATORS];
+    returnList = [...(returnList ?? []), ...NULL_OPERATORS];
   }
   return returnList;
 };
@@ -66,6 +66,9 @@ export const TYPE_OPERATORS_MAP: TypeOperatorsMap = {
   boolean: BOOLEAN_OPERATORS,
   enum: ENUM_OPERATORS,
   string: STRING_OPERATORS,
-  number: NUMBER_OPERATORS,
+  text: STRING_OPERATORS,
+  integer: NUMBER_OPERATORS,
+  decimal: NUMBER_OPERATORS,
   date: DATE_OPERATORS,
+  timestamp: DATE_OPERATORS,
 };

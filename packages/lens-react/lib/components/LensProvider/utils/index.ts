@@ -1,2 +1,5 @@
 export { getProcessedFilters } from "./getProcessedFilters";
-export { cleanConditions, cleanFilterGroup } from "./cleanFilters";
+export {
+  cleanFilterGroupWithCount,
+  cleanConditionsWithCount,
+} from "./cleanFilters";

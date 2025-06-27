@@ -5,6 +5,7 @@ type FilterVariants = "surface" | "soft" | "classic";
 
 interface FilterBuilderProps {
   maxDepth?: number;
+  wrapperClassName?: string;
   showFilterJSON?: boolean;
   size?: FilterSizes;
   variant?: FilterVariants;

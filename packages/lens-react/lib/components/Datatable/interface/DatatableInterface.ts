@@ -1,4 +1,12 @@
-export type AttributeTypes = "string" | "number" | "boolean" | "date" | "enum";
+export type AttributeTypes =
+  | "string"
+  | "text"
+  | "integer"
+  | "decimal"
+  | "boolean"
+  | "date"
+  | "timestamp"
+  | "enum";
 export type FixedType = false | "left" | "right";
 
 export interface AttributeDefinitionType {

@@ -28,6 +28,15 @@ const useConvertToTanstackTableConfig = ({
     };
   });
 
+  const all_filters: any = {};
+  Object.keys(attributes).forEach(key => {
+    all_filters[key] = {
+      label: attributes[key].label,
+      type: attributes[key].type,
+      isNullable: true,
+    };
+  });
+
   const processed_filters: any = {};
   Object.keys(filters).forEach(key => {
     processed_filters[key] = {
@@ -52,6 +61,8 @@ const useConvertToTanstackTableConfig = ({
     }
   });
 
+  const merged_filters = { ...all_filters, ...processed_filters };
+
   const processedConfig: any = {
     default: {
       name: configData.name,
@@ -63,6 +74,7 @@ const useConvertToTanstackTableConfig = ({
       serialize: configData?.serialize || false,
       columns: processed_columns,
       filters: processed_filters,
+      all_filters: merged_filters ?? {},
       allowedScopes: configData?.allowedScopes || [],
     },
   };

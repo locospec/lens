@@ -3,11 +3,13 @@ import React, {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useRef,
   useState,
 } from "react";
 import type { ViewContextType, ViewProviderProps } from "./types";
+import { getProcessedFilters } from "../../LensProvider/utils";
 
 export const ViewContext = createContext<ViewContextType | undefined>(
   undefined
@@ -37,6 +39,7 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
 
   const [filters, setFilters] = useState<any>({ op: "and", conditions: [] });
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [filtersCount, setFiltersCount] = useState(0);
 
   const memoizedContextValues = useMemo(
     () => ({
@@ -58,14 +61,19 @@ export const ViewProvider: React.FC<ViewProviderProps> = ({
     []
   );
 
+  useEffect(() => {
+    setFiltersCount(getProcessedFilters(filters).count ?? 0);
+  }, [JSON.stringify(getProcessedFilters(filters).cleaned)]);
+
   const memoizedDynamicValues = useMemo(
     () => ({
       filters,
       setFilters: updateFilters,
       search: updateSearchQuery,
       searchQuery,
+      filtersCount,
     }),
-    [filters, searchQuery, updateFilters, updateSearchQuery]
+    [filters, searchQuery, updateFilters, updateSearchQuery, filtersCount]
   );
 
   return (

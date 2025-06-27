@@ -3,6 +3,7 @@ interface ViewContextType {
   contextId: string;
   viewId: string;
   filters: any;
+  filtersCount: any;
   setFilters: React.Dispatch<any>;
   search: (query: string) => void;
   config: any;
