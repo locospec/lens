@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import useFilterFunctions from "@lens/components/LensProvider/hooks/useFilterFunction";
 import { JsonHighlighter } from "@lens/components/JsonHighlighter";
 import { useViewContext } from "@lens/components/Views/View";
-import { cn } from "@/lib/utils";
+import { cn } from "@lens/base/lib/utils";
 
 const queryClient = new QueryClient();
 
