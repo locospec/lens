@@ -61,7 +61,7 @@ const DatatableList = () => {
     useInfiniteFetch({
       queryKey: `${modalName}-${viewId}`,
       body: {
-        filters: getProcessedFilters(filters),
+        filters: getProcessedFilters(filters).cleaned,
         query: queryName,
         ...(expand.length > 0 && { expand }),
         ...(allowedScopes &&
@@ -75,7 +75,10 @@ const DatatableList = () => {
 
   useEffect(() => {
     refetch();
-  }, [JSON.stringify(filters), JSON.stringify(sortPayload)]);
+  }, [
+    JSON.stringify(getProcessedFilters(filters).cleaned),
+    JSON.stringify(sortPayload),
+  ]);
 
   const handleDragEnd = useCallback(
     createHandleDragEnd({

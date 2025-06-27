@@ -1,3 +1,4 @@
+import React, { useState, useEffect, useRef } from "react";
 import { Input } from "@lens/base/components/ui/input";
 
 export interface TextInputInterface {
@@ -5,6 +6,7 @@ export interface TextInputInterface {
   value: string;
   onUpdateCallback: (val: string) => void;
   className?: string;
+  debounceMs?: number;
 }
 
 const TextInput = ({
@@ -12,15 +14,39 @@ const TextInput = ({
   value = "",
   onUpdateCallback,
   className = "",
+  debounceMs = 300,
 }: TextInputInterface) => {
+  const [internalValue, setInternalValue] = useState(value);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    setInternalValue(value);
+  }, [value]);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const next = e.target.value;
+    setInternalValue(next);
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      onUpdateCallback(next);
+    }, debounceMs);
+  };
+
   return (
     <Input
       placeholder={placeholder}
-      value={value}
-      onChange={(e) => {
-        onUpdateCallback(e.target.value);
-      }}
-      type={"text"}
+      value={internalValue}
+      onChange={handleChange}
+      type="text"
       className={className}
     />
   );

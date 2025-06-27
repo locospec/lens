@@ -42,6 +42,7 @@ interface FiltersContextProviderInterface extends CommonWrapperInterface {
   addCondition: (parentPath?: number[]) => void;
   addGroup: (parentPath?: number[]) => void;
   removeItem: (path: number[]) => void;
+  clearAll: () => void;
 }
 
 export type {

@@ -41,16 +41,18 @@ const FilterContextProvider: React.FC<FiltersContextProviderInterface> = ({
   }
   const { config, filters } = viewContext;
 
-  let filtersConfig = config?.filters || undefined;
+  let filtersConfig = config?.all_filters || undefined;
 
   // If filters config does not exists
-  if (!filtersConfig) {return null;}
+  if (!filtersConfig) {
+    return null;
+  }
 
   const { permissionHeaders = {} } = lensConfiguration;
   const queryEndpoint = endpoints.read_relation_option;
 
   const attributesArray = useMemo(() => {
-    return Object.keys(filtersConfig).map((key) => {
+    return Object.keys(filtersConfig).map(key => {
       return { value: key, ...filtersConfig[key] };
     });
   }, [JSON.stringify(filtersConfig)]);

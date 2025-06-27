@@ -8,7 +8,7 @@ const RawDisplay: React.FC = () => {
   const { flatData, fetchNextPage, hasNextPage, isFetching, refetch } =
     useInfiniteFetch({
       globalFilter: searchQuery,
-      body: { filters: getProcessedFilters(filters) },
+      body: { filters: getProcessedFilters(filters).cleaned },
     });
   const ref = viewChildRef || useRef<any>({});
 

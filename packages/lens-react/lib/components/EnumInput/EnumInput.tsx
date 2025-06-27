@@ -98,7 +98,7 @@ const EnumInput = React.memo(function EnumInput({
     keepPreviousData: true,
     body: {
       relation: modelName,
-      filters: getProcessedFilters(dependentFilter),
+      filters: getProcessedFilters(dependentFilter).cleaned,
       ...(allowedScopes &&
         allowedScopes.length > 0 && { scopes: allowedScopes }),
     },

@@ -121,7 +121,7 @@ const SelectOptions = React.memo(function SelectOptions({
     keepPreviousData: true,
     body: {
       relation: modelName,
-      filters: getProcessedFilters(dependentFilter),
+      filters: getProcessedFilters(dependentFilter).cleaned,
     },
     context: () => ({ dataEndpointHeaders: permissionHeaders }),
   });

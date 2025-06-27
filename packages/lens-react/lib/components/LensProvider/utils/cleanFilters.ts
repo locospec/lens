@@ -1,38 +1,56 @@
 import { Condition, FilterGroup } from "../interfaces/FiltersInterface";
 
-const cleanConditions = (
+type CleanResult = {
+  cleaned: Condition | FilterGroup | null;
+  count: number;
+};
+
+const cleanConditionsWithCount = (
   condition: Condition | FilterGroup
-): Condition | FilterGroup | null => {
+): CleanResult => {
   if ("conditions" in condition) {
-    condition.conditions = condition.conditions
-      .map(cleanConditions)
-      .filter((cond) => cond !== null);
+    let totalCount = 0;
 
-    if (condition.conditions.length === 0) {
-      return null;
+    const cleanedConditions = condition.conditions
+      .map(cleanConditionsWithCount)
+      .filter(result => {
+        totalCount += result.count;
+        return result.cleaned !== null;
+      })
+      .map(result => result.cleaned!) as (Condition | FilterGroup)[];
+
+    if (cleanedConditions.length === 0) {
+      return { cleaned: null, count: 0 };
     }
+
+    return {
+      cleaned: { ...condition, conditions: cleanedConditions },
+      count: totalCount,
+    };
   } else {
-    if (
-      condition.value === "" ||
-      condition.value === null ||
-      (Array.isArray(condition.value) && condition.value.length === 0)
-    ) {
-      return null;
-    }
+    const hasAttribute = !!condition.attribute;
+    const isEmptyOp =
+      condition.op === "is_empty" || condition.op === "is_not_empty";
+    const hasValue =
+      "value" in condition &&
+      !(
+        condition.value === "" ||
+        condition.value === null ||
+        (Array.isArray(condition.value) && condition.value.length === 0)
+      );
+
+    const isValid = hasAttribute && !!condition.op && (isEmptyOp || hasValue);
+
+    return {
+      cleaned: isValid ? condition : null,
+      count: isValid ? 1 : 0,
+    };
   }
-
-  return condition;
 };
 
-const cleanFilterGroup = (group: FilterGroup): FilterGroup => {
-  group.conditions = group.conditions
-    .map(cleanConditions)
-    .filter((cond) => cond !== null) as (Condition | FilterGroup)[];
-
-  return group;
+const cleanFilterGroupWithCount = (group: FilterGroup) => {
+  const result = cleanConditionsWithCount(group);
+  return result;
 };
 
-cleanConditions.displayName = "cleanConditions";
-cleanFilterGroup.displayName = "cleanFilterGroup";
-
-export { cleanConditions, cleanFilterGroup };
+export { cleanConditionsWithCount, cleanFilterGroupWithCount };

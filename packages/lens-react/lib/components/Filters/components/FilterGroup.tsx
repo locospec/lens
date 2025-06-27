@@ -13,6 +13,7 @@ export interface FilterGroupProps {
   onAddGroup: (path: number[]) => void;
   onRemove: (path: number[]) => void;
   onUpdate: (path: number[], field: string, value: string) => void;
+  clearAll: () => void;
 }
 
 const FilterGroupComponent: React.FC<FilterGroupProps> = ({
@@ -24,6 +25,7 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
   onAddGroup,
   onRemove,
   onUpdate,
+  clearAll,
 }) => {
   const canAddGroup = currentDepth < maxDepth;
 
@@ -65,6 +67,7 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
                     onAddGroup={onAddGroup}
                     onRemove={onRemove}
                     onUpdate={onUpdate}
+                    clearAll={clearAll}
                   />
                 ) : (
                   <Condition
@@ -87,6 +90,7 @@ const FilterGroupComponent: React.FC<FilterGroupProps> = ({
       <AddButtonsTray
         onAddCondition={onAddCondition}
         onAddGroup={onAddGroup}
+        onClearAll={clearAll}
         canAddGroup={canAddGroup}
         path={path}
       />

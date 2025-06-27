@@ -55,24 +55,24 @@ export function Combobox({
           className={"w-[200px] justify-between"}
         >
           {value
-            ? options.find((option) => option.value === value)?.label
+            ? options.find(option => option.value === value)?.label
             : placeholder}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0" containerRef={containerRef}>
         <Command>
-          <CommandInput placeholder={placeholder} />
+          <CommandInput placeholder={placeholder} className="ring-0 border-0" />
           <CommandSeparator />
           <CommandList>
             <CommandEmpty>{emptyLabel}</CommandEmpty>
             <CommandGroup>
-              {options.map((option) => {
+              {options.map(option => {
                 return (
                   <CommandItem
                     key={option.value}
                     value={option.value}
-                    onSelect={(currentValue) => {
+                    onSelect={currentValue => {
                       setValue(currentValue === value ? "" : currentValue);
                       callback && callback(currentValue);
                       setOpen(false);

@@ -6,19 +6,21 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import useFilterFunctions from "@lens/components/LensProvider/hooks/useFilterFunction";
 import { JsonHighlighter } from "@lens/components/JsonHighlighter";
 import { useViewContext } from "@lens/components/Views/View";
+import { cn } from "@/lib/utils";
 
 const queryClient = new QueryClient();
 
 const FilterBuilder: React.FC<FilterBuilderProps> = ({
   maxDepth = 2,
   showFilterJSON = true,
+  wrapperClassName = "",
 }) => {
   const filterContainerRef = React.useRef<HTMLDivElement>(null);
 
   const viewContext = useViewContext();
   const { setFilters, filters } = viewContext;
 
-  const { updateCondition, addCondition, addGroup, removeItem } =
+  const { updateCondition, addCondition, addGroup, removeItem, clearAll } =
     useFilterFunctions({
       setFilter: setFilters,
     });
@@ -33,9 +35,10 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
         addCondition={addCondition}
         addGroup={addGroup}
         removeItem={removeItem}
+        clearAll={clearAll}
       >
         <div
-          className="twp lens-wrapper p-4 space-y-4 border"
+          className={cn("lens-wrapper py-4 space-y-4 border", wrapperClassName)}
           ref={filterContainerRef}
         >
           <FilterGroupComponent
@@ -47,6 +50,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
             onAddGroup={addGroup}
             onRemove={removeItem}
             onUpdate={updateCondition}
+            clearAll={clearAll}
           />
           {showFilterJSON && <JsonHighlighter json={filters} />}
         </div>

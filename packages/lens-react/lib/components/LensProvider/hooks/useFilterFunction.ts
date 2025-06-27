@@ -1,5 +1,8 @@
 import React, { useCallback } from "react";
-import type { FilterGroup } from "../interfaces/FiltersInterface";
+import type {
+  FilterGroup,
+  GroupOperator,
+} from "../interfaces/FiltersInterface";
 
 export interface useFilterFunctionProps {
   setFilter: React.Dispatch<React.SetStateAction<FilterGroup>>;
@@ -116,7 +119,16 @@ const useFilterFunctions = ({
     []
   );
 
-  return { addCondition, addGroup, removeItem, updateCondition };
+  const clearAll = useCallback(() => {
+    const newFilter: FilterGroup = {
+      op: "and" as GroupOperator,
+      conditions: [],
+    };
+    setFilter(newFilter);
+    callback && callback(newFilter);
+  }, [setFilter, callback]);
+
+  return { addCondition, addGroup, removeItem, updateCondition, clearAll };
 };
 
 export default useFilterFunctions;

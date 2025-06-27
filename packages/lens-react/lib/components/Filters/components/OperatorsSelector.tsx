@@ -57,7 +57,7 @@ const OperatorsSelector = ({
         <SelectValue placeholder={"Select operator"} />
       </SelectTrigger>
       <SelectContent className="max-w-[150px]">
-        {operators.map((op) => (
+        {operators.map(op => (
           <SelectItem key={op.value} value={op.value}>
             {op.label}
           </SelectItem>
