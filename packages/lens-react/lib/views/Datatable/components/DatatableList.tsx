@@ -16,7 +16,7 @@ import { useRowVirtualizer } from "../hooks/useRowVirtualizer.ts";
 import { useSyncSelection } from "../hooks/useSyncSelection.ts";
 import { createHandleDragEnd } from "../utils/createHandleDragEnd.ts";
 import { DatatableBody, MemoizedDatatableBody } from "./DatatableBody.tsx";
-import { DataTableHeader, DatatableHeaderItem } from "./header.tsx";
+import { DatatableHeaderItem } from "./header.tsx";
 
 const DatatableList = () => {
   const tableWrapperRef = useRef(null);
