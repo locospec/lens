@@ -134,7 +134,7 @@ const DataTableLensContextProvider: React.FC<
     });
   };
 
-  const { isFetched, isError, endpoints, modal_name, lensConfiguration } =
+  const { isFetched, isError, endpoints, model_name, lensConfiguration } =
     lensContext;
   const { dataCallback, permissionHeaders } = lensConfiguration;
 
@@ -187,7 +187,7 @@ const DataTableLensContextProvider: React.FC<
       filters={filters}
       searchQuery={searchQuery}
       viewId={viewId}
-      modalName={modal_name}
+      modelName={model_name}
       viewChildRef={viewChildRef}
       cellActions={cellActions}
       queryName={queryName}

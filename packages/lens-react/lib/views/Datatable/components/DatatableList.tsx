@@ -11,12 +11,12 @@ import {
 } from "@tanstack/react-table";
 import { useCallback, useEffect, useRef } from "react";
 import { useDatatableContext } from "../context/useDatatableContext.ts";
-import { useColumnSizeVars } from "../hooks/useColumnSizeVars";
-import { useRowVirtualizer } from "../hooks/useRowVirtualizer";
-import { useSyncSelection } from "../hooks/useSyncSelection";
-import { createHandleDragEnd } from "../utils/createHandleDragEnd";
-import { DatatableBody, MemoizedDatatableBody } from "./DatatableBody";
-import { DatatableHeaderSection } from "./DatatableHeaderSection";
+import { useColumnSizeVars } from "../hooks/useColumnSizeVars.ts";
+import { useRowVirtualizer } from "../hooks/useRowVirtualizer.ts";
+import { useSyncSelection } from "../hooks/useSyncSelection.ts";
+import { createHandleDragEnd } from "../utils/createHandleDragEnd.ts";
+import { DatatableBody, MemoizedDatatableBody } from "./DatatableBody.tsx";
+import { DatatableHeaderItem } from "./header.tsx";
 
 const DatatableList = () => {
   const tableWrapperRef = useRef(null);
@@ -42,7 +42,7 @@ const DatatableList = () => {
     setColumnPining,
     searchQuery,
     viewId,
-    modalName,
+    modelName,
     queryName,
     expand,
     allowedScopes,
@@ -59,7 +59,7 @@ const DatatableList = () => {
 
   const { flatData, fetchNextPage, isFetching, hasNextPage, refetch } =
     useInfiniteFetch({
-      queryKey: `${modalName}-${viewId}`,
+      queryKey: `${modelName}-${viewId}`,
       body: {
         filters: getProcessedFilters(filters).cleaned,
         query: queryName,
@@ -196,7 +196,29 @@ const DatatableList = () => {
           }}
           data-resizing={isResizing ? true : false}
         >
-          <DatatableHeaderSection table={table} columnOrder={columnOrder} />
+          {table.getHeaderGroups().map(headerGroup => {
+            return (
+              <div
+                id="datatable-header-row"
+                key={headerGroup.id}
+                className={cn(
+                  "group sticky top-0 z-10 flex",
+                  "border-b-2 border-gray-300 font-normal",
+                  "dark:border-gray-100"
+                )}
+              >
+                {headerGroup.headers.map(header => {
+                  return (
+                    <DatatableHeaderItem
+                      key={`${header.id}-${columnOrder.join("-")}`}
+                      header={header}
+                    />
+                  );
+                })}
+              </div>
+            );
+          })}
+
           {isResizing ? (
             <MemoizedDatatableBody
               table={table}

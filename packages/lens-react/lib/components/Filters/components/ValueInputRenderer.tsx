@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import type { Condition } from "../interfaces";
-import type { AttributeDefinitionType } from "../../Datatable/interface/DatatableInterface";
+import type { AttributeDefinitionType } from "../../../views/Datatable/interface/DatatableInterface";
 import { DatePicker } from "@lens/base/components/ui/datepicker";
 import NumberInput from "@lens/components/NumberInput/NumberInput";
 import NumberRangeInput from "@lens/components/NumberRangeInput/NumberRangeInput";

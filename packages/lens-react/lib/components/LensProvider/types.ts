@@ -9,7 +9,7 @@ interface LensContextType {
     read: string;
     read_relation_option: string;
   };
-  modal_name: string;
+  model_name: string;
   lensConfiguration: LensConfigurationInterface;
   context: Record<string, any>;
 }

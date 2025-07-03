@@ -10,7 +10,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { SheetHeader } from "@lens/base/components/ui/sheet";
-import { useDatatableContext } from "@lens/components/Datatable";
+import { useDatatableContext } from "@lens/views/Datatable";
 import type { Table } from "@tanstack/react-table";
 import React from "react";
 import { Text } from "../../Text";

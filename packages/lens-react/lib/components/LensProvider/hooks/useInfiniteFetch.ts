@@ -48,12 +48,12 @@ const useInfiniteFetch = ({
   const {
     lensConfiguration,
     endpoints,
-    modal_name,
+    model_name,
     context: scopeContext,
   } = lensContext;
   const { dataEndpointHeaders = {} } = context ? context() : {};
 
-  const queryKey = customQueryKey ?? modal_name;
+  const queryKey = customQueryKey ?? model_name;
   const globalFilter = customGlobalFilter ?? searchQuery;
   const body = customBody ?? { filters: getProcessedFilters(filters).cleaned };
   const refreshDep = customRefreshDep ?? [queryKey, globalFilter];
