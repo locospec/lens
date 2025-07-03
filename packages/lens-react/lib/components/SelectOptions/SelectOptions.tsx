@@ -23,7 +23,7 @@ import {
 } from "@lens/hooks/index";
 import { useFetchMoreOnScroll } from "@lens/hooks/src/useFetchMoreOnScroll";
 import * as React from "react";
-import { AttributeDefinitionType } from "../Datatable/interface/DatatableInterface";
+import { AttributeDefinitionType } from "../../views/Datatable/interface/DatatableInterface";
 import { getSameLevelConditions } from "../Filters";
 import { FiltersContext } from "../Filters/context";
 import { Condition } from "../LensProvider/interfaces/FiltersInterface";

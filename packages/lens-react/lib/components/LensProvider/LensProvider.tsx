@@ -6,8 +6,8 @@ import { LensDefaultChildren } from "./components";
 import { LensDevTools } from "./devTools/LensDevTools";
 import { useFetchConfig } from "./hooks/useFetchConfig";
 import type { LensConfigurationInterface, LensContextType } from "./types";
-import { fetchDataFromEndpoint } from "./utils/fetchDataFromEndpoint";
-import { DatatableInterface } from "../Datatable/components/Datatable";
+import fetchEndpoints from "./utils/fetchEndpoints";
+import { DatatableInterface } from "../../views/Datatable/components/Datatable";
 
 const queryClient = new QueryClient();
 
@@ -41,14 +41,20 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     context = {},
     view,
   } = lensConfiguration;
-  const { modal_name, endpoints } = fetchDataFromEndpoint(endpoint);
+
+  // We can pass model_name as part of config
+  // We can pass "baseUrl" as part of config
+  // Refer to https://www.notion.so/betaapps/What-all-endpoints-Lens-needs-1e05d40fdc1a8051b339fcbd6eebc239
+  const { model_name, endpoints } = fetchEndpoints(endpoint);
 
   const body: Record<string, any> = {
     globalContext: context,
   };
+
   if (view) {
     body["view"] = view;
   }
+
   const {
     data: config,
     isFetched,
@@ -61,6 +67,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
     permissionHeaders,
     body: JSON.stringify(body),
   });
+
   if (isError) {
     return (
       <div className="flex flex-col items-center justify-center">
@@ -85,7 +92,7 @@ export const LensProviderBase: React.FC<LensProviderProps> = ({
         isError,
         endpoint,
         endpoints,
-        modal_name,
+        model_name,
         lensConfiguration,
         context,
       }}

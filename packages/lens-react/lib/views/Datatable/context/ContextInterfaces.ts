@@ -45,7 +45,7 @@ interface DatatableContextProviderInterface extends CommonWrapperInterface {
   disableResizing: boolean;
   filters?: any;
   viewId?: string;
-  modalName?: string;
+  modelName?: string;
   searchQuery?: string;
   viewChildRef?: React.RefObject<HTMLDivElement | null>;
   cellActions?: any;

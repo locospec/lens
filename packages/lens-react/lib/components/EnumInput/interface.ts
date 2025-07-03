@@ -1,5 +1,5 @@
 import { Condition } from "../LensProvider/interfaces/FiltersInterface";
-import { AttributeDefinitionType } from "../Datatable/interface/DatatableInterface";
+import { AttributeDefinitionType } from "../../views/Datatable/interface/DatatableInterface";
 
 interface EnumInputInterface {
   placeholder?: string;

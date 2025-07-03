@@ -1,4 +1,5 @@
 import { cn } from "@lens/components/utils/cn.ts";
+import type { HeaderGroup, Table } from "@tanstack/react-table";
 import { flexRender } from "@tanstack/react-table";
 import { CSSProperties } from "react";
 import { useDatatableContext } from "../context/useDatatableContext.ts";
@@ -7,7 +8,8 @@ import { getStyleClasses } from "../utils/getStylesClassesForDataTable.ts";
 import { ResizeHandle } from "./ResizeHandle.tsx";
 import { SortSection } from "./SortSection.tsx";
 
-export interface DatatableHeaderItemInterface {
+// --- DatatableHeaderItem ---
+interface DatatableHeaderItemInterface {
   header?: any;
 }
 
@@ -85,4 +87,65 @@ const DatatableHeaderItem = ({ header }: DatatableHeaderItemInterface) => {
   );
 };
 
-export default DatatableHeaderItem;
+// --- DataTableHeader ---
+interface TableHeaderInterface {
+  headerGroup: HeaderGroup<any>;
+  columnOrder: string[];
+}
+
+const DataTableHeader = ({
+  headerGroup,
+  columnOrder,
+}: TableHeaderInterface) => {
+  const { classNames, variantClasses } = useDatatableContext();
+
+  return (
+    <div
+      id="datatable-header-row"
+      key={headerGroup.id}
+      className={cn(
+        "group sticky top-0 z-10 flex",
+        "border-b-2 border-gray-300 font-normal",
+        "dark:border-gray-100",
+        variantClasses.header_row,
+        classNames && classNames?.headers
+      )}
+    >
+      {headerGroup.headers.map(header => {
+        return (
+          <DatatableHeaderItem
+            key={`${header.id}-${columnOrder.join("-")}`}
+            header={header}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
+// --- DatatableHeaderSection ---
+export interface DatatableHeaderSectionInterface {
+  table: Table<any>;
+  columnOrder: string[];
+}
+
+const DatatableHeaderSection = ({
+  table,
+  columnOrder,
+}: DatatableHeaderSectionInterface) => {
+  return (
+    <>
+      {table.getHeaderGroups().map(headerGroup => {
+        return (
+          <DataTableHeader
+            key={headerGroup.id}
+            headerGroup={headerGroup}
+            columnOrder={columnOrder}
+          />
+        );
+      })}
+    </>
+  );
+};
+
+export { DatatableHeaderSection, DataTableHeader, DatatableHeaderItem };

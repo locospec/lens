@@ -12,7 +12,7 @@ export {
 
 export type { LensContextType } from "./components/LensProvider";
 
-export { Datatable } from "./components/Datatable";
+export { Datatable } from "./views/Datatable";
 export { RawDisplay } from "./components/RawDisplay";
 
 export { SearchInput, useDebouncedSearch } from "./components/SearchInput";
